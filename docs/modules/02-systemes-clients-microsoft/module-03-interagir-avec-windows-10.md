@@ -1,447 +1,2267 @@
 # Module 03 — Interagir avec Windows 10
 
-**Formation :** Systèmes clients Microsoft · **Pré-requis :** Win10-XX et Discovery installées ; connaissance du module 02.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-## Objectifs
+## Parcours de lecture
 
-- Se déplacer dans l’interface Windows et construire une console MMC.
-- Lire la syntaxe d’une commande et utiliser l’aide de cmd.exe.
-- Découvrir PowerShell, ses commandes, objets, paramètres et alias.
-- Trouver les commandes et les propriétés demandées par les cinq ateliers.
+1. Support · Module 03 - Support de cours · 20 pages transcrites
+2. Interagir avec Windows 10
+3. Tour d’horizon
+4. Tour d’horizon graphique
+5. TP
+6. Tour d’horizon — la CLI
+7. Tour d’horizon — la CLI
+8. La syntaxe de l’aide
+9. Démonstration
+10. Présentation de PowerShell
+11. Présentation de PowerShell
+12. Présentation de PowerShell
+13. Présentation de PowerShell
+14. TP
+15. Aide de PowerShell
+16. Aide de PowerShell
+17. Travaux pratiques
+18. Cmdlets de base et objets
+19. Interagir avec un objet PowerShell
+20. Démonstration
+21. Conclusion
+22. Énoncé · Enoncé du TP - Devenir autonome avec PowerShell · 5 pages transcrites
+23. Énoncé · Enoncé du TP - Manipuler l'aide de PowerShell · 4 pages transcrites
+24. Énoncé · Enoncé du TP - Premiers pas avec PowerShell · 3 pages transcrites
+25. Énoncé · Enoncé du TP - Prise en main de l'interface graphique · 4 pages transcrites
+26. Énoncé · Enoncé du TP - Prise en main de la cmd · 4 pages transcrites
+27. Synthèse du Drive · Synthèse Module 3 - Interaction Windows 10, CLI, PowerShell & Excel V2 · 2 pages transcrites
+28. Synthèse — Module 3 : Interagir avec Windows 10 (GUI, CLI, PowerShell) et outils collaboratifs (Excel) (V2)
+29. Notions essentielles de Microsoft Excel — tableau
+30. Notes du Drive · module 3 et 4 system clients microsoft.txt · document texte
+31. Module 3 - Interagir avec Windows 10
+32. Module 4 - La gestion du stockage
+33. Correction · Solution du TP - Devenir autonome avec PowerShell · 3 pages transcrites
+34. Correction · Solution du TP - Manipuler l'aide de PowerShell · 6 pages transcrites
+35. Correction · Solution du TP - Premiers pas avec PowerShell · 2 pages transcrites
+36. Correction · Solution du TP - Prise en main de la cmd · 2 pages transcrites
+37. Correction · Solution du TP - Prise en main de l'interface graphique · 3 pages transcrites
 
-## 1. Trois façons d’administrer le système
+**Visuel externe**
 
-| Interface | Usage dans le module | Outils |
-|---|---|---|
-| **GUI** | Observer et modifier les réglages par des fenêtres. | Paramètres, Panneau de configuration, consoles MMC. |
-| **cmd.exe** | Exécuter des commandes internes, des programmes et des fichiers batch. | `help`, `cd`, `md`, `copy`, `dir`, redirection. |
-| **PowerShell** | Exécuter des commandes et scripts en manipulant des objets. | `Get-Command`, `Get-Help`, cmdlets et propriétés. |
-
-Les notes expliquent que la CLI devient utile pour des actions précises et l’automatisation. Le support situe `command.com` dans les OS MS-DOS, `cmd.exe` dans la famille Windows NT et PowerShell à partir de Windows Server 2008 dans son panorama historique.
-
-## 2. Repérer les éléments graphiques
-
-Windows est **multi-utilisateur** : chaque utilisateur possède un profil, un Bureau et un menu Démarrer personnalisables. Il est aussi **multitâche** : plusieurs applications fonctionnent simultanément.
-
-- Le clic gauche sur Démarrer ouvre les applications et tuiles des écrans du support ; le clic droit donne les principaux raccourcis d’administration.
-- La barre des tâches permet de basculer entre programmes. **Windows + Tab** affiche les tâches et bureaux supplémentaires.
-- **Timeline** est l’historique d’actions présenté dans cette build du cours.
-- Le **Gestionnaire des tâches** renseigne le fonctionnement des applications.
-- La zone de notification donne les informations courantes, l’accès réseau, la connectivité, le mode Tablette et « Tous les paramètres ».
-- La recherche indexée sert à retrouver un outil : taper « panneau » permet par exemple d’atteindre le Panneau de configuration.
-
-Les notes différencient les paramètres modernes, les éléments du Panneau de configuration, souvent associés à des fichiers **`.cpl`**, et les consoles de gestion **`.msc`**. Ces outils sont notamment présents dans le répertoire système.
-
-### Construire une console MMC
-
-**MMC — Microsoft Management Console** est un cadre qui reçoit des composants logiciels enfichables. On peut ouvrir une console préconfigurée ou lancer **`mmc`** pour assembler les outils utiles.
-
-Dans l’atelier : **Fichier → Ajouter/supprimer des composants logiciels enfichables** ; ajouter **Gestion des disques**, **Utilisateurs et groupes locaux** et **Dossiers partagés**, chaque fois pour l’ordinateur local. Enregistrer la console sur le Bureau en **`MaConsole.msc`**.
-
-![Console MMC présentée dans la correction](../../assets/course-sources/isolated/682abcc6af3d6b94/g1-d20-p02-i1.webp)
-
-<p class="tssr-caption">Capture isolée de la correction : outils de gestion réunis dans une console.</p>
-
-## 3. Lire une ligne cmd.exe
-
-```text
-C:\windows\system32> shutdown /r /t 0
+```mermaid
+flowchart TD
+    N1["Support · Module 03 - Support de cours · 20 pages transcrites"]
+    N2["Interagir avec Windows 10"]
+    N3["Tour d’horizon"]
+    N4["Tour d’horizon graphique"]
+    N5["TP"]
+    N6["Tour d’horizon — la CLI"]
+    N7["Tour d’horizon — la CLI"]
+    N8["La syntaxe de l’aide"]
+    N9["Démonstration"]
+    N10["Présentation de PowerShell"]
+    N11["Présentation de PowerShell"]
+    N12["Présentation de PowerShell"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+    N8 --> N9
+    N9 --> N10
+    N10 --> N11
+    N11 --> N12
 ```
 
-Le **prompt** indique le contexte courant ; `shutdown` est la commande ; `/r` est une option ; `/t` reçoit ici la valeur `0`. L’exemple explique la syntaxe d’un redémarrage : il ne faut pas le lancer pour tester une simple lecture de la ligne.
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-Les espaces séparent les mots. Un chemin comportant des espaces doit être délimité correctement ; dans cmd.exe, utiliser par exemple **`"C:\Mes Documents"`**. Le support parle de « quotes » ; les guillemets doubles rendent ici l’exemple utilisable dans cmd.exe.
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-### Demander l’aide avant de composer la commande
+## Support · Module 03 - Support de cours · 20 pages transcrites
 
-```bat
-help
-help cd
-copy /?
-```
+## Interagir avec Windows 10
 
-`help` liste les commandes internes. Le **synopsis**, première explication de l’aide, indique la fonction : `cd` affiche ou change le répertoire courant. Une application externe peut posséder sa propre aide.
+### Objectifs
 
-| Notation de l’aide | Comment la lire |
-|---|---|
-| Texte sans délimiteurs | Élément obligatoire à taper ou valeur à fournir. |
-| `[ ... ]` | Élément facultatif. |
-| `{ ... }` | Choix parmi des éléments proposés. |
-| `\|` dans la syntaxe d’aide | Séparation d’alternatives. |
-| `...` | Élément qui peut être répété. |
+!!! note "À retenir"
+    Administrer le système avec la ligne de commande.
 
-Le support utilise la commande COPY : `source` est obligatoire, `cible` peut être facultative selon la forme, des options peuvent être ajoutées et plusieurs sources peuvent être réunies. Le caractère `|` d’une notation d’aide ne doit pas être confondu avec le pipeline à exécuter entre deux commandes.
-
-### Conserver un résultat
-
-```bat
-help shutdown > aide.txt
-```
-
-Le résultat est envoyé dans `aide.txt`. **`>`** crée ou remplace le contenu du fichier ; **`>>`** ajoute à sa suite. Le résultat n’apparaît donc plus simplement à l’écran.
-
-## 4. Comprendre PowerShell
-
-PowerShell réunit un interpréteur de commandes, un langage de scripts et un modèle orienté objet. La version Windows PowerShell du support s’appuie sur **.NET Framework**.
-
-### Repères de versions du support
-
-| Date présentée | Version PowerShell | Windows associé dans le tableau |
-|---|---|---|
-| Novembre 2006 | 1.0 | Windows Server 2008 ; distributions aussi citées pour XP/Server 2003/Vista. |
-| Octobre 2009 | 2.0 | Windows 7, Server 2008 R2 ; disponible sur plusieurs générations précédentes. |
-| Septembre 2012 | 3.0, .NET 4.0 | Windows 8, Server 2012 ; Windows 7 SP1 et Server 2008 selon les prérequis du tableau. |
-| Octobre 2013 | 4.0, .NET 4.5 | Windows 8.1, Server 2012 R2 ; autres systèmes indiqués dans l’original. |
-| Septembre 2014 | 5.0, .NET 4.5 | Windows 10 ; Windows 8.1 et Server 2012 R2 dans la colonne de disponibilité. |
-
-Ce tableau restitue les repères historiques du cours. Pour le TP, **observer la version présente** est plus utile que supposer celle de la machine à partir de la date du tableau.
-
-```powershell
-$PSVersionTable
-Get-Host
-```
-
-`PSVersion` indique la version ; `PSCompatibleVersions` présente la rétrocompatibilité. La console texte peut être lancée avec les droits administrateur. **ISE** (*Integrated Scripting Environment*) facilite la manipulation des scripts ; les notes et le support citent aussi **Windows Terminal** et **VSCode**.
-
-### Cmdlet, paramètre, argument, alias
-
-```powershell
-Get-ChildItem -Path C:\Users
-```
-
-- `Get-ChildItem` : **cmdlet**, formée d’un verbe et d’un nom séparés par un tiret.
-- `-Path` : **paramètre**.
-- `C:\Users` : **argument**, sa valeur.
-
-Les verbes courants sont `Get`, `Set`, `Remove`, `Add` et `New`. Le nom dépend du contexte : LocalUser, NetAdapter, Alias, Variable… Les commandes ne sont pas sensibles à la casse ; les paramètres peuvent être obligatoires ou facultatifs et certains fonctionnent sans valeur.
-
-Un **alias** est un autre nom d’une commande : `dir`, `gci` et `ls` sont des alias de `Get-ChildItem` dans le laboratoire PowerShell. Un nom identique à une commande cmd ne garantit pas une syntaxe identique : vérifier l’aide de la console utilisée.
-
-### Saisir plus vite et garder le contrôle
-
-| Touche / commande | Usage |
-|---|---|
-| Tab / Maj + Tab | Parcourir les complétions de commande, chemin, paramètre et valeur. |
-| Ctrl + Espace | Afficher les propositions, puis choisir avec les flèches et Entrée. |
-| Échap | Effacer la ligne en cours. |
-| Haut / Bas | Parcourir l’historique. |
-| Gauche / Droite | Déplacer le curseur. |
-| Home / Fin | Aller au début ou à la fin. |
-| Ctrl + C | Interrompre l’instruction. |
-| `cls` | Effacer l’écran. |
-| `exit` | Quitter la console. |
-
-## 5. Trouver une commande puis lire son aide
-
-**Illustration IA / externe au cours — méthode de résolution commune aux TP.**
+**Visuel externe**
 
 ```mermaid
 flowchart LR
-    B[Besoin précis] --> C[Get-Command]
-    C --> H[Get-Help et exemples]
-    H --> T[Essai simple]
-    T --> P[Observer les propriétés]
-    P --> R[Sélectionner ou modifier le résultat]
+    N1["Interagir avec le système."]
+    N2["Découvrir l’interface graphique."]
+    N3["Administrer le système avec la ligne de commande."]
+    N4["Démarrer avec PowerShell."]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
-```powershell
-Get-Command
-Get-Command Get-*
-Get-Command *printer*
-Get-Command New-*user*
-Get-Help Disable-LocalUser
-Help Help
-Man about_Variables
-Get-Help about_*
+- Interagir avec le système.
+- Découvrir l’interface graphique.
+- Administrer le système avec la ligne de commande.
+- Démarrer avec PowerShell.
+
+## Tour d’horizon
+
+### Système d’exploitation multi-utilisateur
+
+!!! note "À retenir"
+    Le menu Démarrer : clic gauche pour les tuiles ; clic droit pour les principaux raccourcis.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Le bureau personnalisable."]
+    N2["Les bureaux supplémentaires."]
+    N3["Timeline, ou historique des actions."]
+    N1 --> N2
+    N2 --> N3
 ```
 
-`Get-Command` sert à découvrir les commandes. `Get-Help` explique une commande ou un concept. `Help` et `Man` permettent la lecture page par page dans l’environnement du support ; **`-?`** ouvre également l’aide d’une cmdlet.
+- Le bureau personnalisable.
+- Le menu Démarrer : clic gauche pour les tuiles ; clic droit pour les principaux raccourcis.
+- Les bureaux supplémentaires.
+- Timeline, ou historique des actions.
 
-| Besoin | Forme |
-|---|---|
-| Aide complète | `Get-Help Get-Alias -Full` |
-| Exemples seuls | `Get-Help Get-Help -Examples` |
-| Fenêtre séparée | `Get-Help about_Aliases -ShowWindow` |
-| Aide en ligne | `Get-Help Get-Alias -Online` |
+### Système d’exploitation multitâche
 
-L’aide de PowerShell 1 et 2 est décrite comme intégrée. À partir de PowerShell 3, le support insiste sur son téléchargement, permettant la mise à jour des sections.
+**Visuel externe**
 
-```powershell
-Update-Help
-Update-Help -Force
+```mermaid
+flowchart LR
+    N1["La barre des tâches et ses raccourcis."]
+    N2["Windows + Tab."]
+    N3["Le Gestionnaire des tâches."]
+    N1 --> N2
+    N2 --> N3
 ```
 
-Ces opérations demandent les droits d’administration dans le scénario. `-Force` permet de dépasser la limite d’une mise à jour par jour mentionnée dans le support. En environnement déconnecté, le cours décrit un dépôt d’aide local :
+- La barre des tâches et ses raccourcis.
+- Windows + Tab.
+- Le Gestionnaire des tâches.
 
-```powershell
+### Zone de notification
+
+!!! note "À retenir"
+    Configuration rapide de la connectivité.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Accès à la configuration réseau."]
+    N2["Configuration rapide de la connectivité."]
+    N3["Mode Tablette."]
+    N4["« Tous les paramètres »."]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+- Accès à la configuration réseau.
+- Configuration rapide de la connectivité.
+- Mode Tablette.
+- « Tous les paramètres ».
+
+![Capture du support — Module 03 - Support de cours](../../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p02-i1.webp)
+
+Capture du support — Module 03 - Support de cours
+
+## Tour d’horizon graphique
+
+!!! note "À retenir"
+    Les consoles MMC préconfigurées et personnalisées.
+
+- La zone de recherche indexée.
+- Le Panneau de configuration.
+- Les consoles MMC préconfigurées et personnalisées.
+
+### Démonstration
+
+!!! note "À retenir"
+    Le support annonce une démonstration de l’interface graphique.
+
+Le support annonce une démonstration de l’interface graphique.
+
+![Capture du support — Module 03 - Support de cours](../../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p03-i1.webp)
+
+Capture du support — Module 03 - Support de cours
+
+## TP
+
+### Tour d’horizon — la CLI
+
+!!! note "À retenir"
+    Généralement, les OS disposent d’un ou plusieurs shells.
+
+- Généralement, les OS disposent d’un ou plusieurs shells.
+- Microsoft Windows : historiquement orienté GUI.
+- Pour certaines actions spécifiques : CLI requise.
+- Automatisation de tâches d’administration, scripts : CLI requise.
+
+### Les shells de Microsoft
+
+!!! note "À retenir"
+    `command.com` pour les OS basés sur MS-DOS, avant Win9x.
+
+- `command.com` pour les OS basés sur MS-DOS, avant Win9x.
+- `cmd.exe` pour les OS basés sur WinNT, Windows NT, 2000 et plus.
+- PowerShell nativement présent sur 2008 Server et suivant.
+
+## Tour d’horizon — la CLI
+
+!!! note "À retenir"
+    Outre l’interface graphique GUI, l’interface ligne de commande CLI : - Le shell `cmd.exe`, command prompt, pour « aiguiser » le système de manière plus « pointue ».
+
+Outre l’interface graphique GUI, l’interface ligne de commande CLI : - Le shell `cmd.exe`, command prompt, pour « aiguiser » le système de manière plus « pointue ». - Évolution de `command.com` présent nativement avec MS-DOS. - Interagir avec l’OS grâce aux commandes internes au shell et grâce à des commandes externes. - Interpréter des fichiers batch, script.
+
+### Principe d’utilisation de la ligne de commande
+
+```
+C:\windows\system32> help
+C:\windows\system32> help shutdown
+```
+
+Dans le premier exemple : prompt, commande seule. Dans le second : prompt, commande `help`, paramètre `shutdown`.
+
+![Capture du support — Module 03 - Support de cours](../../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p05-i1.webp)
+
+Capture du support — Module 03 - Support de cours
+
+## Tour d’horizon — la CLI
+
+### Principe d’utilisation de la ligne de commande
+
+```
+C:\windows\system32> shutdown /r /t 0
+```
+
+Prompt : `C:\windows\system32>` ; commande : `shutdown` ; option seule : `/r` ; option et son paramètre : `/t 0`.
+
+- Le premier mot est toujours une commande.
+- Une option est identifiable par un `/`.
+- Chaque mot est séparé par un espace. L’espace est un caractère spécial interprété par le système.
+- Le prompt est dynamique et personnalisable.
+- Les quotes permettent de convertir les caractères spéciaux en caractères alphanumériques. Exemple du support : `'Mes Documents'`.
+- Par défaut, le résultat d’une commande s’affiche à l’écran. Possibilité de rediriger le résultat dans un fichier à l’aide des simples chevrons `>` et/ou des doubles chevrons `>>`.
+
+```
+help shutdown > aide.txt
+```
+
+Cet exemple enregistre l’aide détaillée de la commande shutdown dans le fichier aide.txt au lieu d’afficher l’aide détaillée à l’écran.
+
+## La syntaxe de l’aide
+
+À l’aide ! La commande `help [<commande>]` est indispensable.
+
+```
+C:\windows\system32> help copy
+COPY [/D] [/V] [/N] [/Y | /-Y] [/Z] [/L] [/A | /B ] source
+[/A | /B] [+ source [/A | /B] [+ ...]] [cible [/A | /B]]
+```
+
+### Comprendre la syntaxe d’une commande
+
+| Notation | Description |
+| --- | --- |
+| Texte sans crochet ou accolades | Élément obligatoire que vous devez taper ou choisir une valeur. |
+| `[texte entre crochet]` | Éléments facultatifs. |
+| `\{Texte entre accolades\}` | Choisir un des éléments parmi ceux présents. |
+| Barre verticale ou « pipeline » `\/` | Séparateur d’éléments. |
+| Points de suspension `…` | Éléments qui peuvent être répétés et utilisés plusieurs fois. |
+
+### Exemple
+
+Le support reprend la syntaxe COPY ci-dessus : - COPY et source obligatoire. - Possibilité de choisir 0, 1 ou des options seules : `/D`, `/N`, `/A` ou `/B` car il y a un `|`. - Possibilité de choisir plusieurs sources. - Pour plus de détails et exemples, consultez l’aide en ligne : https://docs.microsoft.com/fr-fr/windows-server/administration/windows-commands/windows-commands
+
+## Démonstration
+
+Utilisation de la ligne de commande `cmd.exe`.
+
+### Travaux pratiques
+
+Prise en main de la commande `cmd`.
+
+## Présentation de PowerShell
+
+- Dernier shell Microsoft dans le contexte du support.
+- Interpréteur de commandes.
+- Langage de script.
+- Orienté objet.
+- S’appuie sur les bibliothèques .NET Framework.
+
+### Versions présentées
+
+| Date | Version | Version de Windows associée | Autres versions disponibles indiquées |
+| --- | --- | --- | --- |
+| Novembre 2006 | PowerShell 1.0 | Windows Server 2008 | Windows XP SP2 et suivants ; Windows Server 2003 R2 SP1 et suivants ; Windows Vista SP1 et suivants. |
+| Octobre 2009 | PowerShell 2.0 | Windows 7 ; Windows Server 2008 R2 | Windows XP SP3 ; Windows Server 2003 SP2 ; Windows Vista SP1 et suivants ; Windows Server 2008 SP1 et suivants. |
+| Septembre 2012 | PowerShell 3.0, .NET 4.0 requis | Windows 8 ; Windows Server 2012 | Windows 7 SP1 ; Windows Server 2008 SP2 ; Windows Server 2008 R2 SP1. |
+| Octobre 2013 | PowerShell 4.0, .NET 4.5 requis | Windows 8.1 ; Windows Server 2012 R2 | Windows 7 SP1 ; Windows Server 2008 R2 SP1 ; Windows Server 2012. |
+| Septembre 2014 | PowerShell 5.0, .NET 4.5 requis | Windows 10 | Windows 8.1 ; Windows Server 2012 R2. |
+
+## Présentation de PowerShell
+
+- La console texte native : possibilité d’ouvrir la console avec les droits administrateurs.
+- Console graphique ISE, Integrated Scripting Environment, pour manipuler les scripts.
+- Des outils tiers existent et rassemblent différentes consoles dans le même environnement : Windows Terminal et VSCode.
+
+### `$PSVersionTable` : variable tableau des versions de PowerShell
+
+- **PSVersion** : version de PowerShell disponible sur le système d’exploitation.
+- **PSCompatibleVersions** : rétrocompatibilité.
+
+![Capture du support — Module 03 - Support de cours](../../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p10-i1.webp)
+
+Capture du support — Module 03 - Support de cours
+
+![Capture du support — Module 03 - Support de cours](../../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p10-i2.webp)
+
+Capture du support — Module 03 - Support de cours
+
+## Présentation de PowerShell
+
+### Les commandes PowerShell : les cmdlets
+
+- Constituées d’un verbe et d’un nom séparé par un tiret.
+- Verbes les plus courants : Get, Set, Remove, Add, New.
+- Les noms dépendent du contexte d’utilisation : LocalUser, NetAdapter, Alias, Variable…
+
+### Exemple de cmdlet
+
+- `Get-Alias` : affiche la liste des alias PowerShell.
+- `New-LocalUser` : crée un nouvel utilisateur local dans l’ordinateur.
+
+### Les commandes PowerShell : les cmdlets
+
+- Conçues pour remplir des tâches spécifiques.
+- Ne sont pas sensibles à la casse.
+- Comportent des paramètres, obligatoires ou optionnels…
+- … avec des arguments, aucun ou plusieurs.
+- Peuvent posséder un ou plusieurs alias.
+
+```
+Get-ChildItem -Path C:\users
+```
+
+`Get-ChildItem` : cmdlet ; `-Path` : paramètre ; `C:\users` : argument.
+
+## Présentation de PowerShell
+
+| Touche | Description |
+| --- | --- |
+| Tab / Maj + Tab | Complétion d’un chemin, du nom de la commande, d’un paramètre et d’une valeur de paramètre. |
+| Ctrl + Espace | Liste des différentes propositions de la complétion ; flèches directionnelles et Entrée pour choisir. |
+| Échap | Efface la ligne de commande en cours de frappe. |
+| Haut / Bas | Défilement de l’historique des commandes. |
+| Gauche / Droite | Déplace le curseur sur la ligne de commande en cours. |
+| Home / Fin | Déplace le curseur en début/fin de ligne. |
+| Ctrl + C | Met fin à l’exécution de l’instruction courante. |
+| `cls` | clear screen |
+| `exit` | Ferme la console PowerShell. |
+
+### Démonstration
+
+Découvrir PowerShell.
+
+## TP
+
+Premiers pas avec PowerShell.
+
+### Aide de PowerShell
+
+- Système d’aide intégré très complet pour obtenir des informations sur l’usage des commandes et obtenir des informations sur les concepts de PowerShell.
+- PowerShell v1 et v2 : aide intégrée nativement.
+- PowerShell v3 et plus : aide téléchargeable sur Internet, sur un serveur local, en anglais.
+- Avantage : mettre à jour l’aide, obtenir les dernières sections actualisées.
+
+## Aide de PowerShell
+
+### Indispensable : mettre à jour l’aide
+
+- Posséder les privilèges d’administration.
+- Mise à jour par Internet : `Update-Help`.
+- `-Force` pour outrepasser la limite d’une MAJ/j.
+- Mise à jour pour un système déconnecté : prérequis, posséder un dépôt local.
+
+```
 Update-Help -SourcePath \\chemin\vers\aide\PowerShell -UICulture en-US -Credential <login>
 ```
 
-`<login>` et le chemin sont des valeurs à remplacer ; les chevrons ne font pas partie d’une commande à copier telle quelle.
+### L’aide est accessible depuis
 
-## 6. Lire les objets plutôt que le seul affichage
+- La cmdlet `Get-Help <recherche>`.
+- `Help <recherche>` affiche l’aide page par page.
+- `Man <recherche>`, alias de Help.
+- `<recherche> -?`, disponible depuis toutes les cmdlets.
 
-Carte réseau, disque, utilisateur et fichier sont des exemples d’objets. Un objet possède des **propriétés** et des **méthodes**. L’affichage par défaut sélectionne certaines propriétés ; les autres existent encore.
+### Exemples
 
-Le support utilise un objet fictif **monBallon** : forme, diamètre, masse, couleur et description sont des propriétés ; lancer, gonfler et faire rebondir illustrent des actions.
+- `Get-Help Disable-LocalUser` : affiche l’aide de la cmdlet Disable-LocalUser.
+- `Help Help` : affiche « l’aide de l’aide » page par page.
+- `Man about_Variables` : affiche le manuel d’utilisation des variables PowerShell, page par page.
+- `Help about_*` affiche la liste des concepts disponibles.
 
-```powershell
-Get-monBallon
-Get-monBallon | Select-Object *
-Get-monBallon | Select-Object diamètre,forme,couleur
-(Get-monBallon).Description
+![Capture du support — Module 03 - Support de cours](../../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p14-i1.webp)
+
+Capture du support — Module 03 - Support de cours
+
+## Aide de PowerShell
+
+### Astuces
+
+- `Get-Help -Examples <recherche>` : n’affiche que les exemples d’utilisation de la cmdlet.
+- `Get-Help -ShowWindow <recherche>` : affiche l’aide complète dans une fenêtre séparée.
+- `Get-Help -Online <recherche>` : affiche l’aide à jour détaillée disponible sur les serveurs Internet Microsoft, navigateur Internet requis.
+
+### Démonstration
+
+## Travaux pratiques
+
+Manipuler l’aide de PowerShell.
+
+### Cmdlets de base et objets
+
+La notion d’objet provient du monde de la programmation.
+
+Exemples d’objets PowerShell : carte réseau, disque dur, utilisateur, fichier, etc.
+
+Un objet comporte : - des **propriétés**, ses caractéristiques ; - des **méthodes**, ses actions.
+
+## Cmdlets de base et objets
+
+Un objet PowerShell s’apparente à un objet du monde réel. Exemple : l’objet **monBallon**.
+
+### Objet qui possède des caractéristiques
+
+- Une forme : sphérique, ovale, cubique…
+- Des dimensions : diamètre en cm.
+- Une masse : en kg.
+- Etc.
+
+### Des actions sont réalisables sur cet objet
+
+- Lancer.
+- Gonfler.
+- Faire rebondir.
+- Etc.
+
+### Comment afficher des caractéristiques de l’objet monBallon ?
+
+| Commande | Explication du support |
+| --- | --- |
+| `Get-monBallon` | Affiche certaines propriétés, les caractéristiques, de l’objet monBallon et leurs valeurs associées. Toutes les autres propriétés sont présentes mais cachées pour faciliter la lecture à l’écran. |
+| `Get-monBallon \/ select *` | Affiche toutes les propriétés de l’objet monBallon et leurs valeurs associées. |
+| `Get-monBallon \/ select diamètre,forme,couleur` | N’affiche seulement que les propriétés demandées et leurs valeurs associées. |
+| `(Get-monBallon).description` | Affiche la propriété description de l’objet monBallon et sa valeur. Équivaut, dans le support, à `Get-monBallon \/ select description`. |
+
+## Interagir avec un objet PowerShell
+
+### Get-Command
+
+- Cmdlet la plus importante à connaître.
+- Permet de découvrir toutes les commandes disponibles.
+- `Get-Command`, sans paramètres ni arguments, liste toutes les commandes de PowerShell !
+- `Get-Command Get-*` affiche toutes les commandes commençant par le verbe Get.
+- `Get-Command *printer*` affiche toutes les commandes contenant la chaîne de caractères printer.
+- `Get-Command New-*user*` affiche toutes les cmdlets commençant par New ET contenant la chaîne de caractères user.
+- Une fois la commande trouvée, utilisez `Get-Help` pour vous l’approprier.
+
+### Comment modifier / faire évoluer l’objet monBallon ?
+
+Mon ballon de basket possède une valeur erronée pour la propriété Description, je veux modifier la valeur :
+
+```
+Set-monBallon -Nom "Basket" -Description "Ballon de Basket"
 ```
 
-!!! note "Exemple conceptuel"
-    Les commandes monBallon servent d’analogie dans le support. Elles ne sont pas des cmdlets natives à rechercher sur la VM. L’accès `(objet).Description` fournit la valeur ; `Select-Object Description` construit un objet sélectionné pour l’affichage.
+Je veux un nouveau ballon de rugby blanc :
 
-Le cours illustre ensuite la modification, la création et la suppression :
-
-```powershell
-Set-monBallon -Nom "Basket" -Description "Ballon de Basket"
+```
 New-monBallon -Nom "Rugby" -Forme "ovale" -Couleur "blanc" -Description "Ballon de rugby"
+```
+
+Je n’ai plus besoin de mon ballon de football :
+
+```
 Remove-monBallon -Nom "Football"
 ```
 
-Les notes transposent cette démarche aux services et aux utilisateurs locaux : rechercher la commande liée à l’objet, lire l’aide, observer ses propriétés puis effectuer la modification demandée. Les ateliers l’appliquent aux groupes, disques et cartes réseau.
+## Démonstration
 
-## 7. TP 1 — Prise en main de l’interface graphique
+Cmdlets de base.
 
-**Durée indicative : 30 minutes.** Sur **Win10-XX** :
+### Travaux pratiques
 
-1. Ouvrir la session et changer le mot de passe depuis l’écran de sécurité de la VM.
-2. Détacher Store et Courrier de la barre des tâches ; rechercher PowerShell puis l’épingler.
-3. Dans Windows Update et ses options avancées, suspendre temporairement les mises à jour pour la durée maximale demandée par le TP, **35 jours au plus**. C’est un réglage du laboratoire.
-4. Rechercher « nom » pour afficher le nom initial `DESKTOP-…`. Renommer le PC **Win10-XX**, redémarrer et vérifier.
-5. Créer **MaConsole.msc** sur le Bureau avec gestion des disques, utilisateurs/groupes locaux et dossiers partagés.
-6. Personnaliser le papier peint ; dans les réglages de veille, choisir **Jamais** pour l’écran et la veille selon la correction.
-7. Prendre le snapshot **« TP02 terminé »**.
+Devenir autonome avec PowerShell.
 
-Sur **Discovery**, ouvrir la session `adm` avec le mot de passe remis par le formateur. Examiner **admConsole** : la correction y identifie **Gestion de l’ordinateur**, **Gestionnaire de périphériques** et **Services**. Renommer l’OS **DiscoveryXX**, redémarrer, vérifier le nom, puis appliquer la suspension Windows Update demandée.
+## Conclusion
 
-Le nom de la VM dans Workstation et le nom de l’OS invité sont deux réglages : le TP demande de les faire correspondre.
+- Différentes façons de piloter un système d’exploitation : interface graphique, ligne de commande et PowerShell.
+- L’aide est précieuse pour s’en sortir.
+- Utiliser les ressources.
+- Modifier le système.
 
-## 8. TP 2 — Prise en main de cmd.exe
+Référence du document : 1Yiz61GH6Zp921Q3rPxlmjyLIAUpoJUo- · SHA-256 156cc90dce4ad405…
 
-**Durée indicative : une heure.** Régler la console Win10-XX : **Consolas 24**, couleurs de texte et d’arrière-plan adaptées, depuis ses propriétés. La correction mentionne aussi le zoom avec Ctrl et la molette.
+## Énoncé · Enoncé du TP - Devenir autonome avec PowerShell · 5 pages transcrites
 
-Lire l’aide puis réaliser et vérifier chaque étape :
+#### Systèmes Clients Microsoft Devenir autonome avec PowerShell
 
-```bat
-help
-help cd
-cd /d C:\
-md C:\CommandList
-help > C:\CommandList\InternalCommands.txt
-type C:\CommandList\InternalCommands.txt
-copy C:\CommandList\InternalCommands.txt "%USERPROFILE%\Desktop\"
-dir /A /OS "%USERPROFILE%\Desktop"
+TP du Module 03 – Interagir avec Windows 10
+
+Lors de ce TP, vous allez continuer à pratiquer avec la ligne de commande PowerShell, dans le but de vous familiariser avec cette notion d'objet. Le but est de chercher les bonnes cmdlets grâce à get-command et d’à apprendre à les manipuler grâce à get-help. Surtout, n'oubliez pas l'aide de PowerShell. Lisez l'aide, elle vous fera gagner un temps précieux.
+
+Durée estimée
+
+1 heure 30 minutes
+
+#### Énoncé
+
+Lisez l'ensemble de ce TP avant de vous lancer dans la pratique
+
+Sur Win10-XX, recherchez les commandes adaptées pour les besoins suivants
+
+À l'aide d'une console PowerShell, afficher les commandes disponibles sur le système
+
+À l'aide de la commande précédente, n'afficher que les cmdlets
+
+N'afficher que les cmdlets dont le verbe est Get
+
+Quelle cmdlet permet d'afficher la liste des groupes locaux présents sur le système ?
+
+Quelles sont les 2 propriétés des groupes locaux que le système affiche par défaut ?
+
+Quelles sont les autres propriétés des groupes locaux qui ne sont pas affichés par le système ?
+
+Afficher le SID et la source principale du groupe Utilisateurs du bureau à distance
+
+Sur Discovery, recherchez les commandes adaptées pour les besoins suivants
+
+Conseils pour bien construire vos prochaines réponses
+
+1. Cherchez la commande demandée à l'aide de Get-Command 2. Parcourez l'aide et les exemples d'utilisation de cette cmdlet 3. Testez la cmdlet de manière basique pour commencer… 4. … puis chercher et afficher les propriétés demandées
+
+Quelle commande permet d'afficher les disques durs de la VM Discovery ? Combien de disques durs possède la VM ?
+
+Afficher le numéro et le modèle des disques durs présent sur la VM Discovery
+
+N'afficher que le nom, le type de bus et le fabricant du disque numéro 2
+
+Afficher le nom, le statut et la description du pilote de l'adaptateur réseau de la VM
+
+Afficher les membres du groupe local Administrateurs de la VM Discovery
+
+Afficher les membres du groupe local Administrateurs de la VM Discovery, mais cette fois-ci, le résultat devra être redirigé dans le fichier AdminMembers.txt, lui-même contenu dans le dossier C:\Users
+
+#### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 1B4EF4vImCcirnwqYuBqoiAMo8vdx_vFX · SHA-256 306f27c2151b94ec…
+
+## Énoncé · Enoncé du TP - Manipuler l'aide de PowerShell · 4 pages transcrites
+
+#### Systèmes Clients Microsoft Manipuler l'aide de PowerShell
+
+TP du Module 03 – Interagir avec Windows 10
+
+Durant ce TP vous serez amené à utiliser et à naviguer dans l'aide pour retrouver des informations. Bien évidemment, il faudra mettre à jour cet aide pour ensuite découvrir la manière dont on l'utilise, dont on navigue à l'intérieur. N'oubliez pas qu'il existe de l'aide pour deux domaines : l'aide pour utiliser les cmdlets et l'aide pour découvrir des concepts de PowerShell (help about_*).
+
+Durée estimée
+
+1 heure
+
+#### Énoncé
+
+Lisez l'ensemble de ce TP avant de vous lancer dans la pratique.
+
+Sur Discovery, à l'aide de PowerShell
+
+Affichez l'aide complète de la cmdlet Get-Alias
+
+Quelle cmdlet avez-vous utilisée ?
+
+Sur Win10-XX, à l'aide de PowerShell
+
+Affichez l'aide complète de la cmdlet Get-Alias
+
+Pourquoi existe-t-il une si grande différence entre les résultats des cmdlets de ces deux VMs ?
+
+Mettez à jour l'aide de PowerShell
+
+```
+o
+Vérifiez, à l'aide de votre interface graphique, que les mises à jour Windows
+Update sont bien reportées à 35 jours au moins. Reportez-les le cas échéant.
 ```
 
-| Étape | Contrôle |
-|---|---|
-| `help` | Liste des commandes internes. |
-| `help cd` | Fonction de CD/CHDIR et syntaxe. |
-| `cd /d C:\` | Répertoire courant placé à la racine de C:, même si le lecteur précédent différait. |
-| `md` | Dossier CommandList présent. |
-| `help > ...` | Fichier InternalCommands.txt créé. |
-| `type` | Fichier lisible et contenant la liste. |
-| `copy` | Copie présente sur le Bureau du profil réel. |
-| `dir /A /OS` | Tous les éléments demandés, tri croissant par taille. |
-
-!!! note "Coquilles de la correction source"
-    Le document crée InternalCommands.txt puis emploie InternalList.txt dans COPY. Il alterne aussi pnom et prenom. Les commandes pédagogiques ci-dessus conservent un seul fichier et utilisent le profil courant. L’original garde les formulations du document.
-
-Terminer par le snapshot **« TP03 terminé »**.
-
-## 9. TP 3 — Premiers pas avec PowerShell
-
-**Durée indicative : 30 minutes.** Agrandir la fenêtre et adapter la police. Sur Win10-XX :
-
-```powershell
-$PSVersionTable
-Get-Host
-Get-ChildItem
-Get-ChildItem -Path C:\Users
-Get-Alias
+```
+o
+Pour communiquer avec le serveur de mise à jour de l’aide, votre VM Win10-
+XX aura besoin d'être connecté au switch virtuel Bridge
 ```
 
-Identifier la version, lister le répertoire courant puis C:\Users, et retrouver les alias **dir, gci, ls** de Get-ChildItem. Prendre le snapshot **« TP04 terminé »**.
+Une fois la mise à jour effectuée, rebasculez votre VM sur le switch Host-Only
 
-Sur DiscoveryXX, ouvrir la session `adm` puis lire le fichier et changer de position :
+Quelle cmdlet permet d'obtenir les exemples de la cmdlet Get-Help ?
 
-```powershell
-Get-Content C:\PowerShell\Intro.txt
-Get-Location
-Set-Location C:\
+À l'aide de ces exemples, recherchez et testez la cmdlet qui permet d'afficher la liste de tous les concepts disponible et utilisable dans PowerShell
+
+Quelle cmdlet nous permet d'en apprendre plus sur le concept d'alias PowerShell ?
+
+```
+o
+Affichez le résultat de cette cmdlet dans une fenêtre d'aide séparée
 ```
 
-La correction propose **gc**, **type** ou **cat** comme alias de Get-Content, et **cd** comme alias de Set-Location. Le fichier peut être inspecté avec le Bloc-notes pour découvrir la commande demandée ; il faut ensuite l’exécuter dans PowerShell.
+Les alias configurés sont s’ils conservés si la session PowerShell est fermée ? Quelle section de l’aide faut-il consulter pour savoir comment les sauvegarder ?
 
-## 10. TP 4 — Manipuler l’aide de PowerShell
+PowerShell réalise un historique des commandes saisies. Utilisez l’aide pour déterminer le nom de la variable qui définit le nombre de commandes qui sont conservées dans l’historique (indice : une variable commence par le caractère $).
 
-**Durée indicative : une heure.** Comparer sur Discovery et Win10-XX :
+Quelle est la valeur par défaut contenue dans cette variable ? Cette valeur peut-elle être modifiée ?
 
-```powershell
-Get-Help Get-Alias -Full
+#### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 1s9b1PjF6MEJRB_eChrBUrboNr9f-i3rJ · SHA-256 a4c4a6e271f96ac5…
+
+## Énoncé · Enoncé du TP - Premiers pas avec PowerShell · 3 pages transcrites
+
+#### Systèmes Clients Microsoft Premiers pas avec PowerShell
+
+TP du Module 03 – Interagir avec Windows 10
+
+Le but de ce TP est de découvrir la base de l'utilisation de PowerShell. Vous allez pouvoir interagir de manière simple avec le système.
+
+Durée estimée
+
+30 minutes
+
+#### Énoncé
+
+Lisez l'ensemble de ce TP avant de vous lancer dans la pratique.
+
+Sur la VM Win10-XX
+
+Pour une meilleure lisibilité, personnalisez votre fenêtre PowerShell :
+
+Changez la police et la taille de la police
+
+Agrandissez votre fenêtre
+
+Sur la VM Win10-XX, une fois votre fenêtre PowerShell prête, interagissez avec votre système à l'aide des cmdlets
+
+Quelle version de PowerShell est installée sur votre système ?
+
+Affichez le contenu du répertoire courant .
+
+Quelle cmdlet avez-vous utilisée ?
+
+Affichez le contenu du répertoire c:\users.
+
+Quelle cmdlet avez-vous utilisée ?
+
+Affichez la liste des alias PowerShell.
+
+Quelle cmdlet avez-vous utilisée ? Quels sont les alias de la cmdlet Getchild-Item ?
+
+Faites un snapshot TP04 terminé
+
+Sur la VM DiscoveryXX
+
+Ouvrez une session avec l'utilisateur adm (mot de passe fourni par le formateur) puis interagissez avec votre système à l'aide des cmdlets.
+
+Affichez le contenu du fichier C:\PowerShell\Intro.txt.
+
+Quelle cmdlet avez-vous utilisée ?
+
+Dans quel répertoire êtes-vous actuellement ? Déplacez-vous à la racine du lecteur C:\.
+
+#### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 1VBj6YB9nEIsCb4yZaGlQtA0sfzXDdlt_ · SHA-256 428309223d5bc2de…
+
+## Énoncé · Enoncé du TP - Prise en main de l'interface graphique · 4 pages transcrites
+
+#### Systèmes Clients Microsoft Prise en main de l'interface graphique
+
+TP du Module 03 – Interagir avec Windows 10
+
+Lors de cet atelier, vous allez être amené à interagir avec l'interface graphique pour commencer à personnaliser le système d'exploitation. Ainsi, vous commencez à rentrer dans la peau d'un technicien en utilisant notamment les consoles MMC.
+
+Durée estimée
+
+30 minutes
+
+#### Énoncé
+
+Lisez l'ensemble de cet atelier avant de vous lancer dans la pratique
+
+Sur la VM Win10-XX
+
+Ouvrez une session sur le système puis changez le mot de passe.
+
+Supprimez les raccourcis Windows Store et Courrier de votre barre des tâches. Ajoutez-y ensuite un raccourci Windows PowerShell.
+
+Interrompre temporairement l'installation des mises à jour Windows Update pendant 35 jours au plus.
+
+Quel nom porte votre PC ? (Indice : DESKTOP-…)
+
+Renommez votre PC. Il portera le même nom que votre VM.
+
+Créez une console mmc personnalisée. Elle vous permettra de configurer les disques, les utilisateurs et les groupes ainsi que les partages. Cette console devra être disponible depuis votre bureau.
+
+Personnalisez le papier peint du bureau
+
+Désactiver la mise en veille du système
+
+Faites un Snapshot "TP02 terminé"
+
+Sur la VM Discovery
+
+Ouvrez une session avec l'utilisateur adm (mot de passe fourni par le formateur)
+
+Quels sont les composants logiciels enfichables disponibles dans la console admConsole disponible sur le bureau ?
+
+Renommez l'OS, il portera le nom DiscoveryXX (XX étant vos initiales).
+
+Interrompre temporairement l'installation des mises à jour Windows Update pendant 35 jours au plus.
+
+#### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 177ICPb0fTCN7rULRIChQQJNujFeNCUMS · SHA-256 acee93250bf32ebf…
+
+## Énoncé · Enoncé du TP - Prise en main de la cmd · 4 pages transcrites
+
+#### Systèmes Clients Microsoft Prise en main de la cmd
+
+TP du Module 03 – Interagir avec Windows 10
+
+Durant ce TP, vous allez vous familiariser avec la ligne de commande cmd. Le but est d'utiliser l'aide. Il suffit de lire l'aide pour s'en sortir. Le but est aussi de réaliser des tests avant d'être sûr d'avoir la commande finale.
+
+Durée estimée
+
+1 heure
+
+#### Énoncé
+
+Lisez l'ensemble de ce TP avant de vous lancer dans la pratique.
+
+Sur la VM Win10-XX, à l'aide de votre interface graphique
+
+Pour une meilleure lisibilité, personnalisez votre fenêtre cmd
+
+Changez la police en consolas taille 24
+
+Changez les couleurs de la police et de l'arrière-plan
+
+Sur la VM Win10-XX, une fois votre fenêtre cmd.exe prête, interagissez avec votre système à l'aide de la ligne de commande
+
+Affichez les commandes internes disponibles
+
+Affichez l'aide de la commande cd. Quelle est son utilité ?
+
+Placez-vous à la racine du lecteur C
+
+Créez un répertoire CommandList à la racine du lecteur C
+
+Dans le répertoire c:\CommandList, créez un fichier InternalCommands.txt qui recense la liste des commandes internes disponible.
+
+Pour vérification, affichez le contenu du fichier InternalCommands.txt
+
+Copiez ce fichier sur le bureau (indice : votre bureau est un sous-répertoire présent dans c:\users)
+
+Affichez la liste de tous les fichiers et sous-répertoires contenus dans votre dossier bureau. Le résultat devra afficher la liste triée par la taille (ordre croissant)
+
+Faites un snapshot TP03 terminé
+
+#### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 1LKkjhY2aMDPAp5pjP7GZitxXFpJc5QIl · SHA-256 758b7edc3bc9679e…
+
+## Synthèse du Drive · Synthèse Module 3 - Interaction Windows 10, CLI, PowerShell & Excel V2 · 2 pages transcrites
+
+Les synthèses Windows 10 de ce dossier sont rattachées au cours Systèmes clients.
+
+## Synthèse — Module 3 : Interagir avec Windows 10 (GUI, CLI, PowerShell) et outils collaboratifs (Excel) (V2)
+
+### 1. Interfaces d’administration sous Windows 10
+
+Windows 10 propose plusieurs interfaces pour l’administration et l’interaction avec le système : - **Interface graphique (GUI)** : Bureau, Panneau de configuration, Paramètres Windows, consoles MMC, mmc.exe. - **Invite de commandes (cmd.exe)** : shell historique hérité de MS-DOS pour l’exécution d’outils système et de scripts batch, .bat / .cmd. - **PowerShell** : shell moderne orienté objet basé sur .NET, permettant d’automatiser les tâches complexes d’administration.
+
+### 2. Commandes d’administration CLI et PowerShell
+
+Exemples de commandes essentielles pour interagir avec le système :
+
+```
+:: Commandes de base sous Invite de commande (cmd.exe)
+help shutdown
+shutdown /r /t 0
+copy source.txt destination.txt
+help copy > aide_copy.txt
 ```
 
-L’aide de Win10-XX est moins fournie avant téléchargement ; les exemples manquent et une section Remarques signale les fichiers à installer. Cela explique une différence entre VM sans conclure que la commande est absente.
-
-### Mettre l’aide à jour dans le scénario
-
-1. Vérifier la suspension Windows Update demandée par l’énoncé.
-2. Passer temporairement l’adaptateur Workstation de Win10-XX en **Bridged** pour atteindre le réseau de mise à jour.
-3. Suivre les étapes de connexion du laboratoire et utiliser les identifiants fournis si le réseau les demande. La correction choisit l’emplacement privé et reporte la finalisation du profil Windows.
-4. Ouvrir PowerShell en administrateur et lancer `Update-Help`.
-5. Refaire `Get-Help Get-Alias -Full` pour vérifier le téléchargement, puis **revenir en Host-Only**.
-
-Un message sur certains modules peut signaler un module absent ou une langue indisponible, comme dans la correction. Il faut lire le message et vérifier l’aide de la commande recherchée. L’absence de barre de progression, à elle seule, ne prouve pas une erreur de syntaxe.
-
-### Explorer les concepts, alias et historique
-
-```powershell
-Get-Help Get-Help -Examples
-Get-Help about_*
-Get-Help about_Aliases -ShowWindow
-Get-Help about_Profiles
-Get-Help about_History
-$MaximumHistoryCount
-$MaximumHistoryCount = 100
 ```
-
-- `about_*` répertorie les concepts ; l’exemple 8 de l’aide Get-Help est le point de départ cité dans la correction.
-- La section **SAVING ALIASES** explique que les alias créés dans une session n’y survivent pas automatiquement. Le support propose le profil PowerShell ou **Export-Alias** pour les conserver.
-- **`$MaximumHistoryCount`** détermine le nombre maximal d’entrées de l’historique concerné. Le document donne **4096** par défaut et un exemple à **100**. Ce résultat appartient au Windows PowerShell étudié ; ne pas le confondre avec tous les mécanismes d’historique d’autres environnements.
-- La correction renvoie au redémarrage de PowerShell pour son exemple ; un réglage destiné à durer doit être replacé dans le contexte du profil et de l’aide consultée.
-
-## 11. TP 5 — Devenir autonome avec les objets
-
-**Durée indicative : une heure trente.** Appliquer systématiquement : trouver la cmdlet, lire ses exemples, faire un essai simple, afficher les propriétés puis sélectionner celles demandées.
-
-### Sur Win10-XX : commandes et groupes locaux
-
-```powershell
+# Commandes et cmdlets PowerShell
 Get-Command
-Get-Command -CommandType Cmdlet
-Get-Command -CommandType Cmdlet -Name Get-*
-Get-Command Get-*group*
-Get-LocalGroup
-Get-LocalGroup | Select-Object *
-Get-LocalGroup -Name "Utilisateurs du Bureau*" | Select-Object SID,PrincipalSource
-```
-
-Le groupe local s’affiche d’abord avec **Name** et **Description**. Le TP fait découvrir **SID**, **PrincipalSource** et **ObjectClass**, qui ne sont pas visibles dans cet affichage par défaut. La sélection du SID et de la source principale vérifie que l’on sait demander une propriété précise.
-
-### Sur Discovery : disques et carte réseau
-
-```powershell
-Get-Disk
-Get-Disk | Select-Object *
-Get-Disk | Select-Object Number,Model
-Get-Disk -Number 2 | Select-Object FriendlyName,BusType,Manufacturer
-Get-NetAdapter | Select-Object Name,Status,DriverDescription
-```
-
-La correction relève **quatre disques**. Le numéro est l’identité à sélectionner dans l’état observé, pas une supposition fondée sur l’ordre d’affichage. `Select-Object *` sert d’abord à découvrir les noms exacts des propriétés, dont Model et Manufacturer.
-
-### Membres du groupe Administrateurs et fichier résultat
-
-```powershell
-Get-LocalGroupMember -Name "Administrateurs"
-Get-LocalGroupMember -Name "Administrateurs" > C:\Users\AdminMembers.txt
-Get-ChildItem C:\Users
-Get-Content C:\Users\AdminMembers.txt
-```
-
-La dernière paire de commandes vérifie les deux conditions : le fichier existe et il contient le résultat demandé. Le nom du groupe est celui du Windows français de la VM.
-
-## Compléments présents dans la synthèse du Drive
-
-La synthèse complète les exemples avec le filtrage de processus et de services. Le pipeline transmet les objets à la commande suivante ; **`$_`** représente l’objet courant dans le filtre.
-
-```powershell
 Get-Help Get-Process -Detailed
-Get-Process | Where-Object { $_.CPU -gt 10 }
-Get-Service | Where-Object { $_.Status -eq "Running" }
+Get-Process | Where-Object {$_.CPU -gt 10}
+Get-Service | Where-Object {$_.Status -eq "Running"}
 ```
 
-La première sélection conserve les processus dont la propriété CPU dépasse 10 dans les unités de cette propriété ; la seconde conserve les services au statut Running. Vérifier la signification d’une propriété avant d’interpréter sa valeur.
+### 3. Notions essentielles de Microsoft Excel
 
-La même synthèse comporte un rappel **Excel**, à situer dans [Microsoft 365](../03-microsoft-365-outils-collaboratifs/module-03-connaissances-des-notions-de-base-d-excel.md) :
+Le module couvre également les fonctionnalités de calcul et d’analyse dans Excel pour l’aide au pilotage informatique.
 
-| Famille | Fonctions de la source | Exemple |
-|---|---|---|
+## Notions essentielles de Microsoft Excel — tableau
+
+| Catégorie | Fonctions principales | Exemple d’utilisation |
+| --- | --- | --- |
 | Mathématiques | SOMME, ARRONDI, MOD, QUOTIENT | `=SOMME(A1:A10)` |
 | Texte | CONCAT, GAUCHE, DROITE, NBCAR | `=CONCAT(A2; " "; B2)` |
 | Recherche | RECHERCHEV, RECHERCHEH, COLONNE | `=RECHERCHEV(A2; TableRef; 2; FAUX)` |
 | Logique | SI, ET, OU, SIERREUR | `=SI(ET(A2>10; B2="OK"); "Valide"; "Rejeté")` |
 
-Ce tableau préserve le contenu transversal du document associé ; il ne modifie pas le cours Microsoft 365 déjà refait.
+Référence du document : 1YVfR8rQcbF2RA_I23MsPVH7NZ4auK9h7bqBPOA7d4DE · SHA-256 4c9890b1b02f43e4…
 
-## Mini-quiz
+## Notes du Drive · module 3 et 4 system clients microsoft.txt · document texte
 
-1. Quel avantage apporte une console MMC personnalisée ?
-2. Dans `Get-ChildItem -Path C:\Users`, identifiez cmdlet, paramètre et argument.
-3. Quelle différence faites-vous entre Get-Command et Get-Help ?
-4. Comment trouver une propriété absente de l’affichage par défaut ?
-5. Que faut-il faire après le téléchargement de l’aide dans le TP ?
-6. Quel fichier prouve la dernière tâche sur les administrateurs de Discovery ?
+Notes textuelles présentes dans le Drive. Aucun support de cours illustré distinct n’est fourni pour ce document ; aucune illustration n’a été inventée ou attribuée au support.
 
-??? note "Réponses"
-    1. Réunir les outils nécessaires dans une console enregistrée.
-    2. Get-ChildItem ; -Path ; C:\Users.
-    3. Découvrir les commandes, puis apprendre leur utilisation ou les concepts.
-    4. Observer l’objet avec Select-Object * avant de choisir les propriétés.
-    5. Vérifier l’aide puis remettre la carte réseau en Host-Only.
-    6. C:\Users\AdminMembers.txt ; vérifier sa présence et lire son contenu.
+## Module 3 - Interagir avec Windows 10
 
-- [Les cinq TP : énoncés et corrections](../../tp/systemes-clients/module-03/index.md)
-- [Fiche de révision M03](../../revision/systemes-clients/module-03-interagir-avec-windows-10.md)
-- [Kahoot M03](../../kahoot/02-systemes-clients-microsoft-03-interagir-avec-windows-10.md)
+### Objectifs du module
 
-## Provenance pédagogique
+### Tour d'horizon de l'interface graphique
 
-Support M03, cinq énoncés et leurs cinq solutions, section Module 3 des notes, synthèse Interaction Windows/CLI/PowerShell du Drive. La synthèse comporte aussi des rappels Excel, dont le cours de référence reste Microsoft 365. Les méthodes de lecture, clarifications des coquilles, contrôles et mini-quiz sont des aides pédagogiques IA.
+### Démonstration - L'interface graphique
 
-## Script de laboratoire — démarrage distant
+### Enoncé du TP - Prise en main de l'interface graphique
 
-```bat
-@echo off
-setlocal
+### Tour d'horizon la CLI
 
-set HOST=[MASQUÉ]
-set USER=[MASQUÉ]
-set PASS=[MASQUÉ]
-set IPMACHINE=[MASQUÉ]
-set PLINK=C:\Program Files\PuTTY\plink.exe
+### La syntaxe de l'aide
 
-echo ==========================================
-echo   Demarrage machine du lab a distance
-echo ==========================================
-echo.
-echo HOST      = %HOST%
-echo USER      = %USER%
-echo IPMACHINE = %IPMACHINE%
-echo PLINK     = %PLINK%
-echo.
+### Démonstration - La ligne de commande cmd
 
-if not exist "%PLINK%" (
-    echo [ERREUR] plink.exe introuvable :
-    echo %PLINK%
-    pause
-    exit /b 1
-)
+### Enoncé du TP - Prise en main de la cmd
 
-echo [INFO] Connexion au serveur du lab...
-echo.
+### Présentation de PowerShell
 
-(
-    echo %IPMACHINE%
-) | "%PLINK%" -ssh %USER%@%HOST% -pw %PASS%
+### Principe d'utilisation de la ligne de commande PowerShell
 
-echo.
-echo [INFO] Code retour = %errorlevel%
-echo.
-pause
+### Démonstration - Découvrir PowerShell
+
+### Enoncé du TP - Premiers pas avec PowerShell
+
+### L'aide de PowerShell
+
+### Démonstration - Découvrir l'aide de PowerShell
+
+### Enoncé du TP - Manipuler l'aide de PowerShell
+
+### Cmdlets de base et objets
+
+### Interagir avec un objet PowerShell
+
+### Démonstration - Cmdlets de base
+
+### Enoncé du TP - Devenir autonome avec PowerShell
+
+### Conclusion
+
+Dans le cadre de notre module sur Interagir avec Windows 10, nous allons explorer l'interface graphique du système d'exploitation Windows 10, qui est un système d'exploitation multi-utilisateur.
+
+Chaque utilisateur possède un profil dans lequel son bureau est personnalisable ainsi que son menu démarré. Nous avons la possibilité d'ajouter des bureaux supplémentaires pour agrandir notre espace de travail. De plus, nous bénéficions de la fonctionnalité Timeline, qui existe depuis la build 18.03, nous proposant un historique de nos tâches.
+
+### Fonctionnalités multi-tâches
+
+Windows 10 est également un système d'exploitation multi-tâches, ce qui signifie que nous pouvons utiliser plusieurs applications en même temps. Nous pouvons facilement basculer de l'une à l'autre depuis la barre des tâches ou à l'aide de la combinaison de touches Windows + Tabulation. Pour afficher le détail du bon fonctionnement des applications, nous utilisons le gestionnaire des tâches.
+
+### Zone de notification
+
+La zone de notification nous apporte des informations en temps réel et des raccourcis vers certains programmes qui tournent en arrière-plan. Un élément intéressant de cette zone est d'observer, d'un simple coup d'œil, l'état de la connexion réseau ainsi qu'un raccourci pour la configurer, ce qui est pratique pour la mobilité. Les notifications du système apparaissent dans cette zone.
+
+### Zone de recherche
+
+Nous avons aussi accès à une zone de recherche très pratique. Il est conseillé de prendre le réflexe de l'utiliser pour accéder à n'importe quel emplacement du système. Étant indexée, elle propose des suggestions automatiques, ce qui nous permet de gagner du temps. Par exemple, en tapant "panneau", le système nous propose rapidement d'accéder au panneau de configuration.
+
+### Gestion des paramètres du système
+
+Le célèbre panneau de configuration, que nous ne présentons plus, nous permet de lancer divers éléments grâce au fichier avec l'extension .cpl disponible dans le dossier Windows System32. Nous utilisons également les consoles MMC pour Microsoft Management Console. Ces derniers sont des outils essentiels pour les techniciens, même s'ils sont peut-être moins connus.
+
+Il est important de prendre l'habitude d'utiliser ces consoles. Nous avons à notre disposition des consoles préconfigurées, disponibles en faisant un clic droit sur le menu démarrer, ou grâce au fichier .msc disponible dans le dossier Windows System32. De plus, nous pouvons lancer une console vierge et la personnaliser en y ajoutant nos propres composants logiciels enfichables.
+
+En conclusion, nous avons exploré les différentes fonctionnalités et interfaces graphiques de Windows 10, ce qui nous permet de mieux interagir avec le système d'exploitation dans notre rôle de techniciens.
+
+Dans cet extrait, nous étudions l'interface graphique de Windows 10.
+
+### L'interface graphique de Windows 10
+
+Nous commençons par observer le bureau, qui est la première chose que nous voyons après la connexion. En bas à gauche, nous avons le menu démarré, où l'on trouve les célèbres tuiles qui nous permettent d'accéder rapidement aux applications. En bas à droite, se trouve la zone de notification, essentielle pour recevoir des alertes et des informations sur notre système.
+
+### Les fonctionnalités du système
+
+Nous avons la possibilité d'activer diverses fonctionnalités de notre système. En consultant 'Tous les paramètres', nous accédons à une console qui nous permet de modifier plusieurs aspects du système. Cette interface tend à remplacer le panneau de configuration traditionnel, offrant une approche plus moderne et intuitive.
+
+À travers la zone de recherche indexée, nous sommes en mesure de rechercher des éléments spécifiques de manière efficace. Par exemple, en tapant 'panneau', nous pouvons accéder directement au panneau de configuration. Ce dernier nous permet d'explorer différentes catégories pour effectuer des réglages sur notre système.
+
+### Explorer la timeline
+
+Nous avons également accès à la timeline, qui nous donne un historique des actions effectuées sur notre système. Bien qu'elle soit moins utilisée, elle peut s'avérer utile pour retrouver des opérations passées. De plus, la timeline nous permet de créer de nouveaux bureaux, élargissant ainsi notre environnement de travail.
+
+### Accéder aux consoles de gestion
+
+En cliquant droit sur le menu démarré, nous pouvons accéder à des consoles de gestion préconfigurées telles que la gestion des disques ou le gestionnaire de périphériques. Prenons un instant pour lancer la console de gestion de l'ordinateur, qui est assez complète et regroupe plusieurs outils essentiels, tels que l'observateur d'événements et les utilisateurs et groupes locaux.
+
+### Créer notre propre console personnalisée
+
+Ce qui est captivant, c'est que nous avons la possibilité de créer nos propres consoles. Pour ce faire, nous pouvons taper 'MMC' dans la zone de recherche indexée. Cela nous permettra de créer une console sur mesure, où nous pourrons ajouter les composants logiciels enfichables selon nos besoins. Nous avons la possibilité d'ajouter ou de supprimer des composants.
+
+Nous allons ajouter des éléments comme la gestion des disques de cet ordinateur, le pare-feu local, et les utilisateurs et groupes.
+
+Tous les éléments que nous avons sélectionnés apparaîtront dans notre console personnalisée. Nous pouvons ainsi configurer notre système à notre manière. En fin de processus, nous avons la possibilité de sauvegarder notre console. En sélectionnant 'Fichier', puis 'Enregistrer sous', nous pourrons la positionner sur notre bureau. Pour notre exemple, nous l'appellerons 'ma console'. Une fois enregistrée, elle sera présente sur notre bureau.
+
+Nous avons exploré les fonctionnalités principales de l'interface graphique de Windows 10 et la création de consoles personnalisées pour gérer efficacement notre système.
+
+Dans cet atelier, nous allons être amenés à interagir avec l'interface graphique pour commencer à personnaliser le système d'exploitation.
+
+Nous allons découvrir les différentes options et paramètres qui nous permettront de configurer notre environnement de travail afin de l'adapter à nos besoins spécifiques. Cette étape est cruciale pour le bon fonctionnement de notre système.
+
+### Objectifs de l'atelier
+
+Au cours de cet atelier, nous allons également nous familiariser avec les consoles MMC (Microsoft Management Console). Ces consoles sont des outils puissants qui nous permettront de gérer plusieurs aspects de Windows 10.
+
+### Utilisation de la console MMC
+
+Pour commencer à utiliser la console MMC, nous allons suivre les étapes suivantes :
+
+### mmc.exe
+
+Cette commande va lancer la console MMC, qui nous donnera accès à une interface où nous pourrons ajouter des outils et configurer différentes options.
+
+### Personnalisation de l'interface
+
+En utilisant la console MMC, nous aurons la possibilité de personnaliser notre interface en fonction de notre utilisation quotidienne. Nous pourrons ajouter des modules spécifiques qui nous faciliteront la gestion de notre système.
+
+À l'issue de cet atelier, nous aurons acquis des compétences essentielles pour interagir avec l'interface graphique de Windows 10 et personnaliser notre environnement de travail. Cela est fondamental pour nous, en tant que futurs techniciens, afin de nous préparer à des missions concrètes en entreprise.
+
+Dans cet article, nous allons explorer la ligne de commande (CLI) pour interagir avec Windows 10. Nous utilisons habituellement l'interface graphique, mais la CLI est aussi un outil puissant.';
+
+Pourquoi utiliser la CLI ?
+
+Nous avons souvent recours à l'interface graphique pour administrer Windows, mais il existe des situations où l'interface graphique peut nous limiter. Parfois, nous devons passer par la ligne de commande pour effectuer des tâches spécifiques que la GUI ne permet pas.
+
+### Les shells disponibles dans Windows 10
+
+Dans Windows 10, nous avons principalement deux shells à notre disposition : cmd.exe et powershell. Le premier, cmd.exe, est un shell historique et l'évolution de ceux présents avec MS-DOS.
+
+### Commandes internes et externes
+
+Nous allons découvrir que cmd.exe possède des commandes internes spécifiques ainsi que la possibilité d'exécuter des commandes externes qui sont des programmes Windows. Nous pouvons également créer des scripts en enregistrant des commandes dans un fichier texte que le système peut lire et exécuter.
+
+### Utilisation de la ligne de commande
+
+Avec la ligne de commande, nous avons d'abord le prompt, qui nous indique notre position dans l'arborescence du système. Nous pouvons taper des commandes après le prompt, telles que help, et ces commandes peuvent être suivies de paramètres ou d'options.
+
+### Les règles de base de la CLI
+
+Il est crucial de se rappeler que le premier mot ici est toujours une commande. Si nous ne respectons pas cette structure, le système renvoie une erreur. Les éléments de commande et leurs paramètres doivent toujours être séparés par des espaces, car l'espace est un caractère spécial utilisé pour délimiter les différentes parties de la commande.
+
+### Canaliser les résultats des commandes
+
+Une commande a pour but de donner un ordre au système d'exploitation, qui utilise alors les ressources matérielles pour répondre à cet ordre. Par défaut, le résultat de la commande s'affiche sur l'écran, mais nous avons aussi la possibilité de diriger ce résultat vers un fichier à l'aide du chevron.
+
+### Exemples de commandes
+
+### echo Hello World
+
+Dans cet exemple, nous utilisons la commande echo pour afficher "Hello World" à l'écran.
+
+En conclusion, la CLI est un outil incontournable pour les techniciens qui doivent parfois aller au-delà des limites de l'interface graphique. Apprenez à maîtriser ces commandes, car elles renferment une puissance et une flexibilité incomparables lors de l'administration de systèmes Windows 10.
+
+Dans ce module, nous allons explorer la notion cruciale de la syntaxe de la commande dans Windows 10.
+
+Nous allons comprendre comment chaque commande donnée au système nécessite une syntaxe précise pour être exécutée correctement. Si cette syntaxe est incorrecte, le système ne parvient pas à interpréter notre ordre et nous retourne une erreur. Cela souligne l'importance de bien lire l'aide disponible pour chaque commande.
+
+### Utilisation des commandes
+
+Nous devons connaître les codes de syntaxe qui se trouvent dans l'aide pour bien utiliser les commandes. En général, tout texte qui n'est pas entre crochets ou accolades est obligatoire. En revanche, ce qui se trouve entre crochets ou accolades est facultatif.
+
+### Comprendre les éléments de syntaxe
+
+La barre verticale, ou pipe, joue un rôle clé en permettant de séparer des éléments dans la syntaxe. Les points de suspension indiquent que nous pouvons répéter un élément N fois.
+
+### Exemple de la commande COPY
+
 ```
+COPY source destination [/options]
+```
+
+En étudiant la syntaxe de la commande COPY, nous constatons que le mot COPY ainsi que la "source" et la "destination" sont des paramètres obligatoires. Si nous ne les incluons pas, la commande échouera.
+
+### Options disponibles
+
+Nous apercevons également que des options peuvent être ajoutées à cette commande. Ces options sont indiquées par un slash et sont optionnelles, car elles sont entourées de crochets. Par exemple, nous pouvons utiliser des options comme /A ou /B, mais attention, il ne sera pas possible de les cumuler en même temps.
+
+En somme, la commande COPY nous permet de copier des fichiers d'une source vers une destination. Pour son bon fonctionnement, il est impératif de toujours spécifier au moins une source, et nous avons la possibilité d'ajouter plusieurs sources, comme indiqué par les points de suspension dans la syntaxe.
+
+Dans ce module, nous explorons comment interagir avec Windows 10 à travers la ligne de commande, cmd.exe.
+
+### Introduction à cmd.exe
+
+Nous avons plusieurs solutions pour lancer la ligne de commande cmd.exe. La méthode la plus rapide consiste à taper "cmd" dans la barre de recherche. Cela fait apparaître un écran de commande que nous pouvons lancer. À ce stade, nous découvrons une boîte noire dans laquelle nous avons la possibilité de taper des commandes. Lorsqu'on accède à ce shell, nous avons la possibilité de personnaliser notre console en modifiant les propriétés, notamment les options de police, la taille et la couleur. Nous pouvons choisir d'opter pour un texte noir sur un arrière-plan clair, ce qui nous aide à mieux visualiser les informations.
+
+### Les commandes de base
+
+Pour commencer avec les commandes, nous pouvons taper la commande `cls` pour effacer tout ce qui est affiché à l'écran. De plus, en maintenant la touche "Contrôle" tout en scrollant avec notre souris, nous avons la possibilité d'augmenter un peu la taille de la fenêtre, ce qui peut nous être pratique. Nous pouvons également lancer des applications externes grâce à cette ligne de commandes. Par exemple, nous pouvons taper la commande suivante pour ouvrir le Bloc-notes :
+
+```
+notepad
+```
+
+De plus, nous avons la possibilité de lancer un élément du panneau de configuration en utilisant la commande suivante :
+
+### timedate.cpl
+
+Cela nous permet d'accéder à la gestion de l'heure et de la date de notre système.
+
+### Commandes internes et aide
+
+Nous pouvons aussi exécuter des commandes internes de cmd.exe. Une des commandes les plus utiles, que nous devons connaître, est la commande `help`. En l'exécutant, nous envoyons cet ordre au noyau, qui nous affiche le résultat à l'écran. La commande `help` dresse la liste de toutes les commandes disponibles dans le shell. Nous pouvons faire défiler l'affichage pour voir chaque commande ainsi qu'une brève description. Si nous souhaitons obtenir de l'aide supplémentaire concernant une commande spécifique, nous avons la possibilité de taper `help`, suivie d'un espace et du nom de la commande. Par exemple, pour la commande `copy` :
+
+```
+help copy
+```
+
+Nous découvrons alors un résumé du rôle de la commande, sa syntaxe et un descriptif des paramètres et des options.
+
+### Privilèges d'administration
+
+Cependant, si nous souhaitons modifier la configuration du système, il est nécessaire de posséder des privilèges d'administration. Un simple utilisateur ne peut pas apporter de modifications pour des raisons de sécurité et de fiabilité. Par conséquent, nous devons lancer le shell cmd en tant qu'administrateur. Pour ce faire, nous fermons nos fenêtres et relançons le shell cmd.exe avec les droits administratifs. Lorsque nous l'exécutons, nous voyons l'invite de commande, et nous devons répondre à une demande de confirmation : "Voulez-vous autoriser cette application à apporter des modifications à votre appareil ?".
+
+En somme, cmd.exe est un puissant outil qui nous permet d'interagir directement avec les ressources de notre ordinateur et de réaliser diverses tâches via la ligne de commande. Nous avons également appris que pour effectuer des actions modifiant le système, une élévation de privilèges est indispensable.
+
+Dans cet atelier, nous allons nous familiariser avec la ligne de commande CMD.
+
+Le but de cet atelier est d'utiliser l'aide disponible dans CMD. Il suffit de lire cette aide pour s'en sortir et comprendre comment utiliser efficacement les commandes. Nous allons également faire des tests avant d'être sûrs d'avoir la commande finale. Il est tout à fait normal de faire des erreurs durant cet atelier, car cela fait partie de notre apprentissage. À ce stade du cours, nous découvrons la ligne de commande, et il est essentiel de comprendre que la pratique est la clé de notre maîtrise.
+
+### Utilisation de l’aide
+
+Nous allons apprendre à utiliser la commande cmd pour accéder à l’aide de n’importe quelle commande. En utilisant l’option /?, nous pourrons obtenir des informations détaillées sur chaque commande. Voici un exemple de comment utiliser l'aide :
+
+command /?
+
+### Pratique et tests
+
+Durant cet atelier, nous effectuerons divers tests pour appliquer ce que nous avons appris. La répétition des essais et des erreurs nous aidera à progresser. Nous nous aiderons également les uns les autres pour résoudre les difficultés rencontrées. N’hésitez pas à poser des questions si quelque chose n’est pas clair.
+
+En conclusion, la ligne de commande est un outil puissant que nous allons utiliser dans d'autres modules. Au fur et à mesure que nous découvrirons davantage de fonctionnalités, notre confiance et notre compétence dans l'utilisation de CMD vont augmenter. Nous serons alors mieux préparés pour nos futurs défis dans la gestion des systèmes et réseaux.
+
+Dans ce module, nous nous intéressons à PowerShell, le dernier shell développé par Microsoft. PowerShell est un interpréteur de commandes qui permet de créer et de lancer des scripts.
+
+### Particularités de PowerShell
+
+Nous constatons que PowerShell est orienté objet, comme certains langages de développement. Il s'appuie sur des bibliothèques .NET Framework, qui permettent de créer des scripts plus ou moins élaborés en fonction de nos besoins, tout en offrant des fenêtres graphiques.
+
+### Historique de PowerShell
+
+Nous savons que la première version de PowerShell était présente nativement sur les systèmes Windows Server 2008 à partir de fin 2006. Cependant, il était également possible de l'installer sur Windows XP, Vista et 2003 Server, à condition de respecter certains prérequis.
+
+### Évolution des versions
+
+PowerShell a beaucoup évolué au fil du temps avec plusieurs versions qui ont apporté leur lot de commandes, d'améliorations, de nouvelles fonctionnalités et de sécurité d'utilisation. À l'heure actuelle, nous en sommes à la version 5.1, qui est stabilisée depuis plusieurs années et qui est très appréciée des techniciens et administrateurs Windows.
+
+### Accès à PowerShell
+
+Nous pouvons accéder à Shell PowerShell par plusieurs moyens. Nous pouvons utiliser la commande via la console PowerShell, qui est présente nativement dans le système, ou bien passer par la console graphique ISE (Integrated Scripting Environment), qui est plus orientée vers le scripting.
+
+### Outils complémentaires
+
+De plus, nous avons la possibilité d'utiliser des outils tiers pour manipuler PowerShell, tels que le Windows Terminal, disponible sur le Windows Store ou sur Git. Nous pouvons également utiliser Visual Studio Code, qui est une alternative à l'ISE.
+
+### Lancement des outils
+
+Dans tous les cas, nous pouvons retrouver ces outils en utilisant la zone de recherche de Windows et avons la possibilité de les lancer en tant qu'administrateur si nous avons besoin de modifier le système.
+
+En résumé, PowerShell est un outil puissant pour les administrateurs système, avec de nombreuses fonctionnalités qui facilitent la gestion des systèmes Windows.
+
+Dans ce module, nous allons apprendre à utiliser la ligne de commande PowerShell, un outil puissant pour interagir avec Windows 10.
+
+### Vérification de la version de PowerShell
+
+Nous devons d'abord vérifier la version actuelle de PowerShell qui est prise en charge sur notre poste. Pour cela, nous faisons appel à la variable $PSVersionTable. Cette variable contient plusieurs informations, dont la version de PowerShell. Il est crucial de connaître cette version, surtout dans un contexte professionnel où nous devons gérer des parcs de machines hétérogènes, incluant des clients Windows 10, Windows 7 et des serveurs tels que 2012 R2, 2016, 2019. Nous allons exécuter la commande suivante pour afficher ces informations :
+
+```
+$PSVersionTable
+```
+
+### Importance de la rétrocompatibilité
+
+Il est aussi important de prendre en compte la rétrocompatibilité lorsque nous écrivons des scripts. Par exemple, un script élaboré sur Windows 10 utilisant PowerShell version 5.1 pourrait ne pas fonctionner sur des systèmes d'exploitation plus anciens. La variable $PSVersionTable nous fournit également des informations sur la compatibilité, en particulier la valeur PSCompatibleVersion. Cette valeur indique quelle version de PowerShell fonctionne dans notre console, ce qui est essentiel pour éviter les erreurs lors de l'exécution de scripts sur différentes versions du système d'exploitation.
+
+### Commandlets : structure et utilisation
+
+Nous allons également explorer les commandlets, qui sont les commandes que nous utilisons dans PowerShell. Ces commandlets ont une structure intuitive, composée d'un verbe et d'un nom, séparés par un tiret. Les verbes courants incluent GET, SET, REMOVE, ADD et NEW. Par exemple, si nous souhaitons afficher la liste des alias PowerShell, nous pouvons utiliser la commande suivante :
+
+### GET ALIAS
+
+De même, pour découvrir les verbes utilisables, nous tapons :
+
+### GET VERB
+
+Chaque commandlet est conçu pour exécuter une tâche spécifique et il est important de noter qu'elles ne sont pas sensibles à la casse.
+
+### Utilisation des paramètres avec les commandlets
+
+Les commandlets peuvent également posséder des paramètres, qui sont représentés par un tiret suivi d'un mot. Par exemple, la commandlet GET CHILD ITEM possède un paramètre nommé -Path. Certains de ces paramètres fonctionnent seuls, tandis que d'autres nécessitent des arguments. Dans ce cas, -Path nécessite un argument, comme suit :
+
+### GET CHILD ITEM -Path C://users
+
+En résumé, nous avons exploré les concepts fondamentaux de PowerShell, de la vérification de la version avec $PSVersionTable à la structure des commandlets et leur utilisation avec des paramètres. Ces connaissances seront essentielles pour interagir efficacement avec Windows 10 et d'autres systèmes dans un environnement professionnel.
+
+Dans ce module, nous allons découvrir PowerShell, un outil puissant pour interagir avec notre système Windows 10.
+
+### Présentation de PowerShell
+
+PowerShell est un interpréteur de commandes et un langage de script développé par Microsoft. Lorsqu'on tape "PowerShell" dans la barre de recherche, nous avons plusieurs résultats : PowerShell et PowerShell ISE (Integrated Scripting Environment), tant en version 64 bits qu'en version 32 bits, le x86 nous l'indiquant.
+
+### Lancer PowerShell
+
+Nous pouvons lancer PowerShell avec un simple niveau de privilège ou bien en tant qu'administrateur. Lançons la console PowerShell et modifions la taille de la fenêtre ainsi que la taille de la police en maintenant la touche contrôle et en scrollant avec notre souris. Affichons ensuite la version de PowerShell disponible sur notre système avec le contenu de la variable `$PSVersion`.
+
+```
+$PSVersion
+```
+
+En utilisant la touche tabulation, nous pouvons compléter notre commande rapidement tout en évitant les fautes de frappe. En appuyant sur "Entrée", nous constatons que notre système dispose de la version 5.1 de PowerShell.
+
+### Lancer PowerShell ISE
+
+Lançons maintenant la console ISE. L'application se lance et au centre, nous voyons la console PowerShell. À droite, la liste des commandes cmdlets s'affiche. Nous pouvons afficher le volet script ainsi qu'une ligne de commande. Cette fenêtre de script nous permet de rédiger notre script et de le tester dans la console en dessous en pressant la touche F5.
+
+```
+$PSVersionTable
+```
+
+En appuyant sur F5, nous avons le résultat et vérifions que nous avons bien la même version de PowerShell disponible sur notre système. Pour ma part, pour une meilleure vision et utilisation, je vais m'en tenir à la console simple PowerShell.
+
+### Utilisation des cmdlets
+
+Affichons à l'écran la liste des verbes que nous pouvons utiliser dans nos cmdlets. Pour cela, nous pouvons taper la commande suivante :
+
+```
+get-verb
+```
+
+Ceci nous donne une liste de tous les verbes disponibles. Si nous souhaitons lister toutes les commandes disponibles, nous devons taper :
+
+```
+get-command
+```
+
+Nous découvrons alors qu'il y a beaucoup de commandes. Trois familles de commandes sont regroupées dans le système : les cmdlets, des fonctions et des aliases, et ces familles sont classées dans la colonne "Commande Type".
+
+### Filtrer les commandes
+
+Si nous ne souhaitons afficher que les cmdlets, nous devons taper :
+
+```
+get-command -commandtype cmdlet
+```
+
+Nous pouvons également utiliser la tabulation pour les options lors de cette action. Cela nous permet de sélectionner facilement un argument cmdlet, et seules les cmdlets s'afficheront à l'écran.
+
+Pour résumer, nous avons découvert PowerShell, comment l'utiliser et comment explorer ses cmdlets. Cet outil nous offre une manière efficace d'interagir avec notre système Windows 10.
+
+Dans cet atelier, nous allons découvrir les bases de l'utilisation de PowerShell.
+
+Nous allons pouvoir interagir de manière simple avec le système. Ce premier atelier PowerShell est assez court, car encore une fois, nous ne pouvons pas pratiquer longtemps sans l'aide. Nous allons aborder ici les commandes fondamentales qui nous seront utiles dans notre travail quotidien.
+
+### Les bases de powerShell
+
+Nous allons commencer par ouvrir PowerShell. Pour cela, nous pouvons rechercher "PowerShell" dans le menu démarrer et cliquer sur l'application. Une fois ouvert, nous serons accueillis par une interface semblable à celle de l'invite de commandes.
+
+### Exécution de commandes simples
+
+Nous allons tester quelques commandes de base pour nous familiariser avec cet outil. Par exemple, utilisons la commande Get-Help pour obtenir de l'aide sur une commande spécifique.
+
+```
+Get-Help Get-Process
+```
+
+Ensuite, nous pourrons afficher les processus en cours d'exécution sur notre machine avec la commande suivante :
+
+```
+Get-Process
+```
+
+### Application pratique
+
+À présent, nous avons la possibilité d'expérimenter avec des commandes plus complexes. En jouant avec les paramètres, nous serons en mesure de filtrer les résultats ou d'afficher des informations spécifiques. Par exemple, pour trouver un processus par son nom, nous pourrions utiliser :
+
+```
+Get-Process -Name "notepad"
+```
+
+Cette commande nous aidera à mieux comprendre comment les processus sont gérés sous Windows et à quel point il est facile d'interagir avec le système à l'aide de PowerShell.
+
+En conclusion, nous avons fait nos premiers pas dans PowerShell. Grâce à cet atelier, nous avons acquis des connaissances fondamentales qui nous permettront d’explorer les fonctionnalités avancées lors de nos prochaines sessions. A nous de jouer !
+
+Dans ce module, nous allons explorer l'aide de PowerShell.
+
+### L'aide de PowerShell : aperçu général
+
+Comme la plupart des shell existants, PowerShell propose de l'aide pour l'utilisation et la compréhension de ce langage. L'aide de PowerShell ne se limite pas simplement à l'usage des commandes, mais elle inclut également des concepts fondamentaux afin de mieux appréhender son fonctionnement. On peut percevoir PowerShell comme un manuel d'utilisation qui est structuré en plusieurs chapitres que nous pouvons appeler et consulter lorsque nous en avons besoin.
+
+### Évolution de l'aide à partir de PowerShell version 3
+
+Avec la version 1 et la version 2 de PowerShell, l'aide était intégrée nativement. Cependant, avec la version 3 et les versions ultérieures, Microsoft a changé son approche. Désormais, l'aide n'est plus native et il est nécessaire de télécharger les sections d'aide pour bénéficier des informations actualisées. Il est important de noter que seules les sections d'aide en anglais sont maintenues à jour.
+
+### Importance de mettre à jour l'aide
+
+Il est donc primordial de mettre à jour l'aide dès que nous commençons à utiliser PowerShell. La mise à jour de l'aide nécessite des privilèges d'administration, car cela modifie le système. La commande pour télécharger l'aide est très simple et intuitive :
+
+```
+Update-Help
+```
+
+Cette commande permet de télécharger les sections d'aide depuis Internet, plus précisément depuis les dépôts officiels de Microsoft. Nous avons également la possibilité de télécharger l'aide depuis un dépôt privé ou local préinstallé, par exemple, sur un serveur dans notre entreprise.
+
+### Utiliser l'aide de PowerShell
+
+Une fois que l'aide a été mise à jour, comment pouvons-nous l'utiliser ? Nous pouvons utiliser la commande suivante pour avoir un affichage complet :
+
+```
+Get-Help
+```
+
+Ou, pour un affichage page par page, nous utilisons simplement :
+
+```
+Help
+```
+
+Il est également possible d'utiliser l'alias de la commande Unix, man, pour afficher l'aide :
+
+### man
+
+Si nous souhaitons obtenir des informations sur une commande spécifique, comme Disable-LocalUser, nous tapons :
+
+```
+Get-Help Disable-LocalUser
+```
+
+Si nous ne savons pas ce qu'est une variable, nous pouvons demander plus d'informations avec :
+
+### man about_Variable
+
+Toutes les sections d'aide qui commencent par about_ offrent des explications sur diverses notions de PowerShell.
+
+### Astuces pour bien utiliser l'aide
+
+Pour optimiser notre expérience avec l'aide, il existe quelques astuces utiles. Par exemple, si nous connaissons déjà une commande mais que nous avons un doute sur son utilisation, l'option -Example de Get-Help nous permettra d'afficher des exemples pertinents. De plus, l'option -ShowWindow est très pratique, car elle affiche l'aide complète dans une fenêtre séparée avec une barre de recherche pour explorer des options spécifiques.
+
+Enfin, nous pouvons consulter une section d'aide en ligne en utilisant l'option -Online, ce qui nous assure que nous avons accès à la version la plus à jour de l'aide.
+
+En résumé, PowerShell nous offre une aide detaille et accessible pour l'apprentissage et la maîtrise de cet outil puissant, surtout si nous veillons à maintenir cette aide à jour.
+
+Dans cette section, nous allons découvrir comment utiliser la commande update-help dans PowerShell.
+
+Tout d'abord, essayons de nous renseigner sur la commande update-help pour savoir comment l'utiliser. Nous allons lancer une console PowerShell, régler la taille de la fenêtre, et nous pourrons ensuite taper la commande get-help de la commande update-help. Voici l'aide de la commande update-help.
+
+Dans la remarque, nous trouvons la phrase suivante : « get-help ne parvient pas à trouver les fichiers d'aide de cette applet de commandes sur cet ordinateur ». C'est tout à fait normal, car nous sommes avec la version 5.1 de PowerShell. Il faut mettre à jour l'aide de PowerShell.
+
+### Mise à jour de l'aide de PowerShell
+
+Nous avons donc deux possibilités pour mettre à jour l'aide de PowerShell, soit depuis les dépôts Microsoft officiels via Internet, soit depuis un dépôt local. Dans notre cas, nous allons passer par l'aide depuis les serveurs de Microsoft.
+
+Pour cela, nous aurons besoin de deux choses. Premièrement, comme nous allons mettre à jour l'aide sur un poste, nous devons ouvrir une console en tant qu'administrateur. Deuxièmement, notre VM doit avoir accès à Internet. Actuellement, elle est branchée sur le switch Hostonly, ce qui ne lui permet pas d'atteindre Internet. Nous allons donc la brancher sur le switch Bridge afin qu'elle puisse détecter le réseau physique.
+
+### Configuration de la machine virtuelle
+
+Première chose, lançons une commande PowerShell en tant qu'administrateur. Oui, nous allons modifier le système grâce à cette console. Deuxièmement, branchons notre VM sur le réseau physique. Nous éditons la configuration de notre VM au niveau de la carte réseau et nous la connectons au switch virtuel Bridge.
+
+Une fois cette procédure faite, le système découvre un nouveau réseau. Nous acceptons que notre VM soit visible sur ce réseau, ce qui nous permet de terminer la configuration de l'environnement utilisateur demo user, puisqu'elle a détecté Internet. Une page va se lancer pour continuer cette configuration ; nous choisissons de demander à être rappelé plus tard pour le moment.
+
+### Exécution de la commande pour mettre à jour l'aide
+
+Nous allons maintenant pouvoir mettre à jour notre système, et notamment les sections d'aide de PowerShell. La commande est la suivante :
+
+```
+Update-Help
+```
+
+Un bandeau s'affiche et nous indique que la mise à jour est en cours. Cela peut prendre plusieurs minutes en fonction de notre système et de la bande passante de notre réseau.
+
+### Gestion des messages d'erreur
+
+Dans certains cas, nous pouvons avoir des messages d'erreur suite à la mise à jour. Il est important de les prendre comme des avertissements. Certains modules ne sont pas présents sur notre Windows 10, ce qui fait que la mise à jour n'a pas pu être effectuée.
+
+Maintenant que l'aide est à jour, retentons d'afficher l'aide de la commande update-help. La section d'aide est désormais beaucoup plus fournie et disponible en anglais.
+
+### Consultation des exemples de la commande
+
+Pour consulter les exemples, nous pouvons utiliser la commande suivante :
+
+```
+Get-Help Update-Help -Examples
+```
+
+Voici quelques exemples disponibles pour cette commande : Exemple 1, mettre à jour tous les modules avec Update-Help. Exemple 2, mettre à jour la section d'aide d'un module spécifique. Exemple 3, aller chercher des sections d'aide dans d'autres langues.
+
+### Affichage de l'aide dans une fenêtre séparée
+
+Nous avons également la possibilité d'afficher la section d'aide dans une fenêtre séparée. La commande à utiliser est la suivante :
+
+```
+Update-Help -ShowWindow
+```
+
+La page entière d'aide s'affiche dans une fenêtre séparée. Nous pouvons redimensionner cette fenêtre et faire défiler les options. Nous avons aussi la possibilité d'utiliser un champ de recherche pour trouver plus rapidement du texte à l'intérieur de cette fenêtre.
+
+En résumé, nous avons vu comment utiliser update-help pour mettre à jour l'aide dans PowerShell, comment gérer les erreurs potentielles et comment consulter les exemples et l'aide dans une fenêtre séparée.
+
+Dans cet atelier, nous serons amenés à utiliser et naviguer dans l'aide pour retrouver des informations.
+
+Bien évidemment, nous commencerons par mettre à jour cette aide, puis nous découvrirons comment nous l'utilisons et naviguons à l'intérieur. N'oublions pas qu'il existe de l'aide pour deux domaines. L'aide pour utiliser les commandes LED en général, et l'aide pour découvrir des concepts de PowerShell.
+
+### Mettre à jour l'aide de PowerShell
+
+Pour débuter, nous devons mettre à jour l'aide de PowerShell pour bénéficier des dernières fonctionnalités. Nous utiliserons la commande suivante :
+
+```
+Update-Help
+```
+
+### Naviguer dans l'aide de PowerShell
+
+Une fois que nous avons mis à jour l'aide, nous pouvons naviguer dans différents modules et cmdlets pour trouver les informations dont nous avons besoin. La commande suivante nous permet d'accéder aux différents modules disponibles :
+
+```
+Get-Module -ListAvailable
+```
+
+Puis, pour voir l'aide d'une cmdlet spécifique, nous pouvons utiliser :
+
+```
+Get-Help <NomDeLaCmdlet>
+```
+
+En remplacant par le nom de la commande dont nous voulons voir l'aide.
+
+Pour résumer, il est essentiel de se familiariser avec l'aide intégrée de PowerShell afin de l'utiliser efficacement. Nous avons appris à mettre à jour cette aide, à naviguer parmi les modules et à obtenir des informations spécifiques sur les cmdlets.
+
+Dans PowerShell, nous devons comprendre que c'est un langage d'administration orienté objet. Cela signifie que nous interagissons avec des éléments du système appelés objets.
+
+Tout d'abord, il est important de savoir que la notion d'objet n'est pas nouvelle en informatique et provient de certains langages de programmation comme le PHP ou le C#. Un objet PowerShell est un élément du système que nous pouvons manipuler, configurer, comme par exemple un utilisateur, un fichier ou une carte réseau.
+
+### Propriétés et méthodes des objets
+
+Chacun de ces objets possède des propriétés, que nous pouvons plus simplement appeler des caractéristiques, et des méthodes ou des actions que nous pouvons mener sur ces objets. Pour mieux comprendre cette notion d'objet, nous pouvons comparer un objet PowerShell à un objet du monde de tous les jours, l'objet « mon ballon ».
+
+Un ballon est un objet qui possède des caractéristiques. Par exemple, il possède une forme ovale pour un ballon de rugby ou sphérique pour un ballon de basket, des dimensions, une masse, bref, tout un tas de caractéristiques que nous appelons « propriétés » pour un objet PowerShell.
+
+Nous pouvons également mener des actions sur « mon ballon », comme par exemple le lancer ou le gonfler. Ces actions sont ce que nous appelons des méthodes pour un objet PowerShell.
+
+### Exemples de cmdlets
+
+Pour illustrer nos propos, nous allons voir quelques cmdlets de base. Voici un exemple simple qui nous montre comment obtenir la liste des processus en cours d'exécution :
+
+```
+Get-Process
+```
+
+Nous pouvons également obtenir des informations sur un objet spécifique. Par exemple, pour obtenir des détails sur le processus "notepad", nous utiliserons la commande suivante :
+
+```
+Get-Process -Name notepad
+```
+
+En conclusion, nous voyons que PowerShell nous permet de travailler avec des objets grâce à des cmdlets qui nous donnent la possibilité d'interagir facilement avec ces objets en utilisant leurs propriétés et méthodes.
+
+Dans cette section, nous allons explorer comment interagir avec un objet PowerShell à travers le système d'exploitation Windows 10.
+
+### Comprendre les objets dans PowerShell
+
+Nous avons la capacité de manipuler des objets au sein de PowerShell, comme un ballon dans notre exemple. En effet, nous pouvons avoir plusieurs objets, tels que des utilisateurs, des fichiers ou des imprimantes. Ainsi, pour afficher les caractéristiques de l'objet « mon ballon », nous pouvons utiliser la commande suivante :
+
+```
+let get-monballon
+```
+
+Cette commande affichera les propriétés majeures de l'objet sans montrer toutes les propriétés existantes.
+
+### Afficher toutes les propriétés
+
+Si nous souhaitons obtenir une vue complète des propriétés de l’objet, nous avons la possibilité d'utiliser la commande suivante :
+
+```
+let get-monballon | select étoile
+```
+
+L'étoile représente toutes les propriétés. Par ailleurs, nous pouvons filtrer les propriétés que nous voulons voir. Par exemple, pour afficher uniquement le diamètre, la forme et la couleur de notre ballon, nous pouvons utiliser :
+
+```
+let get-monballon | select diamètre, forme, couleur
+```
+
+### Interagir avec des objets en utilisant les commandes let
+
+Pour interagir avec les objets dans PowerShell, il existe plusieurs commandes let que nous devons connaître. La commande clé pour cela est :
+
+```
+let get-commande
+```
+
+Cette commande nous fournira une liste exhaustive des commandes disponibles dans PowerShell.
+
+### Filtrer les commandes
+
+Pour simplifier nos recherches, nous pouvons filtrer les commandes. Par exemple, la commande :
+
+```
+let get-commande get-étoile
+```
+
+affichera toutes les commandes qui commencent par « get- ». En ce qui concerne les objets spécifiques, nous pourrions rechercher les commandes liées aux imprimantes :
+
+```
+let get-commande étoile printer étoile
+```
+
+Et pour créer des utilisateurs, il serait judicieux d'utiliser :
+
+```
+let get-commande new-étoile user étoile
+```
+
+### Modifier un objet avec les commandes let
+
+Pour modifier un objet, il est essentiel de comprendre la structure des commandes let. Par exemple, pour corriger la description d'un ballon de basket, nous pourrions utiliser :
+
+### let set-mon-ballon -name "basket" -description "ballon de basket"
+
+Pour ajouter un nouveau ballon à notre collection :
+
+let new-mon-ballon -name "rugby" -forme "ovale" -couleur "blanc" -description "ballon de rugby"
+
+Enfin, pour retirer un ballon de notre collection, la commande appropriée serait :
+
+### let remove-mon-ballon -name "football"
+
+En conclusion, interagir avec des objets PowerShell nécessite de suivre une méthode: identifier la commande appropriée grâce à get-commande, explorer les propriétés, modifier si nécessaire, et toujours consulter l'aide pour nous guider.
+
+Dans cette démonstration, nous allons nous baser sur deux cas pratiques. Nous allons utiliser, gérer, travailler avec deux objets du système : un service et un utilisateur local.
+
+### Vérification de la géolocalisation
+
+Tout d'abord, je souhaite m'assurer que la géolocalisation ne soit pas activée sur mon poste. La seule chose connue de mon côté, c'est que la géolocalisation est gérée par un service Windows. Je souhaite donc vérifier que ce service est bien arrêté.
+
+### Utilisation de la console PowerShell
+
+Pour cela, je vais lancer une console PowerShell. Je vais l'adapter à l'écran pour que ce soit plus lisible. Et je vais, par déduction, vérifier s'il existe une cmdlet qui possède éventuellement le nom « service », dans le but d'obtenir des informations sur le service géolocalisation de mon système.
+
+```
+get-command *service*
+```
+
+J'en ai plusieurs. Parfait. Je souhaite vérifier l'état actuel de ce service. Il faut donc que j'affiche l'état du service à l'écran. En règle générale, pour afficher des résultats à l'écran, on va utiliser le verbe « get ». Je vais donc chercher encore plus finement la commande correspondante.
+
+```
+get-service
+```
+
+La cmdlet « get-service » semble correspondre à mes besoins. J'en suis sûr en affichant l'aide de la commande.
+
+```
+help get-service
+```
+
+Le résumé de la commande m'indique « affiche les services de l'ordinateur local ou distant ». Je peux scroller pour aller chercher des exemples de la commande. Exemple 1 est « get all services on the computer ».
+
+### Filtrage de la cmdlet
+
+J'arrive à la section exemple 1. Je vais déjà essayer cette cmdlet seule. Sans argument ni option.
+
+```
+get-service
+```
+
+OK. On a beaucoup de services qui s'affichent à l'écran. Mon résultat du service de la géolocalisation est noyé dans l'information. Dans tous les cas, j'ai trois propriétés qui s'affichent à l'écran : « status », « name » et « display name ».
+
+Je vais tenter de me baser sur l'exemple pour chercher le service qui possèderait la chaîne de caractère « géolocalisation » dans son « display name ».
+
+```
+get-service | where-object { $_.displayname -like "*géolocalisation*" }
+```
+
+### Arrêt du service de géolocalisation
+
+Je vois maintenant des informations sur le service de géolocalisation, et je vais donc l'arrêter. Je vais vérifier s'il existe une cmdlet qui me permet de gérer l'objet « service ».
+
+```
+get-command *service*
+```
+
+Je retrouve mon « get-service » que je viens d'utiliser. Je peux en créer de nouveaux, je peux en redémarrer et je vois que je peux en arrêter. Je vais maintenant regarder l'aide de la cmdlet « stop-service ».
+
+```
+help stop-service
+```
+
+Le résumé m'indique « stops one or more running services ». Je vais essayer d'arrêter mon service « géolocalisation ».
+
+```
+stop-service -displayname "géolocalisation"
+```
+
+Pas d'erreur, donc le service est bien arrêté. C'était le premier exemple de manipulation de mon objet service.
+
+### Affichage des informations de l'utilisateur
+
+Dans un second exemple, je souhaite voir affiché à l'écran le nom et le SID de l'utilisateur « demo-user ». Je vais chercher une cmdlet qui me permettrait d'afficher cela.
+
+```
+get-command *user*
+```
+
+Je trouve « get-localuser ». J'ai à disposition toutes les propriétés de mon utilisateur. Par défaut, je ne peux pas obtenir le SID de l'utilisateur. Je vais filtrer tout ça.
+
+```
+get-localuser demo-user | select name, SID
+```
+
+Parfait. J'ai à l'écran le nom et le SID de cet utilisateur. Maintenant, je souhaite conserver ces informations dans un fichier.
+
+```
+get-localuser demo-user | select name, SID | out-file "C:\users\demo-user\identity.txt"
+```
+
+En suivant ces étapes, nous avons appris à interagir avec des services et des utilisateurs locaux sur Windows 10. Nous avons utilisé des cmdlets essentielles qui nous permettent d'obtenir et de gérer des informations systèmes avec PowerShell.
+
+Dans cet atelier, nous allons continuer à pratiquer avec la ligne de commande PowerShell, dans le but de nous familiariser avec cette notion d'objet.
+
+Le but de cet atelier va être de chercher les bonnes commandlets, grâce à Get-Command, et à apprendre à les manipuler grâce à Get-Help. De ce fait, nous arriverons à afficher précisément ce qui est demandé dans les consignes.
+
+### Importance de l'aide de PowerShell
+
+Surtout, n'oublions pas l'aide de PowerShell. Lisez l'aide. Elle nous fera gagner un temps précieux.
+
+### Exemples de commandes
+
+Voici quelques exemples de commandes que nous pouvons utiliser :
+
+```
+Get-Command
+```
+
+```
+Get-Help
+```
+
+À vous de jouer !
+
+Dans ce module, nous avons exploré différentes approches pour interagir avec Windows 10.
+
+Nous avons vu qu’il existe plusieurs façons de piloter un système d'exploitation. Avec l'interface graphique, d'abord, nous avons appris à naviguer de manière intuitive et naturelle. Ensuite, grâce à la ligne de commande, nous avons approfondi notre interaction avec le système, permettant ainsi d’accéder à des fonctionnalités avancées. Nous avons également découvert PowerShell, le shell de chez Microsoft, qui s'impose de plus en plus et qui semble tendre à faire disparaître la console cmd.exe.
+
+### Ressources et utilisation de l'aide
+
+Nous avons également pris conscience que pour un technicien, l'aide est omniprésente. Nous devons développer le réflexe d'utiliser l'aide pour construire nos commandes. En agissant de la sorte, nous ferons en sorte que le système utilise les ressources de manière optimisée. Cela nous permettra également de modifier le système, à condition de posséder les privilèges d'administration.
+
+En somme, ce module nous a permis de comprendre les différents outils et moyens d'interagir efficacement avec Windows 10. L'utilisation de l'interface graphique, de la ligne de commande, et de PowerShell, ainsi que le recours à l'aide, sont des atouts essentiels pour un technicien compétent.
+
+## Module 4 - La gestion du stockage
+
+### Objectifs du module
+
+### Présentation du stockage
+
+### Le partitionnement
+
+### Les systèmes de fichiers
+
+### Les disques durs virtuels
+
+### Des outils pour gérer le stockage
+
+### Démonstration - Le stockage local GUI
+
+### Démonstration - Le stockage local Diskpart
+
+### Enoncé du TP - Gestion du stockage
+
+### Conclusion
+
+Référence du document : 1c_HkIgPPzF1QzQvLy0nsrpsSZzmlNClX · SHA-256 3c7c12622492a311…
+
+## Correction · Solution du TP - Devenir autonome avec PowerShell · 3 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Devenir autonome avec PowerShell
+
+TP du Module 03 – Interagir avec Windows 10
+
+#### Proposition de solution
+
+Sur Win10-XX, recherchez les commandes adaptées pour les besoins suivants
+
+- À l'aide d'une console PowerShell, afficher les commandes disponibles sur le système
+
+```
+Get-Command
+```
+
+- À l'aide de la commande précédente, n'afficher que les cmdlets
+
+```
+Get-Command -CommandType Cmdlet
+```
+
+- N'afficher que les cmdlets dont le verbe est Get
+
+```
+Get-Command -CommandType Cmdlet -Name Get-*
+```
+
+ou
+
+```
+Get-Command -Type Cmdlet Get-*
+```
+
+- Quelle cmdlet permet d'afficher la liste des groupes locaux présents sur le système ?
+
+```
+Get-LocalGroup
+```
+
+On peut trouver cette commande en faisant un Get-Command Get-*group*
+
+- Quelles sont les 2 propriétés des groupes locaux que le système affiche par défaut ?
+
+Les deux propriétés sont Name et Description
+
+- Quelles sont les autres propriétés des groupes locaux qui ne sont pas affichés par le système ?
+
+```
+Get-LocalGroup | select *
+```
+
+Il y a trois autres propriétés non affichées par défaut par le système : SID, PrincipalSource et ObjectClass
+
+- Afficher le SID et la source principale du groupe Utilisateurs du bureau à distance
+
+```
+Get-LocalGroup -name "Utilisateurs du Bureau*" | Select SID,PrincipalSource
+```
+
+![Capture du support — Solution du TP - Devenir autonome avec PowerShell](../../../assets/course-sources/isolated/55d43e2a345b7d91/g1-d16-p02-i1.webp)
+
+Capture du support — Solution du TP - Devenir autonome avec PowerShell
+
+![Capture du support — Solution du TP - Devenir autonome avec PowerShell](../../../assets/course-sources/isolated/55d43e2a345b7d91/g1-d16-p02-i2.webp)
+
+Capture du support — Solution du TP - Devenir autonome avec PowerShell
+
+Sur Discovery, recherchez les commandes adaptées pour les besoins suivants
+
+- Quelle commande permet d'afficher les disques durs de la VM Discovery ? Combien de disques durs possède la VM ?
+
+```
+Get-Disk
+```
+
+La VM possède 4 disques durs
+
+- Afficher le numéro et le modèle des disques durs présent sur la VM Discovery
+
+```
+Get-Disk | select Number,Model
+```
+
+Pour la propriété Model, qui n'est pas une propriété affichée par défaut, nous pouvons la trouver en faisant la commande Get-Disk | select * en amont.
+
+- N'afficher que le nom, le type de bus et le fabricant du disque numéro 2
+
+```
+Get-Disk -Number 2 | Select FriendlyName,BusType,ManuFacturer
+```
+
+Nous pouvons trouver les propriétés Nom, type de bus et fabricant à l'aide de la commande Get-Disk | select * en amont.
+
+- Afficher le nom, le statut et la description du pilote de l'adaptateur réseau de la VM
+
+```
+Get-NetAdapter | select Name,Status,DriverDescription
+```
+
+- Afficher les membres du groupe local Administrateurs de la VM Discovery
+
+```
+Get-LocalGroupMember -Name "Administrateurs"
+```
+
+Ou
+
+```
+Get-LocalGroupMember Administrateurs
+```
+
+- Afficher les membres du groupe local Administrateurs de la VM Discovery, mais cette fois-ci, le résultat devra être redirigé dans le fichier AdminMembers.txt, lui-même contenu dans le dossier C:\Users
+
+```
+Get-LocalGroupMember -Name "Administrateurs" > C:\Users\AdminMembers.txt
+```
+
+pour vérifier la présence du fichier et de son contenu
+
+```
+Get-ChildItem c:\Users
+```
+
+pour lister le contenu du dossier C:\Users (AdminMembers.txt doit être présent)
+
+```
+Get-Content c:\Users\AdminMembers.txt
+```
+
+pour afficher le contenu du fichier texte à l'écran
+
+Référence du document : 1S1gP8MhnJVEaWD13JVSCsusyZ68hgRpU · SHA-256 55d43e2a345b7d91…
+
+## Correction · Solution du TP - Manipuler l'aide de PowerShell · 6 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Manipuler l’aide de PowerShell
+
+TP du Module 03 – Interagir avec Windows 10
+
+#### Proposition de solution
+
+Sur Discovery, à l’aide de PowerShell
+
+Affichez l'aide complète de la cmdlet Get-Alias
+
+- Quelle cmdlet avez-vous utilisée ?
+
+```
+Get-Help -Full Get-Alias
+```
+
+Un Get-Help Get-Alias -ShowWindow est aussi possible
+
+Sur Win10-XX, à l'aide de PowerShell
+
+Affichez l'aide complète de la cmdlet Get-Alias
+
+- Pourquoi existe-t-il une si grande différence entre les résultats des cmdlets de ces deux VMs ?
+
+Après avoir effectué la commande sur Win10-XX, nous remarquons qu’elle semble moins fournie. Les exemples ne sont pas présents. On observe surtout la présence d’une section REMARQUES à la fin, qui indique qu’il faut télécharger les fichiers d’aide.
+
+- Mettez à jour l'aide de PowerShell
+
+```
+o Vérifiez, à l'aide de votre interface graphique, que les mises à jour Windows 
+```
+
+Update sont bien reportées à 35 jours au moins. Reportez-les le cas échéant.
+
+Rechercher > Options avancées de Windows Update > Options avancées > Interrompre les mises à jour jusqu’à la date maximale
+
+```
+o Pour communiquer avec le serveur de mise à jour de l’aide, votre VM Win10-
+```
+
+XX aura besoin d'être connectée au switch virtuel Bridge
+
+Dans WorkStation, xlic droit sur l’onglet de votre VM Win10-XX > Settings
+
+Network Adapter
+
+Cochez Bridged
+
+La VM détecte un nouveau réseau.
+
+Pour mettre en place l’emplacement réseau privé, cliquez sur Oui
+
+![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p02-i1.webp)
+
+Capture du support — Solution du TP - Manipuler l'aide de PowerShell
+
+![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p02-i2.webp)
+
+Capture du support — Solution du TP - Manipuler l'aide de PowerShell
+
+Une connexion internet est découverte, Windows 10 en profite pour vous demander de terminer la configuration de votre profil utilisateur. Cliquer sur Me le rappeler plus tard
+
+```
+o Identifiez-vous auprès du serveur à l'aide de vos identifiants / mot de passe du 
+```
+
+domaine
+
+Pour mettre à jour les fichiers d’aide PowerShell, lancer une invite PowerShell en tant qu’administrateur.
+
+```
+Update-help
+```
+
+La mise à jour se lance et est symbolisée par une barre d’avancement comme ci-dessous.
+
+![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p03-i1.webp)
+
+Capture du support — Solution du TP - Manipuler l'aide de PowerShell
+
+![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p03-i2.webp)
+
+Capture du support — Solution du TP - Manipuler l'aide de PowerShell
+
+Si la barre d’avancement n’apparaît pas, c’est que vous avez fait une erreur de syntaxe dans votre commande.
+
+Au bout de quelques minutes, la mise à jour est terminée. Un message d’erreur peut éventuellement apparaître, vous indiquant une mise à jour impossible pour certains modules. Ceci n’est pas bloquant. Vous pouvez continuer le TP, cela correspond généralement à des modules qui ne sont pas installés sur votre ordinateur ou à des modules non disponibles dans la langue demandée.
+
+Pour vérifier la bonne mise à jour de l’aide, effectuez la commande suivante sur votre VM Win10-xx :
+
+```
+Get-Help -Full Get-Alias
+```
+
+Vous devez obtenir l’aide complète (avec des exemples, des liens connexes …)
+
+Une fois la mise à jour effectuée, rebasculez votre VM sur le switch Host-Only.
+
+- Quelle cmdlet permet d'obtenir les exemples de la cmdlet Get-Help ?
+
+```
+Get-Help Get-Help -Example
+```
+
+- À l'aide de ces exemples, recherchez et testez la cmdlet qui permet d'afficher la liste de tous les concepts disponible et utilisable dans PowerShell
+
+Voir l’exemple 8 de la commande précédente Get-Help
+
+```
+Get-Help about_*
+```
+
+- Quelle cmdlet nous permet d'en apprendre plus sur le concept d'alias PowerShell ?
+
+![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p04-i1.webp)
+
+Capture du support — Solution du TP - Manipuler l'aide de PowerShell
+
+```
+o Affichez le résultat de cette cmdlet dans une fenêtre d'aide séparée 
+```
+
+```
+Get-Help about_Aliases -ShowWindow
+```
+
+- Les alias configurés sont-ils conservés si la session PowerShell est fermée ? Quelle section de l’aide faut-il consulter pour savoir comment les sauvegarder ?
+
+Les alias configurés ne sont pas conservés si la session PowerShell est fermée. La section de l’aide qu’il faut consulter pour savoir comment les configurer est la section SAVING ALIASES
+
+```
+SAVING ALIASES 
+```
+
+```
+The aliases that you create are saved only in the current session. To use the 
+aliases in a different session, add the alias to your Windows PowerShell profile. 
+Or, use the Export-Alias cmdlet to save the aliases to a file. 
+```
+
+```
+For more information, type: 
+```
+
+```
+Get-Help about_Profiles 
+```
+
+- PowerShell réalise un historique des commandes saisies. Utilisez l’aide pour déterminer le nom de la variable qui définit le nombre de commandes qui sont conservées dans l’historique. (indice : une variable commence par le caractère $)
+
+```
+Get-Help about_History 
+```
+
+```
+[…] 
+```
+
+```
+MaximumHistoryCount 
+```
+
+```
+The $MaximumHistoryCount preference variable determines the maximum number of 
+commands that PowerShell saves in the command history. The default value is 4096. 
+```
+
+```
+For example, the following command lowers the $MaximumHistoryCount to 100 
+commands: 
+```
+
+```
+    $MaximumHistoryCount = 100 
+```
+
+```
+To apply the setting, restart PowerShell. 
+```
+
+- Quelle est la valeur par défaut contenue dans cette variable ? Cette valeur peut-elle être modifiée ?
+
+Selon le résultat de la commande précédente, la valeur par défaut contenue dans cette variable est 4096. Elle peut être modifiée grâce à la commande
+
+```
+$MaximumHistoryCount = nb
+```
+
+Référence du document : 1yGmA6pJmkgyfQY1BuRR4tN-rapddhBZX · SHA-256 5602b57b41f6a32e…
+
+## Correction · Solution du TP - Premiers pas avec PowerShell · 2 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Premiers pas avec PowerShell
+
+TP du Module 03 – Interagir avec Windows 10
+
+#### Proposition de solution
+
+Sur la VM Win10-XX
+
+Pour une meilleure lisibilité, personnalisez votre fenêtre PowerShell
+
+- Changez la police et la taille de la police
+
+- Agrandissez votre fenêtre
+
+Faire le focus dans la fenêtre puis "CTRL + Scroll souris vers le haut" pour agrandir la taille de la fenêtre et la taille de la police en même temps Sur la VM Win10-XX, une fois votre fenêtre PowerShell prête, interagissez avec votre système à l'aide des cmdlets
+
+- Quelle version de PowerShell est installée sur votre système ?
+
+```
+$PSVersionTable
+```
+
+Ou
+
+```
+Get-Host
+```
+
+- Affichez le contenu du répertoire courant
+
+```
+o Quelle cmdlet avez-vous utilisée ? 
+```
+
+```
+Get-ChildItem
+```
+
+- Affichez le contenu du répertoire c:\users
+
+```
+o Quelle cmdlet avez-vous utilisée ? 
+```
+
+```
+Get-ChildItem -Path C:\Users
+```
+
+- Affichez la liste des alias PowerShell
+
+```
+o Quelle cmdlet avez-vous utilisée ? Quels sont les alias de la cmdlet Get-
+```
+
+ChildItem ?
+
+```
+Get-Alias
+```
+
+Les alias de la cmdlet Get-ChildItem sont : dir, gci, ls
+
+Faites un snapshot TP04 terminé
+
+Sur la VM DiscoveryXX
+
+- Ouvrez une session avec l'utilisateur adm (mot de passe fourni par le formateur) puis interagissez avec votre système à l'aide des cmdlets.
+
+- Affichez le contenu du fichier C:\PowerShell\Intro.txt
+
+```
+o Quelle cmdlet avez-vous utilisée ? 
+```
+
+Avec la cmdlet Get-Content ou avec les alias gc, type ou cat
+
+On peut trouver la réponse dans le fichier texte à l'aide du bloc-notes ou en tapant dans la console PowerShell > notepad.exe c:\PowerShell\Intro.txt
+
+- Dans quel répertoire êtes-vous actuellement ? Déplacez-vous à la racine du lecteur C:\
+
+```
+Set-location c:\
+```
+
+Indice pour trouver : s'aider de la liste des alias
+
+La commande cd a été vue dans la correction du TP précédent : cd -> set-location
+
+Référence du document : 1Yc2TRDRMLWOSwrofB30RAEH7Ppa5SWk7 · SHA-256 8b3c1392116b3582…
+
+## Correction · Solution du TP - Prise en main de la cmd · 2 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Prise en main de la cmd
+
+TP du Module 03 – Interagir avec Windows 10
+
+#### Proposition de solution
+
+Sur la VM Win10-XX, à l'aide de votre interface graphique
+
+Pour une meilleure lisibilité, personnalisez votre fenêtre cmd
+
+- Changez la police en consolas taille 24
+
+- Changez les couleurs de la police et de l'arrière-plan
+
+Clic gauche en haut à gauche de la fenêtre cmd > Propriétés
+
+Onglet Police, onglet Couleurs …
+
+Sinon il faut faire le focus dans la fenêtre puis "CTRL + Scroll souris vers le haut" pour agrandir la taille de la fenêtre et la taille de la police en même temps
+
+Sur la VM Win10-XX, une fois votre fenêtre cmd.exe prête, interagissez avec votre système à l'aide de la ligne de commande
+
+- Affichez les commandes internes disponibles
+
+Dans l’interface en ligne de commande, tapez help
+
+- Affichez l'aide de la commande cd. Quelle est son utilité ?
+
+```
+help cd
+```
+
+--- ou ---
+
+```
+cd / ?
+```
+
+Pour connaître l'utilité d'une commande, il suffit de lire la première ligne de l'aide (que l'on appelle le synopsis)
+
+```
+help cd Affiche le nom ou change le répertoire en cours. CHDIR [/D] [lecteur:][chemin] CHDIR [..] CD [/D] [lecteur:][chemin] CD [..] […]
+```
+
+- Placez-vous à la racine du lecteur C
+
+```
+cd c:\
+```
+
+- Créez un répertoire CommandList à la racine du lecteur C
+
+```
+md CommandList
+```
+
+--- ou ---
+
+```
+mkdir Commandlist
+```
+
+- Dans le répertoire c:\CommandList, créez un fichier InternalCommands.txt qui recense la liste des commandes internes disponible.
+
+```
+help > c:\CommandList\InternalCommands.txt
+```
+
+- Pour vérification, affichez le contenu du fichier InternalCommands.txt
+
+```
+type c:\CommandList\InternalCommands.txt
+```
+
+- Copiez ce fichier sur le bureau (indice : votre bureau est un sous-répertoire présent dans c:\users)
+
+```
+copy c:\CommandList\InternalList.txt c:\users\pnom\Desktop
+```
+
+pnom est l’utilisateur que vous avez créé lors de l’installation de Windows 10
+
+Possibilité d'utiliser xcopy et robocopy en lieu et place de copy
+
+- Affichez la liste de tous les fichiers et sous-répertoires contenus dans votre dossier bureau. Le résultat devra afficher la liste triée par la taille (ordre croissant)
+
+```
+dir /A /OS c:\users\prenom\Desktop
+```
+
+Faites un snapshot TP03 terminé
+
+Référence du document : 1QxCSo0lx5cjXjZ-U0idgLtRUQBWs7tKa · SHA-256 6f0af0c05077a188…
+
+## Correction · Solution du TP - Prise en main de l'interface graphique · 3 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Prise en main de l’interface graphique
+
+TP du Module 03 – Interagir avec Windows 10
+
+#### Proposition de solution
+
+Sur la VM Win10-XX
+
+- Ouvrez une session sur le système puis changez le mot de passe.
+
+Faites CTRL+ALT+SUPPR dans votre VM puis changer de mot de passe
+
+- Supprimez les raccourcis Windows Store et Courrier de votre barre des tâches. Ajoutez-y ensuite un raccourci Windows PowerShell
+
+Clic droit sur les icônes du bureau > Détacher de la barre des tâches
+
+Rechercher > PowerShell > clic droit > Epingler à la barre des tâches
+
+- Interrompre temporairement l'installation des mises à jour Windows Update pendant 35 jours au plus.
+
+Rechercher > Windows Update
+
+Options avancées de Windows Update
+
+Options avancées
+
+Interrompre les mises à jour > Suspendre les mises à jour au maximum
+
+- Quel nom porte votre "PC" ? (Indice : DESKTOP-…)
+
+Rechercher > Nom > Afficher le nom de votre PC
+
+- Renommez votre "PC". Il portera le même nom que votre VM
+
+Rechercher > Nom > Afficher le nom de votre PC
+
+Renommer ce PC
+
+Un redémarrage est nécessaire
+
+Après le redémarrage, vérifiez la bonne prise en compte du nouveau nom.
+
+- Créez une console mmc personnalisée. Elle vous permettra de configurer les disques, les utilisateurs et les groupes ainsi que les partages. Cette console devra être disponible depuis votre bureau.
+
+Démarrer > Exécuter > mmc
+
+Fichier > Ajouter/supprimer des composants logiciels enfichables
+
+Gestion des disques > Cet ordinateur > Ajouter
+
+Utilisateurs et groupes locaux > l'ordinateur local > Ajouter
+
+Dossiers partagés > l'ordinateur local > Ajouter
+
+OK
+
+Fichier > Enregistrer sous > Bureau > MaConsole.msc
+
+- Personnalisez le papier peint du bureau
+
+Clic droit n’importe où sur le bureau > Personnaliser
+
+- Désactiver la mise en veille du système
+
+Rechercher > Veille > Modifier les conditions de mise en veille de l'ordinateur
+
+Ecran > jamais
+
+Veille > jamais
+
+Sur la VM Discovery
+
+- Ouvrez une session avec l'utilisateur adm (mot de passe fourni par le formateur)
+
+- Quels sont les composants logiciels enfichables disponibles dans la console admConsole disponible sur le bureau ?
+
+Ouvrir la console admConsole et observer les logiciels enfichables présents :
+
+- Gestion de l’ordinateur
+
+- Gestionnaires de périphériques
+
+- Services
+
+- Renommez l'OS, il portera le nom DiscoveryXX (XX étant vos initiales)
+
+Rechercher > nom > Afficher le nom de votre PC
+
+Renommer ce PC
+
+Un redémarrage est nécessaire
+
+Après le redémarrage, vérifiez la bonne prise en compte du nouveau nom
+
+![Capture du support — Solution du TP - Prise en main de l'interface graphique](../../../assets/course-sources/isolated/682abcc6af3d6b94/g1-d20-p02-i1.webp)
+
+Capture du support — Solution du TP - Prise en main de l'interface graphique
+
+- Interrompre temporairement l'installation des mises à jour Windows Update pendant 35 jours au plus.
+
+Rechercher > Windows Update
+
+Options avancées de Windows Update
+
+Options avancées
+
+Interrompre les mises à jour > Suspendre les mises à jour au maximum
+
+Référence du document : 1GWeB_652YkPJ1mtM893U4PtZt55btgXi · SHA-256 682abcc6af3d6b94…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
+| --- | --- |
+| Tour d’horizon graphique | Les consoles MMC préconfigurées et personnalisées. |
+| Tour d’horizon — la CLI | Outre l’interface graphique GUI, l’interface ligne de commande CLI : - Le shell `cmd.exe`, command prompt, pour « aiguiser » le système de manière plus « pointue ». |
+| La syntaxe de l’aide | La commande `help [<commande>]` est indispensable. |
+| Démonstration | Utilisation de la ligne de commande `cmd.exe`. |
+| Présentation de PowerShell | Dernier shell Microsoft dans le contexte du support. |
+| Présentation de PowerShell | La console texte native : possibilité d’ouvrir la console avec les droits administrateurs. |
+| Cmdlets de base et objets | Un objet PowerShell s’apparente à un objet du monde réel. |
+| Conclusion | Différentes façons de piloter un système d’exploitation : interface graphique, ligne de commande et PowerShell. |
+| Synthèse du Drive · Synthèse Module 3 - Interaction Windows 10, CLI, PowerShell & Excel V2 · 2 pages transcrites | Les synthèses Windows 10 de ce dossier sont rattachées au cours Systèmes clients. |
+| Notions essentielles de Microsoft Excel — tableau | Référence du document : 1YVfR8rQcbF2RA_I23MsPVH7NZ4auK9h7bqBPOA7d4DE · SHA-256 4c9890b1b02f43e4… |
+| Notes du Drive · module 3 et 4 system clients microsoft.txt · document texte | Notes textuelles présentes dans le Drive. |
+| Correction · Solution du TP - Devenir autonome avec PowerShell · 3 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
+| Correction · Solution du TP - Manipuler l'aide de PowerShell · 6 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
+| Correction · Solution du TP - Premiers pas avec PowerShell · 2 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
+| Correction · Solution du TP - Prise en main de la cmd · 2 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
+| Correction · Solution du TP - Prise en main de l'interface graphique · 3 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
