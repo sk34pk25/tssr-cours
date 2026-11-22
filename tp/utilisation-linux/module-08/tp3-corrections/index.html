@@ -17325,7 +17325,10 @@ Les alias sont à définir puis à appeler dans le shell interactif, avec des va
         flowchart: { htmlLabels: true, curve: "basis" }
       });
       var scope = root && root.querySelectorAll ? root : document;
-      var diagrams = Array.from(scope.querySelectorAll(".mermaid:not([data-processed='true'])"));
+      var diagrams = Array.from(scope.querySelectorAll(".mermaid:not([data-processed='true'])")).filter(function (diagram) {
+        return !!(diagram.offsetWidth || diagram.offsetHeight || diagram.getClientRects().length);
+      });
+      if (!diagrams.length) return;
       diagrams.forEach(function (diagram) {
         diagram.dataset.tssrSource = diagram.textContent.trim();
       });
@@ -17348,6 +17351,12 @@ Les alias sont à définir puis à appeler dans le shell interactif, avec des va
       });
       window.renderTssrMermaid();
     }).observe(document.body, { attributes: true, attributeFilter: ["data-md-color-scheme"] });
+    document.addEventListener("change", function (event) {
+      var input = event.target;
+      if (!input || !input.matches || !input.matches(".tabbed-set > input[type='radio']")) return;
+      var set = input.closest(".tabbed-set");
+      window.setTimeout(function () { window.renderTssrMermaid(set); }, 50);
+    });
     if (typeof document$ !== "undefined") {
       document$.subscribe(function () { window.renderTssrMermaid(); });
       window.renderTssrMermaid();
