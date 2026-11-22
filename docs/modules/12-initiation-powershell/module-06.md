@@ -766,11 +766,11 @@ Les lignes reprennent les titres du cours et la première phrase de chaque parti
 | Démonstration · Fiche démo 1 - L’authentification · 1 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
 | Énoncé · Énoncé du TP - Activités pour aller plus loin · 1 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
 | Énoncé · Consigne-creation_objets_ad_v6-Q1.ps1 · document texte | Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». |
-| Indiquer l'action | $base = Get-ADOrganizationalUnit -Filter { name -like "_Ent*" } New-ADOrganizationalUnit Groupes -Path $base -ProtectedFromAccidentalDeletion $false New-ADOrganizationalUnit Uti… |
-| Indiquer l'action | Set-ADUser -Identity isabelle -Title "Administratrice SR" -OfficePhone "666" Set-ADUser -Identity ivan -title "Support Technique" $mutil = get-aduser -Filter { samaccountname -e… |
-| Parametrages complementaires | Set-ADAccountExpiration -Identity "christophe" -DateTime "01/01/2021" $unames = @("david","isabelle","christelle") $mdp = 'fourni par le formateur' foreach ($uname in $unames) {… |
-| Indiquer l'action | $ubase = Get-ADOrganizationalUnit -Filter { name -eq "Utilisateurs" } New-ADOrganizationalUnit S_Direction -Path $ubase -ProtectedFromAccidentalDeletion $false New-ADOrganizatio… |
-| Indiquer l'action | $base = Get-ADOrganizationalUnit -Filter { name -like "_Ent*" } Get-ADOrganizationalUnit -filter * -SearchBase $base / ft name,DistinguishedName -AutoSize |
+| Indiquer l'action | $base = Get-ADOrganizationalUnit -Filter ｛ name -like "_Ent*" ｝ New-ADOrganizationalUnit Groupes -Path $base -ProtectedFromAccidentalDeletion $false New-ADOrganizationalUnit Uti… |
+| Indiquer l'action | Set-ADUser -Identity isabelle -Title "Administratrice SR" -OfficePhone "666" Set-ADUser -Identity ivan -title "Support Technique" $mutil = get-aduser -Filter ｛ samaccountname -e… |
+| Parametrages complementaires | Set-ADAccountExpiration -Identity "christophe" -DateTime "01/01/2021" $unames = @("david","isabelle","christelle") $mdp = 'fourni par le formateur' foreach ($uname in $unames) ｛… |
+| Indiquer l'action | $ubase = Get-ADOrganizationalUnit -Filter ｛ name -eq "Utilisateurs" ｝ New-ADOrganizationalUnit S_Direction -Path $ubase -ProtectedFromAccidentalDeletion $false New-ADOrganizatio… |
+| Indiquer l'action | $base = Get-ADOrganizationalUnit -Filter ｛ name -like "_Ent*" ｝ Get-ADOrganizationalUnit -filter * -SearchBase $base / ft name,DistinguishedName -AutoSize |
 | Indiquer l'action | Get-ADGroupMember G_Info / select name,distinguishedname / Out-File -Encoding utf8 "c:\ctrl_membres_informatique.txt" Get-ADUser david / out-file -Encoding utf8 "c:\detail_user_… |
 | Énoncé · Consigne-Tp6-Q2.ps1 · document texte | Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». |
 | Redirecteurs | Add-DnsServerConditionalForwardedZone -ZoneName "gilles.lab" -MasterServers 172.20.0.1 Set-DnsServerconditionalForwarder -IPAddress 10.0.0.3,10.100.0.3 -PassThru |
@@ -781,10 +781,10 @@ Les lignes reprennent les titres du cours et la première phrase de chaque parti
 | Zones | Add-DnsServerPrimaryZone -Name "ad.gilles.lab" -ZoneFile "ad.gilles.lab.dns" Add-DnsServerResourceRecord -A -Name "s2-w-cd.gilles.lab." -IPv4Address 172.20.0.1 -ZoneName "ad.gil… |
 | Ou | Add-DnsServerResourceRecord -NS -Name "ad.gilles.lab" -NameServer "s4-w-sm.gilles.lab" -ZoneName "ad.gilles.lab" Add-DnsServerResourceRecord -A -Name "s4-w-sm.gilles.lab." -IPv4… |
 | Correction · Correction-creation_objets_ad_v6-Q1.ps1 · document texte | Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». |
-| Variable localisation chemin dans AD | $base = Get-ADOrganizationalUnit -Filter { name -like "_Ent*" } New-ADOrganizationalUnit Groupes -Path $base -ProtectedFromAccidentalDeletion $false New-ADOrganizationalUnit Uti… |
-| Parametrage complementaires | Set-ADUser -Identity isabelle -Title "Administratrice SR" -OfficePhone "666" Set-ADUser -Identity ivan -title "Support Technique" $mutil = get-aduser -Filter { samaccountname -e… |
-| Parametrages complementaires | Set-ADAccountExpiration -Identity "christophe" -DateTime "01/01/2021" $unames = @("david","isabelle","christelle") $mdp = 'fourni par le formateur' foreach ($uname in $unames) {… |
-| Variable localisation chemin objets utilisateurs dans AD | $ubase = Get-ADOrganizationalUnit -Filter { name -eq "Utilisateurs" } New-ADOrganizationalUnit S_Direction -Path $ubase -ProtectedFromAccidentalDeletion $false New-ADOrganizatio… |
-| Liste de toutes les OU | $base = Get-ADOrganizationalUnit -Filter { name -like "_Ent*" } Get-ADOrganizationalUnit -filter * -SearchBase $base / ft name,DistinguishedName -AutoSize |
+| Variable localisation chemin dans AD | $base = Get-ADOrganizationalUnit -Filter ｛ name -like "_Ent*" ｝ New-ADOrganizationalUnit Groupes -Path $base -ProtectedFromAccidentalDeletion $false New-ADOrganizationalUnit Uti… |
+| Parametrage complementaires | Set-ADUser -Identity isabelle -Title "Administratrice SR" -OfficePhone "666" Set-ADUser -Identity ivan -title "Support Technique" $mutil = get-aduser -Filter ｛ samaccountname -e… |
+| Parametrages complementaires | Set-ADAccountExpiration -Identity "christophe" -DateTime "01/01/2021" $unames = @("david","isabelle","christelle") $mdp = 'fourni par le formateur' foreach ($uname in $unames) ｛… |
+| Variable localisation chemin objets utilisateurs dans AD | $ubase = Get-ADOrganizationalUnit -Filter ｛ name -eq "Utilisateurs" ｝ New-ADOrganizationalUnit S_Direction -Path $ubase -ProtectedFromAccidentalDeletion $false New-ADOrganizatio… |
+| Liste de toutes les OU | $base = Get-ADOrganizationalUnit -Filter ｛ name -like "_Ent*" ｝ Get-ADOrganizationalUnit -filter * -SearchBase $base / ft name,DistinguishedName -AutoSize |
 | Deplacement des objets - à préciser | Get-ADGroupMember G_Info / select name,distinguishedname / Out-File -Encoding utf8 "c:\ctrl_membres_informatique.txt" Get-ADUser david / out-file -Encoding utf8 "c:\detail_user_… |
 | Énoncé · revue-Énoncé du TP - Activités pour aller plus loin.docx · document texte | Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». |
