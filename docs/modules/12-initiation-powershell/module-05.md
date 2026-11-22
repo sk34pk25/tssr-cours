@@ -1,236 +1,1230 @@
 # Module 05 — Réalisation d’un script
 
-## Objectifs
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-À l’issue du module, vous devez pouvoir préparer un script PowerShell, le tester progressivement, le commenter et organiser les commandes nécessaires à un scénario de laboratoire. Le module présente aussi les IDE, la gestion des erreurs, les fonctions et l’exécution de commandes à distance.
+## Parcours de lecture
 
-## Préparer un script
+1. Support · Module 05 - Support de cours · 18 pages transcrites
+2. Démonstration · Fiche démo 4 - L’enchaînement des commandes · 1 pages transcrites
+3. Démonstration · Fiche démo 1 - Les IDE - ISE · 4 pages transcrites
+4. Démonstration · Fiche démo 2 - Visual Studio Code · 2 pages transcrites
+5. Démonstration · Fiche démo 3 - Les commentaires · 1 pages transcrites
+6. Démonstration · Fiche démo 5 - La gestion des erreurs · 2 pages transcrites
+7. Démonstration · Fiche démo 6 - Le Try Catch Finally · 2 pages transcrites
+8. Démonstration · Fiche démo 7 - Les fonctions · 2 pages transcrites
+9. Démonstration · Fiche démo 8 - Le Remoting · 2 pages transcrites
+10. Démonstration · Fiche démo 9 - Le Invoke-Command · 1 pages transcrites
+11. Énoncé · Énoncé du TP - Outils pour le scripting · 3 pages transcrites
+12. Correction · Solution du TP - Outils pour le scripting · 3 pages transcrites
 
-Avant d’écrire un script, les sources demandent de déterminer son utilité, de décrire le comportement attendu et de formaliser un algorithme. La mise au point se fait étape par étape : tester les lignes, vérifier le résultat, puis améliorer l’algorithme. Les commentaires servent à expliciter la mission d’un ensemble de commandes et les résultats attendus.
+**Visuel externe**
 
-## Écrire dans un IDE
-
-PowerShell ISE est présenté comme un environnement dédié au script PowerShell : zone de script, sortie de console et fenêtre de commandes. Les sources y associent personnalisation, complétion, coloration syntaxique et détection d’erreurs.
-
-Visual Studio Code est présenté comme un environnement multiplateforme, extensible, avec console, thèmes, coloration et complétion. Les versions citées par les documents sont historiques : elles ne constituent pas une recommandation actuelle.
-
-## Commenter et enchaîner
-
-Les formes de commentaire attestées sont :
-
-```powershell
-# commentaire
-commande # commentaire éventuel
-<#
-commentaire multiligne
-#>
+```mermaid
+flowchart TD
+    N1["Support · Module 05 - Support de cours · 18 pages transcrites"]
+    N2["Démonstration · Fiche démo 4 - L’enchaînement des commandes · 1 pages transcrites"]
+    N3["Démonstration · Fiche démo 1 - Les IDE - ISE · 4 pages transcrites"]
+    N4["Démonstration · Fiche démo 2 - Visual Studio Code · 2 pages transcrites"]
+    N5["Démonstration · Fiche démo 3 - Les commentaires · 1 pages transcrites"]
+    N6["Démonstration · Fiche démo 5 - La gestion des erreurs · 2 pages transcrites"]
+    N7["Démonstration · Fiche démo 6 - Le Try Catch Finally · 2 pages transcrites"]
+    N8["Démonstration · Fiche démo 7 - Les fonctions · 2 pages transcrites"]
+    N9["Démonstration · Fiche démo 8 - Le Remoting · 2 pages transcrites"]
+    N10["Démonstration · Fiche démo 9 - Le Invoke-Command · 1 pages transcrites"]
+    N11["Énoncé · Énoncé du TP - Outils pour le scripting · 3 pages transcrites"]
+    N12["Correction · Solution du TP - Outils pour le scripting · 3 pages transcrites"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+    N8 --> N9
+    N9 --> N10
+    N10 --> N11
+    N11 --> N12
 ```
 
-Le point-virgule permet d’enchaîner des commandes sur une ligne sans rendre la suivante dépendante du résultat de la précédente. Le caractère backtick permet de répartir une commande ou ses paramètres sur plusieurs lignes.
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-## Gérer les erreurs
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-Les erreurs du shell courant sont conservées dans `$Error` ; `$Error[0]` correspond à la dernière erreur indiquée par les sources. Pour une commande ciblée, `-ErrorVariable` permet de désigner une autre variable de consignation. Le comportement est géré par `-ErrorAction` pour une commande ou par `$ErrorActionPreference` pour l’environnement courant.
+## Support · Module 05 - Support de cours · 18 pages transcrites
 
-Les valeurs documentées sont `Continue`, `Ignore`, `Inquire`, `SilentlyContinue`, `Stop` et `Suspend`. `Suspend` est conservé comme valeur historique attestée par les sources, sans être présenté comme une recommandation universelle.
+!!! note "À retenir"
+    Les formulations historiques et les exemples du document sont conservés.
 
-## Try, Catch et Finally
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
 
-La structure documentée exécute un traitement, gère un échec et exécute une étape finale :
+### Initiation à PowerShell
 
-```powershell
-Try {
-    # traitement source
-}
-Catch {
-    # traitement en cas d’erreur
-}
-Finally {
-    # traitement final
-}
-```
+Module 05 – Réalisation d’un script
 
-Les documents montrent l’emploi de `-ErrorAction Stop` pour rendre le traitement `Catch` applicable, ainsi que des exemples de tests dans `ForEach`. Le module ne développe pas une hiérarchie générale d’exceptions.
+### Objectifs
 
-## Réutiliser avec des fonctions
+- Mettre en place un script fonctionnel
 
-Une fonction évite de répéter des lignes de commandes et doit être déclarée avant son appel. Les sources montrent une déclaration `Function`, des paramètres avec `Param(...)`, un paramètre obligatoire `[Parameter(Mandatory=$True)]`, le type `[String]` et le retour d’une valeur dans un scénario donné.
+### Comment structurer un script
 
-```powershell
-function Get-DateDuJour {
-    Get-Date -Format 'yyyy-MM-dd'
-}
-Get-DateDuJour
-```
+!!! note "À retenir"
+    Avant d’entreprendre la rédaction d’un script, il est nécessaire de : Déterminer son utilité Décrire le mode de fonctionnement attendu Formaliser un algorithme de son fonctionnement L’algorithmique est la clé de voûte du Scripting.
 
-## Exécuter à distance dans le scénario de laboratoire
-
-Le remoting PowerShell s’appuie sur WS-Man et WinRM. Les sources attestent `Enable-PSRemoting`, `New-PSSession`, `Enter-PSSession`, `Exit-PSSession`, `Disconnect-PSSession`, `Connect-PSSession`, `Get-PSSession` et `Remove-PSSession`, ainsi que l’import de commandes depuis une session distante.
-
-`Invoke-Command`, `-ComputerName`, `-ScriptBlock` et `$Using:Variable` sont utilisés pour demander l’exécution distante sans session interactive préalable, notamment sur plusieurs machines dans un contexte de laboratoire.
-
-> **Précaution.** L’activation du remoting, l’exécution distante et le scénario d’action sur des postes ont un impact sur un environnement. Ils sont décrits ici uniquement comme manipulations de laboratoire source-faithful : ne les exécutez pas sur une machine réelle sans autorisation, contrôle et valeurs de laboratoire appropriées.
-
-## Vérifier et retenir
-
-- Décrire le comportement attendu avant d’écrire le script.
-- Tester progressivement et commenter les intentions du script.
-- Choisir le comportement d’erreur documenté pour le scénario.
-- Déclarer une fonction avant de l’appeler et expliciter ses paramètres.
-- Distinguer session distante, gestion de session et commande distante.
-
-## Écrire, exécuter et contrôler par étapes
-
-Le support part d’un algorithme du quotidien pour distinguer les entrées, les actions, les tests et la boucle. Pour le TP, l’entrée est le nom du service. Le résultat attendu est un objet service si ce nom existe et un message explicite si la recherche échoue. Tester une ligne, puis une fonction, avant de l’intégrer au script complet.
-
-L’ISE du support réunit l’éditeur de script, la console de sortie et le panneau de commandes. Visual Studio Code présente l’éditeur, le terminal, l’explorateur, les extensions et leurs notifications. L’extension PowerShell permet la complétion et l’aide au débogage. Le choix de la console détermine la version du moteur qui exécute le script.
-
-Le caractère `#` commente la fin de ligne et `<# ... #>` délimite un bloc de commentaire. Un commentaire utile précise le rôle d’une condition ou la raison d’un choix. Le caractère `;` sépare deux commandes. Un pipeline `|` transmet les objets. Avec PowerShell 7, `&&` et `||` enchaînent selon le succès ou l’échec de la commande précédente. [Opérateurs d’enchaînement PowerShell](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_Pipeline_Chain_Operators).
-
-Le support présente l’accent grave comme continuation de ligne. Un espace après cet accent peut rompre la continuation. Une table de paramètres facilite la lecture des commandes longues.
-
-```powershell
-$parametres = @{
-    Name = 'Spooler'
-    ErrorAction = 'Stop'
-}
-Get-Service @parametres
-```
-
-## Observer les erreurs selon leur effet
-
-`$Error[0]` donne l’erreur la plus récente de la session. `-ErrorVariable erreurs` collecte les erreurs de la commande dans une variable de ce nom. Le paramètre reçoit le nom `erreurs` et `$erreurs` désigne son contenu après l’appel. `$ErrorActionPreference` règle le comportement par défaut dans la portée concernée.
-
-| Valeur du support | Effet à observer |
-| --- | --- |
-| `Continue` | Affiche l’erreur non bloquante et poursuit le traitement possible |
-| `SilentlyContinue` | Poursuit sans afficher cette erreur, qui peut rester dans `$Error` |
-| `Ignore` | Ignore cette erreur non bloquante sans l’ajouter à `$Error` |
-| `Inquire` | Demande une décision sur la poursuite |
-| `Stop` | Transforme une erreur non bloquante de la commande en erreur interceptable |
-| `Suspend` | Cas historique des workflows présenté par la table du support |
-
-Une erreur non bloquante ne déclenche pas systématiquement `catch`. `-ErrorAction Stop` convient lorsque l’échec doit passer dans `catch`. `finally` exécute le nettoyage ou le message de fin lors de la sortie de ce bloc. [Gestion des erreurs PowerShell](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_error_handling).
-
-```powershell
-function Find-LabService {
-    param(
-        [Parameter(Mandatory)]
-        [ValidateNotNullOrEmpty()]
-        [string]$Name
-    )
-    try {
-        Get-Service -Name $Name -ErrorAction Stop -ErrorVariable erreurs
-    } catch {
-        Write-Warning "Recherche de $Name impossible. $($_.Exception.Message)"
-    } finally {
-        Write-Verbose 'Fin de la recherche'
-    }
-}
-Find-LabService -Name Spooler
-```
-
-Une fonction définit des paramètres pour éviter de dupliquer la logique. Déclarez-la avant l’appel. Les objets produits peuvent être repris dans une autre commande. `Write-Host` affiche un message à l’utilisateur. L’exemple de la démonstration `FindUsers` cherche un objet puis produit un message si la recherche ne renvoie rien. Vérifier le type de retour avant de l’utiliser dans un pipeline.
-
-## Distinguer une session et une commande distante
+**Visuel externe**
 
 ```mermaid
 flowchart LR
-    A["Console locale"] --> B["New-PSSession"]
-    B --> C["Session sur le serveur"]
-    C --> D["Enter-PSSession<br/>travail interactif"]
-    C --> E["Invoke-Command<br/>commande ou bloc"]
-    C --> F["Remove-PSSession<br/>libérer la session"]
+    N1["Avant d’entreprendre la rédaction d’un script, il est nécessaire de :"]
+    N2["Déterminer son utilité"]
+    N3["Décrire le mode de fonctionnement attendu"]
+    N4["Formaliser un algorithme de son fonctionnement"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
-*Schéma pédagogique externe au cours.*
+- Avant d’entreprendre la rédaction d’un script, il est nécessaire de :
+- Déterminer son utilité
+- Décrire le mode de fonctionnement attendu
+- Formaliser un algorithme de son fonctionnement
+- L’algorithmique est la clé de voûte du Scripting. La diapositive suivante illustre l’approche algorithmique de la préparation des pâtes.
 
-Dans la maquette Windows, `Enable-PSRemoting` prépare la réception des connexions WinRM, ce qui configure des services et règles du poste cible. `Enter-PSSession` ouvre une session interactive. `Exit-PSSession` en sort. Une session créée dans une variable peut rester ouverte et servir à plusieurs `Invoke-Command`. L’exemple du support déconnecte puis reconnecte une session WinRM et montre l’import d’un module distant dans la console locale. Les prérequis dépendent du transport et de l’hôte. [Prérequis Microsoft du remoting](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_remote_requirements?view=powershell-7.6).
+### Comment structurer un script
 
-```powershell
-$serveur = Read-Host 'Nom du serveur de laboratoire'
-$session = New-PSSession -ComputerName $serveur
-Invoke-Command -Session $session -ScriptBlock { Get-Service -Name Spooler }
-Remove-PSSession -Session $session
+#### Algorithme 1 — préparation des pâtes
+
+!!! note "À retenir"
+    Remplir une casserole d’eau La mettre sur le feu Mettre les pâtes dans la casserole Les laisser cuire 10 à 15 minutes Les égoutter L’eau ne bout pas, le temps de cuisson est faux !
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Remplir une casserole d’eau"]
+    N2["La mettre sur le feu"]
+    N3["Mettre les pâtes dans la casserole"]
+    N4["Les laisser cuire 10 à 15 minutes"]
+    N5["Les égoutter"]
+    N6["L’eau ne bout pas, le temps de cuisson est faux !"]
+    N7["Elles risquent d’être fades…"]
+    N8["Durée exacte en fonction du type de pâtes ?"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
 ```
 
-Le bloc distant s’exécute dans son propre contexte. Passez les valeurs avec `param()` et `-ArgumentList`, ou avec `$using:variable`. `Invoke-Command -ComputerName` accepte plusieurs cibles. Les objets retournés peuvent être désérialisés. L’accès à une troisième machine depuis la session distante représente le second saut, dont les droits dépendent de la méthode d’authentification configurée.
+1. Remplir une casserole d’eau
+2. La mettre sur le feu
+3. Mettre les pâtes dans la casserole
+4. Les laisser cuire 10 à 15 minutes
+5. Les égoutter
 
-Le TP demande d’identifier les ordinateurs AD avant une opération d’arrêt. Le code source filtre un chemin d’annuaire. Pour vérifier le résultat, dresser d’abord la liste des cibles, vérifier séparément les contrôleurs de domaine et limiter le test aux machines de la maquette prévues à cet effet.
+- L’eau ne bout pas, le temps de cuisson est faux !
+- Elles risquent d’être fades…
+- Durée exacte en fonction du type de pâtes ?
 
-## TP guidé
+#### Proposition de préparation des pâtes
 
-### Tester les services et garder les erreurs pour le bilan
+!!! note "À retenir"
+    Remplir une casserole d’eau Mettre du sel La mettre sur le feu Laisser bouillir Mettre les pâtes dans la casserole En fonction du type de pâtes, définir la durée de la cuisson Les égoutter
 
-Dans l’éditeur du TP, tester un service connu puis un nom inexistant. Capturer les erreurs de la commande sans affichage immédiat et afficher un bilan unique après la boucle. Réunir ensuite cette logique dans une fonction qui reçoit les noms.
+**Visuel externe**
 
-```powershell
-function Test-LabService {
-    param([Parameter(Mandatory)][string[]]$Name)
-    $erreurs = @()
-    $resultats = foreach ($nom in $Name) {
-        $service = Get-Service -Name $nom -ErrorAction SilentlyContinue -ErrorVariable +erreurs
-        [pscustomobject]@{
-            Nom = $nom
-            Etat = if ($service) { $service.Status } else { 'Non obtenu' }
-        }
-    }
-    [pscustomobject]@{
-        Resultats = @($resultats)
-        Erreurs = @($erreurs)
-    }
+```mermaid
+flowchart LR
+    N1["Remplir une casserole d’eau"]
+    N2["Mettre du sel"]
+    N3["La mettre sur le feu"]
+    N4["Laisser bouillir"]
+    N5["Mettre les pâtes dans la casserole"]
+    N6["En fonction du type de pâtes, définir la durée de la cuisson"]
+    N7["Les égoutter"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
+
+1. Remplir une casserole d’eau
+2. Mettre du sel
+3. La mettre sur le feu
+4. Laisser bouillir
+5. Mettre les pâtes dans la casserole
+6. En fonction du type de pâtes, définir la durée de la cuisson
+7. Les égoutter
+
+### Comment structurer un script
+
+!!! note "À retenir"
+    Il est très rare de réaliser dès le premier essai et la première réflexion le script parfait (surtout sur des scripts un peu avancés…).
+
+- Il est très rare de réaliser dès le premier essai et la première réflexion le script parfait (surtout sur des scripts un peu avancés…).
+- C’est la phase de tests qui nous permettra d’avancer dans notre réflexion et d’améliorer l’algorithme initial.
+- Il faut donc y aller étape par étape et tester ligne par ligne notre script.
+- Et surtout, commentez votre script !
+
+### Comment structurer un script
+
+!!! note "À retenir"
+    Il est généralement pertinent d’écrire sur papier la structure de notre script : Actions à réaliser Tests à effectuer Vérifications Boucles Le tout dans une logique chronologique Préparer son script avant de l’écrire, c’est tout sauf une perte de temps !
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Il est généralement pertinent d’écrire sur papier la structure de notre script :"]
+    N2["Actions à réaliser"]
+    N3["Tests à effectuer"]
+    N4["Vérifications"]
+    N5["Boucles"]
+    N6["Le tout dans une logique chronologique"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+```
+
+- Il est généralement pertinent d’écrire sur papier la structure de notre script :
+- Actions à réaliser
+- Tests à effectuer
+- Vérifications
+- Boucles
+- Le tout dans une logique chronologique
+
+Préparer son script avant de l’écrire, c’est tout sauf une perte de temps !
+
+### Comment structurer un script : le départ
+
+!!! note "À retenir"
+    La réalisation d’un script peut se faire à l’aide d’un IDE compatible avec PowerShell.
+
+- La réalisation d’un script peut se faire à l’aide d’un IDE compatible avec PowerShell.
+- Un IDE est un logiciel dédié à l’écriture de code informatique en y ajoutant des fonctions de correction ou de vérification du code.
+- ISE est un logiciel qui propose un environnement d’écriture des commandes PowerShell, et également une console permettant de tester le script en temps réel.
+
+### PowerShell ISE
+
+!!! note "À retenir"
+    ISE : Integrated Scripting Environment C’est une application adaptée pour travailler avec PowerShell Présent par défaut depuis PowerShell version 3 Présente de nombreuses fonctionnalités orientées Scripting Capture du support « Module 05 - Support de cours »
+
+ISE : Integrated Scripting Environment
+
+- C’est une application adaptée pour travailler avec PowerShell
+- Présent par défaut depuis PowerShell version 3
+- Présente de nombreuses fonctionnalités orientées Scripting
+
+![Capture du support « Module 05 - Support de cours »](../../assets/course-sources/isolated/031f076741f7955e/ps-p4-i1-1.webp)
+
+Capture du support « Module 05 - Support de cours »
+
+### PowerShell ISE : fonctionnalités
+
+IntelliSense : complétion graphique Permet de rechercher et utiliser des paramètres plus rapidement
+
+Coloration syntaxique
+
+Snippets : syntaxe des structures de scripting
+
+Détection des erreurs en temps réel
+
+### Démonstration
+
+![Capture du support « Module 05 - Support de cours »](../../assets/course-sources/isolated/031f076741f7955e/ps-p5-i1-1.webp)
+
+Capture du support « Module 05 - Support de cours »
+
+### Visual Studio Code (VS Code)
+
+- Windows PowerShell ISE n'est disponible que sur les systèmes Windows.
+- VS Code : interface de développement open source
+- Disponible notamment pour Linux, MacOS et Windows
+- Légère et fluide
+- Multilingue (Shell, Python, Perl…)
+- Possibilité d'ajout d'extensions (nouveaux langages, fonctionnalités, GitHub…)
+- Débogueur
+- Outil de recherche
+- …
+
+### Virtual Studio Code (VSCode)
+
+1
+
+3
+
+3 – Extension PowerShell
+
+1 – Environnement de travail
+
+4 – Navigation
+
+2
+
+2 – Console interactive
+
+5 – Infos et notifications
+
+4
+
+5
+
+![Capture du support « Module 05 - Support de cours »](../../assets/course-sources/isolated/031f076741f7955e/ps-p6-i1-1.webp)
+
+Capture du support « Module 05 - Support de cours »
+
+### Démonstration
+
+### Les commentaires
+
+1 – Commentaire simple
+
+3 – Commentaire après une commande
+
+5 – 7 Il est possible de commenter une
+
+structure ou un ensemble de lignes
+
+en utilisant les chevrons et le dièze.
+
+![Capture du support « Module 05 - Support de cours »](../../assets/course-sources/isolated/031f076741f7955e/ps-p7-i1-1.webp)
+
+Capture du support « Module 05 - Support de cours »
+
+### Les enchaînements de commande
+
+Lors de la réalisation d’un script, il est utile de pouvoir enchaîner plusieurs commandes sur une seule ligne du script.
+
+- À la différence du Pipe, chaque commande ne sera pas dépendante du résultat de la commande précédente.
+- On utilise le caractère ; pour exécuter deux commandes sur une ligne de script.
+- Il est également possible de répartir les paramètres d’une commande sur plusieurs lignes.
+
+Le « Backtick » ou « Anti-Quotte »
+
+s’obtient avec « Alt Gr », « 7 »
+
+puis « espace ».
+
+### Démonstration
+
+![Capture du support « Module 05 - Support de cours »](../../assets/course-sources/isolated/031f076741f7955e/ps-p8-i1-1.webp)
+
+Capture du support « Module 05 - Support de cours »
+
+![Capture du support « Module 05 - Support de cours »](../../assets/course-sources/isolated/031f076741f7955e/ps-p8-i2-1.webp)
+
+Capture du support « Module 05 - Support de cours »
+
+### La gestion des erreurs
+
+- Toutes les erreurs générées dans le Shell courant sont stockées dans la variable de type tableau $Error.
+- Pour obtenir la dernière erreur survenue $Error[0].
+
+Il est possible pour une commande ciblée, à son lancement, de redéfinir le nom de la variable qui consignera ses erreurs
+
+```
+PS > Get-ChildItem C:\Dossier –ErrorVariable Erreurs
+```
+
+### La gestion des erreurs
+
+- Quand une erreur survient lors de l’exécution d’une commande, deux comportements sont possibles :
+- La commande s’interrompt (erreur bloquante)
+- L’erreur est remontée au Shell mais la commande poursuit son exécution (erreur non bloquante)
+- Le comportement du Shell en cas d’erreurs non bloquantes peut être géré :
+- Pour la commande, via le paramètre –ErrorAction
+- Pour l’environnement d’exécution courant, via la variable $ErrorActionPreference
+
+### La gestion des erreurs
+
+```
+Valeurs pouvant être affectées à la variable $ErrorActionPreference
+et au paramètre –ErrorAction
+```
+
+Valeur Comportement résultant
+
+Continue Affiche l’erreur mais continue (niveau par défaut)
+
+Ignore Ignore l’erreur (celle-ci n’est pas stockée dans la variable d’erreur)
+
+Inquire Interaction avec l’utilisateur pour savoir l’action a réaliser
+
+SilentlyContinue Ignore l’erreur mais la consigne dans la variable d’erreur
+
+Stop Arrêt de la commande
+
+Suspend Suspend le workflow en cours
+
+### La gestion des erreurs : Try Catch (Finally…)
+
+Couramment appelée Try Catch, la structure Try Catch Finally permet de gérer efficacement les erreurs.
+
+- Si le dossier existe, son contenu sera affiché.
+- Si le dossier n’existe pas, le message contenu dans la commande catch s’affichera.
+- Dans tous les cas, le message contenu dans la commande finally s’affichera.
+
+L’avantage est qu’en cas de dossier non présent, le script continue son exécution sans arrêter la totalité du script.
+
+| Valeur | Comportement résultant |
+| --- | --- |
+| Continue | Affichel’erreurmaiscontinue(niveaupardéfaut) |
+| Ignore | Ignore l’erreur (celle-ci n’est pas stockée dans la variable d’erreur) |
+| Inquire | Interactionavecl’utilisateurpoursavoirl’actionaréaliser |
+| SilentlyContinue | Ignorel’erreurmaislaconsignedanslavariabled’erreur |
+| Stop | Arrêtdelacommande |
+| Suspend | Suspendleworkflowencours |
+
+![Capture du support « Module 05 - Support de cours »](../../assets/course-sources/isolated/031f076741f7955e/ps-p10-i1-1.webp)
+
+Capture du support « Module 05 - Support de cours »
+
+### Démonstration
+
+### Les fonctions : présentation
+
+- Les fonctions sont des structures très utiles à la réalisation de scripts.
+- Elles permettent :
+- D’éviter la réécriture de code
+- D’alléger et de clarifier la lecture du code
+- De simplifier la maintenance
+- Créer une fonction revient à créer une nouvelle commande.
+
+### Les fonctions : utilisation
+
+- Une fonction doit être déclarée avant de pouvoir être appelée.
+- La déclaration de fonctions est généralement faite en début de script.
+
+Donner des noms explicites à vos fonctions !
+
+```
+PS > Function NomDeLaFonction {
+    Code à intégrer dans la fonction
 }
-$bilan = Test-LabService -Name 'Spooler', 'ServiceInexistantTP'
-Write-Host 'Vérification des services terminée.'
-$bilan.Resultats
-$bilan.Erreurs | Select-Object FullyQualifiedErrorId,CategoryInfo
 ```
 
-Un résultat « Non obtenu » doit être interprété avec l’erreur conservée. Une commande peut échouer pour une autre raison qu’un service absent. Le préfixe `+` dans `-ErrorVariable +erreurs` ajoute les erreurs des appels successifs dans la même variable.
+Une fonction est appelée comme une commande.
 
-### Créer, contrôler et libérer une session
+```
+PS > NomDeLaFonction
+```
 
-Créer une session vers CD01 dans la maquette, la conserver dans une variable et relever son état. Comparer la sortie d’un test local et distant. Libérer la session même si la commande du test échoue.
+### Les fonctions : les paramètres
 
-```powershell
-$session = New-PSSession -ComputerName CD01 -ErrorAction Stop
+- Les fonctions acceptent des paramètres comme n’importe quelle commande.
+- Les paramètres de fonction sont à déclarer en même temps que la fonction.
+
+1. Déclaration de la fonction « Adition »
+2. Déclaration des paramètres dans la fonction
+3. Commande exécutée par la fonction
+4. Valeur renvoyée par la fonction
+5. Appel de la fonction avec les paramètres à utiliser. Ici 1 est la valeur de $a et 2 et la valeur de $b. La valeur de $c va être renvoyée par la fonction.
+
+```
+function adition {
+    param ($a,$b)
+    $c = $a + $b
+    return $c
+}
+adition 1 2
+```
+
+![Capture du support « Module 05 - Support de cours »](../../assets/course-sources/isolated/031f076741f7955e/ps-p12-i2-1.webp)
+
+Capture du support « Module 05 - Support de cours »
+
+### Les fonctions : les paramètres avancés
+
+```
+Param(
+```
+
+Option permettant de rendre
+
+le paramètre obligatoire
+
+```
+[Parameter(Mandatory=$True)]
+[String]$Monparametre
+)
+```
+
+Nom du paramètre
+
+Le paramètre utilisera uniquement des chaînes
+
+de caractères
+
+```
+PS > ./Monscript.ps1 –Monparametre toto
+PS > Ma-Fonction –Monparametre toto
+```
+
+### Démonstration
+
+### Le Remoting
+
+- La fonctionnalité PowerShell Remoting permet :
+- D’accéder au Shell d’une machine distante
+- D’exécuter des commandes sur des machines distantes
+- Elle s’appuie sur le protocole WS-MAN pour son fonctionnement.
+- Le service WinRM est utilisé.
+
+### Le Remoting
+
+- Pour pouvoir utiliser le Remoting PowerShell, cette fonctionnalité doit être active sur la machine cible (la machine distante)
+- C’est le cas (par défaut) sur les OS Serveurs depuis Windows 2012
+- Cette fonctionnalité est désactivée (par défaut) sur les postes clients
+- La fonctionnalité Remoting est activable
+- Au moyen de la commande Enable-PSRemoting
+- Par stratégie de groupe
+
+### Démonstration
+
+### PSSession : ouverture de session à distance
+
+- Il est possible d’ouvrir un Shell à distance (similaire à SSH).
+
+```
+PS > Enter-PSSession -Computername DC01
+PS [DC01] >
+```
+
+- Le prompt change, on peut y voir le nom du serveur distant.
+- Pour sortir de la session :
+
+```
+PS > Exit-PSSession
+```
+
+À l’issue de la commande de sortie, la session existe toujours.
+
+### PSSession
+
+- On peut stocker une PSSession dans une variable, afin de la rappeler plus facilement par la suite.
+- Une PSSession peut être persistante.
+
+```
+PS > $Session = New-PSSession -Computername DC01
+PS > Disconnect-PSSession -Session $Session
+PS > Get-PSSession -Computername DC01
+PS > Get-PSSession -Computername DC01 | Connect-PSSession
+PS > $Session
+PS > Get-PSSession | Remove-PSSession
+```
+
+### MultiHop
+
+Il n’est, par défaut, pas possible d’utiliser une machine pour faire un « rebond » sur une autre avec les PSSessions.
+
+1 2
+
+### PSSession et import de modules
+
+On peut importer des modules d’une session distante pour utiliser ses commandes dans la session locale. Cela permet de limiter l’installation de modules sur le parc.
+
+```
+PS > $Session = Enter-PSSession -Computername DC01
+PS > Get-Module -PSSession $Session -ListAvailable
+PS > Import-Module -PSSession $Session –name ActiveDirectory –Prefix DC
+PS > Help Get-DCADUser
+PS > Get-DCADUser –Filter *
+```
+
+### Invoke-Command
+
+- Commande permettant de demander l’exécution d’une commande à plusieurs machines en même temps :
+
+```
+PS > Invoke-Command -Computername DC01,SRV01 –ScriptBlock {
+Get-Process PowerShell* }
+```
+
+- On peut également passer des variables locales dans une session à distance en utilisant le $Using:Variable
+
+```
+$Process = ‘’Powershell*’’
+PS > Invoke-Command -Computername DC01,SRV01 –ScriptBlock {
+Get-Process $Using:Process}
+```
+
+### Démonstration
+
+### Conclusion
+
+- Vous savez mettre en place un script fonctionnel
+
+Référence du document : 1I7waDlSR3_PhRJI-V3XHSUwiioEUt0XU · SHA-256 031f076741f7955e…
+
+## Démonstration · Fiche démo 4 - L’enchaînement des commandes · 1 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### L’enchaînement des commandes.
+
+Démonstration 04 du module 5
+
+L’objectif de cette démonstration est de montrer comment faciliter la lisibilité d’un en répartissant les commandes sur plusieurs lignes.
+
+### Déroulement
+
+- A la différence du Pipe, le « ; » va permettre d’enchaîner des commandes sur une ligne sans interaction entre les commandes.
+
+Les deux commandes sont exécutées à la suite l’une de l’autre.
+
+![Capture du support « Fiche démo 4 - L’enchaînement des commandes »](../../assets/course-sources/isolated/472e85477d6cfa58/ps-p1-i2-1.webp)
+
+Capture du support « Fiche démo 4 - L’enchaînement des commandes »
+
+![Capture du support « Fiche démo 4 - L’enchaînement des commandes »](../../assets/course-sources/isolated/472e85477d6cfa58/ps-p1-i3-1.webp)
+
+Capture du support « Fiche démo 4 - L’enchaînement des commandes »
+
+Référence du document : 1msnp8HOamq7PvQWZpe7g5zXblgF2g4C6 · SHA-256 472e85477d6cfa58…
+
+## Démonstration · Fiche démo 1 - Les IDE - ISE · 4 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### Les IDE : ISE
+
+Démonstration 01 du module 5
+
+L’objectif de cette démonstration est de vous présenter les atouts de l’outil de scripting fourni par Microsoft avec le système Windows ISE.
+
+### Déroulement
+
+- ISE est l’acronyme de « Integrated Scripting Environnement », ce qui signifie qu’il s’agit d’un outil totalement dédié à la réalisation de scripts.
+- Seul le langage PowerShell est supporté.
+
+Trois zones de travail :
+
+- La zone de Script qui va contenir les lignes de codes
+- La console de sortie qui va afficher les résultats des commandes du script.
+- La fenêtre de commande qui répertorie toutes les commandes disponibles actuellement.
+
+La personnalisation des zones de travail se fait par le menu Tools - Options
+
+![Capture du support « Fiche démo 1 - Les IDE - ISE »](../../assets/course-sources/isolated/e3959bd5eb3b45b1/ps-p1-i2-1.webp)
+
+Capture du support « Fiche démo 1 - Les IDE - ISE »
+
+Parmi toutes les options disponibles, la coloration syntaxique, la police et la taille de police sont regroupées dans le premier onglet.
+
+La complétion automatique permet de fournir l’ensemble des CmdLets ou des paramètres disponibles.
+
+![Capture du support « Fiche démo 1 - Les IDE - ISE »](../../assets/course-sources/isolated/e3959bd5eb3b45b1/ps-p2-i2-1.webp)
+
+Capture du support « Fiche démo 1 - Les IDE - ISE »
+
+![Capture du support « Fiche démo 1 - Les IDE - ISE » (partie 1/2)](../../assets/course-sources/isolated/e3959bd5eb3b45b1/ps-p2-i3-1.webp)
+
+Capture du support « Fiche démo 1 - Les IDE - ISE » (partie 1/2)
+
+![Capture du support « Fiche démo 1 - Les IDE - ISE » (partie 2/2)](../../assets/course-sources/isolated/e3959bd5eb3b45b1/ps-p2-i3-2.webp)
+
+Capture du support « Fiche démo 1 - Les IDE - ISE » (partie 2/2)
+
+Les paramètres disponibles sont affichés à la suite de la CmdLet saisie.
+
+En fonction du thème choisi, la coloration des éléments de votre script va se faire automatiquement. La mise en place de ce code couleur permet en un coup d’œil de se rendre compte d’une erreur de syntaxe.
+
+![Capture du support « Fiche démo 1 - Les IDE - ISE »](../../assets/course-sources/isolated/e3959bd5eb3b45b1/ps-p3-i2-1.webp)
+
+Capture du support « Fiche démo 1 - Les IDE - ISE »
+
+![Capture du support « Fiche démo 1 - Les IDE - ISE »](../../assets/course-sources/isolated/e3959bd5eb3b45b1/ps-p3-i3-1.webp)
+
+Capture du support « Fiche démo 1 - Les IDE - ISE »
+
+Structures Variables Valeurs Propriétés Commentaires
+
+![Capture du support « Fiche démo 1 - Les IDE - ISE »](../../assets/course-sources/isolated/e3959bd5eb3b45b1/ps-p4-i2-1.webp)
+
+Capture du support « Fiche démo 1 - Les IDE - ISE »
+
+Référence du document : 1jhk6S20gVugGv6FhqzIYfE-6_DGn8Bbs · SHA-256 e3959bd5eb3b45b1…
+
+## Démonstration · Fiche démo 2 - Visual Studio Code · 2 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### Visual Studio Code
+
+Démonstration 02 du module 5
+
+Visual Stusdio Code est un IDE multiplateforme et gratuit. Fourni par Microsoft, il est adaptable quel que soit le système d’exploitation. De plus, il supporte la plupart des langages, qu’ils soient objet ou non. Il fonctionne sur le principe de modules qui enrichissent les fonctionnalités et la prise en charge des langages. L’objectif de cette démonstration est de vous présenter cet outil.
+
+### Déroulement
+
+- La version utilisée est la 1.49.1.
+- En plus des environnements habituels dans un IDE, on retrouve des éléments qui facilitent le traitement d’un script.
+- La console supporte plusieurs versions de PowerShell.
+
+La première console utilise PowerShell intégré qui est en version 5.1
+
+La seconde utilise la console PowerShell Core qui est version 7.0.3
+
+Tout comme ISE, Visual Studio Code dispose de la gestion des thèmes de couleur, de la coloration syntaxique en fonction des éléments du script ainsi que d’une autocomplétion accessible avec la touche Tabulation.
+
+![Capture du support « Fiche démo 2 - Visual Studio Code »](../../assets/course-sources/isolated/14e74914d49ef1eb/ps-p1-i2-1.webp)
+
+Capture du support « Fiche démo 2 - Visual Studio Code »
+
+![Capture du support « Fiche démo 2 - Visual Studio Code »](../../assets/course-sources/isolated/14e74914d49ef1eb/ps-p1-i3-1.webp)
+
+Capture du support « Fiche démo 2 - Visual Studio Code »
+
+Il apporte en plus une suite de modules gratuits ou payants incluant de nombreux outils utiles à la gestion des erreurs par exemple ou à l’exécution en parallèle de plusieurs scripts.
+
+Il est également possible de lier le logiciel à un compte GitHub afin de travailler à partir d’un dépôt de scripts personnels en ligne.
+
+- La première étape est d’installer l’extension GitHub sur votre IDE.
+- Ensuite, il suffit de créer un compte sur www.github.com puis de créer un repository.
+- Puis connecter le compte Visual Studio Code
+
+Si aucune fenêtre de connexion automatique ne s’ouvre, vous pouvez cliquer en bas à sur cette icône.
+
+Puis cliquer ici pour ouvrir la page de connexion.
+
+Vous pouvez maintenant utiliser votre espace en ligne pour stocker vos scripts et le partager avec d’autres personnes. La plateforme GitHub contient également des centaines de milliers de scripts, de modules d’exemple, de fichiers d’aide, etc.
+
+Voir la procédure fournie par Microsoft pour l’utilisation de GitHub : https://code.visualstudio.com/docs/editor/github
+
+#### Connexion à GitHub
+
+Le formulaire « Sign in to GitHub » demande « Username or email address » et « Password ». L’identifiant et le mot de passe sont fournis par le formateur. Valider avec « Sign in ». « Forgot password? » ouvre la récupération du mot de passe.
+
+![Capture du support « Fiche démo 2 - Visual Studio Code »](../../assets/course-sources/isolated/14e74914d49ef1eb/ps-p2-i2-1.webp)
+
+Capture du support « Fiche démo 2 - Visual Studio Code »
+
+![Capture du support « Fiche démo 2 - Visual Studio Code »](../../assets/course-sources/isolated/14e74914d49ef1eb/ps-p2-i3-1.webp)
+
+Capture du support « Fiche démo 2 - Visual Studio Code »
+
+Référence du document : 1DqRH9OgYnWgOWbtsyQwPSbcGCTPsF-TT · SHA-256 14e74914d49ef1eb…
+
+## Démonstration · Fiche démo 3 - Les commentaires · 1 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### Les commentaires
+
+Démonstration 03 du module 5
+
+Aussi importants qu’une plateforme de partage de script, les commentaires donnent du relief aux scripts. Ils permettent de comprendre les missions d’un ensemble de commandes et sont essentiels pour s’assurer que les résultats produits par le script correspondent aux résultats attendus. L’objectif de cette démonstration est de vous présenter l’utilisation des commentaires dans un script.
+
+### Déroulement
+
+- Le dièse est le caractère qui va démarrer la chaîne de commentaires ; tous les caractères suivants ne seront pas interprétés par la console.
+- La première façon de commenter une commande est de démarrer un nouveau commentaire avec un dièse.
+
+Le commentaire peut se placer en fin de commande.
+
+- La seconde façon de commenter est d’indiquer une zone de commentaire.
+
+Toutes les commandes de la zone ne seront pas interprétées par la console.
+
+Le chevron suivi du dièse ouvre la zone de commentaire, la zone se referme avec un dièse puis un chevron fermant.
+
+![Capture du support « Fiche démo 3 - Les commentaires »](../../assets/course-sources/isolated/b4856c7f64122850/ps-p1-i2-1.webp)
+
+Capture du support « Fiche démo 3 - Les commentaires »
+
+![Capture du support « Fiche démo 3 - Les commentaires »](../../assets/course-sources/isolated/b4856c7f64122850/ps-p1-i3-1.webp)
+
+Capture du support « Fiche démo 3 - Les commentaires »
+
+Référence du document : 1yZ-bLVuSHF_5-_WhLRLBene2PyxND7DR · SHA-256 b4856c7f64122850…
+
+## Démonstration · Fiche démo 5 - La gestion des erreurs · 2 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### La gestion des erreurs
+
+Démonstration 05 du module 5
+
+Une erreur sur une commande peut facilement bloquer toute l’exécution d’un script. L’objectif de cette démonstration est de montrer que toutes les commandes disposent d’un paramètre permettant d’indiquer l’action de la console en cas d’erreur d’exécution d’une commande.
+
+### Déroulement
+
+- Le paramètre ErrorAction indique le comportement de la console en cas d’erreur.
+
+Avec la valeur continue
+
+Avec la valeur SilentlyContinue, l’erreur n’apparaît plus sur la console.
+
+#### Commandes visibles dans les captures
+
+```
+$p = ConvertTo-SecureString -AsPlainText -Force "fourni par le formateur"
+Set-ADAccountPassword -NewPassword $p -Identity Barron -ErrorAction Continue
+Get-ADUser -Filter * | Where-Object Name -Like "Barron"
+```
+
+![Capture du support « Fiche démo 5 - La gestion des erreurs »](../../assets/course-sources/isolated/240a1fd65e5af2db/ps-p1-i3-1.webp)
+
+Capture du support « Fiche démo 5 - La gestion des erreurs »
+
+![Capture du support « Fiche démo 5 - La gestion des erreurs »](../../assets/course-sources/isolated/240a1fd65e5af2db/ps-p1-i4-1.webp)
+
+Capture du support « Fiche démo 5 - La gestion des erreurs »
+
+La valeur Stop arrête immédiatement l’exécution du script.
+
+Les erreurs, même non affichées dans la console, sont stockées dans une variable $Error.
+
+Le paramètre ErrorVariable permet de spécifier une autre variable.
+
+```
+Il est possible de déterminer le comportement général des erreurs dans la console en modifiant la
+variable $ErrorActionPreference.
+```
+
+Toutes les erreurs seront affichées, mais ne bloqueront pas l’exécution du script.
+
+#### Commandes visibles dans les captures
+
+```
+Get-ChildItem C:\Users\lab -ErrorAction Continue -ErrorVariable $erreurs
+$erreurs
+$ErrorActionPreference = "SilentlyContinue"
+```
+
+![Capture du support « Fiche démo 5 - La gestion des erreurs »](../../assets/course-sources/isolated/240a1fd65e5af2db/ps-p2-i2-1.webp)
+
+Capture du support « Fiche démo 5 - La gestion des erreurs »
+
+![Capture du support « Fiche démo 5 - La gestion des erreurs »](../../assets/course-sources/isolated/240a1fd65e5af2db/ps-p2-i3-1.webp)
+
+Capture du support « Fiche démo 5 - La gestion des erreurs »
+
+![Capture du support « Fiche démo 5 - La gestion des erreurs »](../../assets/course-sources/isolated/240a1fd65e5af2db/ps-p2-i4-1.webp)
+
+Capture du support « Fiche démo 5 - La gestion des erreurs »
+
+![Capture du support « Fiche démo 5 - La gestion des erreurs »](../../assets/course-sources/isolated/240a1fd65e5af2db/ps-p2-i5-1.webp)
+
+Capture du support « Fiche démo 5 - La gestion des erreurs »
+
+![Capture du support « Fiche démo 5 - La gestion des erreurs »](../../assets/course-sources/isolated/240a1fd65e5af2db/ps-p2-i6-1.webp)
+
+Capture du support « Fiche démo 5 - La gestion des erreurs »
+
+Référence du document : 1u7ZS6VCu6ni6Uy0uAHWirDuRvmhzji8e · SHA-256 240a1fd65e5af2db…
+
+## Démonstration · Fiche démo 6 - Le Try Catch Finally · 2 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### Le Try Catch Finally
+
+Démonstration 06 du module 5
+
+L’objectif de cette démonstration est de vous présenter la structure dédiée à la gestion des erreurs. Cette structure exécute des commandes en fonction du résultat d’un test initial.
+
+### Déroulement
+
+- La première étape est le try qui va exécuter une commande. Si la commande réussit, le résultat est affiché, sinon c’est la commande contenue dans le catch qui est exécutée à la place.
+
+Le paramètre ErrorAction avec la valeur Stop permet à la valeur contenue dans la structure
+
+```
+Catch de s’exécuter sans afficher le message d’erreur.
+Sans le paramètre ErrorAction la structure Catch n’est pas exécutée et le message d’erreur
+apparaît en sortie.
+```
+
+La structure Try-Catch-Finally s’utilise pour effectuer des tests sur des objets ou des valeurs de propriétés des objets. Pour faciliter ces tests, il est courant de coupler la structure avec le Foreach.
+
+![Capture du support « Fiche démo 6 - Le Try Catch Finally »](../../assets/course-sources/isolated/52d8a029fe69f304/ps-p1-i2-1.webp)
+
+Capture du support « Fiche démo 6 - Le Try Catch Finally »
+
+![Capture du support « Fiche démo 6 - Le Try Catch Finally »](../../assets/course-sources/isolated/52d8a029fe69f304/ps-p1-i3-1.webp)
+
+Capture du support « Fiche démo 6 - Le Try Catch Finally »
+
+![Capture du support « Fiche démo 6 - Le Try Catch Finally »](../../assets/course-sources/isolated/52d8a029fe69f304/ps-p1-i4-1.webp)
+
+Capture du support « Fiche démo 6 - Le Try Catch Finally »
+
+![Capture du support « Fiche démo 6 - Le Try Catch Finally »](../../assets/course-sources/isolated/52d8a029fe69f304/ps-p1-i5-1.webp)
+
+Capture du support « Fiche démo 6 - Le Try Catch Finally »
+
+On utilise uniquement la structure Try pour effectuer le test sur une propriété.
+
+A chaque utilisateur testé, on affiche un message de fin de test.
+
+Pour les utilisateurs qui n’ont pas de prénom, la réponse du test est « Vraie », pour les autres, la réponse « Faux » est envoyée.
+
+![Capture du support « Fiche démo 6 - Le Try Catch Finally »](../../assets/course-sources/isolated/52d8a029fe69f304/ps-p2-i2-1.webp)
+
+Capture du support « Fiche démo 6 - Le Try Catch Finally »
+
+![Capture du support « Fiche démo 6 - Le Try Catch Finally »](../../assets/course-sources/isolated/52d8a029fe69f304/ps-p2-i3-1.webp)
+
+Capture du support « Fiche démo 6 - Le Try Catch Finally »
+
+Référence du document : 1myPFNqRLDLOB17q_q3N-tPIiwSuxtfqM · SHA-256 52d8a029fe69f304…
+
+## Démonstration · Fiche démo 7 - Les fonctions · 2 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### Les fonctions
+
+Démonstration 07 du module 5
+
+L’objectif de cette démonstration est de vous présenter l’utilisation des fonctions.
+
+### Déroulement
+
+Pour faciliter la réalisation d’un script, il est nécessaire de mettre en place des fonctions dans lesquelles des commandes seront enregistrées pour les réutiliser facilement.
+
+Cela permet de ne pas répéter les lignes de commandes à plusieurs reprises dans un script.
+
+- Une fonction se déclare avec la commande Function et le nom attribué à la fonction.
+- Le nom d’une fonction ne doit pas contenir de caractère réservé comme le $ ou autre signe de ponctuation.
+
+La fonction Hello affiche les valeurs des variables d’environnement du système.
+
+Pour appeler cette fonction, il suffit de saisir le nom de la fonction sans commande préalable.
+
+Le caractère `n permet le saut de ligne.
+
+Les fonctions sont capables de recevoir des paramètres et de les intégrer sous forme de variables.
+
+La valeur de ses variables sera transmise lors de l’appel de la fonction.
+
+![Capture du support « Fiche démo 7 - Les fonctions »](../../assets/course-sources/isolated/4e4eb0dc7896d70a/ps-p1-i2-1.webp)
+
+Capture du support « Fiche démo 7 - Les fonctions »
+
+![Capture du support « Fiche démo 7 - Les fonctions »](../../assets/course-sources/isolated/4e4eb0dc7896d70a/ps-p1-i3-1.webp)
+
+Capture du support « Fiche démo 7 - Les fonctions »
+
+On déclare la fonction FindUsers avec le paramètre $i qui va contenir l’utilisateur à rechercher. Puis on renvoie le résultat dans la variable $r.
+
+On appelle la fonction avec le paramètre Morse ; la fonction effectue la recherche et renvoie l’utilisateur.
+
+Si aucun utilisateur n’est trouvé, la fonction renvoie un message d’utilisateur non trouvé.
+
+![Capture du support « Fiche démo 7 - Les fonctions »](../../assets/course-sources/isolated/4e4eb0dc7896d70a/ps-p2-i2-1.webp)
+
+Capture du support « Fiche démo 7 - Les fonctions »
+
+![Capture du support « Fiche démo 7 - Les fonctions »](../../assets/course-sources/isolated/4e4eb0dc7896d70a/ps-p2-i3-1.webp)
+
+Capture du support « Fiche démo 7 - Les fonctions »
+
+Référence du document : 1LzNEOJTJPLUKr1-gwadDYT8iC4mbk1cu · SHA-256 4e4eb0dc7896d70a…
+
+## Démonstration · Fiche démo 8 - Le Remoting · 2 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### Le Remoting
+
+Démonstration 08 du module 5
+
+PowerShell utilise la gestion de session à distance pour exécuter des commandes sur un ordinateur distant. Le Remoting utilise le protocole WS-Man et le service WinRM. Il est nécessaire de contrôler l’état du service avant de tenter d’ouvrir une session sur un ordinateur distant.
+
+### Déroulement
+
+- La première commande à utiliser est Enable-PsRemonting sur la machine à contrôler à distance.
+- Il est nécessaire de rajouter le paramètre SkipNetworkCheck pour éviter des refus en cas de profil réseau de type public.
+
+La commande configure le service WinRM. Elle ajoute également une exception dans le pare-feu Windows puis redémarre le service WinRM.
+
+Pour initier une session à distance, on utilise la commande New-Pssession avec en paramètre le nom ou l’adresse IP de la machine cible.
+
+Nous avons désormais une session distante ouverte entre notre client et le serveur SRV01 ; cette session possède un ID.
+
+Pour exécuter des commandes avec cette session distante, on utilise la commande Enter- Pssession puis l’Id de la session souhaitée.
+
+On indique l’Id de la session ouverte précédemment.
+
+![Capture du support « Fiche démo 8 - Le Remoting »](../../assets/course-sources/isolated/a22b94ae18fc53de/ps-p1-i2-1.webp)
+
+Capture du support « Fiche démo 8 - Le Remoting »
+
+![Capture du support « Fiche démo 8 - Le Remoting »](../../assets/course-sources/isolated/a22b94ae18fc53de/ps-p1-i3-1.webp)
+
+Capture du support « Fiche démo 8 - Le Remoting »
+
+![Capture du support « Fiche démo 8 - Le Remoting »](../../assets/course-sources/isolated/a22b94ae18fc53de/ps-p1-i4-1.webp)
+
+Capture du support « Fiche démo 8 - Le Remoting »
+
+![Capture du support « Fiche démo 8 - Le Remoting »](../../assets/course-sources/isolated/a22b94ae18fc53de/ps-p1-i5-1.webp)
+
+Capture du support « Fiche démo 8 - Le Remoting »
+
+Désormais le prompt indique le nom de la machine sur laquelle les commandes seront exécutées.
+
+Il n’est pas possible de faire de saut avec le Remoting. Lorsque vous avez ouvert une session sur une machine distante, il n’est pas possible d’ouvrir une session sur une autre machine à partir de cette machine distante.
+
+Toute session doit être ouverte à partir de la machine cliente d’origine.
+
+Référence du document : 1YfT53VmPiMe-ADKZeM6pDgFFPvK1dUQJ · SHA-256 a22b94ae18fc53de…
+
+## Démonstration · Fiche démo 9 - Le Invoke-Command · 1 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### Le Invoke-Command
+
+Démonstration 09 du module 5
+
+L’objectif de cette démonstration est de découvrir l’utilisation de la commande Invoke- Command.
+
+### Déroulement
+
+Une fois le principe de Remoting acquis, il est possible avec PowerShell de demander l’exécution de commandes sur des machines distantes, sans ouvrir de session préalable. Cela permet un gain de temps lorsque l’on souhaite effectuer des modifications identiques à un groupe de machines.
+
+- Il est nécessaire de connaître les noms ou adresses IP des machines à atteindre avant de lancer la commande.
+- Attention au système de droits dans un environnement Active Directory. Il faut des droits d’administration.
+
+On recherche le nombre de commandes disponibles sur la machine « SRV01 »
+
+Il est possible de passer des variables locales dans la commande afin de transmettre des valeurs à une machine distante.
+
+![Capture du support « Fiche démo 9 - Le Invoke-Command »](../../assets/course-sources/isolated/e86f24a161a48c0f/ps-p1-i2-1.webp)
+
+Capture du support « Fiche démo 9 - Le Invoke-Command »
+
+![Capture du support « Fiche démo 9 - Le Invoke-Command »](../../assets/course-sources/isolated/e86f24a161a48c0f/ps-p1-i3-1.webp)
+
+Capture du support « Fiche démo 9 - Le Invoke-Command »
+
+![Capture du support « Fiche démo 9 - Le Invoke-Command »](../../assets/course-sources/isolated/e86f24a161a48c0f/ps-p1-i4-1.webp)
+
+Capture du support « Fiche démo 9 - Le Invoke-Command »
+
+![Capture du support « Fiche démo 9 - Le Invoke-Command »](../../assets/course-sources/isolated/e86f24a161a48c0f/ps-p1-i5-1.webp)
+
+Capture du support « Fiche démo 9 - Le Invoke-Command »
+
+Référence du document : 1YmMFepqTffjh8cb2Hz8y2y6hHgE1-ltO · SHA-256 e86f24a161a48c0f…
+
+## Énoncé · Énoncé du TP - Outils pour le scripting · 3 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### Initiation à PowerShell Outils pour le scripting
+
+TP du Module 05
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 de ce cours.
+
+Durée estimée
+
+1 heure
+
+### Énoncé
+
+Objectifs :
+
+Comprendre les fonctions, modules et la gestion des erreurs
+
+Consignes :
+
+Les manipulations sont à réaliser sur la machine CLI01
+
+Pour réaliser le TP, utilisez un IDE comme ISE ou Visual Studio Code.
+
+Réalisez un script permettant de tester la présence d’un service. Le nom du service sera variable. Dans le cas où le service n’est pas existant, aucun message ne sera affiché mais il sera consigné dans une variable. Un message sera affiché lorsque tous les services seront testés.
+
+Indiquez les lignes de commandes de votre script.
+
+Transformez ce script en fonction ; le nom du service sera un paramètre.
+
+Ouvrez une session depuis votre machine client vers votre serveur CD01.
+
+Stocker votre session dans une variable
+
+Créer un script permettant de trouver les ordinateurs stockés dans l’AD, puis à condition que la machine ne soit pas un contrôleur de domaine, le script lancera l’extinction de la machine.
+
+Indiquez les commandes utilisées.
+
+Transformez le script en fonction ; le nom de domaine sera indiqué en paramètre.
+
+Indiquez les commandes utilisées.
+
+Modifiez durablement le comportement de votre Ise pour que les erreurs des commandes soient stockées dans une variable. Puis modifiez le comportement de la console pour que les messages d’erreur ne soient pas affichés.
+
+### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 10DENwq9EufN6wqlY7r8ODD63PapXhsKU · SHA-256 349c3a9c3cb07285…
+
+## Correction · Solution du TP - Outils pour le scripting · 3 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+### Outils pour le scripting
+
+TP du Module 05
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 de ce cours.
+
+Durée estimée
+
+1 heure
+
+### Énoncé
+
+Objectifs :
+
+- Comprendre les fonctions, modules et la gestion des erreurs
+
+Consignes :
+
+Les manipulations sont à réaliser sur la machine CLI01
+
+- Pour réaliser le TP, utilisez un IDE comme ISE ou Visual Studio Code.
+
+Réalisez un script permettant de tester la présence d’un service. Le nom du service sera variable. Dans le cas où le service n’est pas existant, aucun message ne sera affiché mais il sera consigné dans une variable. Un message sera affiché lorsque tous les services seront testés.
+
+Indiquez les lignes de commandes de votre script.
+
+#### Script de la capture
+
+```
+$service = read-host "Indiquez le service tester"
 try {
-    $session | Select-Object ComputerName,State,Availability
-    Invoke-Command -Session $session -ScriptBlock { hostname } -ErrorAction Stop
-} finally {
-    Remove-PSSession -Session $session
+    get-service -name $service -erroraction stop -errorvariable erreur
+}
+catch {
+    write-host "Ce service n'existe pas"
+}
+finally{
+$erreur
 }
 ```
 
-### Préparer les cibles AD et contrôler le profil de l’éditeur
+![Capture du support « Solution du TP - Outils pour le scripting »](../../assets/course-sources/isolated/e0dd2e100740ca22/ps-p1-i2-1.webp)
 
-1. Transformer la recherche des ordinateurs en fonction avec un paramètre de domaine. Définir aussi l’OU autorisée. Établir dans ce même domaine la liste des contrôleurs avec `Get-ADDomainController`. Si cette interrogation échoue, interrompre la préparation.
-2. Comparer les noms DNS, exclure les contrôleurs et les objets sans nom DNS, puis confronter la sélection à la liste de machines autorisées. Vérifier les noms courts et les FQDN avant une simulation `Stop-Computer -WhatIf` sur la liste approuvée. Le filtre illustré dans le corrigé s’appuie sur l’organisation d’une maquette. Une OU seule ne prouve pas qu’un ordinateur peut être arrêté.
-3. Ouvrir le profil de l’hôte ISE ou de la console concernée après l’avoir sauvegardé. Tester une erreur non bloquante connue avec `$ErrorActionPreference = 'SilentlyContinue'`, puis constater qu’elle reste consultable dans `$Error`. Pour un exercice ciblé, préférer le réglage de la seule commande. Restaurer le profil et vérifier l’effet à la réouverture.
+Capture du support « Solution du TP - Outils pour le scripting »
 
-[Paramètres communs et collecte d’erreurs](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_commonparameters) · [Référence de Get-ADDomainController](https://learn.microsoft.com/powershell/module/activedirectory/get-addomaincontroller)
+- Transformez ce script en fonction ; le nom du service sera un paramètre.
+- Ouvrez une session depuis votre machine client vers votre serveur CD01.
 
-## À retenir
+Stocker votre session dans une variable
 
-Une fonction reçoit ses entrées, produit un résultat exploitable et permet de distinguer un échec d’une sortie vide. Une session distante se vérifie et se ferme. La sélection AD et la liste de cibles autorisées précèdent toute simulation d’arrêt.
+- Créer un script permettant de trouver les ordinateurs stockés dans l’AD, puis à condition que la machine ne soit pas un contrôleur de domaine, le script lancera l’extinction de la machine.
 
-## Mini-quiz
+Indiquez les commandes utilisées.
 
-1. Quel paramètre permet à `catch` d’intercepter une erreur non bloquante ?
-2. Où retrouver la dernière erreur de la session ?
-3. Quelle commande termine une session ouverte par `New-PSSession` ?
-4. Quelle différence entre `;` et `|` ?
-5. Comment prouver qu’une erreur masquée reste consultable ?
+#### Script de la capture
 
-??? success "Réponses commentées"
-    1. `-ErrorAction Stop` sur la commande concernée.
-    2. `$Error[0]`.
-    3. `Remove-PSSession`.
-    4. Le premier sépare des commandes. Le second transmet des objets.
-    5. Provoquer une erreur non bloquante connue dans la maquette puis lire l’enregistrement capturé par `-ErrorVariable` ou `$Error[0]`.
+```
+function service {
+param ($service)
+try {
+    get-service -name $service -erroraction stop -errorvariable erreur
+}
+catch {
+    write-host "Ce service n'existe pas"
+}
+finally{
+}
+}
+service wsearch
 
-## Travaux pratiques et révision
+Enter-PSSession -ComputerName CD01
+$session = new-pssession -computername CD01
+$session
 
-- [TP et correction du module](../../tp/12-initiation-powershell/module-05/index.md)
-- [Fiche de révision](../../revision/12-initiation-powershell/module-05.md)
-- [Sommaire du cours](index.md)
+$computers = get-adcomputer -filter * -properties *
+foreach ($i in $computers) {
+if ($i.distinguishedname -notlike "*domain controllers*"){
+    invoke-command -computer $i.dnshostname `
+    -scriptblock{stop-computer -force}
+}
+}
+```
+
+![Capture du support « Solution du TP - Outils pour le scripting »](../../assets/course-sources/isolated/e0dd2e100740ca22/ps-p2-i2-1.webp)
+
+Capture du support « Solution du TP - Outils pour le scripting »
+
+![Capture du support « Solution du TP - Outils pour le scripting »](../../assets/course-sources/isolated/e0dd2e100740ca22/ps-p2-i3-1.webp)
+
+Capture du support « Solution du TP - Outils pour le scripting »
+
+![Capture du support « Solution du TP - Outils pour le scripting »](../../assets/course-sources/isolated/e0dd2e100740ca22/ps-p2-i4-1.webp)
+
+Capture du support « Solution du TP - Outils pour le scripting »
+
+![Capture du support « Solution du TP - Outils pour le scripting »](../../assets/course-sources/isolated/e0dd2e100740ca22/ps-p2-i5-1.webp)
+
+Capture du support « Solution du TP - Outils pour le scripting »
+
+- Transformez le script en fonction ; le nom de domaine sera indiqué en paramètre.
+
+Indiquez les commandes utilisées.
+
+- Modifiez durablement le comportement de votre Ise pour que les erreurs des commandes soient stockées dans une variable. Puis modifiez le comportement de la console pour que les messages d’erreur ne soient pas affichés.
+
+#### Script de la capture
+
+```
+function stop{
+param($domain)
+$computers = get-adcomputer -filter * -properties * `
+-searchbase "cn=computers,dc=$domain,dc=lcl"
+foreach ($i in $computers) {
+if ($i.distinguishedname -notlike "*domain controllers*"){
+    invoke-command -computer $i.dnshostname `
+    -scriptblock{stop-computer -force}
+}
+}
+}
+stop ad01
+
+$ErrorActionPreference = "SilentlyContinue"
+$ErrorActionPreference
+```
+
+![Capture du support « Solution du TP - Outils pour le scripting »](../../assets/course-sources/isolated/e0dd2e100740ca22/ps-p3-i2-1.webp)
+
+Capture du support « Solution du TP - Outils pour le scripting »
+
+![Capture du support « Solution du TP - Outils pour le scripting »](../../assets/course-sources/isolated/e0dd2e100740ca22/ps-p3-i3-1.webp)
+
+Capture du support « Solution du TP - Outils pour le scripting »
+
+Référence du document : 1dDuEWHSa8J-9501HWn5abL8JkTXfz5-S · SHA-256 e0dd2e100740ca22…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
+| --- | --- |
+| Support · Module 05 - Support de cours · 18 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Démonstration · Fiche démo 4 - L’enchaînement des commandes · 1 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Démonstration · Fiche démo 1 - Les IDE - ISE · 4 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Démonstration · Fiche démo 2 - Visual Studio Code · 2 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Démonstration · Fiche démo 3 - Les commentaires · 1 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Démonstration · Fiche démo 5 - La gestion des erreurs · 2 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Démonstration · Fiche démo 6 - Le Try Catch Finally · 2 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Démonstration · Fiche démo 7 - Les fonctions · 2 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Démonstration · Fiche démo 8 - Le Remoting · 2 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Démonstration · Fiche démo 9 - Le Invoke-Command · 1 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Énoncé · Énoncé du TP - Outils pour le scripting · 3 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Correction · Solution du TP - Outils pour le scripting · 3 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
