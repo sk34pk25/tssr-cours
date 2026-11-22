@@ -76,7 +76,7 @@ Une cmdlet :
 
 Le schéma relie l’entrée standard (clavier) à la cmdlet, puis la cmdlet à la sortie standard et à la sortie erreur (écran).
 
-![Entrée standard, cmdlet, sortie standard et sortie erreur](../../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p2-1.webp)
+![Entrée standard, cmdlet, sortie standard et sortie erreur](../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p2-1.webp)
 
 Capture du support — Entrée standard, cmdlet, sortie standard et sortie erreur.
 
@@ -108,7 +108,7 @@ Get-Content c:\temp\LocalUserList.txt
 
 La capture présente les colonnes **Name**, **Enabled**, **Description** de la liste d’utilisateurs locaux.
 
-![Contenu du fichier LocalUserList.txt montré dans le support](../../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p3-2.webp)
+![Contenu du fichier LocalUserList.txt montré dans le support](../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p3-2.webp)
 
 Capture du support — Contenu du fichier LocalUserList.txt montré dans le support.
 
@@ -124,7 +124,7 @@ Capture du support — Contenu du fichier LocalUserList.txt montré dans le supp
 
 Le schéma montre `cmdlet1 | cmdlet2 | cmdlet3` avec les liaisons `stdout` vers `stdin`.
 
-![Enchaînement de cmdlets avec le pipeline](../../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p4-3.webp)
+![Enchaînement de cmdlets avec le pipeline](../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p4-3.webp)
 
 Capture du support — Enchaînement de cmdlets avec le pipeline.
 
@@ -151,11 +151,11 @@ Les captures montrent d’abord les propriétés par défaut, puis les colonnes 
 !!! note "À retenir"
     Capture du support — Propriétés par défaut de Get-NetAdapter.
 
-![Propriétés par défaut de Get-NetAdapter](../../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p5-4.webp)
+![Propriétés par défaut de Get-NetAdapter](../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p5-4.webp)
 
 Capture du support — Propriétés par défaut de Get-NetAdapter.
 
-![Projection Name, Status et LinkSpeed](../../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p5-5.webp)
+![Projection Name, Status et LinkSpeed](../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p5-5.webp)
 
 Capture du support — Projection Name, Status et LinkSpeed.
 
@@ -210,11 +210,11 @@ Dans les captures du support, le filtrage conserve les interfaces dont Status va
 
 ### Démonstration
 
-![État initial des cartes réseau](../../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p7-6.webp)
+![État initial des cartes réseau](../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p7-6.webp)
 
 Capture du support — État initial des cartes réseau.
 
-![Résultat du filtrage Status -like Up](../../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p7-7.webp)
+![Résultat du filtrage Status -like Up](../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p7-7.webp)
 
 Capture du support — Résultat du filtrage Status -like Up.
 
@@ -248,11 +248,11 @@ Get-NetAdapter | select Name,Status,LinkSpeed | Where –FilterScript {$_.Status
 
 La capture du résultat présente **Ethernet 3**, **Up**, **426.0 Mbps**.
 
-![Jeu de propriétés avant le filtrage avancé](../../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p8-8.webp)
+![Jeu de propriétés avant le filtrage avancé](../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p8-8.webp)
 
 Capture du support — Jeu de propriétés avant le filtrage avancé.
 
-![Résultat du filtrage avancé illustré par le support](../../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p8-9.webp)
+![Résultat du filtrage avancé illustré par le support](../../assets/course-sources/isolated/4fba04cb03a40c65/g3-p8-9.webp)
 
 Capture du support — Résultat du filtrage avancé illustré par le support.
 

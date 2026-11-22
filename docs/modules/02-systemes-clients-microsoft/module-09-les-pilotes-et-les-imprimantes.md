@@ -143,7 +143,7 @@ flowchart LR
 - Mettre à jour, désactiver, désinstaller
 - Fonctionnalités avancées : Restaurer le pilote, informations détaillées, paramètres
 
-![Illustration isolée du support — Module 09 - Support de cours](../../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p2-1.webp)
+![Illustration isolée du support — Module 09 - Support de cours](../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p2-1.webp)
 
 Illustration isolée du support — Module 09 - Support de cours
 
@@ -253,7 +253,7 @@ Imprimante locale
 
 (Propriétés de l'imprimante onglet Sécurité)
 
-![Illustration isolée du support — Module 09 - Support de cours](../../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p5-1.webp)
+![Illustration isolée du support — Module 09 - Support de cours](../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p5-1.webp)
 
 Illustration isolée du support — Module 09 - Support de cours
 
@@ -285,11 +285,11 @@ Imprimante locale
 - Disponible si l'ordinateur hôte est allumé
 - Les droits NTFS s'appliquent
 
-![Illustration isolée du support — Module 09 - Support de cours](../../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p6-1.webp)
+![Illustration isolée du support — Module 09 - Support de cours](../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p6-1.webp)
 
 Illustration isolée du support — Module 09 - Support de cours
 
-![Illustration isolée du support — Module 09 - Support de cours](../../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p6-2.webp)
+![Illustration isolée du support — Module 09 - Support de cours](../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p6-2.webp)
 
 Illustration isolée du support — Module 09 - Support de cours
 
@@ -324,7 +324,7 @@ Créer un pool d'impression
 - Distribuer automatiquement les travaux d'impression à la prochaine imprimante disponible
 - Réduit les délais d'attente des documents pour les utilisateurs.
 
-![Illustration isolée du support — Module 09 - Support de cours](../../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p7-1.webp)
+![Illustration isolée du support — Module 09 - Support de cours](../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p7-1.webp)
 
 Illustration isolée du support — Module 09 - Support de cours
 
@@ -516,7 +516,7 @@ OK
 
 Imprimer une page de test
 
-![Illustration isolée du support — Solution du TP - Les pilotes et imprimantes](../../../assets/course-sources/isolated/baa642b049964f05/g2-p2-1.webp)
+![Illustration isolée du support — Solution du TP - Les pilotes et imprimantes](../../assets/course-sources/isolated/baa642b049964f05/g2-p2-1.webp)
 
 Illustration isolée du support — Solution du TP - Les pilotes et imprimantes
 
@@ -554,11 +554,11 @@ o Son nom
 
 o Si elle est partagée ou non
 
-![Illustration isolée du support — Solution du TP - Les pilotes et imprimantes](../../../assets/course-sources/isolated/baa642b049964f05/g2-p3-1.webp)
+![Illustration isolée du support — Solution du TP - Les pilotes et imprimantes](../../assets/course-sources/isolated/baa642b049964f05/g2-p3-1.webp)
 
 Illustration isolée du support — Solution du TP - Les pilotes et imprimantes
 
-![Illustration isolée du support — Solution du TP - Les pilotes et imprimantes](../../../assets/course-sources/isolated/baa642b049964f05/g2-p3-2.webp)
+![Illustration isolée du support — Solution du TP - Les pilotes et imprimantes](../../assets/course-sources/isolated/baa642b049964f05/g2-p3-2.webp)
 
 Illustration isolée du support — Solution du TP - Les pilotes et imprimantes
 

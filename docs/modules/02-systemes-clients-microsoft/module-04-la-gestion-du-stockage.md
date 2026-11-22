@@ -114,7 +114,7 @@ flowchart LR
 
 Partitionner un disque, c’est le « séparer » en plusieurs « portions » logiques, étanches et indépendantes. Le schéma représente les portions P1, P2, P3, P4, P5, P6, P7…
 
-![Séparer un disque en partitions](../../../assets/course-sources/isolated/1369986f889f518a/g1-manual-07.webp)
+![Séparer un disque en partitions](../../assets/course-sources/isolated/1369986f889f518a/g1-manual-07.webp)
 
 Séparer un disque en partitions
 
@@ -177,11 +177,11 @@ flowchart LR
 - Une partition peut être étendue grâce à l’espace libre contigu.
 - Quatre partitions au maximum sont représentées : principales 1, 2, 3 et 4.
 
-![Capture du support — Module 04 - Support de cours](../../../assets/course-sources/isolated/1369986f889f518a/g1-d21-p03-i1.webp)
+![Capture du support — Module 04 - Support de cours](../../assets/course-sources/isolated/1369986f889f518a/g1-d21-p03-i1.webp)
 
 Capture du support — Module 04 - Support de cours
 
-![Quatre partitions principales](../../../assets/course-sources/isolated/1369986f889f518a/g1-manual-08.webp)
+![Quatre partitions principales](../../assets/course-sources/isolated/1369986f889f518a/g1-manual-08.webp)
 
 Quatre partitions principales
 
@@ -224,11 +224,11 @@ Le schéma représente Partition principale 1, Partition principale 2, Partition
 
 Le schéma représente Volume 1, Volume 2 et Volume 3, puis Volume 2 étendu et Espace libre.
 
-![Partition étendue et lecteurs logiques](../../../assets/course-sources/isolated/1369986f889f518a/g1-manual-09.webp)
+![Partition étendue et lecteurs logiques](../../assets/course-sources/isolated/1369986f889f518a/g1-manual-09.webp)
 
 Partition étendue et lecteurs logiques
 
-![Volumes dynamiques sur plusieurs espaces](../../../assets/course-sources/isolated/1369986f889f518a/g1-manual-10.webp)
+![Volumes dynamiques sur plusieurs espaces](../../assets/course-sources/isolated/1369986f889f518a/g1-manual-10.webp)
 
 Volumes dynamiques sur plusieurs espaces
 
@@ -264,7 +264,7 @@ Le schéma « GUID Partition Table Scheme » contient les repères suivants :
 - Une partition ou un lecteur logique formaté s’appelle un **volume**.
 - Plusieurs systèmes de fichiers existent.
 
-![Capture du support — Module 04 - Support de cours](../../../assets/course-sources/isolated/1369986f889f518a/g1-d21-p05-i1.webp)
+![Capture du support — Module 04 - Support de cours](../../assets/course-sources/isolated/1369986f889f518a/g1-d21-p05-i1.webp)
 
 Capture du support — Module 04 - Support de cours
 
@@ -301,7 +301,7 @@ Capture du support — Module 04 - Support de cours
 
 Les outils de gestion : avec la console graphique **`diskmgmt.msc`**.
 
-![Capture du support — Module 04 - Support de cours](../../../assets/course-sources/isolated/1369986f889f518a/g1-d21-p07-i1.webp)
+![Capture du support — Module 04 - Support de cours](../../assets/course-sources/isolated/1369986f889f518a/g1-d21-p07-i1.webp)
 
 Capture du support — Module 04 - Support de cours
 
@@ -319,7 +319,7 @@ Les outils de gestion : avec les cmdlet PowerShell.
 - On peut assigner la lettre après avec `Set-Partition -DiskNumber <numéro relevé> -PartitonNumber <numéro relevé> -NewDriveLetter <lettre de votre choix>`. La graphie PartitonNumber est celle de la diapositive source.
 - `Format-Volume -DriveLetter <lettre de lecteur>` : format par défaut en NTFS. Votre volume est prêt à l’utilisation.
 
-![Capture du support — Module 04 - Support de cours](../../../assets/course-sources/isolated/1369986f889f518a/g1-d21-p08-i1.webp)
+![Capture du support — Module 04 - Support de cours](../../assets/course-sources/isolated/1369986f889f518a/g1-d21-p08-i1.webp)
 
 Capture du support — Module 04 - Support de cours
 
@@ -1257,11 +1257,11 @@ Maximum disk size (GB): 60
 
 Store virtual disk as a single file > Next
 
-![Capture du support — Solution du TP - Gestion du stockage](../../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p02-i1.webp)
+![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p02-i1.webp)
 
 Capture du support — Solution du TP - Gestion du stockage
 
-![Capture du support — Solution du TP - Gestion du stockage](../../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p02-i2.webp)
+![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p02-i2.webp)
 
 Capture du support — Solution du TP - Gestion du stockage
 
@@ -1287,7 +1287,7 @@ Faire un clic droit sur l'espace non alloué du disque 1 > Nouveau volume simple
 
 L'assistant se lance > Suivant
 
-![Capture du support — Solution du TP - Gestion du stockage](../../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p03-i1.webp)
+![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p03-i1.webp)
 
 Capture du support — Solution du TP - Gestion du stockage
 
@@ -1323,11 +1323,11 @@ Nous nous trouvons sur un disque initialisé avec une table de partitionnement G
 
 Faire un clic droit sur la première partition principale du disque 1 > Formater
 
-![Capture du support — Solution du TP - Gestion du stockage](../../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p04-i1.webp)
+![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p04-i1.webp)
 
 Capture du support — Solution du TP - Gestion du stockage
 
-![Capture du support — Solution du TP - Gestion du stockage](../../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p04-i2.webp)
+![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p04-i2.webp)
 
 Capture du support — Solution du TP - Gestion du stockage
 
@@ -1345,15 +1345,15 @@ Vous pouvez ensuite attribuer la lettre de lecteur que vous souhaitez (exemple Z
 
 Faire un clic droit sur le volume DATA > Modifier la lettre de lecteur et les chemins d'accès…
 
-![Capture du support — Solution du TP - Gestion du stockage](../../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p05-i1.webp)
+![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p05-i1.webp)
 
 Capture du support — Solution du TP - Gestion du stockage
 
-![Capture du support — Solution du TP - Gestion du stockage](../../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p05-i2.webp)
+![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p05-i2.webp)
 
 Capture du support — Solution du TP - Gestion du stockage
 
-![Capture du support — Solution du TP - Gestion du stockage](../../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p05-i3.webp)
+![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p05-i3.webp)
 
 Capture du support — Solution du TP - Gestion du stockage
 
@@ -1387,11 +1387,11 @@ Sélectionner l'espace en Mo : 15360
 
 Suivant
 
-![Capture du support — Solution du TP - Gestion du stockage](../../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p06-i1.webp)
+![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p06-i1.webp)
 
 Capture du support — Solution du TP - Gestion du stockage
 
-![Capture du support — Solution du TP - Gestion du stockage](../../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p06-i2.webp)
+![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p06-i2.webp)
 
 Capture du support — Solution du TP - Gestion du stockage
 
@@ -1428,11 +1428,11 @@ select volume X (où X correspond au volume de 15 Go bruts RAW, le volume n) ; 1
 cas de cette solution) 
 ```
 
-![Capture du support — Solution du TP - Gestion du stockage](../../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p07-i1.webp)
+![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p07-i1.webp)
 
 Capture du support — Solution du TP - Gestion du stockage
 
-![Capture du support — Solution du TP - Gestion du stockage](../../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p07-i2.webp)
+![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p07-i2.webp)
 
 Capture du support — Solution du TP - Gestion du stockage
 
@@ -1499,7 +1499,7 @@ Messages successifs : disque 1 sélectionné ; volume créé ; volume étendu ; 
 
 La liste conserve aussi le lecteur DVD, la partition de récupération, le volume C: de démarrage et la partition système du disque installé.
 
-![Capture du support — Solution du TP - Gestion du stockage](../../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p10-i1.webp)
+![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p10-i1.webp)
 
 Capture du support — Solution du TP - Gestion du stockage
 

@@ -134,11 +134,11 @@ Le centre réseau et partage
 - Des cartes réseau (accès direct en lançant ncpa.cpl)
 - Des nouvelles connexions
 
-![Illustration isolée du support — Module 07 - Support de cours](../../../assets/course-sources/isolated/1b5a252de49b3690/g2-p2-1.webp)
+![Illustration isolée du support — Module 07 - Support de cours](../../assets/course-sources/isolated/1b5a252de49b3690/g2-p2-1.webp)
 
 Illustration isolée du support — Module 07 - Support de cours
 
-![Illustration isolée du support — Module 07 - Support de cours](../../../assets/course-sources/isolated/1b5a252de49b3690/g2-p2-2.webp)
+![Illustration isolée du support — Module 07 - Support de cours](../../assets/course-sources/isolated/1b5a252de49b3690/g2-p2-2.webp)
 
 Illustration isolée du support — Module 07 - Support de cours
 
@@ -200,7 +200,7 @@ flowchart LR
 - Réseau 169.254.0.0/16
 - Communication sur le réseau local possible
 
-![Illustration isolée du support — Module 07 - Support de cours](../../../assets/course-sources/isolated/1b5a252de49b3690/g2-p3-1.webp)
+![Illustration isolée du support — Module 07 - Support de cours](../../assets/course-sources/isolated/1b5a252de49b3690/g2-p3-1.webp)
 
 Illustration isolée du support — Module 07 - Support de cours
 
@@ -241,7 +241,7 @@ Illustration isolée du support — Module 07 - Support de cours
 !!! note "À retenir"
     Illustration isolée du support — Module 07 - Support de cours
 
-![Illustration isolée du support — Module 07 - Support de cours](../../../assets/course-sources/isolated/1b5a252de49b3690/g2-p5-1.webp)
+![Illustration isolée du support — Module 07 - Support de cours](../../assets/course-sources/isolated/1b5a252de49b3690/g2-p5-1.webp)
 
 Illustration isolée du support — Module 07 - Support de cours
 
@@ -375,7 +375,7 @@ Ouvrez une fenêtre de ligne de commande cmd.exe
 
 ipconfig (attention, votre adresse IP sera différente de celle de l'encadré ci-dessous).
 
-![Illustration isolée du support — Solution du TP - Gestion du r‚seau](../../../assets/course-sources/isolated/9cb17ec8495d3204/g2-p1-1.webp)
+![Illustration isolée du support — Solution du TP - Gestion du r‚seau](../../assets/course-sources/isolated/9cb17ec8495d3204/g2-p1-1.webp)
 
 Illustration isolée du support — Solution du TP - Gestion du r‚seau
 
@@ -462,7 +462,7 @@ Sur la VM Win10-XX
 
 Ouvrez une fenêtre de commande cmd.exe
 
-![Illustration isolée du support — Solution du TP - Gestion du r‚seau](../../../assets/course-sources/isolated/9cb17ec8495d3204/g2-p4-1.webp)
+![Illustration isolée du support — Solution du TP - Gestion du r‚seau](../../assets/course-sources/isolated/9cb17ec8495d3204/g2-p4-1.webp)
 
 Illustration isolée du support — Solution du TP - Gestion du r‚seau
 
@@ -492,11 +492,11 @@ La VM Win10-XX et Discovery communiquent ensemble sur le même réseau local.
 ping www.facebook.com
 ```
 
-![Illustration isolée du support — Solution du TP - Gestion du r‚seau](../../../assets/course-sources/isolated/9cb17ec8495d3204/g2-p5-1.webp)
+![Illustration isolée du support — Solution du TP - Gestion du r‚seau](../../assets/course-sources/isolated/9cb17ec8495d3204/g2-p5-1.webp)
 
 Illustration isolée du support — Solution du TP - Gestion du r‚seau
 
-![Illustration isolée du support — Solution du TP - Gestion du r‚seau](../../../assets/course-sources/isolated/9cb17ec8495d3204/g2-p5-2.webp)
+![Illustration isolée du support — Solution du TP - Gestion du r‚seau](../../assets/course-sources/isolated/9cb17ec8495d3204/g2-p5-2.webp)
 
 Illustration isolée du support — Solution du TP - Gestion du r‚seau
 
@@ -506,7 +506,7 @@ La communication entre votre VM Win10-XX et ce serveur web est possible grâce a
 
 Cette commande nous apprend que la passerelle par défaut ainsi que la VM Discovery sont joignables directement. La communication est directe, sans que le paquet ne traverse des routeurs, ne passe par différents réseaux.
 
-![Illustration isolée du support — Solution du TP - Gestion du r‚seau](../../../assets/course-sources/isolated/9cb17ec8495d3204/g2-p6-1.webp)
+![Illustration isolée du support — Solution du TP - Gestion du r‚seau](../../assets/course-sources/isolated/9cb17ec8495d3204/g2-p6-1.webp)
 
 Illustration isolée du support — Solution du TP - Gestion du r‚seau
 
@@ -539,7 +539,7 @@ o www.facebook.com
 
 Depuis la VM Win10-XX
 
-![Illustration isolée du support — Solution du TP - Gestion du r‚seau](../../../assets/course-sources/isolated/9cb17ec8495d3204/g2-p7-1.webp)
+![Illustration isolée du support — Solution du TP - Gestion du r‚seau](../../assets/course-sources/isolated/9cb17ec8495d3204/g2-p7-1.webp)
 
 Illustration isolée du support — Solution du TP - Gestion du r‚seau
 

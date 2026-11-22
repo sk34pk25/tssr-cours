@@ -92,7 +92,7 @@ flowchart LR
 | `HKEY_USERS` | Tous les profils utilisateur chargés activement sur l’ordinateur. |
 | `HKEY_CURRENT_CONFIG` | Profil matériel utilisé par l’ordinateur. |
 
-![Les cinq catégories affichées dans l’Éditeur du Registre](../../../assets/course-sources/isolated/7db1109d7e25b727/g3-p2-1.webp)
+![Les cinq catégories affichées dans l’Éditeur du Registre](../../assets/course-sources/isolated/7db1109d7e25b727/g3-p2-1.webp)
 
 Capture du support — Les cinq catégories affichées dans l’Éditeur du Registre.
 
@@ -137,11 +137,11 @@ flowchart LR
 - Restreindre l’accès à certains paramètres : panneau de configuration, ligne de commande.
 - Démarrer des scripts à l’ouverture et à la fermeture de session utilisateur.
 
-![Clés et sous-clés du registre](../../../assets/course-sources/isolated/7db1109d7e25b727/g3-p3-2.webp)
+![Clés et sous-clés du registre](../../assets/course-sources/isolated/7db1109d7e25b727/g3-p3-2.webp)
 
 Capture du support — Clés et sous-clés du registre.
 
-![Nom, type et données des valeurs du registre](../../../assets/course-sources/isolated/7db1109d7e25b727/g3-p3-3.webp)
+![Nom, type et données des valeurs du registre](../../assets/course-sources/isolated/7db1109d7e25b727/g3-p3-3.webp)
 
 Capture du support — Nom, type et données des valeurs du registre.
 
@@ -182,11 +182,11 @@ flowchart LR
 - Peut posséder des options supplémentaires.
 - Possède surtout une aide précieuse : lisez-la !
 
-![Sélection d’un ordinateur et d’un objet utilisateur dans la console LGPO](../../../assets/course-sources/isolated/7db1109d7e25b727/g3-p4-4.webp)
+![Sélection d’un ordinateur et d’un objet utilisateur dans la console LGPO](../../assets/course-sources/isolated/7db1109d7e25b727/g3-p4-4.webp)
 
 Capture du support — Sélection d’un ordinateur et d’un objet utilisateur dans la console LGPO.
 
-![Paramètre LGPO : état, commentaire, conditions, options et aide](../../../assets/course-sources/isolated/7db1109d7e25b727/g3-p4-5.webp)
+![Paramètre LGPO : état, commentaire, conditions, options et aide](../../assets/course-sources/isolated/7db1109d7e25b727/g3-p4-5.webp)
 
 Capture du support — Paramètre LGPO : état, commentaire, conditions, options et aide.
 

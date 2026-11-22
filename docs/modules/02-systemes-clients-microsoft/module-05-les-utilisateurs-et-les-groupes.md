@@ -222,7 +222,7 @@ Ouverture de session
 
 Attention, la liste des utilisateurs locaux n’apparaît plus une fois l’ordinateur joint au domaine de l’entreprise !
 
-![Illustration isolée du support — Module 05 - Support de cours](../../../assets/course-sources/isolated/b428003d4e687898/g2-p4-1.webp)
+![Illustration isolée du support — Module 05 - Support de cours](../../assets/course-sources/isolated/b428003d4e687898/g2-p4-1.webp)
 
 Illustration isolée du support — Module 05 - Support de cours
 
@@ -256,7 +256,7 @@ Un utilisateur ouvre une session pour la première fois, un profil personnel est
 - Bureau
 - Images…
 
-![Illustration isolée du support — Module 05 - Support de cours](../../../assets/course-sources/isolated/b428003d4e687898/g2-p5-1.webp)
+![Illustration isolée du support — Module 05 - Support de cours](../../assets/course-sources/isolated/b428003d4e687898/g2-p5-1.webp)
 
 Illustration isolée du support — Module 05 - Support de cours
 
@@ -287,11 +287,11 @@ Comment gérer les profils ?
 - Modifier le type du profil
 - Gestion du profil par défaut
 
-![Illustration isolée du support — Module 05 - Support de cours](../../../assets/course-sources/isolated/b428003d4e687898/g2-p6-1.webp)
+![Illustration isolée du support — Module 05 - Support de cours](../../assets/course-sources/isolated/b428003d4e687898/g2-p6-1.webp)
 
 Illustration isolée du support — Module 05 - Support de cours
 
-![Illustration isolée du support — Module 05 - Support de cours](../../../assets/course-sources/isolated/b428003d4e687898/g2-p6-2.webp)
+![Illustration isolée du support — Module 05 - Support de cours](../../assets/course-sources/isolated/b428003d4e687898/g2-p6-2.webp)
 
 Illustration isolée du support — Module 05 - Support de cours
 
@@ -323,11 +323,11 @@ Configuration
 - net user (net help user pour l'aide détaillée)
 - net localgroup (net help localgroup)
 
-![Illustration isolée du support — Module 05 - Support de cours](../../../assets/course-sources/isolated/b428003d4e687898/g2-p7-1.webp)
+![Illustration isolée du support — Module 05 - Support de cours](../../assets/course-sources/isolated/b428003d4e687898/g2-p7-1.webp)
 
 Illustration isolée du support — Module 05 - Support de cours
 
-![Illustration isolée du support — Module 05 - Support de cours](../../../assets/course-sources/isolated/b428003d4e687898/g2-p7-2.webp)
+![Illustration isolée du support — Module 05 - Support de cours](../../assets/course-sources/isolated/b428003d4e687898/g2-p7-2.webp)
 
 Illustration isolée du support — Module 05 - Support de cours
 
@@ -372,19 +372,19 @@ Sans action particulière, le système loge tous les utilisateurs à la même en
 
 Il est donc déconseillé de désactiver l’UAC.
 
-![Illustration isolée du support — Module 05 - Support de cours](../../../assets/course-sources/isolated/b428003d4e687898/g2-p9-1.webp)
+![Illustration isolée du support — Module 05 - Support de cours](../../assets/course-sources/isolated/b428003d4e687898/g2-p9-1.webp)
 
 Illustration isolée du support — Module 05 - Support de cours
 
-![Illustration isolée du support — Module 05 - Support de cours](../../../assets/course-sources/isolated/b428003d4e687898/g2-p9-2.webp)
+![Illustration isolée du support — Module 05 - Support de cours](../../assets/course-sources/isolated/b428003d4e687898/g2-p9-2.webp)
 
 Illustration isolée du support — Module 05 - Support de cours
 
-![Illustration isolée du support — Module 05 - Support de cours](../../../assets/course-sources/isolated/b428003d4e687898/g2-p9-3.webp)
+![Illustration isolée du support — Module 05 - Support de cours](../../assets/course-sources/isolated/b428003d4e687898/g2-p9-3.webp)
 
 Illustration isolée du support — Module 05 - Support de cours
 
-![Illustration isolée du support — Module 05 - Support de cours](../../../assets/course-sources/isolated/b428003d4e687898/g2-p9-4.webp)
+![Illustration isolée du support — Module 05 - Support de cours](../../assets/course-sources/isolated/b428003d4e687898/g2-p9-4.webp)
 
 Illustration isolée du support — Module 05 - Support de cours
 
@@ -407,11 +407,11 @@ Un utilisateur est associé à :
 - L'ensemble des SID constituent le jeton d'accès, ouvrant des accès et accordant des privilèges
 - Les informations du jeton d'accès sont consultables avec la commande whoami
 
-![Illustration isolée du support — Module 05 - Support de cours](../../../assets/course-sources/isolated/b428003d4e687898/g2-p10-1.webp)
+![Illustration isolée du support — Module 05 - Support de cours](../../assets/course-sources/isolated/b428003d4e687898/g2-p10-1.webp)
 
 Illustration isolée du support — Module 05 - Support de cours
 
-![Illustration isolée du support — Module 05 - Support de cours](../../../assets/course-sources/isolated/b428003d4e687898/g2-p10-2.webp)
+![Illustration isolée du support — Module 05 - Support de cours](../../assets/course-sources/isolated/b428003d4e687898/g2-p10-2.webp)
 
 Illustration isolée du support — Module 05 - Support de cours
 
@@ -604,7 +604,7 @@ Nom du groupe : L_Informatiques
 
 Ajouter …
 
-![Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes](../../../assets/course-sources/isolated/57ccbb8c406c69c9/g2-p1-1.webp)
+![Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes](../../assets/course-sources/isolated/57ccbb8c406c69c9/g2-p1-1.webp)
 
 Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes
 
@@ -628,7 +628,7 @@ Fermer
 
 Les deux nouveaux groupes apparaissent dans la liste
 
-![Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes](../../../assets/course-sources/isolated/57ccbb8c406c69c9/g2-p2-1.webp)
+![Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes](../../assets/course-sources/isolated/57ccbb8c406c69c9/g2-p2-1.webp)
 
 Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes
 
@@ -674,7 +674,7 @@ Refaites ces étapes pour un utilisateur supplémentaire puis Fermer
 
 Ils apparaissent dorénavant dans la fenêtre des utilisateurs
 
-![Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes](../../../assets/course-sources/isolated/57ccbb8c406c69c9/g2-p3-1.webp)
+![Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes](../../assets/course-sources/isolated/57ccbb8c406c69c9/g2-p3-1.webp)
 
 Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes
 

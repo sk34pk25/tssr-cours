@@ -213,7 +213,7 @@ Autres besoins : lecteur DVD / stockage externe ; carte graphique ; carte son ; 
 
 Le schéma place plusieurs VM au-dessus de l’**HYPERVISEUR**, lui-même au-dessus des ressources matérielles.
 
-![L’hyperviseur partage les ressources de l’hôte entre les machines virtuelles](../../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p3-1.webp)
+![L’hyperviseur partage les ressources de l’hôte entre les machines virtuelles](../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p3-1.webp)
 
 Capture du support — L’hyperviseur partage les ressources de l’hôte entre les machines virtuelles.
 
@@ -232,11 +232,11 @@ Attribution des ressources CPU. Les captures présentent le nombre de processeur
 - Attribuée à la VM au démarrage.
 - Configurable.
 
-![Attribution des processeurs et options de virtualisation](../../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p4-2.webp)
+![Attribution des processeurs et options de virtualisation](../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p4-2.webp)
 
 Capture du support — Attribution des processeurs et options de virtualisation.
 
-![Attribution de mémoire à la machine virtuelle](../../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p4-3.webp)
+![Attribution de mémoire à la machine virtuelle](../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p4-3.webp)
 
 Capture du support — Attribution de mémoire à la machine virtuelle.
 
@@ -274,7 +274,7 @@ La VM peut communiquer avec :
 
 Pour cela, elle doit être connectée à un switch.
 
-![Création et capacité maximale d’un disque virtuel](../../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p5-4.webp)
+![Création et capacité maximale d’un disque virtuel](../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p5-4.webp)
 
 Capture du support — Création et capacité maximale d’un disque virtuel.
 
@@ -290,11 +290,11 @@ Le schéma relie les VM au switch Host-Only et à l’hôte au moyen de **VMware
 
 Le schéma relie les VM au switch **VMnetX** et à l’hôte au moyen de **VMware Network Adapter VMnetX**.
 
-![Réseau Host-Only avec adaptateur VMnet1 sur l’hôte](../../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p6-5.webp)
+![Réseau Host-Only avec adaptateur VMnet1 sur l’hôte](../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p6-5.webp)
 
 Capture du support — Réseau Host-Only avec adaptateur VMnet1 sur l’hôte.
 
-![Réseau VMnetX et adaptateur de l’hôte](../../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p6-6.webp)
+![Réseau VMnetX et adaptateur de l’hôte](../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p6-6.webp)
 
 Capture du support — Réseau VMnetX et adaptateur de l’hôte.
 
@@ -306,7 +306,7 @@ Le schéma **Lan Segment** relie plusieurs VM au même switch virtuel.
 
 Le schéma de maquette relie quatre ensembles, **Serveurs**, **Administratif**, **Usine** et **Imprimantes**, à un **routeur virtuel** par des switchs distincts.
 
-![Lan Segment entre machines virtuelles](../../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p7-7.webp)
+![Lan Segment entre machines virtuelles](../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p7-7.webp)
 
 Capture du support — Lan Segment entre machines virtuelles.
 
@@ -322,11 +322,11 @@ Le schéma relie les VM au switch **Bridge**, puis à **Internet**.
 
 Le schéma relie les VM au switch **NAT**, puis à l’**hôte** et à **Internet**. L’interface virtuelle côté hôte est **VMware Network Adapter VMnet8** ; l’interface vers Internet est **Ethernet**.
 
-![Réseau Bridge vers le réseau physique et Internet](../../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p8-8.webp)
+![Réseau Bridge vers le réseau physique et Internet](../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p8-8.webp)
 
 Capture du support — Réseau Bridge vers le réseau physique et Internet.
 
-![Réseau NAT et adaptateur VMware Network Adapter VMnet8](../../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p8-9.webp)
+![Réseau NAT et adaptateur VMware Network Adapter VMnet8](../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p8-9.webp)
 
 Capture du support — Réseau NAT et adaptateur VMware Network Adapter VMnet8.
 
@@ -352,7 +352,7 @@ Capture du support — Réseau NAT et adaptateur VMware Network Adapter VMnet8.
 - Par défaut la VM « capture » le clavier et la souris : tapez **Ctrl + Alt** pour reprendre la main.
 - Pour faire **Ctrl + Alt + Suppr** dans la VM, taper **Ctrl + Alt + Inser**, ou cliquer sur l’icône **Send Ctrl+Alt+Del to this virtual machine**.
 
-![Commande Workstation pour envoyer Ctrl + Alt + Suppr à la VM](../../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p9-10.webp)
+![Commande Workstation pour envoyer Ctrl + Alt + Suppr à la VM](../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p9-10.webp)
 
 Capture du support — Commande Workstation pour envoyer Ctrl + Alt + Suppr à la VM.
 

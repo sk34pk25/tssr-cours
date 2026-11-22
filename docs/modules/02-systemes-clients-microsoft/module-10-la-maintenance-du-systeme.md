@@ -182,7 +182,7 @@ flowchart LR
 - Embarque des outils de diagnostics et des outils de réparation.
 - Possibilité de réinitialiser le PC : réinstallation du système, « retour à la configuration d’usine ».
 
-![Protection du système et création d’un point de restauration](../../../assets/course-sources/isolated/03eef11a677ef175/g3-p5-1.webp)
+![Protection du système et création d’un point de restauration](../../assets/course-sources/isolated/03eef11a677ef175/g3-p5-1.webp)
 
 Capture du support — Protection du système et création d’un point de restauration.
 
@@ -204,7 +204,7 @@ Capture du support — Protection du système et création d’un point de resta
 
 Restauration du système ; outil de redémarrage système ; rétrograder vers la version précédente ; invite de commandes ; récupération de l’image système ; paramètres.
 
-![Options avancées de WinRE](../../../assets/course-sources/isolated/03eef11a677ef175/g3-p6-2.webp)
+![Options avancées de WinRE](../../assets/course-sources/isolated/03eef11a677ef175/g3-p6-2.webp)
 
 Capture du support — Options avancées de WinRE.
 
@@ -305,7 +305,7 @@ L’indice de fiabilité a chuté le jour où des échecs divers sont survenus, 
 
 Double clic sur l’évènement critique.
 
-![Historique de fiabilité et évènement critique du scénario](../../../assets/course-sources/isolated/bd2a59f5163dd712/g3-p1-1.webp)
+![Historique de fiabilité et évènement critique du scénario](../../assets/course-sources/isolated/bd2a59f5163dd712/g3-p1-1.webp)
 
 Capture du support — Historique de fiabilité et évènement critique du scénario.
 
@@ -331,7 +331,7 @@ Capture du support — Historique de fiabilité et évènement critique du scén
 3. Créez si nécessaire un point de restauration manuel.
 4. Créez des fichiers dans le répertoire **Documents** de l’utilisateur en cours d’utilisation.
 
-![Détails de l’évènement critique illustré dans la correction](../../../assets/course-sources/isolated/bd2a59f5163dd712/g3-p2-2.webp)
+![Détails de l’évènement critique illustré dans la correction](../../assets/course-sources/isolated/bd2a59f5163dd712/g3-p2-2.webp)
 
 Capture du support — Détails de l’évènement critique illustré dans la correction.
 

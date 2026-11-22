@@ -165,7 +165,7 @@ flowchart LR
 - Mode Tablette.
 - « Tous les paramètres ».
 
-![Capture du support — Module 03 - Support de cours](../../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p02-i1.webp)
+![Capture du support — Module 03 - Support de cours](../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p02-i1.webp)
 
 Capture du support — Module 03 - Support de cours
 
@@ -185,7 +185,7 @@ Capture du support — Module 03 - Support de cours
 
 Le support annonce une démonstration de l’interface graphique.
 
-![Capture du support — Module 03 - Support de cours](../../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p03-i1.webp)
+![Capture du support — Module 03 - Support de cours](../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p03-i1.webp)
 
 Capture du support — Module 03 - Support de cours
 
@@ -226,7 +226,7 @@ C:\windows\system32> help shutdown
 
 Dans le premier exemple : prompt, commande seule. Dans le second : prompt, commande `help`, paramètre `shutdown`.
 
-![Capture du support — Module 03 - Support de cours](../../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p05-i1.webp)
+![Capture du support — Module 03 - Support de cours](../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p05-i1.webp)
 
 Capture du support — Module 03 - Support de cours
 
@@ -314,11 +314,11 @@ Prise en main de la commande `cmd`.
 - **PSVersion** : version de PowerShell disponible sur le système d’exploitation.
 - **PSCompatibleVersions** : rétrocompatibilité.
 
-![Capture du support — Module 03 - Support de cours](../../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p10-i1.webp)
+![Capture du support — Module 03 - Support de cours](../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p10-i1.webp)
 
 Capture du support — Module 03 - Support de cours
 
-![Capture du support — Module 03 - Support de cours](../../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p10-i2.webp)
+![Capture du support — Module 03 - Support de cours](../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p10-i2.webp)
 
 Capture du support — Module 03 - Support de cours
 
@@ -405,7 +405,7 @@ Update-Help -SourcePath \\chemin\vers\aide\PowerShell -UICulture en-US -Credenti
 - `Man about_Variables` : affiche le manuel d’utilisation des variables PowerShell, page par page.
 - `Help about_*` affiche la liste des concepts disponibles.
 
-![Capture du support — Module 03 - Support de cours](../../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p14-i1.webp)
+![Capture du support — Module 03 - Support de cours](../../assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p14-i1.webp)
 
 Capture du support — Module 03 - Support de cours
 
@@ -1669,11 +1669,11 @@ Il y a trois autres propriétés non affichées par défaut par le système : SI
 Get-LocalGroup -name "Utilisateurs du Bureau*" | Select SID,PrincipalSource
 ```
 
-![Capture du support — Solution du TP - Devenir autonome avec PowerShell](../../../assets/course-sources/isolated/55d43e2a345b7d91/g1-d16-p02-i1.webp)
+![Capture du support — Solution du TP - Devenir autonome avec PowerShell](../../assets/course-sources/isolated/55d43e2a345b7d91/g1-d16-p02-i1.webp)
 
 Capture du support — Solution du TP - Devenir autonome avec PowerShell
 
-![Capture du support — Solution du TP - Devenir autonome avec PowerShell](../../../assets/course-sources/isolated/55d43e2a345b7d91/g1-d16-p02-i2.webp)
+![Capture du support — Solution du TP - Devenir autonome avec PowerShell](../../assets/course-sources/isolated/55d43e2a345b7d91/g1-d16-p02-i2.webp)
 
 Capture du support — Solution du TP - Devenir autonome avec PowerShell
 
@@ -1799,11 +1799,11 @@ La VM détecte un nouveau réseau.
 
 Pour mettre en place l’emplacement réseau privé, cliquez sur Oui
 
-![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p02-i1.webp)
+![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p02-i1.webp)
 
 Capture du support — Solution du TP - Manipuler l'aide de PowerShell
 
-![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p02-i2.webp)
+![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p02-i2.webp)
 
 Capture du support — Solution du TP - Manipuler l'aide de PowerShell
 
@@ -1823,11 +1823,11 @@ Update-help
 
 La mise à jour se lance et est symbolisée par une barre d’avancement comme ci-dessous.
 
-![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p03-i1.webp)
+![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p03-i1.webp)
 
 Capture du support — Solution du TP - Manipuler l'aide de PowerShell
 
-![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p03-i2.webp)
+![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p03-i2.webp)
 
 Capture du support — Solution du TP - Manipuler l'aide de PowerShell
 
@@ -1861,7 +1861,7 @@ Get-Help about_*
 
 - Quelle cmdlet nous permet d'en apprendre plus sur le concept d'alias PowerShell ?
 
-![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p04-i1.webp)
+![Capture du support — Solution du TP - Manipuler l'aide de PowerShell](../../assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p04-i1.webp)
 
 Capture du support — Solution du TP - Manipuler l'aide de PowerShell
 
@@ -2227,7 +2227,7 @@ Un redémarrage est nécessaire
 
 Après le redémarrage, vérifiez la bonne prise en compte du nouveau nom
 
-![Capture du support — Solution du TP - Prise en main de l'interface graphique](../../../assets/course-sources/isolated/682abcc6af3d6b94/g1-d20-p02-i1.webp)
+![Capture du support — Solution du TP - Prise en main de l'interface graphique](../../assets/course-sources/isolated/682abcc6af3d6b94/g1-d20-p02-i1.webp)
 
 Capture du support — Solution du TP - Prise en main de l'interface graphique
 

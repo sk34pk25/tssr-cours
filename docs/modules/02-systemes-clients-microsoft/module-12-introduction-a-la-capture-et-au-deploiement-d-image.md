@@ -135,7 +135,7 @@ En complément :
 - Audit : pré-paramétrages spécifiques au poste avant OOBE.
 - Journaux consultables après redémarrage dans les répertoires Panther, dans `C:\Windows\System32\Sysprep`, fichiers TXT et EVT.
 
-![Outil de préparation du système : OOBE, généraliser et arrêt](../../../assets/course-sources/isolated/354e071ac6043135/g3-p6-1.webp)
+![Outil de préparation du système : OOBE, généraliser et arrêt](../../assets/course-sources/isolated/354e071ac6043135/g3-p6-1.webp)
 
 Capture du support — Outil de préparation du système : OOBE, généraliser et arrêt.
 

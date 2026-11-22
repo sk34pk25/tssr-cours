@@ -153,7 +153,7 @@ L'onglet sécurité
 - Les utilisateurs
 - ACE : (Access Control Entry) privilèges d'accès du groupe en question
 
-![Illustration isolée du support — Module 06 - Support de cours](../../../assets/course-sources/isolated/b0954b2cfcc92d40/g2-p2-1.webp)
+![Illustration isolée du support — Module 06 - Support de cours](../../assets/course-sources/isolated/b0954b2cfcc92d40/g2-p2-1.webp)
 
 Illustration isolée du support — Module 06 - Support de cours
 
@@ -203,7 +203,7 @@ flowchart LR
 - La règle la plus permissive l'emporte
 - Le refus explicite l'emporte sur l'autorisation
 
-![Illustration isolée du support — Module 06 - Support de cours](../../../assets/course-sources/isolated/b0954b2cfcc92d40/g2-p3-1.webp)
+![Illustration isolée du support — Module 06 - Support de cours](../../assets/course-sources/isolated/b0954b2cfcc92d40/g2-p3-1.webp)
 
 Illustration isolée du support — Module 06 - Support de cours
 
@@ -492,15 +492,15 @@ Oui, les nouveaux fichiers héritent des autorisations du dossier parent Echange
 
 Pour s'en assurer, il suffit d'observer la présence des coches grisées. Pour plus de détail, cliquez sur le bouton Avancé.
 
-![Illustration isolée du support — Solution du TP - Les ACL](../../../assets/course-sources/isolated/3308a9a099283004/g2-p2-1.webp)
+![Illustration isolée du support — Solution du TP - Les ACL](../../assets/course-sources/isolated/3308a9a099283004/g2-p2-1.webp)
 
 Illustration isolée du support — Solution du TP - Les ACL
 
-![Illustration isolée du support — Solution du TP - Les ACL](../../../assets/course-sources/isolated/3308a9a099283004/g2-p3-1.webp)
+![Illustration isolée du support — Solution du TP - Les ACL](../../assets/course-sources/isolated/3308a9a099283004/g2-p3-1.webp)
 
 Illustration isolée du support — Solution du TP - Les ACL
 
-![Illustration isolée du support — Solution du TP - Les ACL](../../../assets/course-sources/isolated/3308a9a099283004/g2-p3-2.webp)
+![Illustration isolée du support — Solution du TP - Les ACL](../../assets/course-sources/isolated/3308a9a099283004/g2-p3-2.webp)
 
 Illustration isolée du support — Solution du TP - Les ACL
 
@@ -540,7 +540,7 @@ Dossier Echange
 
 Clic droit > Propriétés
 
-![Illustration isolée du support — Solution du TP - Les ACL](../../../assets/course-sources/isolated/3308a9a099283004/g2-p4-1.webp)
+![Illustration isolée du support — Solution du TP - Les ACL](../../assets/course-sources/isolated/3308a9a099283004/g2-p4-1.webp)
 
 Illustration isolée du support — Solution du TP - Les ACL
 
@@ -570,7 +570,7 @@ Tester l'accès au dossier Echange (lecture possible car Romain (utilisateur) po
 
 Tester la création d'un nouveau fichier dans le dossier Echange (impossible car Romain n'a
 
-![Illustration isolée du support — Solution du TP - Les ACL](../../../assets/course-sources/isolated/3308a9a099283004/g2-p5-1.webp)
+![Illustration isolée du support — Solution du TP - Les ACL](../../assets/course-sources/isolated/3308a9a099283004/g2-p5-1.webp)
 
 Illustration isolée du support — Solution du TP - Les ACL
 
@@ -602,7 +602,7 @@ Onglet Sécurité
 
 Avancé
 
-![Illustration isolée du support — Solution du TP - Les ACL](../../../assets/course-sources/isolated/3308a9a099283004/g2-p6-1.webp)
+![Illustration isolée du support — Solution du TP - Les ACL](../../assets/course-sources/isolated/3308a9a099283004/g2-p6-1.webp)
 
 Illustration isolée du support — Solution du TP - Les ACL
 
@@ -620,7 +620,7 @@ Afficher l'accès effectif
 
 On observe que romain n'a que des accès en Lecture (pas de création, d'écriture et de suppression possible).
 
-![Illustration isolée du support — Solution du TP - Les ACL](../../../assets/course-sources/isolated/3308a9a099283004/g2-p7-1.webp)
+![Illustration isolée du support — Solution du TP - Les ACL](../../assets/course-sources/isolated/3308a9a099283004/g2-p7-1.webp)
 
 Illustration isolée du support — Solution du TP - Les ACL
 
@@ -658,7 +658,7 @@ posséderont un contrôle total
 
 o Testez le bon fonctionnement des autorisations
 
-![Illustration isolée du support — Solution du TP - Les ACL](../../../assets/course-sources/isolated/3308a9a099283004/g2-p9-1.webp)
+![Illustration isolée du support — Solution du TP - Les ACL](../../assets/course-sources/isolated/3308a9a099283004/g2-p9-1.webp)
 
 Illustration isolée du support — Solution du TP - Les ACL
 

@@ -203,11 +203,11 @@ Comment accéder aux fichiers partagés depuis Windows 10 ?
 - En PowerShell avec la cmdlet New-SmbMapping
 - Exemple New-SmbMapping -LocalPath 'R:' -RemotePath '\\SRV-FIC\Compta'
 
-![Illustration isolée du support — Module 08 - Support de cours](../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p3-1.webp)
+![Illustration isolée du support — Module 08 - Support de cours](../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p3-1.webp)
 
 Illustration isolée du support — Module 08 - Support de cours
 
-![Illustration isolée du support — Module 08 - Support de cours](../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p3-2.webp)
+![Illustration isolée du support — Module 08 - Support de cours](../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p3-2.webp)
 
 Illustration isolée du support — Module 08 - Support de cours
 
@@ -235,11 +235,11 @@ Comment partager des fichiers ?
 - En PowerShell avec la cmdlet New-SmbShare
 - New-SmbShare -Name "VMSFiles" -Path "C:\ClusterStorage\Volume1\VMFiles" -FullAccess "Authenticated Users"
 
-![Illustration isolée du support — Module 08 - Support de cours](../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p4-1.webp)
+![Illustration isolée du support — Module 08 - Support de cours](../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p4-1.webp)
 
 Illustration isolée du support — Module 08 - Support de cours
 
-![Illustration isolée du support — Module 08 - Support de cours](../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p4-2.webp)
+![Illustration isolée du support — Module 08 - Support de cours](../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p4-2.webp)
 
 Illustration isolée du support — Module 08 - Support de cours
 
@@ -296,11 +296,11 @@ Fonctionnement
 - Configuration automatique du pare-feu
 - Attention aux emplacements réseau
 
-![Illustration isolée du support — Module 08 - Support de cours](../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p6-1.webp)
+![Illustration isolée du support — Module 08 - Support de cours](../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p6-1.webp)
 
 Illustration isolée du support — Module 08 - Support de cours
 
-![Illustration isolée du support — Module 08 - Support de cours](../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p6-2.webp)
+![Illustration isolée du support — Module 08 - Support de cours](../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p6-2.webp)
 
 Illustration isolée du support — Module 08 - Support de cours
 
@@ -447,7 +447,7 @@ Fermer la session actuellement ouverte sur Discovery pour regénérer le jeton d
 
 - Pour faciliter l'usage des logiciels de l'entreprise, l'équipe informatique décide de partager le dossier "manuels d'utilisation". Les utilisateurs auront la possibilité d'y déposer des documents texte et des images (comme des captures d'écran) dans le but
 
-![Illustration isolée du support — Solution du TP - Partages et sessions distantes](../../../assets/course-sources/isolated/dd6b14bf0535849c/g2-p2-1.webp)
+![Illustration isolée du support — Solution du TP - Partages et sessions distantes](../../assets/course-sources/isolated/dd6b14bf0535849c/g2-p2-1.webp)
 
 Illustration isolée du support — Solution du TP - Partages et sessions distantes
 
@@ -535,7 +535,7 @@ Get-FileShare mais peut-être un peu moins parlant comme cmdlet.
 Get-SMBShare ADMIN$
 ```
 
-![Illustration isolée du support — Solution du TP - Partages et sessions distantes](../../../assets/course-sources/isolated/dd6b14bf0535849c/g2-p4-1.webp)
+![Illustration isolée du support — Solution du TP - Partages et sessions distantes](../../assets/course-sources/isolated/dd6b14bf0535849c/g2-p4-1.webp)
 
 Illustration isolée du support — Solution du TP - Partages et sessions distantes
 
@@ -623,7 +623,7 @@ C'est possible car l'utilisateur adm fait partie du groupe prédéfini Administr
 
 Fermez la session à distance (clic droit sur le menu Démarrer > Arrêter ou se déconnecter > Se déconnecter)
 
-![Illustration isolée du support — Solution du TP - Partages et sessions distantes](../../../assets/course-sources/isolated/dd6b14bf0535849c/g2-p6-1.webp)
+![Illustration isolée du support — Solution du TP - Partages et sessions distantes](../../assets/course-sources/isolated/dd6b14bf0535849c/g2-p6-1.webp)
 
 Illustration isolée du support — Solution du TP - Partages et sessions distantes
 
