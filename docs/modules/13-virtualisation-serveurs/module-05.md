@@ -1,132 +1,399 @@
 # Module 05 — Les composantes d’une infrastructure vSphere
 
-Le cours présente l’architecture vSphere et les fonctions de gestion de plusieurs hôtes. Le laboratoire commence par deux ESXi imbriqués, puis crée une VM invitée sur le stockage local du premier hôte.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-## Objectifs
+## Parcours de lecture
 
-- Relier vSphere, ESXi, le client d’administration et vCenter.
-- Distinguer migration, équilibrage et continuité de service.
-- Installer les deux hôtes ESXi du laboratoire et vérifier leur accès.
-- Créer une banque VMFS et installer une VM Windows Server 2019.
+1. Support · Module 05 - Support de cours · 4 pages transcrites
+2. Énoncé · TSSR110-Virtualisation_Mise en Situation - Module 5 - VSphere 1 · 3 pages transcrites
+3. Correction · TSSR110-Virtualisation_Mise en Situation - Module 5 - Vsphere - Solution · 15 pages transcrites
 
-## 1. Séparer la plateforme, les hôtes et l’administration
-
-| Élément | Rôle | Où l’observer dans le parcours |
-| --- | --- | --- |
-| vSphere | Plateforme de virtualisation présentée dans le cours | Ensemble des fonctions étudiées aux modules 5 à 8 |
-| ESXi | Hyperviseur qui exécute les VM | Les deux hôtes de l’atelier 3 |
-| Host Client | Interface web d’un hôte ESXi | Création de la banque locale et de `SRV-1` |
-| vCenter | Service de gestion qui regroupe les hôtes | Inventaire commun et fonctions étudiées au module 8 |
-| vSphere Client | Interface d’administration de l’inventaire vCenter | Gestion du datacenter et suivi des tâches |
-
-Le support décrit la transition de vSphere 5 à 6 en évoquant la disparition d’ESX et de sa *Service Console*, le passage du client lourd au client web et vCenter sous forme d’appliance virtuelle. Le cours vise vSphere 6.x. L’atelier utilise ESXi 7 sous Workstation 16. Avant de mettre en œuvre un ensemble de composants, vérifier leur compatibilité plutôt que mélanger les versions des captures.
-
-**Illustration IA / externe au cours — gestion d’un hôte et gestion regroupée.**
+**Visuel externe**
 
 ```mermaid
-flowchart TB
-    C["vSphere Client"] --> V["vCenter · gestion regroupée"]
-    V --> A["ESXi1"]
-    V --> B["ESXi2"]
-    H["Host Client · gestion directe"] --> A
-    A --> M["SRV-1"]
-    A --> D["DS-Local · VMFS"]
-    D --> M
+flowchart TD
+    N1["Support · Module 05 - Support de cours · 4 pages transcrites"]
+    N2["Énoncé · TSSR110-Virtualisation_Mise en Situation - Module 5 - VSphere 1 · 3 pages tran…"]
+    N3["Correction · TSSR110-Virtualisation_Mise en Situation - Module 5 - Vsphere - Solution ·…"]
+    N1 --> N2
+    N2 --> N3
 ```
 
-Le Host Client suffit pour installer le premier invité sur ESXi1. Le lien de gestion vCenter du schéma situe l’étape ultérieure, au module 8.
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-## 2. Choisir une fonction selon le besoin
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-| Fonction | Action présentée dans le support | Ce qui change |
+## Support · Module 05 - Support de cours · 4 pages transcrites
+
+#### Module 05 – Les composantes d’une infrastructure vSphere
+
+!!! note "À retenir"
+    Les composantes d’une infrastructure vSphere
+
+Les composantes d’une infrastructure vSphere
+
+#### Objectifs
+
+!!! note "À retenir"
+    Décrire les composantes d’une infrastructure vSphere 6.x Les composantes d’une infrastructure vSphere
+
+- Décrire les composantes d’une infrastructure vSphere 6.x
+
+Les composantes d’une infrastructure vSphere
+
+#### De vSphere 5 à vSphere 6
+
+!!! note "À retenir"
+    Disparition de l’ESX et du Service Console Disparition du client Lourd vSphere Client vCenter disponible sous forme d'Appliance virtuelle Apparition du Web client vSphere (lié à vCenter) Machines virtuelles Service console VM de gestion Hyperviseur Matériel Les composantes d’une infrastructure vSphere
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Disparition de l’ESX et du Service Console"]
+    N2["Disparition du client Lourd vSphere Client"]
+    N3["vCenter disponible sous forme d'Appliance virtuelle"]
+    N4["Apparition du Web client vSphere (lié à vCenter)"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+- Disparition de l’ESX et du Service Console
+- Disparition du client Lourd vSphere Client
+- vCenter disponible sous forme d'Appliance virtuelle
+- Apparition du Web client vSphere (lié à vCenter)
+
+Machines virtuelles
+
+Service console
+
+VM de gestion
+
+Hyperviseur
+
+Matériel
+
+Les composantes d’une infrastructure vSphere
+
+#### Composantes d’une solution vSphere
+
+!!! note "À retenir"
+    vCenter ESXi VM VM Attention : les versions des différents éléments d’une infrastructure vSphere doivent concorder !
+
+!!! warning "Attention"
+    vCenter ESXi VM VM Attention : les versions des différents éléments d’une infrastructure vSphere doivent concorder !
+
+vCenter
+
+| Élément | Nom de l’élément dans la solution VMware |
+| --- | --- |
+| Solution de virtualisation | vSphere |
+| Hyperviseur | ESXi / ESX |
+| Client d’administration | Client vSphere / vSphere Web Client |
+| Solution de regroupement d’hyperviseurs | vCenter |
+
+ESXi
+
+VM
+
+VM
+
+Attention : les versions des différents éléments d’une infrastructure vSphere doivent concorder !
+
+Les composantes d’une infrastructure vSphere
+
+#### Les principales fonctionnalités
+
+!!! note "À retenir"
+    Fonctionnalités abordées dans le module 8 Les composantes d’une infrastructure vSphere
+
+| Fonctionnalité | Utilité |
+| --- | --- |
+| vMotion* | Déplacement de machine virtuelle d’un hôte vers un autre hôte. |
+| Storage vMotion* | Déplacement du stockage d’une machine virtuelle d’une banque de donnée vers une autre banque de donnée. |
+| DRS | Automatisation du déplacement de machines virtuelles d’un hôte vers un autre hôte disposant de plus de ressources. |
+| Storage DRS | Automatisation du déplacement de machines virtuelles d’un datastore vers un autre disposant de plus de ressources. |
+| DPM | Fonctionnalité permettant d’automatiser l’entrée et la sortie de veille d’hyperviseurs en fonction de la charge d’activité du cluster. |
+| HA | High Availability : fonctionnalité de haute disponibilité. Lors de la défaillance d’un hôte, les machines virtuelles ciblées seront redémarrées sur un autre hôte du cluster. |
+| FT | Fault Tolerance : fonctionnalité de très haute disponibilité protégeant des machines virtuelles ciblées de la défaillance d’un hôte. Aucune interruption de service n’affectera les VM ciblées. |
+
+* Fonctionnalités abordées dans le module 8
+
+Les composantes d’une infrastructure vSphere
+
+#### Tableau comparatif des coûts
+
+!!! note "À retenir"
+    Les composantes d’une infrastructure vSphere
+
+| Comparatif des solutions | Description | Coût au 16/08/2021 |
 | --- | --- | --- |
-| vMotion | Déplacer une VM en fonctionnement vers un autre hôte | L’hôte qui exécute la VM |
-| Storage vMotion | Déplacer ses fichiers d’une banque de données à une autre | La banque qui héberge les fichiers |
-| DRS | Rééquilibrer les VM selon les ressources des hôtes du cluster | Le placement du calcul |
-| Storage DRS | Répartir les fichiers des VM selon les ressources des datastores | Le placement du stockage |
-| DPM | Adapter le nombre d’hôtes actifs à la charge | La mise en veille ou la remise en service d’hôtes |
-| HA | Redémarrer les VM protégées sur un autre hôte après une panne | La reprise de la VM, avec une phase de redémarrage |
-| FT | Maintenir la continuité pour des VM compatibles et configurées à cet effet | Le mécanisme de protection d’une VM |
+| ESXi seul | Gratuit. Nécessite simplement la création d’un compte VMware. | 0 € |
+| Suite Essentials | Les licences vSphere Essentials Kit sont illimitées et n’ont pas de date d’expiration. Ce kit comprend 6 licences CPU de vSphere Essentials (pour 3 serveurs dotés de 2 processeurs chacun maximum) et 1 licence de vCenter Server Essentials. | 574,13 € TTC |
+| vSphere Standard | Les licences vSphere Standard sont illimitées et n’ont pas de date d’expiration. Ce logiciel comprend 1 licence CPU de vSphere Standard et 1 licence de vCenter Server Standard. | 1262,14 € TTC |
+| vSphere Entreprise Plus | VMware vSphere Enterprise Plus intègre l’ensemble des fonctionnalités de vSphere. Aucune date d’expiration et cette licence permet l’utilisation pour un CPU de vCenter Server. | 4326,23 € TTC |
 
-!!! note "Reconnaître la bonne réponse"
+Les composantes d’une infrastructure vSphere
 
-    Une maintenance planifiée amène à examiner les options de migration. Une panne d’hôte amène à examiner le mécanisme de reprise. Le support oppose le redémarrage avec HA à la continuité visée par FT. Le résultat dépend des conditions de la plateforme et de la VM.
+#### Les licences
 
-## 3. Lire le comparatif des licences dans son contexte
+!!! note "À retenir"
+    Licences et contextes d’utilisation Les VRAM pool permettant de cumuler la quantité de mémoire des licences de chaque ESXi pour les attribuer ensuite aux VM n’est plus en vigueur sur vSphere 5.5 Référence du document : 1tdcsvzSoNvyfFnpkUmiWGNjUTYMY3yRj · SHA-256 03057ae5aa768679…
 
-Le tableau du **16 août 2021** présente ESXi seul avec un compte VMware, puis les offres Essentials, Essentials Plus, Standard, Enterprise Plus et Platinum. Le support associe au kit Essentials six licences CPU pour trois serveurs de deux processeurs au maximum et vCenter Server Essentials. Il situe la fin des pools vRAM à vSphere 5.5.
+- Licences et contextes d’utilisation
 
-Les prix et conditions sont ceux du comparatif historique. Les cases peu lisibles sur la couverture des licences, vCenter Foundation ou la RAM maximale ne permettent pas de conclure. Pour lire le support, relever la date et l’édition à côté de la fonction citée.
+| Cible | Édition | Coût | La licence couvre |
+| --- | --- | --- | --- |
+| PME | Essentials | 574,13 € TTC | Elle inclut vCenter Foundation |
+| PME | Essentials Plus | 2525,00 € TTC | Elle inclut vCenter Foundation |
+| Grandes entreprises | Standard | 1262,14 € TTC | Quantité maximale de RAM par hôte |
+| Grandes entreprises | Enterprise Plus | 4326,23 € TTC | Quantité maximale de RAM par hôte |
+| Grandes entreprises | Platinum | NC | Quantité maximale de RAM par hôte |
 
-## 4. TP guidé — Construire les hôtes ESXi et installer `SRV-1`
+Les VRAM pool permettant de cumuler la quantité de mémoire des licences de chaque ESXi pour les attribuer
 
-**Durée du support.** Environ une heure. Workstation 16 représente les deux serveurs physiques de l’entreprise sous forme de VM. La VM Windows Server préparée à l’atelier 1 est arrêtée pour libérer ses ressources. Préparer les ISO et paramètres d’accès fournis pour la salle.
+ensuite aux VM n’est plus en vigueur sur vSphere 5.5
 
-### A. Créer deux hyperviseurs imbriqués
+Référence du document : 1tdcsvzSoNvyfFnpkUmiWGNjUTYMY3yRj · SHA-256 03057ae5aa768679…
 
-| Réglage | Valeur de l’atelier |
+## Énoncé · TSSR110-Virtualisation_Mise en Situation - Module 5 - VSphere 1 · 3 pages transcrites
+
+#### Énoncé :
+
+#### Atelier N°3
+
+TP du Module 05 – Découverte de vSphere
+
+Avant de démarrer ce TP, il convient d’avoir suivi les prérequis du Module 5.
+
+Durée estimée
+
+1 heure
+
+#### Objectif :
+
+Installer des hyperviseurs VMware ESXi.
+
+Configurer les accès à l’hyperviseur.
+
+#### Prérequis :
+
+Posséder la solution de virtualisation VMware Workstation 16.
+
+#### Énoncé :
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Eteindre la VM « SRV_2K19 » qui ne sera pas utilisée dans cet atelier."]
+    N2["2 CPU / 1 cœur"]
+    N3["6 Go RAM"]
+    N4["1 carte réseau bridgée"]
+    N5["1 disque de 40 Go + 1 disque supplémentaire SCSI de 200 Go"]
+    N6["1 CPU / 1 cœur"]
+    N7["2 Go RAM"]
+    N8["1 disque de 32 Go"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+```
+
+L’objectif de l’atelier est de mettre en œuvre des hyperviseurs VMware ESXi. Du fait de la configuration des machines qui sont mises à votre disposition par l’centre de formation Ecole Informatique, nous utiliserons VMware Workstation pour simuler l’existence de deux serveurs physiques servant à héberger des machines virtuelles.
+
+Sous VMware Workstation
+
+- Eteindre la VM « SRV_2K19 » qui ne sera pas utilisée dans cet atelier.
+- Créer une machine virtuelle nommée « ESXi1 » de type « ESXi 7 ». Utiliser le dossier « D:\Machines virtuelles\ESXi1 » pour stocker celle-ci.
+
+Caractéristiques matérielles :
+
+- 2 CPU / 1 cœur
+- 6 Go RAM
+- 1 carte réseau bridgée
+- 1 disque de 40 Go + 1 disque supplémentaire SCSI de 200 Go
+- Récupérer l’image ISO « VMware-VMvisor-Installer-7.0U3-18644231.x86_64» depuis le partage "iso\virtualisation” du serveur “distrib”, puis l’utiliser comme image du CDROM de la machine virtuelle.
+
+Création de l’hyperviseur ESXi1
+
+- Procéder à l’installation d’ESXi dans la VM créée précédemment sur le disque dur de 40 Go.
+- Choisir la langue française et configurer le mot de passe de « root » en respectant les exigences de complexité.
+- Une fois l’installation achevée, relever l’adresse IP obtenue par la VM ESXi1, puis la laisser en l’état. Il est inutile pour le moment de se connecter à la console locale.
+
+Création de l’hyperviseur ESXi2
+
+- Créer une seconde machine « ESXi2 » avec les mêmes caractéristiques que celles d’ESXi1, qui sera stockée dans le dossier « D:\Machines virtuelles\ESXi2 »
+
+Depuis l’hôte Windows centre de formation
+
+- A l’aide d’un navigateur Internet (Firefox, Chrome ou Edge), accéder à la console vSphere Client Web d’ESXi1 avec l’adresse IP relevée précédemment. Fournir les identifiants configurés pendant l’installation.
+- Se diriger tout d’abord dans le menu « Stockage » et y créer une nouvelle « banque de données VMFS » afin d’intialiser l’espace offert par le disque dur de 200 Go ajouté précédemment. Elle sera nommée « DS-Local » et utilisera l’intégralité de l’espace fourni.
+- Cliquer sur « DS-Local », puis sur « Navigateur de banque de données » et charger l’ISO de Windows Server 2019.
+- Se placer dans le menu « Machines virtuelles » pour créer une nouvelle machine virtuelle Windows Serve 2019 nommée « SRV-1 » avec les caractéristiques suivantes :
+- 1 CPU / 1 cœur
+- 2 Go RAM
+- 1 disque de 32 Go
+- Lecteur de CD/DVD => Image ISO depuis la banque de données
+- Mettre sous tension la VM, prendre rapidement la main via une console, puis lancer l’installation de Windows Server 2019.
+- Une fois l’installation terminée, installer les VMware Tools dans la VM « SRV-1 ».
+- Fin de l’atelier ! Vous disposez désormais de 2 hyperviseurs ESXi dont l’un héberge une VM en cours de fonctionnement.
+
+Schéma récapitulatif:
+
+Référence du document : 1wfXlD-ZcCOlt8m6kkSwvuhFPMJO0k6bK · SHA-256 c6b38949a17c34a8…
+
+## Correction · TSSR110-Virtualisation_Mise en Situation - Module 5 - Vsphere - Solution · 15 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+Solution :
+
+#### Atelier N°3
+
+TP du Module 05 – Découverte de vSphere
+
+Avant de démarrer ce TP, il convient d’avoir suivi les prérequis du Module 5.
+
+Durée estimée
+
+1 heure
+
+#### Objectif :
+
+Installer des hyperviseurs VMware ESXi.
+
+Configurer les accès à l’Hyperviseur.
+
+#### Prérequis :
+
+Posséder la solution de virtualisation VMware Workstation 16.
+
+#### Énoncé :
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Eteindre la VM « SRV_2K19 » qui ne sera pas utilisée dans cet atelier."]
+    N2["2 CPU / 1 cœur"]
+    N3["6 Go RAM"]
+    N4["1 carte réseau bridgée"]
+    N5["1 disque de 40 Go + 1 disque supplémentaire SCSI de 200 Go"]
+    N6["Sélection de l’image ISO d’ESXi récupérée depuis le serveur « distrib »"]
+    N7["Choix du nom et de l’emplacement de stockage de la VM"]
+    N8["Définition de la taille du disque dur principal (40 Go)"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+```
+
+L’objectif de l’atelier est de mettre en œuvre des hyperviseurs VMware ESXi. Du fait de la configuration des machines qui sont mises à votre disposition par l’centre de formation Ecole Informatique, nous utiliserons VMware Workstation pour simuler l’existence de deux serveurs physiques servant à héberger des machines virtuelles.
+
+Sous VMware Workstation
+
+- Eteindre la VM « SRV_2K19 » qui ne sera pas utilisée dans cet atelier.
+- Créer une machine virtuelle nommée « ESXi1 » de type « ESXi 7 ». Utiliser le dossier « D:\Machines virtuelles\ESXi1 » pour stocker celle-ci.
+
+Caractéristiques matérielles :
+
+- 2 CPU / 1 cœur
+- 6 Go RAM
+- 1 carte réseau bridgée
+- 1 disque de 40 Go + 1 disque supplémentaire SCSI de 200 Go
+
+- Sélection de l’image ISO d’ESXi récupérée depuis le serveur « distrib »
+- Choix du nom et de l’emplacement de stockage de la VM
+
+- Définition de la taille du disque dur principal (40 Go)
+- Résumé de la configuration, ne pas choisir « Power On this virtual… » et valider.
+
+![Capture isolée du support, page 4](../../assets/course-sources/isolated/83825a6a815bff9c/v13-d02-p04-i3.webp)
+
+Capture isolée du support, page 4
+
+- Ouvrir les paramètres de la machine virtuelle, afin de modifier la quantité de
+
+mémoire vive (6 Go)
+
+- Et ajouter 1 nouveau disque supplémentaire SCSI de 200 Go
+
+- Pour enfin obtenir cette configuration :
+
+Création de l’hyperviseur ESXi1
+
+- Procéder à l’installation d’ESXi dans la VM créée précédemment sur le disque dur de 40 Go.
+- Ecran de bienvenue de l’installeur
+
+- Choix du disque dur d’installation (40 Go)
+- Choisir la langue française et configurer le mot de passe de « root » en respectant les exigences de complexité.
+
+- Appuyer sur la touche F11 pour lancer l’installation
+- Une fois l’installation achevée, relever l’adresse IP obtenue par la VM ESXi1, puis la laisser en l’état. Il est inutile pour le moment de se connecter à la console locale.
+- Dans l’exemple ci-dessous, l’adresse IP 10.5.105.128 a été récupérée
+
+Création de l’hyperviseur ESXi2
+
+- Créer une seconde machine « ESXi2 » avec les mêmes caractéristiques que celles d’ESXi1, qui sera stockée dans le dossier « D:\Machines virtuelles\ESXi2 »
+- Hormis le nom de la VM, son point de stockage et son adresse IP, les étapes de
+
+configuration sont identiques à celles de la création d’ESXi1.
+
+Depuis l’hôte Windows centre de formation
+
+- A l’aide d’un navigateur Internet (Firefox, Chrome ou Edge), accéder à la console vSphere Client Web d’ESXi1 avec l’adresse IP relevée précédemment. Fournir les identifiants configurés pendant l’installation.
+
+- Accepter le « risque de sécurité » pour arriver à cet écran
+- Décocher la case « Joindre le programme d’amélioration… ». Voici l’écran qui
+
+s’affiche par défaut
+
+- Se diriger tout d’abord dans l’élément « Stockage » et y créer une nouvelle « banque de données VMFS » afin d’intialiser l’espace offert par le disque dur de 200 Go ajouté précédemment. Elle sera nommée « DS-Local » et utilisera l’intégralité de l’espace fourni.
+- Voici les étapes de l’assistant d’ajout du datastore :
+
+- Cliquer sur « DS-Local », puis sur « Navigateur de banque de données » et charger l’ISO de Windows Server 2019.
+
+![Capture isolée du support, page 11](../../assets/course-sources/isolated/83825a6a815bff9c/v13-d02-p11-i2.webp)
+
+Capture isolée du support, page 11
+
+- Se placer dans le menu « Machines virtuelles » pour créer une nouvelle machine virtuelle Windows Serve 2019 nommée « SRV-1 » avec les caractéristiques suivantes :
+- 1 CPU / 1 cœur
+- 2 Go RAM
+- 1 disque de 32 Go
+- Lecteur de CD/DVD => Image ISO depuis la banque de données
+
+- Faire les mêmes choix que dans les captures ci-dessous :
+
+![Capture isolée du support, page 13](../../assets/course-sources/isolated/83825a6a815bff9c/v13-d02-p13-i2.webp)
+
+Capture isolée du support, page 13
+
+- Mettre sous tension la VM, prendre rapidement la main via une console, puis lancer l’installation de Windows Server 2019.
+- Une fois l’installation terminée, installer les VMware Tools dans la VM « SRV-1 ».
+
+Schéma récapitulatif:
+
+#### Informations dans les visuels du support
+
+- Le schéma montre un poste Windows Server 2019 accédant en HTTP à ESXi1 dans VMware Workstation.
+- ESXi1 héberge SRV-1 (Windows Server 2019), avec 2 Go de RAM et un disque de 32 Go. Le schéma indique 8 Go de RAM et les disques de 40 et 200 Go pour ESXi1.
+- ESXi2 apparaît à côté dans VMware Workstation. Le schéma indique aussi 8 Go de RAM et les disques de 40 et 200 Go. L’énoncé indique 6 Go de RAM pour chacun des hôtes.
+
+Référence du document : 15ZVZI1fN2-TSIr6Ilbhp03m5FWwVn-ww · SHA-256 83825a6a815bff9c…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
 | --- | --- |
-| VM Workstation | Deux VM distinctes, `ESXi1` et `ESXi2`, avec leurs propres dossiers |
-| CPU | Deux processeurs d’un cœur par hôte |
-| RAM | 6 Go dans le texte et les captures de préparation, 8 Go dans les schémas récapitulatifs |
-| Réseau | Une carte Bridged |
-| Disque d’installation | 40 Go |
-| Disque de données | Un second disque SCSI de 200 Go |
-| Média | ISO ESXi 7 de laboratoire, l’énoncé cite la build 18644231 |
-
-1. Créer la première VM et désactiver son lancement automatique à la fin de l’assistant pour terminer les réglages. Régler le réseau, la RAM et les deux disques. Faire confirmer la mémoire à appliquer avant de démarrer.
-2. Démarrer sur l’ISO, choisir le disque de **40 Go**, sélectionner la langue française et définir le secret d’administration du laboratoire. Vérifier le disque ciblé avant de confirmer l’installation.
-3. Relever l’adresse de gestion et l’état de la console. Répéter sur le second hôte avec un nom, un emplacement et une adresse distincts.
-4. Depuis le navigateur Windows, ouvrir le **Host Client** d’ESXi1. Identifier l’hôte et examiner le certificat attendu dans le laboratoire. La solution montre un avertissement de navigateur, qui ne prouve pas l’identité de l’hôte.
-
-### B. Préparer la banque de données
-
-1. Dans **Stockage**, identifier le disque SCSI de **200 Go**. Le disque système de 40 Go a un autre rôle.
-2. Créer la banque **`DS-Local`** en VMFS et utiliser l’espace prévu par le TP.
-3. Ouvrir son navigateur de fichiers et charger l’ISO Windows Server 2019.
-4. Vérifier que le fichier ISO est visible au bon emplacement et que la capacité restante permet de créer le disque de l’invité.
-
-### C. Créer et tester le serveur invité
-
-1. Depuis **Machines virtuelles**, créer `SRV-1` avec un CPU d’un cœur, **2 Go** de mémoire et un disque de **32 Go**.
-2. Choisir l’invité Windows Server 2019 64 bits dans la compatibilité ESXi indiquée par la solution. Relier le CD/DVD à l’ISO de la banque.
-3. Démarrer la VM, ouvrir la console et installer Windows Server 2019, puis VMware Tools.
-4. Contrôler le démarrage, la présence des outils dans le système invité, le datastore utilisé et les ressources de la VM.
-
-| Si le résultat diffère | Contrôle à faire |
-| --- | --- |
-| L’hôte ne répond pas | Vérifier l’adresse relevée sur sa console et le raccordement Bridged de sa VM Workstation. |
-| Le disque VMFS attendu est absent | Vérifier le second disque dans Workstation et son identification dans le Host Client avant tout formatage. |
-| L’installation Windows ne démarre pas | Vérifier le fichier ISO, son association au CD/DVD virtuel et l’état de la console. |
-| Le menu des VMware Tools est présent | Vérifier ensuite leur installation dans l’invité. Le menu seul atteste que l’action est proposée. |
-
-## À retenir
-
-ESXi exécute les VM. Le Host Client administre un hôte. vCenter organise plusieurs hôtes. Dans le TP, le disque de 40 Go sert au système ESXi et celui de 200 Go à la banque VMFS.
-
-## Mini-quiz — 5 questions {#question-de-revision}
-
-1. Quel outil utiliser pour administrer ESXi1 avant de déployer vCenter ?
-2. Que déplace Storage vMotion ?
-3. Quelle différence le cours fait-il entre HA et FT ?
-4. Quels disques utiliser pour ESXi et pour `DS-Local` ?
-5. Quelles preuves montrent que `SRV-1` est prêt pour les ateliers suivants ?
-
-??? success "Réponses commentées"
-
-    1. Le Host Client de l’hôte. Il donne accès au stockage, aux réglages de l’hôte et aux VM locales.
-    2. Les fichiers de la VM entre banques de données. vMotion porte sur le déplacement du calcul entre hôtes.
-    3. HA vise un redémarrage de la VM sur un autre hôte. FT vise la continuité d’une VM lorsque les conditions techniques le permettent.
-    4. Installer ESXi sur 40 Go et créer la banque VMFS sur le disque SCSI de 200 Go.
-    5. La VM démarre dans sa console, utilise la banque et les ressources prévues, et VMware Tools est installé dans l’invité.
-
-## Pour pratiquer et réviser
-
-- [Énoncé de l’atelier vSphere](../../tp/13-virtualisation-serveurs/module-05/tp-01.md) et [correction](../../tp/13-virtualisation-serveurs/module-05/correction-tp-01.md)
-- [Fiche de révision](../../revision/13-virtualisation-serveurs/module-05.md)
-- [Kahoot existant](../../kahoot/13-virtualisation-serveurs-module-05.md)
-- [Sommaire de Virtualisation de serveurs](index.md)
-
-## Provenance pédagogique
-
-Le support M05 et l’atelier 3 donnent les composants, fonctions, exemples de licences et réglages. Le schéma et les contrôles intermédiaires expliquent les relations entre ces éléments.
+| Correction · TSSR110-Virtualisation_Mise en Situation - Module 5 - Vsphere - Solution · 15 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |

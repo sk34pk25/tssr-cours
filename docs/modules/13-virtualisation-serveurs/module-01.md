@@ -1,130 +1,231 @@
 # Module 01 — Des concepts de la virtualisation à leur mise en œuvre
 
-Un poste peut héberger un environnement de test sans changer le système utilisé au quotidien. Une entreprise peut aussi regrouper plusieurs serveurs sur des hôtes physiques partagés. Dans les deux cas, l’hyperviseur présente des ressources virtuelles à chaque système invité.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-## Objectifs
+## Parcours de lecture
 
-- Expliquer ce que l’hyperviseur présente à une machine virtuelle et distinguer virtualisation et paravirtualisation.
-- Identifier les hyperviseurs de type 1 et de type 2 dans un schéma.
-- Distinguer consolidation, mutualisation et rationalisation.
-- Choisir un montage adapté à un poste de test, à un serveur ou à un plan de reprise.
+1. Support · Module 01 - Support de cours · 5 pages transcrites
 
-## 1. De la machine physique à l’invité
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-Une **machine virtuelle (VM)** dispose d’un processeur, de mémoire, d’un disque et d’une ou plusieurs cartes réseau présentés sous forme virtuelle. Son système d’exploitation utilise ces ressources comme les périphériques d’une machine. L’**hôte** fournit les ressources physiques. L’**hyperviseur** alloue ces ressources aux VM et arbitre leur utilisation.
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-| Élément | Rôle | Exemple |
-| --- | --- | --- |
-| Hôte | Fournit la capacité physique | Processeur, mémoire vive, stockage et réseau |
-| Hyperviseur | Présente et gère les ressources virtuelles | Attribuer deux processeurs virtuels à une VM |
-| Console de gestion | Configure ou pilote les VM | Affecter un ISO, modifier la mémoire, démarrer une VM |
-| Console d’accès | Affiche la session de la VM | Suivre un assistant d’installation |
-| Composants complémentaires | Facilitent l’interaction entre l’hôte et l’invité | Outils invités présentés au module suivant |
+## Support · Module 01 - Support de cours · 5 pages transcrites
 
-Le support oppose deux mécanismes. Dans son schéma de **virtualisation**, l’invité utilise le matériel présenté par l’hyperviseur. Dans celui de **paravirtualisation**, des composants de l’invité sont adaptés pour solliciter directement l’hyperviseur. Un pilote adapté peut illustrer cette coopération sans changer le type d’hyperviseur.
+#### Module 01 – Présentation
 
-## 2. Où placer l’hyperviseur ?
+Présentation
 
-| Type | Position dans le schéma du cours | Usage illustré | Exemples du support |
-| --- | --- | --- | --- |
-| 1 | Entre le matériel et les VM | Hôte de virtualisation de serveurs | Hyper-V, KVM, VMware ESXi, XenServer |
-| 2 | Application installée sur le système hôte | Laboratoire sur un poste de travail | VirtualBox, Virtual PC, VMware Player, VMware Workstation |
+#### Objectifs
 
-**Illustration IA / externe au cours — position de l’hyperviseur.**
+!!! note "À retenir"
+    Définir les termes de mutualisation, consolidation et rationalisation Différencier les hyperviseurs de type 1 et 2 Présentation
+
+- Définir les termes de mutualisation, consolidation et rationalisation
+- Différencier les hyperviseurs de type 1 et 2
+
+Présentation
+
+#### La virtualisation en 8 dates
+
+| Date | Repère |
+| --- | --- |
+| 60/70 | IBM : embryons de la virtualisation en test puis production sur des Mainframes |
+| Milieu des années 90 | Les émulateurs font leur apparition en Micro informatique (ils rendent possible l’émulation des machines Atari, Amiga, Amstrad et de consoles) |
+| Début des années 2000 | VMware développa et popularisa son système propriétaire de virtualisation logicielle pour les architectures de type x86 |
+| 2006 | Prise en charge matérielle par le CPU d’instructions de virtualisation |
+| 2007 | XenSource racheté par Citrix |
+| 2007 | KVM est intégré au noyau Linux |
+| 2007 | Virtual Desktop Infrastructures VMware |
+| 2009 | Plus de serveurs virtuels que physiques, KVM est intégré au noyau Linux |
+
+Présentation
+
+#### Utilisations
+
+#### Pour quels usages ?
+
+#### Quels avantages ?
+
+#### Des inconvénients ?
+
+**Visuel externe**
 
 ```mermaid
-flowchart TB
-    subgraph A["Type 1"]
-        M1["Matériel"] --> H1["Hyperviseur"] --> V1["Machines virtuelles"]
-    end
-    subgraph B["Type 2"]
-        M2["Matériel"] --> O2["Système hôte"] --> H2["Application de virtualisation"] --> V2["Machines virtuelles"]
-    end
+flowchart LR
+    N1["Les serveurs d’infrastructure locaux et distants (le Cloud…)"]
+    N2["Les environnements de test et les problématiques de compatibilité"]
+    N3["Les scénarios de PRA (Plan de Reprise d’Activité)"]
+    N4["Optimisation des taux d’utilisation du matériel"]
+    N5["Économies sur les coûts matériels et de gestion"]
+    N6["Gestion facilitée des systèmes (granularité)"]
+    N7["Économies d’énergie (green computing)"]
+    N8["Concentration et dépendance vis-à-vis d’une solution"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
 ```
 
-Un bureau graphique ne suffit pas à reconnaître le type. Il faut déterminer ce qui prend en charge la virtualisation entre le matériel et l’invité. Les deux dessins simplifient l’architecture des produits cités.
+- Les serveurs d’infrastructure locaux et distants (le Cloud…)
+- Les environnements de test et les problématiques de compatibilité
+- Les scénarios de PRA (Plan de Reprise d’Activité)
+- Optimisation des taux d’utilisation du matériel
+- Économies sur les coûts matériels et de gestion
+- Gestion facilitée des systèmes (granularité)
+- Économies d’énergie (green computing)
+- Concentration et dépendance vis-à-vis d’une solution
+- Mise en œuvre complexe avec un investissement initial important
+- Contraintes d’administration spécifiques (déploiement, sauvegarde, etc.)
 
-## 3. Pourquoi virtualiser ?
+Présentation
 
-| Besoin | Apport attendu | Point à vérifier |
+#### Les acteurs
+
+!!! note "À retenir"
+    Les grands éditeurs Des logiciels libres Les acteurs D’autres solutions Présentation
+
+Les grands éditeurs
+
+Des logiciels libres
+
+- Les acteurs
+
+D’autres solutions
+
+Présentation
+
+#### Les secteurs de la virtualisation
+
+!!! note "À retenir"
+    La virtualisation est un domaine transverse qui peut être mis en œuvre à plusieurs niveaux au sein d’une infrastructure.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Virtualisation d’environnements sur un poste de travail"]
+    N2["Virtualisation d’applications"]
+    N3["Virtualisation de serveurs"]
+    N4["Virtualisation de stations de travail"]
+    N5["On retrouve aussi la virtualisation dans des domaines plus ciblés :"]
+    N6["Le réseau"]
+    N7["Le stockage"]
+    N8["Les services"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+```
+
+La virtualisation est un domaine transverse qui peut être mis en œuvre à plusieurs niveaux au sein d’une infrastructure.
+
+- Virtualisation d’environnements sur un poste de travail
+- Virtualisation d’applications
+- Virtualisation de serveurs
+- Virtualisation de stations de travail
+- On retrouve aussi la virtualisation dans des domaines plus ciblés :
+- Le réseau
+- Le stockage
+- Les services
+
+#### Informations dans les visuels du support
+
+!!! note "À retenir"
+    Les logos des grands éditeurs illustrent VMware, Microsoft, Citrix, Red Hat et Oracle.
+
+- Les logos des grands éditeurs illustrent VMware, Microsoft, Citrix, Red Hat et Oracle.
+- Les logiciels libres sont représentés par GNU et Linux.
+- Les autres solutions illustrées sont Parallels, Proxmox et Docker.
+
+Présentation
+
+#### Les principales solutions
+
+| Pour le poste de travail | Pour les serveurs |
+| --- | --- |
+| VMware Player, VMware Workstation | vSphere (VMware) |
+| Oracle VM VirtualBox | Hyper-V (Windows Serveur) |
+| Windows Virtual PC (Windows 7 Mode XP), Hyper-V Client (W8 x64 SLAT) | Xen (utilisé par Citrix avec XenServer) |
+| QEMU | KVM (utilisé par Red Hat) |
+
+Présentation
+
+#### Les outils
+
+!!! note "À retenir"
+    L’hyperviseur La console de gestion des machines virtuelles Les consoles d’accès à la machine virtuelle Les composants complémentaires
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["L’hyperviseur"]
+    N2["La console de gestion des machines virtuelles"]
+    N3["Les consoles d’accès à la machine virtuelle"]
+    N4["Les composants complémentaires"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+- L’hyperviseur
+- La console de gestion des machines virtuelles
+- Les consoles d’accès à la machine virtuelle
+- Les composants complémentaires
+
+##### Principes de base
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Paramétrage matériel : architecture, BIOS, processeur, mémoire, disque …"]
+    N2["Réseaux virtuels : interne, NAT, pont, LAN dédié"]
+    N3["Format des disques : selon la solution, VHD, VMDK, VDI …"]
+    N4["Fichier de configuration : selon la solution, XML, VMX, VBOX …"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+- Paramétrage matériel : architecture, BIOS, processeur, mémoire, disque …
+- Gestion des médias amovibles : DVD au format ISO, USB « transmis » à la VM et disquette (!) au format FLP ou IMG
+- Réseaux virtuels : interne, NAT, pont, LAN dédié
+- Format des disques : selon la solution, VHD, VMDK, VDI …
+- Fichier de configuration : selon la solution, XML, VMX, VBOX …
+
+Présentation
+
+#### Les types d’hyperviseurs
+
+| Repère du support | L’hyperviseur de type 1 | L’hyperviseur de type 2 |
 | --- | --- | --- |
-| Consolider plusieurs serveurs | Regrouper les charges et mieux utiliser les hôtes physiques | Capacité cumulée en période de pointe et capacité de reprise |
-| Mutualiser des ressources | Partager du stockage, du réseau ou du calcul entre plusieurs usages | Répartition de l’espace, des accès et de la bande passante |
-| Rationaliser les configurations | Réutiliser des modèles, procédures et contrôles cohérents | Versions, critères de mise à jour et restaurations testées |
-| Tester ou isoler une application | Fournir un environnement séparé | Connectivité autorisée et emplacement des données |
-| Préparer un plan de reprise d’activité | Redémarrer les services avec leurs dépendances | Ordre de redémarrage, délais et accès aux sauvegardes |
+| Couches du schéma | Machines virtuelles → module de translation binaire → hyperviseur → binaire → matériel | Machines virtuelles → hyperviseur (VirtualBox) → applications → OS → matériel |
+| Niveaux intermédiaires | 1 niveau intermédiaire | 2 niveaux intermédiaires |
+| Implémentation | Fait office de système d’exploitation | Installé en tant qu’application sur un système d’exploitation |
+| Solutions | Hyper-V, KVM, VMware ESXi, XenServer | VirtualBox, VirtualPC, VMware Player et Workstation |
 
-**Complément pédagogique.** Le support cite consolidation, mutualisation et rationalisation comme objectifs. Les définitions du tableau permettent d’appliquer ces termes. Quatre serveurs regroupés sur un hôte illustrent la consolidation. Une banque commune illustre la mutualisation. Un modèle standard et une procédure de restauration commune illustrent la rationalisation.
+Présentation
 
-Les bénéfices du cours sont l’utilisation plus efficace du matériel, les économies possibles de coûts et d’énergie et une gestion plus fine des systèmes. En contrepartie, un incident sur l’hôte peut affecter plusieurs services. Il faut prévoir l’investissement initial, l’administration, le déploiement et la sauvegarde.
+#### Virtualisation et paravirtualisation
 
-## 4. Reconnaître les produits et les objets
+!!! note "À retenir"
+    Dans un contexte de virtualisation, les machines virtuelles s’adressent au matériel présenté par l’hyperviseur.
 
-Le support cite VMware, Microsoft, Citrix, Red Hat et Oracle, puis GNU, Linux et FreeBSD parmi les repères de logiciels libres. Il illustre aussi Parallels, Proxmox et Docker. Ces exemples couvrent plusieurs secteurs, dont le poste de travail, les applications, les serveurs, les stations, le réseau, le stockage et les services. Chaque produit doit être replacé dans le secteur représenté.
+- Dans un contexte de virtualisation, les machines virtuelles s’adressent au matériel présenté par l’hyperviseur. Elles n’ont pas connaissance de sa présence.
+- La paravirtualisation est une technique de virtualisation dans laquelle les machines virtuelles sont préparées pour faire appel directement à un hyperviseur. Les appels système sont alors redirigés et non traduits.
 
-| Domaine | Exemples du support |
+| Solution de virtualisation | Solution de paravirtualisation |
 | --- | --- |
-| Virtualisation sur poste | VMware Player et Workstation, Oracle VM VirtualBox, Windows Virtual PC, Hyper-V Client, QEMU |
-| Virtualisation de serveurs | VMware vSphere, Hyper-V Windows Server, Xen avec XenServer, KVM |
-| Médias présentés à l’invité | DVD, ISO, USB, disquettes FLP ou IMG |
-| Réseaux virtuels | Interne, NAT, pont, LAN dédié |
-| Fichiers de disque | VHD, VMDK, VDI |
-| Fichiers de configuration | XML, VMX, VBOX |
+| Machines virtuelles → module de translation binaire → hyperviseur → binaire → matériel | Machines virtuelles → hypercalls → hyperviseur → binaire → matériel |
 
-Avant de créer une VM, relever l’architecture, les fonctions du processeur, les paramètres BIOS ou UEFI, la mémoire, le disque et le réseau. Identifier ensuite les médias d’installation et les formats employés par la solution choisie.
+Matériel
 
-## 5. Situer les repères historiques
-
-| Repère du support | Évolution présentée |
-| --- | --- |
-| Années 1960 et 1970 | IBM explore la virtualisation des mainframes, d’abord pour les tests puis en production. |
-| Milieu des années 1990 | Les émulateurs permettent d’exécuter des environnements d’autres micro-ordinateurs et consoles. |
-| Début des années 2000 | VMware popularise la virtualisation logicielle x86. |
-| 2006 | Des processeurs prennent en charge des instructions destinées à la virtualisation. |
-| 2007 | Le cours cite le rachat de XenSource par Citrix, KVM dans le noyau Linux et les infrastructures de postes virtuels VMware. |
-| 2009 | Le cours évoque la croissance des serveurs virtuels et cite à nouveau KVM. |
-
-Ces dates donnent le contexte de la présentation. La référence à 2009 dans le support ne sert pas à dater une seconde intégration de KVM.
-
-## 6. Cas d’application — Choisir et vérifier
-
-Une équipe veut essayer un logiciel ancien sur un poste et regrouper ses serveurs sur une infrastructure dédiée.
-
-1. Pour le test, choisir l’hyperviseur de poste et déterminer le besoin d’accès au réseau. Vérifier la mémoire libre sur l’hôte et le périmètre des échanges de la VM.
-2. Pour les serveurs, inventorier le calcul, la mémoire, les fichiers et les dépendances réseau. Choisir l’hôte et le stockage en fonction de ces besoins.
-3. Prévoir l’ordre de reprise. Si l’application dépend d’un service réseau ou d’une base, tester la disponibilité de ces dépendances avant de déclarer l’application opérationnelle.
-4. Documenter les résultats, les capacités restantes et la méthode de restauration.
-
-Ce cas illustre les notions du support. Le dossier du module 1 fournit un support de présentation, sans énoncé de TP.
-
-## À retenir
-
-- Le type d’hyperviseur se reconnaît à sa place dans l’architecture.
-- Consolider rapproche les charges sur moins d’hôtes. Mutualiser partage des ressources. Rationaliser harmonise les pratiques.
-- La disponibilité se démontre en vérifiant les ressources, les dépendances et la reprise.
-
-## Mini-quiz — 5 questions {#question-de-revision}
-
-1. Quels éléments physiques fournit l’hôte ?
-2. Où se trouve l’hyperviseur dans une architecture de type 2 ?
-3. Quel mécanisme prévoit un invité adapté à l’hyperviseur ?
-4. Une banque partagée illustre quel principe ?
-5. Que faut-il vérifier avant d’annoncer que des VM consolidées pourront redémarrer après une panne ?
-
-??? success "Réponses commentées"
-
-    1. Il fournit notamment le processeur, la mémoire, le stockage et les interfaces réseau. L’hyperviseur les présente sous forme de ressources virtuelles.
-    2. L’application de virtualisation s’exécute sur le système d’exploitation de l’hôte.
-    3. La paravirtualisation. Le support illustre des composants invités qui coopèrent avec l’hyperviseur.
-    4. La mutualisation, puisque plusieurs usages accèdent à une capacité commune.
-    5. La capacité d’un hôte de secours, l’accès au réseau et aux données, l’ordre de démarrage et le résultat d’un test de reprise.
-
-## Pour pratiquer et réviser
-
-- [Fiche de révision](../../revision/13-virtualisation-serveurs/module-01.md)
-- [Module suivant — VMware Workstation](module-02.md)
-- [Sommaire de Virtualisation de serveurs](index.md)
-
-## Provenance pédagogique
-
-Le support du module 1 fournit les usages, acteurs, repères historiques, catégories d’hyperviseurs et composants. Le schéma, les définitions de cadrage et le cas d’application sont des aides de synthèse.
+Référence du document : 1qCsojBU2zSMsawu4PupwZkXbXJSpGSaI · SHA-256 ea6cf1bcebe9ae20…
