@@ -1,84 +1,548 @@
 # Module 04 — La communication dans un réseau
 
-**Séquence :** Bases des réseaux  
-**Rôle dans le parcours :** décider si deux postes se parlent directement, via une passerelle, ou pas du tout.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-L’onglet Cours Original transcrit les deux énoncés et la correction, puis une section Notes de cours. Durée indiquée du TP écrit : 2 heures. Le TP Packet Tracer indique 30 minutes. Les fichiers `.pka` ne sont pas publiés. Les notes précisent qu’un commutateur diffuse dans le même VLAN et qu’un routeur borne le domaine de diffusion.
+## Parcours de lecture
 
-## Objectifs
+1. Énoncé · M04-01-01-TP-La_communication · 5 pages transcrites
+2. Énoncé · M04-01-02-TP-Packet_Tracer-La_communication · 1 pages transcrites
+3. Correction · M04-01-01-TP-La_communication_Correction · 6 pages transcrites
+4. Notes du Drive · Notes de cours · document texte
+5. Notes de cours
+6. TP - Packet Tracer - Fichier à télécharger
+7. d’une adresse IP
+8. son adresse de diffusion
+9. 11000000.10101000.00000001.00000001
+10. Classes d’adresses IPv4
+11. Dans l’adressage IPv4, chaque adresse IP est divisée en deux parties :
+12. Convertir l’adresse IP en binaire
+13. Convertir le masque de sous-réseau en binaire
+14. Appliquer une opération logique AND
+15. Identifier la partie hôte
+16. Trouver l’adresse hôte
+17. Généralisation
+18. ID Réseau : 11000000.10101000.00001010.00000000
+19. Broadcast : 11000000.10101000.00001010.11111111
+20. ID Réseau : 10101100.00011001.11000000.00000000
+21. Broadcast : 10101100.00011001.11001111.11111111
+22. La Notation CIDR
+23. Comment Fonctionne la Notation CIDR ?
+24. Pourquoi Utiliser CIDR ?
+25. Étapes de Conversion d’un Masque de Sous-Réseau en Préfixe CIDR
+26. Étapes pour trouver le masque IP à partir du CIDR
+27. Plages d'Adresses IP Privées
+28. Nombre total d'adresses : 16 777 216
+29. Nombre total d'adresses : 1 048 576
+30. Nombre total d'adresses : 65 536
+31. Pourquoi Utiliser des Adresses Privées ?
+32. Exemple Pratique
+33. Principe de Fonctionnement d’APIPA
+34. Exemple Pratique
+35. Objectifs du Sous-réseautage
+36. 2
+37. Calcul du Nombre de Sous-Réseaux et d’Hôtes
+38. n
+39. h
+40. Enoncé du TP - Communication inter-réseau
+41. Un domaine de diffusion est limité par les équipements réseau suivants :
+42. Le Routage
+43. Le rôle principal du routage est de :
+44. Un routeur est un équipement qui :
+45. Lorsqu’un paquet arrive sur un routeur :
+46. Exemple sans sur-réseau :
+47. Exemple avec sur-réseau :
+48. 11000000.10101000.000000**
+49. Donc oui : je peux te faire exactement la même chose que pour les modules 1 et 2
+50. * **Niveau moyen** : réseau / broadcast / plage d’hôtes / rôle du routage
+51. Ma recommandation
+52. * exemple pour chaque question
+53. **Pourquoi ?**
+54. **Exemple :**
+55. **Pourquoi ?**
+56. **Exemple :**
+57. **Pourquoi ?**
+58. **Exemple :**
+59. **Pourquoi ?**
+60. **Exemple :**
+61. **Pourquoi ?**
+62. **Exemple :**
+63. **Pourquoi ?**
+64. **Exemple :**
+65. **Pourquoi ?**
+66. **Exemple :**
+67. **Pourquoi ?**
+68. **Exemple :**
+69. **Pourquoi ?**
+70. **Exemple :**
+71. **Pourquoi ?**
+72. **Exemple :**
+73. **Pourquoi ?**
+74. **Exemple :**
+75. **Pourquoi ?**
+76. **Exemple :**
+77. 13. Quel masque correspond au préfixe CIDR /24 ?
+78. **Pourquoi ?**
+79. **Pourquoi ?**
+80. **Pourquoi ?**
+81. **Exemple :**
+82. **Pourquoi ?**
+83. **Exemple :**
+84. **Pourquoi ?**
+85. **Exemple :**
+86. **Pourquoi ?**
+87. **Pourquoi ?**
+88. **Exemple :**
+89. **Exemple :**
+90. **Pourquoi ?**
+91. **Exemple :**
+92. **Pourquoi ?**
+93. **Pourquoi ?**
+94. **Exemple :**
+95. **Pourquoi ?**
+96. **Exemple :**
+97. 25. Si un réseau 192.168.1.0/24 est découpé en deux sous-réseaux /25, combien obtient-on de sous-réseaux ?
+98. **Pourquoi ?**
+99. ---
+100. 26. Si un réseau /24 devient /25, combien d’hôtes utilisables possède chaque sous-réseau ?
+101. Un /25 laisse **7 bits hôte** :
+102. ---
+103. 27. Quel est le premier sous-réseau obtenu dans l’exemple de découpage de 192.168.1.0/24 en /25 ?
+104. **Exemple :**
+105. **Pourquoi ?**
+106. **Exemple :**
+107. ---
+108. 29. Quelle opération logique permet d’obtenir l’ID réseau à partir d’une IP et de son masque ?
+109. **Pourquoi ?**
+110. **Pourquoi ?**
+111. **Exemple :**
+112. 31. Quel équipement transmet les diffusions à tous les ports d’un même VLAN ?
+113. **Pourquoi ?**
+114. **Exemple :**
+115. **Pourquoi ?**
+116. **Exemple :**
+117. Une entrée peut dire :
+118. **Pourquoi ?**
+119. **Exemple :**
+120. ---
+121. 35. Quel sur-réseau regroupe 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 ?
+122. 36. Vrai ou Faux
+123. **Pourquoi ?**
+124. **Exemple :**
+125. 37. Vrai ou Faux
+126. **Exemple :**
+127. 38. Vrai ou Faux
+128. **Pourquoi ?**
+129. 39. Vrai ou Faux
+130. **Pourquoi ?**
+131. 40. Vrai ou Faux
+132. **Pourquoi ?**
+133. 41. Vrai ou Faux
+134. **Exemple :**
+135. 42. Vrai ou Faux
+136. **Pourquoi ?**
+137. Ce que je peux faire maintenant
+138. **“fais-moi la version Kahoot prête à copier”**
 
-À l’issue du module, vous devez pouvoir :
+**Visuel externe**
 
-- comparer le réseau vu par chaque masque, pas seulement l’adresse ;
-- remplir un tableau V, F ou P à partir des adresses imprimées ;
-- résumer des routes au plus court, comme la correction ;
-- agréger les blocs de la partie E avec les préfixes imprimés.
+```mermaid
+flowchart TD
+    N1["Énoncé · M04-01-01-TP-La_communication · 5 pages transcrites"]
+    N2["Énoncé · M04-01-02-TP-Packet_Tracer-La_communication · 1 pages transcrites"]
+    N3["Correction · M04-01-01-TP-La_communication_Correction · 6 pages transcrites"]
+    N4["Notes du Drive · Notes de cours · document texte"]
+    N5["Notes de cours"]
+    N6["TP - Packet Tracer - Fichier à télécharger"]
+    N7["d’une adresse IP"]
+    N8["son adresse de diffusion"]
+    N9["11000000.10101000.00000001.00000001"]
+    N10["Classes d’adresses IPv4"]
+    N11["Dans l’adressage IPv4, chaque adresse IP est divisée en deux parties :"]
+    N12["Convertir l’adresse IP en binaire"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+    N8 --> N9
+    N9 --> N10
+    N10 --> N11
+    N11 --> N12
+```
 
-## 1. Même segment, masques différents
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-La partie A place A, B, C, D, E et F sur le même segment, sans routeur. Le dialogue n’existe que si l’émetteur voit le destinataire dans son masque, et si le destinataire peut répondre dans le sien.
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-| Poste | Adresse | Masque | Réseau qu’il considère |
-|---|---|---|---|
-| A | 172.16.10.10 | 255.255.0.0 | 172.16.0.0/16 |
-| B | 172.16.11.20 | 255.255.0.0 | 172.16.0.0/16 |
-| C | 172.16.100.30 | 255.255.0.0 | 172.16.0.0/16 |
-| D | 172.16.11.100 | 255.255.255.0 | 172.16.11.0/24 |
-| E | 172.16.100.150 | 255.255.255.0 | 172.16.100.0/24 |
-| F | 172.16.10.200 | 255.255.255.0 | 172.16.10.0/24 |
+## Énoncé · M04-01-01-TP-La_communication · 5 pages transcrites
 
-| L’hôte | Contacte | Explication imprimée |
-|---|---|---|
-| A | B, C, F | A, B et C se voient dans 172.16.0.0/16. F répond dans 172.16.10.0/24 |
-| B | A, C, D | Même /16 pour A et C. D répond dans 172.16.11.0/24 |
-| C | A, B, E | Même /16 pour A et B. E répond dans 172.16.100.0/24 |
-| D | B | Tous deux dans 172.16.11.0/24 |
-| E | C | Tous deux dans 172.16.100.0/24 |
-| F | A | Tous deux dans 172.16.10.0/24 |
+### Page 1
 
-A voit F, parce que 172.16.10.200 est dans son /16, et F voit A, parce que 172.16.10.10 est dans son /24. D ne voit pas A : 172.16.10.10 n’est pas dans 172.16.11.0/24.
+#### La communication
 
-## 2. Tableau V, F, P
+!!! note "À retenir"
+    TP du Module 04-01 Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication.
 
-V : communication directe. F : pas de communication. P : communication en passant par le routeur. La diagonale est déjà à V dans l’énoncé.
+TP du Module 04-01
 
-### Réseau de la partie B
+Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication.
 
-| Poste | Adresse | Masque | Passerelle |
-|---|---|---|---|
-| A | 10.11.2.1 | 255.0.0.0 | 10.0.0.254 |
-| B | 192.168.1.35 | 255.0.0.0 | 10.0.0.254 |
-| C | 10.0.2.4 | 255.255.0.0 | 10.0.0.254 |
-| D | 192.168.1.123 | 255.255.255.0 | 192.168.1.254 |
-| E | 192.168.2.2 | 255.255.0.0 | 192.168.1.254 |
+- En vidéo pour les stagiaires du campus en ligne
+- Diaporama et explications pour les stagiaires en présence d’un formateur
 
-Routeur X : `10.0.0.254/8`. Routeur Y : `192.168.1.254/24`. Réseau 1 côté X, réseau 2 côté Y.
+Durée estimée : 2 heures
 
-| De \\ vers | A | B | C | D | E |
-|---|---|---|---|---|---|
+#### Énoncé
+
+##### A. Communication dans un réseau
+
+!!! note "À retenir"
+    Les machines A, B, C, D, E et F sont situées sur le même segment.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Les machines A, B, C, D, E et F sont situées sur le même segment."]
+    N2["Il n’y a pas de routeur."]
+    N3["Remplissez le tableau ci-dessous en indiquant quels hôtes peuvent dialoguer."]
+    N4["Communication avec réponse et pourquoi ?"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+- Les machines A, B, C, D, E et F sont situées sur le même segment.
+- Il n’y a pas de routeur.
+
+| Poste | Adresse | Masque |
+| --- | --- | --- |
+| A | 172.16.10.10 | 255.255.0.0 |
+| B | 172.16.11.20 | 255.255.0.0 |
+| C | 172.16.100.30 | 255.255.0.0 |
+| D | 172.16.11.100 | 255.255.255.0 |
+| E | 172.16.100.150 | 255.255.255.0 |
+| F | 172.16.10.200 | 255.255.255.0 |
+
+- Remplissez le tableau ci-dessous en indiquant quels hôtes peuvent dialoguer.
+- Communication avec réponse et pourquoi ?
+
+| L’hôte | peut contacter l’hôte | Explications |
+| --- | --- | --- |
+| A |  |  |
+| B |  |  |
+| C |  |  |
+| D |  |  |
+| E |  |  |
+| F |  |  |
+
+### Page 2
+
+##### B. Communication dans un réseau
+
+!!! note "À retenir"
+    Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à quel autre poste.
+
+Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à quel autre poste.
+
+Réseau 1 relie les postes A, B et C au routeur X. Réseau 2 relie les postes D et E au routeur Y.
+
+| Équipement | MAC | Adresse | Masque | Passerelle |
+| --- | --- | --- | --- | --- |
+| Poste A | PhyA | 10.11.2.1 | 255.0.0.0 | 10.0.0.254 |
+| Poste B | PhyB | 192.168.1.35 | 255.0.0.0 | 10.0.0.254 |
+| Poste C | PhyC | 10.0.2.4 | 255.255.0.0 | 10.0.0.254 |
+| Poste D | PhyD | 192.168.1.123 | 255.255.255.0 | 192.168.1.254 |
+| Poste E | PhyE | 192.168.2.2 | 255.255.0.0 | 192.168.1.254 |
+| Routeur X | PhyX | 10.0.0.254 | 255.0.0.0 |  |
+| Routeur Y | PhyY | 192.168.1.254 | 255.255.255.0 |  |
+
+Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers).
+
+- V pour Vrai (communication entre les deux postes)
+- F pour Faux (pas de communication entre les deux postes)
+- P pour Passerelle (communication entre les deux postes en passant par le routeur)
+
+Le tableau est déjà rempli avec certaines réponses : le poste A peut envoyer au poste A, ainsi pour les postes B, C, D, E.
+
+| X pev Y | A | B | C | D | E |
+| --- | --- | --- | --- | --- | --- |
+| A | V |  |  |  |  |
+| B |  | V |  |  |  |
+| C |  |  | V |  |  |
+| D |  |  |  | V |  |
+| E |  |  |  |  | V |
+
+### Page 3
+
+##### C. Communication dans un réseau
+
+!!! note "À retenir"
+    Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à quel autre poste.
+
+Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à quel autre poste.
+
+Réseau 1 : postes A et B, routeur X. Réseau 2 : postes C, D et E, routeur Z. Réseau 3 : poste F, routeur Y.
+
+| Équipement | MAC | Adresse | Masque | Passerelle |
+| --- | --- | --- | --- | --- |
+| Poste A | PhyA | 192.167.5.1 | 255.255.255.0 | 192.168.5.254 |
+| Poste B | PhyB | 192.168.5.35 | 255.255.255.0 | 172.20.0.254 |
+| Poste C | PhyC | 172.20.1.4 | 255.255.0.0 | 192.168.5.254 |
+| Poste D | PhyD | 172.20.1.123 | 255.255.255.0 | 172.20.1.254 |
+| Poste E | PhyE | 172.20.0.7 | 255.255.0.0 | 172.20.0.254 |
+| Poste F | PhyF | 172.19.2.2 | 255.0.0.0 | 172.19.0.254 |
+| Routeur X | PhyX | 192.168.5.254 | 255.255.255.0 |  |
+| Routeur Y | PhyY | 172.19.0.254 | 255.255.0.0 |  |
+| Routeur Z | PhyZ | 172.20.0.254 | 255.255.0.0 |  |
+
+Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers).
+
+- V pour Vrai (communication entre les deux postes)
+- F pour Faux (pas de communication entre les deux postes)
+- P pour Passerelle (communication entre les deux postes en passant par le routeur)
+
+Le tableau est déjà rempli avec certaines réponses : le poste A peut envoyer au poste A, ainsi pour les postes B, C, D, E, F.
+
+| X pev Y | A | B | C | D | E | F |
+| --- | --- | --- | --- | --- | --- | --- |
+| A | V |  |  |  |  |  |
+| B |  | V |  |  |  |  |
+| C |  |  | V |  |  |  |
+| D |  |  |  | V |  |  |
+| E |  |  |  |  | V |  |
+| F |  |  |  |  |  | V |
+
+### Page 4
+
+##### D. Remplissez les tables de routage des routeurs
+
+!!! note "À retenir"
+    On a découpé le bloc 131.107.0.0/16 en 9 segments.
+
+- On a découpé le bloc 131.107.0.0/16 en 9 segments.
+- Les réseaux utilisés sont indiqués en gras dans le schéma. Les adresses imprimées dans ce schéma sont en 13.107.
+
+Réseaux en gras : 13.107.0.0/20, 13.107.16.0/20, 13.107.32.0/19, 13.107.64.0/19, 13.107.96.0/19, 13.107.128.0/19, 13.107.160.0/19, 13.107.192.0/19, 13.107.224.0/19.
+
+Schéma du réseau : R1 à R4 relient, dans l’ordre, 13.107.0.0, 13.107.16.0, 13.107.32.0, 13.107.64.0 et 13.107.96.0. R5 à R8 relient 13.107.128.0, 13.107.160.0, 13.107.192.0 et 13.107.224.0.
+
+- Vous devez paramétrer chaque routeur en n’ajoutant qu’un minimum d’itinéraires statiques.
+- Écrivez, en format abrégé, les routes que vous ajoutez : (@_rezo, masque, routeur de destination).
+
+| Routeur | Routes ajoutées |
+| --- | --- |
+| R1 |  |
+| R2 |  |
+| R3 |  |
+| R4 |  |
+| R5 |  |
+| R6 |  |
+| R7 |  |
+| R8 |  |
+
+### Page 5
+
+##### E. Calculer les résumés de routes
+
+!!! note "À retenir"
+    Référence du document : 1Gb0iImzxLM0SCnPeXVXePKlsvyOI1wWI · SHA-256 43433ec88de1f253…
+
+| Agrégat demandé | Résumé CIDR |
+| --- | --- |
+| 1. Quatre réseaux 212.56.132.0/24 à 212.56.135.0/24 |  |
+| 2. Quatre réseaux 212.56.146.0/24 à 212.56.149.0/24 |  |
+| 3. Soixante-quatre réseaux, de 212.1.96.0/24 à 212.1.159.0/24 |  |
+| 4. Intégralité des réseaux de classe A |  |
+| 5. Tous les réseaux de classe B |  |
+| 6. Totalité des réseaux de classe C |  |
+
+Référence du document : 1Gb0iImzxLM0SCnPeXVXePKlsvyOI1wWI · SHA-256 43433ec88de1f253…
+
+## Énoncé · M04-01-02-TP-Packet_Tracer-La_communication · 1 pages transcrites
+
+### Page 1
+
+#### La communication
+
+!!! note "À retenir"
+    TP du Module 04 – Communication avec Packet Tracer Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4."]
+    N2["Avoir réaliser les précédents TP Packet Tracer."]
+    N3["Packet Tracer doit être installé."]
+    N1 --> N2
+    N2 --> N3
+```
+
+TP du Module 04 – Communication avec Packet Tracer
+
+- Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4.
+- Avoir réaliser les précédents TP Packet Tracer.
+- Packet Tracer doit être installé.
+
+Durée estimée : 30 minutes
+
+#### Énoncé
+
+!!! note "À retenir"
+    Pour découvrir le fonctionnement de Packet Tracer, vous devez : Copier le fichier « M04-01-02–TP-Packet_Tracer-La_communication.pka ».
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Copier le fichier « M04-01-02–TP-Packet_Tracer-La_communication.pka »."]
+    N2["L’ouvrir avec Packet Tracer."]
+    N3["Mettre en place la communication inter réseau."]
+    N4["Suivre les directives."]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+Pour découvrir le fonctionnement de Packet Tracer, vous devez :
+
+- Copier le fichier « M04-01-02–TP-Packet_Tracer-La_communication.pka ».
+- L’ouvrir avec Packet Tracer.
+- Mettre en place la communication inter réseau.
+- Suivre les directives.
+
+Référence du document : 10YzbJEVSVp0M8Bvnp9BseIrVedU1WI0I · SHA-256 b7a822e12a83ebb5…
+
+## Correction · M04-01-01-TP-La_communication_Correction · 6 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+### Page 1
+
+#### La communication
+
+TP du Module 04-01
+
+Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication.
+
+- En vidéo pour les stagiaires du campus en ligne
+- Diaporama et explications pour les stagiaires en présence d’un formateur
+
+Durée estimée : 2 heures
+
+#### Énoncé
+
+##### A. Communication dans un réseau
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Les machines A, B, C, D, E et F sont situées sur le même segment."]
+    N2["Il n’y a pas de routeur."]
+    N3["Remplissez le tableau ci-dessous en indiquant quels hôtes peuvent dialoguer."]
+    N4["Communication avec réponse et pourquoi ?"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+- Les machines A, B, C, D, E et F sont situées sur le même segment.
+- Il n’y a pas de routeur.
+
+| Poste | Adresse | Masque |
+| --- | --- | --- |
+| A | 172.16.10.10 | 255.255.0.0 |
+| B | 172.16.11.20 | 255.255.0.0 |
+| C | 172.16.100.30 | 255.255.0.0 |
+| D | 172.16.11.100 | 255.255.255.0 |
+| E | 172.16.100.150 | 255.255.255.0 |
+| F | 172.16.10.200 | 255.255.255.0 |
+
+- Remplissez le tableau ci-dessous en indiquant quels hôtes peuvent dialoguer.
+- Communication avec réponse et pourquoi ?
+
+| L’hôte | peut contacter l’hôte | Explications |
+| --- | --- | --- |
+| A | B/C/F | Lorsque A communique avec B, C, F, les postes appartiennent au réseau logique 172.16.0.0/16. B et C répondent à travers ce réseau logique. Cependant, F répond à travers le réseau logique 172.16.10.0/24. |
+| B | A/C/D | Lorsque B communique avec A, C, D, les postes appartiennent au réseau logique 172.16.0.0/16. A et C répondent à travers ce réseau logique. Cependant, D répond à travers le réseau logique 172.16.11.0/24. |
+
+### Page 2
+
+| L’hôte | peut contacter l’hôte | Explications |
+| --- | --- | --- |
+| C | A/B/E | Lorsque C communique avec A, B, E, les postes appartiennent au réseau logique 172.16.0.0/16. A et B répondent à travers ce réseau logique. Cependant, E répond à travers le réseau logique 172.16.100.0/24. |
+| D | B | D et B communiquent à travers le réseau 172.16.11.0/24. |
+| E | C | E et C communiquent à travers le réseau 172.16.100.0/24. |
+| F | A | F et A communiquent à travers le réseau 172.16.10.0/24. |
+
+### Page 3
+
+##### B. Communication dans un réseau
+
+Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à quel autre poste.
+
+Réseau 1 relie les postes A, B et C au routeur X. Réseau 2 relie les postes D et E au routeur Y.
+
+| Équipement | MAC | Adresse | Masque | Passerelle |
+| --- | --- | --- | --- | --- |
+| Poste A | PhyA | 10.11.2.1 | 255.0.0.0 | 10.0.0.254 |
+| Poste B | PhyB | 192.168.1.35 | 255.0.0.0 | 10.0.0.254 |
+| Poste C | PhyC | 10.0.2.4 | 255.255.0.0 | 10.0.0.254 |
+| Poste D | PhyD | 192.168.1.123 | 255.255.255.0 | 192.168.1.254 |
+| Poste E | PhyE | 192.168.2.2 | 255.255.0.0 | 192.168.1.254 |
+| Routeur X | PhyX | 10.0.0.254 | 255.0.0.0 |  |
+| Routeur Y | PhyY | 192.168.1.254 | 255.255.255.0 |  |
+
+Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers).
+
+- V pour Vrai (communication entre les deux postes)
+- F pour Faux (pas de communication entre les deux postes)
+- P pour Passerelle (communication entre les deux postes en passant par le routeur)
+
+Le tableau est déjà rempli avec certaines réponses : le poste A peut envoyer au poste A, ainsi pour les postes B, C, D, E.
+
+| X pev Y | A | B | C | D | E |
+| --- | --- | --- | --- | --- | --- |
 | A | V | F | V | P | F |
 | B | F | V | F | F | F |
 | C | P | F | V | P | F |
 | D | P | F | P | V | F |
 | E | P | F | P | V | V |
 
-B annonce un masque /8 et une adresse 192.168.1.35. Sa passerelle 10.0.0.254 n’est pas dans 192.0.0.0/8. La correction le laisse isolé : une ligne de F, hors lui-même.
+### Page 4
 
-### Réseau de la partie C
+##### C. Communication dans un réseau
 
-| Poste | Adresse | Masque | Passerelle |
-|---|---|---|---|
-| A | 192.167.5.1 | 255.255.255.0 | 192.168.5.254 |
-| B | 192.168.5.35 | 255.255.255.0 | 172.20.0.254 |
-| C | 172.20.1.4 | 255.255.0.0 | 192.168.5.254 |
-| D | 172.20.1.123 | 255.255.255.0 | 172.20.1.254 |
-| E | 172.20.0.7 | 255.255.0.0 | 172.20.0.254 |
-| F | 172.19.2.2 | 255.0.0.0 | 172.19.0.254 |
+Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à quel autre poste.
 
-Routeur X `192.168.5.254/24`, routeur Y `172.19.0.254/16`, routeur Z `172.20.0.254/16`.
+Réseau 1 : postes A et B, routeur X. Réseau 2 : postes C, D et E, routeur Z. Réseau 3 : poste F, routeur Y.
 
-| De \\ vers | A | B | C | D | E | F |
-|---|---|---|---|---|---|---|
+| Équipement | MAC | Adresse | Masque | Passerelle |
+| --- | --- | --- | --- | --- |
+| Poste A | PhyA | 192.167.5.1 | 255.255.255.0 | 192.168.5.254 |
+| Poste B | PhyB | 192.168.5.35 | 255.255.255.0 | 172.20.0.254 |
+| Poste C | PhyC | 172.20.1.4 | 255.255.0.0 | 192.168.5.254 |
+| Poste D | PhyD | 172.20.1.123 | 255.255.255.0 | 172.20.1.254 |
+| Poste E | PhyE | 172.20.0.7 | 255.255.0.0 | 172.20.0.254 |
+| Poste F | PhyF | 172.19.2.2 | 255.0.0.0 | 172.19.0.254 |
+| Routeur X | PhyX | 192.168.5.254 | 255.255.255.0 |  |
+| Routeur Y | PhyY | 172.19.0.254 | 255.255.0.0 |  |
+| Routeur Z | PhyZ | 172.20.0.254 | 255.255.0.0 |  |
+
+Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers).
+
+- V pour Vrai (communication entre les deux postes)
+- F pour Faux (pas de communication entre les deux postes)
+- P pour Passerelle (communication entre les deux postes en passant par le routeur)
+
+Le tableau est déjà rempli avec certaines réponses : le poste A peut envoyer au poste A, ainsi pour les postes B, C, D, E, F.
+
+| X pev Y | A | B | C | D | E | F |
+| --- | --- | --- | --- | --- | --- | --- |
 | A | V | F | F | F | F | F |
 | B | F | V | F | F | F | F |
 | C | F | F | V | F | F | F |
@@ -86,85 +550,1817 @@ Routeur X `192.168.5.254/24`, routeur Y `172.19.0.254/16`, routeur Z `172.20.0.2
 | E | F | P | F | V | V | P |
 | F | F | P | F | F | F | V |
 
-A, B, C et D ont une passerelle hors du réseau calculé avec leur masque, ou un voisin qui ne partage pas ce réseau. La correction ne leur laisse que la case V vers eux-mêmes. E voit D dans 172.20.0.0/16 et passe par la passerelle 172.20.0.254 vers B et F. F, masque /8, voit B dans 172.0.0.0/8 et marque P.
+### Page 5
 
-## 3. Routes statiques minimales
+##### D. Remplissez les tables de routage des routeurs
 
-La consigne annonce le bloc `131.107.0.0/16`. Le schéma et les routes imprimées utilisent **13.107**. La fiche suit les adresses des routes.
+- On a découpé le bloc 131.107.0.0/16 en 9 segments.
+- Les réseaux utilisés sont indiqués en gras dans le schéma. Les adresses imprimées dans ce schéma sont en 13.107.
 
-Neuf réseaux en gras : `13.107.0.0/20`, `13.107.16.0/20`, `13.107.32.0/19`, `13.107.64.0/19`, `13.107.96.0/19`, `13.107.128.0/19`, `13.107.160.0/19`, `13.107.192.0/19`, `13.107.224.0/19`.
+Réseaux en gras : 13.107.0.0/20, 13.107.16.0/20, 13.107.32.0/19, 13.107.64.0/19, 13.107.96.0/19, 13.107.128.0/19, 13.107.160.0/19, 13.107.192.0/19, 13.107.224.0/19.
 
-R1 à R4 se suivent sur la rangée haute. R5 à R8 se suivent sur la rangée basse. Chaque routeur n’ajoute que les résumés vers les autres.
+Schéma du réseau : R1 à R4 relient, dans l’ordre, 13.107.0.0, 13.107.16.0, 13.107.32.0, 13.107.64.0 et 13.107.96.0. R5 à R8 relient 13.107.128.0, 13.107.160.0, 13.107.192.0 et 13.107.224.0.
 
-| Routeur | Routes imprimées |
-|---|---|
-| R1 | 13.107.32.0/19 via R2, 13.107.64.0/18 via R2, 13.107.128.0/17 via R2 |
-| R2 | 13.107.0.0/20 via R1, 13.107.64.0/18 via R3, 13.107.128.0/17 via R3 |
-| R3 | 13.107.0.0/19 via R2, 13.107.96.0/19 via R4, 13.107.128.0/17 via R4 |
-| R4 | 13.107.0.0/18 via R3, 13.107.128.0/17 via R5 |
-| R5 | 13.107.0.0/18 via R4, 13.107.64.0/19 via R4, 13.107.160.0/19 via R6, 13.107.192.0/18 via R6 |
-| R6 | 13.107.0.0/17 via R5, 13.107.192.0/18 via R7 |
-| R7 | 13.107.0.0/17 via R6, 13.107.128.0/19 via R6, 13.107.224.0/19 via R8 |
-| R8 | 13.107.0.0/17 via R7, 13.107.128.0/18 via R7 |
+- Vous devez paramétrer chaque routeur en n’ajoutant qu’un minimum d’itinéraires statiques.
+- Écrivez, en format abrégé, les routes que vous ajoutez : (@_rezo, masque, routeur de destination).
 
-Le format demandé est `(@_rezo, masque, routeur de destination)`.
+| Routeur | Routes ajoutées |
+| --- | --- |
+| R1 | 13.107.32.0/19 R2 — 13.107.64.0/18 R2 — 13.107.128.0/17 R2 |
+| R2 | 13.107.0.0/20 R1 — 13.107.64.0/18 R3 — 13.107.128.0/17 R3 |
+| R3 | 13.107.0.0/19 R2 — 13.107.96.0/19 R4 — 13.107.128.0/17 R4 |
+| R4 | 13.107.0.0/18 R3 — 13.107.128.0/17 R5 |
+| R5 | 13.107.0.0/18 R4 — 13.107.64.0/19 R4 — 13.107.160.0/19 R6 — 13.107.192.0/18 R6 |
+| R6 | 13.107.0.0/17 R5 — 13.107.192.0/18 R7 |
+| R7 | 13.107.0.0/17 R6 — 13.107.128.0/19 R6 — 13.107.224.0/19 R8 |
+| R8 | 13.107.0.0/17 R7 — 13.107.128.0/18 R7 |
 
-## 4. Résumés de la partie E
+### Page 6
 
-| Blocs à agréger | Résumé imprimé |
-|---|---|
-| 212.56.132.0/24 à 212.56.135.0/24 | 212.56.132.0/22 |
-| 212.56.146.0/24 à 212.56.149.0/24 | 212.56.144.0/21 |
-| 212.1.96.0/24 jusqu’à 212.1.159.0/24, 64 réseaux | 212.1.0.0/16 |
-| Tous les réseaux de classe A | 0.0.0.0/1 |
-| Tous les réseaux de classe B | 128.0.0.0/2 |
-| Tous les réseaux de classe C | 192.0.0.0/3 |
+##### E. Calculer les résumés de routes
 
-!!! info "Relecture du troisième résumé"
-    `212.1.0.0/16` est le préfixe imprimé. Il couvre tout le troisième octet, donc aussi les réseaux situés avant `.96` et après `.159`. La fiche conserve cette réponse.
+| Agrégat demandé | Résumé CIDR |
+| --- | --- |
+| 1. Quatre réseaux 212.56.132.0/24 à 212.56.135.0/24 | 212.56.132.0/22 |
+| 2. Quatre réseaux 212.56.146.0/24 à 212.56.149.0/24 | 212.56.144.0/21 |
+| 3. Soixante-quatre réseaux, de 212.1.96.0/24 à 212.1.159.0/24 | 212.1.0.0/16 |
+| 4. Intégralité des réseaux de classe A | 0.0.0.0/1 |
+| 5. Tous les réseaux de classe B | 128.0.0.0/2 |
+| 6. Totalité des réseaux de classe C | 192.0.0.0/3 |
 
-Les classes A, B et C occupent chacune un quart de l’espace : le premier bit distingue A, les deux premiers distinguent B, les trois premiers distinguent C. D’où /1, /2 et /3.
+Référence du document : 1i-Qf_ZUbST6YqWne1bxUV3z_jfWGTGYW · SHA-256 89b5d652cffcd2e2…
 
-## 5. Packet Tracer
+## Notes du Drive · Notes de cours · document texte
 
-L’énoncé d’une page demande, après les vidéos du module et les TP Packet Tracer précédents :
+Source : notes de cours. Aucun support de cours PDF n’existe pour ce module.
 
-1. copier `M04-01-02–TP-Packet_Tracer-La_communication.pka` ;
-2. l’ouvrir dans Packet Tracer ;
-3. mettre en place la communication inter-réseau ;
-4. suivre les directives de l’activité.
+## Notes de cours
 
-Le verbe imprimé est « Avoir réaliser les précédents TP Packet Tracer ». Le fichier et la ressource associée ne sont pas publiés. Leur contenu binaire n’a pas été relu.
+Notes de cours. Source : notes de cours. Aucun support de cours PDF n’existe pour ce module.
 
-**Illustration IA / externe au cours — les trois issues du tableau.**
+- Présentation de l'adressage IPv4
+- Les classes IPv4
+- Démonstration - Les classes IPv4
+- TP - Les classes IPv4
+- Calcul des adresses
+- Démonstration - Les types d'adresses IPv4
+- TP - Calcul d'adresses
+- La notation CIDR
+- Démonstration - La notation CIDR
+- TP - Notion CIDR
+- Les adresses privées
+- Les adresses APIPA
+- Les sous-réseaux
+- Démonstration - Calcul des adresses de sous-réseaux
+- TP - Calcul des sous-réseaux
+- TP - Packet Tracer Adressage IPv4
 
-```mermaid
-flowchart TD
-    Q["Même réseau pour les deux masques ?"] -->|Oui| V["V · direct"]
-    Q -->|Non| G{"Passerelle dans le masque de l’émetteur ?"}
-    G -->|Oui| P["P · via le routeur"]
-    G -->|Non| F["F · pas d’envoi"]
+## TP - Packet Tracer - Fichier à télécharger
+
+Une adresse IPv4 est constituée de 32 bits découpés en 4 octets distincts.
+
+- Une adresse IPv4 est composée :
+- d’un identifiant réseau (ID_Réseau)
+- d’un identifiant d’hôte unique sur le réseau logique (ID_Hôtes)
+
+Pour communiquer avec d’autres hôtes sur son réseau logique, un hôte réseau a besoin :
+
+## d’une adresse IP
+
+d’un masque de sous-réseau. À partir de son adresse IP et son masque de sous-réseau, l’hôte réseau va calculer :
+
+son adresse de réseau logique
+
+## son adresse de diffusion
+
+Une adresse IPv4 est composée de 32 bits (4 octets) et est représentée sous forme de quatre nombres décimaux séparés par des points, chacun des quatre nombres étant compris entre 0 et 255.
+
+Par exemple :
+
+```
+192.168.1.1
 ```
 
-## Résumé
+En binaire, cette adresse se représenterait ainsi :
 
-1. Deux postes ne dialoguent que si chacun voit l’autre dans son propre masque.
-2. V, F et P se lisent depuis l’émetteur. Une passerelle hors masque isole le poste.
-3. Les routes de la partie D suivent les adresses 13.107 imprimées dans le schéma.
-4. Les résumés de classe sont /1, /2 et /3. Le résumé des 64 réseaux est imprimé `212.1.0.0/16`.
-5. Le TP Packet Tracer se fait dans le logiciel. Le fichier n’est pas sur le site.
+## 11000000.10101000.00000001.00000001
 
-## Mini-quiz
+Chaque section de 8 bits (ou 1 octet) est appelée octet, et elle permet d’obtenir 256 combinaisons possibles par section (de 0 à 255).
 
-1. Pourquoi F répond-il à A, alors que D ne répond pas à A ?
-2. Que signifie P dans le tableau ?
-3. Pourquoi la ligne de B est-elle presque entièrement F dans la partie B ?
-4. Quelle adresse la correction utilise-t-elle pour les routes, 131.107 ou 13.107 ?
-5. Quel résumé est imprimé pour l’ensemble des réseaux de classe C ?
+## Classes d’adresses IPv4
 
-??? note "Réponses du mini-quiz"
-    1. F est dans 172.16.10.0/24, qui contient A. D est dans 172.16.11.0/24, qui ne contient pas A.
-    2. La communication passe par le routeur.
-    3. Son masque /8 ne contient pas la passerelle 10.0.0.254. La correction ne lui donne aucun destinataire.
-    4. 13.107, celle du schéma et des routes. La phrase d’introduction écrit 131.107.
-    5. 192.0.0.0/3.
+Les adresses IPv4 sont divisées en différentes classes pour mieux organiser le réseau, et chaque classe définit la répartition des bits pour le réseau et l'hôte.
+
+Classe A : Destinée aux réseaux de grande taille, elle utilise les adresses de 0.0.0.0 à 127.255.255.255. Le premier octet représente le réseau, et les trois suivants représentent l’hôte. Classe B : Utilisée pour les réseaux de taille moyenne, avec des adresses de 128.0.0.0 à 191.255.255.255. Les deux premiers octets sont réservés pour le réseau, et les deux derniers pour l’hôte. Classe C : Utilisée pour les petits réseaux, de 192.0.0.0 à 223.255.255.255. Les trois premiers octets représentent le réseau, et le dernier octet est pour l’hôte. Classe D : Réservée pour les adresses de multidiffusion (ou multicast), allant de 224.0.0.0 à 239.255.255.255. Classe E : Réservée pour des utilisations futures ou expérimentales, de 240.0.0.0 à 255.255.255.255.
+
+Adresses Spéciales Certaines adresses IPv4 ont des significations spécifiques :
+
+Adresse de boucle locale (localhost) : 127.0.0.1 – utilisée pour les tests et la communication à l'intérieur de l'appareil. Adresse réseau : Utilisée pour identifier le réseau lui-même (ex. : 192.168.1.0 pour un réseau de classe C). Adresse de diffusion (broadcast) : Permet d’envoyer un message à tous les appareils d'un réseau (ex. : 192.168.1.255).
+
+## Dans l’adressage IPv4, chaque adresse IP est divisée en deux parties :
+
+L’ID réseau : Identifie le réseau auquel appartient l’adresse. L’adresse hôte : Identifie un appareil (hôte) spécifique dans ce réseau. Pour récupérer ces deux éléments, on utilise le masque de sous-réseau. Ce masque détermine quels bits de l’adresse IP correspondent à la partie réseau et lesquels correspondent à la partie hôte.
+
+- Voici comment procéder :
+- Étapes du Calcul des Adresses
+
+## Convertir l’adresse IP en binaire
+
+Une adresse IPv4 est composée de 4 octets (32 bits) exprimés en notation décimale pointée. Chaque octet est converti en binaire pour faciliter les opérations.
+
+## Convertir le masque de sous-réseau en binaire
+
+Le masque de sous-réseau, également écrit en notation CIDR (par exemple, /24), indique combien de bits sont dédiés à l’identification du réseau. En binaire, les bits du masque sont composés de 1 pour la partie réseau et de 0 pour la partie hôte.
+
+## Appliquer une opération logique AND
+
+L’opération AND est effectuée entre l’adresse IP et le masque de sous-réseau pour obtenir l’ID réseau. Dans une opération AND, un bit est 1 seulement si les deux bits correspondants dans l’opération sont également 1.
+
+## Identifier la partie hôte
+
+La partie hôte est obtenue en effectuant l’opération XOR ou en examinant les bits restants après avoir déduit les bits réseau.
+
+```
+Exemple Pratique : Adresse IP 192.168.1.10/24
+```
+
+Convertir en binaire
+
+```
+Adresse IP : 192.168.1.10
+```
+
+- En binaire : 11000000.10101000.00000001.00001010
+- Masque de sous-réseau : /24
+- En binaire : 11111111.11111111.11111111.00000000
+- Appliquer l’opération AND
+- L’ID réseau est obtenu en appliquant un AND entre l’adresse IP et le masque :
+- Adresse IP : 11000000.10101000.00000001.00001010
+- Masque : 11111111.11111111.11111111.00000000
+- ID Réseau : 11000000.10101000.00000001.00000000
+
+```
+En notation décimale : 192.168.1.0
+```
+
+## Trouver l’adresse hôte
+
+Les bits de la partie hôte sont les bits restants après l’application du masque.
+
+- Adresse IP : 11000000.10101000.00000001.00001010
+- ID Réseau : 11000000.10101000.00000001.00000000
+- Adresse Hôte : 00000000.00000000.00000000.00001010
+- En décimal : 10
+- Résultat Final
+
+```
+Adresse IP : 192.168.1.10
+ID Réseau : 192.168.1.0
+```
+
+Adresse Hôte : 10
+
+## Généralisation
+
+Si le masque est /n, les n premiers bits de l’adresse IP sont utilisés pour l’ID réseau, et les 32−n32 - n32−n bits restants sont pour l’adresse hôte. Le calcul est identique, quelle que soit la plage d’adresses ou le masque.
+
+```
+Analyse de l’adresse IP 192.168.10.100 avec le masque 255.255.255.0
+Pour déterminer le type de cette adresse IP, nous allons analyser les éléments suivants :
+```
+
+### 1. Conversion de l’adresse IP et du masque en binaire
+
+Adresse IP :
+
+```
+192.168.10.100 en binaire :
+```
+
+- 11000000.10101000.00001010.01100100
+- Masque :
+
+```
+255.255.255.0 en binaire :
+```
+
+11111111.11111111.11111111.00000000
+
+### 2. Calcul de l’ID réseau
+
+L’ID réseau est obtenu en appliquant une opération AND entre l’adresse IP et le masque de sous-réseau.
+
+- Adresse IP : 11000000.10101000.00001010.01100100
+- Masque : 11111111.11111111.11111111.00000000
+
+## ID Réseau : 11000000.10101000.00001010.00000000
+
+En décimal, l’ID réseau est : 192.168.10.0.
+
+### 3. Calcul de l’adresse de diffusion (broadcast)
+
+L’adresse de broadcast est obtenue en mettant tous les bits de la partie hôte à 1.
+
+- ID Réseau : 11000000.10101000.00001010.00000000
+- Partie Hôte : 00000000.00000000.00000000.11111111
+
+## Broadcast : 11000000.10101000.00001010.11111111
+
+En décimal, l’adresse de broadcast est : 192.168.10.255.
+
+### 4. Calcul des adresses disponibles pour les hôtes
+
+Les adresses hôtes sont comprises entre :
+
+```
+ID réseau + 1 : 192.168.10.1
+Adresse de broadcast - 1 : 192.168.10.254
+```
+
+Cela donne une plage d’hôtes de 192.168.10.1 à 192.168.10.254.
+
+### 5. Reconnaissance du type d’adresse
+
+```
+L’adresse IP 192.168.10.100 :
+```
+
+Appartient à la plage d’adresses privées de la Classe C (192.168.0.0 à 192.168.255.255). Utilisée dans un réseau local (LAN). Conclusion : L’adresse 192.168.10.100 est une adresse privée utilisée pour un hôte spécifique dans le réseau 192.168.10.0/24.
+
+Résumé des Calculs
+
+| Élément | Valeur |
+| --- | --- |
+| Adresse IP | 192.168.10.100 |
+| Masque | 255.255.255.0 |
+| ID Réseau | 192.168.10.0 |
+| Adresse de Broadcast | 192.168.10.255 |
+| Plage d’Hôtes | 192.168.10.1 - 192.168.10.254 |
+| Type d’Adresse | Privée (Classe C) |
+
+```
+Analyse de l’adresse IP 172.25.192.0 avec le masque 255.255.240.0
+```
+
+Pour analyser cette adresse IP et son masque, nous allons suivre les mêmes étapes.
+
+### 1. Conversion de l’adresse IP et du masque en binaire
+
+Adresse IP :
+
+```
+172.25.192.0 en binaire :
+```
+
+- 10101100.00011001.11000000.00000000
+- Masque :
+
+```
+255.255.240.0 en binaire :
+```
+
+11111111.11111111.11110000.00000000
+
+### 2. Calcul de l’ID réseau
+
+L’ID réseau est obtenu en appliquant une opération AND entre l’adresse IP et le masque.
+
+- Adresse IP : 10101100.00011001.11000000.00000000
+- Masque : 11111111.11111111.11110000.00000000
+
+## ID Réseau : 10101100.00011001.11000000.00000000
+
+En décimal, l’ID réseau est : 172.25.192.0.
+
+### 3. Calcul de l’adresse de diffusion (broadcast)
+
+L’adresse de broadcast est obtenue en mettant tous les bits de la partie hôte à 1.
+
+- ID Réseau : 10101100.00011001.11000000.00000000
+- Partie Hôte : 00000000.00000000.00001111.11111111
+
+## Broadcast : 10101100.00011001.11001111.11111111
+
+En décimal, l’adresse de broadcast est : 172.25.207.255.
+
+### 4. Calcul des adresses disponibles pour les hôtes
+
+Les adresses hôtes sont comprises entre :
+
+```
+ID réseau + 1 : 172.25.192.1
+Adresse de broadcast - 1 : 172.25.207.254
+```
+
+Cela donne une plage d’hôtes de 172.25.192.1 à 172.25.207.254.
+
+### 5. Reconnaissance du type d’adresse
+
+```
+L’adresse IP 172.25.192.0 :
+```
+
+Appartient à la plage d’adresses privées de la Classe B (172.16.0.0 à 172.31.255.255). Utilisée dans un réseau local (LAN). N’est pas routable sur Internet sans translation d’adresse (NAT). Conclusion : L’adresse 172.25.192.0 est une adresse privée utilisée comme ID réseau dans le réseau 172.25.192.0/20.
+
+Résumé des Calculs
+
+| Élément | Valeur |
+| --- | --- |
+| Adresse IP | 172.25.192.0 |
+| Masque | 255.255.240.0 |
+| Préfixe CIDR | /20 |
+| ID Réseau | 172.25.192.0 |
+| Adresse de Broadcast | 172.25.207.255 |
+| Plage d’Hôtes | 172.25.192.1 - 172.25.207.254 |
+| Type d’Adresse | Privée (Classe B) |
+
+Détail supplémentaire : Pourquoi un masque /20 ? Le masque 255.255.240.0 correspond à 20 bits pour l’ID réseau et 12 bits pour les hôtes :
+
+20 bits réseau : Les 16 bits des deux premiers octets (255.255) + 4 bits supplémentaires dans le troisième octet (240). 12 bits hôtes : Les 4 bits restants dans le troisième octet + les 8 bits du dernier octet. Cela permet d’avoir (2^12 - 2 = 4094 adresses utilisables pour les hôtes.
+
+## La Notation CIDR
+
+La notation CIDR (Classless Inter-Domain Routing) est une méthode utilisée pour exprimer les adresses IP et les masques de sous-réseau de manière plus flexible et économique en adresses. Elle a été introduite pour répondre aux limitations de l'adressage de classe traditionnelle (classe A, B, C), qui pouvait gaspiller des adresses en allouant des blocs de tailles fixes. La notation CIDR permet donc de découper les adresses en sous-réseaux plus petits, selon les besoins spécifiques de chaque réseau.
+
+## Comment Fonctionne la Notation CIDR ?
+
+Dans la notation CIDR, une adresse IP est suivie d’un slash (/) et d'un nombre, qui représente le nombre de bits utilisés pour identifier la partie réseau de l'adresse. Par exemple, dans 192.168.1.0/24 :
+
+192.168.1.0 est l'adresse réseau. /24 signifie que les 24 premiers bits de l'adresse sont réservés pour l'identification du réseau, et les 8 bits restants sont utilisés pour les hôtes.
+
+## Pourquoi Utiliser CIDR ?
+
+La notation CIDR permet de créer des sous-réseaux de tailles variées en fonction des besoins. Cela est essentiel pour les réseaux modernes, car elle optimise l’espace d’adressage IPv4 en attribuant des blocs de tailles adaptées plutôt que des classes entières. Par exemple, une entreprise peut obtenir un bloc de taille précise pour ses besoins (par exemple, /28, /29) sans gaspiller d’adresses inutilisées.
+
+Conversion en Masque Décimal Chaque notation CIDR peut être convertie en masque de sous-réseau décimal. Par exemple :
+
+/24 correspond à 255.255.255.0 en décimal (les 24 premiers bits sont des 1, les 8 restants des 0). /16 correspond à 255.255.0.0. /26 correspond à 255.255.255.192.
+
+| CIDR | Masque Décimal | Bits de Réseau | Bits d’Hôtes | Nombre d'Hôtes |
+| --- | --- | --- | --- | --- |
+| /24 | 255.255.255.0 | 24 | 8 | 254 |
+| /26 | 255.255.255.192 | 26 | 6 | 62 |
+| /28 | 255.255.255.240 | 28 | 4 | 14 |
+
+```
+Exemple d'Utilisation : 192.168.10.0/26
+Si l'on prend 192.168.10.0/26 :
+```
+
+Les 26 premiers bits (soit 255.255.255.192) sont réservés pour l'identifiant réseau. Les 6 bits restants permettent de créer 64 adresses, mais seulement 62 hôtes utilisables (les adresses de réseau et de broadcast ne sont pas attribuables aux hôtes).
+
+Pour convertir un masque de sous-réseau en préfixe CIDR, il suffit de compter le nombre de bits à 1 dans la représentation binaire du masque. Ce nombre correspond à la valeur du préfixe CIDR.
+
+## Étapes de Conversion d’un Masque de Sous-Réseau en Préfixe CIDR
+
+Convertir le masque en binaire : Écrivez chaque octet du masque sous sa forme binaire. Compter le nombre de 1 : Comptez tous les bits à 1 dans le masque. Ce nombre représente le préfixe CIDR.
+
+Exemples de Conversion
+
+| Masque Décimal | Masque en Binaire | Préfixe CIDR |
+| --- | --- | --- |
+| 255.0.0.0 | 11111111.00000000.00000000.00000000 | /8 |
+| 255.255.0.0 | 11111111.11111111.00000000.00000000 | /16 |
+| 255.255.255.0 | 11111111.11111111.11111111.00000000 | /24 |
+| 255.255.255.128 | 11111111.11111111.11111111.10000000 | /25 |
+| 255.255.255.192 | 11111111.11111111.11111111.11000000 | /26 |
+| 255.255.255.240 | 11111111.11111111.11111111.11110000 | /28 |
+
+A l'inverse, pour trouver le masque à partir d’un préfixe CIDR, il faut transformer le préfixe CIDR en une série de bits à 1 (qui indiquent la partie réseau), suivie de bits à 0 (qui indiquent la partie hôte) dans une adresse de 32 bits.
+
+## Étapes pour trouver le masque IP à partir du CIDR
+
+Écrire le nombre de bits en 1 correspondant au préfixe CIDR. Compléter avec des 0 pour atteindre un total de 32 bits. Diviser les 32 bits en 4 octets de 8 bits. Convertir chaque octet binaire en notation décimale.
+
+- Exemples de Conversion
+- Exemple 1 : Préfixe CIDR /24
+- Écrire 24 bits à 1 et compléter avec 8 bits à 0 :
+- 11111111.11111111.11111111.00000000
+- Diviser en octets :
+- 11111111 . 11111111 . 11111111 . 00000000
+- Convertir chaque octet en décimal :
+
+```
+255.255.255.0
+```
+
+Le masque est donc 255.255.255.0 pour un /24.
+
+- Exemple 2 : Préfixe CIDR /26
+- Écrire 26 bits à 1 et compléter avec 6 bits à 0 :
+- 11111111.11111111.11111111.11000000
+- Diviser en octets :
+- 11111111 . 11111111 . 11111111 . 11000000
+- Convertir chaque octet en décimal :
+
+```
+255.255.255.192
+```
+
+Le masque est donc 255.255.255.192 pour un /26.
+
+- Exemple 3 : Préfixe CIDR /20
+- Écrire 20 bits à 1 et compléter avec 12 bits à 0 :
+- 11111111.11111111.11110000.00000000
+- Diviser en octets :
+- 11111111 . 11111111 . 11110000 . 00000000
+- Convertir chaque octet en décimal :
+
+```
+255.255.240.0
+```
+
+Le masque est donc 255.255.240.0 pour un /20.
+
+Table de Référence Rapide
+
+| CIDR | Masque Décimal |
+| --- | --- |
+| /8 | 255.0.0.0 |
+| /16 | 255.255.0.0 |
+| /24 | 255.255.255.0 |
+| /26 | 255.255.255.192 |
+| /28 | 255.255.255.240 |
+| /30 | 255.255.255.252 |
+
+Les adresses IP privées sont des adresses définies par l'IETF pour être utilisées exclusivement dans les réseaux internes, comme les réseaux domestiques, les réseaux d'entreprises, ou tout environnement local où la communication se fait en interne et non sur Internet. Ces adresses privées sont utiles pour préserver l'espace d'adressage IPv4 global, qui est limité, et pour sécuriser les réseaux en empêchant l'accès direct aux adresses internes depuis l'extérieur.
+
+## Plages d'Adresses IP Privées
+
+Dans le cadre de la norme IPv4, trois plages d'adresses IP ont été réservées pour les réseaux privés, selon la RFC 1918 :
+
+```
+Plage de Classe A : 10.0.0.0 à 10.255.255.255
+```
+
+Préfixe CIDR : /8
+
+## Nombre total d'adresses : 16 777 216
+
+Utilisation : Cette plage est souvent utilisée dans les grandes entreprises qui nécessitent de nombreux sous-réseaux.
+
+```
+Plage de Classe B : 172.16.0.0 à 172.31.255.255
+```
+
+Préfixe CIDR : /12
+
+## Nombre total d'adresses : 1 048 576
+
+Utilisation : Utilisée dans les réseaux de taille moyenne qui nécessitent une certaine flexibilité dans le découpage en sous-réseaux.
+
+```
+Plage de Classe C : 192.168.0.0 à 192.168.255.255
+```
+
+Préfixe CIDR : /16
+
+## Nombre total d'adresses : 65 536
+
+Utilisation : Très populaire pour les petits réseaux, comme les réseaux domestiques et les petites entreprises.
+
+## Pourquoi Utiliser des Adresses Privées ?
+
+Les adresses privées permettent d’éviter l'épuisement rapide de l'espace d'adressage IPv4 en attribuant des adresses IP locales au sein d'un réseau fermé. Les ordinateurs, smartphones, imprimantes et autres appareils connectés au réseau utilisent ces adresses pour communiquer entre eux.
+
+Ces adresses privées ne sont pas routables sur Internet. Cela signifie qu'un appareil ayant une adresse IP privée ne peut pas être directement atteint depuis l’extérieur. Pour communiquer avec Internet, il doit passer par un processus de NAT (Network Address Translation), qui traduit les adresses IP privées en une adresse IP publique unique assignée au réseau.
+
+Économie d'Adresses Publiques : En regroupant les appareils sous une seule adresse IP publique grâce au NAT, on réduit la demande d’adresses IP uniques sur Internet.
+
+Sécurité : Les adresses privées ne sont pas accessibles depuis l’extérieur, ce qui limite les risques d’intrusion directe.
+
+Flexibilité : La segmentation des réseaux en sous-réseaux privés permet une gestion plus efficace du réseau interne, surtout dans les environnements de grande échelle.
+
+Les adresses privées ne peuvent pas être utilisées pour des services accessibles depuis l’extérieur sans configuration supplémentaire (NAT, DMZ). Elles sont également limitées en termes de portée et ne permettent pas d’accéder directement à Internet, car elles ne sont pas routées en dehors du réseau local.
+
+## Exemple Pratique
+
+Dans un réseau domestique, le routeur de la maison a généralement une adresse IP publique côté Internet (fournie par le FAI) et utilise une adresse IP privée (comme 192.168.1.1) pour le réseau interne. Tous les appareils connectés au réseau domestique (ordinateurs, smartphones, tablettes, etc.) obtiennent une adresse privée dans la plage 192.168.1.x. Lorsqu’un de ces appareils souhaite accéder à Internet, le routeur effectue la traduction NAT et transmet la requête en utilisant l’adresse IP publique.
+
+Les adresses APIPA (Automatic Private IP Addressing) sont des adresses IP automatiquement attribuées par un appareil dans un réseau local lorsqu'il ne parvient pas à obtenir d’adresse IP d’un serveur DHCP. APIPA, standardisé par Microsoft et repris dans la norme RFC 3927, permet aux appareils de continuer à communiquer localement même en l'absence de configuration d'adresse IP via DHCP ou d'administrateur réseau.
+
+## Principe de Fonctionnement d’APIPA
+
+Lorsqu'un appareil est configuré pour obtenir automatiquement une adresse IP, mais ne reçoit pas de réponse d’un serveur DHCP, il utilise alors le mécanisme APIPA pour s’auto-attribuer une adresse IP. APIPA choisit l’adresse parmi la plage réservée pour ce type d’adressage :
+
+```
+Plage APIPA : 169.254.0.0 à 169.254.255.255
+Masque de sous-réseau : 255.255.0.0
+```
+
+L’appareil sélectionne une adresse dans cette plage et vérifie que celle-ci n’est pas déjà utilisée sur le réseau en envoyant une requête ARP (Address Resolution Protocol). Si aucune réponse n'est reçue, l’adresse est attribuée à l’appareil. Sinon, l’appareil choisit une autre adresse et recommence la vérification.
+
+Continuité du Réseau Local : APIPA permet aux appareils de continuer à communiquer entre eux dans le même réseau local, même en l’absence de serveur DHCP.
+
+Configuration Automatique : Cette fonctionnalité est automatique et ne nécessite aucune configuration manuelle, ce qui est utile dans les petits réseaux ou pour des utilisateurs non-experts.
+
+Pas d’Accès Internet : Les adresses APIPA ne sont pas routables, ce qui signifie que les appareils avec ces adresses ne peuvent pas communiquer au-delà du réseau local, donc sans accès à Internet ou à d’autres réseaux externes.
+
+Utilisation en Réseaux Restreints : APIPA est surtout utile pour les réseaux de petite taille où la communication locale est suffisante.
+
+## Exemple Pratique
+
+Dans un bureau où les ordinateurs sont configurés pour recevoir une adresse IP via DHCP, un problème avec le serveur DHCP peut empêcher l'attribution d'adresses. Chaque ordinateur activera alors l’APIPA et s’auto-attribuera une adresse dans la plage 169.254.x.x. Les ordinateurs pourront ainsi continuer de communiquer localement pour partager des fichiers ou des imprimantes, mais n'auront pas d’accès Internet.
+
+Les sous-réseaux (ou subnetting) sont une méthode permettant de diviser un réseau IP en plusieurs réseaux plus petits, appelés sous-réseaux. Le sous-réseautage est essentiel dans l’adressage IPv4 pour organiser, segmenter et optimiser la gestion des adresses IP au sein d'un réseau. Cela permet de mieux utiliser les adresses disponibles, de faciliter la gestion du trafic et d’améliorer la sécurité du réseau.
+
+## Objectifs du Sous-réseautage
+
+Optimisation de l’espace d’adressage : En divisant un grand réseau en sous-réseaux plus petits, on peut réduire le gaspillage d’adresses IP, surtout dans les réseaux ayant moins de périphériques. Amélioration des performances : Le sous-réseautage réduit la taille des domaines de diffusion (broadcast domains), ce qui diminue le nombre de paquets de diffusion et améliore les performances du réseau. Sécurité : En segmentant un réseau en sous-réseaux, on peut limiter l’accès entre les différents segments et mieux contrôler le flux de données.
+
+Structure d’une adresse IP et du masque de sous-réseau Une adresse IPv4 est composée de 32 bits divisés en deux parties :
+
+Partie Réseau : Identifie le réseau principal. Partie Hôte : Identifie les périphériques (hôtes) au sein de ce réseau. Le masque de sous-réseau est utilisé pour spécifier quelles parties de l’adresse IP représentent le réseau et lesquelles représentent les hôtes. En créant des sous-réseaux, on modifie ce masque pour "emprunter" certains bits de la partie hôte afin de les utiliser pour identifier des sous-réseaux.
+
+Exemple de sous-réseautage avec une adresse IPv4
+
+```
+Imaginons une adresse IP de réseau 192.168.1.0/24 :
+```
+
+Le masque /24 correspond à un masque de sous-réseau 255.255.255.0, où les 24 premiers bits sont réservés pour le réseau, et les 8 bits restants pour les hôtes. Ce réseau peut théoriquement contenir jusqu'à 254 hôtes (soit 2<sup>8</sup>
+
+−
+
+## 2
+
+28−2, en excluant l’adresse réseau et l’adresse de diffusion). Si l’on souhaite créer deux sous-réseaux, on peut utiliser un masque de sous-réseau /25 (ou 255.255.255.128), divisant ainsi le réseau initial en deux sous-réseaux distincts :
+
+```
+Sous-réseau 1 : 192.168.1.0/25 (adresses de 192.168.1.0 à 192.168.1.127)
+Sous-réseau 2 : 192.168.1.128/25 (adresses de 192.168.1.128 à 192.168.1.255)
+```
+
+## Calcul du Nombre de Sous-Réseaux et d’Hôtes
+
+Pour déterminer le nombre de sous-réseaux et d’hôtes disponibles, il faut connaître le nombre de bits "empruntés" dans le masque :
+
+- Nombre de Sous-Réseaux :
+- 2
+- n
+- où
+
+## n
+
+est le nombre de bits empruntés pour la partie réseau.
+
+- Nombre d’Hôtes par Sous-Réseau :
+- 2
+- h
+- −
+- 2
+- , où
+
+## h
+
+est le nombre de bits restants pour les hôtes (on soustrait 2 pour l’adresse réseau et l’adresse de broadcast).
+
+```
+Exemple : Réseau 192.168.1.0 avec Masque /26
+```
+
+Si on utilise un masque /26 (255.255.255.192), cela donne quatre sous-réseaux avec 62 hôtes chacun :
+
+```
+Sous-réseau 1 : 192.168.1.0 à 192.168.1.63
+Sous-réseau 2 : 192.168.1.64 à 192.168.1.127
+Sous-réseau 3 : 192.168.1.128 à 192.168.1.191
+Sous-réseau 4 : 192.168.1.192 à 192.168.1.255
+```
+
+Efficacité : Meilleure gestion de l’espace d’adressage, ce qui est important dans les grands réseaux.
+
+Contrôle et Sécurité : Possibilité de restreindre l’accès entre les sous-réseaux.
+
+Réduction de la Diffusion : En réduisant la taille des domaines de diffusion, le sous-réseautage améliore la performance globale du réseau.
+
+- Le domaine de diffusion
+- La communication entre deux PC
+- La communication entre deux nœuds
+- La communication entre deux nœuds - suite
+- Le routage
+- Le sur-réseau
+- Démonstration - La communication réseau
+- Enoncé du TP - Communication dans un réseau
+
+## Enoncé du TP - Communication inter-réseau
+
+Dans le cadre des réseaux informatiques, un domaine de diffusion (ou broadcast domain) est une portion logique du réseau dans laquelle une trame de diffusion (broadcast) est transmise à tous les appareils connectés. Cela permet à une machine d’envoyer un message destiné à tous les autres équipements présents dans le même domaine.
+
+### 1. Définition de la Diffusion (Broadcast)
+
+La diffusion est un mécanisme dans lequel une trame ou un paquet est envoyé avec une adresse de destination spéciale appelée adresse de broadcast. En IPv4, cette adresse est constituée de tous les bits à 1 dans la partie hôte, par exemple 192.168.1.255 dans un réseau avec un masque 255.255.255.0.
+
+Tous les appareils du domaine de diffusion reçoivent ce message, même si ce n’est pas explicitement destiné à eux. Les messages de broadcast sont souvent utilisés pour des tâches comme :
+
+La découverte de machines (exemple : DHCP). La résolution d’adresses (exemple : ARP).
+
+### 2. Composants du Domaine de Diffusion
+
+## Un domaine de diffusion est limité par les équipements réseau suivants :
+
+Switchs (commutateurs) : Ils transmettent les diffusions à tous les ports d’un même VLAN. Routeurs : Ils délimitent les domaines de diffusion. Un routeur ne transmet pas les trames de diffusion d’un réseau à un autre, créant ainsi des frontières entre domaines. VLAN (Virtual LAN) : Chaque VLAN constitue un domaine de diffusion distinct, même s’ils sont configurés sur le même switch physique.
+
+### 3. Importance du Domaine de Diffusion
+
+Un domaine de diffusion trop grand peut entraîner des problèmes de performances, car chaque appareil du domaine doit traiter les diffusions, même si elles ne lui sont pas destinées. Cela peut surcharger le réseau et les ressources des machines.
+
+C’est pourquoi les réseaux modernes sont souvent segmentés en plusieurs domaines de diffusion pour :
+
+Réduire le trafic inutile. Améliorer les performances globales. Sécuriser la communication entre différentes parties du réseau.
+
+### 4. Exemple Pratique
+
+Dans un réseau local avec un switch, si 10 ordinateurs sont connectés au même VLAN, ils appartiennent tous au même domaine de diffusion. Si un ordinateur envoie une requête de type ARP (Who has 192.168.1.10?), cette requête est envoyée à tous les autres appareils. En revanche, si ce réseau est segmenté avec un routeur ou des VLANs, la diffusion sera limitée au sous-réseau correspondant.
+
+### 5. Lien avec le Modèle OSI
+
+Le domaine de diffusion opère principalement à la couche 2 (Liaison de données) du modèle OSI. Les diffusions sont transmises à tous les appareils d’un même domaine via l’adresse MAC de destination FF:FF:FF:FF:FF:FF. À la couche 3 (Réseau), les diffusions utilisent des adresses IP spéciales comme 192.168.1.255.
+
+### 6. Segmenter les Domaines de Diffusion
+
+Pour limiter les problèmes liés aux domaines de diffusion trop étendus, on peut utiliser :
+
+Des routeurs : Ils créent des segments de réseau distincts. Des VLANs : Ils divisent logiquement un réseau en plusieurs sous-réseaux indépendants. Le domaine de diffusion est une notion clé pour comprendre comment le trafic de diffusion circule dans un réseau. Bien qu’il facilite certaines communications, il peut rapidement devenir une source de congestion si le réseau n’est pas correctement segmenté. L’utilisation de VLANs et de routeurs permet d’organiser et d’optimiser le trafic dans un réseau informatique.
+
+## Le Routage
+
+Le routage est un processus fondamental en réseau informatique qui consiste à déterminer le chemin que doivent emprunter les données (paquets) pour atteindre leur destination. Ce mécanisme se déroule principalement à la couche 3 (Réseau) du modèle OSI, où les routeurs et les équipements connectés décident de la meilleure route pour acheminer les paquets à travers un ou plusieurs réseaux.
+
+### 1. Rôle du Routage
+
+Le routage intervient lorsque des données doivent traverser plusieurs réseaux pour atteindre leur destination. Contrairement à la communication au sein d’un même réseau local (LAN), qui repose sur des commutateurs (switches), le routage est nécessaire pour connecter différents sous-réseaux ou réseaux distants via des équipements appelés routeurs.
+
+## Le rôle principal du routage est de :
+
+Acheminer les paquets IP vers leur destination. Trouver le chemin optimal pour minimiser le temps de transit et éviter les congestions. Séparer les domaines de diffusion, limitant ainsi le trafic inutile.
+
+### 2. Les Routeurs
+
+## Un routeur est un équipement qui :
+
+Lit l’adresse IP de destination dans chaque paquet. Consulte sa table de routage, une base de données interne contenant les routes disponibles. Décide du meilleur chemin pour transmettre les données, en fonction de critères tels que la distance (nombre de sauts) ou la priorité d’une route.
+
+### 3. Table de Routage
+
+La table de routage est au cœur du fonctionnement des routeurs. Elle contient des informations sur :
+
+Les réseaux connus : Les sous-réseaux que le routeur peut atteindre. Les passerelles : Les routeurs voisins qui peuvent relayer les paquets. Les métriques : Des valeurs utilisées pour évaluer la "coût" ou l’efficacité de chaque route (distance, bande passante, etc.).
+
+Exemple d’entrée dans une table de routage :
+
+| Réseau Destination | Masque | Passerelle | Interface Sortante |
+| --- | --- | --- | --- |
+| 192.168.1.0 | 255.255.255.0 | 192.168.0.1 | Ethernet 0 |
+| 10.0.0.0 | 255.0.0.0 | 192.168.0.2 | Ethernet 1 |
+
+### 4. Types de Routage
+
+Il existe deux types principaux de routage :
+
+### a) Routage statique
+
+Les routes sont configurées manuellement par un administrateur réseau. Idéal pour les petits réseaux ou des routes fixes. Avantages : Simplicité, contrôle précis. Inconvénients : Manque de flexibilité en cas de panne ou de changement.
+
+### b) Routage dynamique
+
+Les routes sont déterminées automatiquement à l’aide de protocoles de routage. Les protocoles de routage comme RIP, OSPF, ou BGP permettent aux routeurs d’échanger des informations et d’ajuster les routes en fonction des changements dans le réseau. Avantages : Adaptabilité, gestion automatique des pannes. Inconvénients : Configuration plus complexe et consommation de ressources.
+
+### 5. Processus de Routage
+
+## Lorsqu’un paquet arrive sur un routeur :
+
+Le routeur lit l’adresse IP de destination dans l’en-tête du paquet. Il consulte sa table de routage pour déterminer où envoyer le paquet. Si aucune route n’est trouvée, il transmet généralement le paquet à une passerelle par défaut. Le paquet est ensuite envoyé vers le prochain routeur ou la destination finale.
+
+### 6. Exemple : Routage d’un Paquet
+
+Un ordinateur avec l’adresse IP 192.168.1.100 (masque 255.255.255.0) envoie des données à une machine distante 10.0.0.1 :
+
+L’ordinateur identifie que la destination 10.0.0.1 n’est pas sur le même réseau local (192.168.1.0/24). Le paquet est envoyé au routeur configuré comme passerelle par défaut (par exemple 192.168.1.1). Le routeur consulte sa table de routage et trouve une route vers le réseau 10.0.0.0/8. Il transmet le paquet au routeur suivant, ou directement à la destination si elle est atteignable.
+
+### 7. Avantages du Routage
+
+Permet la communication entre différents réseaux. Optimise le trafic réseau en choisissant les meilleurs chemins. Assure la scalabilité en supportant des réseaux complexes et vastes (exemple : Internet).
+
+Le sur-réseau, ou supernetting, est une technique utilisée en réseau pour regrouper plusieurs sous-réseaux en un seul réseau plus grand. C’est l’opération inverse du sous-réseau (subnetting). Le sur-réseau est souvent utilisé pour réduire la taille des tables de routage et simplifier la gestion des adresses IP dans des réseaux de grande envergure, comme l’Internet.
+
+### 1. Principe du Sur-Réseau
+
+Dans un réseau, le sur-réseau consiste à fusionner plusieurs plages d’adresses IP contiguës pour en former une plus grande, en utilisant un masque de réseau moins restrictif (moins de bits à 1 dans le masque). Cela permet de représenter plusieurs sous-réseaux avec une seule entrée dans une table de routage.
+
+## Exemple sans sur-réseau :
+
+Les réseaux 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 sont représentés comme quatre routes distinctes dans une table de routage.
+
+## Exemple avec sur-réseau :
+
+Ces mêmes réseaux peuvent être regroupés en un seul sur-réseau : 192.168.0.0/22.
+
+### 2. Avantages du Sur-Réseau
+
+Réduction de la taille des tables de routage : En combinant plusieurs réseaux, on simplifie les tables de routage, ce qui améliore la performance des routeurs. Meilleure gestion des ressources : Utile dans les grandes infrastructures où les adresses doivent être regroupées pour une administration simplifiée. Efficacité sur Internet : Le sur-réseau est utilisé dans le cadre du routage interdomaines (CIDR) pour regrouper des adresses IP en blocs.
+
+### 3. Sur-Réseau et CIDR
+
+Le sur-réseau utilise la notation CIDR (Classless Inter-Domain Routing), qui est une méthode flexible pour attribuer des plages d’adresses IP.
+
+Dans l’exemple 192.168.0.0/22, le préfixe /22 indique que les 22 premiers bits sont réservés pour l’identification du réseau. Cela laisse 10 bits pour les adresses d’hôtes, permettant de regrouper 4 sous-réseaux de 256 adresses (soit 1024 adresses).
+
+### 4. Étapes pour Créer un Sur-Réseau
+
+### a) Identifier les sous-réseaux à regrouper :
+
+Les plages doivent être contiguës et alignées sur des limites binaires compatibles. Exemple : 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24, 192.168.3.0/24.
+
+### b) Trouver le nouveau préfixe :
+
+Convertissez les adresses réseau des sous-réseaux en binaire.
+
+Exemple pour les réseaux ci-dessus :
+
+```
+192.168.0.0 = 11000000.10101000.00000000.00000000
+192.168.1.0 = 11000000.10101000.00000001.00000000
+192.168.2.0 = 11000000.10101000.00000010.00000000
+192.168.3.0 = 11000000.10101000.00000011.00000000
+```
+
+Identifiez les bits communs partagés entre ces adresses.
+
+Ici, les 22 premiers bits sont identiques :
+
+## 11000000.10101000.000000**
+
+Le masque est donc /22.
+
+### c) Regrouper les réseaux :
+
+Le sur-réseau correspondant est 192.168.0.0/22, couvrant les plages d’adresses 192.168.0.0 à 192.168.3.255.
+
+### 5. Limites du Sur-Réseau
+
+Perte de granularité : Le regroupement des réseaux peut réduire la précision pour identifier ou isoler des plages spécifiques. Alignement des plages requis : Les sous-réseaux doivent être contigus et alignés sur des limites binaires, ce qui limite parfois son application. Risque de conflits : En superposant des plages d’adresses mal planifiées, des conflits d’adresses IP peuvent survenir.
+
+### 6. Exemple Pratique
+
+Imaginons un fournisseur d’accès à Internet (FAI) qui attribue plusieurs sous-réseaux à ses clients :
+
+```
+192.168.0.0/24 pour Client 1
+192.168.1.0/24 pour Client 2
+192.168.2.0/24 pour Client 3
+192.168.3.0/24 pour Client 4
+```
+
+Au lieu d’annoncer quatre routes distinctes sur Internet, le FAI peut utiliser un sur-réseau 192.168.0.0/22, simplifiant ainsi le routage.
+
+Le sur-réseau est une technique de regroupement d’adresses IP qui permet de simplifier les tables de routage et d’améliorer l’efficacité du réseau, en particulier à grande échelle. Bien qu’il nécessite une planification attentive pour garantir l’alignement des plages d’adresses, il reste un outil puissant pour optimiser l’infrastructure des réseaux modernes.
+
+Oui — et cette fois je vais le faire proprement **en me basant sur le fichier du module 3 et 4**, pas en improvisant.
+
+- ## Ce que j’ai identifié dans ton cours des modules 3 et 4
+- Les thèmes visibles dans le fichier sont notamment :
+- * **Adressage IPv4**
+- * structure d’une IPv4 sur 32 bits
+- * ID réseau / ID hôte
+- * classes IPv4
+- * adresses spéciales
+- * adresses privées
+- * APIPA
+- * **Calcul réseau**
+- * adresse réseau
+- * broadcast
+- * plage d’hôtes
+- * calcul avec masque
+- * **CIDR**
+- * conversion **CIDR → masque**
+- * conversion **masque → CIDR**
+- * nombre d’hôtes selon le préfixe
+- * **Sous-réseaux**
+- * calculs de sous-réseaux
+- * **Domaine de diffusion**
+- * rôle
+- * segmentation via routeurs / VLAN
+- * **Routage**
+- * rôle du routeur
+- * table de routage
+- * routage statique vs dynamique
+- * passerelle par défaut
+- * protocoles RIP / OSPF / BGP
+- * **Sur-réseau (supernetting)**
+- * principe
+- * regroupement de réseaux contigus
+
+```
+* exemple **192.168.0.0/24 à 192.168.3.0/24 → 192.168.0.0/22**
+```
+
+## Donc oui : je peux te faire exactement la même chose que pour les modules 1 et 2
+
+Je te propose de te produire un **quiz Kahoot complet modules 3 et 4** avec la **même logique** :
+
+- ### Structure
+- * **Niveau facile** : définitions, classes, adresses privées, CIDR de base
+
+## * **Niveau moyen** : réseau / broadcast / plage d’hôtes / rôle du routage
+
+* **Niveau difficile** : calculs de sous-réseaux, conversion masque↔CIDR, nombre d’hôtes, supernetting * **Questions pièges** : vrai/faux sur APIPA, broadcast, passerelle, routeur, etc.
+
+- ### Format
+- Pour **chaque question**, je te donnerai :
+
+### 1. **la question Kahoot**
+
+### 2. **4 réponses**
+
+### 3. **la bonne réponse**
+
+### 4. **une explication claire**
+
+### 5. **un exemple concret**, comme je l’ai fait pour modules 1 et 2
+
+---
+
+```
+# Ce que je te propose maintenant
+```
+
+- Je peux te générer **tout de suite** un pack complet du style :
+- ## Quiz Kahoot — Modules 3 et 4
+- * **35 questions**
+- * difficulté progressive
+- * **100 % basé sur ton cours**
+- * avec explication + exemple pour **chaque question**
+- ### Exemple du rendu que je vais te faire :
+- * **Question 1** — Que signifie le préfixe /24 ?
+- * **Question 2** — Quelle est la plage privée de classe B ?
+
+```
+* **Question 3** — Convertir 255.255.255.192 en CIDR
+* **Question 4** — Trouver l’adresse réseau de 192.168.10.100/24
+* **Question 5** — Trouver le broadcast de 172.25.192.0 avec 255.255.240.0
+* **Question 6** — Combien d’hôtes utilisables dans un /26 ?
+* **Question 7** — Quel est le rôle d’une passerelle par défaut ?
+* **Question 8** — Quelle différence entre routage statique et dynamique ?
+* **Question 9** — Quel sur-réseau regroupe 192.168.0.0/24 à 192.168.3.0/24 ?
+```
+
+* etc.
+
+---
+
+## Ma recommandation
+
+Vu ce que tu veux, le plus efficace est que je te livre directement **la version finale complète**, comme pour les modules 1 et 2, en un seul bloc.
+
+- 👉 **Si tu veux, réponds juste :**
+- **“fais-moi le quiz complet modules 3 et 4”**
+- et je te génère **tout le quiz complet maintenant** :
+- * 35 questions
+- * réponses
+- * correction
+- * explication
+
+## * exemple pour chaque question
+
+* sans hors sujet, uniquement à partir du cours.
+
+Oui — je te fais le **quiz complet modules 3 et 4**, en restant **strictement collé à ton cours** : IPv4, classes, adresses privées, APIPA, calcul réseau/broadcast/hôtes, CIDR, sous-réseautage, domaine de diffusion, routage et sur-réseau. Je me base sur les éléments explicitement présents dans ton fichier.
+
+- Je vais te donner le **même format que pour modules 1 et 2** :
+- * **question Kahoot**
+- * **4 réponses**
+- * **bonne réponse**
+- * **explication**
+- * **exemple concret**
+- ---
+
+```
+# Quiz Kahoot — Modules 3 et 4
+```
+
+---
+
+```
+# Niveau Facile (1 à 12)
+```
+
+- ## 1. Combien de bits contient une adresse IPv4 ?
+- * A. 16
+- * B. 32 ✅
+- * C. 48
+- * D. 64
+
+## **Pourquoi ?**
+
+Une adresse IPv4 est composée de **4 octets**, donc **4 × 8 = 32 bits**.
+
+## **Exemple :**
+
+192.168.1.10 = 4 nombres séparés par des points → chaque nombre = 1 octet.
+
+- ---
+- ## 2. Dans une adresse IPv4, à quoi sert le masque de sous-réseau ?
+- * A. À chiffrer l’adresse IP
+- * B. À séparer la partie réseau et la partie hôte ✅
+- * C. À convertir l’adresse en MAC
+- * D. À calculer la passerelle
+
+## **Pourquoi ?**
+
+Le masque sert à savoir **quels bits appartiennent au réseau** et **quels bits appartiennent à l’hôte**.
+
+## **Exemple :**
+
+Avec **192.168.1.10/24**, les **24 premiers bits** sont le réseau, les **8 derniers** sont la partie hôte.
+
+- ---
+- ## 3. Quelle classe IPv4 correspond aux petits réseaux dans le cours ?
+- * A. Classe A
+- * B. Classe B
+- * C. Classe C ✅
+- * D. Classe D
+
+## **Pourquoi ?**
+
+Dans ton cours, la **classe C** est utilisée pour les **petits réseaux** et couvre **192.0.0.0 à 223.255.255.255**.
+
+## **Exemple :**
+
+192.168.1.0/24 est un cas typique de réseau de type classe C.
+
+---
+
+```
+
+## 4. Quelle classe IPv4 couvre les adresses de 128.0.0.0 à 191.255.255.255 ?
+
+```
+
+- * A. Classe A
+- * B. Classe B ✅
+- * C. Classe C
+- * D. Classe D
+
+## **Pourquoi ?**
+
+Le cours indique que la **classe B** correspond à cette plage.
+
+## **Exemple :**
+
+172.25.192.0 appartient à cette plage.
+
+- ---
+- ## 5. Quelle adresse est l’adresse de boucle locale (localhost) ?
+
+```
+* A. 192.168.1.1
+* B. 10.0.0.1
+* C. 127.0.0.1 ✅
+* D. 255.255.255.255
+```
+
+## **Pourquoi ?**
+
+127.0.0.1 est l’adresse utilisée pour tester la machine elle-même.
+
+## **Exemple :**
+
+Quand tu fais un test local sur ton PC, tu peux viser **127.0.0.1**.
+
+- ---
+- ## 6. Quelle adresse permet d’envoyer un message à tous les hôtes d’un réseau ?
+- * A. Adresse MAC
+- * B. Adresse de broadcast ✅
+- * C. Adresse APIPA
+- * D. Adresse loopback
+
+## **Pourquoi ?**
+
+L’adresse de **broadcast** a tous les bits de la partie hôte à 1.
+
+## **Exemple :**
+
+Dans **192.168.1.0/24**, le broadcast est **192.168.1.255**.
+
+- ---
+- ## 7. Quelle plage correspond aux adresses privées de classe A ?
+
+```
+* A. 172.16.0.0 à 172.31.255.255
+* B. 192.168.0.0 à 192.168.255.255
+* C. 10.0.0.0 à 10.255.255.255 ✅
+* D. 127.0.0.0 à 127.255.255.255
+```
+
+## **Pourquoi ?**
+
+C’est l’une des trois plages privées RFC 1918 mentionnées dans ton cours.
+
+## **Exemple :**
+
+Un grand réseau d’entreprise peut utiliser des adresses comme **10.1.20.5**.
+
+- ---
+- ## 8. Quelle plage correspond aux adresses privées de classe B ?
+
+```
+* A. 10.0.0.0 à 10.255.255.255
+* B. 172.16.0.0 à 172.31.255.255 ✅
+* C. 192.168.0.0 à 192.168.255.255
+* D. 224.0.0.0 à 239.255.255.255
+```
+
+## **Pourquoi ?**
+
+Ton cours donne explicitement cette plage privée.
+
+## **Exemple :**
+
+**172.25.192.0** fait partie de cette plage.
+
+- ---
+- ## 9. Quelle plage correspond aux adresses privées de classe C ?
+
+```
+* A. 192.168.0.0 à 192.168.255.255 ✅
+* B. 172.16.0.0 à 172.31.255.255
+* C. 10.0.0.0 à 10.255.255.255
+* D. 224.0.0.0 à 239.255.255.255
+```
+
+## **Pourquoi ?**
+
+C’est la plage privée la plus courante dans les petits réseaux.
+
+## **Exemple :**
+
+Ta box à la maison utilise souvent **192.168.1.x**.
+
+- ---
+- ## 10. Quelle plage est utilisée par APIPA ?
+- * A. 10.x.x.x
+- * B. 172.16.x.x
+- * C. 169.254.x.x ✅
+- * D. 192.168.x.x
+
+## **Pourquoi ?**
+
+APIPA attribue automatiquement une adresse **169.254.x.x** quand aucun serveur DHCP ne répond.
+
+## **Exemple :**
+
+Si ton PC n’obtient pas d’adresse du DHCP, il peut s’auto-attribuer **169.254.12.8**.
+
+- ---
+- ## 11. APIPA permet surtout :
+- * A. d’accéder à Internet plus vite
+- * B. de communiquer localement sans DHCP ✅
+- * C. de chiffrer les paquets
+- * D. de remplacer le routage
+
+## **Pourquoi ?**
+
+APIPA permet de **continuer à communiquer sur le réseau local**, mais **pas sur Internet**.
+
+## **Exemple :**
+
+Deux PC en panne de DHCP peuvent encore échanger des fichiers localement via des adresses 169.254.x.x.
+
+- ---
+- ## 12. Que signifie la notation /24 dans une adresse IPv4 ?
+- * A. 24 bits pour les hôtes
+- * B. 24 bits pour la partie réseau ✅
+- * C. 24 octets dans le masque
+- * D. 24 adresses utilisables
+
+## **Pourquoi ?**
+
+Le **/24** indique que **24 bits** sont réservés au réseau.
+
+## **Exemple :**
+
+**192.168.1.0/24** → masque **255.255.255.0**.
+
+---
+
+```
+# Niveau Moyen (13 à 24)
+```
+
+## 13. Quel masque correspond au préfixe CIDR /24 ?
+
+```
+* A. 255.255.0.0
+* B. 255.255.255.0 ✅
+* C. 255.255.255.128
+* D. 255.255.255.192
+```
+
+## **Pourquoi ?**
+
+/24 = **24 bits à 1**, puis 8 bits à 0 → **255.255.255.0**.
+
+**Exemple :**
+
+```
+11111111.11111111.11111111.00000000 = 255.255.255.0
+```
+
+- ---
+- ## 14. Quel masque correspond au préfixe CIDR /26 ?
+
+```
+* A. 255.255.255.0
+* B. 255.255.255.128
+* C. 255.255.255.192 ✅
+* D. 255.255.255.240
+```
+
+## **Pourquoi ?**
+
+/26 = 26 bits à 1 → le dernier octet vaut **11000000**, soit **192**.
+
+**Exemple :**
+
+```
+/26 = **255.255.255.192**
+```
+
+- ---
+- ## 15. Quel masque correspond au préfixe /20 ?
+
+```
+* A. 255.255.255.0
+* B. 255.255.240.0 ✅
+* C. 255.255.224.0
+* D. 255.255.255.240
+```
+
+## **Pourquoi ?**
+
+/20 = 20 bits à 1 → **11111111.11111111.11110000.00000000**.
+
+## **Exemple :**
+
+Le cours utilise **172.25.192.0 / 255.255.240.0**, soit **/20**.
+
+---
+
+```
+
+## 16. Quel préfixe CIDR correspond au masque 255.255.255.192 ?
+
+```
+
+- * A. /24
+- * B. /25
+- * C. /26 ✅
+- * D. /28
+
+## **Pourquoi ?**
+
+255.255.255.192 = **11111111.11111111.11111111.11000000** → **26 bits à 1**.
+
+## **Exemple :**
+
+Ce masque laisse **6 bits pour les hôtes**.
+
+---
+
+```
+
+## 17. Quel préfixe CIDR correspond au masque 255.255.255.240 ?
+
+```
+
+- * A. /26
+- * B. /27
+- * C. /28 ✅
+- * D. /29
+
+## **Pourquoi ?**
+
+255.255.255.240 = **11110000** dans le dernier octet → **28 bits à 1** au total.
+
+## **Exemple :**
+
+Un /28 offre 16 adresses au total, dont 14 hôtes utilisables.
+
+---
+
+```
+
+## 18. Quel est l’ID réseau de 192.168.1.10/24 ?
+
+* A. 192.168.1.1
+* B. 192.168.1.10
+* C. 192.168.1.0 ✅
+* D. 192.168.1.255
+```
+
+## **Pourquoi ?**
+
+Avec un /24, le dernier octet est la partie hôte. On le met à 0 pour obtenir l’ID réseau.
+
+**Exemple :**
+
+```
+192.168.1.10 AND 255.255.255.0 = **192.168.1.0**
+```
+
+---
+
+```
+
+## 19. Quel est le broadcast du réseau 192.168.10.0/24 ?
+
+* A. 192.168.10.0
+* B. 192.168.10.1
+* C. 192.168.10.254
+* D. 192.168.10.255 ✅
+```
+
+## **Pourquoi ?**
+
+Le broadcast met **tous les bits hôte à 1**.
+
+## **Exemple :**
+
+Pour un /24, les hôtes vont de **1 à 254**, donc le broadcast est **255**.
+
+---
+
+```
+
+## 20. Quelle est la plage d’hôtes utilisables du réseau 192.168.10.0/24 ?
+
+* A. 192.168.10.0 à 192.168.10.255
+* B. 192.168.10.1 à 192.168.10.254 ✅
+* C. 192.168.10.1 à 192.168.10.255
+* D. 192.168.10.0 à 192.168.10.254
+```
+
+- **Pourquoi ?**
+- On retire :
+
+```
+* l’adresse réseau → **192.168.10.0**
+* l’adresse de broadcast → **192.168.10.255**
+```
+
+## **Exemple :**
+
+Les hôtes utilisables sont donc **192.168.10.1 à 192.168.10.254**.
+
+---
+
+```
+
+## 21. Quel est le broadcast de 172.25.192.0 avec le masque 255.255.240.0 ?
+
+* A. 172.25.192.255
+* B. 172.25.200.255
+* C. 172.25.207.255 ✅
+* D. 172.25.255.255
+```
+
+## **Pourquoi ?**
+
+Le cours donne cet exemple complet : **172.25.192.0 /20** a pour broadcast **172.25.207.255**.
+
+## **Exemple :**
+
+La plage d’hôtes va de **172.25.192.1 à 172.25.207.254**.
+
+---
+
+```
+
+## 22. Quelle est la plage d’hôtes du réseau 172.25.192.0/20 ?
+
+* A. 172.25.192.0 à 172.25.207.255
+* B. 172.25.192.1 à 172.25.207.254 ✅
+* C. 172.25.192.1 à 172.25.255.254
+* D. 172.25.193.1 à 172.25.207.254
+```
+
+## **Pourquoi ?**
+
+On retire l’ID réseau et le broadcast.
+
+**Exemple :**
+
+```
+* Réseau : **172.25.192.0**
+* Broadcast : **172.25.207.255**
+* Hôtes : **172.25.192.1 → 172.25.207.254**
+```
+
+- ---
+- ## 23. Combien d’hôtes utilisables y a-t-il dans un /26 ?
+- * A. 30
+- * B. 62 ✅
+- * C. 64
+- * D. 126
+
+## **Pourquoi ?**
+
+Un /26 laisse **6 bits hôte**. Donc : **2⁶ = 64 adresses**, mais on retire **réseau + broadcast** → **62 hôtes**.
+
+## **Exemple :**
+
+192.168.10.0/26 → 62 hôtes utilisables.
+
+- ---
+- ## 24. Combien d’hôtes utilisables y a-t-il dans un /28 ?
+- * A. 14 ✅
+- * B. 16
+- * C. 30
+- * D. 62
+
+## **Pourquoi ?**
+
+Un /28 laisse **4 bits hôte**. Donc : **2⁴ = 16 adresses**, moins 2 = **14 hôtes utilisables**.
+
+## **Exemple :**
+
+Un petit sous-réseau de 14 machines maximum.
+
+---
+
+```
+# Niveau Difficile (25 à 35)
+```
+
+## 25. Si un réseau 192.168.1.0/24 est découpé en deux sous-réseaux /25, combien obtient-on de sous-réseaux ?
+
+- * A. 2 ✅
+- * B. 4
+- * C. 8
+- * D. 16
+
+## **Pourquoi ?**
+
+On passe de /24 à /25 : on **emprunte 1 bit** pour le sous-réseau. Nombre de sous-réseaux = **2¹ = 2**.
+
+**Exemple :**
+
+```
+* 192.168.1.0/25
+* 192.168.1.128/25
+```
+
+## ---
+
+## 26. Si un réseau /24 devient /25, combien d’hôtes utilisables possède chaque sous-réseau ?
+
+- * A. 62
+- * B. 126 ✅
+- * C. 128
+- * D. 254
+- **Pourquoi ?**
+
+## Un /25 laisse **7 bits hôte** :
+
+**2⁷ = 128**, donc **126 hôtes utilisables**.
+
+**Exemple :**
+
+```
+* Sous-réseau 1 : 192.168.1.0 à 192.168.1.127
+* Sous-réseau 2 : 192.168.1.128 à 192.168.1.255
+```
+
+## ---
+
+## 27. Quel est le premier sous-réseau obtenu dans l’exemple de découpage de 192.168.1.0/24 en /25 ?
+
+```
+* A. 192.168.1.0/25 ✅
+* B. 192.168.1.64/25
+* C. 192.168.1.128/25
+* D. 192.168.1.255/25
+```
+
+- **Pourquoi ?**
+- Le cours donne cet exemple explicitement :
+
+```
+* **192.168.1.0/25**
+* **192.168.1.128/25**
+```
+
+## **Exemple :**
+
+Le premier couvre **192.168.1.0 à 192.168.1.127**.
+
+- ---
+- ## 28. Quel est le second sous-réseau obtenu dans ce même découpage ?
+
+```
+* A. 192.168.1.64/25
+* B. 192.168.1.127/25
+* C. 192.168.1.128/25 ✅
+* D. 192.168.1.255/25
+```
+
+## **Pourquoi ?**
+
+Le second bloc commence à **128**, car un /25 coupe le /24 en deux blocs de 128 adresses.
+
+## **Exemple :**
+
+192.168.1.128/25 couvre **192.168.1.128 à 192.168.1.255**.
+
+## ---
+
+## 29. Quelle opération logique permet d’obtenir l’ID réseau à partir d’une IP et de son masque ?
+
+- * A. OR
+- * B. XOR
+- * C. AND ✅
+- * D. NOT
+
+## **Pourquoi ?**
+
+Le cours précise que l’ID réseau est obtenu en faisant **IP AND masque**.
+
+**Exemple :**
+
+```
+192.168.1.10 AND 255.255.255.0 = 192.168.1.0
+```
+
+- ---
+- ## 30. Quel équipement délimite les domaines de diffusion ?
+- * A. Hub
+- * B. Switch
+- * C. Routeur ✅
+- * D. Répéteur
+
+## **Pourquoi ?**
+
+Un routeur **ne transmet pas les diffusions** d’un réseau à un autre. Il sépare donc les broadcast domains.
+
+## **Exemple :**
+
+Deux sous-réseaux reliés par un routeur ne partagent pas le même broadcast.
+
+---
+
+## 31. Quel équipement transmet les diffusions à tous les ports d’un même VLAN ?
+
+- * A. Routeur
+- * B. Switch ✅
+- * C. Modem
+- * D. Pare-feu
+
+## **Pourquoi ?**
+
+Dans un même VLAN, le switch propage les trames de diffusion à tous les ports concernés.
+
+## **Exemple :**
+
+Une requête ARP est diffusée à toutes les machines du VLAN.
+
+- ---
+- ## 32. Quel est le rôle principal d’un routeur selon le cours ?
+- * A. Convertir les adresses MAC en IP
+- * B. Acheminer les paquets IP entre réseaux ✅
+- * C. Chiffrer les communications
+- * D. Attribuer automatiquement les adresses IP
+
+## **Pourquoi ?**
+
+Le routage sert à faire passer des paquets **d’un réseau à un autre**.
+
+## **Exemple :**
+
+Un PC du réseau **192.168.1.0/24** veut joindre **10.0.0.1** → il envoie le paquet à sa passerelle.
+
+- ---
+- ## 33. Que contient une table de routage ?
+- * A. Seulement les adresses MAC
+- * B. Les réseaux connus, les passerelles et les métriques ✅
+- * C. Les mots de passe Wi-Fi
+- * D. Les ports TCP ouverts
+- **Pourquoi ?**
+- Le cours liste :
+- * réseaux connus
+- * passerelles
+- * métriques
+- * interface sortante
+- **Exemple :**
+
+## Une entrée peut dire :
+
+“Pour atteindre **10.0.0.0/8**, passe par **192.168.0.2**”.
+
+- ---
+- ## 34. Quelle différence caractérise le routage statique ?
+- * A. Les routes sont apprises automatiquement
+- * B. Les routes sont configurées manuellement ✅
+- * C. Il utilise forcément OSPF
+- * D. Il ne fonctionne qu’en IPv6
+
+## **Pourquoi ?**
+
+Le routage statique est **saisi par l’administrateur**.
+
+## **Exemple :**
+
+Sur un petit réseau, on ajoute à la main une route vers **10.0.0.0/8**.
+
+## ---
+
+## 35. Quel sur-réseau regroupe 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 ?
+
+```
+* A. 192.168.0.0/24
+* B. 192.168.0.0/23
+* C. 192.168.0.0/22 ✅
+* D. 192.168.0.0/20
+```
+
+**Pourquoi ?** Ton cours donne précisément cet exemple de **supernetting** : 4 réseaux /24 contigus peuvent être regroupés en **192.168.0.0/22**.
+
+**Exemple :**
+
+```
+* 192.168.0.0/24
+* 192.168.1.0/24
+* 192.168.2.0/24
+* 192.168.3.0/24
+→ regroupés dans **192.168.0.0/22**
+```
+
+---
+
+```
+# Questions pièges / Vrai-Faux (36 à 42)
+```
+
+## 36. Vrai ou Faux
+
+Une adresse APIPA permet normalement d’accéder à Internet.
+
+❌ **Faux**
+
+## **Pourquoi ?**
+
+Le cours précise que les adresses APIPA **ne sont pas routables** hors du réseau local.
+
+## **Exemple :**
+
+Deux PC peuvent se parler en 169.254.x.x, mais pas aller sur Internet via cette adresse seule.
+
+---
+
+## 37. Vrai ou Faux
+
+Dans un réseau /24, l’adresse se terminant par .255 peut être l’adresse de broadcast.
+
+✅ **Vrai**
+
+## **Exemple :**
+
+Dans **192.168.1.0/24**, le broadcast est **192.168.1.255**.
+
+---
+
+## 38. Vrai ou Faux
+
+Le sous-réseautage permet de réduire la taille des domaines de diffusion.
+
+✅ **Vrai**
+
+## **Pourquoi ?**
+
+C’est un des objectifs du subnetting dans ton cours : **réduire le broadcast** et améliorer les performances.
+
+---
+
+## 39. Vrai ou Faux
+
+Un routeur transmet automatiquement toutes les diffusions d’un réseau à l’autre.
+
+❌ **Faux**
+
+## **Pourquoi ?**
+
+Au contraire, il **délimite** les domaines de diffusion.
+
+---
+
+## 40. Vrai ou Faux
+
+OSPF, RIP et BGP sont cités comme protocoles de routage dynamique.
+
+✅ **Vrai**
+
+## **Pourquoi ?**
+
+Le cours les cite explicitement dans la partie routage dynamique.
+
+---
+
+## 41. Vrai ou Faux
+
+Le masque 255.255.255.0 correspond à /24.
+
+✅ **Vrai**
+
+## **Exemple :**
+
+11111111.11111111.11111111.00000000 → 24 bits à 1.
+
+---
+
+## 42. Vrai ou Faux
+
+Le sur-réseau est l’opération inverse du sous-réseautage.
+
+✅ **Vrai**
+
+## **Pourquoi ?**
+
+Le cours dit explicitement que le **sur-réseau (supernetting)** est l’inverse du **subnetting**.
+
+---
+
+```
+# Ce que je te conseille pour ton Kahoot
+```
+
+Si tu veux un Kahoot **efficace et pas trop long**, je te recommande de garder **25 à 30 questions** sur les 42 ci-dessus, par exemple :
+
+- ### À garder absolument
+- * 1, 2, 5
+- * 7, 8, 9, 10
+- * 12, 13, 14, 15, 16
+- * 18, 19, 20, 21, 22
+- * 23, 24
+- * 29, 30, 32, 33, 34, 35
+- * 36, 38, 39, 40
+- Comme ça tu couvres :
+- * IPv4
+- * classes
+- * privées / APIPA
+- * CIDR
+- * calcul réseau/broadcast/hôtes
+- * subnetting
+- * broadcast domain
+- * routage
+- * supernetting
+- ---
+
+## Ce que je peux faire maintenant
+
+Je peux enchaîner directement avec **l’étape suivante** et te préparer **la version prête à copier dans Kahoot**, c’est-à-dire un tableau propre comme ça :
+
+| Question | Réponse 1 | Réponse 2 | Réponse 3 | Réponse 4 | Bonne réponse | | -------- | --------: | --------: | --------: | --------: | ------------: |
+
+Donc **sans les explications**, juste le format **copier-coller Kahoot**.
+
+Si tu veux, réponds juste :
+
+## **“fais-moi la version Kahoot prête à copier”**
+
+et je te la prépare pour **les modules 3 et 4**.
+
+Référence du document : 1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT · SHA-256 6742f4b5b0b756fd…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
+| --- | --- |
+| Correction · M04-01-01-TP-La_communication_Correction · 6 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
+| Notes du Drive · Notes de cours · document texte | Aucun support de cours PDF n’existe pour ce module. |
+| Notes de cours | Aucun support de cours PDF n’existe pour ce module. |
+| TP - Packet Tracer - Fichier à télécharger | Une adresse IPv4 est constituée de 32 bits découpés en 4 octets distincts. |
+| d’une adresse IP | À partir de son adresse IP et son masque de sous-réseau, l’hôte réseau va calculer : son adresse de réseau logique |
+| son adresse de diffusion | Une adresse IPv4 est composée de 32 bits (4 octets) et est représentée sous forme de quatre nombres décimaux séparés par des points, chacun des quatre nombres étant compris entr… |
+| 11000000.10101000.00000001.00000001 | Chaque section de 8 bits (ou 1 octet) est appelée octet, et elle permet d’obtenir 256 combinaisons possibles par section (de 0 à 255). |
+| Classes d’adresses IPv4 | Les adresses IPv4 sont divisées en différentes classes pour mieux organiser le réseau, et chaque classe définit la répartition des bits pour le réseau et l'hôte. |
+| Dans l’adressage IPv4, chaque adresse IP est divisée en deux parties : | L’ID réseau : Identifie le réseau auquel appartient l’adresse. |
+| Convertir l’adresse IP en binaire | Une adresse IPv4 est composée de 4 octets (32 bits) exprimés en notation décimale pointée. |
+| Convertir le masque de sous-réseau en binaire | Le masque de sous-réseau, également écrit en notation CIDR (par exemple, /24), indique combien de bits sont dédiés à l’identification du réseau. |
+| Appliquer une opération logique AND | L’opération AND est effectuée entre l’adresse IP et le masque de sous-réseau pour obtenir l’ID réseau. |
+| Identifier la partie hôte | La partie hôte est obtenue en effectuant l’opération XOR ou en examinant les bits restants après avoir déduit les bits réseau. |
+| Trouver l’adresse hôte | Les bits de la partie hôte sont les bits restants après l’application du masque. |
+| Généralisation | Si le masque est /n, les n premiers bits de l’adresse IP sont utilisés pour l’ID réseau, et les 32−n32 - n32−n bits restants sont pour l’adresse hôte. |
+| ID Réseau : 11000000.10101000.00001010.00000000 | En décimal, l’ID réseau est : 192.168.10.0. |
+| Broadcast : 11000000.10101000.00001010.11111111 | En décimal, l’adresse de broadcast est : 192.168.10.255. |
+| ID Réseau : 10101100.00011001.11000000.00000000 | En décimal, l’ID réseau est : 172.25.192.0. |
+| Broadcast : 10101100.00011001.11001111.11111111 | En décimal, l’adresse de broadcast est : 172.25.207.255. |
+| La Notation CIDR | La notation CIDR (Classless Inter-Domain Routing) est une méthode utilisée pour exprimer les adresses IP et les masques de sous-réseau de manière plus flexible et économique en… |
+| Comment Fonctionne la Notation CIDR ? | Dans la notation CIDR, une adresse IP est suivie d’un slash (/) et d'un nombre, qui représente le nombre de bits utilisés pour identifier la partie réseau de l'adresse. |
+| Pourquoi Utiliser CIDR ? | La notation CIDR permet de créer des sous-réseaux de tailles variées en fonction des besoins. |
+| Étapes de Conversion d’un Masque de Sous-Réseau en Préfixe CIDR | Convertir le masque en binaire : Écrivez chaque octet du masque sous sa forme binaire. |
+| Étapes pour trouver le masque IP à partir du CIDR | Écrire le nombre de bits en 1 correspondant au préfixe CIDR. |
+| Plages d'Adresses IP Privées | Dans le cadre de la norme IPv4, trois plages d'adresses IP ont été réservées pour les réseaux privés, selon la RFC 1918 : Préfixe CIDR : /8 |
+| Nombre total d'adresses : 16 777 216 | Utilisation : Cette plage est souvent utilisée dans les grandes entreprises qui nécessitent de nombreux sous-réseaux. |
+| Nombre total d'adresses : 1 048 576 | Utilisation : Utilisée dans les réseaux de taille moyenne qui nécessitent une certaine flexibilité dans le découpage en sous-réseaux. |
+| Nombre total d'adresses : 65 536 | Utilisation : Très populaire pour les petits réseaux, comme les réseaux domestiques et les petites entreprises. |
+| Pourquoi Utiliser des Adresses Privées ? | Les adresses privées permettent d’éviter l'épuisement rapide de l'espace d'adressage IPv4 en attribuant des adresses IP locales au sein d'un réseau fermé. |
+| Exemple Pratique | Dans un réseau domestique, le routeur de la maison a généralement une adresse IP publique côté Internet (fournie par le FAI) et utilise une adresse IP privée (comme 192.168.1.1)… |
+| Principe de Fonctionnement d’APIPA | Lorsqu'un appareil est configuré pour obtenir automatiquement une adresse IP, mais ne reçoit pas de réponse d’un serveur DHCP, il utilise alors le mécanisme APIPA pour s’auto-at… |
+| Exemple Pratique | Dans un bureau où les ordinateurs sont configurés pour recevoir une adresse IP via DHCP, un problème avec le serveur DHCP peut empêcher l'attribution d'adresses. |
+| Objectifs du Sous-réseautage | Optimisation de l’espace d’adressage : En divisant un grand réseau en sous-réseaux plus petits, on peut réduire le gaspillage d’adresses IP, surtout dans les réseaux ayant moins… |
+| 2 | 28−2, en excluant l’adresse réseau et l’adresse de diffusion). |
+| Calcul du Nombre de Sous-Réseaux et d’Hôtes | Pour déterminer le nombre de sous-réseaux et d’hôtes disponibles, il faut connaître le nombre de bits "empruntés" dans le masque : Nombre de Sous-Réseaux : 2 n où |
+| n | est le nombre de bits empruntés pour la partie réseau. |
+| h | est le nombre de bits restants pour les hôtes (on soustrait 2 pour l’adresse réseau et l’adresse de broadcast). |
+| Enoncé du TP - Communication inter-réseau | Dans le cadre des réseaux informatiques, un domaine de diffusion (ou broadcast domain) est une portion logique du réseau dans laquelle une trame de diffusion (broadcast) est tra… |
+| Un domaine de diffusion est limité par les équipements réseau suivants : | Switchs (commutateurs) : Ils transmettent les diffusions à tous les ports d’un même VLAN. |
+| Le Routage | Le routage est un processus fondamental en réseau informatique qui consiste à déterminer le chemin que doivent emprunter les données (paquets) pour atteindre leur destination. |
+| Le rôle principal du routage est de : | Acheminer les paquets IP vers leur destination. |
+| Un routeur est un équipement qui : | Lit l’adresse IP de destination dans chaque paquet. |
+| Lorsqu’un paquet arrive sur un routeur : | Le routeur lit l’adresse IP de destination dans l’en-tête du paquet. |
+| Exemple sans sur-réseau : | Les réseaux 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 sont représentés comme quatre routes distinctes dans une table de routage. |
+| Exemple avec sur-réseau : | Ces mêmes réseaux peuvent être regroupés en un seul sur-réseau : 192.168.0.0/22. |
+| Donc oui : je peux te faire exactement la même chose que pour les modules 1 et 2 | Je te propose de te produire un **quiz Kahoot complet modules 3 et 4** avec la **même logique** : ### Structure * **Niveau facile** : définitions, classes, adresses privées, CID… |
+| * **Niveau moyen** : réseau / broadcast / plage d’hôtes / rôle du routage | **Niveau difficile** : calculs de sous-réseaux, conversion masque↔CIDR, nombre d’hôtes, supernetting * **Questions pièges** : vrai/faux sur APIPA, broadcast, passerelle, routeur… |
+| Ma recommandation | Vu ce que tu veux, le plus efficace est que je te livre directement **la version finale complète**, comme pour les modules 1 et 2, en un seul bloc. |
+| * exemple pour chaque question | sans hors sujet, uniquement à partir du cours. |
+| **Pourquoi ?** | Une adresse IPv4 est composée de **4 octets**, donc **4 × 8 = 32 bits**. |
+| **Exemple :** | 192.168.1.10 = 4 nombres séparés par des points → chaque nombre = 1 octet. |
+| **Pourquoi ?** | Le masque sert à savoir **quels bits appartiennent au réseau** et **quels bits appartiennent à l’hôte**. |
+| **Exemple :** | Avec **192.168.1.10/24**, les **24 premiers bits** sont le réseau, les **8 derniers** sont la partie hôte. |
+| **Pourquoi ?** | Dans ton cours, la **classe C** est utilisée pour les **petits réseaux** et couvre **192.0.0.0 à 223.255.255.255**. |
+| **Exemple :** | 192.168.1.0/24 est un cas typique de réseau de type classe C. |
+| **Pourquoi ?** | Le cours indique que la **classe B** correspond à cette plage. |
+| **Exemple :** | Quelle adresse est l’adresse de boucle locale (localhost) ? |
+| **Pourquoi ?** | 127.0.0.1 est l’adresse utilisée pour tester la machine elle-même. |
+| **Exemple :** | Quand tu fais un test local sur ton PC, tu peux viser **127.0.0.1**. |
+| **Pourquoi ?** | L’adresse de **broadcast** a tous les bits de la partie hôte à 1. |
+| **Exemple :** | Dans **192.168.1.0/24**, le broadcast est **192.168.1.255**. |
+| **Pourquoi ?** | C’est l’une des trois plages privées RFC 1918 mentionnées dans ton cours. |
+| **Exemple :** | Un grand réseau d’entreprise peut utiliser des adresses comme **10.1.20.5**. |
+| **Pourquoi ?** | Ton cours donne explicitement cette plage privée. |
+| **Exemple :** | **172.25.192.0** fait partie de cette plage. |
+| **Pourquoi ?** | C’est la plage privée la plus courante dans les petits réseaux. |
+| **Exemple :** | Ta box à la maison utilise souvent **192.168.1.x**. |
+| **Pourquoi ?** | APIPA attribue automatiquement une adresse **169.254.x.x** quand aucun serveur DHCP ne répond. |
+| **Exemple :** | Si ton PC n’obtient pas d’adresse du DHCP, il peut s’auto-attribuer **169.254.12.8**. |
+| **Pourquoi ?** | APIPA permet de **continuer à communiquer sur le réseau local**, mais **pas sur Internet**. |
+| **Exemple :** | Deux PC en panne de DHCP peuvent encore échanger des fichiers localement via des adresses 169.254.x.x. |
+| **Pourquoi ?** | Le **/24** indique que **24 bits** sont réservés au réseau. |
+| **Exemple :** | **192.168.1.0/24** → masque **255.255.255.0**. |
+| **Pourquoi ?** | /24 = **24 bits à 1**, puis 8 bits à 0 → **255.255.255.0**. |
+| **Pourquoi ?** | /26 = 26 bits à 1 → le dernier octet vaut **11000000**, soit **192**. |
+| **Pourquoi ?** | /20 = 20 bits à 1 → **11111111.11111111.11110000.00000000**. |
+| **Exemple :** | Le cours utilise **172.25.192.0 / 255.255.240.0**, soit **/20**. |
+| **Pourquoi ?** | 255.255.255.192 = **11111111.11111111.11111111.11000000** → **26 bits à 1**. |
+| **Exemple :** | Ce masque laisse **6 bits pour les hôtes**. |
+| **Pourquoi ?** | 255.255.255.240 = **11110000** dans le dernier octet → **28 bits à 1** au total. |
+| **Exemple :** | Un /28 offre 16 adresses au total, dont 14 hôtes utilisables. |
+| **Pourquoi ?** | Avec un /24, le dernier octet est la partie hôte. |
+| **Pourquoi ?** | Le broadcast met **tous les bits hôte à 1**. |
+| **Exemple :** | Pour un /24, les hôtes vont de **1 à 254**, donc le broadcast est **255**. |
+| 20. Quelle est la plage d’hôtes utilisables du réseau 192.168.10.0/24 ? | 192.168.10.0 à 192.168.10.254 l’adresse réseau → **192.168.10.0** l’adresse de broadcast → **192.168.10.255** |
+| **Exemple :** | Les hôtes utilisables sont donc **192.168.10.1 à 192.168.10.254**. |
+| **Pourquoi ?** | Le cours donne cet exemple complet : **172.25.192.0 /20** a pour broadcast **172.25.207.255**. |
+| **Exemple :** | La plage d’hôtes va de **172.25.192.1 à 172.25.207.254**. |
+| **Pourquoi ?** | Combien d’hôtes utilisables y a-t-il dans un /26 ? |
+| **Pourquoi ?** | Donc : **2⁶ = 64 adresses**, mais on retire **réseau + broadcast** → **62 hôtes**. |
+| **Exemple :** | Combien d’hôtes utilisables y a-t-il dans un /28 ? |
+| **Pourquoi ?** | Donc : **2⁴ = 16 adresses**, moins 2 = **14 hôtes utilisables**. |
+| **Exemple :** | Un petit sous-réseau de 14 machines maximum. |
+| **Pourquoi ?** | On passe de /24 à /25 : on **emprunte 1 bit** pour le sous-réseau. |
+| Un /25 laisse **7 bits hôte** : | **2⁷ = 128**, donc **126 hôtes utilisables**. |
+| 27. Quel est le premier sous-réseau obtenu dans l’exemple de découpage de 192.168.1.0/24 en /25 ? | **Pourquoi ?** Le cours donne cet exemple explicitement : |
+| **Exemple :** | Le premier couvre **192.168.1.0 à 192.168.1.127**. |
+| **Pourquoi ?** | Le second bloc commence à **128**, car un /25 coupe le /24 en deux blocs de 128 adresses. |
+| **Exemple :** | 192.168.1.128/25 couvre **192.168.1.128 à 192.168.1.255**. |
+| **Pourquoi ?** | Le cours précise que l’ID réseau est obtenu en faisant **IP AND masque**. |
+| **Pourquoi ?** | Un routeur **ne transmet pas les diffusions** d’un réseau à un autre. |
+| **Exemple :** | Deux sous-réseaux reliés par un routeur ne partagent pas le même broadcast. |
+| **Pourquoi ?** | Dans un même VLAN, le switch propage les trames de diffusion à tous les ports concernés. |
+| **Exemple :** | Une requête ARP est diffusée à toutes les machines du VLAN. |
+| **Pourquoi ?** | Le routage sert à faire passer des paquets **d’un réseau à un autre**. |
+| **Exemple :** | Un PC du réseau **192.168.1.0/24** veut joindre **10.0.0.1** → il envoie le paquet à sa passerelle. |
+| Une entrée peut dire : | “Pour atteindre **10.0.0.0/8**, passe par **192.168.0.2**”. |
+| **Pourquoi ?** | Le routage statique est **saisi par l’administrateur**. |
+| **Exemple :** | Sur un petit réseau, on ajoute à la main une route vers **10.0.0.0/8**. |
+| 35. Quel sur-réseau regroupe 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 ? | **Pourquoi ?** Ton cours donne précisément cet exemple de **supernetting** : 4 réseaux /24 contigus peuvent être regroupés en **192.168.0.0/22**. |
+| 36. Vrai ou Faux | Une adresse APIPA permet normalement d’accéder à Internet. |
+| **Pourquoi ?** | Le cours précise que les adresses APIPA **ne sont pas routables** hors du réseau local. |
+| **Exemple :** | Deux PC peuvent se parler en 169.254.x.x, mais pas aller sur Internet via cette adresse seule. |
+| 37. Vrai ou Faux | Dans un réseau /24, l’adresse se terminant par .255 peut être l’adresse de broadcast. |
+| **Exemple :** | Dans **192.168.1.0/24**, le broadcast est **192.168.1.255**. |
+| 38. Vrai ou Faux | Le sous-réseautage permet de réduire la taille des domaines de diffusion. |
+| **Pourquoi ?** | C’est un des objectifs du subnetting dans ton cours : **réduire le broadcast** et améliorer les performances. |
+| 39. Vrai ou Faux | Un routeur transmet automatiquement toutes les diffusions d’un réseau à l’autre. |
+| **Pourquoi ?** | Au contraire, il **délimite** les domaines de diffusion. |
+| 40. Vrai ou Faux | OSPF, RIP et BGP sont cités comme protocoles de routage dynamique. |
+| **Pourquoi ?** | Le cours les cite explicitement dans la partie routage dynamique. |
+| 41. Vrai ou Faux | Le masque 255.255.255.0 correspond à /24. |
+| **Exemple :** | 11111111.11111111.11111111.00000000 → 24 bits à 1. |
+| 42. Vrai ou Faux | Le sur-réseau est l’opération inverse du sous-réseautage. |
+| **Pourquoi ?** | Le cours dit explicitement que le **sur-réseau (supernetting)** est l’inverse du **subnetting**. |
+| Ce que je peux faire maintenant | Je peux enchaîner directement avec **l’étape suivante** et te préparer **la version prête à copier dans Kahoot**, c’est-à-dire un tableau propre comme ça : Donc **sans les expli… |
+| **“fais-moi la version Kahoot prête à copier”** | et je te la prépare pour **les modules 3 et 4**. |
