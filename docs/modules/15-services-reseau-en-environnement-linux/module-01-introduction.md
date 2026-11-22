@@ -1,96 +1,212 @@
 # Module 01 — Introduction
 
-## Objectifs
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-- Relier les besoins des utilisateurs aux services étudiés.
-- Lire le plan des réseaux Clients, Serveurs et Interconnexion.
-- Identifier le rôle de chaque machine et les contrôles à faire dans l’ordre.
+## Parcours de lecture
 
-## Des besoins des utilisateurs aux services
+1. Support · Module 01 - Support de cours · 6 pages transcrites
+2. Services réseau en environnement Linux
+3. Les besoins, de l'utilisateur au
+4. service
+5. Bac à sable
 
-Les utilisateurs accèdent au système d’information depuis un ordinateur, une tablette ou un téléphone. L’accès peut venir du bureau, du domicile ou d’un déplacement. Le service rendu reste le point de départ. L’équipe interne ou un prestataire assure son installation et son exploitation.
+**Visuel externe**
 
-Pour atteindre un service, le poste doit d’abord être raccordé à un réseau et posséder une configuration IP. Quand la cible appartient à un autre réseau, le routage relie les deux segments. La résolution DNS permet d’atteindre la cible par son nom. DHCP distribue automatiquement les paramètres nécessaires aux postes qui le demandent. SSH fournit ensuite un canal d’administration aux techniciens.
+```mermaid
+flowchart TD
+    N1["Support · Module 01 - Support de cours · 6 pages transcrites"]
+    N2["Services réseau en environnement Linux"]
+    N3["Les besoins, de l'utilisateur au"]
+    N4["service"]
+    N5["Bac à sable"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
 
-| Besoin observé | Élément étudié dans le cours | Contrôle attendu |
-|---|---|---|
-| Joindre une machine du même segment | Adressage de l’interface | Adresse et préfixe compatibles |
-| Joindre un autre réseau | Route et passerelle | Aller et retour empruntent un chemin valable |
-| Atteindre Internet depuis la maquette | Route de sortie et NAT | Connectivité vers une adresse extérieure |
-| Administrer les serveurs | SSH | Session vers le bon hôte et compte |
-| Employer des noms | DNS résolveur puis autorité locale | Réponse du serveur attendu |
-| Configurer des postes automatiquement | DHCP et relais | Bail, passerelle et DNS reçus |
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-## Organisation de la maquette
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-La source cible les techniciens systèmes et réseaux. Elle utilise VMware Workstation, des VM Debian 10 et une appliance pfSense. Les segments sont séparés par des VMNet. Plusieurs rôles peuvent cohabiter sur une même VM, comme le DNS résolveur et l’autorité de zone sur DEB-S2.
+## Support · Module 01 - Support de cours · 6 pages transcrites
 
-Dans les TP, `X` représente `num_stag`, un nombre de 1 à 30. Choisir une valeur unique et la garder dans les adresses, les routes, les plages DHCP et les noms des zones inverses. Le tableau réunit les valeurs des premiers ateliers.
+## Services réseau en environnement Linux
 
-| Segment | Préfixe | Raccordements du scénario |
-|---|---|---|
-| LAN Clients sur VMNet4 | `172.18.X.0/24` | Cli-db-10 `.10` et RouTux `.254` |
-| LAN Serveurs sur VMNet6 | `192.168.X.0/24` | DEB-S1 `.11`, DEB-S2 `.12`, RouTux `.254` |
-| Interconnexion sur VMNet2 | `172.30.X.0/24` | pfSense LAN `.1`, RouTux `.254`, client `.10` temporaire |
-| Amont WAN de pfSense | Réseau du laboratoire réel | Carte en pont, adresse et passerelle du réseau amont |
+Module 01 - Introduction
 
-Le schéma historique utilise `88.44.22.0/24` et la passerelle `88.44.22.254` pour l’amont. La source demande de remplacer ces valeurs par le réseau et l’adresse de la box effectivement utilisés. L’adresse de DNS FAI `66.55.44.33` des ateliers est aussi une valeur de maquette. Les segments de laboratoire et le WAN ont des rôles distincts.
+### Services réseau en environnement Linux
 
-## Progression des manipulations
+### Objectifs
 
-1. Préparer le client graphique et les serveurs en console, puis vérifier chaque segment séparément.
-2. Donner trois interfaces à RouTux et établir le routage entre LAN.
-3. Ajouter pfSense et vérifier le chemin vers l’extérieur.
-4. Centraliser l’administration depuis le client via SSH.
-5. Utiliser DEB-S2 pour la résolution DNS, puis ajouter DHCP sur DEB-S1 et le relais sur RouTux.
-6. Héberger la zone directe et les zones inverses. Vérifier la copie secondaire sur DEB-S1.
+!!! note "À retenir"
+    Définir les besoins en services Présenter la maquette
 
-!!! info "Actualisation externe"
-    Les supports datent du scénario Debian 10. Debian indique que le LTS de Buster s’est terminé le 30 juin 2024. Lors d’une reproduction sur une version maintenue, relever les différences de dépôts, de paquets et de gestion réseau. [Informations de version Debian Buster](https://www.debian.org/releases/buster/).
+- Définir les besoins en services
+- Présenter la maquette
 
-### Cas d’application — Préparer le schéma de la maquette
+### Services réseau en environnement Linux
 
-Le module introduit le parcours et ne fournit pas d’énoncé de TP. Pour préparer les manipulations suivantes, choisir le `X` attribué et construire un relevé avec le nom de la machine, le VMNet, le préfixe, l’adresse d’hôte et le rôle. Vérifier que les trois segments sont distincts et que l’adresse WAN correspond à l’environnement de formation.
+### Public ciblé
 
-| Si le poste échoue à joindre un service | Vérifier dans cet ordre |
-| --- | --- |
-| Même segment | VMNet, interface active, adresse et masque. |
-| Segment distant | Passerelle, routes d’aller et de retour, filtrage. |
-| Adresse joignable mais nom en échec | Résolveur configuré, nom demandé et réponse DNS. |
-| Nom résolu mais service indisponible | Écoute du service, protocole et autorisations. |
+- Techniciens système et réseaux
 
-## Schéma explicatif complémentaire
+### Services réseau en environnement Linux
+
+## Les besoins, de l'utilisateur au
+
+## service
+
+### Les besoins, de l’utilisateur au service
+
+### Des besoins au service
+
+**Visuel externe**
 
 ```mermaid
 flowchart LR
- C["Client sur VMNet4"] --> R["RouTux"]
- S["DEB-S1 DHCP et DEB-S2 DNS sur VMNet6"] --> R
- R --> I["VMNet2"] --> P["pfSense"] --> W["Réseau amont"]
+    N1["Les utilisateurs utilisent le système d'information de l'entreprise :"]
+    N2["Depuis différents appareils (ordinateur, téléphone, tablette, etc.)"]
+    N3["Depuis différents lieux (bureau, transport, maison, etc.)"]
+    N4["Au final, ils accèdent à des services"]
+    N5["Ces services sont gérés :"]
+    N6["Soit par l'équipe système de l'entreprise"]
+    N7["Soit par un sous-traitant"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
 ```
 
-## À retenir
+- Les utilisateurs utilisent le système d'information de l'entreprise :
+- Depuis différents appareils (ordinateur, téléphone, tablette, etc.)
+- Depuis différents lieux (bureau, transport, maison, etc.)
+- Au final, ils accèdent à des services
+- Ces services sont gérés :
+- Soit par l'équipe système de l'entreprise
+- Soit par un sous-traitant
 
-Commencer par la carte, l’adresse et le segment, puis vérifier le routage. Tester ensuite le DNS et le service attendu. La variable X reste identique dans l’adressage, les options DHCP et les zones inverses.
+### Les besoins, de l’utilisateur au service
 
-## Mini-quiz — 5 questions {#autoevaluation}
+### Des besoins au service
 
-1. Quel segment relie RouTux à l’interface LAN de pfSense ?
-2. Sur quelle VM se trouve le DNS résolveur ?
-3. Pourquoi la valeur X reste-t-elle identique d’un exercice à l’autre ?
-4. Quel contrôle précède un test DNS entre deux réseaux ?
-5. Quels rôles distincts assurent DHCP et SSH ?
+!!! note "À retenir"
+    Les services sont le cœur du système d'information de l'entreprise Nous allons voir les principaux services d'un système d'information d'entreprise : La mise en place du réseau Le routage Le DNS Le DHCP
 
-??? success "Réponses commentées"
+**Visuel externe**
 
-    1. VMNet2, avec le réseau 172.30.X.0/24.
-    2. DEB-S2, sur le LAN Serveurs.
-    3. Les préfixes, les options DHCP et les zones inverses doivent rester cohérents pour la même maquette.
-    4. Vérifier les adresses, les routes et la connectivité IP d’aller et de retour.
-    5. DHCP distribue les paramètres réseau. SSH permet d’administrer une machine à distance.
+```mermaid
+flowchart LR
+    N1["Les services sont le cœur du système d'information de l'entreprise"]
+    N2["La mise en place du réseau"]
+    N3["Le routage"]
+    N4["Le DNS"]
+    N5["Le DHCP"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
 
-## Pour travailler ce module
+- Les services sont le cœur du système d'information de l'entreprise
+- Nous allons voir les principaux services d'un système d'information d'entreprise :
+- La mise en place du réseau
+- Le routage
+- Le DNS
+- Le DHCP
 
-- [Fiche de révision](../../revision/services-reseau-linux/module-01-introduction.md)
-- [Travaux pratiques](../../tp/services-reseau-linux/index.md)
-- [Kahoot existant](../../kahoot/services-reseau-linux-module-01.md)
-- [Sommaire du cours](index.md)
+### Les besoins, de l’utilisateur au service
+
+### Des besoins au service
+
+!!! note "À retenir"
+    Du poste et du lieu aux services du système d’information Interface, lieu et contexte réseau de l’entreprise donnent accès aux services.
+
+![Du poste et du lieu aux services du système d’information](../../assets/course-sources/isolated/38092b351a91ee7c/linux-net-vector-0.webp)
+
+Du poste et du lieu aux services du système d’information
+
+Interface, lieu et contexte réseau de l’entreprise donnent accès aux services.
+
+Interface
+
+Lieu
+
+Contexte réseau de l’entreprise
+
+Services
+
+### Services réseau en environnement Linux
+
+## Bac à sable
+
+### Bac à sable
+
+### Principe
+
+!!! note "À retenir"
+    Les services seront installés sur des machines virtuelles (OS : pfSense et Linux Debian 10) Plusieurs services pourront être installés sur la même machine virtuelle Solution de virtualisation VMware Workstation Les réseaux logiques seront isolés grâce à des VMNet distincts
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Plusieurs services pourront être installés sur la même machine virtuelle"]
+    N2["Solution de virtualisation VMware Workstation"]
+    N3["Les réseaux logiques seront isolés grâce à des VMNet distincts"]
+    N1 --> N2
+    N2 --> N3
+```
+
+- Les services seront installés sur des machines virtuelles (OS : pfSense et Linux Debian 10)
+- Plusieurs services pourront être installés sur la même machine virtuelle
+- Solution de virtualisation VMware Workstation
+- Les réseaux logiques seront isolés grâce à des VMNet distincts
+
+### Bac à sable
+
+### Bac à sable
+
+!!! note "À retenir"
+    Maquette des LAN Clients et Serveurs, liaison VMNet2 et sortie FAI LAN Clients 172.18.num_stag.0/24.
+
+![Maquette des LAN Clients et Serveurs, liaison VMNet2 et sortie FAI](../../assets/course-sources/isolated/38092b351a91ee7c/linux-net-vector-1.webp)
+
+Maquette des LAN Clients et Serveurs, liaison VMNet2 et sortie FAI
+
+LAN Clients 172.18.num_stag.0/24. LAN Serveurs 192.168.num_stag.0/24 avec DHCP et DNS. Liaison 172.30.num_stag.0/24 vers pfSense. Réseau de la maquette 88.44.22.0/24 et passerelle FAI 88.44.22.254.
+
+88.44.22.0/24
+
+172.30.num_stag.0/24
+
+LAN Clients 172.18.num_stag.0/24
+
+192.168.num_stag.0/24
+
+LAN Serveurs
+
+Passerelle FAI 88.44.22.254
+
+DHCP
+
+DNS
+
+### Bac à sable
+
+### Quelques précautions
+
+!!! note "À retenir"
+    Ici 88.44.22.0/24 à remplacer par le réseau de votre FAI, par exemple souvent 192.168.1.0/24 Adapter l'adressage réseau du LAN de votre FAI.
+
+Ici 88.44.22.0/24 à remplacer par le réseau de votre FAI, par exemple souvent 192.168.1.0/24
+
+Adapter l'adressage réseau du LAN de votre FAI.
+
+Ici 88.44.22.254 à remplacer par l'adresse IP de votre BOX, par exemple 192.168.1.1 ou 192.168.1.254
+
+Adapter l'adresse IP de la passerelle FAI.
+
+Référence du document : 1QedZ-aTakzBiscNG1kxep6mnwEyr7B6J · SHA-256 38092b351a91ee7c…
