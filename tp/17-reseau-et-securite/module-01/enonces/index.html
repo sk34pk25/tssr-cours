@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -16937,6 +16937,97 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#grille-a-remplir-regles-de-pare-feu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grille à remplir — Règles de pare-feu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grille à remplir — Règles de pare-feu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lanclt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LANCLT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lansrv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LANSRV
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lavdmz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LAVDMZ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan-dadressage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan d’adressage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-derive-du-schema-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schéma dérivé du schéma source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -17035,6 +17126,544 @@ spécifiques tout en bloquant le trafic non autorisé.</p>
 <p>Les colonnes en vert pour les actions “permit” et en rouges pour les actions “deny”.</p>
 <p>Solution
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté (voir la page <a href="../corrections/">Correction</a>).</p>
+<h2 id="grille-a-remplir-regles-de-pare-feu">Grille à remplir — Règles de pare-feu<a class="headerlink" href="#grille-a-remplir-regles-de-pare-feu" title="Permanent link">¶</a></h2>
+<p>La feuille WAN contient deux lignes d’exemple. Les feuilles LANCLT, LANSRV et LAVDMZ n’ont que les en-têtes. « LAVDMZ » est la graphie du classeur.</p>
+<h3 id="wan">WAN<a class="headerlink" href="#wan" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Numéro de la règle WAN</th>
+<th>Action</th>
+<th>Protocole</th>
+<th>IP sources/masque</th>
+<th>Port origine</th>
+<th>IP destination/masque</th>
+<th>Port destination</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exemple: 1</td>
+<td>Pass</td>
+<td>TCP</td>
+<td>Any</td>
+<td></td>
+<td>Wan IP</td>
+<td>80, 443</td>
+<td></td>
+</tr>
+<tr>
+<td>Exemple: 2</td>
+<td>Block</td>
+<td>Any</td>
+<td>Any</td>
+<td></td>
+<td>Wan IP</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="lanclt">LANCLT<a class="headerlink" href="#lanclt" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Numéro de la règle</th>
+<th>Action</th>
+<th>Protocole</th>
+<th>IP sources/masque</th>
+<th>Port origine</th>
+<th>IP destination/masque</th>
+<th>Port destination</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="lansrv">LANSRV<a class="headerlink" href="#lansrv" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Numéro de la règle</th>
+<th>Action</th>
+<th>Protocole</th>
+<th>IP sources/masque</th>
+<th>Port origine</th>
+<th>IP destination/masque</th>
+<th>Port destination</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="lavdmz">LAVDMZ<a class="headerlink" href="#lavdmz" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Numéro de la règle</th>
+<th>Action</th>
+<th>Protocole</th>
+<th>IP sources/masque</th>
+<th>Port origine</th>
+<th>IP destination/masque</th>
+<th>Port destination</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="plan-dadressage">Plan d’adressage<a class="headerlink" href="#plan-dadressage" title="Permanent link">¶</a></h2>
+<p>Les noms de personnes sont remplacés par Stagiaire N.</p>
+<table>
+<thead>
+<tr>
+<th>Nom du stagiaire</th>
+<th>Wan /24</th>
+<th>PC TP3 /24</th>
+<th>Tunnel Wireguad/24</th>
+<th>Lan global/24</th>
+<th>Lan Serveur /26</th>
+<th>Lan Client /25</th>
+<th>Lan DMZ /26</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stagiaire 1</td>
+<td>192.168.150.2</td>
+<td>192.168.150.102</td>
+<td>172.30.2.0</td>
+<td>172.20.2.0</td>
+<td>172.20.2</td>
+<td>172.20.2</td>
+<td>172.20.2</td>
+</tr>
+<tr>
+<td>Stagiaire 2</td>
+<td>192.168.150.3</td>
+<td>192.168.150.103</td>
+<td>172.30.3.0</td>
+<td>172.20.3.0</td>
+<td>172.20.3</td>
+<td>172.20.3</td>
+<td>172.20.3</td>
+</tr>
+<tr>
+<td>Stagiaire 3</td>
+<td>192.168.150.4</td>
+<td>192.168.150.104</td>
+<td>172.30.4.0</td>
+<td>172.20.4.0</td>
+<td>172.20.4</td>
+<td>172.20.4</td>
+<td>172.20.4</td>
+</tr>
+<tr>
+<td>Stagiaire 4</td>
+<td>192.168.150.5</td>
+<td>192.168.150.105</td>
+<td>172.30.5.0</td>
+<td>172.20.5.0</td>
+<td>172.20.5</td>
+<td>172.20.5</td>
+<td>172.20.5</td>
+</tr>
+<tr>
+<td>Stagiaire 5</td>
+<td>192.168.150.6</td>
+<td>192.168.150.106</td>
+<td>172.30.6.0</td>
+<td>172.20.6.0</td>
+<td>172.20.6</td>
+<td>172.20.6</td>
+<td>172.20.6</td>
+</tr>
+<tr>
+<td>Stagiaire 6</td>
+<td>192.168.150.7</td>
+<td>192.168.150.107</td>
+<td>172.30.7.0</td>
+<td>172.20.7.0</td>
+<td>172.20.7</td>
+<td>172.20.7</td>
+<td>172.20.7</td>
+</tr>
+<tr>
+<td>Stagiaire 7</td>
+<td>192.168.150.8</td>
+<td>192.168.150.108</td>
+<td>172.30.8.0</td>
+<td>172.20.8.0</td>
+<td>172.20.8</td>
+<td>172.20.8</td>
+<td>172.20.8</td>
+</tr>
+<tr>
+<td>Stagiaire 8</td>
+<td>192.168.150.9</td>
+<td>192.168.150.109</td>
+<td>172.30.9.0</td>
+<td>172.20.9.0</td>
+<td>172.20.9</td>
+<td>172.20.9</td>
+<td>172.20.9</td>
+</tr>
+<tr>
+<td>Stagiaire 9</td>
+<td>192.168.150.10</td>
+<td>192.168.150.110</td>
+<td>172.30.10.0</td>
+<td>172.20.10.0</td>
+<td>172.20.10</td>
+<td>172.20.10</td>
+<td>172.20.10</td>
+</tr>
+<tr>
+<td>Stagiaire 10</td>
+<td>192.168.150.11</td>
+<td>192.168.150.111</td>
+<td>172.30.11.0</td>
+<td>172.20.11.0</td>
+<td>172.20.11</td>
+<td>172.20.11</td>
+<td>172.20.11</td>
+</tr>
+<tr>
+<td>Stagiaire 11</td>
+<td>192.168.150.12</td>
+<td>192.168.150.112</td>
+<td>172.30.12.0</td>
+<td>172.20.12.0</td>
+<td>172.20.12</td>
+<td>172.20.12</td>
+<td>172.20.12</td>
+</tr>
+<tr>
+<td>Stagiaire 12</td>
+<td>192.168.150.13</td>
+<td>192.168.150.113</td>
+<td>172.30.13.0</td>
+<td>172.20.13.0</td>
+<td>172.20.13</td>
+<td>172.20.13</td>
+<td>172.20.13</td>
+</tr>
+<tr>
+<td>Stagiaire 13</td>
+<td>192.168.150.14</td>
+<td>192.168.150.114</td>
+<td>172.30.14.0</td>
+<td>172.20.14.0</td>
+<td>172.20.14</td>
+<td>172.20.14</td>
+<td>172.20.14</td>
+</tr>
+<tr>
+<td>Stagiaire 14</td>
+<td>192.168.150.15</td>
+<td>192.168.150.115</td>
+<td>172.30.15.0</td>
+<td>172.20.15.0</td>
+<td>172.20.15</td>
+<td>172.20.15</td>
+<td>172.20.15</td>
+</tr>
+<tr>
+<td>Stagiaire 15</td>
+<td>192.168.150.16</td>
+<td>192.168.150.116</td>
+<td>172.30.16.0</td>
+<td>172.20.16.0</td>
+<td>172.20.16</td>
+<td>172.20.16</td>
+<td>172.20.16</td>
+</tr>
+<tr>
+<td>Stagiaire 16</td>
+<td>192.168.150.17</td>
+<td>192.168.150.117</td>
+<td>172.30.17.0</td>
+<td>172.20.17.0</td>
+<td>172.20.17</td>
+<td>172.20.17</td>
+<td>172.20.17</td>
+</tr>
+<tr>
+<td>Stagiaire 17</td>
+<td>192.168.150.18</td>
+<td>192.168.150.118</td>
+<td>172.30.18.0</td>
+<td>172.20.18.0</td>
+<td>172.20.18</td>
+<td>172.20.18</td>
+<td>172.20.18</td>
+</tr>
+<tr>
+<td>Stagiaire 18</td>
+<td>192.168.150.19</td>
+<td>192.168.150.119</td>
+<td>172.30.19.0</td>
+<td>172.20.19.0</td>
+<td>172.20.19</td>
+<td>172.20.19</td>
+<td>172.20.19</td>
+</tr>
+<tr>
+<td>Stagiaire 19</td>
+<td>192.168.150.20</td>
+<td>192.168.150.120</td>
+<td>172.30.20.0</td>
+<td>172.20.20.0</td>
+<td>172.20.20</td>
+<td>172.20.20</td>
+<td>172.20.20</td>
+</tr>
+<tr>
+<td>Stagiaire 20</td>
+<td>192.168.150.21</td>
+<td>192.168.150.121</td>
+<td>172.30.21.0</td>
+<td>172.20.21.0</td>
+<td>172.20.21</td>
+<td>172.20.21</td>
+<td>172.20.21</td>
+</tr>
+<tr>
+<td>Stagiaire 21</td>
+<td>192.168.150.22</td>
+<td>192.168.150.122</td>
+<td>172.30.22.0</td>
+<td>172.20.22.0</td>
+<td>172.20.22</td>
+<td>172.20.22</td>
+<td>172.20.22</td>
+</tr>
+<tr>
+<td>Stagiaire 22</td>
+<td>192.168.150.23</td>
+<td>192.168.150.123</td>
+<td>172.30.23.0</td>
+<td>172.20.23.0</td>
+<td>172.20.23</td>
+<td>172.20.23</td>
+<td>172.20.23</td>
+</tr>
+<tr>
+<td>Stagiaire 23</td>
+<td>192.168.150.24</td>
+<td>192.168.150.124</td>
+<td>172.30.24.0</td>
+<td>172.20.24.0</td>
+<td>172.20.24</td>
+<td>172.20.24</td>
+<td>172.20.24</td>
+</tr>
+<tr>
+<td>Stagiaire 24</td>
+<td>192.168.150.25</td>
+<td>192.168.150.125</td>
+<td>172.30.25.0</td>
+<td>172.20.25.0</td>
+<td>172.20.25</td>
+<td>172.20.25</td>
+<td>172.20.25</td>
+</tr>
+<tr>
+<td>Stagiaire 25</td>
+<td>192.168.150.26</td>
+<td>192.168.150.126</td>
+<td>172.30.26.0</td>
+<td>172.20.26.0</td>
+<td>172.20.26</td>
+<td>172.20.26</td>
+<td>172.20.26</td>
+</tr>
+<tr>
+<td>Stagiaire 26</td>
+<td>192.168.150.27</td>
+<td>192.168.150.127</td>
+<td>172.30.27.0</td>
+<td>172.20.27.0</td>
+<td>172.20.27</td>
+<td>172.20.27</td>
+<td>172.20.27</td>
+</tr>
+<tr>
+<td>Stagiaire 27</td>
+<td>192.168.150.28</td>
+<td>192.168.150.128</td>
+<td>172.30.28.0</td>
+<td>172.20.28.0</td>
+<td>172.20.28</td>
+<td>172.20.28</td>
+<td>172.20.28</td>
+</tr>
+<tr>
+<td>Stagiaire 28</td>
+<td>192.168.150.29</td>
+<td>192.168.150.129</td>
+<td>172.30.29.0</td>
+<td>172.20.29.0</td>
+<td>172.20.29</td>
+<td>172.20.29</td>
+<td>172.20.29</td>
+</tr>
+<tr>
+<td>Stagiaire 29</td>
+<td>192.168.150.30</td>
+<td>192.168.150.130</td>
+<td>172.30.30.0</td>
+<td>172.20.30.0</td>
+<td>172.20.30</td>
+<td>172.20.30</td>
+<td>172.20.30</td>
+</tr>
+<tr>
+<td>Stagiaire 30</td>
+<td>192.168.150.31</td>
+<td>192.168.150.131</td>
+<td>172.30.31.0</td>
+<td>172.20.31.0</td>
+<td>172.20.31</td>
+<td>172.20.31</td>
+<td>172.20.31</td>
+</tr>
+<tr>
+<td>Stagiaire 31</td>
+<td>192.168.150.32</td>
+<td>192.168.150.132</td>
+<td>172.30.32.0</td>
+<td>172.20.32.0</td>
+<td>172.20.32</td>
+<td>172.20.32</td>
+<td>172.20.32</td>
+</tr>
+<tr>
+<td>Stagiaire 32</td>
+<td>192.168.150.33</td>
+<td>192.168.150.133</td>
+<td>172.30.33.0</td>
+<td>172.20.33.0</td>
+<td>172.20.33</td>
+<td>172.20.33</td>
+<td>172.20.33</td>
+</tr>
+<tr>
+<td>Stagiaire 33</td>
+<td>192.168.150.34</td>
+<td>192.168.150.134</td>
+<td>172.30.34.0</td>
+<td>172.20.34.0</td>
+<td>172.20.34</td>
+<td>172.20.34</td>
+<td>172.20.34</td>
+</tr>
+<tr>
+<td>Stagiaire 34</td>
+<td>192.168.150.35</td>
+<td>192.168.150.135</td>
+<td>172.30.35.0</td>
+<td>172.20.35.0</td>
+<td>172.20.35</td>
+<td>172.20.35</td>
+<td>172.20.35</td>
+</tr>
+<tr>
+<td>Stagiaire 35</td>
+<td>192.168.150.36</td>
+<td>192.168.150.136</td>
+<td>172.30.36.0</td>
+<td>172.20.36.0</td>
+<td>172.20.36</td>
+<td>172.20.36</td>
+<td>172.20.36</td>
+</tr>
+<tr>
+<td>Stagiaire 36</td>
+<td>192.168.150.37</td>
+<td>192.168.150.137</td>
+<td>172.30.37.0</td>
+<td>172.20.37.0</td>
+<td>172.20.37</td>
+<td>172.20.37</td>
+<td>172.20.37</td>
+</tr>
+<tr>
+<td>Stagiaire 37</td>
+<td>192.168.150.38</td>
+<td>192.168.150.138</td>
+<td>172.30.38.0</td>
+<td>172.20.38.0</td>
+<td>172.20.38</td>
+<td>172.20.38</td>
+<td>172.20.38</td>
+</tr>
+<tr>
+<td>Stagiaire 38</td>
+<td>192.168.150.39</td>
+<td>192.168.150.139</td>
+<td>172.30.39.0</td>
+<td>172.20.39.0</td>
+<td>172.20.39</td>
+<td>172.20.39</td>
+<td>172.20.39</td>
+</tr>
+<tr>
+<td>Stagiaire 39</td>
+<td>192.168.150.40</td>
+<td>192.168.150.140</td>
+<td>172.30.40.0</td>
+<td>172.20.40.0</td>
+<td>172.20.40</td>
+<td>172.20.40</td>
+<td>172.20.40</td>
+</tr>
+</tbody>
+</table>
+<h2 id="schema-derive-du-schema-source">Schéma dérivé du schéma source<a class="headerlink" href="#schema-derive-du-schema-source" title="Permanent link">¶</a></h2>
+<div class="mermaid">flowchart TB
+  R["Routeur formateur 192.168.150.100/24"]
+  R --&gt; CLT["LANCLT · VMnet10 · 172.20.X.Y/?"]
+  R --&gt; SRV["LANSRV · VMnet11 · 172.20.X.Y/?"]
+  R --&gt; DMZ["LANDMZ · VMnet12 · 172.20.X.Y/?"]
+  SRV --&gt; CD["SRV-cd Active Directory DNS"]
+  SRV --&gt; MBR["SRV-MBR DHCP"]
+  DMZ --&gt; WEB["SRV-WEB"]</div>
+<p>Schéma dérivé du schéma source.</p>
 
 
 

@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -16937,6 +16937,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#sauvegarde-et-restauration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sauvegarde et restauration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup-exec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Exec
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-du-module-02-types-de-sauvegarde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP du Module 02 – Types de sauvegarde
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enonce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Énoncé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modification-du-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        modification du job
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -16965,16 +17039,40 @@
 
 
 <h1 id="enonce-sauvegarde-et-restauration-backup-exec">Énoncé · Sauvegarde et restauration Backup Exec<a class="headerlink" href="#enonce-sauvegarde-et-restauration-backup-exec" title="Permanent link">¶</a></h1>
-<p>Durée estimée : 1 heure. Avoir réalisé le TP d’installation. Transcription dans le <a href="../../../../modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde/">module 02</a>.</p>
-<p>Objectifs : restaurer un utilisateur de l’annuaire ; créer un partage NTFS ; dupliquer les sauvegardes.</p>
-<ol>
-<li>Vérifier la complète srv-ad1. S’il n’y a pas d’erreur, supprimer sur srv-ad1 l’utilisateur créé au TP précédent.</li>
-<li>Restauration granulaire de cet utilisateur seul, puis test de connexion.</li>
-<li>Sur srv-fic1, ajouter un disque de 45 Go et le partage <code>backup-fic1</code>.</li>
-<li>Ajouter ce partage au pool de srv-backup.</li>
-<li>Le job srv-ad1 doit dupliquer vers <code>backup-fic1</code> après la complète et après l’incrémentale. L’énoncé écrit « le doit job doit effectuer une duplication ».</li>
-<li>Vérifier les paramètres de stockage des jobs, puis relancer une complète.</li>
-</ol>
+<h2 id="sauvegarde-et-restauration">Sauvegarde et restauration<a class="headerlink" href="#sauvegarde-et-restauration" title="Permanent link">¶</a></h2>
+<h2 id="backup-exec">Backup Exec<a class="headerlink" href="#backup-exec" title="Permanent link">¶</a></h2>
+<h2 id="tp-du-module-02-types-de-sauvegarde">TP du Module 02 – Types de sauvegarde<a class="headerlink" href="#tp-du-module-02-types-de-sauvegarde" title="Permanent link">¶</a></h2>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi les modules 1 et 2 d’avoir réalisé le TP précédent.</p>
+<p>Durée estimée</p>
+<p>1 heure</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Restaurer un utilisateur de l’AD</li>
+<li>Créer un partage NTFS pour y stocker les sauvegardes</li>
+<li>Créer une sauvegarde dupliquée</li>
+</ul>
+<h2 id="enonce">Énoncé<a class="headerlink" href="#enonce" title="Permanent link">¶</a></h2>
+<ul>
+<li>Après vérification de la sauvegarde complète srv-ad1 du TP précédent<ul>
+<li>o S'il n’y a pas d’erreur lors de la sauvegarde</li>
+<li>o Se connecter sur le serveur srv-ad1 ▪ Supprimer l’utilisateur généré au début du TP précédent</li>
+<li>o Depuis backup Exec effectuer une restauration granulaire en ne restaurant que l’utilisateur supprimé</li>
+<li>o Une fois restauré faire directement un test de connexion avec cet utilisateur</li>
+</ul>
+</li>
+<li>Sur srv-fic1 ajouter un hdd de 45go<ul>
+<li>o Sur ce disque créer un dossier partagé nommé “backup-fic1” que vous partagerez</li>
+</ul>
+</li>
+<li>Sur srv-backup<ul>
+<li>o Ajouter le partage “backup-fic1” au pool de stockage de backup-exec</li>
+<li>o Modifier le job de sauvegarde du serveur srv-ad1 pour lui ajouter les caractéristiques suivantes : ▪ Après l’exécution d’une sauvegarde complète, le job doit effectuer une duplication de la sauvegarde vers le partage “backup-fic1” ▪ Après l’exécution d’une sauvegarde incrémentale, le doit job doit effectuer une duplication de la sauvegarde vers le partage “backup-fic1”</li>
+<li>o Avec l’ajout du stockage vous ferez attention aux paramètres de stockage des jobs</li>
+</ul>
+</li>
+</ul>
+<p>o Vous lancerez de nouveau l’exécution d’une sauvegarde complète à la fin de la</p>
+<h2 id="modification-du-job">modification du job<a class="headerlink" href="#modification-du-job" title="Permanent link">¶</a></h2>
 <p><a href="../corrections-restauration/">Correction inexistante</a></p>
 
 

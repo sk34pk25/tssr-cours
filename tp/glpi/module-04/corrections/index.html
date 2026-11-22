@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -17670,11 +17670,12 @@
 <li>
 <p>Description.</p>
 </li>
-<li>
-<p>Créez un gabarit de ticket « Incident Bureautique » :</p>
-</li>
 </ul>
-<p>Image de correction disponible dans les ressources.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/glpi/module-04/gabarit-ticket-incident-serveur-png.png" data-desc-position="bottom"><img alt="gabarit ticket incident serveur" src="../../../../assets/images/glpi/module-04/gabarit-ticket-incident-serveur-png.png"></a></p>
+<ul>
+<li>Créez un gabarit de ticket « Incident Bureautique » :</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/glpi/module-04/gabarit-ticket-incident-bureautique-png.png" data-desc-position="bottom"><img alt="gabarit ticket incident bureautique" src="../../../../assets/images/glpi/module-04/gabarit-ticket-incident-bureautique-png.png"></a></p>
 <ul>
 <li>
 <p>Champs obligatoires :</p>
@@ -17710,7 +17711,7 @@
 <p>Créez un gabarit de ticket « Demande Bureautique » :</p>
 </li>
 </ul>
-<p>Image de correction disponible dans les ressources.</p>
+<p>Capture : Inexistant</p>
 <ul>
 <li>
 <p>Champs obligatoires :</p>
@@ -17744,7 +17745,7 @@
 <ul>
 <li>Créez les catégories :</li>
 </ul>
-<p>Image de correction disponible dans les ressources.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/glpi/module-04/categories-de-ticket-png.png" data-desc-position="bottom"><img alt="catégories de ticket" src="../../../../assets/images/glpi/module-04/categories-de-ticket-png.png"></a></p>
 <ul>
 <li>
 <p>Logiciel.</p>
@@ -17791,7 +17792,7 @@
 </ul>
 <p>« Incident bureautique » et « Demande bureautique ».</p>
 <p>Il est possible d’affecter un gabarit à plusieurs catégories avec la modification en masse.</p>
-<p>Image de correction disponible dans les ressources.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/glpi/module-04/affectation-en-masse-gabarit-et-categories-png.png" data-desc-position="bottom"><img alt="affectation en masse gabarit et catégories" src="../../../../assets/images/glpi/module-04/affectation-en-masse-gabarit-et-categories-png.png"></a></p>
 <ul>
 <li>Catégorie « Serveur », « Virtualisation » et « Active Directory » au gabarit</li>
 </ul>
@@ -17803,10 +17804,11 @@
 <h3 id="intitules-calendrier">Intitulés &gt; calendrier<a class="headerlink" href="#intitules-calendrier" title="Permanent link">¶</a></h3>
 <p>Ajoutez le calendrier « cal serveur » avec les heures 8 h/18 h pour tous les jours ouvrés :</p>
 <p>Créez chaque jour avec les bons horaires.</p>
-<p>Image de correction disponible dans les ressources.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/glpi/module-04/cal-serveur-png.png" data-desc-position="bottom"><img alt="cal serveur" src="../../../../assets/images/glpi/module-04/cal-serveur-png.png"></a></p>
 <ul>
 <li>Tous les autres incidents utiliseront un calendrier « cal utilisateurs » en jours ouvrés (lundi à vendredi) 9 h00 – 17 h30.</li>
 </ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/glpi/module-04/cal-utilisateurs-png.png" data-desc-position="bottom"><img alt="cal utilisateurs" src="../../../../assets/images/glpi/module-04/cal-utilisateurs-png.png"></a></p>
 <h3 id="niveau-de-service">Niveau de service<a class="headerlink" href="#niveau-de-service" title="Permanent link">¶</a></h3>
 <ul>
 <li>
@@ -17824,15 +17826,17 @@
 <li>
 <p>Le temps de résolution pour les incidents serveur devra être inférieur à 8 h.</p>
 </li>
-<li>
-<p>Si incident de toutes les catégories « serveur », « virtualisation » et « Active Directory » n’est pas prise en charge 10 minutes après la création du ticket, le groupe « GG_GLPI_Super-Admin » sera automatiquement positionné dessus ainsi que vous en tant qu’observateur sur le ticket.</p>
-</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/glpi/module-04/slm-incidents-serveur-png.png" data-desc-position="bottom"><img alt="SLM incidents serveur" src="../../../../assets/images/glpi/module-04/slm-incidents-serveur-png.png"></a></p>
+<ul>
+<li>Si incident de toutes les catégories « serveur », « virtualisation » et « Active Directory » n’est pas prise en charge 10 minutes après la création du ticket, le groupe « GG_GLPI_Super-Admin » sera automatiquement positionné dessus ainsi que vous en tant qu’observateur sur le ticket.</li>
 </ul>
 <p>Créez une escalade sur le temps de prise en charge.</p>
 <p>Regrouper les catégories par OU, tout en imposant le type par ET ; voir la méthode expliquée en tête de page.</p>
 <p>Critères : catégories serveur, virtualisation et Active Directory.</p>
 <p>Action : observateur &gt; vous et groupe de technicien &gt; GG_GLPI_Super- Admin.</p>
-<p>Image de correction disponible dans les ressources.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/glpi/module-04/escalade-prise-en-charge-serveur-png.png" data-desc-position="bottom"><img alt="escalade prise en charge serveur" src="../../../../assets/images/glpi/module-04/escalade-prise-en-charge-serveur-png.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/glpi/module-04/escalade-prise-en-charge-serveur-action-et-critere-png.png" data-desc-position="bottom"><img alt="escalade prise en charge serveur action et critere" src="../../../../assets/images/glpi/module-04/escalade-prise-en-charge-serveur-action-et-critere-png.png"></a></p>
 <ul>
 <li>Si le ticket n’est pas résolu 4 h avant la date butoir de résolution, le ticket passera en priorité haute avec une escalade vers vous.</li>
 </ul>
@@ -17840,7 +17844,7 @@
 <p>Regrouper les catégories par OU, tout en imposant le type par ET ; voir la méthode expliquée en tête de page.</p>
 <p>Critères : catégories serveur, virtualisation et Active Directory.</p>
 <h3 id="action-priorite-haute-et-technicien-vous">Action : priorité &gt; haute et technicien &gt; vous<a class="headerlink" href="#action-priorite-haute-et-technicien-vous" title="Permanent link">¶</a></h3>
-<p>Image de correction disponible dans les ressources.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/glpi/module-04/escalade-haute-et-tres-haute-resolution-serveur-png.png" data-desc-position="bottom"><img alt="escalade haute et tres haute resolution serveur" src="../../../../assets/images/glpi/module-04/escalade-haute-et-tres-haute-resolution-serveur-png.png"></a></p>
 <ul>
 <li>Si le ticket n’est pas résolu 3 h avant la date butoir de résolution, le ticket passera en</li>
 </ul>
@@ -17849,7 +17853,6 @@
 <p>Regrouper les catégories par OU, tout en imposant le type par ET ; voir la méthode expliquée en tête de page.</p>
 <p>Critères : catégories serveur, virtualisation et Active Directory.</p>
 <h3 id="action-priorite-tres-haute-et-technicien-zeus">Action : priorité &gt; très haute et technicien &gt; Zeus<a class="headerlink" href="#action-priorite-tres-haute-et-technicien-zeus" title="Permanent link">¶</a></h3>
-<p>Image de correction disponible dans les ressources.</p>
 <ul>
 <li>
 <p>Créez un niveau de service « SLA incident bureautique » de l’entreprise Olympus avec les spécificités suivantes :</p>
@@ -17881,7 +17884,8 @@
 <li>Créez une règle métier pour les tickets « règle SLA serveur ».</li>
 </ul>
 <p>Regrouper les catégories par OU, tout en imposant le type par ET ; voir la méthode expliquée en tête de page.</p>
-<p>Image de correction disponible dans les ressources.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/glpi/module-04/regle-sla-serveur-critere-png.png" data-desc-position="bottom"><img alt="regle sla serveur critere" src="../../../../assets/images/glpi/module-04/regle-sla-serveur-critere-png.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/glpi/module-04/regle-sla-serveur-action-png.png" data-desc-position="bottom"><img alt="regle sla serveur action" src="../../../../assets/images/glpi/module-04/regle-sla-serveur-action-png.png"></a></p>
 <ul>
 <li>
 <p>Comme critères :</p>

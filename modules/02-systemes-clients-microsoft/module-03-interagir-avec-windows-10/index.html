@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -1539,6 +1539,17 @@
     <span class="md-ellipsis">
       
         Provenance pédagogique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-de-laboratoire-demarrage-distant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script de laboratoire — démarrage distant
       
     </span>
   </a>
@@ -17630,6 +17641,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#script-de-laboratoire-demarrage-distant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script de laboratoire — démarrage distant
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -19841,6 +19863,45 @@ commands: </pre>
 </ul>
 <h2 id="provenance-pedagogique">Provenance pédagogique<a class="headerlink" href="#provenance-pedagogique" title="Permanent link">¶</a></h2>
 <p>Support M03, cinq énoncés et leurs cinq solutions, section Module 3 des notes, synthèse Interaction Windows/CLI/PowerShell du Drive. La synthèse comporte aussi des rappels Excel, dont le cours de référence reste Microsoft 365. Les méthodes de lecture, clarifications des coquilles, contrôles et mini-quiz sont des aides pédagogiques IA.</p>
+<h2 id="script-de-laboratoire-demarrage-distant">Script de laboratoire — démarrage distant<a class="headerlink" href="#script-de-laboratoire-demarrage-distant" title="Permanent link">¶</a></h2>
+<div class="language-bat highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">@</span><span class="k">echo</span> off
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">setlocal</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="k">set</span> <span class="nv">HOST</span><span class="p">=</span>[MASQUÉ]
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="k">set</span> <span class="nv">USER</span><span class="p">=</span>[MASQUÉ]
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="k">set</span> <span class="nv">PASS</span><span class="p">=</span>[MASQUÉ]
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="k">set</span> <span class="nv">IPMACHINE</span><span class="p">=</span>[MASQUÉ]
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="k">set</span> <span class="nv">PLINK</span><span class="p">=</span>C:\Program Files\PuTTY\plink.exe
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="k">echo</span> ==========================================
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="k">echo</span>   Demarrage machine du lab a distance
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="k">echo</span> ==========================================
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="k">echo</span>.
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="k">echo</span> HOST      = <span class="nv">%HOST%</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="k">echo</span> USER      = <span class="nv">%USER%</span>
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="k">echo</span> IPMACHINE = <span class="nv">%IPMACHINE%</span>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="k">echo</span> PLINK     = <span class="nv">%PLINK%</span>
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="k">echo</span>.
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a><span class="k">if</span> <span class="k">not</span> <span class="k">exist</span> <span class="s2">"</span><span class="nv">%PLINK%</span><span class="s2">"</span> <span class="p">(</span>
+</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>    <span class="k">echo</span> [ERREUR] plink.exe introuvable :
+</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>    <span class="k">echo</span> <span class="nv">%PLINK%</span>
+</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>    <span class="k">pause</span>
+</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a>    <span class="k">exit</span> /b 1
+</span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a><span class="p">)</span>
+</span><span id="__span-19-26"><a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>
+</span><span id="__span-19-27"><a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a><span class="k">echo</span> [INFO] Connexion au serveur du lab...
+</span><span id="__span-19-28"><a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a><span class="k">echo</span>.
+</span><span id="__span-19-29"><a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a>
+</span><span id="__span-19-30"><a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a><span class="p">(</span>
+</span><span id="__span-19-31"><a id="__codelineno-19-31" name="__codelineno-19-31" href="#__codelineno-19-31"></a>    <span class="k">echo</span> <span class="nv">%IPMACHINE%</span>
+</span><span id="__span-19-32"><a id="__codelineno-19-32" name="__codelineno-19-32" href="#__codelineno-19-32"></a><span class="p">)</span> <span class="p">|</span> <span class="s2">"</span><span class="nv">%PLINK%</span><span class="s2">"</span> -ssh <span class="nv">%USER%</span>@<span class="nv">%HOST%</span> -pw <span class="nv">%PASS%</span>
+</span><span id="__span-19-33"><a id="__codelineno-19-33" name="__codelineno-19-33" href="#__codelineno-19-33"></a>
+</span><span id="__span-19-34"><a id="__codelineno-19-34" name="__codelineno-19-34" href="#__codelineno-19-34"></a><span class="k">echo</span>.
+</span><span id="__span-19-35"><a id="__codelineno-19-35" name="__codelineno-19-35" href="#__codelineno-19-35"></a><span class="k">echo</span> [INFO] Code retour = <span class="nv">%errorlevel%</span>
+</span><span id="__span-19-36"><a id="__codelineno-19-36" name="__codelineno-19-36" href="#__codelineno-19-36"></a><span class="k">echo</span>.
+</span><span id="__span-19-37"><a id="__codelineno-19-37" name="__codelineno-19-37" href="#__codelineno-19-37"></a><span class="k">pause</span>
+</span></code></pre></div>
 </div>
 </div>
 </div>

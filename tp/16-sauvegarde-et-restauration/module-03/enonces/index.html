@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -16937,6 +16937,124 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#sauvegarde-et-restauration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sauvegarde et restauration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#veeam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VEEAM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-du-module-03-gestion-du-stockage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP du Module 03 – Gestion du stockage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enonce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Énoncé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#name-srv-hyperv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Name SRV-HyperV
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review-task-limit-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review Task limit : 4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#name-svgd-fic1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Name SVGD-FIC1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-machine-add-srv-fic1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtual Machine « Add… » « Srv-Fic1 »
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review-task-limit-4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review Task limit : 4
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -16965,16 +17083,64 @@
 
 
 <h1 id="enonce-sauvegarde-et-restauration-veeam">Énoncé · Sauvegarde et restauration Veeam<a class="headerlink" href="#enonce-sauvegarde-et-restauration-veeam" title="Permanent link">¶</a></h1>
-<p>Durée estimée : 1 heure. Avoir suivi les modules 1 à 3 et réalisé le TP précédent. Transcription dans le <a href="../../../../modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage/">module 03</a>.</p>
-<p>Objectifs : installer Veeam Backup &amp; Replication ; sauvegarder des VM ; restaurer une VM.</p>
-<ol>
-<li>Sur SRV-HyperV, ouvrir le port 445, Accès réseau (NP-in).</li>
-<li>Sur Srv-backup, désinstaller Backup Exec et installer VEEAM 12 backup &amp; replication.</li>
-<li>Inventory, Add Server : nom <code>SRV-HyperV</code>, type Microsoft Hyper-V Server (Standalone), compte <code>SRV-HyperV\administrateur</code>, task limit 4. L’énoncé écrit « Crédential ».</li>
-<li>Vérifier la présence de SRV-AD1 et SRV-FIC1.</li>
-<li>Home, Backup job, Virtual Machine. Nom <code>SVGD-FIC1</code>, VM <code>Srv-Fic1</code>, stockage Default Backup Repository, task limit 4. Exécution immédiate.</li>
-<li>Si la complète n’a pas d’erreur, supprimer srv-fic1 dans Hyper-V, restaurer la VM entière, puis vérifier que le serveur est opérationnel.</li>
-</ol>
+<h2 id="sauvegarde-et-restauration">Sauvegarde et restauration<a class="headerlink" href="#sauvegarde-et-restauration" title="Permanent link">¶</a></h2>
+<h2 id="veeam">VEEAM<a class="headerlink" href="#veeam" title="Permanent link">¶</a></h2>
+<h2 id="tp-du-module-03-gestion-du-stockage">TP du Module 03 – Gestion du stockage<a class="headerlink" href="#tp-du-module-03-gestion-du-stockage" title="Permanent link">¶</a></h2>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi les modules 1, 2 et 3 et d’avoir réalisé le TP précédent.</p>
+<p>Durée estimée</p>
+<p>1 heure</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Installer la solution de sauvegarde Veeam Backup &amp; Replication</li>
+<li>Sauvegarder des VM</li>
+<li>Restaurer une VM</li>
+</ul>
+<h2 id="enonce">Énoncé<a class="headerlink" href="#enonce" title="Permanent link">¶</a></h2>
+<p>Sur SRV-HyperV :</p>
+<p>Ne pas oublier d’ouvrir le port 445 (Service Accès réseau (NP-in))</p>
+<p>Sur Srv-backup:</p>
+<ul>
+<li>Désinstaller Backup Exec</li>
+<li>Installer VEEAM 12 backup &amp; replication</li>
+<li>Dans Veeam menu « Inventory » ajouter le serveur HyperV : « Add Server »</li>
+</ul>
+<h2 id="name-srv-hyperv">Name                             SRV-HyperV<a class="headerlink" href="#name-srv-hyperv" title="Permanent link">¶</a></h2>
+<p>Type Microsoft Hyper-V Server (Standalone) Crédential « Add… » « SRV-HyperV\administrateur »</p>
+<h2 id="review-task-limit-4">Review                           Task limit : 4<a class="headerlink" href="#review-task-limit-4" title="Permanent link">¶</a></h2>
+<ul>
+<li>Une fois l’ajout effectué, vérifier sur le serveur SRV-HyperV la présence des serveurs :<ul>
+<li>o SRV-AD1</li>
+<li>o SRV-FIC1</li>
+</ul>
+</li>
+<li>
+<p>Créer un job de sauvegarde pour le serveur srv-Fic1</p>
+</li>
+<li>
+<p>o Menu « Home »</p>
+<ul>
+<li>o « Backup job »</li>
+<li>o «Virtual Machine »</li>
+</ul>
+</li>
+</ul>
+<h2 id="name-svgd-fic1">Name                            SVGD-FIC1<a class="headerlink" href="#name-svgd-fic1" title="Permanent link">¶</a></h2>
+<h2 id="virtual-machine-add-srv-fic1">Virtual Machine                 « Add… » « Srv-Fic1 »<a class="headerlink" href="#virtual-machine-add-srv-fic1" title="Permanent link">¶</a></h2>
+<p>Storage Default Backup Repository</p>
+<h2 id="review-task-limit-4_1">Review                          Task limit : 4<a class="headerlink" href="#review-task-limit-4_1" title="Permanent link">¶</a></h2>
+<div class="language-text highlight"><pre><span></span><code>- o Exécution immédiate
+</code></pre></div>
+<ul>
+<li>Après vérification de la sauvegarde complète srv-fic1<ul>
+<li>o S'il n’y a pas d’erreur lors de la sauvegarde</li>
+<li>o Supprimer le serveur srv-fic1 depuis SRV-HYPERV</li>
+<li>o Depuis VEEAM effectuer une restauration complète de la VM srv-fic1</li>
+<li>o Une fois la restauration terminée vérifier que tous les paramètres du serveur sont bons et opérationnels</li>
+</ul>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/sauvegarde/module-03/schema-stockage.png" data-desc-position="bottom"><img alt="schema-stockage.png" src="../../../../assets/images/sauvegarde/module-03/schema-stockage.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/sauvegarde/module-03/cartouche.png" data-desc-position="bottom"><img alt="cartouche.png" src="../../../../assets/images/sauvegarde/module-03/cartouche.png"></a></p>
 <p><a href="../corrections/">Correction inexistante</a></p>
 
 

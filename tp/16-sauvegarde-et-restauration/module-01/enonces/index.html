@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -16937,6 +16937,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#creation-de-linfrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Création de l'infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-du-module-01-concepts-enjeux-et-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP du Module 01 – Concepts, enjeux et définitions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duree-estimee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Durée estimée
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-heure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 heure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enonce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Énoncé
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -16965,19 +17039,108 @@
 
 
 <h1 id="enonce-creation-de-linfrastructure">Énoncé · Création de l’infrastructure<a class="headerlink" href="#enonce-creation-de-linfrastructure" title="Permanent link">¶</a></h1>
-<p>Durée estimée : 1 heure. Avoir suivi le module 1. Le gestionnaire Hyper-V et le partage distrib sont nécessaires sur la machine de salle.</p>
-<p>La transcription intégrale, le tableau des comptes et les adresses de la figure sont dans l’onglet <strong>Cours Original</strong> du <a href="../../../../modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition/">module 01</a>. Cette page garde l’ordre des gestes.</p>
-<p>Objectifs : installer le rôle Hyper-V ; déployer l’infrastructure pour les ateliers suivants.</p>
-<ol>
-<li>Importer les bundles <code>R:\Distrib\Bundles\TSSR\RES24_0160B - Sauvegarde &amp; restauration</code>.</li>
-<li>Stocker chaque VM dans son dossier sur <code>D:\</code>.</li>
-<li>Ne pas importer SRV-AD1 ni SRV-FIC1 : elles sont dans SRV-HyperV.</li>
-<li>Comptes du tableau : Srv-backup a le mot de passe écrit <code>Pa$$w0rd</code>. Les autres cellules affichent <code>*</code>. La vérification demande ensuite Administrateur / Pa$$w0rd sur les VM et admin / Pa$$w0rd sur le NAS.</li>
-<li>Allumer toutes les VM.</li>
-<li>Depuis srv-backup, joindre SRV-AD1, SRV-Fic1 et SRV-NAS. Ajuster le pare-feu si besoin.</li>
-<li>Portail <code>https://192.168.30.1</code>, puis <code>sudo wbinfo -t</code>, puis activer ISCSI.</li>
-<li>Depuis srv-fic1, ping srv-ad1, srv-backup et truenas.</li>
-</ol>
+<h2 id="creation-de-linfrastructure">Création de l'infrastructure<a class="headerlink" href="#creation-de-linfrastructure" title="Permanent link">¶</a></h2>
+<h2 id="tp-du-module-01-concepts-enjeux-et-definitions">TP du Module 01 – Concepts, enjeux et définitions<a class="headerlink" href="#tp-du-module-01-concepts-enjeux-et-definitions" title="Permanent link">¶</a></h2>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi le module 1. Pour ce module l’accès au gestionnaire Hyper-V est nécessaire sur votre machine de salle. Vous devez avoir accès au partage distrib.</p>
+<h2 id="duree-estimee">Durée estimée<a class="headerlink" href="#duree-estimee" title="Permanent link">¶</a></h2>
+<h2 id="1-heure">1 heure<a class="headerlink" href="#1-heure" title="Permanent link">¶</a></h2>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Installer le rôle HyperV sur le poste de salle</li>
+<li>Déployer l’infrastructure sous HyperV pour l’exécution des ateliers</li>
+</ul>
+<h2 id="enonce">Énoncé<a class="headerlink" href="#enonce" title="Permanent link">¶</a></h2>
+<p>En vous basant sur les informations fournies ci-dessous, vous importerez l’environnement de maquettage via les bundles disponible dans : R:\Distrib\Bundles\TSSR\RES24_0160B - Sauvegarde &amp; restauration</p>
+<p>Import des machines virtuelles dans l’environnement Hyper-V:</p>
+<ul>
+<li>Créez une arborescence de stockage de machine virtuelle sur le disque D:\ de votre machine de salle. Chaque machine virtuelle sera stockée dans un dossier dédié.</li>
+<li>Importez les machines virtuelles suivantes (voir lien ci-dessus) :</li>
+<li>Les machines SRV-AD1 et SRV-FIC1 ne sont pas à importer, elles sont intégrées au serveur SRV-HyperV
+Mot de Nom Type systèmes Domaine Login passe Windows Serveur Srv-backup Mondomaine.local Administrateur Pa$$w0rd SRV-Nas Freebsd – truenas Mondomaine.local admin *</li>
+</ul>
+<p>Routeur Freebsd - pfsense Mondomaine.local admin * Windows Serveur SRV-HyperV WORKGROUP Administrateur *</p>
+<p>Windows Serveur SRV-AD1 Mondomaine.local Administrateur * Windows Serveur SRV-FIC1 Mondomaine.local Administrateur *</p>
+<table>
+<thead>
+<tr>
+<th>Nom</th>
+<th>Type systèmes</th>
+<th>Domaine</th>
+<th>Login</th>
+<th>Mot de passe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Srv-backup</td>
+<td>Windows Serveur 2019</td>
+<td>Mondomaine.local</td>
+<td>Administrateur</td>
+<td>Pa$$w0rd</td>
+</tr>
+<tr>
+<td>SRV-Nas</td>
+<td>Freebsd – truenas</td>
+<td>Mondomaine.local</td>
+<td>admin</td>
+<td>*</td>
+</tr>
+<tr>
+<td>Routeur</td>
+<td>Freebsd - pfsense</td>
+<td>Mondomaine.local</td>
+<td>admin</td>
+<td>*</td>
+</tr>
+<tr>
+<td>SRV-HyperV</td>
+<td>Windows Serveur 2019</td>
+<td>WORKGROUP</td>
+<td>Administrateur</td>
+<td>*</td>
+</tr>
+<tr>
+<td>SRV-AD1</td>
+<td>Windows Serveur 2019</td>
+<td>Mondomaine.local</td>
+<td>Administrateur</td>
+<td>*</td>
+</tr>
+<tr>
+<td>SRV-FIC1</td>
+<td>Windows Serveur 2019</td>
+<td>Mondomaine.local</td>
+<td>Administrateur</td>
+<td>*</td>
+</tr>
+</tbody>
+</table>
+<p>Schéma de l’infrastructure :</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/sauvegarde/module-01/schema-infrastructure-1.png" data-desc-position="bottom"><img alt="schema-infrastructure-1.png" src="../../../../assets/images/sauvegarde/module-01/schema-infrastructure-1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/images/sauvegarde/module-01/schema-infrastructure-2.png" data-desc-position="bottom"><img alt="schema-infrastructure-2.png" src="../../../../assets/images/sauvegarde/module-01/schema-infrastructure-2.png"></a></p>
+<p>Vérification après import : L’objectif est de contrôler que notre infrastructure est opérationnelle et de finaliser certaines configurations.</p>
+<p>Allumer toutes les VM de notre infrastructure.</p>
+<ul>
+<li>
+<p>Ouvrir une session sur toutes vos VM :</p>
+<ul>
+<li>o Administrateur / Pa$$w0rd</li>
+</ul>
+</li>
+<li>
+<p>Depuis srv-backup</p>
+<ul>
+<li>o Vérifier la connectivité vers les serveurs suivants et ajuster les pare-feu Windows au besoin : ▪ SRV-AD1 ▪ SRV- Fic1 ▪ SRV-NAS</li>
+<li>o Préparation du NAS depuis SRV_Backup</li>
+<li>o Ouvrir chrome, vérifier que le portail web du serveur NAS est opérationnel ▪ URL : https://192.168.30.1 ▪ Login : admin / Pa$$w0rd ▪ Dans le menu « paramètres systèmes » - « Console » effectuer la commande « sudo wbinfo -t » pour vérifier que l’intégration AD est ok. ▪ Aller sur le menu « service » et activer le service « ISCSI ».</li>
+</ul>
+</li>
+<li>Sur srv-fic1<ul>
+<li>o Se connecter sur la VM : ▪ Administrateur ▪ Pa$$w0rd</li>
+<li>o Effectuer les pings suivants : ▪ srv-ad1 ▪ srv-backup ▪ truenas</li>
+</ul>
+</li>
+</ul>
 <p><a href="../../../../modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition/">Pas-à-pas commenté</a> · <a href="../corrections/">Correction inexistante</a></p>
 
 

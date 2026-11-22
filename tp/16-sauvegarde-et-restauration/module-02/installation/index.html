@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -16937,6 +16937,201 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#installation-et-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation et configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup-exec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Exec
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-du-module-02-types-de-sauvegarde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP du Module 02 – Types de sauvegarde
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enonce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Énoncé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sur-srv-ad1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sur srv-ad1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sur-srv-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sur srv-backup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#langue-francais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Langue Français
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-produit-backup-exec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation produit Backup exec
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-dinstallation-personnalisee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type d’installation Personnalisée
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compte-de-service-admin-du-domaine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compte de service Admin du domaine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-temps-de-linstallation-sur-srv-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le temps de l’installation sur srv-backup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ecriture-simultanee-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Écriture simultanée 4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajout-de-serveur-srv-ad1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ajout de serveur Srv-ad1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-a-niveau-de-backup-exec-agent-oui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise à niveau de Backup exec Agent Oui
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajout-de-serveur-srv-fic1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ajout de serveur Srv-fic1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-a-niveau-de-backup-exec-agent-oui_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise à niveau de Backup exec Agent Oui
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -16965,17 +17160,83 @@
 
 
 <h1 id="enonce-installation-et-configuration-de-backup-exec">Énoncé · Installation et configuration de Backup Exec<a class="headerlink" href="#enonce-installation-et-configuration-de-backup-exec" title="Permanent link">¶</a></h1>
-<p>Durée estimée : 3 heures. Avoir suivi les modules 1 et 2 et réalisé le TP d’infrastructure. La transcription des tableaux est dans l’onglet <strong>Cours Original</strong> du <a href="../../../../modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde/">module 02</a>.</p>
-<p>Objectifs : installer Veritas Backup Exec ; créer le stockage iSCSI ; sauvegarder le contrôleur et le serveur de fichiers.</p>
-<ol>
-<li>Sur srv-ad1, créer un utilisateur et ouvrir une session avec lui.</li>
-<li>Sur srv-backup, installation personnalisée locale en français. Passer les avertissements de vérification et l’ajout de licence. Options : défaut, Advanced Disk-based Backup, NDMP. Compte de service : admin du domaine. Instance locale de SQL Express.</li>
-<li>Initiateur iSCSI vers <code>192.168.30.1</code>, port <code>3260</code>. Formater le disque de 80 Go.</li>
-<li>Stockage sur disque nommé <code>backup</code>, description <code>backup sur nas</code>, 4 écritures simultanées.</li>
-<li>Ajouter Srv-ad1 avec mise à niveau de l’agent. Job <code>srv-ad1 job</code>, complète puis incrémentale, complète initiale, démarrage immédiat.</li>
-<li>Ajouter Srv-fic1. Si l’erreur <code>0xe00086ce</code> apparaît, copier <code>C:\Program Files\Veritas\Backup Exec\Agents</code> vers <code>C:\</code> de la cible par <code>c$</code>, exécuter <code>C:\Agents\RAWSX64\setup.exe</code>, puis refaire l’ajout.</li>
-<li>Job <code>srv-fic1 job</code>, complète, complète initiale, démarrage immédiat.</li>
-</ol>
+<h2 id="installation-et-configuration">Installation et configuration<a class="headerlink" href="#installation-et-configuration" title="Permanent link">¶</a></h2>
+<h2 id="backup-exec">Backup Exec<a class="headerlink" href="#backup-exec" title="Permanent link">¶</a></h2>
+<h2 id="tp-du-module-02-types-de-sauvegarde">TP du Module 02 – Types de sauvegarde<a class="headerlink" href="#tp-du-module-02-types-de-sauvegarde" title="Permanent link">¶</a></h2>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi les modules 1 et 2 et d’avoir réalisé le TP précédent.</p>
+<p>Durée estimée</p>
+<p>3 heures</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Installer la solution de sauvegarde Veritas Backup Exec</li>
+<li>Créer un partage iSCSI pour y stocker les sauvegardes</li>
+<li>Créer une sauvegarde d’un contrôleur de domaine et d’un serveur de fichiers</li>
+</ul>
+<h2 id="enonce">Énoncé<a class="headerlink" href="#enonce" title="Permanent link">¶</a></h2>
+<p>Partie 1 :</p>
+<h2 id="sur-srv-ad1">Sur srv-ad1<a class="headerlink" href="#sur-srv-ad1" title="Permanent link">¶</a></h2>
+<ul>
+<li>Créer un utilisateur dans l’AD<ul>
+<li>o Vérifier que celui-ci est opérationnel (ouverture de session)</li>
+</ul>
+</li>
+</ul>
+<h2 id="sur-srv-backup">Sur srv-backup<a class="headerlink" href="#sur-srv-backup" title="Permanent link">¶</a></h2>
+<ul>
+<li>Lancer l’installation de backup exec (setup fournis par le formateur).<ul>
+<li>o Prendre en compte les paramètres suivants pour l’installation :</li>
+</ul>
+</li>
+</ul>
+<h2 id="langue-francais">Langue                          Français<a class="headerlink" href="#langue-francais" title="Permanent link">¶</a></h2>
+<h2 id="installation-produit-backup-exec">Installation produit            Backup exec<a class="headerlink" href="#installation-produit-backup-exec" title="Permanent link">¶</a></h2>
+<h2 id="type-dinstallation-personnalisee">Type d’installation             Personnalisée<a class="headerlink" href="#type-dinstallation-personnalisee" title="Permanent link">¶</a></h2>
+<p>Menu Installation locale – le logiciel et des fonctions backup exec Vérification environnement Faire suivant même si des warnings sont présents Ajout de licence Faire suivant – valider infobulle Configurer les options • Valeur par défaut</p>
+<ul>
+<li>
+<p>Advanced Disk-based backup feature</p>
+</li>
+<li>
+<p>Fonction NDMP</p>
+</li>
+</ul>
+<h2 id="compte-de-service-admin-du-domaine">Compte de service               Admin du domaine<a class="headerlink" href="#compte-de-service-admin-du-domaine" title="Permanent link">¶</a></h2>
+<p>Sql server Créer une instance locale de SQL Express</p>
+<h2 id="le-temps-de-linstallation-sur-srv-backup">Le temps de l’installation sur srv-backup<a class="headerlink" href="#le-temps-de-linstallation-sur-srv-backup" title="Permanent link">¶</a></h2>
+<ul>
+<li>Connecter le partage iSCSI du NAS depuis le serveur srv-backup :<ul>
+<li>o Ouvrir l’application « initiateur iSCSI » depuis srv-backup.</li>
+<li>o Allez sur l’onglet « découverte » ➔ « découvrir un portail… » ➔ ajouter l’adresse IP du serveur NAS (192.168.30.1) et laisser le port 3260 par défaut.</li>
+<li>o Allez ensuite sur l’onglet « cible » puis sur « connexion », laissez les paramètres par défaut et valider.</li>
+<li>o Une fois sur le statut « connecté » fermer l’application « initiateur iSCSI ».</li>
+<li>o Ouvrir le gestionnaire de disque de srv-backup et formater le nouveau disque de 80 Go.</li>
+</ul>
+</li>
+<li>Ouvrir l’application Backup exec.<ul>
+<li>o Allez sur l’onglet « stockage » / « configurer le stockage » :
+Type de stockage Stockage basé sur disque Type de stockage sur disque Stockage sur disque Nom et description Nom : backup Description : backup sur nas Emplacement périphérique sur disque Sélectionnez le disque partagé iSCSI</li>
+</ul>
+</li>
+</ul>
+<h2 id="ecriture-simultanee-4">Écriture simultanée                             4<a class="headerlink" href="#ecriture-simultanee-4" title="Permanent link">¶</a></h2>
+<div class="language-text highlight"><pre><span></span><code>- o Allez sur l’onglet « Sauvegarde et restauration » / « serveurs et hôtes virtuelles » / « Ajouter » / « Ajouter un serveur » :
+</code></pre></div>
+<h2 id="ajout-de-serveur-srv-ad1">Ajout de serveur                              Srv-ad1<a class="headerlink" href="#ajout-de-serveur-srv-ad1" title="Permanent link">¶</a></h2>
+<p>Type de serveur Ordinateur et serveur Microsoft Windows</p>
+<h2 id="mise-a-niveau-de-backup-exec-agent-oui">Mise à niveau de Backup exec Agent            Oui<a class="headerlink" href="#mise-a-niveau-de-backup-exec-agent-oui" title="Permanent link">¶</a></h2>
+<div class="language-text highlight"><pre><span></span><code>- o Créer un job de sauvegarde pour le serveur srv-ad1 :
+</code></pre></div>
+<p>Type de sauvegarde Stockage basé sur disque Méthode de sauvegarde Sauvegarde basée sur agent Nom et description Nom : srv-ad1 job Description : Type de sauvegarde Complète puis incrémentale Modification Pour la sauvegarde complète “effectuer une sauvegarde complète initiale en plus de la planification sélectionnée” Création du job Valider la création du job et vérifier que la tâche de sauvegarde complète démarre juste après la création</p>
+<ul>
+<li>o Allez sur l’onglet « Sauvegarde et restauration » / « serveurs et hôtes virtuelles » / « Ajouter » / « Ajouter un serveur » :</li>
+</ul>
+<h2 id="ajout-de-serveur-srv-fic1">Ajout de serveur                              Srv-fic1<a class="headerlink" href="#ajout-de-serveur-srv-fic1" title="Permanent link">¶</a></h2>
+<p>Type de serveur Ordinateur et serveur Microsoft Windows</p>
+<h2 id="mise-a-niveau-de-backup-exec-agent-oui_1">Mise à niveau de Backup exec Agent            Oui<a class="headerlink" href="#mise-a-niveau-de-backup-exec-agent-oui_1" title="Permanent link">¶</a></h2>
+<p>Info : si pendant l’installation de l’agent vous obtenez l’erreur « Erreur finale : 0xe00086ce », suivre cette procédure : - Copier le dossier « C:\Program Files\Veritas\Backup Exec\Agents » depuis « srv-backup » - Coller le dossier à la racine du lecteur C: sur le serveur cible (utiliser le partage administratif c$) - Sur le serveur cible exécuter « C:\Agents\RAWSX64\setup.exe » - Une fois l’installation effectuer sur le serveur cible refaire l’ajout d’un nouveau serveur depuis SRV-Backup</p>
+<div class="language-text highlight"><pre><span></span><code>- o Créer un job de sauvegarde pour le serveur srv-fic1 :
+</code></pre></div>
+<p>Type de sauvegarde Stockage basé sur disque Méthode de sauvegarde Sauvegarde basée sur agent Nom et description Nom : srv-fic1 job Description : Type de sauvegarde Complète Modification Pour la sauvegarde complète “effectuer une sauvegarde complète initiale en plus de la planification sélectionnée” Création du job Valider la création du job et vérifier que la tâche de sauvegarde complète démarre juste après la création</p>
 <p><a href="../corrections-installation/">Correction inexistante</a></p>
 
 
