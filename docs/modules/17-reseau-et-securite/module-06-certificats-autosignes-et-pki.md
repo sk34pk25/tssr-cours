@@ -97,9 +97,31 @@ Semaine **2/2**. Support de cours : **Inexistant**.
 
 === "Cours Optimisé IA"
 
-    Le support de cours est **Inexistant**. Ce module réunit le TP6 et le TP7.
+    Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-    ![Schéma réseau du TP6](../../assets/images/reseau-et-securite/tp6/enonce-p01-02.png)
+    ## Parcours de lecture
+
+    1. TP7
+
+    La gestion des certificats
+    autosignés
+    TD5
+
+     Avant de démarrer ce TP, .
+
+                Durée estimée
+
+                  4 heures
+
+    Énoncé
+
+    Objectifs:
+
+    Mise en place de certificats autosignés
+
+    ![TP6, énoncé, page 1](../../assets/images/reseau-et-securite/tp6/enonce-p01-01.png)
+
+    ![TP6, énoncé, page 1](../../assets/images/reseau-et-securite/tp6/enonce-p01-02.png)
 
     Valeurs de la capture :
 
@@ -113,15 +135,69 @@ Semaine **2/2**. Support de cours : **Inexistant**.
     - SRV-Apache : 172.20.X.200/24
 
 
-    ![Schéma réseau du TP7](../../assets/images/reseau-et-securite/tp7/enonce-p01-02.png)
+    Sur SRV-MBR
+    Installer le rôle IIS et créer un certificat autosigné
+
+    Faire un enristrement DNS vers intranet.votredomaine.lab
+
+    Sur SRV-MBR
+    Installer le Apache2 et créer un certificat autosigné
+
+    Faire un enristrement DNS vers extranet.votredomaine.lab
+
+    Sur le routeur PFsense
+    Activer le https avec le certificat autosigné existant
+
+    Faire un enristrement DNS vers routeur.votredomaine.lab
+
+    Solution
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page [Correction](../../tp/17-reseau-et-securite/module-06/tp6/corrections.md)).
+
+    ## TP7
+
+    !!! note "À retenir"
+        Certificat émanant d'une Private-KI ADCS TD5 Avant de démarrer ce TP, .
+
+    Certificat émanant d'une
+    Private-KI ADCS                                           TD5
+
+     Avant de démarrer ce TP, .
+
+                Durée estimée
+
+                  4 heures
+
+    Énoncé
+
+    Objectifs:
+
+    Mise en place
+
+    ![TP7, énoncé, page 1](../../assets/images/reseau-et-securite/tp7/enonce-p01-01.png)
+
+    ![TP7, énoncé, page 1](../../assets/images/reseau-et-securite/tp7/enonce-p01-02.png)
 
 
-    TP6. Certificats autosignés pour IIS, Apache et pfSense, afin de chiffrer le trafic. La correction ajoute une seconde IP 172.20.X.153/26 sur SRV-MBR, les sites www et intranet, puis sur SRV-WEB l’adresse 172.20.X.202/26, lynx, et les sites intra et internet. pfSense répond en HTTPS sur routeur.votredomaine.lab.
+    Sur SRV-CD
+    Exécuter le script D:/InstallationPKI.ps1
 
-    TP7. Exécuter D:/InstallationPKI.ps1 sur SRV-CD, rendre certsrv fiable, puis faire signer les certificats des sites et du routeur par cette autorité. L’énoncé cite aussi http://88.66.44.1 pour la clé du formateur. Identifiants : **Inexistant**.
+    Sur SRV-MBR
+    Utiliser la clé privée du SRV-CD pour sécuriser votre URL intranet.votredomaine.lab
 
-## Pour pratiquer et réviser
+    Sur SRV-WEB
+    Utiliser la clé privée du SRV-CD pour sécuriser votre URL extranet.votredomaine.lab
 
-- [Fiche de révision](../../revision/17-reseau-et-securite/module-06.md)
-- [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-06.md)
-- [Sommaire du cours](index.md)
+    Sur le routeur PFsense
+    Utiliser la clé privée de votre formateur http://88.66.44.1 pour sécuriser votre URL
+    routeur.votredomaine.lab, votre formateur vous indiquera les identifiants.
+
+    Solution
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page [Correction](../../tp/17-reseau-et-securite/module-06/tp7/corrections.md)).
+
+    ## Fiche de synthèse
+
+    Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+    | Partie | Repère du cours |
+    | --- | --- |
+    | TP7 | Certificat émanant d'une Private-KI ADCS TD5 Avant de démarrer ce TP, . |
