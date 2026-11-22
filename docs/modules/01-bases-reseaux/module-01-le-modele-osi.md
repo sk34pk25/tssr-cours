@@ -3,7 +3,7 @@
 **Séquence :** Bases des réseaux  
 **Rôle dans le parcours :** décrire une communication couche par couche avant l’adressage, les échanges et les commandes.
 
-L’onglet Cours Original indique **Inexistant** : ce module n’a pas de support de cours PDF. La fiche suit les notes de quiz des modules 1 et 2. Le PDF homonyme est un doublon de ces notes : le même texte, mis en page. Il n’est pas repris à part.
+Source : notes de cours. Aucun support de cours PDF n’existe pour ce module. L’onglet Cours Original reprend ces notes. Le quiz qui les accompagne porte le titre « 30 QUESTIONS » ; 29 réponses sont écrites dans la source, et la ligne 19 n’a pas de réponse. Aucune question n’a été ajoutée.
 
 ## Objectifs
 

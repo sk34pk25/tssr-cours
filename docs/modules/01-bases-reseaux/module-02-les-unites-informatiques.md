@@ -3,7 +3,7 @@
 **Séquence :** Bases des réseaux  
 **Rôle dans le parcours :** lire et convertir les bases utilisées ensuite pour les adresses et les masques.
 
-L’onglet Cours Original indique **Inexistant**. Le dossier ne contient aucun document propre à ce module. La fiche suit la partie « unités » des notes de quiz des modules 1 et 2.
+Source : notes de cours. Aucun support de cours PDF n’existe pour ce module. L’onglet Cours Original reprend la partie « unités » de ces notes, et le quiz des modules 1 et 2 (titre « 30 QUESTIONS », 29 réponses écrites).
 
 ## Objectifs
 

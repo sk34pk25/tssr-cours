@@ -3,7 +3,7 @@
 **Séquence :** Bases des réseaux  
 **Rôle dans le parcours :** calculer réseau, diffusion et découpage avant d’étudier qui peut parler à qui.
 
-Le support de cours PDF est absent. L’onglet Cours Original contient l’énoncé et la correction du TP « Calcul des sous-réseaux », durée indiquée 3 heures. La fiche reprend aussi les notes de quiz des modules 3 et 4. L’activité Packet Tracer d’adressage n’est pas publiée.
+Le support de cours PDF est absent. L’onglet Cours Original contient l’énoncé et la correction du TP « Calcul des sous-réseaux », durée indiquée 3 heures, puis une section Notes de cours. L’activité Packet Tracer d’adressage n’est pas publiée.
 
 ## Objectifs
 

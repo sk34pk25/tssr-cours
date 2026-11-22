@@ -34519,7 +34519,7 @@
       "legacyOriginal": "assets/course-sources/57f74bdf13543af9/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/57f74bdf13543af9/transcription-1mNQ1Ny59XO49rcfVCwwXIxfECc3hEqF9.html",
-      "transcriptionSha256": "efb33e494d2f312408cd2a39331ba9932713db4e443f7715a24383277273d15b",
+      "transcriptionSha256": "eb3c533a973dfd6c393c7fb4799b2e82f0ac5ad6b6daee663d36815c059f889f",
       "pages": [
         {
           "number": 1,
@@ -68823,6 +68823,134 @@
           "sourceGraphicsDetected": 4
         }
       ]
+    },
+    "1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn": {
+      "id": "1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn",
+      "title": "Notes de cours — modules 1 et 2",
+      "role": "notes",
+      "sha256": "a962747a178b82dd0924fa20e257b41501547d8ca087cb8c8724ac44807cd243",
+      "pageCount": 0,
+      "drivePath": [
+        "Base des réseaux",
+        "cours kahoot",
+        "cours kahoot module 1 et 2.txt"
+      ],
+      "sourceNotice": "Source : notes de cours. Aucun support de cours PDF n’existe pour ce module.",
+      "legacyOriginal": "assets/course-sources/a962747a178b82dd/original.txt",
+      "sourceFormat": "text",
+      "transcript": "assets/course-sources/a962747a178b82dd/transcription-1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn.html",
+      "transcriptionSha256": "92589c4cc246689a7eb430fee7d1c86ce40fb0f3247219dedd6be325443b5776",
+      "pages": [
+        {
+          "number": 1,
+          "nativeSha256": "a962747a178b82dd0924fa20e257b41501547d8ca087cb8c8724ac44807cd243",
+          "nativeWords": 11610,
+          "ocrWords": 0,
+          "tables": 0,
+          "figures": 0,
+          "nativeCoverage": true,
+          "sourceGraphicsDetected": 0
+        }
+      ],
+      "figures": [],
+      "illustrationCount": 0,
+      "glyphs": []
+    },
+    "1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT": {
+      "id": "1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT",
+      "title": "Notes de cours",
+      "role": "notes",
+      "sha256": "6742f4b5b0b756fdecf31f1c9e91acbdaab2a93cca15f31b29e4c85e818b0239",
+      "pageCount": 0,
+      "drivePath": [
+        "Base des réseaux",
+        "cours kahoot",
+        "cours kahoot module 3 et 4.txt"
+      ],
+      "sourceNotice": "Source : notes de cours. Aucun support de cours PDF n’existe pour ce module.",
+      "legacyOriginal": "assets/course-sources/6742f4b5b0b756fd/original.txt",
+      "sourceFormat": "text",
+      "transcript": "assets/course-sources/6742f4b5b0b756fd/transcription-1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT.html",
+      "transcriptionSha256": "015360808a7bedfefb1339cda036a71d29b0b22dc30ceb889f63576071d559b4",
+      "pages": [
+        {
+          "number": 1,
+          "nativeSha256": "6742f4b5b0b756fdecf31f1c9e91acbdaab2a93cca15f31b29e4c85e818b0239",
+          "nativeWords": 8963,
+          "ocrWords": 0,
+          "tables": 0,
+          "figures": 0,
+          "nativeCoverage": true,
+          "sourceGraphicsDetected": 0
+        }
+      ],
+      "figures": [],
+      "illustrationCount": 0,
+      "glyphs": []
+    },
+    "1K6RxfeTNGDRc3zj_-mCuyoj1wy6mhLG5": {
+      "id": "1K6RxfeTNGDRc3zj_-mCuyoj1wy6mhLG5",
+      "title": "Notes de cours — modules 5 et 6",
+      "role": "notes",
+      "sha256": "62f223eb2e1b8e49a4fd4bb5c81392a5fbe4cd800b4eb26ac4cba2680c43585f",
+      "pageCount": 0,
+      "drivePath": [
+        "Base des réseaux",
+        "cours kahoot",
+        "cours kahoot module 5 et 6.txt"
+      ],
+      "sourceNotice": "Source : notes de cours. Aucun support de cours PDF n’existe pour ce module.",
+      "legacyOriginal": "assets/course-sources/62f223eb2e1b8e49/original.txt",
+      "sourceFormat": "text",
+      "transcript": "assets/course-sources/62f223eb2e1b8e49/transcription-1K6RxfeTNGDRc3zj_-mCuyoj1wy6mhLG5.html",
+      "transcriptionSha256": "27c852427b326aceb5f0f13b108e7692345c4a991e4421b69264bfbef3418e15",
+      "pages": [
+        {
+          "number": 1,
+          "nativeSha256": "62f223eb2e1b8e49a4fd4bb5c81392a5fbe4cd800b4eb26ac4cba2680c43585f",
+          "nativeWords": 7193,
+          "ocrWords": 0,
+          "tables": 0,
+          "figures": 0,
+          "nativeCoverage": true,
+          "sourceGraphicsDetected": 0
+        }
+      ],
+      "figures": [],
+      "illustrationCount": 0,
+      "glyphs": []
+    },
+    "1yZg-sL1N1_IEhwcIlVPg2aBJ-PkjBrIX": {
+      "id": "1yZg-sL1N1_IEhwcIlVPg2aBJ-PkjBrIX",
+      "title": "Quiz des notes de cours — modules 1 et 2",
+      "role": "notes",
+      "sha256": "1b365671ffb9859790c7a270061aa415ada9ccf7853b4973ee7b5010664e6724",
+      "pageCount": 1,
+      "drivePath": [
+        "Base des réseaux",
+        "cours kahoot",
+        "Cours_Reseaux_Modules1_2_Quiz_Kahoot.pdf"
+      ],
+      "sourceNotice": "Mise en page des notes des modules 1 et 2, plus le quiz de la dernière page. Les pages 1 à 32 reprennent le fichier de notes déjà transcrit. Seul le quiz, absent de ce fichier texte, est reproduit ici. Le titre de la source est « QUIZ KAHOOT (30 QUESTIONS) ». La source numérote 30 lignes. La ligne 19 n’a pas de réponse explicite : 29 réponses sont écrites. Aucune question n’a été ajoutée.",
+      "legacyOriginal": "assets/course-sources/1b365671ffb98597/original.pdf",
+      "sourceFormat": "pdf",
+      "transcript": "assets/course-sources/1b365671ffb98597/transcription-1yZg-sL1N1_IEhwcIlVPg2aBJ-PkjBrIX.html",
+      "transcriptionSha256": "e5c30d93ce1504640646cb0ba8b4508dd4c509b5d4f5a39d161aa06ff85af031",
+      "pages": [
+        {
+          "number": 1,
+          "nativeSha256": "1b365671ffb9859790c7a270061aa415ada9ccf7853b4973ee7b5010664e6724",
+          "nativeWords": 296,
+          "ocrWords": 0,
+          "tables": 0,
+          "figures": 0,
+          "nativeCoverage": true,
+          "sourceGraphicsDetected": 0
+        }
+      ],
+      "figures": [],
+      "illustrationCount": 0,
+      "glyphs": []
     }
   },
   "pages": {
@@ -68897,19 +69025,31 @@
       "1o0ntHLs0ZAkg2EFWnh_bTqaSCOrgmDj7",
       "1VyzxkiTFZ_7CSqJMtHamo5EC-2x4129U"
     ],
-    "modules/01-bases-reseaux/module-01-le-modele-osi.md": [],
-    "modules/01-bases-reseaux/module-02-les-unites-informatiques.md": [],
+    "modules/01-bases-reseaux/module-01-le-modele-osi.md": [
+      "1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn",
+      "1yZg-sL1N1_IEhwcIlVPg2aBJ-PkjBrIX"
+    ],
+    "modules/01-bases-reseaux/module-02-les-unites-informatiques.md": [
+      "1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn",
+      "1yZg-sL1N1_IEhwcIlVPg2aBJ-PkjBrIX"
+    ],
     "modules/01-bases-reseaux/module-03-l-adressage-ipv4.md": [
       "1tjvGBelc6J2jftBAFjm0l2psagWX-E-p",
-      "1ioU0uTtjNzBXzO5gbMCT3bxfja9CyLIc"
+      "1ioU0uTtjNzBXzO5gbMCT3bxfja9CyLIc",
+      "1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT"
     ],
     "modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md": [
       "1Gb0iImzxLM0SCnPeXVXePKlsvyOI1wWI",
       "10YzbJEVSVp0M8Bvnp9BseIrVedU1WI0I",
-      "1i-Qf_ZUbST6YqWne1bxUV3z_jfWGTGYW"
+      "1i-Qf_ZUbST6YqWne1bxUV3z_jfWGTGYW",
+      "1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT"
     ],
-    "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": [],
-    "modules/01-bases-reseaux/module-06-l-adressage-ipv6.md": [],
+    "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": [
+      "1K6RxfeTNGDRc3zj_-mCuyoj1wy6mhLG5"
+    ],
+    "modules/01-bases-reseaux/module-06-l-adressage-ipv6.md": [
+      "1K6RxfeTNGDRc3zj_-mCuyoj1wy6mhLG5"
+    ],
     "tp/reseaux/module-03/corrections.md": [
       "1ioU0uTtjNzBXzO5gbMCT3bxfja9CyLIc"
     ],
@@ -70618,10 +70758,10 @@
     "modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance.md": "Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.",
     "tp/10-msp-services-reseau/module-01/enonces.md": "Le scénario de cette MSP est fourni dans le document global Module-1.pdf. Il est reproduit ici intégralement ; aucun énoncé séparé n’est ajouté.",
     "tp/10-msp-services-reseau/module-01/index.md": "Le scénario de cette MSP est fourni dans le document global Module-1.pdf. Il est reproduit ici intégralement ; aucun énoncé séparé n’est ajouté.",
-    "modules/01-bases-reseaux/module-01-le-modele-osi.md": "Inexistant",
-    "modules/01-bases-reseaux/module-02-les-unites-informatiques.md": "Inexistant",
-    "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": "Inexistant",
-    "modules/01-bases-reseaux/module-06-l-adressage-ipv6.md": "Inexistant",
+    "modules/01-bases-reseaux/module-01-le-modele-osi.md": "Source : notes de cours. Aucun support de cours PDF n’existe pour ce module.",
+    "modules/01-bases-reseaux/module-02-les-unites-informatiques.md": "Source : notes de cours. Aucun support de cours PDF n’existe pour ce module.",
+    "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": "Source : notes de cours. Aucun support de cours PDF n’existe pour ce module.",
+    "modules/01-bases-reseaux/module-06-l-adressage-ipv6.md": "Source : notes de cours. Aucun support de cours PDF n’existe pour ce module.",
     "tp/reseaux/module-01/index.md": "Inexistant",
     "tp/reseaux/module-05/index.md": "Inexistant",
     "modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau.md": "Énoncé unique. Correction fournie : Inexistant.",
@@ -70631,8 +70771,8 @@
   "verification": {
     "scope": "Modules déjà publiés uniquement",
     "modules": 99,
-    "documents": 417,
-    "originalPages": 2695,
+    "documents": 421,
+    "originalPages": 2696,
     "method": "Transcription du texte natif et des éléments graphiques par OCR ; aucun PDF, aucune reproduction de diapositive. Croquis facultatifs isolés et vérifiés visuellement."
   },
   "documentaryExceptions": [

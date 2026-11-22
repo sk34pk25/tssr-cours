@@ -6,270 +6,391 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
 
 === "Cours Original"
 
-    ## Sommaire du support
+    Module 2 Types de sauvegarde
 
-    Sauvegarde à chaud et à froid, méthode d’archivage et bit d’archivage, sauvegarde complète, sauvegarde différentielle, sauvegarde incrémentale. Le corps du support ajoute la rotation des supports, les bases de données, une synthèse, puis les méthodes de restauration. Deux diapositives de démonstration ne portent qu’un titre.
+    SOMMAIRE Sauvegarde à chaud vs à froid
 
-    ## Rotation des supports — GPF / GFS
+    Méthode d’archivage – Bit d’archivage
 
-    Scénario traditionnel GPF (Grand-père / Père / Fils). En anglais : GFS (Grand-father / Father / Son).
+    Sauvegarde complète
 
-    - La rotation Grand-père / Père / Fils est la planification de rotation des médias la plus couramment utilisée.
-    - Support quotidien : Fils.
-    - Support hebdomadaire : Père.
-    - Support mensuel : Grand-Père.
-    - Une stratégie GFS sur 5 jours nécessite environ 21 bandes par an.
-    - Une stratégie sur 7 jours nécessite environ 23 bandes par an, soit deux bandes quotidiennes de plus.
-    - Pour ces deux planifications, le nombre de médias varie selon les critères de conservation et le volume de données sauvegardées.
+    Sauvegarde différentielle
 
-    La diapositive suivante est un schéma « Rotation standard avec GFS sur 5 jours (21 bandes) ». En-têtes : bandes fils quotidiennes (4 jours puis recyclées), bandes père hebdomadaires (5 semaines puis recyclées), bandes grand-père mensuelles (12 mois puis recyclées).
+    Sauvegarde incrémentale
 
-    Lecture du schéma, semaines 1 à 8. Les fils 1, 2, 3 et 4 reviennent chaque semaine. Les autres numéros sont ceux des cases père et grand-père :
+    ## ROTATION DES
 
-    | Semaine | Fils | Père | Grand-père |
-    |---|---|---|---|
-    | 1 | 1, 2, 3, 4 | 5 | 8 et 11 |
-    | 2 | 1, 2, 3, 4 | 6 | 12 |
-    | 3 | 1, 2, 3, 4 | 7 | 13 et 14 |
-    | 4 | 1, 2, 3, 4 | — | 15 et 16 |
-    | 5 | 1, 2, 3, 4 | 9 | 17 |
-    | 6 | 1, 2, 3, 4 | 10 | 18 et 19 |
-    | 7 | 1, 2, 3, 4 | 5 | 20 et 21 |
-    | 8 | 1, 2, 3, 4 | — | — |
+    Scénario de sauvegarde traditionnel GPF (Grand-père/Père/Fils) En anglais : GFS (Grand-father/Father/Son). SUPPORTS
 
-    Les numéros 1 à 21 sont tous présents une fois dans cette lecture, le 5 revenant en semaine 7. C’est la lecture retenue du schéma ; les deux colonnes mensuelles ne sont pas étiquetées une à une sur la diapositive.
+    - La rotation Grand-père/Père/Fils est la planification de rotation des médias la plus couramment utilisée :
+    - Support quotidien ➔ Fils
+    - Support hebdomadaire ➔ Père
+    - Support mensuel ➔ Grand-Père
+    - Une stratégie de rotation GFS sur 5 jours nécessite environ 21 bandes par an.
+    - Une stratégie sur 7 jours nécessite environ 23 bandes par an (deux bandes quotidiennes de plus).
+    - Pour ces deux planifications, le nombre de médias nécessaires varie selon les critères de conservation spécifiés et le nombre de données sauvegardées.
 
-    ## Sauvegarde à chaud et à froid
+    ## ROTATION DES
 
-    Lors du processus de sauvegarde, les données peuvent être accessibles aux utilisateurs ou non.
+    Bandes Fils Quotidiennes Bandes Père Hebdomadaires Bandes Grand-Père Mensuelles
 
-    | | À chaud | À froid |
-    |---|---|---|
-    | Définition | Les données sont sauvegardées en même temps qu’elles sont utilisées. | L’utilisateur n’a pas accès aux données durant tout le processus. |
-    | Atouts écrits en vert | Immédiatement accessibles. Facilement modifiables. | Mise en œuvre simple. Facile à restaurer. |
-    | Limite écrite en rouge | Mise en œuvre complexe. | Interruption du service le temps de la sauvegarde. |
+    ## SUPPORTS
 
-    ## Méthodes et attributs
+    (4 jours puis recyclées) (5 semaines puis recyclées) (12 mois puis recyclées)
 
-    Il existe plusieurs méthodes. Chacune fonctionne avec des attributs de fichiers spécifiques : attribut d’archive pour Microsoft et attribut date pour Unix.
+    Semaine 1 1 2 3 4 5 8
 
-    Système de date : beaucoup plus simple que le bit d’archivage. Une comparaison est réalisée entre la date de création ou de modification et la date de la dernière sauvegarde.
+    Semaine 2 1 2 3 4 6
 
-    Attribut d’archive Microsoft, bit d’archivage. Le schéma se lit ainsi :
+    Semaine 3 13 1 2 3 4 7
 
-    | Étape | Bit d’archive |
-    |---|---|
-    | Fichier d’origine | 0 |
-    | Création, modification ou fermeture | 1 |
-    | Après la sauvegarde | 0 |
+    Semaine 4 1 2 3 4 15
 
-    ## Trois méthodes
+    Semaine 5 1 2 3 4 9 17
 
-    Sauvegarde complète : copie l’ensemble des fichiers et dossiers d’un système. Impact sur le stockage important.
+    Semaine 6 18 1 2 3 4 10 19
 
-    Sauvegarde différentielle : elle effectue d’abord une sauvegarde complète. Chaque sauvegarde suivante prend en compte les modifications depuis la dernière sauvegarde complète.
+    Semaine 7 1 2 3 4 5 20
 
-    Sauvegarde incrémentale : elle effectue d’abord une copie complète. Chaque copie suivante prend en compte les modifications depuis la copie précédente.
+    Semaine 8 1 2 3 4
 
-    ### Complète
+    Rotation standard avec GFS sur 5 jours (21 bandes)
 
-    Sauvegarde la totalité des fichiers, modifiés ou non. Elle est la base de toute solution de sauvegarde.
+    ## SAUVEGARDE
 
-    - Elle ne se base pas sur l’attribut pour savoir quoi sauvegarder : elle sauvegarde tout.
-    - Elle modifie l’attribut en fin de sauvegarde pour marquer le fichier.
+    Lors du processus de sauvegarde, les données peuvent être
 
-    Le calendrier lun–ven de la diapositive est entièrement en sauvegarde complète.
+    ## À CHAUD ET
 
-    Avantages : restauration rapide et simple ; sauvegarde la plus fiable ; permet de supprimer très facilement les anciennes sauvegardes.
+    accessibles aux utilisateurs ou non. À FROID Sauvegarde à chaud : Sauvegarde à froid : les données sont sauvegardées en l'utilisateur n'a pas accès aux même temps qu'elles sont utilisées données durant tout le processus par l'utilisateur. de sauvegarde. + Immédiatement accessibles + Mise en œuvre simple + Facilement modifiables + Facile à restaurer - Mise en œuvre complexe - Interruption du service le temps de la sauvegarde
 
-    Inconvénients : très gourmand en espace si l’on souhaite garder les anciennes sauvegardes ; les fichiers non modifiés seront sauvegardés plusieurs fois.
+    MÉTHODE DE
 
-    ### Différentielle
+    ## SAUVEGARDE
 
-    Aussi appelée cumulative ou T1. Sauvegarde les données modifiées ou ajoutées depuis la dernière sauvegarde complète, appelée « base différentielle ».
+    Il existe plusieurs méthodes de sauvegarde, chacune des méthodes définies ci-après fonctionne avec des attributs de fichiers spécifiques, attribut d'archive pour Microsoft et attribut date pour Unix... Système de date Beaucoup plus simple que le bit d'archivage, une comparaison est réalisée entre la date de création, ou de modification, et la date de la dernière sauvegarde.
 
-    - Prend tous les fichiers dont l’attribut Archive vaut 1.
-    - Après la sauvegarde, l’attribut n’est pas remis à 0. Méthode dite cumulative.
+    ## MÉTHODE DE
 
-    Le calendrier montre une complète, puis des différentielles des fichiers créés ou modifiés.
+    Attribut d’archive Microsoft : le bit d’archivage00 SAUVEGARDE Fichier origine Bit archive = 0
 
-    Avantages : restauration simple et rapide ; temps de sauvegarde modéré ; plus fiable qu’une sauvegarde incrémentielle.
+    Création-Modification fermeture
 
-    Inconvénients : plus lente et plus coûteuse qu’une sauvegarde incrémentielle ; pas de rémanence sur les fichiers si un seul support de sauvegarde est utilisé.
+    Fichier N+1 Bit archive = 1
 
-    La diapositive écrit « incrémentielle » ici, et « incrémentale » dans le titre de la méthode suivante. Les deux graphies sont conservées.
+    sauvegarde
 
-    ### Incrémentale
+    Fichier N+1 Bit archive = 0
 
-    Sauvegarde les données modifiées ou ajoutées depuis la dernière sauvegarde complète puis incrémentale.
+    ## MÉTHODE DE
 
-    - Prend tous les fichiers dont l’attribut Archive vaut 1.
-    - Après la sauvegarde, l’attribut est remis à 0.
+    Sauvegarde complète
 
-    Avantages : espace de stockage, temps de sauvegarde, consommation de la bande passante.
+    ## SAUVEGARDE
 
-    Inconvénients : temps, complexité et fiabilité de la restauration des données.
+    - Copie l'ensemble des fichiers et dossiers d'un système : impact sur le stockage important. Sauvegarde différentielle
+    - La différentielle effectue d'abord une sauvegarde complète et chaque sauvegarde suivante prendra en compte les modifications apportées depuis la dernière sauvegarde complète. Sauvegarde incrémentale
+    - L'incrémentale effectue d'abord une copie complète et chaque copie suivante prendra en compte les modifications apportées depuis la copie précédente.
 
-    ## Sauvegarde d’une base de données
+    ## SAUVEGARDE
 
-    - Une base de données est un ensemble structuré de données stockées de manière à être efficacement consultées et mises à jour.
-    - Elle est gérée par un SGBD.
-    - Elle permet d’assurer l’intégrité, la disponibilité et la sécurité des données.
-    - Exemples cités : bases relationnelles comme PostgreSQL ou MySQL, bases NoSQL comme MongoDB, systèmes distribués comme Cassandra.
-    - Ces bases peuvent être déployées localement, sur des serveurs dédiés, ou dans le cloud.
+    Sauvegarde complète
 
-    Il n’y a pas de règle : chaque type de base dispose d’une ou plusieurs méthodes qui lui sont propres.
+    ## COMPLETE
 
-    - Base SQL Server : sauvegarde via SQL Server Management Studio.
-    - Base MySQL : sauvegarde via la création d’un fichier DUMP.sql. La ligne du support est : `mysqldump -u username -p` puis les options, le nom de base, le nom de table, et la redirection `> dumpfilename.sql`. Le support place un mot « password » entre guillemets comme exemple d’invite. Cette page ne recopie pas cet exemple sous la forme d’une affectation.
-    - Base Oracle : utilisation de RMAN. La ligne du support est `rman> backup incremental level 0 section size 512m database plus archivelog;`
+    - Sauvegarde la totalité des fichiers, modifiés ou non. Elle est la base de toute solution de sauvegarde. Fonctionnement :
+    - Ne se base pas sur l'attribut pour savoir quoi sauvegarder, elle sauvegarde tout !
+    - Modifie l'attribut en fin de sauvegarde pour marquer le fichier.
+    lun mar mer jeu ven
 
-    ## Synthèse du support
+    ## SAUVEGARDE
 
-    | Méthode | Données | Temps de sauvegarde | Temps de restauration | Espace disque | Atouts | Limites |
-    |---|---|---|---|---|---|---|
-    | Complète | Toutes | Lent | Rapide | Élevé | Fiabilité | Espace de stockage important |
-    | Incrémentale | Uniquement les données modifiées par rapport à la précédente sauvegarde | Rapide | Modéré / long | Le plus faible | Volume de sauvegarde réduit | Nécessite toutes les sauvegardes |
-    | Différentielle | Uniquement les données modifiées depuis la précédente sauvegarde complète | Modéré | Rapide | Modéré | Restauration à partir de la dernière sauvegarde | Sauvegarde volumineuse |
+    Avantages :
 
-    ## Démonstration — création de job
+    ## COMPLETE
 
-    La diapositive ne contient que le titre « Création de job ». Pas-à-pas de la démonstration : **Inexistant**. Les gestes demandés sont dans l’énoncé d’installation.
+    - Restauration rapide et simple.
+    - Sauvegarde la plus fiable.
+    - Permet de supprimer très facilement les anciennes sauvegardes.
+    Inconvénients :
 
-    ## Restauration
+    - Très gourmand en espace de stockage si l'on souhaite garder les anciennes sauvegardes.
+    - Les fichiers qui n'ont pas été modifiés seront sauvegardés plusieurs fois.
 
-    La restauration d’un fichier, d’une application, d’une base ou d’un système complet est la finalité de tout plan de sauvegarde. Phrase mise en avant : « On n’a jamais de problème de sauvegarde, que des problèmes de restauration ! »
+    ## SAUVEGARDE
 
-    Les sauvegardes doivent obligatoirement être testées à intervalle régulier. Un plan de sauvegarde ne sera considéré comme complet qu’après ces tests.
+    Sauvegarde différentielle - cumulative ou T1
 
-    ### Restauration à la demande
+    - Sauvegarde les données modifiées ou ajoutées depuis la dernière
+    ## DIFFERENTIELLE
 
-    Concerne des fichiers perdus, effacés ou altérés.
+    sauvegarde complète appelée « Base différentielle ». Fonctionnement :
 
-    - Restaurer sur l’original, avec risque de perte des données actuelles.
-    - Restaurer sur un emplacement différent du même système : protection contre l’écrasement, le plus couramment utilisé.
-    - Restaurer sur un autre système : contrôle avant retour en production, palier des problèmes de stockage, restauration complète de machines virtuelles.
+    - Prend tous les fichiers ayant leur attribut Archive à 1.
+    - Après la sauvegarde l'attribut n'est pas remis à 0, méthode dite cumulative.
+    lun mar mer jeu ven Sauvegarde complète
+
+    ## SAUVEGARDE
+
+    Avantage :
+
+    ## DIFFERENTIELLE
+
+    - Restauration simple et rapide.
+    - Temps de sauvegarde modéré.
+    - Plus fiable qu'une sauvegarde incrémentielle.
+    Inconvénients :
+
+    - Plus lente et coûteuse qu'une sauvegarde incrémentielle.
+    - Pas de rémanence sur les fichiers si un seul support de sauvegarde est utilisé.
+
+    ## SAUVEGARDE
+
+    Sauvegarde incrémentale
+
+    - La sauvegarde incrémentale sauvegarde les données modifiées ou
+    ## INCREMENTALE
+
+    ajoutées depuis la dernière sauvegarde complète puis incrémentale. Fonctionnement :
+
+    - Prend tous les fichiers ayant leurs attributs Archive à 1.
+    - Après la sauvegarde l'attribut est remis à 0.
+    lun mar mer jeu ven
+
+    ## SAUVEGARDE
+
+    Avantage :
+
+    ## INCREMENTALE
+
+    - L'espace de stockage.
+    - Le temps de sauvegarde.
+    - La consommation de la bande passante.
+    Inconvénients :
+
+    - Temps.
+    - Complexité et fiabilité de la restauration des données.
+
+    SAUVEGARDE
+
+    ## D’UNE BASE DE
+
+    - Une base de données est un ensemble structuré de données stockées
+    ## DONNÉES
+
+    de manière à être efficacement consultées et mises à jour.
+
+    - Gérée par un système de gestion de base de données (SGBD).
+    - Permet d'assurer l'intégrité, la disponibilité et la sécurité des données.
+    - Exemple de bases de données relationnelles comme PostgreSQL ou MySQL, de bases NoSQL comme MongoDB, ou de systèmes distribués comme Cassandra.
+    - Ces bases de données peuvent être déployées localement, sur des serveurs dédiés, ou dans le cloud, selon les besoins et la complexité du projet.
+
+    La sauvegarde d'une base de données
+
+    ## MÉTHODE DE
+
+    Il n'y a pas de règle, chaque type de BDD dispose
+
+    ## SAUVEGARDE :
+
+    d’une ou plusieurs méthodes qui lui est propre.
+
+    ## BASE DE DONNÉES
+
+    Exemples :
+
+    - Base SQL Server => sauvegarde via SQL Server Management Studio
+    - Base MySQL=> sauvegarde via la création d'un fichier DUMP.sql
+    - mysqldump -u username –p «password» [options] «database_name» «tablename» > dumpfilename.sql
+    - Base Oracle => utilisation de RMAN
+    - rman> backup incremental level 0 section size 512m database plus archivelog;
+
+    SYNTHESE Méthode de Données Temps de Temps de sauvegarde sauvegardées sauvegarde restauration Sauvegarde Toutes Lent Rapide Élevé Fiabilité stockage complète Uniquement les données modifiées Volume de Nécessite Sauvegarde Le plus par rapport à la Rapide Modéré/long sauvegarde toutes les incrémentale faible précédente réduit sauvegardes sauvegarde
+
+    Uniquement les Restauration à Sauvegarde données modifiées partir de la Sauvegarde différentielle depuis la précédente dernière volumineuse sauvegarde complète sauvegarde
+
+    Création de job DÉMONSTRATION
+
+    TRAVAUX TRAVAUX PRATIQUES
+
+    ## PRATIQUES
+
+    Mise en place de Backup Exec N°2
+
+    ## MÉTHODE DE
+
+    - La restauration d'éléments, que ce soit un fichier, une application, une base de données, ou un système complet est la finalité de tout
+    ## RESTAURATION
+
+    plan de sauvegarde. On n'a jamais de problème de sauvegarde, que des problèmes de restauration !
+
+    - Les sauvegardes que l'on réalise doivent OBLIGATOIREMENT ÊTRE TESTÉES à intervalle régulier.
+    - Un plan de sauvegarde ne sera considéré comme complet qu'après avoir effectué ces tests.
+
+    MÉTHODE DE
+
+    ## RESTAURATION
+
+    La restauration à la demande Concerne des fichiers perdus, effacés ou altérés. Plusieurs possibilités sont disponibles :
+
+    - Restaurer sur l'original (risque de perte des données actuelles).
+    - Restaurer sur un emplacement différent du même système.
+    - Protection contre l'écrasement.
+    - Le plus couramment utilisé.
+    - Restaurer sur un autre système.
+    - Contrôle avant retour en production.
+    - Palier des problèmes de stockage.
+    - Restauration complète de machines virtuelles.
     - Restaurer une ancienne version via le versionning.
 
-    ### Restauration du système complet
+    MÉTHODE DE
 
-    Les solutions utilisant une méthode appelée Bare-Metal-Recovery permettent la reconstruction d’un système complet à partir d’une nouvelle unité de disques.
+    ## RESTAURATION
 
-    1. Architecture cible identique à l’architecture source.
-    2. Restauration de l’image de sauvegarde.
-    3. Restauration des données correspondant au delta entre la création de l’image source et la date de la restauration.
+    La restauration du système d'exploitation complet d'un serveur Les solutions utilisant une méthode appelée Bare-Metal-Recovery permettent la reconstruction d’un système complet à partir d’une nouvelle unité de disques.
 
-    ### Restauration d’une base
+    Conditions et étapes 1. Architecture cible identique à l’architecture source. 2. Restauration de l'image de sauvegarde. 3. Restauration des données correspondant au Delta entre la création de l'image source et la date de la restauration.
 
-    Il n’y a pas de règle. Chaque type de base a une ou plusieurs méthodes.
+    ## MÉTHODE DE
 
-    - SQL Server : restauration via SQL Server Management Studio.
-    - MySQL : restauration via l’import d’un fichier DUMP.sql. Le support montre `mysql` avec un utilisateur et une option de mot de passe, puis `< fichier_source.sql`.
-    - Oracle : restauration des fichiers depuis une sauvegarde à froid ; import datapump ; utilisation de RMAN.
+    La restauration d'une base de données
 
-    ## Démonstration — restauration
+    ## RESTAURATION
 
-    La diapositive ne contient que le titre « Restauration ». Pas-à-pas : **Inexistant**.
+    Il n'y a pas de règle, chaque type de BDD dispose d’une ou plusieurs méthodes de restauration qui lui est propre. Exemples :
 
-    La diapositive de travaux pratiques n°3 annonce « Restauration Backup Exec » et « Duplication ». Le détail est dans le second énoncé.
+    - Base SQL Server => restauration via SQL Server Management Studio
+    - Base MySQL => restauration via l'import d'un fichier DUMP.sql mysql --user=mon_user --password=mon_password < fichier_source.sql
+    - Base Oracle => restauration des fichiers depuis une sauvegarde à froid ; import datapump ; utilisation de RMAN...
 
-    ## Énoncé — Installation et configuration de Backup Exec
+    TRAVAUX TRAVAUX PRATIQUES Restauration Backup Exec PRATIQUES
 
-    TP du module 02. Avoir suivi les modules 1 et 2 et réalisé le TP précédent. Durée estimée : 3 heures.
+    ## N°3
 
-    Objectifs : installer Veritas Backup Exec ; créer un partage iSCSI pour y stocker les sauvegardes ; créer une sauvegarde d’un contrôleur de domaine et d’un serveur de fichiers.
+    Duplication
 
-    ### Partie 1 — annuaire et installation
+    DÉMONSTRATION
 
-    Sur srv-ad1 : créer un utilisateur dans l’annuaire et vérifier qu’il est opérationnel par une ouverture de session.
+    Restauration DÉMONSTRATION
 
-    Sur srv-backup : lancer l’installation de Backup Exec. Le setup est fourni par le formateur. Paramètres :
 
-    | Paramètre | Valeur de l’énoncé |
-    |---|---|
-    | Langue | Français |
-    | Installation produit | Backup exec |
-    | Type d’installation | Personnalisée |
-    | Menu | Installation locale – le logiciel et des fonctions backup exec |
-    | Vérification environnement | Faire suivant même si des avertissements sont présents |
-    | Ajout de licence | Faire suivant – valider l’infobulle |
-    | Configurer les options | Valeur par défaut ; Advanced Disk-based backup feature ; Fonction NDMP |
-    | Compte de service | Admin du domaine |
-    | SQL Server | Créer une instance locale de SQL Express |
+    ![bit-archivage.png](../../assets/images/sauvegarde/module-02/bit-archivage.png)
 
-    ### Partie iSCSI, pendant l’installation
+    ## Installation et configuration
 
-    Depuis srv-backup :
+    ## Backup Exec
 
-    1. Ouvrir l’initiateur iSCSI.
-    2. Onglet découverte, découvrir un portail, ajouter l’adresse du NAS `192.168.30.1`, laisser le port 3260.
-    3. Onglet cible, connexion, paramètres par défaut, valider.
-    4. Au statut « connecté », fermer l’initiateur.
-    5. Ouvrir le gestionnaire de disque et formater le nouveau disque de 80 Go.
+    ## TP du Module 02 – Types de sauvegarde
 
-    ### Stockage et job du contrôleur
+    Avant de démarrer ce TP, il convient d’avoir suivi les modules 1 et 2 et d’avoir réalisé le TP précédent.
 
-    Onglet stockage, configurer le stockage :
+    Durée estimée
 
-    | Paramètre | Valeur |
-    |---|---|
-    | Type de stockage | Stockage basé sur disque |
-    | Type de stockage sur disque | Stockage sur disque |
-    | Nom | backup |
-    | Description | backup sur nas |
-    | Emplacement | Disque partagé iSCSI |
-    | Écriture simultanée | 4 |
+    3 heures
 
-    Puis sauvegarde et restauration, serveurs et hôtes virtuels, ajouter un serveur :
+    ## Objectifs
 
-    | Paramètre | Valeur |
-    |---|---|
-    | Ajout de serveur | Srv-ad1 |
-    | Type | Ordinateur et serveur Microsoft Windows |
-    | Mise à niveau de l’agent Backup Exec | Oui |
+    - Installer la solution de sauvegarde Veritas Backup Exec
+    - Créer un partage iSCSI pour y stocker les sauvegardes
+    - Créer une sauvegarde d’un contrôleur de domaine et d’un serveur de fichiers
+    ## Énoncé
 
-    Job de srv-ad1 :
+    Partie 1 :
 
-    | Paramètre | Valeur |
-    |---|---|
-    | Type de sauvegarde | Stockage basé sur disque |
-    | Méthode | Sauvegarde basée sur agent |
-    | Nom | srv-ad1 job |
-    | Description | vide dans l’énoncé |
-    | Type | Complète puis incrémentale |
-    | Modification | Pour la sauvegarde complète, effectuer une sauvegarde complète initiale en plus de la planification sélectionnée |
-    | Création | Valider et vérifier que la tâche complète démarre juste après |
+    ## Sur srv-ad1
 
-    ### Serveur de fichiers
+    - Créer un utilisateur dans l’AD
+        - o Vérifier que celui-ci est opérationnel (ouverture de session)
+    ## Sur srv-backup
 
-    Même chemin d’ajout :
+    - Lancer l’installation de backup exec (setup fournis par le formateur).
+        - o Prendre en compte les paramètres suivants pour l’installation :
+    ## Langue                          Français
 
-    | Paramètre | Valeur |
-    |---|---|
-    | Ajout de serveur | Srv-fic1 |
-    | Type | Ordinateur et serveur Microsoft Windows |
-    | Mise à niveau de l’agent | Oui |
+    ## Installation produit            Backup exec
 
-    Si l’installation de l’agent renvoie « Erreur finale : 0xe00086ce » :
+    ## Type d’installation             Personnalisée
 
-    - copier `C:\Program Files\Veritas\Backup Exec\Agents` depuis srv-backup ;
-    - coller le dossier à la racine de `C:` sur le serveur cible, via le partage administratif `c$` ;
-    - sur la cible, exécuter `C:\Agents\RAWSX64\setup.exe` ;
-    - une fois l’installation faite, refaire l’ajout du serveur depuis SRV-Backup.
+    Menu Installation locale – le logiciel et des fonctions backup exec Vérification environnement Faire suivant même si des warnings sont présents Ajout de licence Faire suivant – valider infobulle Configurer les options • Valeur par défaut
 
-    Job de srv-fic1 : stockage basé sur disque, méthode basée sur agent, nom `srv-fic1 job`, description vide, type complète, même option de complète initiale, et vérifier le démarrage immédiat.
+    - Advanced Disk-based backup feature
 
-    ## Énoncé — Sauvegarde et restauration Backup Exec
+    - Fonction NDMP
+    ## Compte de service               Admin du domaine
 
-    Avoir suivi les modules 1 et 2 et réalisé le TP précédent. Durée estimée : 1 heure.
+    Sql server Créer une instance locale de SQL Express
 
-    Objectifs : restaurer un utilisateur de l’annuaire ; créer un partage NTFS pour y stocker les sauvegardes ; créer une sauvegarde dupliquée.
+    ## Le temps de l’installation sur srv-backup
 
-    - Après vérification de la sauvegarde complète srv-ad1 : s’il n’y a pas d’erreur, se connecter sur srv-ad1, supprimer l’utilisateur créé au début du TP précédent, puis depuis Backup Exec effectuer une restauration granulaire de cet utilisateur seulement. Tester ensuite une connexion avec cet utilisateur.
-    - Sur srv-fic1, ajouter un disque de 45 Go. Y créer un dossier partagé nommé `backup-fic1`.
-    - Sur srv-backup, ajouter le partage `backup-fic1` au pool de stockage. Modifier le job srv-ad1 : après une sauvegarde complète, dupliquer vers `backup-fic1` ; après une sauvegarde incrémentale, dupliquer aussi vers `backup-fic1`. L’énoncé écrit : « le doit job doit effectuer une duplication ». La phrase est conservée. Avec l’ajout du stockage, faire attention aux paramètres de stockage des jobs. Relancer une sauvegarde complète à la fin de la modification.
+    - Connecter le partage iSCSI du NAS depuis le serveur srv-backup :
+        - o Ouvrir l’application « initiateur iSCSI » depuis srv-backup.
+        - o Allez sur l’onglet « découverte » ➔ « découvrir un portail… » ➔ ajouter l’adresse IP du serveur NAS (192.168.30.1) et laisser le port 3260 par défaut.
+        - o Allez ensuite sur l’onglet « cible » puis sur « connexion », laissez les paramètres par défaut et valider.
+        - o Une fois sur le statut « connecté » fermer l’application « initiateur iSCSI ».
+        - o Ouvrir le gestionnaire de disque de srv-backup et formater le nouveau disque de 80 Go.
+    - Ouvrir l’application Backup exec.
+        - o Allez sur l’onglet « stockage » / « configurer le stockage » :
+    Type de stockage Stockage basé sur disque Type de stockage sur disque Stockage sur disque Nom et description Nom : backup Description : backup sur nas Emplacement périphérique sur disque Sélectionnez le disque partagé iSCSI
 
-    Corrections des deux TP : **Inexistant**.
+    ## Écriture simultanée                             4
+
+        - o Allez sur l’onglet « Sauvegarde et restauration » / « serveurs et hôtes virtuelles » / « Ajouter » / « Ajouter un serveur » :
+    ## Ajout de serveur                              Srv-ad1
+
+    Type de serveur Ordinateur et serveur Microsoft Windows
+
+    ## Mise à niveau de Backup exec Agent            Oui
+
+        - o Créer un job de sauvegarde pour le serveur srv-ad1 :
+    Type de sauvegarde Stockage basé sur disque Méthode de sauvegarde Sauvegarde basée sur agent Nom et description Nom : srv-ad1 job Description : Type de sauvegarde Complète puis incrémentale Modification Pour la sauvegarde complète “effectuer une sauvegarde complète initiale en plus de la planification sélectionnée” Création du job Valider la création du job et vérifier que la tâche de sauvegarde complète démarre juste après la création
+
+    - o Allez sur l’onglet « Sauvegarde et restauration » / « serveurs et hôtes virtuelles » / « Ajouter » / « Ajouter un serveur » :
+    ## Ajout de serveur                              Srv-fic1
+
+    Type de serveur Ordinateur et serveur Microsoft Windows
+
+    ## Mise à niveau de Backup exec Agent            Oui
+
+    Info : si pendant l’installation de l’agent vous obtenez l’erreur « Erreur finale : 0xe00086ce », suivre cette procédure : - Copier le dossier « C:\Program Files\Veritas\Backup Exec\Agents » depuis « srv-backup » - Coller le dossier à la racine du lecteur C: sur le serveur cible (utiliser le partage administratif c$) - Sur le serveur cible exécuter « C:\Agents\RAWSX64\setup.exe » - Une fois l’installation effectuer sur le serveur cible refaire l’ajout d’un nouveau serveur depuis SRV-Backup
+
+        - o Créer un job de sauvegarde pour le serveur srv-fic1 :
+    Type de sauvegarde Stockage basé sur disque Méthode de sauvegarde Sauvegarde basée sur agent Nom et description Nom : srv-fic1 job Description : Type de sauvegarde Complète Modification Pour la sauvegarde complète “effectuer une sauvegarde complète initiale en plus de la planification sélectionnée” Création du job Valider la création du job et vérifier que la tâche de sauvegarde complète démarre juste après la création
+
+
+    ## Sauvegarde et restauration
+
+    ## Backup Exec
+
+    ## TP du Module 02 – Types de sauvegarde
+
+    Avant de démarrer ce TP, il convient d’avoir suivi les modules 1 et 2 d’avoir réalisé le TP précédent.
+
+    Durée estimée
+
+    1 heure
+
+    ## Objectifs
+
+    - Restaurer un utilisateur de l’AD
+    - Créer un partage NTFS pour y stocker les sauvegardes
+    - Créer une sauvegarde dupliquée
+    ## Énoncé
+
+    - Après vérification de la sauvegarde complète srv-ad1 du TP précédent
+        - o S'il n’y a pas d’erreur lors de la sauvegarde
+        - o Se connecter sur le serveur srv-ad1 ▪ Supprimer l’utilisateur généré au début du TP précédent
+        - o Depuis backup Exec effectuer une restauration granulaire en ne restaurant que l’utilisateur supprimé
+        - o Une fois restauré faire directement un test de connexion avec cet utilisateur
+    - Sur srv-fic1 ajouter un hdd de 45go
+        - o Sur ce disque créer un dossier partagé nommé “backup-fic1” que vous partagerez
+    - Sur srv-backup
+        - o Ajouter le partage “backup-fic1” au pool de stockage de backup-exec
+        - o Modifier le job de sauvegarde du serveur srv-ad1 pour lui ajouter les caractéristiques suivantes : ▪ Après l’exécution d’une sauvegarde complète, le job doit effectuer une duplication de la sauvegarde vers le partage “backup-fic1” ▪ Après l’exécution d’une sauvegarde incrémentale, le doit job doit effectuer une duplication de la sauvegarde vers le partage “backup-fic1”
+        - o Avec l’ajout du stockage vous ferez attention aux paramètres de stockage des jobs
+
+    o Vous lancerez de nouveau l’exécution d’une sauvegarde complète à la fin de la
+
+    ## modification du job
 
 === "Cours Optimisé IA"
 

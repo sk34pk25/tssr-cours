@@ -1,14 +1,65 @@
 # Énoncé · Sauvegarde et restauration Veeam
 
-Durée estimée : 1 heure. Avoir suivi les modules 1 à 3 et réalisé le TP précédent. Transcription dans le [module 03](../../../modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage.md).
+## Sauvegarde et restauration
 
-Objectifs : installer Veeam Backup & Replication ; sauvegarder des VM ; restaurer une VM.
+## VEEAM
 
-1. Sur SRV-HyperV, ouvrir le port 445, Accès réseau (NP-in).
-2. Sur Srv-backup, désinstaller Backup Exec et installer VEEAM 12 backup & replication.
-3. Inventory, Add Server : nom `SRV-HyperV`, type Microsoft Hyper-V Server (Standalone), compte `SRV-HyperV\administrateur`, task limit 4. L’énoncé écrit « Crédential ».
-4. Vérifier la présence de SRV-AD1 et SRV-FIC1.
-5. Home, Backup job, Virtual Machine. Nom `SVGD-FIC1`, VM `Srv-Fic1`, stockage Default Backup Repository, task limit 4. Exécution immédiate.
-6. Si la complète n’a pas d’erreur, supprimer srv-fic1 dans Hyper-V, restaurer la VM entière, puis vérifier que le serveur est opérationnel.
+## TP du Module 03 – Gestion du stockage
+
+Avant de démarrer ce TP, il convient d’avoir suivi les modules 1, 2 et 3 et d’avoir réalisé le TP précédent.
+
+Durée estimée
+
+1 heure
+
+## Objectifs
+
+- Installer la solution de sauvegarde Veeam Backup & Replication
+- Sauvegarder des VM
+- Restaurer une VM
+## Énoncé
+
+Sur SRV-HyperV :
+
+Ne pas oublier d’ouvrir le port 445 (Service Accès réseau (NP-in))
+
+Sur Srv-backup:
+
+- Désinstaller Backup Exec
+- Installer VEEAM 12 backup & replication
+- Dans Veeam menu « Inventory » ajouter le serveur HyperV : « Add Server »
+## Name                             SRV-HyperV
+
+Type Microsoft Hyper-V Server (Standalone) Crédential « Add… » « SRV-HyperV\administrateur »
+
+## Review                           Task limit : 4
+
+- Une fois l’ajout effectué, vérifier sur le serveur SRV-HyperV la présence des serveurs :
+    - o SRV-AD1
+    - o SRV-FIC1
+- Créer un job de sauvegarde pour le serveur srv-Fic1
+
+- o Menu « Home »
+    - o « Backup job »
+    - o «Virtual Machine »
+## Name                            SVGD-FIC1
+
+## Virtual Machine                 « Add… » « Srv-Fic1 »
+
+Storage Default Backup Repository
+
+## Review                          Task limit : 4
+
+    - o Exécution immédiate
+- Après vérification de la sauvegarde complète srv-fic1
+    - o S'il n’y a pas d’erreur lors de la sauvegarde
+    - o Supprimer le serveur srv-fic1 depuis SRV-HYPERV
+    - o Depuis VEEAM effectuer une restauration complète de la VM srv-fic1
+    - o Une fois la restauration terminée vérifier que tous les paramètres du serveur sont bons et opérationnels
+
+
+![schema-stockage.png](../../../assets/images/sauvegarde/module-03/schema-stockage.png)
+
+![cartouche.png](../../../assets/images/sauvegarde/module-03/cartouche.png)
 
 [Correction inexistante](corrections.md)

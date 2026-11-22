@@ -40,7 +40,7 @@ Utilisez WinSCP afin de récupérer le fichier.
 - Extrayez l’archive fusioninventory-9.5.0+1.0.tar.bz2 dans le répertoire /var/www/glpi/plugins.
 
 ```bash
-cp /chemin/fourni/fusioninventory-9.5.0+1.0.tar.bz2 /var/www/glpi/plugins/
+cp /home/votrenom/fusioninventory-9.5.0+1.0.tar.bz2 /var/www/glpi/plugins/
 cd /var/www/glpi/plugins
 tar xvjf fusioninventory-9.5.0+1.0.tar.bz2
 ```
@@ -59,17 +59,27 @@ Au bout de la ligne fusioninventory > installer puis activer.
 
 - Installez l’agent FusionInventory sur votre contrôleur de domaine Olympus.gr.
 
-Image de correction disponible dans les ressources.
+Capture : Inexistant
 
 ### Bonus
 
 - Activez le marketplace puis installez le plugin « Data injection ».
+
+![marketplace datainjection](../../../assets/images/glpi/module-06/marketplace-datainjection-png.png)
 
 Dans le Marketplace, rechercher Data Injection, puis installer et activer l’extension compatible.
 
 Utilisez les 2 fichiers CSV disponibles avec les ressources des TPs.
 
 - Un fichier avec seulement les en-têtes et un autre rempli est disponible auprès du formateur.
+
+![data injection correspondance 1](../../../assets/images/glpi/module-06/data-injection-correspondance-1-png.png)
+
+![data injection correspondance 2](../../../assets/images/glpi/module-06/data-injection-correspondance-2-png.png)
+
+![data injection import](../../../assets/images/glpi/module-06/data-injection-import-png.png)
+
+![data injection rapport](../../../assets/images/glpi/module-06/data-injection-rapport-png.png)
 
 
 ## Fichier DataInjection réellement fourni

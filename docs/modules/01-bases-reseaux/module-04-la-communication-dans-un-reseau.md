@@ -3,7 +3,7 @@
 **Séquence :** Bases des réseaux  
 **Rôle dans le parcours :** décider si deux postes se parlent directement, via une passerelle, ou pas du tout.
 
-L’onglet Cours Original transcrit les deux énoncés et la correction. Durée indiquée du TP écrit : 2 heures. Le TP Packet Tracer indique 30 minutes. Les fichiers `.pka` ne sont pas publiés. Les notes de quiz des modules 3 et 4 complètent le vocabulaire : un commutateur diffuse dans le même VLAN, un routeur borne le domaine de diffusion.
+L’onglet Cours Original transcrit les deux énoncés et la correction, puis une section Notes de cours. Durée indiquée du TP écrit : 2 heures. Le TP Packet Tracer indique 30 minutes. Les fichiers `.pka` ne sont pas publiés. Les notes précisent qu’un commutateur diffuse dans le même VLAN et qu’un routeur borne le domaine de diffusion.
 
 ## Objectifs
 

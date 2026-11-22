@@ -3,7 +3,7 @@
 **Séquence :** Bases des réseaux  
 **Rôle dans le parcours :** lire une configuration et tester un chemin avec les commandes des notes.
 
-L’onglet Cours Original indique **Inexistant**. Le dossier du module ne contient pas d’énoncé PDF, seulement une activité Packet Tracer. Cette activité n’est pas publiée : son contenu n’est pas lisible hors du logiciel. La fiche suit les notes de quiz des modules 5 et 6.
+Source : notes de cours. Aucun support de cours PDF n’existe pour ce module. L’onglet Cours Original reprend ces notes. L’activité Packet Tracer n’est pas publiée : son contenu n’est pas lisible hors du logiciel.
 
 ## Objectifs
 

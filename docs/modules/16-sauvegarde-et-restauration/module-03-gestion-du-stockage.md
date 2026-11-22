@@ -6,173 +6,233 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
 
 === "Cours Original"
 
-    ## Sommaire du support
+    GESTION DU STOCKAGE
 
-    Critères à respecter, solution DAS, solution NAS, solution SAN, exécution des sauvegardes. Le corps ajoute les familles de supports, la bande magnétique et un tableau de capacités.
+    Module 03 Gestion du stockage
 
-    ## Infrastructure de sauvegarde
+    SOMMAIRE Critères à respecter
 
-    Une infrastructure logicielle et matérielle est nécessaire.
+    Solution DAS
 
-    Partie matérielle :
+    Solution NAS
 
-    - les supports de sauvegarde ;
-    - les lecteurs et la robotique de sauvegarde.
+    Solution SAN
 
-    Partie logicielle :
+    Exécution des sauvegardes
 
-    - le logiciel de sauvegarde ;
-    - le logiciel chargé de lancer les sauvegardes, appelé ordonnanceur.
+    ## INFRASTRUCTURE
 
-    ## Critères de choix d’un support
+    Pour mettre en place une sauvegarde, une infrastructure logicielle
+
+    ## DE SAUVEGARDE
+
+    et matérielle est nécessaire.
+
+    La partie matérielle
+
+    - Les supports de sauvegarde.
+    - Les lecteurs et la robotique de sauvegarde.
+    La partie logicielle
+
+    - Le logiciel de sauvegarde.
+    - Le logiciel chargé de lancer les sauvegardes, appelé ordonnanceur.
+
+    ## LES SUPPORTS
+
+    Il y a plusieurs critères à prendre en compte pour choisir
+
+    ## DE SAUVEGARDE
+
+    le ou les supports de sauvegarde les mieux adaptés au périmètre de la sauvegarde données :
 
     - La capacité de stockage.
     - La fiabilité du support.
-    - Le temps d’accès en lecture et en écriture.
+    - Le temps d'accès en lecture / écriture.
     - La consommation électrique.
     - La sécurité.
 
-    ## Tableau des supports — première planche
+    ## LES SUPPORTS
 
-    | Support | Atouts | Limites |
-    |---|---|---|
-    | CD / DVD | Peu encombrant | Durée de vie faible. Capacité de stockage faible. |
-    | Blu-ray | Peu coûteux | Durée de vie faible. |
-    | Disque dur HDD | Simplicité d’utilisation. Peu coûteux. | Sensibilité aux chocs. |
-    | Disque dur SSD | Simplicité d’utilisation. Prix en baisse. Résistance au choc. | Plus coûteux qu’un HDD. |
-    | Clé USB | Résistance au choc. Coût faible. | Capacité de stockage limitée. |
-    | Carte mémoire | Résistance aux chocs. | Capacité de stockage faible. |
+    Support Atouts Limites
 
-    Le support écrit « Resistance » sans accent pour le SSD et « Résistance » pour la clé et la carte. Les deux graphies sont conservées. La ligne Blu-ray ne porte pas d’atout dans la même cellule que le CD sur la diapositive : « Peu coûteux » est l’atout associé au Blu-ray dans la lecture du tableau.
+    ## DE SAUVEGARDE
 
-    ## Tableau des supports — seconde planche
+    CD / DVD • Peu encombrant
 
-    | Support | Atouts | Limites |
-    |---|---|---|
-    | Bandes magnétiques | Durée de vie élevée. Large gamme de choix. | Risque d’erreur de manipulation. |
-    | Technologie RDX | Simplicité d’utilisation. | Risque d’erreur de manipulation. Fragilité. |
-    | NAS | Simplicité de mise en œuvre. Redondance via le RAID. | Encombrement du réseau. |
-    | SAN | Sécurisation des données. Simplicité d’administration. | Problèmes d’interopérabilité. Complexité de mise en œuvre. |
-    | Cloud | Fichiers accessibles à tout moment. Données protégées. | Performance dépendant de la connexion. Perte de contrôle sur les données. Vitesse de transfert réduite. |
+    - Peu coûteux BLU-RAY                                            •   Durée de vie faible
+    - Simplicité d'utilisation Disque dur HDD                                          •   Sensibilité aux chocs
+    - Peu coûteux
+    - Simplicité d'utilisation Disque dur SSD        •   Prix en baisse                •   Plus coûteux qu’un HDD
+    - Resistance au choc
+    - Résistance au choc Clé USB                                            •   Capacité de stockage limitée
+    - Coût faible
+    Carte mémoire • Résistance aux chocs • Capacité de stockage faible
 
-    ## DAS — Direct Attached Storage
+    ## LES SUPPORTS
 
-    Les solutions DAS consistent à connecter directement un périphérique au serveur ou à la station de travail. Il s’agit principalement d’un lecteur de bandes magnétiques. D’autres solutions peuvent être envisagées, comme le support optique ou les disques.
+    Support Atouts Limites
 
-    Le schéma place l’application et le système de fichier côte à côte, sans réseau entre eux.
+    ## DE SAUVEGARDE
 
-    ## Bande magnétique
+    Bandes magnétiques
+
+    - Durée de vie élevé
+    - Large gamme de choix
+    Technologie RDX • Simplicité d'utilisation
+
+    - Simplicité de mise en œuvre NAS                                               • Encombrement du réseau
+    - Redondance via le RAID
+    - Sécurisation des données          • Problèmes d'interopérabilité SAN
+    - Simplicité d'administration       • Complexité de mise en œuvre
+    - Fichiers accessibles à tout Cloud                 moment
+    - Données protégées
+
+    ## DAS
+
+    SOLUTION DAS : Direct Attached Storage
+
+    - Les solutions de stockage de type DAS consistent à connecter directement un périphérique au serveur ou à la station de travail.
+    - Il s'agit principalement d'un lecteur de bandes magnétiques mais d'autres solutions peuvent être envisagées, comme le support optique ou les disques.
+    Système de Application fichier
+
+    LES SUPPORTS
+
+    ## DE SAUVEGARDE
+
+    La bande magnétique
 
     - Support utilisé depuis 1950 pour le stockage d’informations numériques.
     - Deux types de bandes : hélicoïdale et linéaire.
-    - Capacité de stockage importante.
-    - Automatisation avec les robots de sauvegarde qui acceptent plusieurs bandes dont le chargement est automatisé.
+    Avantages
 
-    Familles :
+    - Capacité de stockage importante.
+    - Automatisation avec les robots de sauvegarde qui acceptent plusieurs bandes magnétiques dont le chargement est automatisé.
+
+    LES SUPPORTS
+
+    ## DE SAUVEGARDE
+
+    Sauvegarde sur bande magnétique
 
     - DDS - DAT : DDS (Digital Data Storage) est le nom officiel de la DAT (Digital Audio Tape).
     - DLT – SDLT : Digital Linear Tape (DLT, anciennement nommée CompacTape).
-    - LTO : Linear Tape-Open, technique de stockage sur bande magnétique au format ouvert.
+    - LTO : Linear Tape-Open (ou LTO) est une technique de stockage sur bande magnétique au format ouvert.
 
-    La diapositive suivante montre deux cartouches, l’une marquée DLT et l’autre LTO, sans phrase supplémentaire. Photographies non reproduites.
+    LES SUPPORTS DE SAUVEGARDE
 
-    ### Capacités du tableau
+    Capacité bande magnétique LES SUPPORTS DE SAUVEGARDE natif​ compressé​ natif​ compressé​ DAT DDS3​ 12​ Go 24​ Go LTO 12​ 192 To 480 To​ DAT DDS4​ 20​ Go 40​ Go LTO 11​ 96 To​ 240 To​ DAT 72​ 36​ Go 72​ Go LTO 10​ 48 To​ 120 To​ DAT 160​ 80​ Go 160​ Go LTO 9​ 18 To​ 45 To​ DLT-Tape VS1​ 80​ Go 160​ Go LTO 8​ 12 To​ 30 To​ SDLT 1​ 160​ Go 320​ Go LTO 7​ 6 To 15 To​ SDLT 2​ 300​ Go 600​ Go LTO 6​ 2,5 To​ 6,25 To​ SDLT 3 / DLT-S4​ 800​ Go 1600 Go LTO 5​ 1,5 To​ 3 To​
 
-    La ligne LTO 9 est surlignée sur la diapositive. Unités telles qu’écrites, « Go » ou « To ».
+    ## SAN
 
-    | Support | Natif | Compressé | Support | Natif | Compressé |
-    |---|---|---|---|---|---|
-    | DAT DDS3 | 12 Go | 24 Go | LTO 12 | 192 To | 480 To |
-    | DAT DDS4 | 20 Go | 40 Go | LTO 11 | 96 To | 240 To |
-    | DAT 72 | 36 Go | 72 Go | LTO 10 | 48 To | 120 To |
-    | DAT 160 | 80 Go | 160 Go | LTO 9 | 18 To | 45 To |
-    | DLT-Tape VS1 | 80 Go | 160 Go | LTO 8 | 12 To | 30 To |
-    | SDLT 1 | 160 Go | 320 Go | LTO 7 | 6 To | 15 To |
-    | SDLT 2 | 300 Go | 600 Go | LTO 6 | 2,5 To | 6,25 To |
-    | SDLT 3 / DLT-S4 | 800 Go | 1600 Go | LTO 5 | 1,5 To | 3 To |
+    SOLUTION SAN : Storage Area Network
 
-    ## SAN — Storage Area Network
+    - Réseau dédié de dispositifs de stockage, permet aux serveurs d'accéder à des espaces de stockage centralisés, comme s'ils étaient des disques durs locaux.
+    - Dans un SAN, c’est le serveur qui gère le système de fichier sur les espaces de stockage auxquels il a accès.
+    Application SAN de
 
-    Réseau dédié de dispositifs de stockage. Il permet aux serveurs d’accéder à des espaces de stockage centralisés comme s’ils étaient des disques locaux. Dans un SAN, c’est le serveur qui gère le système de fichier sur les espaces auxquels il a accès.
+    ## NAS
 
-    Le schéma se lit : Application, puis SAN, puis Système de fichier, puis les disques.
+    SOLUTION NAS : Network Attached Storage
 
-    ## NAS — Network Attached Storage
+    - Appareil de stockage connecté à un réseau qui permet aux utilisateurs de sauvegarder et partager des fichiers au sein d'un réseau local.
+    - Un périphérique NAS possède son propre système de fichier, généralement du CIFS (Common Internet File System) pour le monde Windows ou du NFS (Network File System) OU SAMBA pour le monde Unix/Linux.
+    Système Application de LAN fichier
 
-    Appareil de stockage connecté à un réseau. Il permet de sauvegarder et de partager des fichiers dans un réseau local. Un NAS possède son propre système de fichier, généralement du CIFS (Common Internet File System) pour le monde Windows, ou du NFS (Network File System) ou Samba pour le monde Unix et Linux.
+    ## LES SUPPORTS
 
-    Le schéma se lit : Application, Système de fichier, LAN.
+    SAN NAS
 
-    ## SAN et NAS face à face
+    ## DE SAUVEGARDE
 
-    | | SAN | NAS |
-    |---|---|---|
-    | Signification | Storage Area Network | Network Attached Storage |
-    | Protocoles | SCSI, Fibre Channel ou SATA | Serveur de fichiers, NFS ou CIFS |
-    | Partage de l’information | Repose sur le système d’exploitation | Partage plus important entre les systèmes d’exploitation (Unix et NT) |
-    | Identification des données | Par bloc de disque | Par le nom de fichier et l’offset de l’octet |
-    | Éligibilité | Périphériques de classe serveurs dotés du canal Fibre Channel SCSI | Périphérique connecté au réseau local, protocoles NFS, CIFS/SMB, HTTP ou HTTPS |
-    | Coût et complexité | Cher et plus complexe | Rentable et moins compliqué |
+    Signification Storage Area Network Network Attached Storage Protocoles SCSI, Fibre Channel ou SATA. Serveur de fichiers, NFS ou CIFS. Partage de Le partage de fichier repose l’information sur le système d’exploitation. Identification Identifie les données par Adresse les données par le nom des données bloc de disque. de fichier et l’offset de l’octet. Périphériques de classe Périphérique connecté au réseau Eligibilité au serveurs dotés du canal local, doté des protocoles NFS, dispositif Fibre Channel SCSI. CIFS/SMB, HTTP ou HTTPS. Coût et Cher et plus complexe. Rentable et moins compliqué. complexité
 
-    Le support écrit « Eligibilité » sans accent. La graphie est conservée.
+    ## EXÉCUTION DES
 
-    ## Exécution des sauvegardes
+    Sauvegarde locale
 
-    Sauvegarde locale : directement sur le site d’exploitation, sur un support local. Les données ne sortent pas du réseau interne.
+    ## SAUVEGARDES
 
-    - Serveur de stockage disponible sur le réseau.
-    - Disque dur.
-    - Bande magnétique, avec externalisation du support physique.
+    Directement réalisée sur le site d'exploitation, sur un support local, les données ne sortent pas du réseau interne de l'entreprise.
 
-    Le support rappelle ici la règle 3-2-1.
+    - Serveur de stockage disponible sur le réseau.                 RAPPEL
+    - Disque dur.                                                 REGLE 3–2–1
+    - Bande magnétique (externalisation du support physique). Sauvegarde distante ou externalisée Réalisée en dehors du site d'exploitation, vers un site distant ou sur Internet via une connexion sécurisée, les données sortent du réseau interne de l'entreprise.
 
-    Sauvegarde distante ou externalisée : en dehors du site, vers un site distant ou sur Internet via une connexion sécurisée. Les données sortent du réseau interne.
+    Création de job DÉMONSTRATION
 
-    ## Démonstrations
+    Gestion du stockage
 
-    Deux diapositives : « Création de job » et « Restauration du Job ». Aucun geste n’est écrit. Pas-à-pas : **Inexistant**.
+    Restauration du Job DÉMONSTRATION
 
-    La diapositive de TP n°4 annonce « VEEAM Sauvegarde et restauration de VM ». Le détail est dans l’énoncé.
+    TRAVAUX GESTION DUPRATIQUES
 
-    ## Énoncé — Sauvegarde et restauration Veeam
+    TRAVAUX TRAVAUX PRATIQUES VEEAM Sauvegarde et PRATIQUES
 
-    Avoir suivi les modules 1, 2 et 3 et réalisé le TP précédent. Durée estimée : 1 heure.
+    ## N°4
 
-    Objectifs : installer Veeam Backup & Replication ; sauvegarder des VM ; restaurer une VM.
+    restauration de VM
 
-    Sur SRV-HyperV : ne pas oublier d’ouvrir le port 445, service Accès réseau (NP-in).
 
-    Sur Srv-backup :
+    ![schema-stockage.png](../../assets/images/sauvegarde/module-03/schema-stockage.png)
 
-    - désinstaller Backup Exec ;
-    - installer VEEAM 12 backup & replication ;
-    - menu Inventory, ajouter le serveur Hyper-V, « Add Server ».
+    ![cartouche.png](../../assets/images/sauvegarde/module-03/cartouche.png)
 
-    | Champ | Valeur |
-    |---|---|
-    | Name | SRV-HyperV |
-    | Type | Microsoft Hyper-V Server (Standalone) |
-    | Credential | Add… puis `SRV-HyperV\administrateur` |
-    | Review | Task limit : 4 |
+    ## Sauvegarde et restauration
 
-    Le support écrit « Crédential ». La graphie est conservée.
+    ## VEEAM
 
-    Une fois l’ajout effectué, vérifier sur SRV-HyperV la présence de SRV-AD1 et de SRV-FIC1.
+    ## TP du Module 03 – Gestion du stockage
 
-    Créer un job pour srv-Fic1 : menu Home, Backup job, Virtual Machine.
+    Avant de démarrer ce TP, il convient d’avoir suivi les modules 1, 2 et 3 et d’avoir réalisé le TP précédent.
 
-    | Champ | Valeur |
-    |---|---|
-    | Name | SVGD-FIC1 |
-    | Virtual Machine | Add… puis Srv-Fic1 |
-    | Storage | Default Backup Repository |
-    | Review | Task limit : 4 |
+    Durée estimée
 
-    Exécution immédiate.
+    1 heure
 
-    Après vérification de la sauvegarde complète de srv-fic1, s’il n’y a pas d’erreur : supprimer le serveur srv-fic1 depuis SRV-HYPERV, restaurer complètement la VM depuis Veeam, puis vérifier que tous les paramètres du serveur sont bons et opérationnels.
+    ## Objectifs
 
-    Correction : **Inexistant**.
+    - Installer la solution de sauvegarde Veeam Backup & Replication
+    - Sauvegarder des VM
+    - Restaurer une VM
+    ## Énoncé
+
+    Sur SRV-HyperV :
+
+    Ne pas oublier d’ouvrir le port 445 (Service Accès réseau (NP-in))
+
+    Sur Srv-backup:
+
+    - Désinstaller Backup Exec
+    - Installer VEEAM 12 backup & replication
+    - Dans Veeam menu « Inventory » ajouter le serveur HyperV : « Add Server »
+    ## Name                             SRV-HyperV
+
+    Type Microsoft Hyper-V Server (Standalone) Crédential « Add… » « SRV-HyperV\administrateur »
+
+    ## Review                           Task limit : 4
+
+    - Une fois l’ajout effectué, vérifier sur le serveur SRV-HyperV la présence des serveurs :
+        - o SRV-AD1
+        - o SRV-FIC1
+    - Créer un job de sauvegarde pour le serveur srv-Fic1
+
+    - o Menu « Home »
+        - o « Backup job »
+        - o «Virtual Machine »
+    ## Name                            SVGD-FIC1
+
+    ## Virtual Machine                 « Add… » « Srv-Fic1 »
+
+    Storage Default Backup Repository
+
+    ## Review                          Task limit : 4
+
+        - o Exécution immédiate
+    - Après vérification de la sauvegarde complète srv-fic1
+        - o S'il n’y a pas d’erreur lors de la sauvegarde
+        - o Supprimer le serveur srv-fic1 depuis SRV-HYPERV
+        - o Depuis VEEAM effectuer une restauration complète de la VM srv-fic1
+        - o Une fois la restauration terminée vérifier que tous les paramètres du serveur sont bons et opérationnels
 
 === "Cours Optimisé IA"
 

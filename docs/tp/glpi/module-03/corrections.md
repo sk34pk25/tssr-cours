@@ -27,7 +27,11 @@ Pour toutes les demandes qui suivront, utiliser si possible des gabarits.
 
 - Datacenter dans « la salle des trésors » nommé « Olympus datacenter ».
 
+![TP3-datacenter](../../../assets/images/glpi/module-03/tp3-datacenter-png.png)
+
 - Créez la salle serveur avec deux emplacements de baies (1 ligne et 1 colonne) nommée « Salle serveur 1 ».
+
+![TP3-salle serveur et datacenter](../../../assets/images/glpi/module-03/tp3-salle-serveur-et-datacenter-png.png)
 
 ### Création de 2 serveurs Proliant DL380 GEN
 
@@ -55,6 +59,10 @@ trésors puis affecter le gabarit dans cette salle.
 
 - Ajouter les images « HP DL 380 Gen avant.png » et « HP DL 380 Gen arrière.png » fournies par le formateur.
 
+![HP DL 380 Gen avant](../../../assets/images/glpi/module-03/hp-dl-380-gen-avant-png.png)
+
+![HP DL 380 Gen arrière](../../../assets/images/glpi/module-03/hp-dl-380-gen-arriere-png.png)
+
 https://www.hpe.com/be/fr/product-catalog/servers/proliant- servers/pip.specifications.hpe-proliant-dl380-gen10- server.1010026818.html
 
 - Créez 1 port réseau :
@@ -77,6 +85,12 @@ https://www.hpe.com/be/fr/product-catalog/servers/proliant- servers/pip.specific
 
 - Vitesse 1 Gbit/s.
 
+- Créez le système d’exploitation « HPE iLO »
+
+- Vitesse 1 Gbit/s.
+
+![TP3-port-proliant](../../../assets/images/glpi/module-03/tp3-port-proliant-png.png)
+
 - Créez le système d’exploitation « HPE iLO » pour ce gabarit et Architecture 64 bits.
 
 - Créez deux processeurs pour ce gabarit :
@@ -96,6 +110,12 @@ https://www.hpe.com/be/fr/product-catalog/servers/proliant- servers/pip.specific
 - Type « DDR4 ».
 
 - Modèle « HPE ».
+
+- Type « DDR4 ».
+
+- Modèle « HPE ».
+
+![TP3-RAM](../../../assets/images/glpi/module-03/tp3-ram-png.png)
 
 ### Création d’une baie
 
@@ -129,9 +149,9 @@ https://www.hpe.com/be/fr/product-catalog/servers/proliant- servers/pip.specific
 
 - Couleur d’arrière-plan « noir ».
 
-### https://www.inmac-wstore.com/hpe-600mm-x-1075mm-g2-enterprise-pallet-rack-rack-
+![baie](../../../assets/images/glpi/module-03/baie-png.png)
 
-### 42 u/p7205391.htm
+[HPE 600 mm x 1075 mm G2 Enterprise Pallet Rack](https://www.inmac-wstore.com/hpe-600mm-x-1075mm-g2-enterprise-pallet-rack-rack-42u/p7205391.htm)
 
 - Ajoutez la baie.
 
@@ -140,6 +160,8 @@ https://www.hpe.com/be/fr/product-catalog/servers/proliant- servers/pip.specific
 - Statut « en place ».
 
 - Ajoutez les serveurs « Proliant-DL380-GEN-0001-0002 » dans la baie sur les U41-42 pour le 0001 et U16-17 pour le 0002.
+
+![server en baie](../../../assets/images/glpi/module-03/server-en-baie-png.png)
 
 ### Création d’un PDU
 
@@ -155,6 +177,8 @@ https://www.hpe.com/be/fr/product-catalog/servers/proliant- servers/pip.specific
 
 - Modèle « PDU-HPE-G2-3.6kVA ».
 
+![modele pdu](../../../assets/images/glpi/module-03/modele-pdu-png.png)
+
 - Poids « 3.9kg ».
 
 - Unités requises « 1 U ».
@@ -169,6 +193,10 @@ https://www.hpe.com/be/fr/product-catalog/servers/proliant- servers/pip.specific
 
 - Ajoutez les images « PDU G2 Avant.png » et « PDU G2 Arriere.png » fournies par le formateur.
 
+![PDU G2 Avant](../../../assets/images/glpi/module-03/pdu-g2-avant-png.png)
+
+![PDU G2 Arriere](../../../assets/images/glpi/module-03/pdu-g2-arriere-png.png)
+
 - Créez 2 PDU « PDU-HPE-G2-3.6kva-1 et -2 ».
 
 - Ajoutez les 2 PDU -1 en U30 et -2 en U15-42 dans la baie avec le statut « En place » et le lieu « salle serveur ».
@@ -176,6 +204,8 @@ https://www.hpe.com/be/fr/product-catalog/servers/proliant- servers/pip.specific
 ### Création des commutateurs
 
 - Créez un gabarit nommé « GAB-JL356A-ARUBA-2540-48P » .
+
+![Gabarit switch 48P](../../../assets/images/glpi/module-03/gabarit-switch-48p-png.png)
 
 - Nom « JL356A-ARUBA-2540-48P », mais avec incrémentation à quatre
 
@@ -215,11 +245,23 @@ chiffres.
 
 - Ajoutez l’image « JL356A-aruba-48P-Avant.png » fournie par le formateur.
 
+« JL356A-aruba-48P-Avant.png » fournie par le formateur.
+
+Le fichier de la capture est JL357A-Aruba-48P-avant.
+
+![modele switch 48P](../../../assets/images/glpi/module-03/modele-switch-48p-png.png)
+
+![JL357A-Aruba-48P-avant](../../../assets/images/glpi/module-03/jl357a-aruba-48p-avant-png.png)
+
 - Créez 4 « JL356A-ARUBA-2540-48P-0001, 0002, 0003 et 0004 ».
 
 - Ajoutez les Switchs 0001 en U40, 0002 en U29 et 0003 en U14 dans la baie avec le statut « En place » et le lieu « salle serveur ».
 
+![switch 48P](../../../assets/images/glpi/module-03/switch-48p-png.png)
+
 - Créez un gabarit nommé « GAB-JL356A-ARUBA-2540-24P » .
+
+![Gabarit switch 24P](../../../assets/images/glpi/module-03/gabarit-switch-24p-png.png)
 
 - Nom « JL356A-ARUBA-2540-24P », mais avec incrémentation à quatre
 
@@ -259,6 +301,10 @@ chiffres.
 
 - Ajoutez l’image « JL356A-aruba-24P-Avant.png » fournie par le formateur.
 
+![modele switch 24P](../../../assets/images/glpi/module-03/modele-switch-24p-png.png)
+
+![JL356A-Aruba-24P-avant](../../../assets/images/glpi/module-03/jl356a-aruba-24p-avant-png.png)
+
 - Ajoutez le fichier « manuel Aruba 24 ports.pdf » du manuel en document dans
 
 la rubrique Manuel.
@@ -279,6 +325,8 @@ la rubrique Manuel.
 
 - Connectez le port-0001 de « JL356A-ARUBA-2540-24P-0005 » au port-0001 du switch « JL356A-ARUBA-2540-48P-0003 ».
 
+![baie avec images](../../../assets/images/glpi/module-03/baie-avec-images-png.png)
+
 ### Création d’ordinateurs
 
 - Créez un gabarit nommé « GAB-Alienware-M17 »
@@ -297,13 +345,19 @@ https://www.dell.com/fr-fr/work/shop/ordinateurs-portables-professionnels/nouvea
 
 - Créez le modèle « Alienware-M17 » pour ce gabarit :
 
+![modèle alieneware](../../../assets/images/glpi/module-03/modele-alieneware-png.png)
+
 - 3 kilos.
 
 - 250 Watts.
 
 - Avec les composants :
 
+![gabarit composant alienware](../../../assets/images/glpi/module-03/gabarit-composant-alienware-png.png)
+
 - 1 processeur « I7-10750H » pour ce gabarit.
+
+![processeur I7-10750H](../../../assets/images/glpi/module-03/processeur-i7-10750h-png.png)
 
 - Fabricant « Intel ».
 
@@ -316,6 +370,8 @@ https://www.dell.com/fr-fr/work/shop/ordinateurs-portables-professionnels/nouvea
 - Modèle « 10750 H ».
 
 - 1 carte réseau « RJ45-Killer-E3000 » pour ce gabarit.
+
+![carte réseau Killer E3000](../../../assets/images/glpi/module-03/carte-reseau-killer-e3000-png.png)
 
 - Fabricant « Killer Networking ».
 
@@ -333,6 +389,8 @@ https://www.dell.com/fr-fr/work/shop/ordinateurs-portables-professionnels/nouvea
 
 - 1 carte graphique « GeForce-RTX-2070 ».
 
+![carte graphique RTX 2070](../../../assets/images/glpi/module-03/carte-graphique-rtx-2070-png.png)
+
 - Fabricant « Nvidia ».
 
 - Mémoire « 8096 Mio ».
@@ -344,6 +402,10 @@ https://www.dell.com/fr-fr/work/shop/ordinateurs-portables-professionnels/nouvea
 - 2 disques durs « SSD-PCIe-M2 » et 1 volume pour la taille totale de chaque
 
 disque C : et D :.
+
+![HDD alienware](../../../assets/images/glpi/module-03/hdd-alienware-png.png)
+
+![gabarit volume alienware](../../../assets/images/glpi/module-03/gabarit-volume-alienware-png.png)
 
 - Fabricant « Intel ».
 
@@ -373,6 +435,8 @@ disque C : et D :.
 
 - Carte réseau « RJ45-Killer-E3000 ».
 
+![gabarit port reseau alienware](../../../assets/images/glpi/module-03/gabarit-port-reseau-alienware-png.png)
+
 - Créez 1 port réseau WIFI pour ce gabarit.
 
 - Numéro 0.
@@ -381,11 +445,15 @@ disque C : et D :.
 
 - Carte réseau « Killer-WIFI-6-AX1650 ».
 
+![port wifi alienware](../../../assets/images/glpi/module-03/port-wifi-alienware-png.png)
+
 - Mode WIFI « Géré ».
 
 - Version du protocole « a/b/g/n/y ».
 
 - Créez le système d’exploitation « Windows 10 » pour ce gabarit.
+
+![gabarit os alienware](../../../assets/images/glpi/module-03/gabarit-os-alienware-png.png)
 
 - Architecture « 64 bits. ».
 
@@ -397,6 +465,10 @@ disque C : et D :.
 
 - Créez un logiciel « Office365-ProPlus ».
 
+![logiciel o365 Proplus](../../../assets/images/glpi/module-03/logiciel-o365-proplus-png.png)
+
+![version logiciel dans logiciel](../../../assets/images/glpi/module-03/version-logiciel-dans-logiciel-png.png)
+
 - Éditeur « Microsoft ».
 
 - Catégorie « Bureautique ».
@@ -404,6 +476,8 @@ disque C : et D :.
 - Version « ProPlus ».
 
 - Créez 60 licences « Office365-Proplus ».
+
+![licence o365 proplus](../../../assets/images/glpi/module-03/licence-o365-proplus-png.png)
 
 - Éditeur « Microsoft ».
 
@@ -419,7 +493,11 @@ disque C : et D :.
 
 - Installez le logiciel « Office365-ProPlus » et affectez une licence sur ce gabarit.
 
+![gabarit logiciel alienware](../../../assets/images/glpi/module-03/gabarit-logiciel-alienware-png.png)
+
 - Créez autant de prise réseau que d’utilisateur dans chaque lieu.
+
+![Prise réseau](../../../assets/images/glpi/module-03/prise-reseau-png.png)
 
 - Nom « Prise-1 », « Prise-2 », etc.
 

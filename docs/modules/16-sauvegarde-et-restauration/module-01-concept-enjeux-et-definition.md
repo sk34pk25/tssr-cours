@@ -6,180 +6,275 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
 
 === "Cours Original"
 
-    ## Sommaire du support
+    Module 1 Concept, enjeux et définition
 
-    Le sommaire annonce : concept et enjeux, bonnes pratiques, sauvegarde et archivage, restauration, règle 3-2-1, PCA / PRA / plan de sauvegarde, éditeurs de solution de sauvegarde.
+    ## SOMMAIRE
 
-    Deux puces se suivent : « Veritas Backup EXE » puis « Veritas Backup Exec ». La graphie EXE est conservée. C’est un doublon du nom Backup Exec développé plus loin. Veeam Backup & Replication est la dernière puce du sommaire.
+    Concept et enjeux
 
-    La rubrique **Sauvegarde et archivage** figure au sommaire. Aucune diapositive ne développe ce titre. Contenu de cette rubrique : **Inexistant**.
+    Bonnes pratiques
 
-    ## Concept d’une sauvegarde
+    Sauvegarde et archivage
+
+    ## Sauvegarde et archivage
+
+    Inexistant
+
+    Restauration
+
+    Règle 3-2-1
+
+    PCA / PRA / Plan de sauvegarde
+
+    Éditeur de solution de sauvegarde
+
+    - Veritas Backup EXE Veritas Backup Exec
+    - VEEAM Backup & Réplication
+
+    ## CONCEPT D’UNE
 
     L’objectif des sauvegardes est de :
 
-    - garantir la pérennité des données ;
-    - assurer la récupération des informations indispensables au fonctionnement du système d’information à la suite d’un incident ou d’un sinistre ;
-    - répondre aux demandes de disponibilité des données.
+    SAUVEGARDE
 
-    ## Enjeux d’une sauvegarde
+    - Garantir la pérennité des données.
+    - Assurer la récupération des informations indispensables au fonctionnement du système d’information à la suite d’un incident ou d’un sinistre.
+    - Répondre aux demandes de disponibilité des données.
 
-    - Prévenir la perte de données.
+    ## ENJEUX D’UNE
+
+    - Prévenir la perte de données. SAUVEGARDE
     - Avoir un plan de secours en cas de défaillance matérielle ou logicielle.
     - Garantir la rétention des données réglementaires.
     - Avoir une protection contre les cyberattaques.
-    - Prévenir l’intrusion, l’incendie.
+    - Prévenir l'intrusion, l'incendie...
 
-    ## Bonnes pratiques
+    ## BONNES
 
-    - Créer un compte dédié à la sauvegarde sur l’annuaire :
-        - plus sécurisé, aucune permission NTFS sur les dossiers à sauvegarder ;
-        - en cas de problème, il procure une meilleure traçabilité dans les journaux.
-    - Pour les clients Windows, utiliser le groupe Opérateurs de sauvegarde.
+    - Créer un compte dédié à la sauvegarde sur votre AD :
+    ## PRATIQUES
+
+    - Plus sécurisé, aucune permission NTFS sur les dossiers à sauvegarder.
+    ## POUR UNE
+
+    - En cas de problème, il procure une meilleure traçabilité dans les logs.
+    ## SAUVEGARDE
+
+    - Pour les clients Windows, utiliser le groupe opérateur de sauvegarde.
     - Renseigner et générer un plan de sauvegarde.
 
-    ## Restauration
+    RESTAURATION
 
-    La restauration de données en informatique est la récupération de fichiers, données ou logiciels perdus, endommagés ou inaccessibles depuis des supports de stockage suite à une panne, une suppression ou une catastrophe. Ce processus vise à restaurer les données à un état utilisable, réduisant la perte d’informations et les interruptions d’activité.
+    - La restauration de données en informatique est la récupération de fichiers, données ou logiciels perdus, endommagés ou inaccessibles depuis des supports de stockage suite à une panne, suppression ou catastrophe. Ce processus vise à restaurer les données à un état utilisable, réduisant la perte d'informations et les interruptions d'activité.
 
-    ## Règle 3-2-1
+    ## RÈGLE 3-2-1
 
-    | Repère | Énoncé du support |
-    |---|---|
-    | ×3 | Trois copies de données. Ce lot comporte les données originales que l’on souhaite sécuriser, et au minimum deux sauvegardes. |
-    | ×2 | Deux types de stockage différents. Les données sauvegardées doivent être conservées sur deux supports de stockage distincts pour minimiser les risques de défaillance. |
-    | ×1 | Une copie hors site. Conserver au moins une copie des données en dehors de l’entreprise. Prévention contre les sinistres, un acte de malveillance (cyberattaque, ransomware) ou encore une erreur humaine. |
+    Trois copies de données : Ce lot de copies comporte les données originales que x3 l’on souhaite sécuriser, et au minimum deux sauvegardes.
 
-    ## PCA — Plan de continuité d’activité
+    Deux types de stockage différents : Les données sauvegardées doivent être conservées sur deux x2 supports de stockage distincts pour minimiser les risques de défaillance.
 
-    Le PCA regroupe les processus mis en place avant, pendant et après une situation de crise. Il concerne :
+    Une copie hors site : Conserver au moins une copie des données en dehors de l’entreprise. x1 Prévention contre les sinistres, un acte de malveillance (cyberattaque, ransomware…) ou encore une erreur humaine.
 
-    - le rétablissement du système d’information ;
-    - la gestion de la communication interne et externe ;
-    - le repli physique des utilisateurs ;
-    - la gestion de la sécurité et des risques sanitaires ;
-    - la gouvernance de la gestion de crise.
+    ## PCA ET PRA
 
-    Une note manuscrite de la diapositive précise : « Un PCA englobe toute l’entreprise pas seulement le SI ! »
+    PCA - Plan de Continuité d'Activité
 
-    ## PRA — Plan de reprise d’activité
+    Regroupe les processus mis en place avant, pendant et après une situation de crise, il concerne :
 
-    Le PRA regroupe l’ensemble des procédures et moyens nécessaires à la continuité du système d’information. Il comprend :
+    - Le rétablissement du système d'information.
+    - La gestion de la communication interne et externe.
+    - Le repli physique des utilisateurs.
+    - La gestion de la sécurité et des risques sanitaires.
+    - La gouvernance de la gestion de crise.
 
-    - la politique ou plan de sauvegarde ;
-    - la gestion du stockage des éléments nécessaires à la restauration ;
-    - la procédure de restauration du système et des données ;
-    - les licences des différentes applications utilisées.
+    ## PCA ET PRA
 
-    Le support ajoute : le plan de reprise d’activité n’est qu’une des composantes du plan de continuité d’activité.
+    PRA - Plan de Reprise d'Activité
 
-    ## Plan de sauvegarde
+    Regroupe l'ensemble des procédures et moyens nécessaires à la continuité du système d'information, il comprend :
 
-    Procédure qui détaille les données qui doivent être sauvegardées, l’infrastructure de sauvegarde, le calendrier des copies à réaliser et les méthodes de récupération et restauration. Il intègre a minima :
+    - La politique ou plan de sauvegarde.
+    - La gestion du stockage des éléments nécessaires à la restauration.
+    - La procédure de restauration du système et des données.
+    - Les licences des différentes applications utilisées.
+    - Le plan de reprise d'activité n'est qu'une des composantes du plan de continuité d'activité.
 
-    - le périmètre (liste des ressources à sauvegarder) ;
-    - les contraintes ;
-    - les différents types de sauvegarde ;
-    - la fréquence et la périodicité des sauvegardes ;
-    - les informations de stockage ;
-    - les procédures de test de restauration ;
-    - la destruction des supports ayant contenu les sauvegardes.
+    ## PLAN DE
 
-    ## Éditeurs cités
+    Procédure qui détaille les données qui doivent être sauvegardées,
 
-    Les éditeurs de solutions de sauvegarde sont nombreux, avec des solutions gratuites ou payantes. Noms tels qu’écrits sur la diapositive :
+    ## SAUVEGARDE
 
-    | Colonne de gauche | Colonne de droite |
-    |---|---|
-    | ARCSERVE Unified Data Protection | DELL EMC Data Protection Suite |
-    | ATEMPO Time Navigator | HYCU Backup & recovery |
-    | COHESIT DataPlateform | SPECTRUM Protect |
-    | COMMVAULT complete Backup & recovery | RUBRIK Cloud Data Management |
-    | STORAGECRAFT OneXafe / ShadowXafe | VEEAM Backup and Replication |
+    l'infrastructure de sauvegarde, le calendrier des copies à réaliser et les méthodes de récupération et restauration. Il intègre a minima les éléments suivants :
 
-    La diapositive isole ensuite : **Veritas Netbackup / Backup Exec** (solution utilisée pour la suite du module).
+    - Le périmètre (liste des ressources à sauvegarder)
+    - Les contraintes
+    - Les différents types de sauvegarde
+    - La fréquence/périodicité des sauvegardes
+    - Les informations de stockage
+    - Les procédures de test de restauration
+    - La destruction des supports ayant contenu les sauvegardes
 
-    Les graphies « COHESIT DataPlateform », « COMMVAULT complete », « SPECTRUM Protect » sans éditeur devant, et « Backup EXE » du sommaire sont celles du support.
+    ## ÉDITEURS DE
 
-    ## Présentation de Veritas Backup Exec
+    Les éditeurs de solutions de sauvegarde sont nombreux sur le marché avec des solutions gratuites
 
-    Veritas Backup Exec est un logiciel de sauvegarde et restauration de données. Il fournit des fonctionnalités de sauvegarde et de restauration.
+    ## SOLUTIONS DE
 
-    La capture d’interface est une illustration d’écran, non reproduite ici. Les légendes lisibles sont :
+    ou payantes. SAUVEGARDE ARCSERVE Unified Data Protection DELL EMC Data Protection Suite
 
-    | Zone légendée | Place sur la capture |
-    |---|---|
-    | Bouton Backup Exec | Coin supérieur gauche |
-    | Ruban commandes | Bandeau sous le bouton |
-    | Volet de sélection | Colonne de gauche |
-    | Volet d’informations | Zone centrale basse |
-    | Onglets | Partie supérieure droite |
-    | Gestion des travaux | Colonne de droite |
-    | Barre d’état | Bas de la fenêtre |
+    ATEMPO Time Navigator HYCU Backup & recovery
 
-    ## Présentation de Veeam Backup & Replication
+    COHESIT DataPlateform SPECTRUM Protect
 
-    - Veeam Backup & Replication est un logiciel de sauvegarde des données et de reprise d’activité pour les machines virtuelles VMware vSphere et Microsoft Hyper-V.
+    COMMVAULT complete Backup & recovery RUBRIK Cloud Data Management
+
+    STORAGECRAFT OneXafe / ShadowXafe VEEAM Backup and Replication
+
+    Veritas Netbackup / Backup Exec (solution utilisée pour la suite du module)
+
+    ## PRÉSENTATION
+
+    Veritas Backup Exec est un logiciel de sauvegarde et restauration de
+
+    ## DE VERITAS
+
+    données. Il fournit des fonctionnalités de sauvegarde et de restauration.
+
+    ## BACKUP EXEC
+
+    Bouton Backup Exec
+
+    Ruban commandes Gestion Volet de travaux sélection
+
+    Volet d'informations
+
+    ## PRÉSENTATION
+
+    - Veeam Backup & Replication est un logiciel de sauvegarde
+    ## DE VEEAM
+
+    des données et de reprise d’activité pour les machines virtuelles VMware vSphere et Microsoft Hyper−V. BACKUP &
+
+    ## RÉPLICATION
+
     - Prise en charge du protocole VSS pour la sauvegarde de bases de données Microsoft.
     - De nombreuses fonctionnalités de sauvegarde sont prises en charge.
-    - Veeam permet de faire de la sauvegarde complète de VM et ensuite d’implémenter une restauration soit full (VM complète) soit granulaire (données issues de la VM).
 
-    Le schéma de cette diapositive relie **SRV-ESX**, **SRV-VEEAM** et **SRV-NAS**. Des blocs « Vm » sont dessinés de part et d’autre de SRV-VEEAM. Le sens dessiné va de l’hyperviseur vers Veeam, puis de Veeam vers le NAS.
+    ## PRÉSENTATION
 
-    ## Réplication
+    - Veeam permet de faire de la sauvegarde complète de VM
+    ## DE VEEAM
 
-    - La réplication est une solution de récupération d’urgence en cas de défaillance matérielle ou de crash système.
-    - Elle permet une remise en état rapide du service en démarrant le réplica de la machine impactée.
-    - Les réplicas devront obligatoirement être stockés sur un datastore ESXi ou Hyper-V monté.
+    et ensuite implémenter une restauration soit full (VM complète) soit granulaire (données issues de la VM). BACKUP &
+
+    ## RÉPLICATION
+
+    SRV−ESX
+
+    SRV−VEEAM
+
+    ## PRÉSENTATION
+
+    - La réplication est une solution de récupération d’urgence
+    ## DE VEEAM
+
+    en cas de défaillance matérielle ou de crash système.
+
+    ## BACKUP &
+
+    - Elle permet une remise en état rapide du service
+    ## RÉPLICATION
+
+    en démarrant le réplica de la machine impactée.
+
+    - Les réplicas devront obligatoirement être stockés sur un datastore ESXi ou Hyper−V monté.
     - La taille du réplica est identique à celle de la VM.
-    - Un réplica ne doit pas être démarré manuellement mais uniquement via la console Veeam Backup & Replication.
-    - Cette fonctionnalité est un élément clé dans les calculs de RTO.
+
+    ## PRÉSENTATION
+
+    Un réplica ne doit pas être démarré manuellement mais
+
+    ## DE VEEAM
+
+    uniquement via la console Veeam Backup & Replication.
+
+    ## BACKUP &
+
+    - Cette fonctionnalité est
+    ## RÉPLICATION
+
+    un élément clé dans les calculs de RTO.
+
     - Une fois la VM endommagée remise en état, on peut « merger » les 2 VM pour éviter la perte de données.
 
-    La diapositive de l’avertissement montre une capture de la console, non reproduite. Le texte d’alerte ci-dessus est celui de la diapositive.
+    ## PRÉSENTATION
 
-    ## Référentiels, modes et travaux
+    - Avant toute chose, il faudra définir les différents supports
+    ## DE VEEAM
 
-    Avant toute chose, il faudra définir les différents supports de stockage dans la partie Backup Repositories et les assigner :
+    de stockage dans la partie Backup Repositories et les assigner.
 
-    - disques locaux ;
-    - partages CIFS / SMB / NFS ;
-    - disques durs externes.
+    - Disques locaux
+    ## BACKUP &
 
-    Il est possible de :
+    - Partages CIFS / SMB / NFS
+    ## RÉPLICATION
 
-    - sauvegarder l’intégralité des VM ;
-    - exclure certains disques ;
-    - choisir le mode de sauvegarde : incrémental ou reverse incremental.
+    - Disques durs externes…
+    - Il est possible de :
+    - Sauvegarder l’intégralité des VM
+    - Exclure certains disques
+    - Choisir le mode de Backup
+    - Incrémental
+    - Reverse Incremental
 
-    La mise en place des jobs permet de gérer la planification des travaux de sauvegarde et restauration.
+    ## PRÉSENTATION
 
-    La configuration des alertes mail permet d’envoyer des rapports pour les backups et réplications.
+    - Mise en place des Jobs permet de gérer la planification
+    ## DE VEEAM
 
-    Les diapositives intitulées seulement « Travaux pratiques n°1 — Mise en place de l’environnement » ne détaillent pas les gestes. Le détail est dans l’énoncé ci-dessous.
+    des travaux de sauvegarde et restauration. BACKUP & RÉPLICATION
 
-    ## Énoncé — Création de l’infrastructure
+    ## PRÉSENTATION
 
-    TP du module 01, concepts, enjeux et définitions. Avant de démarrer, avoir suivi le module 1. L’accès au gestionnaire Hyper-V est nécessaire sur la machine de salle. L’accès au partage distrib est requis.
+    - La configuration des alertes mail permet d’envoyer des rapports pour les backups et réplications. DE VEEAM BACKUP & RÉPLICATION
 
-    Le document source nomme la machine de salle par l’organisme de formation. Cette transcription garde le rôle de la machine et ne cite pas cet organisme.
+    TRAVAUX TRAVAUX PRATIQUES Mise en place PRATIQUES
 
-    Durée estimée : 1 heure.
+    ## N°1
 
-    Objectifs :
+    de l’environnement
 
-    - installer le rôle Hyper-V sur le poste de salle ;
-    - déployer l’infrastructure sous Hyper-V pour l’exécution des ateliers.
 
-    Énoncé : en se basant sur les informations fournies, importer l’environnement de maquettage via les bundles disponibles dans :
+    ## Création de l'infrastructure
 
-    `R:\Distrib\Bundles\TSSR\RES24_0160B - Sauvegarde & restauration`
+    ## TP du Module 01 – Concepts, enjeux et définitions
 
-    Import des machines virtuelles :
+    Avant de démarrer ce TP, il convient d’avoir suivi le module 1. Pour ce module l’accès au gestionnaire Hyper-V est nécessaire sur votre machine de salle. Vous devez avoir accès au partage distrib.
 
-    - créer une arborescence de stockage de machine virtuelle sur le disque `D:\` de la machine de salle ; chaque machine virtuelle sera stockée dans un dossier dédié ;
-    - importer les machines suivantes ;
-    - les machines SRV-AD1 et SRV-FIC1 ne sont pas à importer : elles sont intégrées au serveur SRV-HyperV.
+    ## Durée estimée
+
+    ## 1 heure
+
+    ## Objectifs
+
+    - Installer le rôle HyperV sur le poste de salle
+    - Déployer l’infrastructure sous HyperV pour l’exécution des ateliers
+    ## Énoncé
+
+    En vous basant sur les informations fournies ci-dessous, vous importerez l’environnement de maquettage via les bundles disponible dans : R:\Distrib\Bundles\TSSR\RES24_0160B - Sauvegarde & restauration
+
+    Import des machines virtuelles dans l’environnement Hyper-V:
+
+    - Créez une arborescence de stockage de machine virtuelle sur le disque D:\ de votre machine de salle. Chaque machine virtuelle sera stockée dans un dossier dédié.
+    - Importez les machines virtuelles suivantes (voir lien ci-dessus) :
+    - Les machines SRV-AD1 et SRV-FIC1 ne sont pas à importer, elles sont intégrées au serveur SRV-HyperV
+    Mot de Nom Type systèmes Domaine Login passe Windows Serveur Srv-backup Mondomaine.local Administrateur Pa$$w0rd SRV-Nas Freebsd – truenas Mondomaine.local admin *
+
+    Routeur Freebsd - pfsense Mondomaine.local admin * Windows Serveur SRV-HyperV WORKGROUP Administrateur *
+
+    Windows Serveur SRV-AD1 Mondomaine.local Administrateur * Windows Serveur SRV-FIC1 Mondomaine.local Administrateur *
 
     | Nom | Type systèmes | Domaine | Login | Mot de passe |
     |---|---|---|---|---|
@@ -190,39 +285,26 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
     | SRV-AD1 | Windows Serveur 2019 | Mondomaine.local | Administrateur | * |
     | SRV-FIC1 | Windows Serveur 2019 | Mondomaine.local | Administrateur | * |
 
-    La colonne mot de passe du tableau vaut `Pa$$w0rd` pour Srv-backup et `*` pour les autres lignes. La graphie « Windows Serveur » et « Freebsd » est celle du tableau.
+    Schéma de l’infrastructure :
 
-    ### Schéma de l’infrastructure
+    ![schema-infrastructure-1.png](../../assets/images/sauvegarde/module-01/schema-infrastructure-1.png)
 
-    La figure n’a pas de tableau. Les adresses lisibles sont :
+    ![schema-infrastructure-2.png](../../assets/images/sauvegarde/module-01/schema-infrastructure-2.png)
 
-    | Élément | Adresse | VLAN | Lecture de la figure |
-    |---|---|---|---|
-    | SRV-HyperV | 192.168.10.250 | VLAN 1 | Cadre qui contient Srv-ad1 et SRV-FIC1 |
-    | Srv-ad1 | 192.168.10.1 | VLAN 1 | Dans le cadre SRV-HyperV |
-    | SRV-FIC1 | 192.168.10.2 | VLAN 1 | Dans le cadre SRV-HyperV |
-    | Routeur | 192.168.10.254 | VLAN 1 | Interface vers ce cadre, après un commutateur dessiné |
-    | Routeur | 192.168.20.254 | VLAN 2 | Interface vers le serveur de sauvegarde |
-    | Sauvegarde Srv | 192.168.20.1 | VLAN 2 | Après un second commutateur dessiné |
-    | Routeur | 192.168.30.254 | VLAN 3 | Interface vers le NAS |
-    | NAS | 192.168.30.1 | VLAN 3 | Légende « Partage ISCSI » |
-    | Nuage WAN | non chiffrée | — | Légendes « Ip passerelle », « Réseau salle », « DHCP », « Bridged » |
+    Vérification après import : L’objectif est de contrôler que notre infrastructure est opérationnelle et de finaliser certaines configurations.
 
-    ### Vérification après import
+    Allumer toutes les VM de notre infrastructure.
 
-    L’objectif est de contrôler que l’infrastructure est opérationnelle et de finaliser certaines configurations. Allumer toutes les VM.
+    - Ouvrir une session sur toutes vos VM :
+        - o Administrateur / Pa$$w0rd
 
-    - Ouvrir une session sur toutes les VM : Administrateur / Pa$$w0rd.
-    - Depuis srv-backup, vérifier la connectivité vers SRV-AD1, SRV-Fic1 et SRV-NAS, et ajuster les pare-feu Windows au besoin.
-    - Préparation du NAS depuis SRV_Backup.
-    - Ouvrir Chrome et vérifier que le portail web du NAS est opérationnel.
-        - URL : `https://192.168.30.1`
-        - Login : admin / Pa$$w0rd
-        - Menu « paramètres systèmes » puis « Console » : exécuter `sudo wbinfo -t` pour vérifier que l’intégration à l’annuaire est correcte.
-        - Menu « service » : activer le service « ISCSI ».
-    - Sur srv-fic1, se connecter (Administrateur / Pa$$w0rd) et effectuer les pings vers srv-ad1, srv-backup et truenas.
-
-    Correction de ce TP : **Inexistant**.
+    - Depuis srv-backup
+        - o Vérifier la connectivité vers les serveurs suivants et ajuster les pare-feu Windows au besoin : ▪ SRV-AD1 ▪ SRV- Fic1 ▪ SRV-NAS
+        - o Préparation du NAS depuis SRV_Backup
+        - o Ouvrir chrome, vérifier que le portail web du serveur NAS est opérationnel ▪ URL : https://192.168.30.1 ▪ Login : admin / Pa$$w0rd ▪ Dans le menu « paramètres systèmes » - « Console » effectuer la commande « sudo wbinfo -t » pour vérifier que l’intégration AD est ok. ▪ Aller sur le menu « service » et activer le service « ISCSI ».
+    - Sur srv-fic1
+        - o Se connecter sur la VM : ▪ Administrateur ▪ Pa$$w0rd
+        - o Effectuer les pings suivants : ▪ srv-ad1 ▪ srv-backup ▪ truenas
 
 === "Cours Optimisé IA"
 
