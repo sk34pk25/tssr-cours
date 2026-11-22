@@ -403,3 +403,45 @@ Ce tableau préserve le contenu transversal du document associé ; il ne modifie
 ## Provenance pédagogique
 
 Support M03, cinq énoncés et leurs cinq solutions, section Module 3 des notes, synthèse Interaction Windows/CLI/PowerShell du Drive. La synthèse comporte aussi des rappels Excel, dont le cours de référence reste Microsoft 365. Les méthodes de lecture, clarifications des coquilles, contrôles et mini-quiz sont des aides pédagogiques IA.
+
+## Script de laboratoire — démarrage distant
+
+```bat
+@echo off
+setlocal
+
+set HOST=[MASQUÉ]
+set USER=[MASQUÉ]
+set PASS=[MASQUÉ]
+set IPMACHINE=[MASQUÉ]
+set PLINK=C:\Program Files\PuTTY\plink.exe
+
+echo ==========================================
+echo   Demarrage machine du lab a distance
+echo ==========================================
+echo.
+echo HOST      = %HOST%
+echo USER      = %USER%
+echo IPMACHINE = %IPMACHINE%
+echo PLINK     = %PLINK%
+echo.
+
+if not exist "%PLINK%" (
+    echo [ERREUR] plink.exe introuvable :
+    echo %PLINK%
+    pause
+    exit /b 1
+)
+
+echo [INFO] Connexion au serveur du lab...
+echo.
+
+(
+    echo %IPMACHINE%
+) | "%PLINK%" -ssh %USER%@%HOST% -pw %PASS%
+
+echo.
+echo [INFO] Code retour = %errorlevel%
+echo.
+pause
+```

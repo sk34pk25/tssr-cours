@@ -121,7 +121,7 @@ Le support se termine par une démonstration « Mise en forme d’un document »
 
 **Objectif :** mettre en forme un document Word.
 
-**Prérequis :** Office 365 installé. Récupérer « Système Solaire – Document Brut.docx » (document à mettre en forme) et « Système Solaire – Document Fini.pdf » (résultat attendu). Chaque paragraphe du document a été identifié.
+**Prérequis :** Office 365 installé. Récupérer « Système Solaire – Document Brut.docx » (document à mettre en forme) et « Système Solaire – Document Fini.docx » (résultat attendu). Document Fini.pdf : Inexistant. Chaque paragraphe du document a été identifié.
 
 ### Styles de titres
 

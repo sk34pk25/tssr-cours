@@ -16,4 +16,4 @@ Les réponses restent séparées des questions. Commencer par l’énoncé, cons
 
 ## Ressources
 
-Le classeur de départ et le classeur fini ne sont pas publiés. Leur contenu est transcrit dans l’onglet **Cours Original** du module, document « Clients - Document Fini », et les consignes sont dans l’[énoncé](enonces.md).
+Les feuilles des classeurs (valeurs et formules) sont dans l’[énoncé](enonces.md) et les [corrections](corrections.md). La transcription du PDF « Clients - Document Fini » reste dans l’onglet Cours Original du module.
