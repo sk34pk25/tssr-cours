@@ -1,172 +1,278 @@
 # Module 05 — Découverte de GLPI
 
-## Objectifs
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-- Distinguer l’interface simplifiée de l’interface standard et repérer le profil et l’entité actifs.
-- Construire une recherche reproductible avec les bons critères et colonnes.
-- Contrôler une sélection avant une modification massive dans le laboratoire.
+## Parcours de lecture
 
-## GLPI relie les équipements, les personnes et l’assistance
+1. Support · Module 05 - Support de cours · 6 pages transcrites
 
-Le support présente GLPI comme outil libre de gestion de parc et de centre de services. Comprendre les **objets et leurs relations** avant de mémoriser les menus : ordinateur, utilisateur, logiciel, contrat, composant et ticket. Les captures de l’Original montrent la version utilisée en formation ; l’emplacement des menus peut différer dans une autre version.
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-| Gestion de parc | Utilité pour le technicien |
-|---|---|
-| Inventaire matériel et informations administratives/financières | Identifier l’équipement et son contexte. |
-| Composants internes, externes et cartographie réseau | Relier le symptôme aux dépendances réelles. |
-| Historique, systèmes d’exploitation et cycle de vie | Retrouver les changements et prévoir maintenance ou remplacement. |
-| Réservation, déploiement et licences | Planifier les moyens et vérifier les droits d’usage. |
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-L’interface **simplifiée** vise les usages utilisateur, selon les droits : tickets, réservations et FAQ. L’interface **standard** donne accès aux fonctions techniques, administratives et de configuration autorisées. Voir un menu dépend des habilitations ; être dans l’interface standard ne donne pas tous les droits.
+## Support · Module 05 - Support de cours · 6 pages transcrites
 
-## Construire une recherche reproductible
+!!! note "À retenir"
+    Texte, tableaux et illustrations utiles retranscrits du support ; numéros de diapositives, bandeaux répétitifs, éléments de marque et décorations exclus.
 
-1. Choisir le type d’objet et les colonnes utiles.
-2. Définir le champ recherché et l’opérateur adapté.
-3. Combiner les critères avec **ET**, **OU** et les exclusions nécessaires.
-4. Vérifier quelques fiches du résultat avant de généraliser.
-5. Enregistrer la recherche si elle sera réutilisée et définir sa portée.
+Texte, tableaux et illustrations utiles retranscrits du support ; numéros de diapositives, bandeaux répétitifs, éléments de marque et décorations exclus. Les formulations historiques sont conservées ; les précisions sont placées dans le cours optimisé.
 
-La recherche rapide porte sur les champs affichés ; la recherche multicritères permet d’interroger des paramètres plus précis et de grouper les conditions. Le support mentionne notamment `^` pour le début, `$` pour la fin et `NULL` pour une valeur vide, ainsi que des recherches numériques et relatives aux dates. **Précision externe :** vérifier les opérateurs réellement proposés par le champ et la version ; ne pas traiter toutes les zones de recherche comme un moteur d’expressions régulières complet.
+### Page 1
 
-| Fonction | Contrôle à effectuer |
-|---|---|
-| Colonnes et tri | Le résultat montre les informations permettant de décider. |
-| Export | Le format et le périmètre correspondent au besoin. |
-| Recherche enregistrée | Nom, visibilité, entité, récursivité et comptage adaptés. |
-| Modification massive | Sélection exacte et action validée sur un petit échantillon. |
-| Corbeille | Distinguer élément actif, supprimé et purge définitive. |
-| Fiche d’un élément | Consulter ses onglets, relations et historique ; plusieurs onglets sont communs aux objets. |
+#### Sensibilisation ITIL et
 
-## Cas guidé — préparer un renouvellement
+#### gestion de parc
 
-**Exemple externe :** rechercher les ordinateurs d’un service avec le système visé, afficher modèle, utilisateur et date utile, puis ouvrir plusieurs fiches pour vérifier les données. Exporter la liste pour validation. Avant une modification massive, refaire le contrôle du nombre d’éléments sélectionnés et de leur entité ; une erreur de filtre peut toucher tout le parc.
+Module 05 – Découverte de GLPI
 
-### Construire puis vérifier la sélection
+#### Objectifs
+
+!!! note "À retenir"
+    Découvrir l’outil GLPI Définir les différentes fonctionnalités Découvrir les fonctionnalités de recherche Découvrir son utilisation au quotidien
+
+**Visuel externe**
 
 ```mermaid
 flowchart LR
-    P["Vérifier profil et entité"] --> F["Choisir les critères"]
-    F --> L["Lire les résultats"]
-    L --> T["Tester sur un élément"]
-    T --> V["Vérifier la fiche modifiée"]
+    N1["Découvrir l’outil GLPI"]
+    N2["Définir les différentes fonctionnalités"]
+    N3["Découvrir les fonctionnalités de recherche"]
+    N4["Découvrir son utilisation au quotidien"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
-La séquence relie les fonctions de recherche et de modification illustrées par le support GLPI.
+- Découvrir l’outil GLPI
+- Définir les différentes fonctionnalités
+- Découvrir les fonctionnalités de recherche
+- Découvrir son utilisation au quotidien
 
-## Notions détaillées pour approfondir
+### Page 2
 
-Les notions détaillées ci-dessous conservent le périmètre et les exemples du support historique, avec une mise en page réparée. Les réserves et corrections exposées plus haut s’appliquent à cette relecture. Pour la formulation source exacte, utiliser **Cours Original**. Les captures sont des illustrations isolées du support, pas des schémas générés.
+**Visuel externe**
 
-### Présentation de GLPI
+```mermaid
+flowchart LR
+    N1["GLPI : Gestion Libre de Parc Informatique"]
+    N2["ITSM : Information Technology Service Management conforme avec ITIL"]
+    N3["Logiciel libre sous licence GPL 100% libre"]
+    N4["Logiciel complet pour la gestion de parc et centre de services"]
+    N5["Plusieurs langues et plug-ins disponibles"]
+    N6["Installation possible sous Windows et Linux"]
+    N7["Pour les petits comme les grands systèmes d’information"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
-<section>
-<h4>Sensibilisation ITIL et</h4>
-<h4>gestion de parc</h4>
-<p>Module 05 – Découverte de GLPI</p>
-<h4>Objectifs</h4>
-<ul><li>Découvrir l’outil GLPI</li><li>Définir les différentes fonctionnalités</li><li>Découvrir les fonctionnalités de recherche</li><li>Découvrir son utilisation au quotidien</li></ul>
-</section>
+GLPI : présentation
 
-<section>
-<p>GLPI : présentation</p>
-<ul><li>GLPI : Gestion Libre de Parc Informatique</li><li>ITSM : Information Technology Service Management conforme avec ITIL</li><li>Logiciel libre sous licence GPL 100% libre</li><li>Logiciel complet pour la gestion de parc et centre de services</li><li>Plusieurs langues et plug-ins disponibles</li><li>Installation possible sous Windows et Linux</li><li>Pour les petits comme les grands systèmes d’information</li></ul>
-<p>GLPI : fonctionnalités gestion de parc</p>
-<figure><img alt="Fonctionnalités de gestion du parc" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p002-001.webp"/><figcaption>Fonctionnalités de gestion du parc — illustration isolée du support, page 2.</figcaption></figure>
-</section>
+- GLPI : Gestion Libre de Parc Informatique
+- ITSM : Information Technology Service Management conforme avec ITIL
+- Logiciel libre sous licence GPL 100% libre
+- Logiciel complet pour la gestion de parc et centre de services
+- Plusieurs langues et plug-ins disponibles
+- Installation possible sous Windows et Linux
+- Pour les petits comme les grands systèmes d’information
 
-### Interfaces et accès au parc
+GLPI : fonctionnalités gestion de parc
 
-<section>
-<p>GLPI : les interfaces</p>
-<ul><li>Interface simplifiée<ul><li>Interface la plus restrictive</li><li>Destinée aux utilisateurs finaux</li><li>Permet de créer un ticket, suivre ses tickets, accéder aux réservations et à la FAQ</li></ul></li><li>Interface standard<ul><li>Interface principale de GLPI</li><li>Tous les modules y sont disponibles en fonction des droits de chacun</li><li>Utilisée pour les taches techniciens, d’administration et de configuration</li><li>3 vues de travail : personnelle, groupe et globale</li></ul></li></ul>
-<p>GLPI : recherche rapide</p>
-<ul><li>Permet d’effectuer une recherche uniquement sur les champs affichés</li><li>Étendue de la recherche aux champs affichés par défaut de tous les éléments d’inventaire</li><li>Utilisation possible des caractères suivants (REGEX) :<ul><li>« ^ » pour symboliser le début du champ</li><li>« $ » pour symboliser la fin du champ</li><li>« NULL » pour rechercher les champs vides</li><li>Utilisation conjointe de « ^ » et « $ » pour la valeur exacte d’un champ</li></ul></li></ul>
-<figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p003-002.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 3.</figcaption></figure>
-</section>
+![Fonctionnalités de gestion du parc](../../assets/course-sources/isolated/23ce31ec50409678/itil-p002-001.webp)
 
-<section>
-<p>GLPI : gestion de parc</p>
-<p>Menu parc</p>
-<ul><li>Affichage par défaut des ordinateurs</li></ul>
-<ul><li>Possibilité de personnaliser les colonnes affichées</li></ul>
-<ul><li>Menu de recherche avancée</li></ul>
-<ul><li>Export possible des données sous différents formats</li></ul>
-<ul><li>Sélection du nombre d’éléments à afficher par page</li></ul>
-<ul><li>Navigation entre les pages</li></ul>
-<ul><li>Affichage possible de la corbeille</li></ul>
-<figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p004-003.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 4.</figcaption></figure>
-<p>GLPI : gestion de parc</p>
-<p>Recherche basique multicritères</p>
-<ul><li>Possibilité de recherches combinant plusieurs critères</li></ul>
-<ul><li>Combinaison possible de critères à l’aide d’opérateurs logiques</li></ul>
-<ul><li>Opérateurs logiques disponibles : ET/OU – ET PAS/OU PAS</li></ul>
-<ul><li>S’applique à un grand nombre de paramètres de l’objet concerné</li></ul>
-<ul><li>Plusieurs critères de recherches selon le paramètre choisi</li></ul>
-<p>Contient – Est – N’est pas – Sous – Pas sous – Avant – Après, etc.</p>
-<ul><li>Critères globaux de recherche possibles</li></ul>
-<figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p004-004.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 4.</figcaption></figure>
-</section>
+Fonctionnalités de gestion du parc — illustration isolée du support, page 2.
 
-### Recherche et modification massive
+### Page 3
 
-<section>
-<p>GLPI : gestion de parc</p>
-<p>Recherche avancée</p>
-<ul><li>Possibilité d’utiliser des caractères spéciaux pour les recherches</li></ul>
-<ul><li> NULL : s’assurer qu’un champ est vide</li></ul>
-<ul><li> &lt;Nb ou &gt;Nb : utilisé dans le cas des dates, prend un nombre de mois</li></ul>
-<ul><li> ^ : tester le début d’un champ</li></ul>
-<ul><li> $ : tester la fin d’un champ</li></ul>
-<ul><li> ^$ : tester une valeur exacte pour un champ</li></ul>
-<ul><li> [Année]-[Mois]-[Jours] : tester un champ date</li></ul>
-<p>GLPI : gestion de parc</p>
-<p>Recherche sauvegardée • Possibilité de sauvegarder ses recherches • Création d’une recherche sauvegardée • Un nom • Une visibilité/portée • Entité de rattachement avec ou sans récursivité • Comptage • Accès à ses recherches</p>
-<figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p005-005.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 5.</figcaption></figure>
-<figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p005-006.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 5.</figcaption></figure>
-</section>
+**Visuel externe**
 
-<section>
-<p>GLPI : gestion de parc</p>
-<p>Modification massive • Pour effectuer une modification sur un ensemble d’éléments • Utilisé conjointement aux recherches avancées • Généralement appliquée sur tous les éléments retournés d’une recherche • Plusieurs actions possibles</p>
-<figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p006-007.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 6.</figcaption></figure>
-<p>GLPI : gestion de parc</p>
-<figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p006-008.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 6.</figcaption></figure>
-<p>Fiche élément • Accessible en cliquant sur un élément • Contient toutes les informations de l’élément • Menu de navigation vertical sur la gauche • Certains onglets communs à tous les éléments • Possibilité d’afficher tous les onglets sur la même page • Navigation possible entre les fiches des éléments de la page courante</p>
-<figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p006-009.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 6.</figcaption></figure>
-</section>
+```mermaid
+flowchart LR
+    N1["Interface simplifiée"]
+    N2["Interface standard"]
+    N3["Permet d’effectuer une recherche uniquement sur les champs affichés"]
+    N4["Utilisation possible des caractères suivants (REGEX) :"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
 
-## Vérifier en pratique
+GLPI : les interfaces
 
-| Point de contrôle | Résultat attendu |
+- Interface simplifiée
+  - Interface la plus restrictive
+  - Destinée aux utilisateurs finaux
+  - Permet de créer un ticket, suivre ses tickets, accéder aux réservations et à la FAQ
+- Interface standard
+  - Interface principale de GLPI
+  - Tous les modules y sont disponibles en fonction des droits de chacun
+  - Utilisée pour les taches techniciens, d’administration et de configuration
+  - 3 vues de travail : personnelle, groupe et globale
+
+GLPI : recherche rapide
+
+- Permet d’effectuer une recherche uniquement sur les champs affichés
+- Étendue de la recherche aux champs affichés par défaut de tous les éléments d’inventaire
+- Utilisation possible des caractères suivants (REGEX) :
+  - « ^ » pour symboliser le début du champ
+  - « $ » pour symboliser la fin du champ
+  - « NULL » pour rechercher les champs vides
+  - Utilisation conjointe de « ^ » et « $ » pour la valeur exacte d’un champ
+
+![Interface GLPI présentée dans le support](../../assets/course-sources/isolated/23ce31ec50409678/itil-p003-002.webp)
+
+Interface GLPI présentée dans le support — illustration isolée du support, page 3.
+
+### Page 4
+
+#### GLPI : gestion de parc
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Affichage par défaut des ordinateurs"]
+    N2["Possibilité de personnaliser les colonnes affichées"]
+    N3["Menu de recherche avancée"]
+    N4["Export possible des données sous différents formats"]
+    N5["Sélection du nombre d’éléments à afficher par page"]
+    N6["Navigation entre les pages"]
+    N7["Affichage possible de la corbeille"]
+    N8["Possibilité de recherches combinant plusieurs critères"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+```
+
+Menu parc
+
+- Affichage par défaut des ordinateurs
+
+- Possibilité de personnaliser les colonnes affichées
+
+- Menu de recherche avancée
+
+- Export possible des données sous différents formats
+
+- Sélection du nombre d’éléments à afficher par page
+
+- Navigation entre les pages
+
+- Affichage possible de la corbeille
+
+![Interface GLPI présentée dans le support](../../assets/course-sources/isolated/23ce31ec50409678/itil-p004-003.webp)
+
+Interface GLPI présentée dans le support — illustration isolée du support, page 4.
+
+Recherche basique multicritères
+
+- Possibilité de recherches combinant plusieurs critères
+
+- Combinaison possible de critères à l’aide d’opérateurs logiques
+
+- Opérateurs logiques disponibles : ET/OU – ET PAS/OU PAS
+
+- S’applique à un grand nombre de paramètres de l’objet concerné
+
+- Plusieurs critères de recherches selon le paramètre choisi
+
+Contient – Est – N’est pas – Sous – Pas sous – Avant – Après, etc.
+
+- Critères globaux de recherche possibles
+
+![Interface GLPI présentée dans le support](../../assets/course-sources/isolated/23ce31ec50409678/itil-p004-004.webp)
+
+Interface GLPI présentée dans le support — illustration isolée du support, page 4.
+
+### Page 5
+
+#### GLPI : gestion de parc
+
+Recherche avancée
+
+- Possibilité d’utiliser des caractères spéciaux pour les recherches
+
+- NULL : s’assurer qu’un champ est vide
+
+- <Nb ou >Nb : utilisé dans le cas des dates, prend un nombre de mois
+
+- ^ : tester le début d’un champ
+
+- $ : tester la fin d’un champ
+
+- ^$ : tester une valeur exacte pour un champ
+
+- [Année]-[Mois]-[Jours] : tester un champ date
+
+##### Recherche sauvegardée
+
+!!! note "À retenir"
+    Possibilité de sauvegarder ses recherches Création d’une recherche sauvegardée - Un nom - Une visibilité/portée - Entité de rattachement avec ou sans récursivité - Comptage Accès à ses recherches Interface GLPI présentée dans le support — illustration isolée du support, page 5.
+
+- Possibilité de sauvegarder ses recherches
+- Création d’une recherche sauvegardée
+  - Un nom
+  - Une visibilité/portée
+  - Entité de rattachement avec ou sans récursivité
+  - Comptage
+- Accès à ses recherches
+
+![Interface GLPI présentée dans le support](../../assets/course-sources/isolated/23ce31ec50409678/itil-p005-005.webp)
+
+Interface GLPI présentée dans le support — illustration isolée du support, page 5.
+
+![Interface GLPI présentée dans le support](../../assets/course-sources/isolated/23ce31ec50409678/itil-p005-006.webp)
+
+Interface GLPI présentée dans le support — illustration isolée du support, page 5.
+
+### Page 6
+
+#### GLPI : gestion de parc
+
+##### Modification massive
+
+!!! note "À retenir"
+    Pour effectuer une modification sur un ensemble d’éléments Utilisé conjointement aux recherches avancées Généralement appliquée sur tous les éléments retournés d’une recherche Plusieurs actions possibles Interface GLPI présentée dans le support — illustration isolée du support, page 6.
+
+- Pour effectuer une modification sur un ensemble d’éléments
+- Utilisé conjointement aux recherches avancées
+- Généralement appliquée sur tous les éléments retournés d’une recherche
+- Plusieurs actions possibles
+
+![Interface GLPI présentée dans le support](../../assets/course-sources/isolated/23ce31ec50409678/itil-p006-007.webp)
+
+Interface GLPI présentée dans le support — illustration isolée du support, page 6.
+
+![Interface GLPI présentée dans le support](../../assets/course-sources/isolated/23ce31ec50409678/itil-p006-008.webp)
+
+Interface GLPI présentée dans le support — illustration isolée du support, page 6.
+
+##### Fiche élément
+
+- Accessible en cliquant sur un élément
+- Contient toutes les informations de l’élément
+- Menu de navigation vertical sur la gauche
+- Certains onglets communs à tous les éléments
+- Possibilité d’afficher tous les onglets sur la même page
+- Navigation possible entre les fiches des éléments de la page courante
+
+![Interface GLPI présentée dans le support](../../assets/course-sources/isolated/23ce31ec50409678/itil-p006-009.webp)
+
+Interface GLPI présentée dans le support — illustration isolée du support, page 6.
+
+Référence du document : 1_BoSYufbTgkE17bKE2mrlP5wUeuH_6x8 · SHA-256 23ce31ec50409678…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
 | --- | --- |
-| Population | Vérifier l’entité, le type de matériel et le nombre de fiches trouvées avant de sélectionner les résultats. |
-| Modification | Tester l’action sur un élément autorisé, rouvrir sa fiche et vérifier le champ réellement modifié. |
-
-## Mini-quiz — 5 questions
-
-1. Pourquoi un technicien ne voit-il pas tous les menus ?
-2. ET et OU donnent-ils le même résultat ?
-3. Quelle précaution avant une modification massive ?
-4. Le même filtre renvoie moins de postes avec le compte d’un technicien. Quel contrôle faire avant de le changer ?
-5. Pourquoi vérifier le nombre de lignes avant une modification massive ?
-
-??? success "Réponses commentées"
-    1. Les droits et la portée des habilitations limitent les accès.
-
-    2. Non : ET exige toutes les conditions ; OU accepte les alternatives prévues.
-
-    3. Vérifier filtre, sélection, entité et action sur un échantillon.
-
-    4. Comparer l’entité active, les entités accessibles et les droits des profils avec le contexte dans lequel le filtre a été créé.
-
-    5. Pour confirmer que l’action touche seulement la population prévue. Tester ensuite sur un échantillon du laboratoire.
-
-## Pratiquer et réviser
-
-- [Fiche de révision du module](../../revision/itil/module-05-decouverte-de-glpi.md)
-- [Retour à la séquence](index.md)
-
-## Références externes vérifiées le 4 novembre 2026
-
-- [GLPI — documentation utilisateur officielle](https://help.glpi-project.org/documentation)
+| Support · Module 05 - Support de cours · 6 pages transcrites | Texte, tableaux et illustrations utiles retranscrits du support ; numéros de diapositives, bandeaux répétitifs, éléments de marque et décorations exclus. |
