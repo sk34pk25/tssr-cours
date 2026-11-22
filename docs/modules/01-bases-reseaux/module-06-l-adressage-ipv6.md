@@ -3,7 +3,7 @@
 **Séquence :** Bases des réseaux  
 **Rôle dans le parcours :** lire une adresse de 128 bits et reconnaître son type.
 
-L’onglet Cours Original indique **Inexistant**. Le dossier ne contient aucun document propre à ce module. La fiche suit les notes de quiz des modules 5 et 6.
+Source : notes de cours. Aucun support de cours PDF n’existe pour ce module. L’onglet Cours Original reprend ces notes, y compris la mention « RFC 2800 ». La référence de la structure des adresses IPv6 est la RFC 4291 ; cette correction n’est faite que dans la présente fiche.
 
 !!! info "Choix de lecture"
     Les notes intitulent la structure « RFC 2800 ». Un passage plus loin appelle 2000::/3 « adresses locales uniques » et FC00::/8 « multidiffusion ». Le reste du même texte dit l’inverse : 2000::/3 est la plage globale routable, FF00::/8 la multidiffusion, et FC00::/7 les adresses locales uniques, proches des adresses privées IPv4. La fiche suit ce second passage, cohérent avec le tableau des plages et avec la structure GUA.

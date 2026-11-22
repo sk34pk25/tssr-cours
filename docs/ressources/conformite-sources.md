@@ -6,9 +6,9 @@ Les fiches de synthèse et leurs schémas sont affichés séparément dans **Cou
 
 ## État du catalogue au 5 novembre 2026
 
-**95 modules avec sources · 417 références de documents · 2695 pages ou sections numérotées, plus 33 documents textuels.**
+**95 modules avec sources · 421 références de documents · 2696 pages ou sections numérotées, plus 36 documents textuels.**
 
-Le catalogue représente 410 fichiers sources distincts. Les doublons du Drive gardent leur identité et leur notice, notamment les cinq documents communs aux modules 2 et 3 de Messagerie Cloud.
+Le catalogue représente 414 fichiers sources distincts. Les doublons du Drive gardent leur identité et leur notice, notamment les cinq documents communs aux modules 2 et 3 de Messagerie Cloud.
 
 Les onglets Original indiquent « Inexistant » lorsque le dossier de formation ne contient pas de source associée. Les formations datées suivent le planning. Administration GLPI complète le bloc ITIL.
 
@@ -21,8 +21,12 @@ Les onglets Original indiquent « Inexistant » lorsque le dossier de formation 
 | [Microsoft 365 — Outils collaboratifs — Module 03 — Connaissances des notions de base d’Excel](../modules/03-microsoft-365-outils-collaboratifs/module-03-connaissances-des-notions-de-base-d-excel.md) | 4 | 28 |
 | [Microsoft 365 — Outils collaboratifs — Module 04 — Exploiter Outlook et savoir le dépanner](../modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner.md) | 5 | 57 |
 | [Microsoft 365 — Outils collaboratifs — Module 05 — Exploiter Teams, SharePoint et OneDrive](../modules/03-microsoft-365-outils-collaboratifs/module-05-exploiter-teams-sharepoint-et-onedrive.md) | 3 | 23 |
-| [Bases des réseaux — Module 03 — L’adressage IPv4](../modules/01-bases-reseaux/module-03-l-adressage-ipv4.md) | 2 | 22 |
-| [Bases des réseaux — Module 04 — La communication dans un réseau](../modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md) | 3 | 12 |
+| [Bases des réseaux — Module 01 — Le modèle OSI](../modules/01-bases-reseaux/module-01-le-modele-osi.md) | 2 | 1 |
+| [Bases des réseaux — Module 02 — Les unités informatiques](../modules/01-bases-reseaux/module-02-les-unites-informatiques.md) | 2 | 1 |
+| [Bases des réseaux — Module 03 — L’adressage IPv4](../modules/01-bases-reseaux/module-03-l-adressage-ipv4.md) | 3 | 22 |
+| [Bases des réseaux — Module 04 — La communication dans un réseau](../modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md) | 4 | 12 |
+| [Bases des réseaux — Module 05 — Les premières commandes réseau](../modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md) | 1 | 1 |
+| [Bases des réseaux — Module 06 — L’adressage IPv6](../modules/01-bases-reseaux/module-06-l-adressage-ipv6.md) | 1 | 1 |
 | [Systèmes clients Microsoft — Module 01 — Les systèmes d’exploitation et Microsoft Windows 10](../modules/02-systemes-clients-microsoft/module-01-les-systemes-d-exploitation-et-microsoft-windows-10.md) | 3 | 11 |
 | [Systèmes clients Microsoft — Module 02 — Installation du système d’exploitation Windows 10](../modules/02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10.md) | 5 | 21 |
 | [Systèmes clients Microsoft — Module 03 — Interagir avec Windows 10](../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10.md) | 13 | 58 |
