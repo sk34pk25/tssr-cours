@@ -69,7 +69,7 @@ flowchart LR
 - Un modèle
 - Document récent
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p02-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p02-1.webp)
 
 Visuel du support.
 
@@ -120,7 +120,7 @@ flowchart LR
 - La zone utilisateur
 - Affiche le nom de l’utilisateur de la licence
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p03-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p03-1.webp)
 
 Visuel du support.
 
@@ -211,7 +211,7 @@ flowchart LR
 - Appliquer un style aux différents paragraphes
 - Pas de paragraphe du style normal
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p05-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p05-1.webp)
 
 Visuel du support.
 
@@ -278,7 +278,7 @@ Visuel du support.
 - Caractère entre la numérotation et le texte :
 - Tabulation ou Espace
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p08-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p08-1.webp)
 
 Visuel du support.
 
@@ -311,11 +311,11 @@ Visuel du support.
 
 refaite titre par titre
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p09-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p09-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p09-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p09-2.webp)
 
 Visuel du support.
 
@@ -334,7 +334,7 @@ Visuel du support.
 
 #### Gestion des paragraphes
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p10-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p10-1.webp)
 
 Visuel du support.
 
@@ -363,7 +363,7 @@ Visuel du support.
 
 ##### Nouveau style dans l’accès rapide
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p11-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p11-1.webp)
 
 Visuel du support.
 
@@ -392,7 +392,7 @@ Visuel du support.
 
 #### Gestion de l’espacement
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p12-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p12-1.webp)
 
 Visuel du support.
 
@@ -438,11 +438,11 @@ Visuel du support.
 - Options d’espacement
 - Applique la modification à tous les paragraphes liés au style
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p13-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p13-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p13-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p13-2.webp)
 
 Visuel du support.
 
@@ -460,7 +460,7 @@ Visuel du support.
 - Alignement des titres et des paragraphes
 - Taquets de retrait de la règle
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p14-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p14-1.webp)
 
 Visuel du support.
 
@@ -472,7 +472,7 @@ Visuel du support.
 
 #### Gestion des tabulations
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p15-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p15-1.webp)
 
 Visuel du support.
 
@@ -492,7 +492,7 @@ Visuel du support.
 - Positionner les taquets de tabulation
 - Créer un style pour une réutilisation
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p16-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p16-1.webp)
 
 Visuel du support.
 
@@ -561,11 +561,11 @@ ou
 - Regarder les aperçus
 - Choisir les caractères de suite
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p19-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p19-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p19-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p19-2.webp)
 
 Visuel du support.
 
@@ -585,7 +585,7 @@ Visuel du support.
 
 ##### Mise en forme d’un document
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-7677971f0370-p20-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-7677971f0370-p20-1.webp)
 
 Visuel du support.
 
@@ -905,15 +905,15 @@ m. T4-Puces
 
 Création des styles Identifiez les styles présents dans la galerie de styles : Si certains styles n’apparaissent pas (comme Titre1, Titre2…), cliquez sur la flèche en bas à droite de la capture : Les titres apparaissent maintenant dans la galerie de styles.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p02-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p02-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p02-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p02-2.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p02-3.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p02-3.webp)
 
 Visuel du support.
 
@@ -923,15 +923,15 @@ Vous pouvez également nettoyer les styles existants afin de clarifier la mise e
 
 ##### Voici le résultat après création :
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p03-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p03-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p03-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p03-2.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p03-3.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p03-3.webp)
 
 Visuel du support.
 
@@ -959,7 +959,7 @@ Visuel du support.
 | --- | --- | --- |
 | Retrait gauche : | ❑ | 0,5 cm |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p04-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p04-1.webp)
 
 Visuel du support.
 
@@ -967,31 +967,31 @@ Visuel du support.
 
 Liste de titres à plusieurs niveaux Suite à l’application de ce style sur une première ligne de texte, clic droit sur le numéro dans le texte puis Ajuster les retraits de la liste, puis configurez l’ensemble des retraits et numérotations pour les titres suivants :
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p05-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p05-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p05-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p05-2.webp)
 
 Visuel du support.
 
 ### Page 6
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p06-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p06-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p06-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p06-2.webp)
 
 Visuel du support.
 
 ### Page 7
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p07-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p07-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p07-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p07-2.webp)
 
 Visuel du support.
 
@@ -1019,7 +1019,7 @@ Visuel du support.
 | --- | --- | --- |
 | Retrait gauche : | ❑ | 0,5 cm |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p08-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p08-1.webp)
 
 Visuel du support.
 
@@ -1045,7 +1045,7 @@ Visuel du support.
 | --- | --- | --- |
 | Aligner à gauche : | ❑ | 1 cm |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p09-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p09-1.webp)
 
 Visuel du support.
 
@@ -1071,7 +1071,7 @@ Visuel du support.
 | --- | --- | --- |
 | Aligner à gauche : | ❑ | 1,5 cm |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p10-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p10-1.webp)
 
 Visuel du support.
 
@@ -1092,7 +1092,7 @@ Visuel du support.
 | Aligner | ❑ Justifier |
 | --- | --- |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p11-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p11-1.webp)
 
 Visuel du support.
 
@@ -1120,7 +1120,7 @@ paragraphes de même style
 | ❑ | Justifier |
 | --- | --- |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p12-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p12-1.webp)
 
 Visuel du support.
 
@@ -1148,7 +1148,7 @@ Visuel du support.
 
 - Justifier
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p13-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p13-1.webp)
 
 Visuel du support.
 
@@ -1176,7 +1176,7 @@ Visuel du support.
 
 - Justifier
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p14-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p14-1.webp)
 
 Visuel du support.
 
@@ -1208,11 +1208,11 @@ Visuel du support.
 | --- | --- |
 | Puce | ❑ ➢ |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p15-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p15-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p15-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p15-2.webp)
 
 Visuel du support.
 
@@ -1244,13 +1244,13 @@ Visuel du support.
 | --- | --- |
 | Puce | ❑ ✓ |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p16-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p16-1.webp)
 
 Visuel du support.
 
 ### Page 17
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p17-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p17-1.webp)
 
 Visuel du support.
 
@@ -1282,11 +1282,11 @@ Visuel du support.
 | --- | --- |
 | Puce | ❑ ↪ |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p18-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p18-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p18-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p18-2.webp)
 
 Visuel du support.
 
@@ -1318,11 +1318,11 @@ Visuel du support.
 | --- | --- |
 | Puce | ❑ ► |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p19-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p19-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p19-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p19-2.webp)
 
 Visuel du support.
 
@@ -1354,11 +1354,11 @@ Visuel du support.
 | --- | --- |
 | Puce | ❑ ★ |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p20-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p20-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p20-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p20-2.webp)
 
 Visuel du support.
 
@@ -1390,11 +1390,11 @@ Visuel du support.
 | --- | --- |
 | Puce | ❑ ► |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p21-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p21-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p21-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p21-2.webp)
 
 Visuel du support.
 
@@ -1402,15 +1402,15 @@ Visuel du support.
 
 Mise en forme des tableaux : Sélectionnez le texte, cliquer sur Insertion / Tableau / Insérer un tableau
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p22-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p22-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p22-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p22-2.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p22-3.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p22-3.webp)
 
 Visuel du support.
 
@@ -1420,11 +1420,11 @@ Table des matières : Positionnez-vous sur la première page du document puis in
 
 Ajouter un filigrane : Sous Conception, sélectionnez Filigrane puis tapez Le système solaire
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p23-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p23-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p23-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p23-2.webp)
 
 Visuel du support.
 
@@ -1434,15 +1434,15 @@ En-tête par page : Placez-vous à la fin d’un chapitre et cliquez sur Mise en
 
 ##### Numérotation des pages :
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p24-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p24-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p24-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p24-2.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p24-3.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p24-3.webp)
 
 Visuel du support.
 
@@ -1450,11 +1450,11 @@ Visuel du support.
 
 ##### Page de garde :
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p25-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p25-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-f2e3f47a7476-p25-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-f2e3f47a7476-p25-2.webp)
 
 Visuel du support.
 

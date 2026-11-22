@@ -63,7 +63,7 @@ Le Software as a Service ou logiciel en tant que service, est un modèle d'explo
 !!! note "À retenir"
     Zoho, G Suite, HyperOffice, Amazon Web Services, IBM Cloud.
 
-![Zoho, G Suite, HyperOffice, Amazon Web Services, IBM Cloud](../../../assets/course-sources/isolated/m365-m01-concurrents.webp)
+![Zoho, G Suite, HyperOffice, Amazon Web Services, IBM Cloud](../../assets/course-sources/isolated/m365-m01-concurrents.webp)
 
 Zoho, G Suite, HyperOffice, Amazon Web Services, IBM Cloud.
 
@@ -91,7 +91,7 @@ flowchart LR
 - S’adresse aux particuliers et aux entreprises
 - Moins de serveurs sur site
 
-![Carte Cloud Microsoft](../../../assets/course-sources/isolated/m365-m01-carte.webp)
+![Carte Cloud Microsoft](../../assets/course-sources/isolated/m365-m01-carte.webp)
 
 Cloud Microsoft.
 
@@ -123,7 +123,7 @@ flowchart LR
     N5 --> N6
 ```
 
-![Microsoft 365 relié à Exchange Online, OneDrive, Office 365 ProPlus, Microsoft Teams, SharePoint Online et Azure AD](../../../assets/course-sources/isolated/m365-m01-socle.webp)
+![Microsoft 365 relié à Exchange Online, OneDrive, Office 365 ProPlus, Microsoft Teams, SharePoint Online et Azure AD](../../assets/course-sources/isolated/m365-m01-socle.webp)
 
 Microsoft 365 — Exchange Online, OneDrive, Office 365 ProPlus, Microsoft Teams, SharePoint Online, Azure AD.
 
@@ -176,7 +176,7 @@ flowchart LR
     N7 --> N8
 ```
 
-![Exchange Online, SharePoint Online, Microsoft Teams](../../../assets/course-sources/isolated/m365-m01-services.webp)
+![Exchange Online, SharePoint Online, Microsoft Teams](../../assets/course-sources/isolated/m365-m01-services.webp)
 
 Exchange Online, SharePoint Online, Microsoft Teams.
 
@@ -201,7 +201,7 @@ Exchange Online, SharePoint Online, Microsoft Teams.
 - Office 365 Professional Plus
 - Office 365 Online
 
-![Nuage Office 365](../../../assets/course-sources/isolated/m365-m01-office.webp)
+![Nuage Office 365](../../assets/course-sources/isolated/m365-m01-office.webp)
 
 Office 365.
 
@@ -265,7 +265,7 @@ Office 365.
 
 #### Louer un domaine internet
 
-![1er de l’hébergement web cPanel illimité, infomaniak, GoDaddy.com, OVH.com, IP FIX, gandi.net, 1&1](../../../assets/course-sources/isolated/m365-m01-registrars.webp)
+![1er de l’hébergement web cPanel illimité, infomaniak, GoDaddy.com, OVH.com, IP FIX, gandi.net, 1&1](../../assets/course-sources/isolated/m365-m01-registrars.webp)
 
 1<sup>er</sup> de l’hébergement web cPanel illimité, infomaniak, GoDaddy.com, OVH.com, IP FIX, gandi.net, 1&1.
 
@@ -277,7 +277,7 @@ Office 365.
 - gandi.net
 - 1&1
 
-![Sélection d’un nom de domaine : extensions et recherche de disponibilité](../../../assets/course-sources/isolated/m365-m01-domaines.webp)
+![Sélection d’un nom de domaine : extensions et recherche de disponibilité](../../assets/course-sources/isolated/m365-m01-domaines.webp)
 
 Sélectionnez un nom de domaine — Rechercher un autre domaine — Rechercher — Disponibilité — Prix hors TVA/1re année. Extensions : .com, .eu, .pro, .fr, .ovh, .pl, .info, .co, .paris, .bzh, .alsace, .immo.
 

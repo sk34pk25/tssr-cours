@@ -98,7 +98,7 @@ flowchart LR
 - Dans l’ordinateur
 - Sur le réseau
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-454b907751a8-p02-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-454b907751a8-p02-1.webp)
 
 Visuel du support.
 
@@ -188,11 +188,11 @@ flowchart LR
 - Pourcentage, exposant, multiplication & division, soustraction & addition
 - L’ordre peut être changé avec l’utilisation des parenthèses (calcul prioritaire)
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-454b907751a8-p03-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-454b907751a8-p03-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-454b907751a8-p03-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-454b907751a8-p03-2.webp)
 
 Visuel du support.
 
@@ -222,7 +222,7 @@ Visuel du support.
 | • | Modifier un nom |
 | • | Supprimer un nom |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-454b907751a8-p04-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-454b907751a8-p04-1.webp)
 
 Visuel du support.
 
@@ -266,7 +266,7 @@ mise en forme)
 - Recopier la cellule (contenu, formule, mise en forme)
 - Recopier en incrémentant la valeur de contenu si possible
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-454b907751a8-p05-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-454b907751a8-p05-1.webp)
 
 Visuel du support.
 
@@ -303,7 +303,7 @@ Visuel du support.
 
 #### Les fonctions
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-454b907751a8-p06-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-454b907751a8-p06-1.webp)
 
 Visuel du support.
 
@@ -400,7 +400,7 @@ retourne une valeur dans une autre ligne sur la même colonne
 
 dans une chaîne de caractères
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-454b907751a8-p08-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-454b907751a8-p08-1.webp)
 
 Visuel du support.
 
@@ -435,7 +435,7 @@ valeur est ok";"Faux")
 
 #### Utilisation des fonctions
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-454b907751a8-p09-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-454b907751a8-p09-1.webp)
 
 Visuel du support.
 
@@ -456,11 +456,11 @@ Visuel du support.
 | • Cliquer sur | pour obtenir de l’aide détaillée |
 | --- | --- |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-454b907751a8-p10-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-454b907751a8-p10-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-454b907751a8-p10-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-454b907751a8-p10-2.webp)
 
 Visuel du support.
 
@@ -545,7 +545,7 @@ cellule $A$1
 
 ##### Utilisation d’Excel
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-454b907751a8-p13-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-454b907751a8-p13-1.webp)
 
 Visuel du support.
 
@@ -759,7 +759,7 @@ Feuille 3.
 | LEVASSEUR Marthe | 19,00 |
 | Total général | 573,00 |
 
-![Graphique somme de Montant TTC](../../../assets/course-sources/isolated/m365-m03-ventes-graphique.webp)
+![Graphique somme de Montant TTC](../../assets/course-sources/isolated/m365-m03-ventes-graphique.webp)
 
 Somme de Montant TTC.
 
@@ -795,7 +795,7 @@ spécifiant le nombre après un « ; ». On peut maintenant commencer à dessine
 | • | Il ne reste qu’à étirer la formule sur les cases en dessous. |
 | --- | --- |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-ac619d926498-p01-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-ac619d926498-p01-1.webp)
 
 Visuel du support.
 
@@ -811,11 +811,11 @@ en majuscules en récupérant les 3 ou 4 premiers caractères. Dans le cas de la
 | • | Il ne reste qu’à étirer la formule sur les cases en dessous. |
 | --- | --- |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-ac619d926498-p02-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-ac619d926498-p02-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-ac619d926498-p02-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-ac619d926498-p02-2.webp)
 
 Visuel du support.
 
@@ -839,7 +839,7 @@ ajoutant un test de case vide : =SI(OU(C8="";D8="");"";DROITE(ANNEE(C8);2)&SI(MO
 | • | Il ne reste qu’à étirer la formule sur les cases en dessous. |
 | --- | --- |
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-ac619d926498-p03-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-ac619d926498-p03-1.webp)
 
 Visuel du support.
 
@@ -880,7 +880,7 @@ du tableau Ouvrage.
 
 =RECHERCHEV(F6;Ouvrage;7;FAUX)
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-ac619d926498-p04-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-ac619d926498-p04-1.webp)
 
 Visuel du support.
 
@@ -933,11 +933,11 @@ au code produit de la colonne B.
 
 ##### Indiquez Vendus
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-ac619d926498-p05-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-ac619d926498-p05-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-ac619d926498-p05-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-ac619d926498-p05-2.webp)
 
 Visuel du support.
 
@@ -950,7 +950,7 @@ Cliquez sur Nombre de Montant puis modifiez les paramètres des champs Graphique
 
 dynamique.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-ac619d926498-p06-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-ac619d926498-p06-1.webp)
 
 Visuel du support.
 
@@ -966,11 +966,11 @@ Visuel du support.
 
 Clients, il faut comparer cela aux résultats de notre tableau croisé dynamique pour reporter les valeurs dans la colonne J de la liste des clients. =SIERREUR((RECHERCHEV(D6&" "&E6;'Total des ventes par clients'!$B$3:$C$19;2;FAUX));"")
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-ac619d926498-p07-1.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-ac619d926498-p07-1.webp)
 
 Visuel du support.
 
-![Visuel du support](../../../assets/course-sources/isolated/m365-ac619d926498-p07-2.webp)
+![Visuel du support](../../assets/course-sources/isolated/m365-ac619d926498-p07-2.webp)
 
 Visuel du support.
 
