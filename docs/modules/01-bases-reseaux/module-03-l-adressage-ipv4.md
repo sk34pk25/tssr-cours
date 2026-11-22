@@ -350,7 +350,7 @@ Le réseau de départ comporte toujours un masque de classe A, B ou C standard.
 
 On découpe le bloc 199.210.15.0/24 selon le schéma suivant.
 
-![Cinq disques illustrant un découpage successif en segments](../../../assets/course-sources/isolated/reseaux-m03-decoupage-schema.webp)
+![Cinq disques illustrant un découpage successif en segments](../../assets/course-sources/isolated/reseaux-m03-decoupage-schema.webp)
 
 Schéma du support — découpage du bloc 199.210.15.0/24.
 
@@ -721,7 +721,7 @@ Le réseau de départ comporte toujours un masque de classe A, B ou C standard.
 
 On découpe le bloc 199.210.15.0/24 selon le schéma suivant.
 
-![Cinq disques illustrant un découpage successif en segments](../../../assets/course-sources/isolated/reseaux-m03-decoupage-schema.webp)
+![Cinq disques illustrant un découpage successif en segments](../../assets/course-sources/isolated/reseaux-m03-decoupage-schema.webp)
 
 Schéma du support — découpage du bloc 199.210.15.0/24.
 
