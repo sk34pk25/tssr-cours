@@ -4775,24 +4775,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Semaine 1/2 — Module 05 — Sécuriser le surf Internet
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -4809,36 +4791,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#pour-pratiquer-et-reviser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pour pratiquer et réviser
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -17003,25 +16955,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#pour-pratiquer-et-reviser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pour pratiquer et réviser
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -17250,24 +17183,137 @@ Configuration d'un portail captif.</p>
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-05/corrections/">Correction</a>).</p>
 </div>
 <div class="tabbed-block">
-<p>Le support de cours est <strong>Inexistant</strong>. Les vidéos demandées aux CEL sont <strong>Inexistant</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp5/enonce-p01-02.png" data-desc-position="bottom"><img alt="Schéma réseau du TP5" src="../../../assets/images/reseau-et-securite/tp5/enonce-p01-02.png"></a></p>
-<ol>
-<li>Activer Squid, port 3128. L’énoncé choisit l’interface LAN, le mode transparent et un cache de 100. La correction choisit LANCLIENT, un cache de 1024, sans mode transparent.</li>
-<li>Rediriger le HTTP du LAN vers 127.0.0.1:3128 si vous suivez l’énoncé.</li>
-<li>Activer SquidGuard, une liste noire, et une ACL qui bloque les sites pour adultes. La correction ajoute le jeu, l’astrologie et la liste MyfirstBlackList, et interdit un domaine imposé (exemple : site-interdit.example).</li>
-<li>Intégrer SquidGuard avec /usr/local/bin/squidGuard. Tester un site autorisé et un site bloqué. Lire Status &gt; Proxy Filter.</li>
-<li>Bonus : portail captif (énoncé, six étapes, test depuis le client Linux) ou désactivation de Squid puis procédure remise au formateur (correction).</li>
-</ol>
+<p>Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.</p>
+<p>SÉCURISER LE SURF INTERNET
+TD5</p>
+<p>Avant de démarrer ce TP, il convient aux CEL d’avoir regardé la bibliothèque de
+ vidéos « pfSense - La sécurité avec un pare-feu open source” Filtrage Web et Portail
+ captif.</p>
+<div class="language-text highlight"><pre><span></span><code>        Durée estimée
+
+          3 heures
+</code></pre></div>
+<p>Énoncé</p>
+<p>Objectifs:</p>
+<p>Ce travail pratique vous permettra de mettre en place un proxy transparent avec filtrage
+web et sur pfSense, offrant ainsi un contrôle avancé sur le trafic Internet de votre réseau..</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp5/enonce-p01-01.png" data-desc-position="bottom"><img alt="TP5, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp5/enonce-p01-01.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp5/enonce-p01-02.png" data-desc-position="bottom"><img alt="TP5, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp5/enonce-p01-02.png"></a></p>
+<p>Paramétrage du squid Pfsense
+1 - Configuration de Squid</p>
+<div class="language-text highlight"><pre><span></span><code>   Connectez-vous à l'interface web de pfSense.
+
+   Allez dans Services &gt; Squid Proxy Server
+
+   Onglet "General" :
+
+          Cochez "Enable Squid Proxy"
+
+          Sélectionnez l'interface LAN
+
+          Port : 3128
+
+          Cochez "Transparent HTTP Proxy"
+
+   Onglet "Local Cache" :
+
+          Hard Disk Cache Size : 100 (ou plus selon vos besoins)
+
+          Cliquez sur "Save" pour chaque onglet
+
+   Créez une règle de pare-feu pour rediriger le trafic HTTP vers Squid :
+
+          Allez dans Firewall &gt; Rules &gt; LAN
+
+          Ajoutez une règle :
+
+          Action : Pass
+
+          Interface : LAN
+
+          Protocol : TCP
+</code></pre></div>
+<p>Source : LAN net</p>
+<div class="language-text highlight"><pre><span></span><code>           Destination : any
+
+           Destination port : HTTP
+
+           Redirect target IP : 127.0.0.1
+
+           Redirect target port : 3128
+</code></pre></div>
+<p>2 : Configuration de SquidGuard</p>
+<div class="language-text highlight"><pre><span></span><code>   Allez dans Services &gt; Proxy Filter
+
+   Onglet "General settings" :
+
+           Cochez "Enable"
+
+           Blacklist : Sélectionnez une liste noire
+
+   Onglet "Common ACL" :
+
+           Créez une règle pour bloquer les sites pour adultes
+
+   Intégrez SquidGuard à Squid :
+
+           Services &gt; Squid Proxy Server &gt; General
+
+           Redirect Program : /usr/local/bin/squidGuard
+</code></pre></div>
+<p>3- Testez la configuration :</p>
+<p>Depuis votre client Windows, essayez d'accéder à un site web normal et à un site bloqué</p>
+<p>Vérifiez les logs dans Status &gt; Proxy Filter</p>
+<p>Bonus
+Configuration d'un portail captif.</p>
+<p>Étape 1 Activation du portail captif</p>
+<div class="language-text highlight"><pre><span></span><code>   Dans l'interface web de pfSense, allez dans Services &gt; Captive Portal
+
+          Cliquez sur "Add" pour créer une nouvelle zone
+
+          Donnez un nom à votre zone (ex: "LAN_Portal")
+
+          Cochez "Enable captive portal"
+
+          Sélectionnez l'interface LAN
+</code></pre></div>
+<p>Étape 2 : Configuration de base</p>
+<div class="language-text highlight"><pre><span></span><code>   Définissez la durée de la session (ex: 60 minutes)
+
+   Activez "Reauthenticate connected users every minute"
+
+   Configurez "Idle timeout" (ex: 15 minutes)
+
+   Activez "Enable logout popup window"
+</code></pre></div>
+<p>Étape 3 : Personnalisation de la page d'accueil</p>
+<div class="language-text highlight"><pre><span></span><code>   Dans "Portal page contents", personnalisez le HTML de la page d'accueil
+
+   Ajoutez un logo et un message de bienvenue
+</code></pre></div>
+<p>Étape 4 : Configuration de l'authentification</p>
+<div class="language-text highlight"><pre><span></span><code>   Choisissez la méthode d'authentification (ex: "Local User Manager")
+</code></pre></div>
+<p>Créez quelques utilisateurs de test dans System &gt; User Manager</p>
+<p>Étape 5 : Règles de pare-feu</p>
+<div class="language-text highlight"><pre><span></span><code>   Allez dans Firewall &gt; Rules &gt; LAN
+</code></pre></div>
+<p>Assurez-vous qu'il existe une règle permettant le trafic vers le portail captif</p>
+<p>Étape 6 : Tests</p>
+<p>Connectez-vous au client Linux du réseau LAN</p>
+<div class="language-text highlight"><pre><span></span><code>   Ouvrez un navigateur et essayez d'accéder à un site web
+
+   Vérifiez que le portail captif s'affiche
+
+   Authentifiez-vous avec un utilisateur de test
+
+   Vérifiez l'accès à Internet après authentification
+</code></pre></div>
+<p>Solution
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-05/corrections/">Correction</a>).</p>
 </div>
 </div>
 </div>
-<h2 id="pour-pratiquer-et-reviser">Pour pratiquer et réviser<a class="headerlink" href="#pour-pratiquer-et-reviser" title="Permanent link">¶</a></h2>
-<ul>
-<li><a href="../../../revision/17-reseau-et-securite/module-05/">Fiche de révision</a></li>
-<li><a href="../../../kahoot/17-reseau-et-securite-module-05/">Kahoot — 20 questions</a></li>
-<li><a href="../">Sommaire du cours</a></li>
-</ul>
 <section class="tssr-kahoot" aria-label="Kahoot : TSSR-Réseau et Sécurité-Module-05"><div class="tssr-kahoot__label">KAHOOT</div>
 <h3 class="tssr-kahoot__title">M05 — Sécuriser le surf Internet</h3><p class="tssr-kahoot__count">20 questions</p>
 <p class="tssr-kahoot__description">Teste tes connaissances sur ce module.</p>

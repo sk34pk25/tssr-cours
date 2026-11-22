@@ -4747,24 +4747,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Semaine 1/2 — Module 04 — Services hébergés dans une DMZ
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -4781,36 +4763,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#pour-pratiquer-et-reviser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pour pratiquer et réviser
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -17003,25 +16955,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#pour-pratiquer-et-reviser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pour pratiquer et réviser
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -17176,8 +17109,20 @@ Récupérer le bunble SRV-Apache.ova</p>
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-04/corrections/">Correction</a>).</p>
 </div>
 <div class="tabbed-block">
-<p>Le support de cours est <strong>Inexistant</strong>. L’image du serveur web est <strong>Inexistant</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp4/enonce-p01-02.png" data-desc-position="bottom"><img alt="Schéma réseau du TP4" src="../../../assets/images/reseau-et-securite/tp4/enonce-p01-02.png"></a></p>
+<p>Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.</p>
+<p>Services hébergés dans
+une DMZ
+TD</p>
+<p>Avant de démarrer ce TP, il convient d’avoir fait le TP2.</p>
+<div class="language-text highlight"><pre><span></span><code>        Durée estimée
+
+          1 heures
+</code></pre></div>
+<p>Énoncé</p>
+<p>Objectifs:</p>
+<p>Gestion de la DMZ.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp4/enonce-p01-01.png" data-desc-position="bottom"><img alt="TP4, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp4/enonce-p01-01.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp4/enonce-p01-02.png" data-desc-position="bottom"><img alt="TP4, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp4/enonce-p01-02.png"></a></p>
 <p>Valeurs de la capture :</p>
 <ul>
 <li>Routeur formateur : 88.66.44.1</li>
@@ -17187,25 +17132,40 @@ Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponib
 <li>LAN SRV : 192.168.X.0/24, VMnet11</li>
 <li>SRV-CD : 192.168.X.100/24, Active Directory, DNS</li>
 <li>SRV-MBR : 192.168.X.102/24, DHCP</li>
-<li>
-<p>SRV-Apache : 172.20.X.200/24</p>
-</li>
-<li>
-<p>Déployer le serveur web sur VMnet 12, mot de passe root P@ssw0rd, et renseigner /etc/hosts et /etc/resolv.conf.</p>
-</li>
-<li>Créer l’enregistrement DNS et tester https://extra.votrenom.lab.</li>
-<li>Sur pfSense, créer un alias d’URL puis une redirection NAT depuis le WAN. Surveiller les règles de pare-feu.</li>
-<li>Tester depuis l’hôte avec l’IP WAN, et depuis le client Windows avec le FQDN.</li>
+<li>SRV-Apache : 172.20.X.200/24</li>
 </ul>
+<p>Installation du serveur WEB
+Récupérer le bunble SRV-Apache.ova</p>
+<div class="language-text highlight"><pre><span></span><code>   Le mot de passe de root est P@ssw0rd
+
+    Attribuer lui, l’adresse IP ainsi que sa passerelle définis sur le schema.
+    Connectez-le sur le VMnet 12.
+    Modifier les fichiers /etc/hosts et /etc/resolv.conf avec les informations de votre
+</code></pre></div>
+<p>infrastructure.</p>
+<div class="language-text highlight"><pre><span></span><code>   Faites son enregistrement DNS sur votre serveur SRV-CD
+</code></pre></div>
+<p>Sur le SRV-DC</p>
+<div class="language-text highlight"><pre><span></span><code>   Exécuter le script D:/scripts/Script-TP3-AddDnsZone.ps1 et entrer la nouvelle adresse
+</code></pre></div>
+<p>IP du SRV-Apache
+       Tester l’URL https://extra.votrenom.lab</p>
+<p>Sur du routeur Pfsense</p>
+<div class="language-text highlight"><pre><span></span><code>   Faites un alias URLs pour extra.votrenom.lab
+</code></pre></div>
+<p>Et ensuite une redirection NAT depuis le WAN pour accèder on site WEB A voir si fessable
+       Attention aux règles de pare-feu</p>
+<p>Depuis votre machine hôte</p>
+<div class="language-text highlight"><pre><span></span><code>   Tester l’accès au serveur WEB avec l’ip de votre WAN
+</code></pre></div>
+<p>Client Windows</p>
+<div class="language-text highlight"><pre><span></span><code>   Tester l’accès au serveur WEB avec le FQDN
+</code></pre></div>
+<p>Solution
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-04/corrections/">Correction</a>).</p>
 </div>
 </div>
 </div>
-<h2 id="pour-pratiquer-et-reviser">Pour pratiquer et réviser<a class="headerlink" href="#pour-pratiquer-et-reviser" title="Permanent link">¶</a></h2>
-<ul>
-<li><a href="../../../revision/17-reseau-et-securite/module-04/">Fiche de révision</a></li>
-<li><a href="../../../kahoot/17-reseau-et-securite-module-04/">Kahoot — 20 questions</a></li>
-<li><a href="../">Sommaire du cours</a></li>
-</ul>
 <section class="tssr-kahoot" aria-label="Kahoot : TSSR-Réseau et Sécurité-Module-04"><div class="tssr-kahoot__label">KAHOOT</div>
 <h3 class="tssr-kahoot__title">M04 — Services hébergés dans une DMZ</h3><p class="tssr-kahoot__count">20 questions</p>
 <p class="tssr-kahoot__description">Teste tes connaissances sur ce module.</p>

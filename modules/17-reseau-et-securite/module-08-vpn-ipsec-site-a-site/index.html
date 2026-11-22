@@ -4859,24 +4859,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Semaine 2/2 — Module 08 — VPN site à site
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -4893,36 +4875,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#pour-pratiquer-et-reviser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pour pratiquer et réviser
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -17003,25 +16955,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#pour-pratiquer-et-reviser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pour pratiquer et réviser
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -17151,8 +17084,20 @@ En binôme pour salle</p>
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-08/corrections/">Correction</a>).</p>
 </div>
 <div class="tabbed-block">
-<p>Le support de cours est <strong>Inexistant</strong>. Il faut deux pfSense et un LAN derrière chacun. En salle, le travail est en binôme. Les CEL mettent en place un deuxième pfSense.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp9/enonce-p01-02.png" data-desc-position="bottom"><img alt="Schéma réseau du TP9" src="../../../assets/images/reseau-et-securite/tp9/enonce-p01-02.png"></a></p>
+<p>Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.</p>
+<p>Connecter les
+collaborateurs site à site
+ TD9</p>
+<p>Avant de démarrer ce TP, .</p>
+<div class="language-text highlight"><pre><span></span><code>        Durée estimée
+
+          4 heures
+</code></pre></div>
+<p>Énoncé</p>
+<p>Objectifs:</p>
+<p>Mise en place</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp9/enonce-p01-01.png" data-desc-position="bottom"><img alt="TP9, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp9/enonce-p01-01.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp9/enonce-p01-02.png" data-desc-position="bottom"><img alt="TP9, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp9/enonce-p01-02.png"></a></p>
 <p>Valeurs de la capture :</p>
 <ul>
 <li>Deux sites, Binôme 1 et Binôme 2, reliés par un tunnel</li>
@@ -17161,27 +17106,16 @@ Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponib
 <li>LAN DMZ : VMnet12, SRV-Apache 172.20.X.200/24</li>
 <li>LAN SRV : 192.168.X.0/24, VMnet11</li>
 <li>SRV-CD : Active Directory, DNS, PKI</li>
-<li>
-<p>SRV-MBR : DHCP, IIS</p>
-</li>
-<li>
-<p>Créer le tunnel IPsec.</p>
-</li>
-<li>Phase 1 IKE sur les deux pfSense, puis phase 2 ESP.</li>
-<li>Définir les réseaux locaux et distants.</li>
-<li>Règles de pare-feu du VPN, autorisation du trafic IPsec, puis du trafic entre les LAN.</li>
-<li>Vérifier l’état du tunnel, la connectivité, puis les logs.</li>
+<li>SRV-MBR : DHCP, IIS</li>
 </ul>
-<p>Algorithmes et clés : <strong>Inexistant</strong>.</p>
+<p>Sur le routeur PFsense
+En binôme pour salle</p>
+<p>Mise en place d’un deuxième PFsense pour CEL</p>
+<p>Solution
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-08/corrections/">Correction</a>).</p>
 </div>
 </div>
 </div>
-<h2 id="pour-pratiquer-et-reviser">Pour pratiquer et réviser<a class="headerlink" href="#pour-pratiquer-et-reviser" title="Permanent link">¶</a></h2>
-<ul>
-<li><a href="../../../revision/17-reseau-et-securite/module-08/">Fiche de révision</a></li>
-<li><a href="../../../kahoot/17-reseau-et-securite-module-08/">Kahoot — 20 questions</a></li>
-<li><a href="../">Sommaire du cours</a></li>
-</ul>
 <section class="tssr-kahoot" aria-label="Kahoot : TSSR-Réseau et Sécurité-Module-08"><div class="tssr-kahoot__label">KAHOOT</div>
 <h3 class="tssr-kahoot__title">M08 — Connecter les collaborateurs site à site</h3><p class="tssr-kahoot__count">20 questions</p>
 <p class="tssr-kahoot__description">Teste tes connaissances sur ce module.</p>

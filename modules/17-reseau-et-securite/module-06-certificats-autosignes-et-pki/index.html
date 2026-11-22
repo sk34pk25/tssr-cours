@@ -4865,10 +4865,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pour-pratiquer-et-reviser" class="md-nav__link">
+  <a href="#parcours-de-lecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pour pratiquer et réviser
+        Parcours de lecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp7_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP7
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-de-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fiche de synthèse
       
     </span>
   </a>
@@ -17032,10 +17054,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pour-pratiquer-et-reviser" class="md-nav__link">
+  <a href="#parcours-de-lecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pour pratiquer et réviser
+        Parcours de lecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp7_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP7
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-de-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fiche de synthèse
       
     </span>
   </a>
@@ -17204,8 +17248,24 @@ routeur.votredomaine.lab, votre formateur vous indiquera les identifiants.</p>
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-06/tp7/corrections/">Correction</a>).</p>
 </div>
 <div class="tabbed-block">
-<p>Le support de cours est <strong>Inexistant</strong>. Ce module réunit le TP6 et le TP7.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp6/enonce-p01-02.png" data-desc-position="bottom"><img alt="Schéma réseau du TP6" src="../../../assets/images/reseau-et-securite/tp6/enonce-p01-02.png"></a></p>
+<p>Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.</p>
+<h2 id="parcours-de-lecture">Parcours de lecture<a class="headerlink" href="#parcours-de-lecture" title="Permanent link">¶</a></h2>
+<ol>
+<li>TP7</li>
+</ol>
+<p>La gestion des certificats
+autosignés
+TD5</p>
+<p>Avant de démarrer ce TP, .</p>
+<div class="language-text highlight"><pre><span></span><code>        Durée estimée
+
+          4 heures
+</code></pre></div>
+<p>Énoncé</p>
+<p>Objectifs:</p>
+<p>Mise en place de certificats autosignés</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp6/enonce-p01-01.png" data-desc-position="bottom"><img alt="TP6, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp6/enonce-p01-01.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp6/enonce-p01-02.png" data-desc-position="bottom"><img alt="TP6, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp6/enonce-p01-02.png"></a></p>
 <p>Valeurs de la capture :</p>
 <ul>
 <li>Routeur formateur : 88.66.44.1</li>
@@ -17217,18 +17277,64 @@ Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponib
 <li>SRV-MBR : 192.168.X.102/24, DHCP, IIS</li>
 <li>SRV-Apache : 172.20.X.200/24</li>
 </ul>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp7/enonce-p01-02.png" data-desc-position="bottom"><img alt="Schéma réseau du TP7" src="../../../assets/images/reseau-et-securite/tp7/enonce-p01-02.png"></a></p>
-<p>TP6. Certificats autosignés pour IIS, Apache et pfSense, afin de chiffrer le trafic. La correction ajoute une seconde IP 172.20.X.153/26 sur SRV-MBR, les sites www et intranet, puis sur SRV-WEB l’adresse 172.20.X.202/26, lynx, et les sites intra et internet. pfSense répond en HTTPS sur routeur.votredomaine.lab.</p>
-<p>TP7. Exécuter D:/InstallationPKI.ps1 sur SRV-CD, rendre certsrv fiable, puis faire signer les certificats des sites et du routeur par cette autorité. L’énoncé cite aussi http://88.66.44.1 pour la clé du formateur. Identifiants : <strong>Inexistant</strong>.</p>
+<p>Sur SRV-MBR
+Installer le rôle IIS et créer un certificat autosigné</p>
+<p>Faire un enristrement DNS vers intranet.votredomaine.lab</p>
+<p>Sur SRV-MBR
+Installer le Apache2 et créer un certificat autosigné</p>
+<p>Faire un enristrement DNS vers extranet.votredomaine.lab</p>
+<p>Sur le routeur PFsense
+Activer le https avec le certificat autosigné existant</p>
+<p>Faire un enristrement DNS vers routeur.votredomaine.lab</p>
+<p>Solution
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-06/tp6/corrections/">Correction</a>).</p>
+<h2 id="tp7_1">TP7<a class="headerlink" href="#tp7_1" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">À retenir</p>
+<p>Certificat émanant d'une Private-KI ADCS TD5 Avant de démarrer ce TP, .</p>
+</div>
+<p>Certificat émanant d'une
+Private-KI ADCS                                           TD5</p>
+<p>Avant de démarrer ce TP, .</p>
+<div class="language-text highlight"><pre><span></span><code>        Durée estimée
+
+          4 heures
+</code></pre></div>
+<p>Énoncé</p>
+<p>Objectifs:</p>
+<p>Mise en place</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp7/enonce-p01-01.png" data-desc-position="bottom"><img alt="TP7, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp7/enonce-p01-01.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp7/enonce-p01-02.png" data-desc-position="bottom"><img alt="TP7, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp7/enonce-p01-02.png"></a></p>
+<p>Sur SRV-CD
+Exécuter le script D:/InstallationPKI.ps1</p>
+<p>Sur SRV-MBR
+Utiliser la clé privée du SRV-CD pour sécuriser votre URL intranet.votredomaine.lab</p>
+<p>Sur SRV-WEB
+Utiliser la clé privée du SRV-CD pour sécuriser votre URL extranet.votredomaine.lab</p>
+<p>Sur le routeur PFsense
+Utiliser la clé privée de votre formateur http://88.66.44.1 pour sécuriser votre URL
+routeur.votredomaine.lab, votre formateur vous indiquera les identifiants.</p>
+<p>Solution
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-06/tp7/corrections/">Correction</a>).</p>
+<h2 id="fiche-de-synthese">Fiche de synthèse<a class="headerlink" href="#fiche-de-synthese" title="Permanent link">¶</a></h2>
+<p>Les lignes reprennent les titres du cours et la première phrase de chaque partie.</p>
+<table>
+<thead>
+<tr>
+<th>Partie</th>
+<th>Repère du cours</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP7</td>
+<td>Certificat émanant d'une Private-KI ADCS TD5 Avant de démarrer ce TP, .</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
-<h2 id="pour-pratiquer-et-reviser">Pour pratiquer et réviser<a class="headerlink" href="#pour-pratiquer-et-reviser" title="Permanent link">¶</a></h2>
-<ul>
-<li><a href="../../../revision/17-reseau-et-securite/module-06/">Fiche de révision</a></li>
-<li><a href="../../../kahoot/17-reseau-et-securite-module-06/">Kahoot — 20 questions</a></li>
-<li><a href="../">Sommaire du cours</a></li>
-</ul>
 <section class="tssr-kahoot" aria-label="Kahoot : TSSR-Réseau et Sécurité-Module-06"><div class="tssr-kahoot__label">KAHOOT</div>
 <h3 class="tssr-kahoot__title">M06 — Certificats autosignés et PKI privée ADCS</h3><p class="tssr-kahoot__count">20 questions</p>
 <p class="tssr-kahoot__description">Teste tes connaissances sur ce module.</p>

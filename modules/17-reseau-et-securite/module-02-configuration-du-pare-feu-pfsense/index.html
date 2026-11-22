@@ -4691,24 +4691,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Semaine 1/2 — Module 02 — Configuration du pare-feu pfSense
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -4725,36 +4707,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#pour-pratiquer-et-reviser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pour pratiquer et réviser
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -17003,25 +16955,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#pour-pratiquer-et-reviser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pour pratiquer et réviser
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -17226,8 +17159,22 @@ fonctionnement.</p>
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-02/corrections/">Correction</a>).</p>
 </div>
 <div class="tabbed-block">
-<p>Le support de cours est <strong>Inexistant</strong>. Les OVF et les archives sont <strong>Inexistant</strong> sur le site.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp2/enonce-p01-02.png" data-desc-position="bottom"><img alt="Schéma réseau du TP2" src="../../../assets/images/reseau-et-securite/tp2/enonce-p01-02.png"></a></p>
+<p>Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.</p>
+<p>Configuration du pare-feu
+Pfsense
+TD2</p>
+<p>Avant de démarrer ce TP, il convient d’avoir fait le TP1. Récupérer le Bundle sur distrib
+ TSSR170-Réseau&amp;Sécurité.7z</p>
+<div class="language-text highlight"><pre><span></span><code>        Durée estimée
+
+          3 heures
+</code></pre></div>
+<p>Énoncé</p>
+<p>Objectifs:</p>
+<p>Création de l’infrastructure ci-dessous et y transcrire la politique de la matrice de flux du
+TP1 dans pfSense.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp2/enonce-p01-01.png" data-desc-position="bottom"><img alt="TP2, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp2/enonce-p01-01.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp2/enonce-p01-02.png" data-desc-position="bottom"><img alt="TP2, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp2/enonce-p01-02.png"></a></p>
 <p>Valeurs de la capture :</p>
 <ul>
 <li>Routeur formateur : 88.66.44.1</li>
@@ -17236,28 +17183,89 @@ Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponib
 <li>LAN DMZ : VMnet12</li>
 <li>LAN SRV : 192.168.X.0/24, VMnet11</li>
 <li>SRV-CD : 192.168.X.100/24, Active Directory, DNS</li>
-<li>
-<p>SRV-MBR : 192.168.X.102/24, DHCP</p>
-</li>
-<li>
-<p>Déployer SRV-CD sur VMnet 11, rôles AD DS et DNS, domaine votredomaine.lab.</p>
-</li>
-<li>Exécuter les scripts du document, après avoir adapté Users.csv et Groups.csv, puis créer le redirecteur vers le DNS de la salle.</li>
-<li>Déployer SRV-MBR sur VMnet 11, le joindre au domaine, installer DHCP et une étendue pour le LAN client.</li>
-<li>Déployer pfSense, aligner les IP et les VMnet, le domaine, le DNS et le relais DHCP.</li>
-<li>Client Windows : 3 Go, 2 CPU, VMnet10. Debian 12 : 2 Go, 1 CPU, VMnet10. Réserver l’adresse du schéma et désactiver le pare-feu Windows.</li>
-<li>Appliquer les règles du TP1 sur LANCLIENT et LANSERVER, tester, joindre le client Windows au domaine.</li>
+<li>SRV-MBR : 192.168.X.102/24, DHCP</li>
 </ul>
-<p>La correction ajoute deux scripts et d’autres noms de fichiers : la note est en fin de correction.</p>
+<p>Installation de l’infrastructure
+Installation du serveur SRV-CD</p>
+<div class="language-text highlight"><pre><span></span><code>   Utiliser le fichier Win-SRV.ovf pour deployer votre serveur Windows.
+
+   Attribuer lui, l’adresse IP ainsi que sa passerelle définis sur le schema.
+   Connectez-le sur le VMnet 11
+   Renomer votre VM par SRV-CD
+   Installer les rôles AD DS et le DNS, votre nom de domaine sera votre nom.lab
+
+  Ouvrir Powershell en tant qu’Administeur de vous déplacer sur E:/scirpts puis
+  exécutez les scripts dans l’ordre suivant:
+  OU.ps1
+  Attention modifier les fichiers Users.csv et Groups.csv avec votre nom de domaine
+</code></pre></div>
+<p>avant d’éxecuter les scripts suivants.
+      Users.ps1
+      Groups.ps1
+      AdduseronGroups.ps1</p>
+<div class="language-text highlight"><pre><span></span><code>   Faites un redirecteur dans le gestionnaire DNS avec l’IP le DNS de votre salle
+</code></pre></div>
+<p>Installation du serveur SRV-MBR</p>
+<div class="language-text highlight"><pre><span></span><code>   Utiliser également le fichier Win-SRV.ovf
+
+   Renomer votre serveur par: SRV-MBR
+   Attribuer lui, l’adresse IP ainsi que sa passerelle définis sur le schema.
+   Connectez-le sur le VMnet 11
+
+   Joindre ce serveur à votre domaine.
+
+   Installer le role DHCP et préparez une etendue pour le LAN client.
+</code></pre></div>
+<p>Installation du routeur Pfsense</p>
+<div class="language-text highlight"><pre><span></span><code>   Utiliser le fichier Routeur.ovf, le mot de passe par défaut
+
+   Modifier les IP correspondant à votre réseau et vérifier que les différentes cartes
+</code></pre></div>
+<p>sont sur les bons VMnet comme indiqué sur le schéma.</p>
+<div class="language-text highlight"><pre><span></span><code>   Modifier dans les paramètres générales votre domaine et votre DNS
+
+   Ajouter le relay DHCP pour votre LAN client.
+</code></pre></div>
+<p>Installation du client Windows 10 ou 11</p>
+<div class="language-text highlight"><pre><span></span><code>   Récupérer l’ISO sur Distrib puis mettre les caractéristiques suivantes :
+
+   RAM : 3Go
+</code></pre></div>
+<p>CPU : 2</p>
+<div class="language-text highlight"><pre><span></span><code>   Stockage : laisser par défaut
+
+   Réseau : VMnet10
+
+  Vérifier que vous récupérer une adresse IP du serveur DHCP. Retourner sur votre
+</code></pre></div>
+<p>serveur DHCP puis faites une réservation avec l’adresse IP indiqué sur le schéma.</p>
+<p>Désactiver le pare-feu Windows</p>
+<p>Installation du client Debian 12</p>
+<p>Récupérer l’ISO sur Distrib puis mettre les caractéristiques suivantes :</p>
+<div class="language-text highlight"><pre><span></span><code>   RAM : 2Go
+
+   CPU : 1
+
+   Stockage : laisser par défaut
+
+   Réseau : VMnet10
+
+  Vérifier que vous récupérer une adresse IP du serveur DHCP. Retourner sur votre
+</code></pre></div>
+<p>serveur DHCP puis faites une réservation avec l’adresse IP indiqué sur le schéma.</p>
+<p>Sur routeur Pfsense</p>
+<div class="language-text highlight"><pre><span></span><code>  Mettre en place les règles de par-feu côté LANCLIENT, LANSERVER
+</code></pre></div>
+<p>déterminées au TP1, les autres règles seront effectuées plus tard puis tester le bon
+fonctionnement.</p>
+<p>Client Windows 11</p>
+<div class="language-text highlight"><pre><span></span><code>   Le joindre au domaine
+</code></pre></div>
+<p>Solution
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-02/corrections/">Correction</a>).</p>
 </div>
 </div>
 </div>
-<h2 id="pour-pratiquer-et-reviser">Pour pratiquer et réviser<a class="headerlink" href="#pour-pratiquer-et-reviser" title="Permanent link">¶</a></h2>
-<ul>
-<li><a href="../../../revision/17-reseau-et-securite/module-02/">Fiche de révision</a></li>
-<li><a href="../../../kahoot/17-reseau-et-securite-module-02/">Kahoot — 20 questions</a></li>
-<li><a href="../">Sommaire du cours</a></li>
-</ul>
 <section class="tssr-kahoot" aria-label="Kahoot : TSSR-Réseau et Sécurité-Module-02"><div class="tssr-kahoot__label">KAHOOT</div>
 <h3 class="tssr-kahoot__title">M02 — Configuration du pare-feu pfSense</h3><p class="tssr-kahoot__count">20 questions</p>
 <p class="tssr-kahoot__description">Teste tes connaissances sur ce module.</p>

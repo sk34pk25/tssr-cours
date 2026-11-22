@@ -4719,24 +4719,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Semaine 1/2 — Module 03 — Configuration du NAT
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -4753,36 +4735,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#pour-pratiquer-et-reviser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pour pratiquer et réviser
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -17003,25 +16955,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#pour-pratiquer-et-reviser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pour pratiquer et réviser
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -17164,8 +17097,21 @@ utilisateurs du groupe GG-IT pour les tests.</p>
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-03/corrections/">Correction</a>).</p>
 </div>
 <div class="tabbed-block">
-<p>Le support de cours est <strong>Inexistant</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp3/enonce-p01-02.png" data-desc-position="bottom"><img alt="Schéma réseau du TP3" src="../../../assets/images/reseau-et-securite/tp3/enonce-p01-02.png"></a></p>
+<p>Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.</p>
+<p>Configuration du NAT
+Pfsense
+TD2</p>
+<p>Avant de démarrer ce TP,</p>
+<div class="language-text highlight"><pre><span></span><code>        Durée estimée
+
+          2 heures
+</code></pre></div>
+<p>Énoncé</p>
+<p>Objectifs:</p>
+<p>Ce cas pratique, vous donnera une compréhension approfondie de la gestion des accès
+réseau et de l'importance de la redirection NAT dans les environnements professionnels.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp3/enonce-p01-01.png" data-desc-position="bottom"><img alt="TP3, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp3/enonce-p01-01.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp3/enonce-p01-02.png" data-desc-position="bottom"><img alt="TP3, énoncé, page 1" src="../../../assets/images/reseau-et-securite/tp3/enonce-p01-02.png"></a></p>
 <p>Valeurs de la capture :</p>
 <ul>
 <li>Routeur formateur : 88.66.44.1</li>
@@ -17174,27 +17120,28 @@ Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponib
 <li>LAN DMZ : VMnet12</li>
 <li>LAN SRV : 192.168.X.0/24, VMnet11</li>
 <li>SRV-CD : 192.168.X.100/24, Active Directory, DNS</li>
-<li>
-<p>SRV-MBR : 192.168.X.102/24, DHCP</p>
-</li>
-<li>
-<p>Ajouter les réseaux privés sur le routeur formateur, avec la passerelle de l’adresse WAN, puis tester Internet.</p>
-</li>
-<li>Sur pfSense, appliquer les règles du TP1 sur la carte WAN.</li>
-<li>Rediriger le RDP vers SRV-MBR. La correction passe par un alias.</li>
-<li>Activer le bureau à distance pour le groupe GG-IT.</li>
-<li>Tester depuis le client Windows avec un utilisateur de GG-IT.</li>
+<li>SRV-MBR : 192.168.X.102/24, DHCP</li>
 </ul>
-<p>Les adresses et mots de passe du routeur formateur diffèrent entre l’énoncé et la correction : la note est en fin de correction.</p>
+<p>Installation de l’infrastructure
+Connection au Routeur Formateur
+http://192.168.150.1
+identifiant: stag
+Mdp: P@ssw0rd</p>
+<p>Ajouter vos reseaux privés avec la gateway de votre @IP WAN
+Puis tester la connexion internet depuis vos réseaux</p>
+<p>Sur votre routeur Pfsense
+Mettre les règles du par-feu du TP1 sur la carte WAN
+Ajouter une redirection NAT sur le protocole RDP sur l’IP de votre serveur SRV-MBR</p>
+<p>Sur votre SRV-MBR</p>
+<p>Activer le bureau à distance avec le groupe GG-IT</p>
+<p>Client Windows 11</p>
+<p>Entre binôme tester l’accès au bureau à distance depuis le client windows. Utilser des
+utilisateurs du groupe GG-IT pour les tests.</p>
+<p>Solution
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-03/corrections/">Correction</a>).</p>
 </div>
 </div>
 </div>
-<h2 id="pour-pratiquer-et-reviser">Pour pratiquer et réviser<a class="headerlink" href="#pour-pratiquer-et-reviser" title="Permanent link">¶</a></h2>
-<ul>
-<li><a href="../../../revision/17-reseau-et-securite/module-03/">Fiche de révision</a></li>
-<li><a href="../../../kahoot/17-reseau-et-securite-module-03/">Kahoot — 20 questions</a></li>
-<li><a href="../">Sommaire du cours</a></li>
-</ul>
 <section class="tssr-kahoot" aria-label="Kahoot : TSSR-Réseau et Sécurité-Module-03"><div class="tssr-kahoot__label">KAHOOT</div>
 <h3 class="tssr-kahoot__title">M03 — Configuration du NAT</h3><p class="tssr-kahoot__count">20 questions</p>
 <p class="tssr-kahoot__description">Teste tes connaissances sur ce module.</p>
