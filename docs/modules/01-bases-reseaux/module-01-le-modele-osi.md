@@ -788,7 +788,7 @@ Le système de numération décimale, également appelé base 10, est le systèm
 
 Dans un nombre décimal, chaque chiffre a une place spécifique qui lui attribue une valeur pondérée en fonction de sa position. La valeur d’un nombre est déterminée en multipliant chaque chiffre par la puissance de 10 correspondant à sa position, en partant de la droite. Par exemple, pour le nombre 325, on a :
 
-3 × 10<sup>2</sup>+ 2 × 10<sup>1</sup>+ 5 × 10<sup>0</sup>= 300 + 20 + 5 = 325
+3 × 10<sup>2</sup> + 2 × 10<sup>1</sup> + 5 × 10<sup>0</sup> = 300 + 20 + 5 = 325
 
 Ainsi, le chiffre 3 dans la centaine représente 3 × 100
 
@@ -808,7 +808,7 @@ Le binaire est particulièrement adapté à l’informatique car il permet une r
 
 Dans le système binaire, chaque chiffre est appelé un bit (Binary Digit), et chaque bit représente une puissance de 2. Par exemple, pour le nombre binaire 1011, chaque bit correspond à une puissance de 2, en partant de la droite :
 
-1 × 2<sup>3</sup>+ 0 × 2<sup>2</sup>+ 1 × 2<sup>1</sup>+ 1 × 2<sup>0</sup>= 8 + 0 + 2 + 1 = 11
+1 × 2<sup>3</sup> + 0 × 2<sup>2</sup> + 1 × 2<sup>1</sup> + 1 × 2<sup>0</sup> = 8 + 0 + 2 + 1 = 11
 
 ## La Numération Octale
 
@@ -816,13 +816,13 @@ La numération octale est un système numérique en base 8, qui utilise huit chi
 
 ## Pourquoi Utiliser la Base Octale ?
 
-Le système octal est principalement utilisé comme une méthode de représentation compacte des nombres binaires. Un chiffre octal peut être directement traduit en trois bits binaires, car 8 = 2<sup>3</sup>8 = 2^3. Ainsi, le système octal permet de réduire la longueur des séquences binaires en groupes de trois, ce qui facilite la lecture et la gestion des données.
+Le système octal est principalement utilisé comme une méthode de représentation compacte des nombres binaires. Un chiffre octal peut être directement traduit en trois bits binaires, car 8 = 2<sup>3</sup> 8 = 2^3. Ainsi, le système octal permet de réduire la longueur des séquences binaires en groupes de trois, ce qui facilite la lecture et la gestion des données.
 
 ## Structure et Conversion Binaire-Octal
 
 Dans le système octal, chaque position d’un chiffre représente une puissance de 8. Par exemple, le nombre octal 237 signifie :
 
-2 × 8<sup>2</sup>+ 3 × 8<sup>1</sup>+ 7 × 8<sup>0</sup>= 128 + 24 + 7 = 159
+2 × 8<sup>2</sup> + 3 × 8<sup>1</sup> + 7 × 8<sup>0</sup> = 128 + 24 + 7 = 159
 
 - (en d
 - e
@@ -852,7 +852,7 @@ La numération hexadécimale est un système en base 16, qui utilise seize symbo
 
 ## Pourquoi Utiliser la Base Hexadécimale ?
 
-Le système hexadécimal est particulièrement utile en informatique pour représenter de grandes quantités de données binaires en format abrégé. Chaque chiffre hexadécimal correspond à quatre bits (ou un demi-octet), car 16 = 2<sup>4</sup>16 = 2^4. Ainsi, un nombre binaire peut être regroupé par blocs de quatre bits, chaque bloc correspondant à un chiffre hexadécimal. Cela simplifie considérablement la lecture et l’écriture des adresses mémoire, des codes de couleurs, et des adresses IP dans le cas des réseaux IPv6.
+Le système hexadécimal est particulièrement utile en informatique pour représenter de grandes quantités de données binaires en format abrégé. Chaque chiffre hexadécimal correspond à quatre bits (ou un demi-octet), car 16 = 2<sup>4</sup> 16 = 2^4. Ainsi, un nombre binaire peut être regroupé par blocs de quatre bits, chaque bloc correspondant à un chiffre hexadécimal. Cela simplifie considérablement la lecture et l’écriture des adresses mémoire, des codes de couleurs, et des adresses IP dans le cas des réseaux IPv6.
 
 ## Structure et Conversion Binaire-Hexadécimal
 
@@ -1186,13 +1186,13 @@ Les unités supérieures sont basées sur des multiples de l’octet pour permet
 - Système Binaire (Base 2)
 - Kio (Kibioctet) : 1 Kio =
 
-2<sup>10</sup>octets, soit 1 024 octets.
+2<sup>10</sup> octets, soit 1 024 octets.
 
-Mio (Mebioctet) : 1 Mio = 2<sup>20</sup>octets, soit 1 048 576 octets.
+Mio (Mebioctet) : 1 Mio = 2<sup>20</sup> octets, soit 1 048 576 octets.
 
-Gio (Gibioctet) : 1 Gio = 2<sup>30</sup>octets, soit environ 1,07 milliard d’octets.
+Gio (Gibioctet) : 1 Gio = 2<sup>30</sup> octets, soit environ 1,07 milliard d’octets.
 
-Tio (Tebioctet) : 1 Tio = 2<sup>40</sup>octets, soit environ 1,1 billion d’octets.
+Tio (Tebioctet) : 1 Tio = 2<sup>40</sup> octets, soit environ 1,1 billion d’octets.
 
 - Système Décimal (Base 10)
 - Ko (Kilooctet) : 1 Ko =

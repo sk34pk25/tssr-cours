@@ -644,8 +644,8 @@ Le réseau de départ comporte toujours un masque de classe A, B ou C standard.
 | Nombre maximum d’hôtes par segment | 25 — 5 bits − 1 |
 | Adresse de réseau | 192.177.4.0 |
 | Masque de sous-réseau proposé | 255.255.255.240 |
-| Nombre de sous-réseaux créés | 2<sup>4</sup>= 16 |
-| Nombre maximum d’adresses par segment | 2<sup>4</sup>− 2 = 14 |
+| Nombre de sous-réseaux créés | 2<sup>4</sup> = 16 |
+| Nombre maximum d’adresses par segment | 2<sup>4</sup> − 2 = 14 |
 
 ##### Scénario 2
 
@@ -655,8 +655,8 @@ Le réseau de départ comporte toujours un masque de classe A, B ou C standard.
 | Nombre maximum d’hôtes par segment | 88.000 — 17 bits − 1 |
 | Adresse de réseau | 39.0.0.0 |
 | Masque de sous-réseau proposé | 255.255.0.0 |
-| Nombre de sous-réseaux créés | 2<sup>8</sup>= 256 |
-| Nombre maximum d’adresses par segment | 2<sup>16</sup>− 2 = 65534 |
+| Nombre de sous-réseaux créés | 2<sup>8</sup> = 256 |
+| Nombre maximum d’adresses par segment | 2<sup>16</sup> − 2 = 65534 |
 
 ### Page 4
 
@@ -668,8 +668,8 @@ Le réseau de départ comporte toujours un masque de classe A, B ou C standard.
 | Nombre maximum d’hôtes par segment | 350 — 9 bits − 1 |
 | Adresse de réseau | 171.133.0.0 |
 | Masque de sous-réseau proposé | 255.255.255.0 |
-| Nombre de sous-réseaux créés | 2<sup>8</sup>= 256 |
-| Nombre maximum d’adresses par segment | 2<sup>8</sup>− 2 = 254 |
+| Nombre de sous-réseaux créés | 2<sup>8</sup> = 256 |
+| Nombre maximum d’adresses par segment | 2<sup>8</sup> − 2 = 254 |
 
 ##### Scénario 4
 
@@ -679,8 +679,8 @@ Le réseau de départ comporte toujours un masque de classe A, B ou C standard.
 | Nombre maximum d’hôtes par segment | 1 500 — 11 bits − 1 |
 | Adresse de réseau | 128.199.0.0 |
 | Masque de sous-réseau proposé | 255.255.252.0 |
-| Nombre de sous-réseaux créés | 2<sup>6</sup>= 64 |
-| Nombre maximum d’adresses par segment | 2<sup>10</sup>− 2 = 1022 |
+| Nombre de sous-réseaux créés | 2<sup>6</sup> = 64 |
+| Nombre maximum d’adresses par segment | 2<sup>10</sup> − 2 = 1022 |
 
 ##### Scénario 5
 
@@ -690,8 +690,8 @@ Le réseau de départ comporte toujours un masque de classe A, B ou C standard.
 | Nombre maximum d’hôtes par segment | 100 — 7 bits − 1 |
 | Adresse de réseau | 191.254.0.0 |
 | Masque de sous-réseau proposé | 255.255.255.192 |
-| Nombre de sous-réseaux créés | 2<sup>10</sup>= 1024 |
-| Nombre maximum d’adresses par segment | 2<sup>6</sup>− 2 = 62 |
+| Nombre de sous-réseaux créés | 2<sup>10</sup> = 1024 |
+| Nombre maximum d’adresses par segment | 2<sup>6</sup> − 2 = 62 |
 
 ##### Scénario 6
 
@@ -701,8 +701,8 @@ Le réseau de départ comporte toujours un masque de classe A, B ou C standard.
 | Nombre maximum d’hôtes par segment | 12 — 4 bits − 1 |
 | Adresse de réseau | 216.121.44.0 |
 | Masque de sous-réseau proposé | 255.255.255.248 |
-| Nombre de sous-réseaux créés | 2<sup>5</sup>= 32 |
-| Nombre maximum d’adresses par segment | 2<sup>3</sup>− 2 = 6 |
+| Nombre de sous-réseaux créés | 2<sup>5</sup> = 32 |
+| Nombre maximum d’adresses par segment | 2<sup>3</sup> − 2 = 6 |
 
 ##### Scénario 7
 
@@ -712,8 +712,8 @@ Le réseau de départ comporte toujours un masque de classe A, B ou C standard.
 | Nombre maximum d’hôtes par segment | 600 — 10 bits − 1 |
 | Adresse de réseau | 134.119.0.0 |
 | Masque de sous-réseau proposé | 255.255.254.0 |
-| Nombre de sous-réseaux créés | 2<sup>7</sup>= 128 |
-| Nombre maximum d’adresses par segment | 2<sup>9</sup>− 2 = 510 |
+| Nombre de sous-réseaux créés | 2<sup>7</sup> = 128 |
+| Nombre maximum d’adresses par segment | 2<sup>9</sup> − 2 = 510 |
 
 ### Page 5
 
