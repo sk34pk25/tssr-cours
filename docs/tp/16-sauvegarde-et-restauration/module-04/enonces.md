@@ -1,25 +1,72 @@
 # Énoncé · Utilisation du RAID
 
-Durée estimée : 1 heure. Avoir suivi les modules 1 à 4 et réalisé le TP précédent. Transcription dans le [module 04](../../../modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid.md).
+## Utilisation du raid
 
-Objectif : configurer et manipuler une solution RAID.
+## TP du Module 04 – La redondance de données - RAID
 
-Supprimer les serveurs existants, puis installer SRV-FIC2 : Windows 2019 serveur, disque 40 Go, RAM 2048.
+Avant de démarrer ce TP, il convient d’avoir suivi les modules 1, 2, 3 et 4 et d’avoir réalisé le TP précédent.
 
-Miroir :
+Durée estimée
 
-1. Ajouter un disque de 5 Go et un disque de 10 Go.
-2. Initialiser en GPT. L’énoncé écrit « GUI Partition Table ».
-3. Créer le volume miroir. Noter la taille affichée : la réponse n’est pas fournie.
-4. Créer un volume simple avec l’espace restant et peupler les deux volumes.
-5. Retirer à chaud le disque de 5 Go, noter l’état, retirer le miroir manquant, vérifier l’explorateur, remplacer le disque et reconstruire.
+1 heure
 
-RAID 5 :
+## Objectif
 
-1. Ajouter cinq disques. L’énoncé écrit « 5 Gb ».
-2. Créer le RAID 5, noter la taille, peupler.
-3. Retirer un disque à chaud, noter l’état, retirer le manquant, vérifier l’accès, remplacer et reconstruire.
+- Configurer et manipuler une solution RAID.
+## Énoncé
 
-Bonus : refaire ces organisations depuis le gestionnaire de serveur, pools de stockage, nouveau disque virtuel. Dire si les disques restent visibles dans le gestionnaire de disque.
+Pour des questions de ressources supprimer les serveurs existants et installer un nouveau
+
+## serveur SRV-FIC2
+
+Système d’exploitation Windows 2019 serveur
+
+## Disque dur                       40 Go
+
+RAM 2048
+
+Sur SRV-FIC2 mirroring :
+
+- Ajouter 2 disques durs
+    - o 1 disque Capacité : 5 Go
+    - o 1 disque Capacité : 10 Go
+- Depuis le gestionnaire de disque
+    - o Initialiser les 2 disques avec une partition GPT (GUI Partition Table)
+    - o Mettre en place un volume miroir
+    - o Quelle est la taille de la nouvelle partition ?
+    - o Générer un volume simple avec l’espace restant
+    - o Peupler de fichiers et de dossiers les deux partitions
+- Supprimer à chaud le disque de 5 Go
+    - o Relever l’état des disques depuis le gestionnaire de disques
+    - o Supprimer le disque miroir manquant
+    - o Les données sont-elles toujours accessibles depuis l’explorateur ?
+
+- o A vous de remplacer le disque manquant et de reconstruire le mirroring
+Sur SRV-FIC2 RAID5 :
+
+Sur le même principe que pour le mirroring, ajouter 5 disques durs
+
+    - o Capacité : 5 Gb
+- Mettre en place un RAID5
+- Quelle est la taille de la nouvelle partition ?
+    - o Peupler de fichiers et de dossiers la partition
+- Supprimer à chaud un disque de 5 Gb
+    - o Relever l’état des disques depuis le Gestionnaire de disques
+    - o Supprimer le disque manquant
+    - o Les données sont-elles toujours accessibles depuis l’explorateur ?
+    - o A vous de remplacer le disque manquant et de reconstruire le RAID 5
+Bonus : Sur SRV-FIC2 via le gestionnaire serveur et non plus le gestionnaire de disque,
+
+## refaire les deux étapes précédentes
+
+- Depuis le Gestionnaire de disque
+    - o Initialiser les disques
+- Depuis le Gestionnaire de serveur => service de fichiers et de stockage
+    - o Aller sur « pools de stockage »
+    - o Sur le bloc « disques physiques », dans « tâche », sélectionner « nouveau disque virtuel »
+    - o Ajouter les disques au pool de stockage
+Vos disques sont-ils toujours présents dans le Gestionnaire de disque ?
+
+A vous de mettre en place le RAID via le gestionnaire serveur
 
 [Correction inexistante](corrections.md)

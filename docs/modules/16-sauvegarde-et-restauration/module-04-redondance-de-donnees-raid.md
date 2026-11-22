@@ -6,173 +6,183 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
 
 === "Cours Original"
 
-    ## Sommaire du support
+    REDONDANCE DE DONNÉES
 
-    La redondance de données, le RAID, le RAID 0, le RAID 1, le RAID 5, le RAID 10. Le corps ajoute une comparaison logicielle et une synthèse chiffrée.
+    Module 04 La redondance de données - RAID
 
-    ## Redondance
+    SOMMAIRE La redondance de données
 
-    La redondance consiste à dupliquer des composants ou des données essentielles d’un système, avec pour objectif d’améliorer sa fiabilité.
+    Le Raid
 
-    - Elle peut être définie via une configuration matérielle ou logicielle.
-    - L’objectif est de pouvoir reconstruire les données en cas de défaillance du système.
+    Le Raid 0
 
-    Trois échelles :
+    Le Raid 1
 
-    - Disques durs : technologie RAID. On répartit les données sur un ensemble de disques organisés en grappe, pour pallier la défaillance de l’un des disques.
-    - Serveurs : réplication en temps réel entre deux serveurs, ou clustering. Si l’un tombe en panne, on s’appuie sur l’autre.
-    - Multisite : redondance sur plusieurs sites pour pallier un incident majeur d’un site.
+    Le Raid 5
+
+    Le Raid 10
+
+    ## LA REDONDANCE
+
+    Consiste à dupliquer des composants ou des données essentielles
+
+    ## DE DONNÉES
+
+    d'un système, avec pour objectif d'améliorer sa fiabilité.
+
+    Fonctionnement :
+
+    - Peut être définie via une configuration matérielle ou logicielle.
+    - L'objectif est de pouvoir reconstruire les données en cas de défaillance du système.
+
+    ## LA REDONDANCE
+
+    - Disques durs : technologie Raid, on répartit les données sur un
+    ## DE DONNÉES
+
+    ensemble de disques durs organisés en grappe, permettant de pallier une défaillance de l’un des disques.
+
+    - Serveurs : réplication en temps réel des données entre deux serveurs ou clustering. Si l’un des serveurs tombe en panne, il est possible de s’appuyer sur l’autre.
+    - Multisite : effectuer la redondance sur plusieurs sites pour pallier un incident majeur d’un site.
 
     ## RAID
 
-    RAID : Redundant Array of Independent Disks. Technique de partition des données sur plusieurs disques durs pour augmenter la tolérance aux pannes, la sécurité, la répartition et la cohérence de ces données. Le système peut être logiciel ou matériel.
+    RAID : Redundant Array of Independent Disks Technique de partition des données sur plusieurs disques durs pour augmenter :
 
-    ### RAID logiciel
+    - la tolérance aux pannes,
+    - la sécurité,
+    - la répartition et la cohérence de ces données.
+    Le système RAID peut être logiciel ou matériel.
 
-    Le contrôle est assuré à 100 % par une couche logicielle du système d’exploitation.
+    ## RAID
 
-    Avantages :
+    RAID : Logiciel Le contrôle du RAID est assuré à 100 % par une couche logicielle du système d'exploitation.
 
-    - technique la moins onéreuse ;
-    - souplesse d’administration ;
-    - compatibilité entre toutes les machines équipées du même contrôleur RAID (OS).
+    Avantages
 
-    La parenthèse « (OS) » est celle du support : le contrôleur dont il parle ici est le système d’exploitation.
+    - Technique la moins onéreuse.
+    - Souplesse d'administration.
+    - Compatibilité entre toutes les machines équipées du même contrôleur RAID (OS).
 
-    ## RAID 0 — Striping ou entrelacement
+    ## RAID 0
 
-    - Minimum de 2 disques.
-    - Les données sont divisées en blocs répartis sur l’intégralité des disques de la grappe.
-    - L’utilisation simultanée donne de bonnes performances en lecture et en écriture.
-    - Aucune tolérance à la panne d’un disque.
+    Le RAID 0 est aussi appelé Striping ou Entrelacement.
 
-    Le schéma à deux disques se lit ligne à ligne :
+    - Constitué d'un minimum de 2 disques durs.                      RAID 0
+    - Consiste à diviser les données en blocs et                     Striping à répartir ces blocs sur l’intégralité des disques durs que compte la grappe.
+    - L’utilisation simultanée des disques permet au RAID 0 de fournir de bonnes                            A1                A2 performances en Lecture / Écriture,                      A3                 A4 mais il n’y a aucune tolérance aux pannes                A5                 A6 de disques durs.                                         A7                 A8
 
-    | Disque 1 | Disque 2 |
-    |---|---|
-    | A1 | A2 |
-    | A3 | A4 |
-    | A5 | A6 |
-    | A7 | A8 |
-    | A9 | A10 |
-    | A11 | A12 |
+    ## RAID 1
 
-    ## RAID 1 — Mirroring
+    Le RAID 1 est aussi appelé Mirroring.
 
-    - Constitué sur 2 disques.
-    - Les données sont répliquées et écrites sur les deux disques.
-    - Cette réplication rend les performances de lecture et d’écriture modérées.
-    - Tolérance à la panne d’un disque.
+    - Il se constitue sur 2 disques durs et consiste                 RAID 1 à répliquer les données pour les écrire sur                    Mirroring les deux disques durs.
+    - Cette opération de réplication a pour conséquence de rendre modérées les performances de Lecture / Écriture.                       A1                A1
+    - On obtient toutefois une tolérance                        A2                A2 à la panne d’un disque dur.
 
-    | Disque 1 | Disque 2 |
-    |---|---|
-    | A1 | A1 |
-    | A2 | A2 |
-    | A3 | A3 |
-    | A4 | A4 |
-    | A5 | A5 |
-    | A6 | A6 |
+    RAID 5 RAID 5
 
-    ## RAID 5
-
-    - Minimum de 3 disques.
-    - L’utilisation simultanée rend les performances bonnes en lecture et modérées en écriture.
-    - La parité répartie en cascade tolère la panne d’un disque.
-
-    | Disque 1 | Disque 2 | Disque 3 |
-    |---|---|---|
-    | A1 | A2 | Ap |
-    | B1 | Bp | B2 |
-    | Cp | C1 | C2 |
-    | D1 | D2 | Dp |
-    | E1 | Ep | E2 |
-    | Fp | F1 | F2 |
-
-    La lettre `p` désigne la parité de la ligne, comme sur le schéma.
+    - Le RAID 5 se constitue sur un minimum de 3 disques durs.
+    - L’utilisation simultanée des disques durs en grappe rend les performances bonnes en Lecture et modérées en Écriture.
+    - La répartition de la parité en cascade permet une tolérance à la panne d’un disque dur. RAID 5
+    A1 A2 Ap B1 Bp B2 Cp C1 C2 D1 D2 Dp E1 Ep E2 Fp F1 F2 Disque 1 Disque 2 Disque 3
 
     ## RAID 10
 
-    - Minimum de 4 disques.
+    RAID 10
+
+    - Le RAID 10 se constitue d'un minimum de 4 disques durs.
     - Lier des grappes RAID 1 sous une grappe RAID 0.
-    - Bonne performance en lecture et en écriture.
-    - Tolérance de panne de 1 disque par sous-grappe RAID 1.
+    - Bonne performance en Lecture / Écriture.
+    - Tolérance de panne de 1 disque dur par sous grappe RAID 1.
 
-    Le schéma montre un RAID 0 au-dessus de deux RAID 1.
+    ## RAID 10
 
-    | Disque 1 | Disque 2 | Disque 3 | Disque 4 |
-    |---|---|---|---|
-    | A1 | A1 | B1 | B1 |
-    | A2 | A2 | B2 | B2 |
-    | A3 | A3 | B3 | B3 |
-    | A4 | A4 | B4 | B4 |
-    | A5 | A5 | B5 | B5 |
-    | A6 | A6 | B6 | B6 |
+    RAID 0
 
-    Les disques 1 et 2 portent le miroir A. Les disques 3 et 4 portent le miroir B. Le RAID 0 réunit ces deux miroirs.
+    RAID 1 RAID 1
 
-    ## Synthèse du support
+    A1 A1 B1 B1 A2 A2 B2 B2 A3 A3 B3 B3 A4 A4 B4 B4 A5 A5 B5 B5 A6 A6 B6 B6 Disque 1 Disque 2 Disque 3 Disque 4
 
-    | | RAID 0 | RAID 1 | RAID 5 | RAID 10 |
-    |---|---|---|---|---|
-    | Nombre minimum de disques | 2 | 2 | 3 | 4 |
-    | Tolérance de panne | Pas de protection (0) | Panne 1 disque | Panne 1 disque | Panne 1 disque par sous-grappe RAID 1 |
-    | Performances en lecture | élevées | élevées | élevées | élevées |
-    | Performances en écriture | élevées | moyenne | faible | élevées |
-    | Utilisation de la capacité | 100 % | 50 % | 67 %–94 % | 50 % |
+    ## SYNTHESE
 
-    La diapositive de travaux pratiques n°5 annonce « Gestion du RAID » sans geste. Le détail est dans l’énoncé.
+    Synthèse sur la technologie RAID
 
-    ## Énoncé — Utilisation du RAID
+    RAID 0 RAID 1 RAID 5 RAID 10 Nbr minimum 2 2 3 4 de disques Tolérance de Pas de Panne 1 disque Panne 1 disque par sous grappe panne protection (0) Performances élevées élevées élevées élevées en lecture Performances élevées moyenne faible élevées en écriture Utilisation de 100% 50% 67%-94% 50% la capacité
 
-    Avoir suivi les modules 1, 2, 3 et 4 et réalisé le TP précédent. Durée estimée : 1 heure. Objectif : configurer et manipuler une solution RAID.
+    TRAVAUX REDONDANCE DEPRATIQUES DONNÉES
 
-    Pour des questions de ressources, supprimer les serveurs existants et installer un nouveau serveur SRV-FIC2.
+    TRAVAUX TRAVAUX PRATIQUES PRATIQUES N°5 Gestion du RAID
 
-    | Paramètre | Valeur |
-    |---|---|
-    | Système d’exploitation | Windows 2019 serveur |
-    | Disque dur | 40 Go |
-    | RAM | 2048 |
 
-    ### Mirroring sur SRV-FIC2
+    ## Utilisation du raid
 
-    - Ajouter 2 disques : un de 5 Go et un de 10 Go.
-    - Depuis le gestionnaire de disque, initialiser les 2 disques avec une partition GPT. L’énoncé écrit « GUI Partition Table ».
-    - Mettre en place un volume miroir.
+    ## TP du Module 04 – La redondance de données - RAID
+
+    Avant de démarrer ce TP, il convient d’avoir suivi les modules 1, 2, 3 et 4 et d’avoir réalisé le TP précédent.
+
+    Durée estimée
+
+    1 heure
+
+    ## Objectif
+
+    - Configurer et manipuler une solution RAID.
+    ## Énoncé
+
+    Pour des questions de ressources supprimer les serveurs existants et installer un nouveau
+
+    ## serveur SRV-FIC2
+
+    Système d’exploitation Windows 2019 serveur
+
+    ## Disque dur                       40 Go
+
+    RAM 2048
+
+    Sur SRV-FIC2 mirroring :
+
+    - Ajouter 2 disques durs
+        - o 1 disque Capacité : 5 Go
+        - o 1 disque Capacité : 10 Go
+    - Depuis le gestionnaire de disque
+        - o Initialiser les 2 disques avec une partition GPT (GUI Partition Table)
+        - o Mettre en place un volume miroir
+        - o Quelle est la taille de la nouvelle partition ?
+        - o Générer un volume simple avec l’espace restant
+        - o Peupler de fichiers et de dossiers les deux partitions
+    - Supprimer à chaud le disque de 5 Go
+        - o Relever l’état des disques depuis le gestionnaire de disques
+        - o Supprimer le disque miroir manquant
+        - o Les données sont-elles toujours accessibles depuis l’explorateur ?
+
+    - o A vous de remplacer le disque manquant et de reconstruire le mirroring
+    Sur SRV-FIC2 RAID5 :
+
+    Sur le même principe que pour le mirroring, ajouter 5 disques durs
+
+        - o Capacité : 5 Gb
+    - Mettre en place un RAID5
     - Quelle est la taille de la nouvelle partition ?
-    - Générer un volume simple avec l’espace restant.
-    - Peupler de fichiers et de dossiers les deux partitions.
-    - Supprimer à chaud le disque de 5 Go.
-    - Relever l’état des disques.
-    - Supprimer le disque miroir manquant.
-    - Les données sont-elles toujours accessibles depuis l’explorateur ?
-    - Remplacer le disque manquant et reconstruire le miroir.
+        - o Peupler de fichiers et de dossiers la partition
+    - Supprimer à chaud un disque de 5 Gb
+        - o Relever l’état des disques depuis le Gestionnaire de disques
+        - o Supprimer le disque manquant
+        - o Les données sont-elles toujours accessibles depuis l’explorateur ?
+        - o A vous de remplacer le disque manquant et de reconstruire le RAID 5
+    Bonus : Sur SRV-FIC2 via le gestionnaire serveur et non plus le gestionnaire de disque,
 
-    ### RAID 5 sur SRV-FIC2
+    ## refaire les deux étapes précédentes
 
-    Sur le même principe, ajouter 5 disques durs. L’énoncé écrit ici « Capacité : 5 Gb », alors que le miroir était en « Go ».
+    - Depuis le Gestionnaire de disque
+        - o Initialiser les disques
+    - Depuis le Gestionnaire de serveur => service de fichiers et de stockage
+        - o Aller sur « pools de stockage »
+        - o Sur le bloc « disques physiques », dans « tâche », sélectionner « nouveau disque virtuel »
+        - o Ajouter les disques au pool de stockage
+    Vos disques sont-ils toujours présents dans le Gestionnaire de disque ?
 
-    - Mettre en place un RAID 5.
-    - Quelle est la taille de la nouvelle partition ?
-    - Peupler la partition de fichiers et de dossiers.
-    - Supprimer à chaud un disque de 5 Gb.
-    - Relever l’état dans le gestionnaire de disques.
-    - Supprimer le disque manquant.
-    - Les données sont-elles toujours accessibles ?
-    - Remplacer le disque manquant et reconstruire le RAID 5.
-
-    ### Bonus
-
-    Refaire les deux étapes depuis le gestionnaire de serveur, et non plus seulement le gestionnaire de disque.
-
-    - Depuis le gestionnaire de disque, initialiser les disques.
-    - Gestionnaire de serveur, service de fichiers et de stockage, pools de stockage.
-    - Bloc « disques physiques », dans « tâche », « nouveau disque virtuel ».
-    - Ajouter les disques au pool.
-    - Question : les disques sont-ils toujours présents dans le gestionnaire de disque ?
-    - Mettre en place le RAID via le gestionnaire de serveur.
-
-    Les questions de l’énoncé n’ont pas de réponse jointe. Correction : **Inexistant**.
+    A vous de mettre en place le RAID via le gestionnaire serveur
 
 === "Cours Optimisé IA"
 
