@@ -1,5 +1,7 @@
 # Module 11 — Droits sur les fichiers et répertoires
 
+[Travaux pratiques](../../tp/administration-linux/module-11/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -25,12 +27,10 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 19. Modèle de droits et droits spéciaux
 20. Droits sur les fichiers et répertoires
 21. Conclusion
-22. Énoncé · M11TP01 - Enoncé - Gestion des permissions · 1 pages transcrites
-23. Correction · M11TP01 - Solution - Gestion des permissions · 2 pages transcrites
+22. Transcription des commandes et informations utiles visibles
+23. Transcription des commandes et informations utiles visibles
 24. Transcription des commandes et informations utiles visibles
 25. Transcription des commandes et informations utiles visibles
-26. Transcription des commandes et informations utiles visibles
-27. Transcription des commandes et informations utiles visibles
 
 **Visuel externe**
 
@@ -364,132 +364,6 @@ Gestion des permissions
 
 Référence du document : 1YjWdn_o7rBxiW5UEpEx2rc0vrgJXifmZ · SHA-256 321e29630af1a8bc…
 
-## Énoncé · M11TP01 - Enoncé - Gestion des permissions · 1 pages transcrites
-
-### Gestion des permissions
-
-TP du Module 11 – Droits sur les fichiers et répertoires
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 11 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-45 minutes à 1 heure
-
-### Énoncé
-
-### Créer une structure de stockage sur le serveur sans interface graphique pour les fichiers utilisateurs.
-
-Trouver les solutions pour les besoins suivants :
-
-- Public : un répertoire public accessible en lecture / écriture pour tous les utilisateurs
-- Dépôt : un répertoire depot accessible en lecture / écriture pour tous les utilisateurs mais dans lequel seul le propriétaire du fichier pourra le supprimer
-- Admin : un répertoire admin accessible en lecture / écriture pour le groupe admin uniquement
-- Documentation : un répertoire documentation accessible en lecture pour tous les utilisateurs et en lecture/écriture pour le groupe documentation. Faire en sorte que tout nouveau fichier créé dans ce répertoire appartienne au groupe documentation
-
-Vous aurez besoin de configurer les droits spéciaux pour certains des répertoires. Faites-en sorte que l’arborescence créée soit pertinente d’un point de vue FHS. Tester les paramétrages avec les différents types de comptes utilisateurs (administrateur, utilisateur, gestionnaire de la documentation ...).
-
-### Solution
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Référence du document : 1aMX2b0y7CWZqPmSSH6Al0pi7wOV1X_wo · SHA-256 bdf164070587677a…
-
-## Correction · M11TP01 - Solution - Gestion des permissions · 2 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-### Gestion des permissions
-
-TP du Module 11 – Droits sur les fichiers et répertoires
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 11 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-45 minutes à 1 heure
-
-### Énoncé
-
-### Créer une structure de stockage sur le serveur sans interface graphique pour les fichiers utilisateurs.
-
-Trouver les solutions pour les besoins suivants :
-
-- Public : un répertoire public accessible en lecture / écriture pour tous les utilisateurs
-
-Création de la structure de stockage dans le dossier /srv (Données des services hebergées, par exemple unh serveur de fichier). Ajout du droit d’écriture à others .
-
-- Dépôt : un répertoire depot accessible en lecture / écriture pour tous les utilisateurs mais dans lequel seul le propriétaire du fichier pourra le supprimer
-
-Création du dossier sans l'option -p, devenu inutile maintenant que /srv existe ajout du droit w à others ainsi que du droit t , le sticky bit, qui interdit la suppression par d’autres comptes que l’utilisateur propriétaire ou root
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-p1-1.webp)
-
-Capture ou visuel isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-mkdir -p /srv/public
-ls -ld /srv/public
-chmod og+w /srv/public
-ls -ld /srv/public
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-small-p1-3.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-mkdir /srv/depot
-chmod o+wt /srv/depot
-ls -ld /srv/depot/
-```
-
-- Admin : un répertoire admin accessible en lecture / écriture pour le groupe admin uniquement
-
-Suppression de tous les droits pour others ajout du droit d’écriture pour le groupe propriétaire Affection du groupe admin comme groupe propriétaire
-
-- Documentation : un répertoire documentation accessible en lecture pour tous les utilisateurs et en lecture/écriture pour le groupe documentation. Faire en sorte que tout nouveau fichier créé dans ce répertoire appartienne au groupe documentation
-
-Ajout du droit d'écriture pour le groupe ainsi que du droit s qui active le SetGID .
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-p2-1.webp)
-
-Capture ou visuel isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-mkdir /srv/admin
-chmod o-rx /srv/admin
-chmod g+w /srv/admin
-chown :admin /srv/admin
-ls -ld /srv/admin/
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-small-p2-3.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-mkdir /srv/documentation
-chmod g+ws /srv/documentation/
-ls -ld /srv/documentation/
-```
-
-Référence du document : 1xC5OyxrH9JZsvp6OxeQrSf4NWCcwnxtk · SHA-256 f1b4d02bf2d2efce…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Les types de droits | Les droits d’accès sur les fichiers sont directement inscrits dans l’inode des fichiers (répertoires). |
 | Les types de droits | Pour calculer les droits en octal, il faut additionner les valeurs des droits présents pour les trois groupes. |
 | Les types de droits | Pour afficher les droits d’un fichier ou répertoire, la commande ls sera utilisée : Dans cet exemple, sont mis en avant les droits de l’utilisateur propriétaire en vert, les dro… |
@@ -502,8 +376,6 @@ Les lignes reprennent les titres du cours et la première phrase de chaque parti
 | Gestion du modèle de droit « Umask » | Afficher le masque courant Modifier le masque courant Pour avoir un umask spécifique lors de sa connexion, il sera possible d’ajouter une entrée avec la commande umask dans son… |
 | Modèle de droits et droits spéciaux | Démo Masque de droits et droits spéciaux |
 | Conclusion | Vous comprenez le fonctionnement des droits Unix Linux Vous savez modifier les droits et propriétaires de dossiers et fichiers Vous savez manipuler les modèles de droits Vous sa… |
-| Correction · M11TP01 - Solution - Gestion des permissions · 2 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Admin : un répertoire admin accessible en lecture / écriture pour le groupe admin uniquement Suppression de tous les droits pour others ajout du droit d’écriture pour le groupe… |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
-| Transcription des commandes et informations utiles visibles | Référence du document : 1xC5OyxrH9JZsvp6OxeQrSf4NWCcwnxtk · SHA-256 f1b4d02bf2d2efce… |

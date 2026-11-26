@@ -10,5 +10,6 @@ Vérifier le journal Système et identifier l’OU autorisée. Pour la devinette
 
 - [Énoncé complet](tp-01-variables-et-structures.md)
 - [Correction et contrôles](correction-tp-01.md)
+- [Démonstrations](demonstrations.md)
 - [Cours du module](../../../modules/12-initiation-powershell/module-04.md)
 - [Révision](../../../revision/12-initiation-powershell/module-04.md)

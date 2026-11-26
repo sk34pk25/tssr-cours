@@ -1,5 +1,7 @@
 # Module 03 — Démarrage d’une distribution Debian
 
+[Travaux pratiques](../../tp/administration-linux/module-03/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -33,21 +35,17 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 27. La commande shutdown
 28. Arrêter / redémarrer le système
 29. Conclusion
-30. Énoncé · M03TP01 - Enoncé - Démarrer et arrêter Debian · 1 pages transcrites
-31. Énoncé · M03TP02 - Enoncé - Gérer les services · 1 pages transcrites
-32. Correction · M03TP01 - Solution - Démarrer et arrêter Debian · 2 pages transcrites
+30. Transcription des commandes et informations utiles visibles
+31. Transcription des commandes et informations utiles visibles
+32. Transcription des commandes et informations utiles visibles
 33. Transcription des commandes et informations utiles visibles
 34. Transcription des commandes et informations utiles visibles
 35. Transcription des commandes et informations utiles visibles
-36. Correction · M03TP02 - Solution - Gérer les services · 2 pages transcrites
+36. Transcription des commandes et informations utiles visibles
 37. Transcription des commandes et informations utiles visibles
 38. Transcription des commandes et informations utiles visibles
 39. Transcription des commandes et informations utiles visibles
-40. Transcription des commandes et informations utiles visibles
-41. Transcription des commandes et informations utiles visibles
-42. Transcription des commandes et informations utiles visibles
-43. Transcription des commandes et informations utiles visibles
-44. Transcription des commandes visibles
+40. Transcription des commandes visibles
 
 **Visuel externe**
 
@@ -569,334 +567,6 @@ flowchart LR
 
 Référence du document : 1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO · SHA-256 42936137889d5576…
 
-## Énoncé · M03TP01 - Enoncé - Démarrer et arrêter Debian · 1 pages transcrites
-
-Administration Debian GNU/Linux
-
-### Démarrer et arrêter Debian
-
-TP du Module 03 – Démarrage d’une distribution Debian
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-15 à 30 minutes
-
-### Énoncé : Identification & modification de la cible par défaut sur la station avec environnement graphique
-
-- Démarrer le système, ouvrez une session avec votre utilisateur
-- Quelle est la cible systemd qui sera atteinte par défaut au démarrage de la machine ?
-- Dans le manuel de la commande systemd, rechercher le nom de la cible identifiée au point précédent. Lire le paragraphe correspondant et en déduire le nom de la cible permettant un démarrage normal SANS ENVIRONNEMENT GRAPHIQUE
-- Définir comme cible par défaut la cible trouvée au point précédent.
-- Redémarrer le poste avec environnement graphique. A l’issue du redémarrage, l’environnement graphique a-t-il été chargé ? Est-ce normal ?
-- Exécuter la commande systemctl appropriée afin de charger l’environnement graphique.
-
-### Solution
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Référence du document : 13gVLkqE-ZMvWUjKgen3ABExTJx-4Gtpq · SHA-256 05cb0cd4aeb9ffa6…
-
-## Énoncé · M03TP02 - Enoncé - Gérer les services · 1 pages transcrites
-
-Administration Debian GNU/Linux
-
-### Gérer les services
-
-TP du Module 03 – Démarrage d’une distribution Debian
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-25 à 45 minutes
-
-### Enoncé : Gestion des services : sur le serveur sans environnement graphique
-
-### I. Gestion du service SSHD (connexions SSH)
-
-Trouver les fichiers relatifs au fonctionnement du service (nom et emplacement) :
-
-- Fichier de configuration systemd du service
-- Démon ou fichier binaire du serveur ssh
-- Fichier de configuration du serveur sshd
-
-### II. Gestion du service CRON (planification de tâches)
-
-- Le service sera-t-il lancé automatiquement au démarrage de la machine ?
-- Arrêter le service cron
-- Redémarrer le serveur. Le service cron est-il actif après redémarrage
-- Arrêter à nouveau le service manuellement
-- Désactiver totalement le démarrage automatique du démon cron au démarrage du système.
-
-Restaurer les paramètres par défaut de démarrage du démon cron
-
-### Solution
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Référence du document : 152MWaIvVdpo6ZRkcoJFJVv9_qVRhBWU9 · SHA-256 91a044e687a9ec63…
-
-## Correction · M03TP01 - Solution - Démarrer et arrêter Debian · 2 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-Administration Debian GNU/Linux
-
-### Démarrer et arrêter Debian
-
-TP du Module 03 – Démarrage d’une distribution Debian
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 9 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-15 à 30 minutes
-
-### Solution : Identification & modification de la cible par défaut : sur la station avec environnement graphique
-
-- Démarrer le système, ouvrez une session avec votre utilisateur
-
-Cliquez sur votre nom puis saisissez votre mot de passe
-
-- Quelle est la cible systemd qui sera atteinte par défaut au démarrage de la machine ?
-
-→ Ouvrir une fenêtre de terminal puis saisir la commande attendue
-
-- Dans le manuel de la commande systemd, rechercher le nom de la cible identifiée au point précédent. Lire le paragraphe correspondant et en déduire le nom de la cible permettant un démarrage normal SANS ENVIRONNEMENT GRAPHIQUE
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p1-1.webp)
-
-Capture ou visuel isolé du document de formation.
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p1-2.webp)
-
-Capture ou visuel isolé du document de formation.
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p1-3.webp)
-
-Capture ou visuel isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-systemctl get-default
-graphical.target
-```
-
-Administration Debian GNU/Linux
-
-→ man systemd puis recherche /graphical.target . Le résultat de cette recherche nous permet de remarquer le choix entre graphical.target et multi-user.target
-
-- Définir comme cible par défaut la cible trouvée au point précédent.
-
-Faire une élévation de droit puis saisir la commande systemctl avec ces paramètres
-
-- Redémarrer le poste avec environnement graphique. A l’issue du redémarrage, l’environnement graphique a-t-il été chargé ? Est-ce normal ?
-
-Après redémarrage, le mode multi-user par défaut nous offre un mode console
-
-- Exécuter la commande systemctl appropriée afin de charger l’environnement graphique.
-
-→ Ouvrir une session avec l'utilisateur root, saisir la commande systemctl isolate graphical.target
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-1.webp)
-
-Capture ou visuel isolé du document de formation.
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-2.webp)
-
-Capture ou visuel isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-su -
-systemctl set-default multi-user.target
-```
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-3.webp)
-
-Capture ou visuel isolé du document de formation.
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-4.webp)
-
-Capture ou visuel isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-systemctl isolate graphical.target
-```
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-5.webp)
-
-Capture ou visuel isolé du document de formation.
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-small-p2-4.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-Référence du document : 1GaBj6qd0GXpphUYErc_GEcLltx6nHkM0 · SHA-256 ac79903da5e2dbe8…
-
-## Correction · M03TP02 - Solution - Gérer les services · 2 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-Administration Debian GNU/Linux
-
-### Gérer les services
-
-TP du Module 03 – Démarrage d’une distribution Debian
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-25 à 45 minutes
-
-### Solution : Gestion des services : sur le serveur sans environnement graphique
-
-### I. Gestion du service SSHD (connexions SSH)
-
-Trouver les fichiers relatifs au fonctionnement du service (nom et emplacement) :
-
-Ouvrir une session avec votre utilisateur standard
-
-- Fichier de configuration systemd du service
-- Démon ou fichier binaire du serveur ssh
-
-Conf systemd ligne 'Loaded'
-
-Binaire en ligne Process
-
-- Fichier de configuration du serveur sshd find dans le dossier /etc qui contient les paramètres du système et de ses services
-
-type f car nous cherchons un fichier, pas un dossier *sshd*conf* cherche un fichier dont le nom contient à la fois le nom du service et le mot conf, habituel dans des fichiers de ce type.
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-p1-1.webp)
-
-Capture ou visuel isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-systemctl status sshd
-# Unité : /lib/systemd/system/ssh.service
-# Binaire : /usr/sbin/sshd
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p1-2.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p1-4.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-find /etc/ -type f -name "*sshd*conf*" 2>/dev/null
-/etc/ssh/sshd_config
-```
-
-Administration Debian GNU/Linux
-
-### II. Gestion du service CRON (planification de tâches)
-
-- Le service sera-t-il lancé automatiquement au démarrage de la machine ?
-
-Lister les services avec systemctl puis filtrer sur le mot cron.
-
-Le résultat montre un service activé
-
-- Arrêter le service cron
-
-Arrêt du service avec la commande systemctl stop.
-
-Vérification du résultat avec systemctl status .
-
-- Redémarrer le serveur. Le service cron est-il actif après redémarrage systemctl stop ne fait qu'arrêter un service temporairement. Le service est de nouveau actif après redémarrage du système
-- Arrêter à nouveau le service manuellement
-- Désactiver totalement le démarrage automatique du démon cron au démarrage du système
-
-Désactivation d'un service au prochain démarrage avec l'option disable de systemctl
-
-Restaurer les paramètres par défaut de démarrage du démon cron systemctl enable pour activer au démarrage, systemctl start pour démarrer manuellement le service sans devoir redémarrer le serveur.
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-p2-1.webp)
-
-Capture ou visuel isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-systemctl enable cron.service
-systemctl start cron
-systemctl status cron
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p2-2.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-systemctl list-units | grep cron
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p2-3.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-systemctl stop cron.service
-systemctl status cron.service
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p2-4.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-systemctl status cron.service
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p2-6.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-systemctl disable cron.service
-```
-
-![Détail de la procédure du laboratoire, isolé et vérifié.](../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-detail-p2-42.webp)
-
-Détail de la procédure du laboratoire, isolé et vérifié.
-
-## Transcription des commandes visibles
-
-```
-systemctl stop cron.service
-```
-
-Référence du document : 1BqZRCFRK5I4Uo1i1LA6SNEZ9eveMWvVR · SHA-256 057a0c0c0b2745e7…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Chargeur d’amorçage (Boot Loader – BL) | 1/ BIOS 2/ MBR 3/ GRUB 4/ Noyau 5/ SystemD 5.1/ Cible 2/ MBR 3/ GRUB 1/ BIOS Sous Debian, le chargeur est le programme GRUB2. |
 | Configuration de GRUB | 1/ BIOS 2/ MBR 3/ GRUB 4/ Noyau 5/ SystemD 5.1/ Cible 2/ MBR 3/ GRUB 1/ BIOS Le fichier de configuration de grub se trouve dans /boot/grub/grub.cfg Il ne faut pas éditer ce fich… |
 | Configuration de GRUB | 1/ BIOS 2/ MBR 3/ GRUB 4/ Noyau 5/ SystemD 5.1/ Cible 2/ MBR 3/ GRUB 1/ BIOS Pour la prise en compte de ces modifications, deux commandes permettent de regénérer le fichier /boo… |
@@ -916,15 +586,12 @@ Les lignes reprennent les titres du cours et la première phrase de chaque parti
 | La commande shutdown | Redémarrer immédiatement ou Redémarrer le système à 16h30 |
 | La commande shutdown | Annuler une commande shutdown en attente. |
 | Conclusion | Vous connaissez les principales étapes du démarrage de Debian GNU/Linux. |
-| Correction · M03TP01 - Solution - Démarrer et arrêter Debian · 2 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
 | Transcription des commandes et informations utiles visibles | Administration Debian GNU/Linux → man systemd puis recherche /graphical.target . |
 | Transcription des commandes et informations utiles visibles | Capture ou visuel isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Capture ou visuel isolé du document de formation. |
-| Correction · M03TP02 - Solution - Gérer les services · 2 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Détail de la procédure du laboratoire, isolé et vérifié. |
-| Transcription des commandes visibles | Référence du document : 1BqZRCFRK5I4Uo1i1LA6SNEZ9eveMWvVR · SHA-256 057a0c0c0b2745e7… |

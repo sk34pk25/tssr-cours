@@ -10,5 +10,6 @@ Vérifier l’OU autorisée, l’accès au partage et le dossier d’export. Con
 
 - [Énoncé complet](tp-01-manipuler-des-objets.md)
 - [Correction et contrôles](correction-tp-01.md)
+- [Démonstrations](demonstrations.md)
 - [Cours du module](../../../modules/12-initiation-powershell/module-03.md)
 - [Révision](../../../revision/12-initiation-powershell/module-03.md)

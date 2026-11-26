@@ -1,5 +1,7 @@
 # Module 04 — Les variables dans les scripts
 
+[Travaux pratiques](../../tp/11-initiation-scripting-bash/module-04/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -13,10 +15,8 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 7. variable d’environnement
 8. Commande set
 9. Commande read
-10. Énoncé · M4 - Enoncé du TP1 - Les variables denvironnement · 2 pages transcrites
+10. Variables d’environnement
 11. Variables d’environnement
-12. Correction · M4 - Solution du TP1 - Les variables denvironnement · 2 pages transcrites
-13. Variables d’environnement
 
 **Visuel externe**
 
@@ -31,9 +31,7 @@ flowchart TD
     N7["variable d’environnement"]
     N8["Commande set"]
     N9["Commande read"]
-    N10["Énoncé · M4 - Enoncé du TP1 - Les variables denvironnement · 2 pages transcrites"]
     N11["Variables d’environnement"]
-    N12["Correction · M4 - Solution du TP1 - Les variables denvironnement · 2 pages transcrites"]
     N1 --> N2
     N2 --> N3
     N3 --> N4
@@ -42,9 +40,7 @@ flowchart TD
     N6 --> N7
     N7 --> N8
     N8 --> N9
-    N9 --> N10
-    N10 --> N11
-    N11 --> N12
+    N9 --> N11
 ```
 
 SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
@@ -360,216 +356,5 @@ Les variables
 
 Référence du document : 1NrIuqu2jLuS2hrFnq8tEwDzbIkkSwN8j · SHA-256 fd8380b788cf35bf…
 
-## Énoncé · M4 - Enoncé du TP1 - Les variables denvironnement · 2 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-## Page 1
-
-## Variables d’environnement
-
-### TP1 du Module 04 - Les variables dans les scripts
-
-Avant de démarrer ce TP, il convient d’avoir suivi les modules 1 à 4.
-
-Objectifs
-
-Identifier et utiliser les variables d’environnement du système afin de répondre à un besoin donné.
-
-Créer un script utilisant des variables à partir d’un algorithme.
-
-Énoncé
-
-1. Utiliser les commandes appropriées afin d’afficher des variables
-
-De nombreuses variables sont paramétrées et manipulées par le système afin de faciliter l’accès à certaines données ou informations.
-
-- L’une d’entre-elles précise le nom du fichier qui enregistre chacune de vos saisies de commande. On parle de fichier d’historique des commandes. Mais quel est le nom de cette variable ? (indice : traduire ‘historique’ en anglais)
-- Une autre indique à quels emplacements le système Linux peut trouver les fichiers exécutables/binaires installés sur le système, comme ls par exemple. Comment se nomme-t ’elle ? (indice : a été abordée dans un module précédent l’arborescence des systèmes Linux et notamment les dossiers de binaires, servez-vous en !) 2. Réaliser un script
-
-Créer un fichier de script ‘script_M4TP1.sh’ à partir du pseudo-code ci-dessous.
-
-L’objectif est d’afficher les fichiers dans votre dossier courant comportant une certaine extension (.txt, .sh, .odt ou .docx par ex.). Puis, pour l’un d’entre eux, de visualiser une partie du contenu.
-
-Début du script
-
-rep  chemin du répertoire courant
-
-extension  txt
-
-## Page 2
-
-Afficher "Répertoire de travail : rep"
-
-Afficher "Fichiers pouvant être traités :"
-
-Afficher la liste des fichiers de rep ayant pour extension extension
-
-Afficher : Quel fichier voulez-vous traiter ?
-
-fic  réponse à la question posée précédemment
-
-nblign  nombre de lignes que contient fic
-
-debut  2 premières lignes de fic
-
-fin  2 dernières lignes de fic
-
-Afficher "CARACTERISTIQUES de fic :"
-
-Afficher "Nombre de lignes du fichier : nblign"
-
-Afficher "Début du fichier :"
-
-Afficher debut
-
-Afficher "Fin du fichier :"
-
-Afficher fin
-
-Fin d’exécution du script
-
-Sachant que :
-
-- La variable extension porte le nom de l’extension de fichiers souhaitée
-- La variable rep récupère la valeur de votre position actuelle dans l’arborescence, donc le résultat d’une commande
-- La variable fic contient le nom du fichier saisi par l’utilisateur qui exécute le script (il doit donc être invité à saisir un nom de fichier existant)
-
-Référence du document : 15KXSstg5Gyr3CKOsEJD3-HrlE2dl5rFz · SHA-256 14707555164a33cc…
-
-## Correction · M4 - Solution du TP1 - Les variables denvironnement · 2 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-## Page 1
-
-## Variables d’environnement
-
-### Solutions – TP1 du Module 04 - Les variables dans les scripts
-
-**Visuel externe**
-
-```mermaid
-flowchart LR
-    N1["Utiliser les commandes appropriées afin d’afficher des variables"]
-    N2["Variable qui indique le chemin du fichier d’historique des commandes :"]
-    N3["Variable qui indique l’emplacement de recherche des exécutables :"]
-    N4["Réaliser un script"]
-    N5["Créer et éditer un nouveau fichier :"]
-    N6["Ajouter les lignes suivantes :"]
-    N1 --> N2
-    N2 --> N3
-    N3 --> N4
-    N4 --> N5
-    N5 --> N6
-```
-
-1. Utiliser les commandes appropriées afin d’afficher des variables
-
-- Variable qui indique le chemin du fichier d’historique des commandes :
-
-```
-set | grep history | grep /
-```
-
-ou bien :
-
-```
-set | grep HIST | grep /
-```
-
-On doit ainsi trouver la variable HISTFILE qui doit indiquer le fichier .bash_history
-
-- Variable qui indique l’emplacement de recherche des exécutables :
-
-A été étudié dans le module d’utilisation Linux, l’emplacement dans l’arborescence des binaires/exécutables tels ls, cp etc. Ils sont situés dans le dossier /bin.
-
-On peut donc rechercher cette chaîne parmi les variables d’environnement du système :
-
-```
-set | grep /bin
-```
-
-Résultat :
-
-```
-localhost:~# set | grep /bin
-PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
-```
-
-La variable s’appelle donc PATH
-
-2. Réaliser un script
-
-Créer un fichier de script ‘script_M4TP1.sh’ qui contiendra les instructions nécessaires.
-
-- Créer et éditer un nouveau fichier :
-
-```
-vim script_M4TP1.sh
-```
-
-- Ajouter les lignes suivantes :
-
-```
-#! /bin/bash
-# M4 - Solution du TP1
-```
-
-## Page 2
-
-```
-# Définition des variables
-rep=$(pwd) # Stocker le résultat de la commande ‘pwd’ dans la var ‘rep’
-extension="txt" # Choix ici de travailler sur des fichiers de type ’txt’
-```
-
-```
-# Corps du script
-echo "Répertoire de travail : $rep " # Affiche du texte + contenu var ‘rep’
-echo "Fichiers pouvant être traités: "
-ls -l *.$extension # Affiche tous les fichiers terminant par extension
-echo "" # Affiche simple ligne vide, pour la présentation
-read -p "Quel fichier pouvez-vous traiter ? : " fic # Demande saisie fichier
-```
-
-```
-# Utilisation de variables pour stocker les infos du fichier
-nblign=$(cat $fic | wc -l ) # Variable stocke le nb de lignes du fichier
-debut=$(cat $fic | head -n 2) # Variable stocke 2ères lignes du fichier
-fin=$(cat $fic | tail -n 2 ) # Variable stocke 2 lignes fin du fichier
-```
-
-```
-# Affichage final des informations à l’écran
-# Les ‘\n’ utilisés ci-après sont des sauts de ligne pour la présentation
-echo -e "\nCARACTERISTIQUES de $fic :\n" #
-echo -e "Nombres de lignes du fichier : $nblign\n"
-echo -e "\"Début du fichier : \n$debut\n"
-echo -e "\"Fin du fichier : \n$fin\n"
-```
-
-- Rendre exécutable le fichier avec la commande chmod :
-
-```
-chmod u+x script_M4TP1.sh
-```
-
-- Ensuite, exécuter le script ./script_M4TP1.sh
-
-Il faudra bien entendu disposer de fichiers avec l’extension mentionnée et contenant du texte pour obtenir des résultats !
-
-Référence du document : 1DZKHCGwdV8WMX1tLpUzpzky0CMawEQZI · SHA-256 148e1e22b2dc0831…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Support · Module 04 - Support de cours · 11 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
 | Objectifs | Comprendre l'intérêt des variables Utiliser des variables dans ses scripts Manipuler les variables Récupérer une saisie utilisateur dans une variable |
-| Énoncé · M4 - Enoncé du TP1 - Les variables denvironnement · 2 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
-| Correction · M4 - Solution du TP1 - Les variables denvironnement · 2 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |

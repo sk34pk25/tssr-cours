@@ -154,11 +154,23 @@ class OriginalSourcesTests(unittest.TestCase):
         for page in data['pages']:
             self.assertNotIn('Aucun document original correspondant',data.get('pageNotices',{}).get(page,''),page)
 
+    def test_tp_links_stay_above_the_course_tabs(self):
+        page='modules/course/module-01.md'
+        data=dict(documents={},pages={page:[]})
+        text=project_page('# Titre\n\n[Travaux pratiques](../../tp/course/module-01/index.md)\n\n## Texte\n',page,data)
+        self.assertLess(text.index('[Travaux pratiques]'), text.index('=== "Cours Original"'))
+        self.assertLess(text.index('=== "Cours Original"'), text.index('## Texte'))
+
     def test_misfiled_linux_tp_follows_its_internal_module_title(self):
         data=load_catalog()
-        page='modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md'
-        for identity in ['1UxNuienstNgVxtr1UyNDEU4GdedUSzJP','1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa']:
+        course='modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md'
+        homes={
+            '1UxNuienstNgVxtr1UyNDEU4GdedUSzJP':'tp/utilisation-linux/module-06/tp2-enonces.md',
+            '1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa':'tp/utilisation-linux/module-06/tp2-corrections.md',
+        }
+        for identity, page in homes.items():
             self.assertIn(identity,data['pages'][page])
+            self.assertNotIn(identity,data['pages'][course])
             self.assertIn('TP du Module 06',data['documents'][identity]['sourceNotice'])
 
 if __name__=='__main__':unittest.main()

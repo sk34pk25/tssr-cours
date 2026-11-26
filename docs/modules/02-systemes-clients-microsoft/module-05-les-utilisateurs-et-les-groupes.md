@@ -1,5 +1,7 @@
 # Module 05 — Les utilisateurs et les groupes
 
+[Travaux pratiques](../../tp/systemes-clients/module-05/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -28,21 +30,19 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 22. Démonstration
 23. TP
 24. Conclusion
-25. Énoncé · Enoncé du TP - Gestion des utilisateurs et des groupes · 7 pages transcrites
-26. Systèmes Clients Microsoft Gestion des utilisateurs et des groupes
-27. Énoncé
-28. Solution
-29. Synthèse du Drive · Synthèse Module 5 - Gestion des Utilisateurs, Groupes et UAC V2 · 3 pages transcrites
-30. Synthèse — Module 5 : Les Utilisateurs, les Groupes et le Contrôle de Comptes (UAC) (V2)
-31. 1. Concept d’Utilisateur et de Profil
-32. 2. Gestion des Groupes et Autorisations
-33. 3. Contrôle de Compte d’Utilisateur (UAC) et Administration
-34. Cmdlets PowerShell de gestion des utilisateurs locaux
-35. Notes du Drive · module 5 et 6.txt · document texte
-36. Inexistant
-37. Correction · Solution du TP - Gestion des utilisateurs et des groupes · 7 pages transcrites
-38. Les utilisateurs et les groupes
-39. Proposition de solution
+25. Systèmes Clients Microsoft Gestion des utilisateurs et des groupes
+26. Énoncé
+27. Solution
+28. Synthèse du Drive · Synthèse Module 5 - Gestion des Utilisateurs, Groupes et UAC V2 · 3 pages transcrites
+29. Synthèse — Module 5 : Les Utilisateurs, les Groupes et le Contrôle de Comptes (UAC) (V2)
+30. 1. Concept d’Utilisateur et de Profil
+31. 2. Gestion des Groupes et Autorisations
+32. 3. Contrôle de Compte d’Utilisateur (UAC) et Administration
+33. Cmdlets PowerShell de gestion des utilisateurs locaux
+34. Notes du Drive · module 5 et 6.txt · document texte
+35. Inexistant
+36. Les utilisateurs et les groupes
+37. Proposition de solution
 
 **Visuel externe**
 
@@ -429,78 +429,6 @@ Illustration isolée du support — Module 05 - Support de cours
 
 Référence du document : 1s2o2V7Zj5iJuErUiXOsz9PAEcmDykImt · SHA-256 b428003d4e687898…
 
-## Énoncé · Enoncé du TP - Gestion des utilisateurs et des groupes · 7 pages transcrites
-
-## Systèmes Clients Microsoft Gestion des utilisateurs et des groupes
-
-### TP du Module 05 – Les utilisateurs et les groupes
-
-Au cours de ce TP, vous allez être amené à manipuler les utilisateurs et les groupes. Vous mettrez en place des privilèges d’administration et vous testerez leurs effets. Vous parcourrez les caractéristiques des utilisateurs et des groupes. Vous effectuerez toutes ses manipulations à l’aide de l’interface graphique, mais aussi par l’intermédiaire des shells Microsoft.
-
-Durée estimée
-
-1 heure 30 minutes
-
-## Énoncé
-
-Lisez l'ensemble de cet atelier avant de vous lancer dans la pratique
-
-### À l'aide de la console de gestion des utilisateurs de la VM Win10-XX, créez les objets avec les paramètres suivants :
-
-- Créez une procédure relative aux deux points suivants :
-
-o François possédera un mot de passe qui n'aura pas de date d'expiration.
-
-o Il fera partie des groupes L_Informatiques et L_Responsables (vous créerez les groupes en amont).
-
-- Yann fera partie des mêmes groupes que François.
-
-- Créez deux comptes utilisateurs auxquels vous donnerez nom, prénom, login et mot de passe de votre choix. Ils feront partie du groupe L_Collegues
-
-### Mise en place de privilèges d'administration
-
-- François aura la possibilité d'administrer l'ensemble des ressources du poste Win10-XX.
-- Yann pourra consulter les journaux d'évènements et configurer la carte réseau.
-- Vous accorderez à vos collègues la possibilité de sauvegarder votre poste Win10-XX.
-
-- Retirez l'un de vos collègues du groupe utilisateurs.
-
-### Informations concernant les utilisateurs et groupes
-
-- En naviguant dans la console graphique des utilisateurs et des groupes, listez les propriétés d'un utilisateur : Nom complet, Description
-
-### Listez les propriétés d'un groupe
-
-À l'aide de la ligne de commande cmd.exe
-
-- Afficher les informations du compte utilisateur François.
-
-- Affichez les membres du groupe administrateurs
-- Créez un utilisateur Romain, attribuez-lui un mot de passe. Attention, pour des questions de sécurité, le mot de passe que vous taperez ne devra pas être visible à l'écran !
-- Ajoutez Romain au groupe L_Responsables
-
-### Manipulations supplémentaires avec l'interface graphique de Windows 10
-
-- Fermez la session de l'utilisateur en cours.
-
-- Quels utilisateurs peuvent ouvrir une session sur le poste ?
-- L'un de vos collègues ne peut pas ouvrir de session. Pourquoi ?
-- Ouvrez une session avec l'utilisateur François puis affichez les profils présents sur le système. Que peut-on observer ?
-- À l'aide de la ligne de commande, affichez son SID, puis affichez les SID des groupes dont il est membre.
-
-### À l'aide de PowerShell et de la VM Discovery
-
-- Afficher la liste des utilisateurs sur le système. Vous afficherez le nom, le SID et la description de chacun d'eux.
-- Afficher les informations suivantes concernant l'utilisateur james : Nom complet, description, classe d'objets, date de dernière connexion
-- Ajouter la description Compte générique avec privilèges d'administration à l'utilisateur adm
-- Afficher le nom et le SID des membres du groupe local L_SupportInfo
-
-## Solution
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Référence du document : 1zUt7LGnurr8Z4KlkK8CwpiBBzF0M7qnK · SHA-256 a420fe7d72fd5707…
-
 ## Synthèse du Drive · Synthèse Module 5 - Gestion des Utilisateurs, Groupes et UAC V2 · 3 pages transcrites
 
 Les synthèses Windows 10 de ce dossier sont rattachées au cours Systèmes clients.
@@ -565,295 +493,6 @@ Le fichier de notes est vide dans le Drive. Aucun contenu n’a été inventé.
 
 Référence du document : 1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7 · SHA-256 e3b0c44298fc1c14…
 
-## Correction · Solution du TP - Gestion des utilisateurs et des groupes · 7 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-## Les utilisateurs et les groupes
-
-### TP du Module 05 – Les utilisateurs et les groupes
-
-## Proposition de solution
-
-À l'aide de la console de gestion des utilisateurs de la VM Win10-XX, créez les objets avec les paramètres suivant :
-
-- François possèdera un mot de passe qui n'aura pas de date d'expiration.
-- Il fera partie des groupes L_Informatiques et L_Responsables (vous créerez les groupes en amont).
-
-Dans votre console personnalisée MaConsole.msc disponible sur votre bureau
-
-Composant logiciel enfichable "Utilisateurs et groupes locaux" > utilisateurs
-
-Clic droit > Nouvel utilisateur
-
-Remplir le champ Nom d'utilisateur "françois" ou "francois" et entrez un mot de passe
-
-Vous pouvez décocher l'utilisateur doit changer son mot de passe à la prochaine ouverture de session
-
-Cocher Le mot de passe n'expire jamais.
-
-Créer puis Fermer
-
-Francois apparait dorénavant dans la fenêtre des utilisateurs
-
-Composant logiciel enfichable "Utilisateurs et groupes locaux"
-
-Clic droit > Nouveau groupe …
-
-Nom du groupe : L_Informatiques
-
-Ajouter …
-
-![Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes](../../assets/course-sources/isolated/57ccbb8c406c69c9/g2-p1-1.webp)
-
-Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes
-
-Entrez les noms des objets à sélectionner : francois
-
-OK
-
-Créer
-
-Nom du groupe : L_Responsables
-
-Ajouter…
-
-Entrez les noms des objets à sélectionner : francois
-
-OK
-
-Créer
-
-Fermer
-
-Les deux nouveaux groupes apparaissent dans la liste
-
-![Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes](../../assets/course-sources/isolated/57ccbb8c406c69c9/g2-p2-1.webp)
-
-Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes
-
-- Yann fera partie des mêmes groupes que François.
-
-Dans votre console personnalisée MaConsole.msc disponible sur votre bureau
-
-Composant logiciel enfichable "Utilisateurs et groupes locaux" > utilisateurs
-
-Clic droit > Nouvel utilisateur
-
-Remplir le champ Nom d'utilisateur "Yann" et entrez un mot de passe
-
-Vous pouvez décocher l'utilisateur doit changer son mot de passe à la prochaine ouverture de session
-
-Créer puis Fermer
-
-Yann apparait dorénavant dans la fenêtre des utilisateurs
-
-Clic droit sur l'utilisateur Yann > Propriétés
-
-Onglet Membre de
-
-Ajouter…
-
-Entrez les noms des objets à sélectionner : L_Informatiques;L_Responsables
-
-Appliquer > OK
-
-- Créez deux comptes utilisateurs auquel vous donnerez nom, prénom, login et mot de passe de votre choix. Ils feront partie du groupe L_Collegues
-
-Composant logiciel enfichable "Utilisateurs et groupes locaux" > utilisateurs
-
-Clic droit > Nouvel utilisateur
-
-Remplir le champ Nom d'utilisateur et entrez un mot de passe
-
-Vous pouvez décocher l'utilisateur doit changer son mot de passe à la prochaine ouverture de session
-
-Créer
-
-Refaites ces étapes pour un utilisateur supplémentaire puis Fermer
-
-Ils apparaissent dorénavant dans la fenêtre des utilisateurs
-
-![Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes](../../assets/course-sources/isolated/57ccbb8c406c69c9/g2-p3-1.webp)
-
-Illustration isolée du support — Solution du TP - Gestion des utilisateurs et des groupes
-
-Composant logiciel enfichable "Utilisateurs et groupes locaux"
-
-Clic droit > Nouveau groupe …
-
-Nom du groupe : L_Collegues
-
-Ajouter …
-
-Entrez les noms des objets à sélectionner : Pauline;Alix
-
-OK
-
-Créer
-
-Fermer
-
-Mise en place de privilèges d'administration
-
-- François aura la possibilité d'administrer l'ensemble des ressources du poste Win10- XX.
-
-Ajouter François dans le groupe prédéfini Administrateurs
-
-- Yann pourra consulter les journaux d'évènements et configurer la carte réseau.
-
-Ajouter Yann dans les groupes prédéfinis suivants :
-
-Lecteurs des journaux d'événements
-
-Opérateurs de configuration réseau
-
-- Vous accorderez à vos collègues la possibilité de sauvegarder votre poste Win10-XX.
-
-Ajouter vos deux utilisateurs supplémentaires dans le groupe prédéfini Opérateurs de sauvegarde
-
-L'imbrication de groupe n'est pas opérationnelle d'un groupe local vers un autre groupe local d'une base SAM d'un système d'exploitation client. Il est possible de le faire en ligne de commande mais pour simple information
-
-- Retirez l'un de vos collègues du groupe utilisateurs.
-
-Supprimer l'un de vos deux utilisateurs du groupe prédéfini Utilisateurs
-
-Informations concernant les utilisateurs et groupes
-
-- En navigant dans la console graphique des utilisateurs et des groupes, listez les propriétés d'un utilisateur.
-
-Nom complet
-
-Description
-
-3 actions possibles sur les mots de passe (Changement à la prochaine ouverture de session, expiration, impossibilité de changer de mot de passe)
-
-2 actions possibles sur le compte (désactivation et déverrouillage)
-
-Appartenance aux groupes
-
-Information de profil, script d'ouverture de session, connexion automatique à lecteur réseau et mappage via une lettre de lecteur, local path
-
-- Listez les propriétés d'un groupe.
-
-Description
-
-Ajouter ou supprimer des membres dans le groupe
-
-À l'aide de la ligne de commande cmd.exe.
-
-- Afficher les informations du compte utilisateur François.
-
-```
-net user francois
-```
-
-On remarquera ici que la ligne de commande affiche beaucoup plus d'informations concernant l'utilisateur que le composant logiciel enfichable "Utilisateurs et groupes locaux". Cela prouve que la ligne de commande est plus pointue, plus aiguisée et complète que l'interface graphique
-
-- Affichez les membres du groupe administrateurs
-
-```
-net localgroup administrateurs
-```
-
-- Créez un utilisateur Romain, attribuez-lui un mot de passe. Attention, pour des questions de sécurité, le mot de passe que vous taperez ne devra pas être visible à l'écran !
-
-```
-net user Romain * /add
-```
-
-Entrez le mot de passe au clavier, il ne s'affichera pas à l'écran
-
-Attention, pour pouvoir créer un nouvel utilisateur dans la base SAM, vous devez ouvrir une fenêtre de ligne de commande en tant qu'administrateur. Créer un utilisateur, c'est modifier le système !
-
-- Ajoutez Romain au groupe L_Responsables
-
-```
-net localgroup L_Responsables Romain /add
-```
-
-Manipulations supplémentaires avec l'interface graphique de Windows 10
-
-- Fermez la session de l'utilisateur en cours.
-
-```
-logoff
-```
-
-- Quels utilisateurs peuvent ouvrir une session sur le poste ?
-
-Seuls les utilisateurs membres des groupes Utilisateurs, Administrateurs ou Invités peuvent ouvrir une session locale sur la machine
-
-- L'un de vos collègues ne peut pas ouvrir de session. Pourquoi ?
-
-L'un de vos utilisateurs supplémentaires n'apparait pas sur l'écran d'accueil car vous l'avez supprimé du groupe utilisateurs
-
-- Ouvrez une session avec l'utilisateur François puis affichez les profils présents sur le système. Que peut-on observer ?
-
-Après avoir ouvert une session avec l'utilisateur francois, terminez la configuration de son profil utilisateur. Puisque c'est la première fois que François ouvre une session, un profil d'utilisateur est automatiquement créé dans le dossier c:\Users. Son profil est un sous dossier dont le nom est le même que son login.
-
-Pour afficher les profils présents sur le système :
-
-Rechercher > sysdm.cpl
-
-Onglet Paramètres système avancés
-
-Bouton Paramètres… du champ Profil des utilisateurs
-
-Seuls les profils des utilisateurs ayant déjà ouvert au moins une fois une session sur l'ordinateur sont présents. Il existe plus d'utilisateurs que de profils dans notre cas. C'est normal. Par exemple Yann et Romain sont bien présents dans la base SAM mais n'ont pas encore ouvert de session sur l'ordinateur.
-
-Un profil leur sera automatiquement créé lors de leur première ouverture de session, à l'aide du profil "modèle" le Profil par défaut
-
-- À l'aide de la ligne de commande, affichez son SID, puis affichez les SID des groupes dont il est membre.
-
-Ouvrez une ligne de commande cmd.exe
-
-```
-whoami /user
-```
-
-```
-whoami /groups
-```
-
-L'ensemble de ces SID forment le jeton d'accès de l'utilisateur
-
-À l'aide de PowerShell et de la VM Discovery
-
-- Afficher la liste des utilisateurs sur le système. Vous afficherez le nom, le SID et la description de chacun d'eux.
-
-```
-Get-LocalUser | select Name,SID,Description
-```
-
-- Afficher les informations suivantes concernant l'utilisateur james :
-
-o Nom complet, description, classe d'objets, date de dernière connexion
-
-```
-Get-LocalUser -Name james | Select FullName,description,ObjectClass,LastLogon
-```
-
-- Ajouter la description Compte générique avec privilèges d'administration à l'utilisateur adm
-
-```
-Set-LocalUser -Name adm -description "Compte générique administrateur de secours"
-```
-
-- Afficher le nom et le SID des membres du groupe local L_SupportInfo
-
-```
-Get-LocalGroupMember -Name L_SupportInfo | Select Name,SID
-```
-
-Référence du document : 1OFaYYZbg4qoJYm_UsA_9Idm9g1Jlt9Pt · SHA-256 57ccbb8c406c69c9…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Systèmes clients Microsoft | Module 05 – Les utilisateurs et les groupes |
 | Objectifs | Prendre conscience de l'importance de la notion d'utilisateur Distinguer les utilisateurs et leurs profils Gérer les utilisateurs et les groupes Découvrir les outils de gestion… |
 | Les objets utilisateurs et groupes | Notion d'utilisateurs Les profils d'utilisateurs Les groupes Le contrôle de compte utilisateurs |
@@ -882,5 +521,4 @@ Les lignes reprennent les titres du cours et la première phrase de chaque parti
 | Cmdlets PowerShell de gestion des utilisateurs locaux | Référence du document : 1xPtrQx5oKA-CNDqmsl8HKcDMVemUE5n-XXwvyJYUpqU · SHA-256 e6bea2f53019f56d… |
 | Notes du Drive · module 5 et 6.txt · document texte | Notes textuelles présentes dans le Drive. |
 | Inexistant | Le fichier de notes est vide dans le Drive. |
-| Correction · Solution du TP - Gestion des utilisateurs et des groupes · 7 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
 | Proposition de solution | À l'aide de la console de gestion des utilisateurs de la VM Win10-XX, créez les objets avec les paramètres suivant : François possèdera un mot de passe qui n'aura pas de date d'… |

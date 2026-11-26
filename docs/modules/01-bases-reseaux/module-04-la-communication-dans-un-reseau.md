@@ -1,155 +1,151 @@
 # Module 04 — La communication dans un réseau
 
+[Travaux pratiques](../../tp/reseaux/module-04/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
 
-1. Énoncé · M04-01-01-TP-La_communication · 5 pages transcrites
-2. Énoncé · M04-01-02-TP-Packet_Tracer-La_communication · 1 pages transcrites
-3. Correction · M04-01-01-TP-La_communication_Correction · 6 pages transcrites
-4. Notes du Drive · Notes de cours · document texte
-5. Notes de cours
-6. TP - Packet Tracer - Fichier à télécharger
-7. d’une adresse IP
-8. son adresse de diffusion
-9. 11000000.10101000.00000001.00000001
-10. Classes d’adresses IPv4
-11. Dans l’adressage IPv4, chaque adresse IP est divisée en deux parties :
-12. Convertir l’adresse IP en binaire
-13. Convertir le masque de sous-réseau en binaire
-14. Appliquer une opération logique AND
-15. Identifier la partie hôte
-16. Trouver l’adresse hôte
-17. Généralisation
-18. ID Réseau : 11000000.10101000.00001010.00000000
-19. Broadcast : 11000000.10101000.00001010.11111111
-20. ID Réseau : 10101100.00011001.11000000.00000000
-21. Broadcast : 10101100.00011001.11001111.11111111
-22. La Notation CIDR
-23. Comment Fonctionne la Notation CIDR ?
-24. Pourquoi Utiliser CIDR ?
-25. Étapes de Conversion d’un Masque de Sous-Réseau en Préfixe CIDR
-26. Étapes pour trouver le masque IP à partir du CIDR
-27. Plages d'Adresses IP Privées
-28. Nombre total d'adresses : 16 777 216
-29. Nombre total d'adresses : 1 048 576
-30. Nombre total d'adresses : 65 536
-31. Pourquoi Utiliser des Adresses Privées ?
-32. Exemple Pratique
-33. Principe de Fonctionnement d’APIPA
-34. Exemple Pratique
-35. Objectifs du Sous-réseautage
-36. 2
-37. Calcul du Nombre de Sous-Réseaux et d’Hôtes
-38. n
-39. h
-40. Enoncé du TP - Communication inter-réseau
-41. Un domaine de diffusion est limité par les équipements réseau suivants :
-42. Le Routage
-43. Le rôle principal du routage est de :
-44. Un routeur est un équipement qui :
-45. Lorsqu’un paquet arrive sur un routeur :
-46. Exemple sans sur-réseau :
-47. Exemple avec sur-réseau :
-48. 11000000.10101000.000000**
-49. Donc oui : je peux te faire exactement la même chose que pour les modules 1 et 2
-50. * **Niveau moyen** : réseau / broadcast / plage d’hôtes / rôle du routage
-51. Ma recommandation
-52. * exemple pour chaque question
-53. **Pourquoi ?**
-54. **Exemple :**
-55. **Pourquoi ?**
-56. **Exemple :**
-57. **Pourquoi ?**
-58. **Exemple :**
-59. **Pourquoi ?**
-60. **Exemple :**
-61. **Pourquoi ?**
-62. **Exemple :**
-63. **Pourquoi ?**
-64. **Exemple :**
-65. **Pourquoi ?**
-66. **Exemple :**
-67. **Pourquoi ?**
-68. **Exemple :**
-69. **Pourquoi ?**
-70. **Exemple :**
-71. **Pourquoi ?**
-72. **Exemple :**
-73. **Pourquoi ?**
-74. **Exemple :**
+1. Notes du Drive · Notes de cours · document texte
+2. Notes de cours
+3. TP - Packet Tracer - Fichier à télécharger
+4. d’une adresse IP
+5. son adresse de diffusion
+6. 11000000.10101000.00000001.00000001
+7. Classes d’adresses IPv4
+8. Dans l’adressage IPv4, chaque adresse IP est divisée en deux parties :
+9. Convertir l’adresse IP en binaire
+10. Convertir le masque de sous-réseau en binaire
+11. Appliquer une opération logique AND
+12. Identifier la partie hôte
+13. Trouver l’adresse hôte
+14. Généralisation
+15. ID Réseau : 11000000.10101000.00001010.00000000
+16. Broadcast : 11000000.10101000.00001010.11111111
+17. ID Réseau : 10101100.00011001.11000000.00000000
+18. Broadcast : 10101100.00011001.11001111.11111111
+19. La Notation CIDR
+20. Comment Fonctionne la Notation CIDR ?
+21. Pourquoi Utiliser CIDR ?
+22. Étapes de Conversion d’un Masque de Sous-Réseau en Préfixe CIDR
+23. Étapes pour trouver le masque IP à partir du CIDR
+24. Plages d'Adresses IP Privées
+25. Nombre total d'adresses : 16 777 216
+26. Nombre total d'adresses : 1 048 576
+27. Nombre total d'adresses : 65 536
+28. Pourquoi Utiliser des Adresses Privées ?
+29. Exemple Pratique
+30. Principe de Fonctionnement d’APIPA
+31. Exemple Pratique
+32. Objectifs du Sous-réseautage
+33. 2
+34. Calcul du Nombre de Sous-Réseaux et d’Hôtes
+35. n
+36. h
+37. Enoncé du TP - Communication inter-réseau
+38. Un domaine de diffusion est limité par les équipements réseau suivants :
+39. Le Routage
+40. Le rôle principal du routage est de :
+41. Un routeur est un équipement qui :
+42. Lorsqu’un paquet arrive sur un routeur :
+43. Exemple sans sur-réseau :
+44. Exemple avec sur-réseau :
+45. 11000000.10101000.000000**
+46. Donc oui : je peux te faire exactement la même chose que pour les modules 1 et 2
+47. * **Niveau moyen** : réseau / broadcast / plage d’hôtes / rôle du routage
+48. Ma recommandation
+49. * exemple pour chaque question
+50. **Pourquoi ?**
+51. **Exemple :**
+52. **Pourquoi ?**
+53. **Exemple :**
+54. **Pourquoi ?**
+55. **Exemple :**
+56. **Pourquoi ?**
+57. **Exemple :**
+58. **Pourquoi ?**
+59. **Exemple :**
+60. **Pourquoi ?**
+61. **Exemple :**
+62. **Pourquoi ?**
+63. **Exemple :**
+64. **Pourquoi ?**
+65. **Exemple :**
+66. **Pourquoi ?**
+67. **Exemple :**
+68. **Pourquoi ?**
+69. **Exemple :**
+70. **Pourquoi ?**
+71. **Exemple :**
+72. **Pourquoi ?**
+73. **Exemple :**
+74. 13. Quel masque correspond au préfixe CIDR /24 ?
 75. **Pourquoi ?**
-76. **Exemple :**
-77. 13. Quel masque correspond au préfixe CIDR /24 ?
-78. **Pourquoi ?**
+76. **Pourquoi ?**
+77. **Pourquoi ?**
+78. **Exemple :**
 79. **Pourquoi ?**
-80. **Pourquoi ?**
-81. **Exemple :**
-82. **Pourquoi ?**
-83. **Exemple :**
+80. **Exemple :**
+81. **Pourquoi ?**
+82. **Exemple :**
+83. **Pourquoi ?**
 84. **Pourquoi ?**
 85. **Exemple :**
-86. **Pourquoi ?**
+86. **Exemple :**
 87. **Pourquoi ?**
 88. **Exemple :**
-89. **Exemple :**
+89. **Pourquoi ?**
 90. **Pourquoi ?**
 91. **Exemple :**
 92. **Pourquoi ?**
-93. **Pourquoi ?**
-94. **Exemple :**
+93. **Exemple :**
+94. 25. Si un réseau 192.168.1.0/24 est découpé en deux sous-réseaux /25, combien obtient-on de sous-réseaux ?
 95. **Pourquoi ?**
-96. **Exemple :**
-97. 25. Si un réseau 192.168.1.0/24 est découpé en deux sous-réseaux /25, combien obtient-on de sous-réseaux ?
-98. **Pourquoi ?**
+96. ---
+97. 26. Si un réseau /24 devient /25, combien d’hôtes utilisables possède chaque sous-réseau ?
+98. Un /25 laisse **7 bits hôte** :
 99. ---
-100. 26. Si un réseau /24 devient /25, combien d’hôtes utilisables possède chaque sous-réseau ?
-101. Un /25 laisse **7 bits hôte** :
-102. ---
-103. 27. Quel est le premier sous-réseau obtenu dans l’exemple de découpage de 192.168.1.0/24 en /25 ?
-104. **Exemple :**
-105. **Pourquoi ?**
-106. **Exemple :**
-107. ---
-108. 29. Quelle opération logique permet d’obtenir l’ID réseau à partir d’une IP et de son masque ?
-109. **Pourquoi ?**
+100. 27. Quel est le premier sous-réseau obtenu dans l’exemple de découpage de 192.168.1.0/24 en /25 ?
+101. **Exemple :**
+102. **Pourquoi ?**
+103. **Exemple :**
+104. ---
+105. 29. Quelle opération logique permet d’obtenir l’ID réseau à partir d’une IP et de son masque ?
+106. **Pourquoi ?**
+107. **Pourquoi ?**
+108. **Exemple :**
+109. 31. Quel équipement transmet les diffusions à tous les ports d’un même VLAN ?
 110. **Pourquoi ?**
 111. **Exemple :**
-112. 31. Quel équipement transmet les diffusions à tous les ports d’un même VLAN ?
-113. **Pourquoi ?**
-114. **Exemple :**
+112. **Pourquoi ?**
+113. **Exemple :**
+114. Une entrée peut dire :
 115. **Pourquoi ?**
 116. **Exemple :**
-117. Une entrée peut dire :
-118. **Pourquoi ?**
-119. **Exemple :**
-120. ---
-121. 35. Quel sur-réseau regroupe 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 ?
-122. 36. Vrai ou Faux
-123. **Pourquoi ?**
-124. **Exemple :**
-125. 37. Vrai ou Faux
-126. **Exemple :**
-127. 38. Vrai ou Faux
-128. **Pourquoi ?**
-129. 39. Vrai ou Faux
-130. **Pourquoi ?**
-131. 40. Vrai ou Faux
-132. **Pourquoi ?**
-133. 41. Vrai ou Faux
-134. **Exemple :**
-135. 42. Vrai ou Faux
-136. **Pourquoi ?**
-137. Ce que je peux faire maintenant
-138. **“fais-moi la version Kahoot prête à copier”**
+117. ---
+118. 35. Quel sur-réseau regroupe 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 ?
+119. 36. Vrai ou Faux
+120. **Pourquoi ?**
+121. **Exemple :**
+122. 37. Vrai ou Faux
+123. **Exemple :**
+124. 38. Vrai ou Faux
+125. **Pourquoi ?**
+126. 39. Vrai ou Faux
+127. **Pourquoi ?**
+128. 40. Vrai ou Faux
+129. **Pourquoi ?**
+130. 41. Vrai ou Faux
+131. **Exemple :**
+132. 42. Vrai ou Faux
+133. **Pourquoi ?**
+134. Ce que je peux faire maintenant
+135. **“fais-moi la version Kahoot prête à copier”**
 
 **Visuel externe**
 
 ```mermaid
 flowchart TD
-    N1["Énoncé · M04-01-01-TP-La_communication · 5 pages transcrites"]
-    N2["Énoncé · M04-01-02-TP-Packet_Tracer-La_communication · 1 pages transcrites"]
-    N3["Correction · M04-01-01-TP-La_communication_Correction · 6 pages transcrites"]
     N4["Notes du Drive · Notes de cours · document texte"]
     N5["Notes de cours"]
     N6["TP - Packet Tracer - Fichier à télécharger"]
@@ -159,9 +155,6 @@ flowchart TD
     N10["Classes d’adresses IPv4"]
     N11["Dans l’adressage IPv4, chaque adresse IP est divisée en deux parties :"]
     N12["Convertir l’adresse IP en binaire"]
-    N1 --> N2
-    N2 --> N3
-    N3 --> N4
     N4 --> N5
     N5 --> N6
     N6 --> N7
@@ -175,420 +168,6 @@ flowchart TD
 SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
 Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
-
-## Énoncé · M04-01-01-TP-La_communication · 5 pages transcrites
-
-### Page 1
-
-#### La communication
-
-!!! note "À retenir"
-    TP du Module 04-01 Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication.
-
-TP du Module 04-01
-
-Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication.
-
-- En vidéo pour les stagiaires du campus en ligne
-- Diaporama et explications pour les stagiaires en présence d’un formateur
-
-Durée estimée : 2 heures
-
-#### Énoncé
-
-##### A. Communication dans un réseau
-
-!!! note "À retenir"
-    Les machines A, B, C, D, E et F sont situées sur le même segment.
-
-**Visuel externe**
-
-```mermaid
-flowchart LR
-    N1["Les machines A, B, C, D, E et F sont situées sur le même segment."]
-    N2["Il n’y a pas de routeur."]
-    N3["Remplissez le tableau ci-dessous en indiquant quels hôtes peuvent dialoguer."]
-    N4["Communication avec réponse et pourquoi ?"]
-    N1 --> N2
-    N2 --> N3
-    N3 --> N4
-```
-
-- Les machines A, B, C, D, E et F sont situées sur le même segment.
-- Il n’y a pas de routeur.
-
-| Poste | Adresse | Masque |
-| --- | --- | --- |
-| A | 172.16.10.10 | 255.255.0.0 |
-| B | 172.16.11.20 | 255.255.0.0 |
-| C | 172.16.100.30 | 255.255.0.0 |
-| D | 172.16.11.100 | 255.255.255.0 |
-| E | 172.16.100.150 | 255.255.255.0 |
-| F | 172.16.10.200 | 255.255.255.0 |
-
-- Remplissez le tableau ci-dessous en indiquant quels hôtes peuvent dialoguer.
-- Communication avec réponse et pourquoi ?
-
-| L’hôte | peut contacter l’hôte | Explications |
-| --- | --- | --- |
-| A |  |  |
-| B |  |  |
-| C |  |  |
-| D |  |  |
-| E |  |  |
-| F |  |  |
-
-### Page 2
-
-##### B. Communication dans un réseau
-
-!!! note "À retenir"
-    Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à quel autre poste.
-
-Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à quel autre poste.
-
-Réseau 1 relie les postes A, B et C au routeur X. Réseau 2 relie les postes D et E au routeur Y.
-
-| Équipement | MAC | Adresse | Masque | Passerelle |
-| --- | --- | --- | --- | --- |
-| Poste A | PhyA | 10.11.2.1 | 255.0.0.0 | 10.0.0.254 |
-| Poste B | PhyB | 192.168.1.35 | 255.0.0.0 | 10.0.0.254 |
-| Poste C | PhyC | 10.0.2.4 | 255.255.0.0 | 10.0.0.254 |
-| Poste D | PhyD | 192.168.1.123 | 255.255.255.0 | 192.168.1.254 |
-| Poste E | PhyE | 192.168.2.2 | 255.255.0.0 | 192.168.1.254 |
-| Routeur X | PhyX | 10.0.0.254 | 255.0.0.0 |  |
-| Routeur Y | PhyY | 192.168.1.254 | 255.255.255.0 |  |
-
-Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers).
-
-- V pour Vrai (communication entre les deux postes)
-- F pour Faux (pas de communication entre les deux postes)
-- P pour Passerelle (communication entre les deux postes en passant par le routeur)
-
-Le tableau est déjà rempli avec certaines réponses : le poste A peut envoyer au poste A, ainsi pour les postes B, C, D, E.
-
-| X pev Y | A | B | C | D | E |
-| --- | --- | --- | --- | --- | --- |
-| A | V |  |  |  |  |
-| B |  | V |  |  |  |
-| C |  |  | V |  |  |
-| D |  |  |  | V |  |
-| E |  |  |  |  | V |
-
-### Page 3
-
-##### C. Communication dans un réseau
-
-!!! note "À retenir"
-    Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à quel autre poste.
-
-Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à quel autre poste.
-
-Réseau 1 : postes A et B, routeur X. Réseau 2 : postes C, D et E, routeur Z. Réseau 3 : poste F, routeur Y.
-
-| Équipement | MAC | Adresse | Masque | Passerelle |
-| --- | --- | --- | --- | --- |
-| Poste A | PhyA | 192.167.5.1 | 255.255.255.0 | 192.168.5.254 |
-| Poste B | PhyB | 192.168.5.35 | 255.255.255.0 | 172.20.0.254 |
-| Poste C | PhyC | 172.20.1.4 | 255.255.0.0 | 192.168.5.254 |
-| Poste D | PhyD | 172.20.1.123 | 255.255.255.0 | 172.20.1.254 |
-| Poste E | PhyE | 172.20.0.7 | 255.255.0.0 | 172.20.0.254 |
-| Poste F | PhyF | 172.19.2.2 | 255.0.0.0 | 172.19.0.254 |
-| Routeur X | PhyX | 192.168.5.254 | 255.255.255.0 |  |
-| Routeur Y | PhyY | 172.19.0.254 | 255.255.0.0 |  |
-| Routeur Z | PhyZ | 172.20.0.254 | 255.255.0.0 |  |
-
-Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers).
-
-- V pour Vrai (communication entre les deux postes)
-- F pour Faux (pas de communication entre les deux postes)
-- P pour Passerelle (communication entre les deux postes en passant par le routeur)
-
-Le tableau est déjà rempli avec certaines réponses : le poste A peut envoyer au poste A, ainsi pour les postes B, C, D, E, F.
-
-| X pev Y | A | B | C | D | E | F |
-| --- | --- | --- | --- | --- | --- | --- |
-| A | V |  |  |  |  |  |
-| B |  | V |  |  |  |  |
-| C |  |  | V |  |  |  |
-| D |  |  |  | V |  |  |
-| E |  |  |  |  | V |  |
-| F |  |  |  |  |  | V |
-
-### Page 4
-
-##### D. Remplissez les tables de routage des routeurs
-
-!!! note "À retenir"
-    On a découpé le bloc 131.107.0.0/16 en 9 segments.
-
-- On a découpé le bloc 131.107.0.0/16 en 9 segments.
-- Les réseaux utilisés sont indiqués en gras dans le schéma. Les adresses imprimées dans ce schéma sont en 13.107.
-
-Réseaux en gras : 13.107.0.0/20, 13.107.16.0/20, 13.107.32.0/19, 13.107.64.0/19, 13.107.96.0/19, 13.107.128.0/19, 13.107.160.0/19, 13.107.192.0/19, 13.107.224.0/19.
-
-Schéma du réseau : R1 à R4 relient, dans l’ordre, 13.107.0.0, 13.107.16.0, 13.107.32.0, 13.107.64.0 et 13.107.96.0. R5 à R8 relient 13.107.128.0, 13.107.160.0, 13.107.192.0 et 13.107.224.0.
-
-- Vous devez paramétrer chaque routeur en n’ajoutant qu’un minimum d’itinéraires statiques.
-- Écrivez, en format abrégé, les routes que vous ajoutez : (@_rezo, masque, routeur de destination).
-
-| Routeur | Routes ajoutées |
-| --- | --- |
-| R1 |  |
-| R2 |  |
-| R3 |  |
-| R4 |  |
-| R5 |  |
-| R6 |  |
-| R7 |  |
-| R8 |  |
-
-### Page 5
-
-##### E. Calculer les résumés de routes
-
-!!! note "À retenir"
-    Référence du document : 1Gb0iImzxLM0SCnPeXVXePKlsvyOI1wWI · SHA-256 43433ec88de1f253…
-
-| Agrégat demandé | Résumé CIDR |
-| --- | --- |
-| 1. Quatre réseaux 212.56.132.0/24 à 212.56.135.0/24 |  |
-| 2. Quatre réseaux 212.56.146.0/24 à 212.56.149.0/24 |  |
-| 3. Soixante-quatre réseaux, de 212.1.96.0/24 à 212.1.159.0/24 |  |
-| 4. Intégralité des réseaux de classe A |  |
-| 5. Tous les réseaux de classe B |  |
-| 6. Totalité des réseaux de classe C |  |
-
-Référence du document : 1Gb0iImzxLM0SCnPeXVXePKlsvyOI1wWI · SHA-256 43433ec88de1f253…
-
-## Énoncé · M04-01-02-TP-Packet_Tracer-La_communication · 1 pages transcrites
-
-### Page 1
-
-#### La communication
-
-!!! note "À retenir"
-    TP du Module 04 – Communication avec Packet Tracer Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4.
-
-**Visuel externe**
-
-```mermaid
-flowchart LR
-    N1["Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4."]
-    N2["Avoir réaliser les précédents TP Packet Tracer."]
-    N3["Packet Tracer doit être installé."]
-    N1 --> N2
-    N2 --> N3
-```
-
-TP du Module 04 – Communication avec Packet Tracer
-
-- Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4.
-- Avoir réaliser les précédents TP Packet Tracer.
-- Packet Tracer doit être installé.
-
-Durée estimée : 30 minutes
-
-#### Énoncé
-
-!!! note "À retenir"
-    Pour découvrir le fonctionnement de Packet Tracer, vous devez : Copier le fichier « M04-01-02–TP-Packet_Tracer-La_communication.pka ».
-
-**Visuel externe**
-
-```mermaid
-flowchart LR
-    N1["Copier le fichier « M04-01-02–TP-Packet_Tracer-La_communication.pka »."]
-    N2["L’ouvrir avec Packet Tracer."]
-    N3["Mettre en place la communication inter réseau."]
-    N4["Suivre les directives."]
-    N1 --> N2
-    N2 --> N3
-    N3 --> N4
-```
-
-Pour découvrir le fonctionnement de Packet Tracer, vous devez :
-
-- Copier le fichier « M04-01-02–TP-Packet_Tracer-La_communication.pka ».
-- L’ouvrir avec Packet Tracer.
-- Mettre en place la communication inter réseau.
-- Suivre les directives.
-
-Référence du document : 10YzbJEVSVp0M8Bvnp9BseIrVedU1WI0I · SHA-256 b7a822e12a83ebb5…
-
-## Correction · M04-01-01-TP-La_communication_Correction · 6 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-### Page 1
-
-#### La communication
-
-TP du Module 04-01
-
-Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication.
-
-- En vidéo pour les stagiaires du campus en ligne
-- Diaporama et explications pour les stagiaires en présence d’un formateur
-
-Durée estimée : 2 heures
-
-#### Énoncé
-
-##### A. Communication dans un réseau
-
-**Visuel externe**
-
-```mermaid
-flowchart LR
-    N1["Les machines A, B, C, D, E et F sont situées sur le même segment."]
-    N2["Il n’y a pas de routeur."]
-    N3["Remplissez le tableau ci-dessous en indiquant quels hôtes peuvent dialoguer."]
-    N4["Communication avec réponse et pourquoi ?"]
-    N1 --> N2
-    N2 --> N3
-    N3 --> N4
-```
-
-- Les machines A, B, C, D, E et F sont situées sur le même segment.
-- Il n’y a pas de routeur.
-
-| Poste | Adresse | Masque |
-| --- | --- | --- |
-| A | 172.16.10.10 | 255.255.0.0 |
-| B | 172.16.11.20 | 255.255.0.0 |
-| C | 172.16.100.30 | 255.255.0.0 |
-| D | 172.16.11.100 | 255.255.255.0 |
-| E | 172.16.100.150 | 255.255.255.0 |
-| F | 172.16.10.200 | 255.255.255.0 |
-
-- Remplissez le tableau ci-dessous en indiquant quels hôtes peuvent dialoguer.
-- Communication avec réponse et pourquoi ?
-
-| L’hôte | peut contacter l’hôte | Explications |
-| --- | --- | --- |
-| A | B/C/F | Lorsque A communique avec B, C, F, les postes appartiennent au réseau logique 172.16.0.0/16. B et C répondent à travers ce réseau logique. Cependant, F répond à travers le réseau logique 172.16.10.0/24. |
-| B | A/C/D | Lorsque B communique avec A, C, D, les postes appartiennent au réseau logique 172.16.0.0/16. A et C répondent à travers ce réseau logique. Cependant, D répond à travers le réseau logique 172.16.11.0/24. |
-
-### Page 2
-
-| L’hôte | peut contacter l’hôte | Explications |
-| --- | --- | --- |
-| C | A/B/E | Lorsque C communique avec A, B, E, les postes appartiennent au réseau logique 172.16.0.0/16. A et B répondent à travers ce réseau logique. Cependant, E répond à travers le réseau logique 172.16.100.0/24. |
-| D | B | D et B communiquent à travers le réseau 172.16.11.0/24. |
-| E | C | E et C communiquent à travers le réseau 172.16.100.0/24. |
-| F | A | F et A communiquent à travers le réseau 172.16.10.0/24. |
-
-### Page 3
-
-##### B. Communication dans un réseau
-
-Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à quel autre poste.
-
-Réseau 1 relie les postes A, B et C au routeur X. Réseau 2 relie les postes D et E au routeur Y.
-
-| Équipement | MAC | Adresse | Masque | Passerelle |
-| --- | --- | --- | --- | --- |
-| Poste A | PhyA | 10.11.2.1 | 255.0.0.0 | 10.0.0.254 |
-| Poste B | PhyB | 192.168.1.35 | 255.0.0.0 | 10.0.0.254 |
-| Poste C | PhyC | 10.0.2.4 | 255.255.0.0 | 10.0.0.254 |
-| Poste D | PhyD | 192.168.1.123 | 255.255.255.0 | 192.168.1.254 |
-| Poste E | PhyE | 192.168.2.2 | 255.255.0.0 | 192.168.1.254 |
-| Routeur X | PhyX | 10.0.0.254 | 255.0.0.0 |  |
-| Routeur Y | PhyY | 192.168.1.254 | 255.255.255.0 |  |
-
-Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers).
-
-- V pour Vrai (communication entre les deux postes)
-- F pour Faux (pas de communication entre les deux postes)
-- P pour Passerelle (communication entre les deux postes en passant par le routeur)
-
-Le tableau est déjà rempli avec certaines réponses : le poste A peut envoyer au poste A, ainsi pour les postes B, C, D, E.
-
-| X pev Y | A | B | C | D | E |
-| --- | --- | --- | --- | --- | --- |
-| A | V | F | V | P | F |
-| B | F | V | F | F | F |
-| C | P | F | V | P | F |
-| D | P | F | P | V | F |
-| E | P | F | P | V | V |
-
-### Page 4
-
-##### C. Communication dans un réseau
-
-Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à quel autre poste.
-
-Réseau 1 : postes A et B, routeur X. Réseau 2 : postes C, D et E, routeur Z. Réseau 3 : poste F, routeur Y.
-
-| Équipement | MAC | Adresse | Masque | Passerelle |
-| --- | --- | --- | --- | --- |
-| Poste A | PhyA | 192.167.5.1 | 255.255.255.0 | 192.168.5.254 |
-| Poste B | PhyB | 192.168.5.35 | 255.255.255.0 | 172.20.0.254 |
-| Poste C | PhyC | 172.20.1.4 | 255.255.0.0 | 192.168.5.254 |
-| Poste D | PhyD | 172.20.1.123 | 255.255.255.0 | 172.20.1.254 |
-| Poste E | PhyE | 172.20.0.7 | 255.255.0.0 | 172.20.0.254 |
-| Poste F | PhyF | 172.19.2.2 | 255.0.0.0 | 172.19.0.254 |
-| Routeur X | PhyX | 192.168.5.254 | 255.255.255.0 |  |
-| Routeur Y | PhyY | 172.19.0.254 | 255.255.0.0 |  |
-| Routeur Z | PhyZ | 172.20.0.254 | 255.255.0.0 |  |
-
-Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers).
-
-- V pour Vrai (communication entre les deux postes)
-- F pour Faux (pas de communication entre les deux postes)
-- P pour Passerelle (communication entre les deux postes en passant par le routeur)
-
-Le tableau est déjà rempli avec certaines réponses : le poste A peut envoyer au poste A, ainsi pour les postes B, C, D, E, F.
-
-| X pev Y | A | B | C | D | E | F |
-| --- | --- | --- | --- | --- | --- | --- |
-| A | V | F | F | F | F | F |
-| B | F | V | F | F | F | F |
-| C | F | F | V | F | F | F |
-| D | F | F | F | V | F | F |
-| E | F | P | F | V | V | P |
-| F | F | P | F | F | F | V |
-
-### Page 5
-
-##### D. Remplissez les tables de routage des routeurs
-
-- On a découpé le bloc 131.107.0.0/16 en 9 segments.
-- Les réseaux utilisés sont indiqués en gras dans le schéma. Les adresses imprimées dans ce schéma sont en 13.107.
-
-Réseaux en gras : 13.107.0.0/20, 13.107.16.0/20, 13.107.32.0/19, 13.107.64.0/19, 13.107.96.0/19, 13.107.128.0/19, 13.107.160.0/19, 13.107.192.0/19, 13.107.224.0/19.
-
-Schéma du réseau : R1 à R4 relient, dans l’ordre, 13.107.0.0, 13.107.16.0, 13.107.32.0, 13.107.64.0 et 13.107.96.0. R5 à R8 relient 13.107.128.0, 13.107.160.0, 13.107.192.0 et 13.107.224.0.
-
-- Vous devez paramétrer chaque routeur en n’ajoutant qu’un minimum d’itinéraires statiques.
-- Écrivez, en format abrégé, les routes que vous ajoutez : (@_rezo, masque, routeur de destination).
-
-| Routeur | Routes ajoutées |
-| --- | --- |
-| R1 | 13.107.32.0/19 R2 — 13.107.64.0/18 R2 — 13.107.128.0/17 R2 |
-| R2 | 13.107.0.0/20 R1 — 13.107.64.0/18 R3 — 13.107.128.0/17 R3 |
-| R3 | 13.107.0.0/19 R2 — 13.107.96.0/19 R4 — 13.107.128.0/17 R4 |
-| R4 | 13.107.0.0/18 R3 — 13.107.128.0/17 R5 |
-| R5 | 13.107.0.0/18 R4 — 13.107.64.0/19 R4 — 13.107.160.0/19 R6 — 13.107.192.0/18 R6 |
-| R6 | 13.107.0.0/17 R5 — 13.107.192.0/18 R7 |
-| R7 | 13.107.0.0/17 R6 — 13.107.128.0/19 R6 — 13.107.224.0/19 R8 |
-| R8 | 13.107.0.0/17 R7 — 13.107.128.0/18 R7 |
-
-### Page 6
-
-##### E. Calculer les résumés de routes
-
-| Agrégat demandé | Résumé CIDR |
-| --- | --- |
-| 1. Quatre réseaux 212.56.132.0/24 à 212.56.135.0/24 | 212.56.132.0/22 |
-| 2. Quatre réseaux 212.56.146.0/24 à 212.56.149.0/24 | 212.56.144.0/21 |
-| 3. Soixante-quatre réseaux, de 212.1.96.0/24 à 212.1.159.0/24 | 212.1.0.0/16 |
-| 4. Intégralité des réseaux de classe A | 0.0.0.0/1 |
-| 5. Tous les réseaux de classe B | 128.0.0.0/2 |
-| 6. Totalité des réseaux de classe C | 192.0.0.0/3 |
-
-Référence du document : 1i-Qf_ZUbST6YqWne1bxUV3z_jfWGTGYW · SHA-256 89b5d652cffcd2e2…
 
 ## Notes du Drive · Notes de cours · document texte
 
@@ -2231,13 +1810,6 @@ et je te la prépare pour **les modules 3 et 4**.
 
 Référence du document : 1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT · SHA-256 6742f4b5b0b756fd…
 
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
-| Correction · M04-01-01-TP-La_communication_Correction · 6 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
 | Notes du Drive · Notes de cours · document texte | Aucun support de cours PDF n’existe pour ce module. |
 | Notes de cours | Aucun support de cours PDF n’existe pour ce module. |
 | TP - Packet Tracer - Fichier à télécharger | Une adresse IPv4 est constituée de 32 bits découpés en 4 octets distincts. |

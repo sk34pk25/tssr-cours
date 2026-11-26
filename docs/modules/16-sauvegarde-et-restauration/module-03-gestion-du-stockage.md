@@ -4,6 +4,8 @@ Support « Gestion du stockage », neuf pages, et énoncé Veeam. Durée indiqu�
 
 La transcription du support et l’aide pédagogique sont séparées pour rendre leur provenance explicite.
 
+[Travaux pratiques](../../tp/16-sauvegarde-et-restauration/module-03/index.md)
+
 === "Cours Original"
 
     GESTION DU STOCKAGE
@@ -171,68 +173,7 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
     ## N°4
 
     restauration de VM
-
-
-    ![schema-stockage.png](../../assets/images/sauvegarde/module-03/schema-stockage.png)
-
-    ![cartouche.png](../../assets/images/sauvegarde/module-03/cartouche.png)
-
-    ## Sauvegarde et restauration
-
-    ## VEEAM
-
-    ## TP du Module 03 – Gestion du stockage
-
-    Avant de démarrer ce TP, il convient d’avoir suivi les modules 1, 2 et 3 et d’avoir réalisé le TP précédent.
-
-    Durée estimée
-
-    1 heure
-
-    ## Objectifs
-
-    - Installer la solution de sauvegarde Veeam Backup & Replication
-    - Sauvegarder des VM
-    - Restaurer une VM
-    ## Énoncé
-
-    Sur SRV-HyperV :
-
-    Ne pas oublier d’ouvrir le port 445 (Service Accès réseau (NP-in))
-
-    Sur Srv-backup:
-
-    - Désinstaller Backup Exec
-    - Installer VEEAM 12 backup & replication
-    - Dans Veeam menu « Inventory » ajouter le serveur HyperV : « Add Server »
-    ## Name                             SRV-HyperV
-
-    Type Microsoft Hyper-V Server (Standalone) Crédential « Add… » « SRV-HyperV\administrateur »
-
-    ## Review                           Task limit : 4
-
-    - Une fois l’ajout effectué, vérifier sur le serveur SRV-HyperV la présence des serveurs :
-        - o SRV-AD1
-        - o SRV-FIC1
-    - Créer un job de sauvegarde pour le serveur srv-Fic1
-
-    - o Menu « Home »
-        - o « Backup job »
-        - o «Virtual Machine »
-    ## Name                            SVGD-FIC1
-
-    ## Virtual Machine                 « Add… » « Srv-Fic1 »
-
-    Storage Default Backup Repository
-
-    ## Review                          Task limit : 4
-
-        - o Exécution immédiate
-    - Après vérification de la sauvegarde complète srv-fic1
-        - o S'il n’y a pas d’erreur lors de la sauvegarde
-        - o Supprimer le serveur srv-fic1 depuis SRV-HYPERV
-        - o Depuis VEEAM effectuer une restauration complète de la VM srv-fic1
-        - o Une fois la restauration terminée vérifier que tous les paramètres du serveur sont bons et opérationnels
+    [Travaux pratiques](../../tp/16-sauvegarde-et-restauration/module-03/index.md)
 
 === "Cours Optimisé IA"
 
@@ -545,72 +486,7 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
     ## N°4
 
     restauration de VM
-
-
-    ![schema-stockage.png](../../assets/images/sauvegarde/module-03/schema-stockage.png)
-
-    ![cartouche.png](../../assets/images/sauvegarde/module-03/cartouche.png)
-
-    ## Sauvegarde et restauration
-
-    ## VEEAM
-
-    ## TP du Module 03 – Gestion du stockage
-
-    Avant de démarrer ce TP, il convient d’avoir suivi les modules 1, 2 et 3 et d’avoir réalisé le TP précédent.
-
-    Durée estimée
-
-    1 heure
-
-    ## Objectifs
-
-    - Installer la solution de sauvegarde Veeam Backup & Replication
-    - Sauvegarder des VM
-    - Restaurer une VM
-
-    ## Énoncé
-
-    Sur SRV-HyperV :
-
-    Ne pas oublier d’ouvrir le port 445 (Service Accès réseau (NP-in))
-
-    Sur Srv-backup:
-
-    - Désinstaller Backup Exec
-    - Installer VEEAM 12 backup & replication
-    - Dans Veeam menu « Inventory » ajouter le serveur HyperV : « Add Server »
-
-    ## Name                             SRV-HyperV
-
-    Type Microsoft Hyper-V Server (Standalone) Crédential « Add… » « SRV-HyperV\administrateur »
-
-    ## Review                           Task limit : 4
-
-    - Une fois l’ajout effectué, vérifier sur le serveur SRV-HyperV la présence des serveurs :
-        - o SRV-AD1
-        - o SRV-FIC1
-    - Créer un job de sauvegarde pour le serveur srv-Fic1
-
-    - o Menu « Home »
-        - o « Backup job »
-        - o «Virtual Machine »
-
-    ## Name                            SVGD-FIC1
-
-    ## Virtual Machine                 « Add… » « Srv-Fic1 »
-
-    Storage Default Backup Repository
-
-    ## Review                          Task limit : 4
-
-    - o Exécution immédiate
-    - Après vérification de la sauvegarde complète srv-fic1
-        - o S'il n’y a pas d’erreur lors de la sauvegarde
-        - o Supprimer le serveur srv-fic1 depuis SRV-HYPERV
-        - o Depuis VEEAM effectuer une restauration complète de la VM srv-fic1
-        - o Une fois la restauration terminée vérifier que tous les paramètres du serveur sont bons et opérationnels
-
+    [Travaux pratiques](../../tp/16-sauvegarde-et-restauration/module-03/index.md)
     ## Fiche de synthèse
 
     Les lignes reprennent les titres du cours et la première phrase de chaque partie.
@@ -630,9 +506,5 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
     | NAS | SOLUTION NAS : Network Attached Storage Appareil de stockage connecté à un réseau qui permet aux utilisateurs de sauvegarder et partager des fichiers au sein d'un réseau local. |
     | DE SAUVEGARDE | Signification Storage Area Network Network Attached Storage Protocoles SCSI, Fibre Channel ou SATA. |
     | SAUVEGARDES | Directement réalisée sur le site d'exploitation, sur un support local, les données ne sortent pas du réseau interne de l'entreprise. |
-    | TP du Module 03 – Gestion du stockage | Avant de démarrer ce TP, il convient d’avoir suivi les modules 1, 2 et 3 et d’avoir réalisé le TP précédent. |
-    | Objectifs | Installer la solution de sauvegarde Veeam Backup & Replication Sauvegarder des VM Restaurer une VM |
     | Énoncé | Sur SRV-HyperV : Ne pas oublier d’ouvrir le port 445 (Service Accès réseau (NP-in)) Sur Srv-backup: Désinstaller Backup Exec Installer VEEAM 12 backup & replication Dans Veeam m… |
-    | Name                             SRV-HyperV | Type Microsoft Hyper-V Server (Standalone) Crédential « Add… » « SRV-HyperV\administrateur » |
     | Review                           Task limit : 4 | Une fois l’ajout effectué, vérifier sur le serveur SRV-HyperV la présence des serveurs : - o SRV-AD1 - o SRV-FIC1 Créer un job de sauvegarde pour le serveur srv-Fic1 o Menu « Ho… |
-    | Review                          Task limit : 4 | o Exécution immédiate Après vérification de la sauvegarde complète srv-fic1 - o S'il n’y a pas d’erreur lors de la sauvegarde - o Supprimer le serveur srv-fic1 depuis SRV-HYPERV… |

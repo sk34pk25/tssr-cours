@@ -1,5 +1,7 @@
 # Module 05 — Les caractères spéciaux du script
 
+[Travaux pratiques](../../tp/11-initiation-scripting-bash/module-05/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -13,10 +15,8 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 7. de commandes
 8. Utiliser les couleurs
 9. dans le Shell
-10. Énoncé · M5 - Enoncé du TP1 - Enchaînements conditionnels · 2 pages transcrites
+10. Enchaînements conditionnels
 11. Enchaînements conditionnels
-12. Correction · M5 - Solutions du TP1 - Enchaînements conditionnels · 2 pages transcrites
-13. Enchaînements conditionnels
 
 **Visuel externe**
 
@@ -31,9 +31,7 @@ flowchart TD
     N7["de commandes"]
     N8["Utiliser les couleurs"]
     N9["dans le Shell"]
-    N10["Énoncé · M5 - Enoncé du TP1 - Enchaînements conditionnels · 2 pages transcrites"]
     N11["Enchaînements conditionnels"]
-    N12["Correction · M5 - Solutions du TP1 - Enchaînements conditionnels · 2 pages transcrites"]
     N1 --> N2
     N2 --> N3
     N3 --> N4
@@ -42,9 +40,7 @@ flowchart TD
     N6 --> N7
     N7 --> N8
     N8 --> N9
-    N9 --> N10
-    N10 --> N11
-    N11 --> N12
+    N9 --> N11
 ```
 
 SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
@@ -364,160 +360,5 @@ Les couleurs dans le shell
 
 Référence du document : 1eRNrkmTjYjrApMM5-dm81IiX4craP22S · SHA-256 57232cfa34197b31…
 
-## Énoncé · M5 - Enoncé du TP1 - Enchaînements conditionnels · 2 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-## Page 1
-
-## Enchaînements conditionnels
-
-### TP1 du Module 05 - Les caractères spéciaux du Shell
-
-**Visuel externe**
-
-```mermaid
-flowchart LR
-    N1["Le script demandera tout d’abord la saisie d’un nom de dossier"]
-    N2["Puis, il créera automatiquement dans le dossier un fichier nommé fic_M5TP1.txt"]
-    N3["Renseignera automatiquement le contenu suivant dans le fichier avec la commande"]
-    N4["Affichera le contenu du fichier (et vérifier la bonne insertion du texte)"]
-    N1 --> N2
-    N2 --> N3
-    N3 --> N4
-```
-
-Avant de démarrer ce TP, il convient d’avoir suivi les modules 1 à 5.
-
-Objectifs
-
-Créer un script Shell utilisant des enchainements de commandes conditionnels.
-
-Énoncé
-
-Réaliser un script Shell effectuant des actions automatisées :
-
-- Le script demandera tout d’abord la saisie d’un nom de dossier
-
-o En réalisera la création et confirmera la bonne création avec un message en vert
-
-- Puis, il créera automatiquement dans le dossier un fichier nommé fic_M5TP1.txt
-
-o Le nom de ce fichier sera stocké dans une variable déclarée manuellement en début de
-
-script
-
-o La bonne création du fichier sera confirmée par un message de couleur bleu
-
-- Renseignera automatiquement le contenu suivant dans le fichier avec la commande
-
-```
-echo "Introduction du fichier fic_M5TP1.txt" > $dossier/$fic
-```
-
-- Affichera le contenu du fichier (et vérifier la bonne insertion du texte)
-
-Exemple de visuel possible :
-
-```
-$ ./script_M5TP1.sh
-Veuillez saisir un nom de dossier à créer: doss_M5TP1
-```
-
-```
-Création du dossier : doss_M5TP1
------------------------------
-Répertoire ‘doss_M5TP1’ créé.
-```
-
-```
-Création du fichier : fic_M5TP1.txt
------------------------------
-Fichier 'fic_M5TP1.txt' créé dans ‘doss_M5TP1’.
-```
-
-```
-Contenu du fichier :
-```
-
-## Page 2
-
-```
-------------------
-Introduction du fichier fic_M5TP1.txt
-```
-
-Référence du document : 1T4tULWfrLnoXv7mn9g9Y0fwZKh4gQ7I0 · SHA-256 3e5f6ffe06b3b28a…
-
-## Correction · M5 - Solutions du TP1 - Enchaînements conditionnels · 2 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-## Page 1
-
-## Enchaînements conditionnels
-
-### Solutions - TP1 du Module 05 - Les caractères spéciaux du Shell
-
-- Créer et éditer un nouveau fichier script nommé script_M5TP1.sh
-
-```
-vim script_M5TP1.sh
-```
-
-- Y ajouter les lignes suivantes :
-
-```
-#! /bin/bash
-# M5 - Solution du TP1
-# Définition des variables
-fic=’fic_M5TP1.txt’
-bleu='\033[0;34m'
-vert='\033[0;32m'
-noir='\033[0m' # Pas de couleur
-# Demande de saisie du nom de dossier à créer
-read -p "Veuillez saisir un nom de dossier à créer : " dossier
-# Enchaînement de commandes avec des messages colorés
-echo ""
-echo "Création du dossier : $dossier"
-echo "------------------------------"
-mkdir -p $dossier && echo -e "$vert Répertoire '$dossier' créé.$noir"
-echo ""
-echo "Création du fichier : $fic"
-echo "--------------------------"
-touch $dossier/$fic && echo -e "$bleu Fichier '$fic' créé dans
-'$dossier'.$noir"
-# Insertion d’un texte dans le fichier
-echo "Introduction du fichier fic_M5TP1.txt" > $dossier/$fic
-# Affichage du contenu du fichier
-echo ""
-echo "Contenu du fichier :"
-echo "------------------"
-cat $dossier/$fic
-# Fin du script
-```
-
-- Rendre exécutable le fichier
-
-```
-chmod u+x script_M5TP1.sh
-```
-
-## Page 2
-
-- Tester le script
-
-Référence du document : 1n-768pBvhRPHlJ6be79OaNssief9kgBD · SHA-256 8d59f53e520f5a86…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Support · Module 05 - Support de cours · 10 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
 | Objectifs | Savoir enchaîner plusieurs commandes Conditionner une commande au résultat d'une autre Regrouper les commandes Colorier la console |
-| Énoncé · M5 - Enoncé du TP1 - Enchaînements conditionnels · 2 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
-| Correction · M5 - Solutions du TP1 - Enchaînements conditionnels · 2 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |

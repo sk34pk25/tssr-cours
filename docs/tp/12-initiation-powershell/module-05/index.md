@@ -11,5 +11,6 @@ Choisir l’éditeur et les VM du TP. Relever la cible distante et l’OU autori
 
 - [Énoncé complet](tp-01-outils-pour-le-scripting.md)
 - [Correction et contrôles](correction-tp-01.md)
+- [Démonstrations](demonstrations.md)
 - [Cours du module](../../../modules/12-initiation-powershell/module-05.md)
 - [Révision](../../../revision/12-initiation-powershell/module-05.md)

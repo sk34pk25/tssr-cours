@@ -1,5 +1,7 @@
 # Module 10 — Gestion des utilisateurs et groupes
 
+[Travaux pratiques](../../tp/administration-linux/module-10/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -46,15 +48,13 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 40. Changement d’identité et élévation de privilèges
 41. Gestion des utilisateurs et groupes
 42. Conclusion
-43. Énoncé · M10TP01 - Enoncé - Gérer les groupes et utilisateurs · 2 pages transcrites
-44. Correction · M10TP01 - Solution - Gérer les groupes et utilisateurss · 3 pages transcrites
+43. Transcription des commandes et informations utiles visibles
+44. Transcription des commandes et informations utiles visibles
 45. Transcription des commandes et informations utiles visibles
 46. Transcription des commandes et informations utiles visibles
-47. Transcription des commandes et informations utiles visibles
+47. Transcription des commandes visibles
 48. Transcription des commandes et informations utiles visibles
-49. Transcription des commandes visibles
-50. Transcription des commandes et informations utiles visibles
-51. Transcription des commandes et informations utiles visibles
+49. Transcription des commandes et informations utiles visibles
 
 **Visuel externe**
 
@@ -569,216 +569,6 @@ Gérer les groupes et utilisateurs
 
 Référence du document : 13t-YQt1AhuI0Dx4-SAB7wpbiAJLdmZEQ · SHA-256 4eb7394ca58f1c64…
 
-## Énoncé · M10TP01 - Enoncé - Gérer les groupes et utilisateurs · 2 pages transcrites
-
-### Gérer les groupes et utilisateurs
-
-TP du Module 10 – titre Gestion des utilisateurs et des groupes
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 10 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-20 à 30 minutes
-
-### Énoncé
-
-### I. Création d’utilisateurs et de groupes sur le serveur sans environnement graphique
-
-Créer des comptes utilisateurs pour : François, Frédéric et Fabrice avec les caractéristiques précisées.
-
-Attention il faudra au préalable créer les groupes nécessaires à la configuration des utilisateurs.
-
-- Pour François :
-- Shell à utiliser Le shell sh
-- Répertoire personnel /home/francois
-- Mot de passe password
-- Groupe principal admin
-- Groupes secondaires stagiaires, documentation
-- Pour Frédéric :
-- Shell à utiliser Le shell bash
-- Répertoire personnel /home/frederic
-- Mot de passe AchAngEr
-
-Ce mot de passe sera à changer à la première ouverture de session
-
-- Groupes secondaires stagiaires, documentation
-
-- Pour Fabrice :
-- Shell à utiliser Le shell bash
-- Répertoire personnel /home/fabrice
-- Mot de passe password
-
-Son compte devra être désactivé
-
-- Groupes secondaires vip
-
-Indice pour le mot de passe de Frédéric : voir le man de la commande passwd
-
-IL EST INTERDIT DE MODIFIER DIRECTEMENT LES FICHIERS : /etc/passwd/, /etc/group, /etc/shadow, /etc/gshadow
-
-### Solution
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Référence du document : 1Frt4pfyPCPCxrzfGXW2yVNR51w0n032c · SHA-256 bcf2a418fb1af134…
-
-## Correction · M10TP01 - Solution - Gérer les groupes et utilisateurss · 3 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-### Gérer les groupes et utilisateurs
-
-TP du Module 10 – titre Gestion des utilisateurs et des groupes
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 10 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-20 à 30 minutes
-
-### Énoncé
-
-### I. Création d’utilisateurs et de groupes sur le serveur sans environnement graphique
-
-Créer des comptes utilisateurs pour : François, Frédéric et Fabrice avec les caractéristiques précisées.
-
-Attention il faudra au préalable créer les groupes nécessaires à la configuration des utilisateurs.
-
-Création des groupes utilisés pour ces trois comptes utilisateurs
-
-- Pour François :
-- Shell à utiliser Le shell sh
-- Répertoire personnel /home/francois
-- Mot de passe password
-- Groupe principal admin
-- Groupes secondaires stagiaires, documentation
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/26fdf8644e76157a/deb-p1-1.webp)
-
-Capture ou visuel isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-groupadd admin
-groupadd stagiaires
-groupadd documentation
-groupadd vip
-```
-
-Les options de useradd : -m pour forcer la création du répertoire personnel de l'utilisateur -s pour préciser le binaire du shell à utiliser, -g pour le groupe principal, -G pour les groupes secondaires Id permet de vérifier les groups de l’utilisateur. Ne pas oublier de modifier le mot de passe avec passwd
-
-- Pour Frédéric :
-- Shell à utiliser Le shell bash
-- Répertoire personnel /home/frederic
-- Mot de passe AchAngEr
-
-Ce mot de passe sera à changer à la première ouverture de session
-
-- Groupes secondaires stagiaires, documentation
-
-On ajoute l’option -d pour préciser le dossier /home/fred
-
-La saisie du mot de passe ne change pas
-
-Le man passwd contient cette information concernant l’expiration du mot de passe d’un utilisateur
-
-Après la saisie de la commande pour forcer l’expiration du mot de passe, l’on peut vérifier la bonne prise en compte en changeant d’utilisateur. Il suffit d’annuler avec ^C pour ne pas aller au bout de la procédure.
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/26fdf8644e76157a/deb-small-p2-3.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-useradd -m -d /home/fred -s /bin/bash -G documentation,stagiaires frederic
-id frederic
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/26fdf8644e76157a/deb-small-p2-4.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-passwd frederic
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/26fdf8644e76157a/deb-small-p2-5.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/26fdf8644e76157a/deb-small-p2-6.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-passwd -e frederic
-su - frederic
-```
-
-![Détail de la procédure du laboratoire, isolé et vérifié.](../../assets/course-sources/isolated/26fdf8644e76157a/deb-detail-p2-43.webp)
-
-Détail de la procédure du laboratoire, isolé et vérifié.
-
-## Transcription des commandes visibles
-
-```
-useradd -m -s /bin/sh -g admin -G stagiaires,documentation francois
-id francois
-passwd francois
-```
-
-- Pour Fabrice :
-- Shell à utiliser Le shell bash
-- Répertoire personnel /home/fabrice
-- Mot de passe password
-
-Son compte devra être désactivé
-
-- Groupes secondaires vip
-
-Création du compte de manière standard
-
-L’option -L de usermod permet de verrouiller le compte, l’option -e1 permet de forcer sa date d’expiration.
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/26fdf8644e76157a/deb-p3-1.webp)
-
-Capture ou visuel isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-useradd -m -s /bin/bash -G vip fabrice
-passwd fabrice
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/26fdf8644e76157a/deb-small-p3-3.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-usermod -L -e 1 fabrice
-su - fabrice
-Votre compte a expiré, veuillez contacter votre administrateur système.
-su: Échec de l’authentification
-```
-
-Référence du document : 1r2GYwZTspaTFyNMSx9seYZ7WyQWzTq8Q · SHA-256 26fdf8644e76157a…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Les identifiants | Sous Linux, les utilisateurs sont représentés par deux valeurs importantes : L’UID : l’identifiant utilisateur Le GID : l’identifiant du groupe principal Il est possible qu’un u… |
 | Les types d’utilisateurs | Il existe trois types d’utilisateurs : root : UID=0, GID=0 C’est le super-administrateur du système. |
 | Généralités | Les informations concernant les groupes d’un système Linux sont contenus dans les fichiers /etc/group et /etc/gshadow Nous pourrons y prendre des informations, mais nous ne les… |
@@ -809,11 +599,9 @@ Les lignes reprennent les titres du cours et la première phrase de chaque parti
 | La commande sudo | La commande sudo permet de déléguer des tâches précises d'administration à certains utilisateurs. |
 | La commande sudo | De façon simple, il est possible de donner tous les droits root à un utilisateur en ajoutant le groupe sudo à l’utilisateur. |
 | Conclusion | Vous savez créer et gérer des groupes et utilisateurs Vous savez consulter les fichiers de configuration Vous savez effectuer une élévation de privilèges en environnement GNU/Li… |
-| Correction · M10TP01 - Solution - Gérer les groupes et utilisateurss · 3 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
 | Transcription des commandes et informations utiles visibles | Les options de useradd : -m pour forcer la création du répertoire personnel de l'utilisateur -s pour préciser le binaire du shell à utiliser, -g pour le groupe principal, -G pou… |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Détail de la procédure du laboratoire, isolé et vérifié. |
 | Transcription des commandes visibles | Pour Fabrice : Shell à utiliser Le shell bash Répertoire personnel /home/fabrice Mot de passe password Son compte devra être désactivé Groupes secondaires vip Création du compte… |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
-| Transcription des commandes et informations utiles visibles | Référence du document : 1r2GYwZTspaTFyNMSx9seYZ7WyQWzTq8Q · SHA-256 26fdf8644e76157a… |

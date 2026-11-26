@@ -4,86 +4,14 @@ Semaine **2/2**. Support de cours : **Inexistant**.
 
 [Énoncé](../../tp/17-reseau-et-securite/module-07/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-07/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-07.md) · [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-07.md)
 
+[Travaux pratiques](../../tp/17-reseau-et-securite/module-07/index.md)
+
 === "Cours Original"
+    Support de cours : **Inexistant**.
 
-    Connecter les
-    collaborateurs pour le
-    télétravail
-     TD8
-
-     Avant de démarrer ce TP.
-
-                Durée estimée
-
-                  4 heures
-
-    Énoncé
-
-    Objectifs:
-
-    Mise en place
-
-    ![TP8, énoncé, page 1](../../assets/images/reseau-et-securite/tp8/enonce-p01-01.png)
-
-    ![TP8, énoncé, page 1](../../assets/images/reseau-et-securite/tp8/enonce-p01-02.png)
-
-    Valeurs de la capture :
-
-    - Routeur formateur : 88.66.44.1
-    - WAN : 88.66.44.X, bridge
-    - LAN CLT : 172.20.X.0/24, VMnet10
-    - LAN DMZ : VMnet12
-    - LAN SRV : 192.168.X.0/24, VMnet11
-    - SRV-CD : 192.168.X.100/24, Active Directory, DNS, PKI
-    - SRV-MBR : 192.168.X.102/24, DHCP, IIS
-    - SRV-Apache : 172.20.X.200/24
-
-
-    Sur SRV-CD
-    https://wireguard.how/client/debian/
-
-    Solution
-    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page [Correction](../../tp/17-reseau-et-securite/module-07/corrections.md)).
+    [Travaux pratiques](../../tp/17-reseau-et-securite/module-07/index.md)
 
 === "Cours Optimisé IA"
+    Support de cours : **Inexistant**.
 
-    Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
-
-    Connecter les
-    collaborateurs pour le
-    télétravail
-     TD8
-
-     Avant de démarrer ce TP.
-
-                Durée estimée
-
-                  4 heures
-
-    Énoncé
-
-    Objectifs:
-
-    Mise en place
-
-    ![TP8, énoncé, page 1](../../assets/images/reseau-et-securite/tp8/enonce-p01-01.png)
-
-    ![TP8, énoncé, page 1](../../assets/images/reseau-et-securite/tp8/enonce-p01-02.png)
-
-    Valeurs de la capture :
-
-    - Routeur formateur : 88.66.44.1
-    - WAN : 88.66.44.X, bridge
-    - LAN CLT : 172.20.X.0/24, VMnet10
-    - LAN DMZ : VMnet12
-    - LAN SRV : 192.168.X.0/24, VMnet11
-    - SRV-CD : 192.168.X.100/24, Active Directory, DNS, PKI
-    - SRV-MBR : 192.168.X.102/24, DHCP, IIS
-    - SRV-Apache : 172.20.X.200/24
-
-
-    Sur SRV-CD
-    https://wireguard.how/client/debian/
-
-    Solution
-    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page [Correction](../../tp/17-reseau-et-securite/module-07/corrections.md)).
+    [Travaux pratiques](../../tp/17-reseau-et-securite/module-07/index.md)

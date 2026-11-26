@@ -1,5 +1,7 @@
 # Module 02 — Adressage réseau
 
+[Travaux pratiques](../../tp/services-reseau-linux/module-02/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -12,17 +14,15 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 6. Passerelle par défaut
 7. Nom d'hôte
 8. Client DNS
-9. Énoncé · M02 - Enoncé du TP1 - Adressage réseau · 3 pages transcrites
-10. Mise en œuvre et configuration réseau
-11. Énoncé
-12. Nom : Cli-db-10 IPv4 : * . 10
-13. LAN Clients 172.18.num_stag.0 / 24 VMNet 4
-14. Correction · M02 - Solution du TP1 - Adressage réseau · 4 pages transcrites
-15. Mise en œuvre et configuration réseau
-16. Solution
-17. Nom : Cli-db-10 IPv4 : * . 10
-18. LAN Clients 172.18.num_stag.0 / 24 VMNet 4
-19. Etape 3 - Préparation d’un serveur supplémentaire
+9. Mise en œuvre et configuration réseau
+10. Énoncé
+11. Nom : Cli-db-10 IPv4 : * . 10
+12. LAN Clients 172.18.num_stag.0 / 24 VMNet 4
+13. Mise en œuvre et configuration réseau
+14. Solution
+15. Nom : Cli-db-10 IPv4 : * . 10
+16. LAN Clients 172.18.num_stag.0 / 24 VMNet 4
+17. Etape 3 - Préparation d’un serveur supplémentaire
 
 **Visuel externe**
 
@@ -36,7 +36,6 @@ flowchart TD
     N6["Passerelle par défaut"]
     N7["Nom d'hôte"]
     N8["Client DNS"]
-    N9["Énoncé · M02 - Enoncé du TP1 - Adressage réseau · 3 pages transcrites"]
     N10["Mise en œuvre et configuration réseau"]
     N11["Énoncé"]
     N12["Nom : Cli-db-10 IPv4 : * . 10"]
@@ -47,8 +46,7 @@ flowchart TD
     N5 --> N6
     N6 --> N7
     N7 --> N8
-    N8 --> N9
-    N9 --> N10
+    N8 --> N10
     N10 --> N11
     N11 --> N12
 ```
@@ -534,262 +532,6 @@ nameserver 10.100.0.3
 
 Référence du document : 1zPFqVRivViktyikdvOrkv5ylNUNNdjsB · SHA-256 59d3b9ffb6ff15f3…
 
-## Énoncé · M02 - Enoncé du TP1 - Adressage réseau · 3 pages transcrites
-
-Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.
-
-Services réseau en environnement Linux
-
-## Mise en œuvre et configuration réseau
-
-### TP 01 du Module 02 – Adressage réseau
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 2 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-3 heures
-
-## Énoncé
-
-### Objectifs
-
-- Créer des machines virtuelles conformément à un cahier des charges.
-- Configurer l’adressage réseau sous GNU/Linux Debian.
-
-### Prérequis
-
-- VMware Workstation doit être installé sur votre machine physique.
-
-Récupérer l’image ISO du système d’exploitation indiqué dans le tableau de l’étape 1. Il est conseillé de télécharger l’ISO du DVD au départ ; les machines virtuelles n’auront pas obligatoirement accès à Internet :
-
-https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/
-
-### Notes
-
-- Pour toutes les configurations réseau, remplacer num_stag par un chiffre entre 1 et 30, par exemple 10.
-- Installer une seule fois la Debian sans interface bureautique et faire des clones permettra d’accélérer les déploiements des VMs.
-- Veiller à bien lire toutes les instructions pour chaque VM.
-
-Services réseau en environnement Linux
-
-### Etape 1 - Configuration du LAN Clients
-
-Création de la machine virtuelle cliente :
-
-| Nom de la VM | Système d’exploitation | RAM | Réseau |
-| --- | --- | --- | --- |
-| Cli-db-10 | Linux Debian 10.x 64 bits | 1024 MB | Custom / VMNet4 |
-
-## Nom : Cli-db-10 IPv4 : * . 10
-
-## LAN Clients 172.18.num_stag.0 / 24 VMNet 4
-
-### Installation du système d’exploitation :
-
-- Installer le système d’exploitation. Ne pas configurer l’adressage réseau pendant l’installation (il sera configuré post installation).
-
-### L’environnement de bureau Debian doit être installé sur Cli-db-10. Configuration système :
-
-- Configurer l’adressage réseau IPv4 des postes en vous référant au précédent schéma.
-
-Vous utiliserez le Network Manager pour configurer le réseau de Cli-db-10.
-
-- Vérifier le nom du poste, le renommer au besoin.
-
-### Etape 2 - Configuration du LAN Serveurs
-
-Création des machines virtuelles serveur :
-
-Créer les machines virtuelles suivantes
-
-| Nom de la VM | Système d’exploitation | RAM | Réseau |
-| --- | --- | --- | --- |
-| DEB-S1 | Linux Debian 10.x 64 bits | 1024 MB | Custom / VMNet6 |
-| DEB-S2 | Linux Debian 10.x 64 bits | 1024 MB | Custom / VMNet6 |
-
-Services réseau en environnement Linux
-
-![LAN Serveurs sur VMNet6. DEB-S1 se termine par .11 et DEB-S2 par .12.](../../assets/course-sources/isolated/937392f18a03f083/linux-net-figure-2.webp)
-
-LAN Serveurs sur VMNet6. DEB-S1 se termine par .11 et DEB-S2 par .12.
-
-Installation du système d’exploitation sur les machines virtuelles :
-
-- Installer le système d’exploitation indiqué dans le tableau sur les machines virtuelles créées précédemment.
-- Ne pas configurer l’adressage réseau pendant l’installation (il sera configuré post installation).
-
-L’environnement de bureau Debian NE DOIT PAS être installé (ni aucun autre environnement graphique…) sur ces machines.
-
-Configuration système des machines :
-
-- Configurer au moyen de la commande ip l’adressage réseau IPv4 des postes en vous référant au précédent schéma.
-- S’assurer qu’ils communiquent bien entre eux.
-- Une fois le point précédent vérifié, purger la configuration précédemment établie (flush) puis reporter dans le fichier de configuration des interfaces leur configuration respective.
-- Redémarrer le service networking et vérifier la bonne prise en compte de la configuration de vos interfaces.
-- Vérifier le nom des postes, les renommer au besoin.
-- Vérifier que les postes communiquent bien entre eux (ping).
-
-### Etape 3 - Préparation d’un serveur supplémentaire
-
-Créer une machine virtuelle avec les caractéristiques suivantes :
-
-| Nom de la VM | Système d’exploitation | RAM | Réseau |
-| --- | --- | --- | --- |
-| RouTux | Linux Debian 10.x 64 bits | 1024 MB | Aucune carte réseau |
-
-- Installer son système d’exploitation. NE PAS INSTALLER l’environnement de bureau Debian, ne pas configurer le réseau.
-- Vérifier le nom d’hôte de la machine (le modifier au besoin)
-
-Référence du document : 1qf439STpGg6CjXLb56PDeWq-eR2WLeqw · SHA-256 937392f18a03f083…
-
-## Correction · M02 - Solution du TP1 - Adressage réseau · 4 pages transcrites
-
-Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-Services réseau en environnement Linux
-
-## Mise en œuvre et configuration réseau
-
-### TP 01 du Module 02 – Adressage réseau
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 2 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-3 heures
-
-## Solution
-
-### Etape 1 - Configuration du LAN Clients
-
-Création de la machine virtuelle cliente :
-
-| Nom de la VM | Système d’exploitation | RAM | Réseau |
-| --- | --- | --- | --- |
-| Cli-db-10 | Linux Debian 10.x 64 bits | 1024 MB | Custom / VMNet4 |
-
-## Nom : Cli-db-10 IPv4 : * . 10
-
-## LAN Clients 172.18.num_stag.0 / 24 VMNet 4
-
-```
-# nmcli connection modify Wired\ connection\ 1  ipv4.addresses
-172.18.X.10/24 ipv4.method  manual
-```
-
-Services réseau en environnement Linux
-
-+ Désactivation/Activation connexion via nmtui
-
-ou configuration + activation interactive via nmtui
-
-ou configuration via l’interface graphique
-
-Pour cli-deb-10, nommage de la machine à l’installation
-
-```
-Ou # nmcli general hostname cli-deb-10
-```
-
-Ou configuration interactive avec nmtui
-
-### Etape 2 - Configuration du LAN Serveurs
-
-Création des machines virtuelles serveur :
-
-Créer les machines virtuelles suivantes
-
-| Nom de la VM | Système d’exploitation | RAM | Réseau |
-| --- | --- | --- | --- |
-| DEB-S1 | Linux Debian 10.x 64 bits | 1024 MB | Custom / VMNet6 |
-| DEB-S2 | Linux Debian 10.x 64 bits | 1024 MB | Custom / VMNet6 |
-
-![LAN Serveurs sur VMNet6. DEB-S1 se termine par .11 et DEB-S2 par .12.](../../assets/course-sources/isolated/83cc3b4c3b97718f/linux-net-figure-1.webp)
-
-LAN Serveurs sur VMNet6. DEB-S1 se termine par .11 et DEB-S2 par .12.
-
-### Pour une configuration dynamique
-
-Sur deb-s1
-
-```
- # ip a add 192.168.X.11 dev  ens33
-```
-
-Sur deb-s2
-
-```
- # ip a add 192.168.X.12 dev  ens33
-```
-
-Pour flusher les interfaces :
-
-```
- # ip a flush dev ens33
-```
-
-### Pour une configuration définitive
-
-##### Sur deb-s1
-
-```
- # vi /etc/network/interface
- auto ens33
- iface ens33 inet static
-
-address  192.168.X.11
-
-netmask  255.255.255.0
-```
-
-Sur deb-s2
-
-Même chose que pour deb-s1 avec IP 192.168.X.12
-
-Ne pas oublier de redémarrer la configuration.
-
-```
-# systemctl restart  networking.service
-```
-
-##### Configurer le nom d’hôte
-
-```
-# vi /etc/hostname
-
-deb-s1
-# hostname –F  /etc/hostname
-# vi /etc/hosts
- 127.0.1.1 deb-s1
-```
-
-Même chose avec deb-s2
-
-Services réseau en environnement Linux
-
-## Etape 3 - Préparation d’un serveur supplémentaire
-
-Créer une machine virtuelle avec les caractéristiques suivantes :
-
-| Nom de la VM | Système d’exploitation | RAM | Réseau |
-| --- | --- | --- | --- |
-| RouTux | Linux Debian 10.x 64 bits | 1024 MB | Aucune carte réseau |
-
-Même chose qu’à l’étape 2 sans configuration de réseau pour l’instant.
-
-Référence du document : 1XzrvZsfEVxEIGPrQNLhbPcmPEkfOmpGv · SHA-256 83cc3b4c3b97718f…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Support · Module 02 - Support de cours · 13 pages transcrites | Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. |
-| Énoncé · M02 - Enoncé du TP1 - Adressage réseau · 3 pages transcrites | Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. |
-| Correction · M02 - Solution du TP1 - Adressage réseau · 4 pages transcrites | Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. |
 | LAN Clients 172.18.num_stag.0 / 24 VMNet 4 | Services réseau en environnement Linux + Désactivation/Activation connexion via nmtui ou configuration + activation interactive via nmtui ou configuration via l’interface graphi… |
 | Etape 3 - Préparation d’un serveur supplémentaire | Créer une machine virtuelle avec les caractéristiques suivantes : Même chose qu’à l’étape 2 sans configuration de réseau pour l’instant. |

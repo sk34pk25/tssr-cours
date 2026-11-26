@@ -10,5 +10,6 @@ Choisir le service et le compte de test prévus. Noter leur état initial avant 
 
 - [Énoncé complet](tp-01-objet.md)
 - [Correction et contrôles](correction-tp-01.md)
+- [Démonstrations](demonstrations.md)
 - [Cours du module](../../../modules/12-initiation-powershell/module-02.md)
 - [Révision](../../../revision/12-initiation-powershell/module-02.md)

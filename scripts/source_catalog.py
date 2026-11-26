@@ -201,6 +201,16 @@ def mark_ai_diagrams(markdown):
                           '<p><strong>Illustration IA / externe au cours — tableau visuel de synthèse.</strong></p>\n<div class="tssr-service-grid"')
 
 
+def split_tp_links(body):
+    """Lift a leading line of travaux-pratiques links above the course tabs."""
+    match = re.match(
+        r'(\[[^\n\]]+\]\([^)\n]*tp/[^)\n]*\)(?: · \[[^\n\]]+\]\([^)\n]*tp/[^)\n]*\))*)\n+',
+        body)
+    if not match:
+        return '', body
+    return match.group(1), body[match.end():]
+
+
 def project_page(markdown, page, data):
     if page not in data['pages']:
         notice = data.get('pageNotices', {}).get(page)
@@ -214,6 +224,7 @@ def project_page(markdown, page, data):
     if not match:
         raise ValueError('Titre du module attendu avant la projection des sources')
     title, body = match[1], markdown[match.end():].lstrip()
+    hoisted, body = split_tp_links(body)
     notice = data.get('pageNotices', {}).get(page)
     original = (f'<p class="tssr-original-note">{escape(notice)}</p>\n' if notice and data['pages'][page] else '') + render_originals(data['pages'][page], page, data)
     guide = ('!!! info "Complément IA / externe au cours — fiche pédagogique du portail"\n'
@@ -223,7 +234,9 @@ def project_page(markdown, page, data):
              'sauf les captures explicitement attribuées à un document source.\n\n' + mark_ai_diagrams(body))
     def indent(value):
         return '\n'.join('    ' + line if line else '' for line in value.splitlines())
-    return (title + '\n\nLa transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.\n\n'
+    links = hoisted + '\n\n' if hoisted else ''
+    return (title + '\n\n' + links
+            + 'La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.\n\n'
             '=== "Cours Original"\n\n' + indent(original) + '\n\n'
             '=== "Cours Optimisé IA"\n\n' + indent(guide) + '\n')
 
