@@ -60,7 +60,7 @@ INNER JOIN glpi_itilcategories
 ON glpi_itilcategories.tickettemplates_id_demand=glpi_tickettemplates.id
 where glpi_itilcategories.tickettemplates_id_demand=’3’;</code></pre>
 <h4 class="tssr-source-paragraph">BONUS</h4>
-<ul><li>Comptez-les en affichant le nom du gabarit utilisé et le nombre avec comme en- tête « nombre de catégories qui utilise un gabarit de demande ».</li></ul>
+<ul><li>Comptez-les en affichant le nom du gabarit utilisé et le nombre avec comme en-tête « nombre de catégories qui utilise un gabarit de demande ».</li></ul>
 <pre class="tssr-source-code"><code>SELECT count(glpi_tickettemplates.name) as ‘nombre de catégories qui utilise un gabarit de demande’, glpi_tickettemplates.name
 from glpi_tickettemplates
 INNER JOIN glpi_itilcategories
