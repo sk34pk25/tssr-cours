@@ -273,7 +273,7 @@ Les composantes vSphere du réseau
 
 - À la différence des vSwitch standard, le vSwitch distribué est un
 
-#### objet commun aux éléments d’une même infrastructure vSphere.
+objet commun aux éléments d’une même infrastructure vSphere.
 
 - Un même VDS est utilisable par un ensemble d’hôtes.
 - Sa gestion se réalise depuis le vCenter de l’infrastructure.
@@ -301,9 +301,9 @@ vSwitch0
 
 #### VM Network
 
-#### Création de réseau à destination des
+Création de réseau à destination des
 
-#### machines virtuelles
+machines virtuelles
 
 #### VMkernel
 
@@ -323,7 +323,7 @@ Port group de type VMkernel
 
 #### La segmentation en VLAN peut être configurée
 
-#### depuis les groupements de ports.
+depuis les groupements de ports.
 
 Les composantes vSphere du réseau
 
@@ -335,11 +335,11 @@ ESXi
 
 pNIC
 
-#### Objet vSphere associé à une
+Objet vSphere associé à une
 
 VMware
 
-#### VMNIC
+VMNIC
 
 #### Carte physique de l’hôte
 
@@ -392,7 +392,7 @@ Les composantes vSphere du réseau
 
 - La configuration du teaming permet de déterminer le mode de fonctionnement de la répartition de
 
-#### charge :
+charge :
 
 - Par VM : chaque port du vSwitch (soit indirectement chaque carte réseau de VM) est lié à un VMNIC
 - Par adresse matérielle (MAC) de la source du paquet

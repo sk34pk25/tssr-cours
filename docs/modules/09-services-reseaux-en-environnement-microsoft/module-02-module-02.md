@@ -88,13 +88,13 @@ flowchart LR
 
 #### Domaine racine
 
-#### de la forêt
+de la forêt
 
 #### Comprend un ou plusieurs domaine
 
-#### AD partageant le même schéma, les
+AD partageant le même schéma, les
 
-#### mêmes informations de configuration
+mêmes informations de configuration
 
 et de recherche.
 
@@ -108,7 +108,7 @@ Domaine
 
 enfant
 
-#### liés par une relation d’approbation
+liés par une relation d’approbation
 
 transitive bidirectionnelle.
 
@@ -289,7 +289,7 @@ Il gère : MAJ des mots de passe. MAJ des GPO. Synchronisation des horloges. Exp
 
 #### Démonstration
 
-#### TP
+TP
 
 #### Les bases de gestion d’un domaine
 
@@ -364,7 +364,7 @@ Il est conseillé d’utiliser des modèles de comptes pour simplifier la créat
 
 #### Dupliquer le compte modèle Compte
 
-#### nombre de caractéristiques
+nombre de caractéristiques
 
 #### Nouvel utilisateur
 
@@ -398,7 +398,7 @@ Profil
 
 %systemdrive%\Utilisateurs\%username%
 
-#### Stockés dans
+Stockés dans
 
 #### Les bases de gestion d’un domaine
 
@@ -483,11 +483,11 @@ Utilité
 
 des caractéristiques communes.
 
-#### Ils ne peuvent contenir que des
+Ils ne peuvent contenir que des
 
 Contraintes
 
-#### objets utilisateur, ordinateur ou
+objets utilisateur, ordinateur ou
 
 d’appartenance
 
@@ -497,7 +497,7 @@ groupe global du même domaine.
 
 Contrainte
 
-#### ressource du domaine ou approuvée
+ressource du domaine ou approuvée
 
 d’utilisation
 
@@ -517,9 +517,9 @@ Membres
 
 #### Privilèges Groupe de Domaine Local
 
-#### Regrouper des objets qui requièrent un
+Regrouper des objets qui requièrent un
 
-#### même privilège d’accès pour une ressource
+même privilège d’accès pour une ressource
 
 Utilité
 
@@ -537,7 +537,7 @@ Contraintes
 
 M
 
-#### ordinateur ou groupe de tout domaine de
+ordinateur ou groupe de tout domaine de
 
 Marketing
 
@@ -551,7 +551,7 @@ DL_Marketing_Sur_SRVFIC_L
 
 Contrainte
 
-#### Ils peuvent être utilisés uniquement sur les
+Ils peuvent être utilisés uniquement sur les
 
 DL_Marketing_Sur_SRVFIC_R
 
@@ -706,7 +706,7 @@ Active Directory
 
 #### Démonstration
 
-#### TP
+TP
 
 #### L’accès aux ressources
 
@@ -879,7 +879,7 @@ P Des autorisations NTFS sont attribuées pour ce groupe de domaine local sur la
 
 #### Démonstration
 
-#### TP
+TP
 
 #### La gestion des impressions
 
@@ -966,7 +966,7 @@ Plusieurs méthodes peuvent être utilisées pour déployer les imprimantes :
 
 #### Démonstration
 
-#### TP
+TP
 
 #### Conclusion
 

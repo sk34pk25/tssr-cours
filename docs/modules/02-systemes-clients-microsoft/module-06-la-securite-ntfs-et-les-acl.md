@@ -251,7 +251,7 @@ Une fois les ACL configurées, que faire ?
 
 ## Démonstration
 
-## TP
+TP
 
 ## Conclusion
 
@@ -374,11 +374,7 @@ Référence du document : 1SRkAloeUhQqznCjEZYEO2JNPNsJkBR59 · SHA-256 4856c60a2
 
 ## Notes du Drive · module 5 et 6.txt · document texte
 
-Notes textuelles présentes dans le Drive. Aucun support de cours illustré distinct n’est fourni pour ce document ; aucune illustration n’a été inventée ou attribuée au support.
-
-## Inexistant
-
-Le fichier de notes est vide dans le Drive. Aucun contenu n’a été inventé.
+Inexistant — fichier de notes vide dans le Drive.
 
 Référence du document : 1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7 · SHA-256 e3b0c44298fc1c14…
 
@@ -394,6 +390,5 @@ Référence du document : 1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7 · SHA-256 e3b0c4429
 | Énoncé | Lisez l'ensemble de ce TP avant de vous lancer dans la pratique |
 | Solution | Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger. |
 | Notes du Drive · Module 6.txt · document texte | Notes textuelles présentes dans le Drive. |
-| Notes du Drive · module 5 et 6.txt · document texte | Notes textuelles présentes dans le Drive. |
-| Inexistant | Le fichier de notes est vide dans le Drive. |
+| Notes du Drive · module 5 et 6.txt · document texte | Inexistant — fichier de notes vide dans le Drive. |
 | Proposition de solution | Sur votre VM Win10-XX, configurez les autorisations d'accès sur les répertoires suivants : Sur le volume DATA, créer le répertoire Echange Quelles sont les autorisations positio… |

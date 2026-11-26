@@ -357,7 +357,7 @@ jdoe
 
 ## Maintenance d'un système en production
 
-### rsyslog à travers Journald
+rsyslog à travers Journald
 
 ## Généralité
 
@@ -483,7 +483,7 @@ Démo
 
 ## Rsyslog à travers Journald
 
-### TP
+TP
 
 Démo
 
@@ -593,19 +593,19 @@ Démo
 
 ## Planification des tâches
 
-### TP
+TP
 
 Démo
 
-### Gestion de la planification des
+Gestion de la planification des
 
-### tâches
+tâches
 
 ## Maintenance d’un système en production
 
 ### Gestion de la taille des fichiers
 
-### de log
+de log
 
 ## Taille des logs avec Journald
 
@@ -854,7 +854,7 @@ Démo
 
 ## Performances et processus
 
-### TP
+TP
 
 Démo
 

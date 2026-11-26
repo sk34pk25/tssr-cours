@@ -395,13 +395,15 @@ Interface GLPI présentée dans le support — illustration isolée du support, 
 
 #### Création et gestion
 
-#### des tickets
+des tickets
 
 Démo
 
 #### TP L'exploitation des
 
-#### services
+```
+services
+```
 
 !!! note "À retenir"
     Référence du document : 1nf0OyiQI-Q464T8fgaIOZz2t4TV0Jzom · SHA-256 2e927cb500d1515b…

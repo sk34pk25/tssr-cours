@@ -53,9 +53,11 @@ Module 01 - Introduction
 
 ### Services réseau en environnement Linux
 
-## Les besoins, de l'utilisateur au
+Les besoins, de l'utilisateur au
 
-## service
+```
+service
+```
 
 ### Les besoins, de l’utilisateur au service
 

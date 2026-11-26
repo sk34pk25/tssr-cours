@@ -101,7 +101,7 @@ Capture du support — Les cinq catégories affichées dans l’Éditeur du Regi
 - Les clés contiennent des valeurs : binaires ou hexadécimales ; chaînes de caractères.
 - Chaque valeur correspond à un paramètre du système.
 
-### LGPO
+LGPO
 
 Les **LGPO (Local Group Policy Object)** :
 
@@ -188,7 +188,7 @@ Capture du support — Paramètre LGPO : état, commentaire, conditions, options
 
 ### Démonstration
 
-### TP
+TP
 
 ### Conclusion
 

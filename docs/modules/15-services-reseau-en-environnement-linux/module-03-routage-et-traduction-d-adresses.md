@@ -308,25 +308,27 @@ Traduction d’adresse source entre les réseaux non routés et routés
 
 Le croquis montre le SNAT de l’adressage source lors de la sortie des réseaux non routés vers les réseaux routés.
 
-## *
+*
 
 Réseaux routés
 
-## *
+*
 
 Adressage source
 
 S NAT
 
-## *
+*
 
-## *
+*
 
 Réseaux non routés
 
 ### Traduction d’adresses
 
-### iptables
+```
+iptables
+```
 
 - Sous Linux, il est possible d'utiliser des règles d'iptables.
 - Il est aussi possible d'utiliser des frameworks comme Shorewall qui vont créer les règles à partir de fichiers de définition des règles.
@@ -334,7 +336,7 @@ Réseaux non routés
 
 ### Traduction d’adresses
 
-### SNAT
+SNAT
 
 - Une fiche annexe est proposée pour la configuration détaillée de pfSense pour mettre en place le SNAT.
 

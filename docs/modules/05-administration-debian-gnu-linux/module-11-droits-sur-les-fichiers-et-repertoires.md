@@ -118,7 +118,7 @@ Donner les droits suffisants, ni plus, ni moins
 - Les droits d’accès sur les fichiers sont directement inscrits dans l’inode des fichiers (répertoires). Ils sont découpés en trois colonnes : utilisateur propriétaire (user), groupe propriétaire (group) et les autres (other).
 - En pratique, il y a toujours trois groupes de trois droits.
 
-### rwxrwxr-x utilisateur groupe other
+rwxrwxr-x utilisateur groupe other
 
 ## Les types de droits
 
@@ -172,9 +172,9 @@ drwxr-xr-x 3 user30 user30 4096 17:36 Rennes
 
 ## Droits sur les fichiers et répertoires
 
-### Modifier les droits et
+Modifier les droits et
 
-### propriétaires
+propriétaires
 
 ## Modification des droits
 
@@ -268,9 +268,9 @@ Modifier les droits et propriétaires
 
 ## Droits sur les fichiers et répertoires
 
-### Modèle de droits et
+Modèle de droits et
 
-### droits spéciaux
+droits spéciaux
 
 ## Gestion du modèle de droit « Umask »
 
@@ -349,7 +349,7 @@ Masque de droits et droits spéciaux
 
 ## Droits sur les fichiers et répertoires
 
-### TP
+TP
 
 Démo
 

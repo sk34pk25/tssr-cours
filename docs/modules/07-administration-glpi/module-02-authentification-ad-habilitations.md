@@ -281,7 +281,7 @@ Les noms de sites du centre de formation présents dans les captures ne sont pas
 
 #### Attention : Non
 
-#### actif par défaut @IP du serveur
+actif par défaut @IP du serveur
 
 #### À cliquer pour avoir
 
@@ -289,13 +289,15 @@ Les noms de sites du centre de formation présents dans les captures ne sont pas
 
 #### Attention : Non par défaut
 
-#### les bons filtres
+les bons filtres
 
-#### Info dans l’éditeur d’attribut ADDS du
+Info dans l’éditeur d’attribut ADDS du
 
-#### compte
+```
+compte
+```
 
-#### mondomaine.TLD
+mondomaine.TLD
 
 #### 192.168.1.1
 
@@ -361,17 +363,17 @@ Visuel isolé — Module 02 - Support de cours
 
 #### 5 Vérification
 
-#### Identification des différents droits des
+Identification des différents droits des
 
-#### d’affectation d’habilitations à un
+d’affectation d’habilitations à un
 
-#### Création des groupes AD pour les
+Création des groupes AD pour les
 
 utilisateurs.
 
 utilisateur.
 
-#### Exemple : vérifier le
+Exemple : vérifier le
 
 habilitations.
 
@@ -379,29 +381,31 @@ habilitations.
 
 du besoin.
 
-#### Exemple : un technicien sur
+Exemple : un technicien sur
 
-#### Exemple : critère membre de
+Exemple : critère membre de
 
-#### l’entité du client
+l’entité du client
 
 #### GG_GLPI_technician
 
-#### profil et l’entité des techniciens après import
+profil et l’entité des techniciens après import
 
 #### Exemple : groupe global GG_GLPI_technician
 
-#### pour le profil
+pour le profil
 
-#### dans GLPI
+dans GLPI
 
-#### technician
+```
+technician
+```
 
 #### Exemple : GG_technicien dans GG_GLPI_technician
 
-#### action profil technician
+action profil technician
 
-#### entité client
+entité client
 
 !!! note "À retenir"
     Référence du document : 1cksNrO_IqX1i2ytZUujL-VyNtaXAM75Q · SHA-256 1b131977058f7c60…

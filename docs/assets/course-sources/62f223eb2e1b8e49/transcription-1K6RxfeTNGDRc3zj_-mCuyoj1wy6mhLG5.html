@@ -14,7 +14,7 @@
 <p>De consulter la table ARP locale (cache ARP). De forcer la mise à jour de cette table. D’ajouter ou de supprimer manuellement des entrées dans cette table. Chaque machine garde une table ARP en cache contenant les associations IP/MAC pour éviter de résoudre à chaque fois l’adresse MAC correspondante à une adresse IP.</p>
 <h3>3. Syntaxe Générale de la Commande ARP</h3>
 <p>Sous Windows ou Linux, la commande arp s'utilise généralement comme suit :</p>
-<h3>a) Afficher la table ARP</h3>
+<p class="tssr-source-paragraph">a) Afficher la table ARP</p>
 <pre><code>arp -a</code></pre>
 <p>Cette commande liste toutes les associations IP/MAC actuellement connues par le système.</p>
 <pre><code>Interface: 192.168.1.1 --- 0x3
@@ -23,12 +23,12 @@ Adresse Internet      Adresse physique        Type
 192.168.1.101         00-15-5d-8b-12-34       Dynamique
 Adresse Internet : L’adresse IP de l’hôte.</code></pre>
 <p>Adresse physique : L’adresse MAC correspondante. Type : Indique si l’entrée a été obtenue dynamiquement (via ARP) ou ajoutée statiquement.</p>
-<h3>b) Ajouter une entrée dans la table ARP</h3>
+<p class="tssr-source-paragraph">b) Ajouter une entrée dans la table ARP</p>
 <pre><code>arp -s &lt;adresse_IP&gt; &lt;adresse_MAC&gt;</code></pre>
 <p>Exemple :</p>
 <pre><code>arp -s 192.168.1.200 00-14-22-01-23-45
 Cela crée une entrée statique liant l’adresse IP 192.168.1.200 à l’adresse MAC 00-14-22-01-23-45.</code></pre>
-<h3>c) Supprimer une entrée de la table ARP</h3>
+<p class="tssr-source-paragraph">c) Supprimer une entrée de la table ARP</p>
 <p>Sous Windows, on ne peut pas supprimer une entrée spécifique, mais il est possible de vider tout le cache ARP avec :</p>
 <pre><code>arp -d *
 Sous Linux, la commande est légèrement différente et utilise ip :
@@ -42,11 +42,11 @@ sudo ip neigh flush all</code></pre>
 <h3>5. Problèmes Fréquents Liés à ARP</h3>
 <p>Entrées erronées dans la table ARP : Une table ARP incorrecte peut empêcher la communication avec certains appareils. Attaques ARP (ARP Spoofing) : Un attaquant peut envoyer des réponses ARP falsifiées pour intercepter ou rediriger le trafic réseau. Cache ARP obsolète : Parfois, des entrées ARP expirées ou invalides empêchent la communication.</p>
 <h3>6. Cas d'Usage Courants</h3>
-<h3>a) Diagnostic réseau</h3>
+<p class="tssr-source-paragraph">a) Diagnostic réseau</p>
 <p>Si un appareil ne répond pas, vérifier la table ARP avec arp -a peut montrer si l’adresse MAC est connue et si la résolution ARP est correcte.</p>
-<h3>b) Détection d’attaques</h3>
+<p class="tssr-source-paragraph">b) Détection d’attaques</p>
 <p>Une réponse ARP anormale (par exemple, deux IP associées à la même adresse MAC) peut indiquer une attaque ARP spoofing.</p>
-<h3>c) Configuration manuelle</h3>
+<p class="tssr-source-paragraph">c) Configuration manuelle</p>
 <p>Dans des environnements critiques où ARP dynamique peut causer des problèmes, il est possible de configurer manuellement les associations IP/MAC.</p>
 <h3>7. Limites d'ARP</h3>
 <pre><code>ARP fonctionne uniquement sur les réseaux de type Ethernet et dans les réseaux locaux (LAN).</code></pre>
@@ -61,14 +61,14 @@ sudo ip neigh flush all</code></pre>
 <p>La commande ipconfig est utilisée directement dans une console Windows (CMD ou PowerShell). La syntaxe générale est la suivante :</p>
 <pre><code>ipconfig [options]</code></pre>
 <h3>3. Options les Plus Courantes</h3>
-<h3>a) Afficher les informations réseau</h3>
+<p class="tssr-source-paragraph">a) Afficher les informations réseau</p>
 <pre><code>ipconfig</code></pre>
 <p>Cette commande affiche un résumé des configurations réseau de toutes les interfaces actives.</p>
 <ul><li>Exemple de sortie :</li><li>Carte Ethernet Ethernet :</li><li>Suffixe DNS propre à la connexion. . . . : exemple.local</li></ul>
 <pre><code>Adresse IPv4 . . . . . . . . . . . . . . : 192.168.1.100
 Masque de sous-réseau . . . . . . . . . : 255.255.255.0
 Passerelle par défaut . . . . . . . . . : 192.168.1.1</code></pre>
-<h3>b) Afficher des informations détaillées</h3>
+<p class="tssr-source-paragraph">b) Afficher des informations détaillées</p>
 <pre><code>ipconfig /all
 Cette option fournit une vue exhaustive des paramètres réseau, y compris :</code></pre>
 <p>Adresses MAC. Serveurs DNS. Adresse IP attribuée manuellement ou par DHCP. Bail DHCP (heure de début et expiration).</p>
@@ -80,10 +80,10 @@ Masque de sous-réseau . . . . . . . . . : 255.255.255.0
 Passerelle par défaut . . . . . . . . . : 192.168.1.1
 Serveurs DNS . . . . . . . . . . . . . : 8.8.8.8
 : 8.8.4.4</code></pre>
-<h3>c) Libérer une adresse IP</h3>
+<p class="tssr-source-paragraph">c) Libérer une adresse IP</p>
 <pre><code>ipconfig /release</code></pre>
 <p>Cette commande libère l’adresse IP attribuée par DHCP, mettant l’interface en état de recherche d’une nouvelle adresse.</p>
-<h3>d) Renouveler une adresse IP</h3>
+<p class="tssr-source-paragraph">d) Renouveler une adresse IP</p>
 <pre><code>ipconfig /renew</code></pre>
 <p>Cette commande demande une nouvelle adresse IP au serveur DHCP.</p>
 <ul><li>Utilisation combinée :</li><li>Libérer une adresse :</li></ul>
@@ -126,19 +126,19 @@ ipconfig /renew</code></pre>
 <h2>Objets principaux :</h2>
 <p>link : Gestion des interfaces réseau. addr : Gestion des adresses IP. route : Gestion des tables de routage. neigh : Gestion des tables ARP/voisinage.</p>
 <h3>3. Commandes Courantes</h3>
-<h3>a) Gestion des interfaces réseau</h3>
+<p class="tssr-source-paragraph">a) Gestion des interfaces réseau</p>
 <p>Afficher les interfaces réseau actives :</p>
 <pre><code>ip link</code></pre>
 <p>Cela liste les interfaces réseau disponibles avec leurs statuts.</p>
 <h2>Exemple de sortie :</h2>
 <p>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default</p>
-<h2>link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</h2>
+<p class="tssr-source-paragraph">link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</p>
 <p>2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP mode DEFAULT group default</p>
 <ul><li>link/ether 12:34:56:78:9a:bc brd ff:ff:ff:ff:ff:ff</li><li>Activer une interface réseau :</li></ul>
 <pre><code>ip link set dev eth0 up</code></pre>
 <p>Désactiver une interface réseau :</p>
 <pre><code>ip link set dev eth0 down</code></pre>
-<h3>b) Gestion des adresses IP</h3>
+<p class="tssr-source-paragraph">b) Gestion des adresses IP</p>
 <p>Afficher les adresses IP des interfaces réseau :</p>
 <pre><code>ip addr</code></pre>
 <p>Ou uniquement IPv4 :</p>
@@ -147,7 +147,7 @@ ipconfig /renew</code></pre>
 <pre><code>ip addr add 192.168.1.200/24 dev eth0</code></pre>
 <p>Supprimer une adresse IP :</p>
 <pre><code>ip addr del 192.168.1.200/24 dev eth0</code></pre>
-<h3>c) Gestion des routes</h3>
+<p class="tssr-source-paragraph">c) Gestion des routes</p>
 <p>Afficher la table de routage :</p>
 <pre><code>ip route</code></pre>
 <p>Exemple de sortie :</p>
@@ -157,7 +157,7 @@ ipconfig /renew</code></pre>
 <pre><code>ip route add 192.168.2.0/24 via 192.168.1.1 dev eth0</code></pre>
 <p>Supprimer une route :</p>
 <pre><code>ip route del 192.168.2.0/24</code></pre>
-<h3>d) Gestion des voisins ARP</h3>
+<p class="tssr-source-paragraph">d) Gestion des voisins ARP</p>
 <p>Afficher les entrées ARP (voisins) :</p>
 <pre><code>ip neigh</code></pre>
 <p>Exemple de sortie :</p>
@@ -333,11 +333,11 @@ sudo yum install traceroute   # CentOS/Red Hat</code></pre>
 <p>IPv6 et IPv4 ne sont pas directement compatibles, car leurs structures diffèrent. Cependant, plusieurs techniques permettent leur coexistence :</p>
 <p>Double Stack : Les appareils utilisent les deux protocoles simultanément. Tunneling : Les paquets IPv6 sont encapsulés dans des paquets IPv4. Traduction d'adresses (NAT64) : Permet aux appareils IPv6 de communiquer avec des appareils IPv4.</p>
 <ul><li>Types d'Adresses IPv6</li><li>Les adresses IPv6 sont classées en trois catégories principales :</li></ul>
-<h3>a) Adresses Unicast</h3>
+<p class="tssr-source-paragraph">a) Adresses Unicast</p>
 <p>Utilisées pour identifier un unique appareil sur un réseau. Exemple : Adresse d'une machine spécifique.</p>
-<h3>b) Adresses Multicast</h3>
+<p class="tssr-source-paragraph">b) Adresses Multicast</p>
 <p>Permettent d'envoyer des paquets à plusieurs appareils en une seule transmission. Remplacent en grande partie les diffusions (broadcast) de l'IPv4.</p>
-<h3>c) Adresses Anycast</h3>
+<p class="tssr-source-paragraph">c) Adresses Anycast</p>
 <p>Permettent d'envoyer des paquets au nœud le plus proche parmi un groupe partageant la même adresse.</p>
 <ul><li>Adresses spécifiques</li><li>: : /0</li><li>Représente tous les réseaux</li><li>Utilisé comme route par défaut</li></ul>
 <pre><code>≈ 0.0.0.0/0 pour IPv4</code></pre>
@@ -363,19 +363,19 @@ sudo yum install traceroute   # CentOS/Red Hat</code></pre>
 <p>Structure générale :</p>
 <p>| 8 bits (préfixe) | 4 bits (flags) | 4 bits (scope) | 112 bits (identifiant de groupe) | Préfixe : Toujours FF, indiquant une adresse de multidiffusion. Flags : Indiquent des propriétés spécifiques de l’adresse. Scope : Définit l’étendue ou la portée de la diffusion (locale, globale, etc.). Identifiant de groupe : Identifie le groupe de nœuds destinataires.</p>
 <p>Exemples d’Adresses de Multidiffusion</p>
-<h2>FF02::1</h2>
+<p class="tssr-source-paragraph">FF02::1</p>
 <p>Scope : Lien local. Description : Groupe contenant tous les nœuds d’un réseau local.</p>
-<h2>FF02::2</h2>
+<p class="tssr-source-paragraph">FF02::2</p>
 <p>Scope : Lien local. Description : Groupe contenant tous les routeurs d’un réseau local.</p>
-<h2>FF02::1:2</h2>
+<p class="tssr-source-paragraph">FF02::1:2</p>
 <p>Scope : Lien local.</p>
 <p>Tous les serveurs et agents relais DHCP du lien local</p>
 <h2>FF02::fb</h2>
 <p>Scope : Lien local.</p>
 <p>Multidiffusion DNS</p>
-<h2>FF05::1</h2>
+<p class="tssr-source-paragraph">FF05::1</p>
 <p>Scope : Site local. Description : Tous les nœuds au sein d’un site spécifique.</p>
-<h2>FF0E::101</h2>
+<p class="tssr-source-paragraph">FF0E::101</p>
 <p>Scope : Global. Description : Une multidiffusion spécifique au niveau mondial.</p>
 <h2>Utilisations des Adresses de Multidiffusion</h2>
 <p>Les adresses de multidiffusion sont largement utilisées dans des applications nécessitant une diffusion simultanée vers plusieurs destinataires, notamment :</p>
@@ -424,7 +424,7 @@ sudo yum install traceroute   # CentOS/Red Hat</code></pre>
 <ul><li>**Exemple :**</li><li>```bash</li></ul>
 <pre><code>ipconfig</code></pre>
 <p>```</p>
-<h2>---</h2>
+<p class="tssr-source-paragraph">---</p>
 <p>## 8. Quelle commande Windows affiche des informations réseau détaillées, y compris DHCP et DNS ?</p>
 <ul><li>* A. ipconfig /all ✅</li><li>* B. ipconfig /displaydns</li><li>* C. ipconfig /renew</li><li>* D. ip link</li><li>**Pourquoi ?**</li></ul>
 <p>`ipconfig /all` affiche la version détaillée : **MAC, DNS, DHCP, bail, passerelle…**</p>
@@ -525,7 +525,7 @@ sudo yum install traceroute   # CentOS/Red Hat</code></pre>
 <ul><li>**Exemple :**</li><li>```bash</li></ul>
 <pre><code>netstat -a</code></pre>
 <p>```</p>
-<h2>---</h2>
+<p class="tssr-source-paragraph">---</p>
 <p>## 26. Quelle option netstat affiche les adresses et ports en format numérique sans résolution de noms ?</p>
 <ul><li>* A. -l</li><li>* B. -n ✅</li><li>* C. -t</li><li>* D. -p</li></ul>
 <h2>**Pourquoi ?**</h2>
@@ -554,7 +554,7 @@ sudo yum install traceroute   # CentOS/Red Hat</code></pre>
 <ul><li>**Exemple :**</li><li>```bash</li></ul>
 <pre><code>netstat -p</code></pre>
 <p>```</p>
-<h2>---</h2>
+<p class="tssr-source-paragraph">---</p>
 <p>## 32. Quelle commande réseau sert à afficher le chemin emprunté par les paquets jusqu’à une destination ?</p>
 <ul><li>* A. ping</li><li>* B. arp</li><li>* C. tracert / traceroute ✅</li><li>* D. ipconfig</li></ul>
 <h2>**Pourquoi ?**</h2>
@@ -592,7 +592,7 @@ sudo yum install traceroute   # CentOS/Red Hat</code></pre>
 <h2>```text</h2>
 <p>2001:db8::...</p>
 <p>```</p>
-<h2>---</h2>
+<p class="tssr-source-paragraph">---</p>
 <p>## 41. Dans la structure d’une adresse IPv6 GUA, quelle partie identifie généralement l’interface ?</p>
 <ul><li>* A. Le préfixe global</li><li>* B. Le sous-réseau</li><li>* C. L’identifiant d’interface de 64 bits ✅</li><li>* D. Le TTL</li><li>**Pourquoi ?**</li><li>Le cours donne :</li><li>* **48 bits** préfixe global</li><li>* **16 bits** sous-réseau</li><li>* **64 bits** identifiant d’interface</li><li>---</li><li>## 42. Quelle adresse multicast IPv6 désigne tous les nœuds du lien local ?</li><li>* A. FF02::2</li><li>* B. FF02::1 ✅</li><li>* C. FF05::1</li><li>* D. FF02::fb</li></ul>
 <h2>**Pourquoi ?**</h2>
@@ -605,12 +605,12 @@ sudo yum install traceroute   # CentOS/Red Hat</code></pre>
 <ul><li>* A. FF02::1:2</li><li>* B. FF02::2</li><li>* C. FF02::fb ✅</li><li>* D. FF05::1</li></ul>
 <h2>**Pourquoi ?**</h2>
 <p>Le cours donne explicitement **FF02::fb** pour la multidiffusion DNS.</p>
-<h2>---</h2>
+<p class="tssr-source-paragraph">---</p>
 <p>## 45. Quelle adresse multicast IPv6 est associée aux serveurs et relais DHCP du lien local ?</p>
 <ul><li>* A. FF02::1</li><li>* B. FF02::1:2 ✅</li><li>* C. FF02::2</li><li>* D. FF0E::101</li></ul>
 <h2>**Pourquoi ?**</h2>
 <p>Le cours cite **FF02::1:2** pour DHCPv6 sur le lien local.</p>
-<h2>---</h2>
+<p class="tssr-source-paragraph">---</p>
 <p>## 46. Quelle commande Windows peut aider à confirmer qu’une machine a reçu une adresse APIPA ?</p>
 <ul><li>* A. ping</li><li>* B. ipconfig /all ✅</li><li>* C. arp -a</li><li>* D. tracert</li></ul>
 <h2>**Pourquoi ?**</h2>

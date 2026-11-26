@@ -183,7 +183,7 @@ Dans le système octal, chaque position d’un chiffre représente une puissance
 - e
 - ˊ
 
-## cimal)
+cimal)
 
 Pour convertir un nombre binaire en octal, on regroupe simplement les bits par paquets de trois (en partant de la droite) et on les remplace par leur valeur octale. Par exemple, pour convertir le nombre binaire 110110 en octal :
 
@@ -219,7 +219,7 @@ Dans un nombre hexadécimal, chaque position d’un chiffre représente une puis
 - e
 - ˊ
 
-## cimal)
+cimal)
 
 Pour convertir un nombre binaire en hexadécimal, il suffit de regrouper les bits en paquets de quatre, en partant de la droite, puis de remplacer chaque paquet par son équivalent hexadécimal. Par exemple, pour convertir le binaire 10101111 en hexadécimal :
 
@@ -278,7 +278,7 @@ Identifiez les positions des bits dans le nombre binaire, en commençant par la 
 
 Multipliez chaque bit par
 
-## 2
+2
 
 2 élevé à la puissance correspondant à sa position. Additionnez tous les produits obtenus pour obtenir le nombre décimal.
 
@@ -396,7 +396,7 @@ Identifiez les positions des chiffres dans le nombre octal, en commençant par l
 
 Multipliez chaque chiffre par
 
-## 8
+8
 
 élevé à la puissance de sa position. Additionnez les produits obtenus pour obtenir le nombre en base 10.
 
@@ -483,7 +483,7 @@ Identifiez les positions des chiffres hexadécimaux, en commençant par la droit
 
 Multipliez chaque chiffre par
 
-## 16
+16
 
 16 élevé à la puissance correspondant à sa position. Additionnez les produits obtenus pour obtenir le nombre décimal.
 
@@ -554,7 +554,7 @@ Tio (Tebioctet) : 1 Tio = 2<sup>40</sup> octets, soit environ 1,1 billion d’oc
 - 1
 - 0
 
-## 3
+3
 
 octets, soit 1 000 octets.
 
@@ -562,7 +562,7 @@ octets, soit 1 000 octets.
 - 1
 - 0
 
-## 6
+6
 
 octets, soit 1 000 000 octets.
 
@@ -570,7 +570,7 @@ octets, soit 1 000 000 octets.
 - 1
 - 0
 
-## 9
+9
 
 octets, soit 1 milliard d’octets.
 
@@ -578,7 +578,7 @@ octets, soit 1 milliard d’octets.
 - 1
 - 0
 
-## 12
+12
 
 octets, soit 1 billion d’octets.
 

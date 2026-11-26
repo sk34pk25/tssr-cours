@@ -98,7 +98,7 @@ Ouvrir l’explorateur de document (1) puis double cliquer sur le DVD Drive (D :
 
 Cliquer sur le bouton Suivant (1) pour démarrer l’installation. Cliquer sur le bouton Suivant (2) afin de
 
-### continuer l’installation. Cliquer sur le bouton Suivant pour engager l’installation (3)
+continuer l’installation. Cliquer sur le bouton Suivant pour engager l’installation (3)
 
 Cliquer sur le bouton Terminer (4) pour finaliser l’installation.
 

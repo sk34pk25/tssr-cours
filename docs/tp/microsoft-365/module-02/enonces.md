@@ -162,9 +162,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 6 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 0,75 cm
 
@@ -188,9 +188,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 4 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 1,25 cm
 
@@ -216,9 +216,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 0 point après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 1,75 cm
 
@@ -244,9 +244,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 4 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### ❑ Interligne Simple
 
@@ -276,9 +276,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 4 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 1,75cm
 
@@ -308,9 +308,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 4 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 1,75cm
 
@@ -338,9 +338,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 4 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 2,25cm
 
@@ -370,9 +370,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 2 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 2 cm
 
@@ -402,9 +402,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 2 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 3,25cm
 

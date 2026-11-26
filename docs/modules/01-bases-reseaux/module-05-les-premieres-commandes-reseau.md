@@ -147,7 +147,7 @@ De consulter la table ARP locale (cache ARP). De forcer la mise à jour de cette
 
 Sous Windows ou Linux, la commande arp s'utilise généralement comme suit :
 
-### a) Afficher la table ARP
+a) Afficher la table ARP
 
 !!! note "À retenir"
     Cette commande liste toutes les associations IP/MAC actuellement connues par le système.
@@ -168,7 +168,7 @@ Adresse Internet : L’adresse IP de l’hôte.
 
 Adresse physique : L’adresse MAC correspondante. Type : Indique si l’entrée a été obtenue dynamiquement (via ARP) ou ajoutée statiquement.
 
-### b) Ajouter une entrée dans la table ARP
+b) Ajouter une entrée dans la table ARP
 
 ```
 arp -s <adresse_IP> <adresse_MAC>
@@ -181,7 +181,7 @@ arp -s 192.168.1.200 00-14-22-01-23-45
 Cela crée une entrée statique liant l’adresse IP 192.168.1.200 à l’adresse MAC 00-14-22-01-23-45.
 ```
 
-### c) Supprimer une entrée de la table ARP
+c) Supprimer une entrée de la table ARP
 
 Sous Windows, on ne peut pas supprimer une entrée spécifique, mais il est possible de vider tout le cache ARP avec :
 
@@ -211,15 +211,15 @@ Entrées erronées dans la table ARP : Une table ARP incorrecte peut empêcher l
 
 ### 6. Cas d'Usage Courants
 
-### a) Diagnostic réseau
+a) Diagnostic réseau
 
 Si un appareil ne répond pas, vérifier la table ARP avec arp -a peut montrer si l’adresse MAC est connue et si la résolution ARP est correcte.
 
-### b) Détection d’attaques
+b) Détection d’attaques
 
 Une réponse ARP anormale (par exemple, deux IP associées à la même adresse MAC) peut indiquer une attaque ARP spoofing.
 
-### c) Configuration manuelle
+c) Configuration manuelle
 
 Dans des environnements critiques où ARP dynamique peut causer des problèmes, il est possible de configurer manuellement les associations IP/MAC.
 
@@ -253,7 +253,7 @@ ipconfig [options]
 
 ### 3. Options les Plus Courantes
 
-### a) Afficher les informations réseau
+a) Afficher les informations réseau
 
 **Visuel externe**
 
@@ -282,7 +282,7 @@ Masque de sous-réseau . . . . . . . . . : 255.255.255.0
 Passerelle par défaut . . . . . . . . . : 192.168.1.1
 ```
 
-### b) Afficher des informations détaillées
+b) Afficher des informations détaillées
 
 **Visuel externe**
 
@@ -323,7 +323,7 @@ Serveurs DNS . . . . . . . . . . . . . : 8.8.8.8
 : 8.8.4.4
 ```
 
-### c) Libérer une adresse IP
+c) Libérer une adresse IP
 
 ```
 ipconfig /release
@@ -331,7 +331,7 @@ ipconfig /release
 
 Cette commande libère l’adresse IP attribuée par DHCP, mettant l’interface en état de recherche d’une nouvelle adresse.
 
-### d) Renouveler une adresse IP
+d) Renouveler une adresse IP
 
 ```
 ipconfig /renew
@@ -435,7 +435,7 @@ link : Gestion des interfaces réseau. addr : Gestion des adresses IP. route : G
 
 ### 3. Commandes Courantes
 
-### a) Gestion des interfaces réseau
+a) Gestion des interfaces réseau
 
 Afficher les interfaces réseau actives :
 
@@ -449,7 +449,7 @@ Cela liste les interfaces réseau disponibles avec leurs statuts.
 
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default
 
-## link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default
 
@@ -466,7 +466,7 @@ Désactiver une interface réseau :
 ip link set dev eth0 down
 ```
 
-### b) Gestion des adresses IP
+b) Gestion des adresses IP
 
 Afficher les adresses IP des interfaces réseau :
 
@@ -492,7 +492,7 @@ Supprimer une adresse IP :
 ip addr del 192.168.1.200/24 dev eth0
 ```
 
-### c) Gestion des routes
+c) Gestion des routes
 
 Afficher la table de routage :
 
@@ -519,7 +519,7 @@ Supprimer une route :
 ip route del 192.168.2.0/24
 ```
 
-### d) Gestion des voisins ARP
+d) Gestion des voisins ARP
 
 Afficher les entrées ARP (voisins) :
 

@@ -11,7 +11,7 @@
 
 #### TP du Module 05 — Exploiter Teams, SharePoint et OneDrive dans un
 
-#### contexte collaboratif
+contexte collaboratif
 
 Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir réalisé les TP proposés.
 
@@ -45,7 +45,7 @@ une date d’expiration au lendemain et comme mot de passe : Pa$$w0rd (c’est u
 
 - Ouvrez le fichier avec votre application de bureau Word et modifie z-le en ajoutant la
 
-#### ligne : « Attention, je ne parle pas de l’arbre. »
+ligne : « Attention, je ne parle pas de l’arbre. »
 
 Fermez le fichier puis affichez l’activité sur votre fichier. Rouvrez -le et restaurez à la version précédente. Vérifiez. Ouvrez le fichier et sélectionnez « Ouvrir dans l’application ». Ajoutez la phrase demandée. Sélectionnez le message puis cliquez sur Afficher les détails.
 

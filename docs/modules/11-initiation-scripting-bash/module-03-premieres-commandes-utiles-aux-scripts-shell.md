@@ -70,9 +70,11 @@ Aucun fichier binaire dédié ne leur est associé.
 
 ### Premières commandes utiles aux scripts Shell
 
-### echo
+```
+echo
+```
 
-### affichage écran
+affichage écran
 
 !!! note "À retenir"
     echo permet d’afficher du texte Syntaxe Si « expression » contient des caractères spéciaux, il faut la protéger avec des doubles quotes et lui ajouter l’option –e.
@@ -100,9 +102,11 @@ On peut de plus utiliser des options de mise en forme
 
 ### Premières commandes utiles aux scripts Shell
 
-### clear
+```
+clear
+```
 
-### effacement de l’écran
+effacement de l’écran
 
 !!! note "À retenir"
     Syntaxe Commande simple sans argument, permettant d’afficher une page écran vierge
@@ -117,9 +121,11 @@ Commande simple sans argument, permettant d’afficher une page écran vierge
 
 ### Premières commandes utiles aux scripts Shell
 
-### exit
+```
+exit
+```
 
-### sortie du Shell courant
+sortie du Shell courant
 
 !!! note "À retenir"
     Syntaxe n est la valeur retournée au Shell père dans la variable $?
@@ -138,9 +144,11 @@ exit [ n ]
 
 ### Premières commandes utiles aux scripts Shell
 
-### help
+```
+help
+```
 
-### affiche la liste des commandes internes au Shell
+affiche la liste des commandes internes au Shell
 
 !!! note "À retenir"
     Lorsqu’une commande interne est spécifiée en argument, affiche l’aide de la commande.

@@ -236,7 +236,9 @@ Visuel du support.
 
 #### Mise en forme d’un
 
-#### document
+```
+document
+```
 
 #### Page de garde et sommaire
 
@@ -528,9 +530,9 @@ Visuel du support.
 
 #### Connaissances des notions de base Word
 
-#### Gestion de la table des
+Gestion de la table des
 
-#### matières
+matières
 
 ### Page 19
 
@@ -589,7 +591,7 @@ Visuel du support.
 
 #### Connaissances des notions de base Word
 
-#### TP
+TP
 
 ##### Démo
 

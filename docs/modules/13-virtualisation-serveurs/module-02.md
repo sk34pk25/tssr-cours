@@ -23,7 +23,7 @@ Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page
 
 #### Module 02 – Les applications de virtualisation
 
-#### d’environnements sur un poste de travail
+d’environnements sur un poste de travail
 
 !!! note "À retenir"
     Les applications de virtualisation d’environnements sur un poste de travail

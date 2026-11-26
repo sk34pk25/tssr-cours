@@ -535,7 +535,7 @@ cellule $A$1
 
 #### Connaissances des notions de base d’Excel
 
-#### TP
+TP
 
 ##### Démo
 

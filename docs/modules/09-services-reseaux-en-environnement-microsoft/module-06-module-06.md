@@ -102,41 +102,41 @@ Qu’est-ce que DNS ?
 
 #### Un service pour un espace
 
-#### de noms en
+de noms en
 
-#### Il permet de
+Il permet de
 
-#### nom de
+nom de
 
 résoudre
 
-#### serveur l’hébergeant
+serveur l’hébergeant
 
-#### Un nom en
+Un nom en
 
 #### Une adresse
 
-#### adresse IP
+adresse IP
 
 #### IP en nom
 
 Il est défini par des RFCs.
 
-#### L’espace de
+L’espace de
 
 #### Ses principales caractéristiques
 
-#### nom qu’il couvre est hiérarchique
+nom qu’il couvre est hiérarchique
 
-#### La gestion de son espace de
+La gestion de son espace de
 
-#### Il est le mécanisme de
+Il est le mécanisme de
 
-#### résolutions de
+résolutions de
 
-#### nom est distribuée
+nom est distribuée
 
-#### noms d’Internet
+noms d’Internet
 
 #### Noms d’hôtes et de domaine
 
@@ -209,9 +209,9 @@ racine
 
 .gouv
 
-#### inférieur (2e niveau)
+inférieur (2e niveau)
 
-#### éducation défense
+éducation défense
 
 #### (3e niveau)
 
@@ -341,33 +341,33 @@ Le serveur et le client disposent de caches différents.
 
 #### DNS résolveur
 
-#### TP
+TP
 
 #### Le DNS hébergeur
 
 #### Le rôle du DNS hébergeur
 
-#### Il a pour mission de
+Il a pour mission de
 
-#### répondre aux requêtes relatives à
+répondre aux requêtes relatives à
 
-#### l’espace de nom
+l’espace de nom
 
-#### qu’il gère
+qu’il gère
 
 #### Le DNS hébergeur
 
-#### Il fait autorité pour
+Il fait autorité pour
 
-#### le ou les espace(s)
+le ou les espace(s)
 
-#### de nom(s) qu’il
+de nom(s) qu’il
 
 #### Il gère un ou plusieurs espaces
 
 gère
 
-#### de noms
+de noms
 
 #### Les zones
 
@@ -509,7 +509,7 @@ Non
 
 Oui
 
-#### Le serveur est-il configuré pour
+Le serveur est-il configuré pour
 
 1 – redirecteur conditionnel 2 – redirecteur non-conditionnel
 
@@ -525,19 +525,19 @@ Oui
 
 #### Le serveur a-t-il obtenu la réponse à la requête de son
 
-#### Le serveur interroge un serveur indiqué par
+Le serveur interroge un serveur indiqué par
 
 client ?
 
 Non
 
-#### la réponse à la précédente requête
+la réponse à la précédente requête
 
 #### Démonstration
 
 #### DNS hébergeur
 
-#### TP
+TP
 
 #### Les mises à jour
 
@@ -551,7 +551,7 @@ mail1
 
 www
 
-#### edition-exemple.test. www = 2001:0DB8:1234::1 mail1 = 2001:0DB8:1234::5
+edition-exemple.test. www = 2001:0DB8:1234::1 mail1 = 2001:0DB8:1234::5
 
 - Dans d’autres cas, pour une zone principale, l’enregistrement dynamique sera autorisé.
 
@@ -654,7 +654,7 @@ Le service DNS
 
 #### DNS hébergeur et redondance
 
-#### TP
+TP
 
 #### Les sous-domaines
 
@@ -678,7 +678,7 @@ Nantes-Srv1 = 10.0.0.1 Nantes-Cli1 = 10.0.20.1 Brest-Srv1 = 10.1.0.1 Brest-Cli1 
 
 #### Sous-domaines intégrés
 
-#### dans la zone
+dans la zone
 
 #### Les sous-domaines
 
@@ -702,7 +702,7 @@ Zone nantes.mondomaine.lcl.
 
 #### DNS délégations et redirections
 
-#### TP
+TP
 
 #### Conclusion
 

@@ -198,6 +198,8 @@ Notes de cours. Source : notes de cours. Aucun support de cours PDF n’existe p
 
 ## TP - Packet Tracer - Fichier à télécharger
 
+Fichier Packet Tracer non publié.
+
 Une adresse IPv4 est constituée de 32 bits découpés en 4 octets distincts.
 
 - Une adresse IPv4 est composée :
@@ -206,13 +208,13 @@ Une adresse IPv4 est constituée de 32 bits découpés en 4 octets distincts.
 
 Pour communiquer avec d’autres hôtes sur son réseau logique, un hôte réseau a besoin :
 
-## d’une adresse IP
+d’une adresse IP
 
 d’un masque de sous-réseau. À partir de son adresse IP et son masque de sous-réseau, l’hôte réseau va calculer :
 
 son adresse de réseau logique
 
-## son adresse de diffusion
+son adresse de diffusion
 
 Une adresse IPv4 est composée de 32 bits (4 octets) et est représentée sous forme de quatre nombres décimaux séparés par des points, chacun des quatre nombres étant compris entre 0 et 255.
 
@@ -224,7 +226,9 @@ Par exemple :
 
 En binaire, cette adresse se représenterait ainsi :
 
-## 11000000.10101000.00000001.00000001
+```
+11000000.10101000.00000001.00000001
+```
 
 Chaque section de 8 bits (ou 1 octet) est appelée octet, et elle permet d’obtenir 256 combinaisons possibles par section (de 0 à 255).
 
@@ -663,7 +667,7 @@ Le masque /24 correspond à un masque de sous-réseau 255.255.255.0, où les 24 
 
 −
 
-## 2
+2
 
 28−2, en excluant l’adresse réseau et l’adresse de diffusion). Si l’on souhaite créer deux sous-réseaux, on peut utiliser un masque de sous-réseau /25 (ou 255.255.255.128), divisant ainsi le réseau initial en deux sous-réseaux distincts :
 
@@ -681,7 +685,7 @@ Pour déterminer le nombre de sous-réseaux et d’hôtes disponibles, il faut c
 - n
 - où
 
-## n
+n
 
 est le nombre de bits empruntés pour la partie réseau.
 
@@ -692,7 +696,7 @@ est le nombre de bits empruntés pour la partie réseau.
 - 2
 - , où
 
-## h
+h
 
 est le nombre de bits restants pour les hôtes (on soustrait 2 pour l’adresse réseau et l’adresse de broadcast).
 
@@ -799,11 +803,11 @@ Exemple d’entrée dans une table de routage :
 
 Il existe deux types principaux de routage :
 
-### a) Routage statique
+a) Routage statique
 
 Les routes sont configurées manuellement par un administrateur réseau. Idéal pour les petits réseaux ou des routes fixes. Avantages : Simplicité, contrôle précis. Inconvénients : Manque de flexibilité en cas de panne ou de changement.
 
-### b) Routage dynamique
+b) Routage dynamique
 
 Les routes sont déterminées automatiquement à l’aide de protocoles de routage. Les protocoles de routage comme RIP, OSPF, ou BGP permettent aux routeurs d’échanger des informations et d’ajuster les routes en fonction des changements dans le réseau. Avantages : Adaptabilité, gestion automatique des pannes. Inconvénients : Configuration plus complexe et consommation de ressources.
 
@@ -849,11 +853,11 @@ Dans l’exemple 192.168.0.0/22, le préfixe /22 indique que les 22 premiers bit
 
 ### 4. Étapes pour Créer un Sur-Réseau
 
-### a) Identifier les sous-réseaux à regrouper :
+a) Identifier les sous-réseaux à regrouper :
 
 Les plages doivent être contiguës et alignées sur des limites binaires compatibles. Exemple : 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24, 192.168.3.0/24.
 
-### b) Trouver le nouveau préfixe :
+b) Trouver le nouveau préfixe :
 
 Convertissez les adresses réseau des sous-réseaux en binaire.
 
@@ -870,11 +874,13 @@ Identifiez les bits communs partagés entre ces adresses.
 
 Ici, les 22 premiers bits sont identiques :
 
-## 11000000.10101000.000000**
+```
+11000000.10101000.000000**
+```
 
 Le masque est donc /22.
 
-### c) Regrouper les réseaux :
+c) Regrouper les réseaux :
 
 Le sur-réseau correspondant est 192.168.0.0/22, couvrant les plages d’adresses 192.168.0.0 à 192.168.3.255.
 
@@ -1492,7 +1498,7 @@ On passe de /24 à /25 : on **emprunte 1 bit** pour le sous-réseau. Nombre de s
 * 192.168.1.128/25
 ```
 
-## ---
+---
 
 ## 26. Si un réseau /24 devient /25, combien d’hôtes utilisables possède chaque sous-réseau ?
 
@@ -1513,7 +1519,7 @@ On passe de /24 à /25 : on **emprunte 1 bit** pour le sous-réseau. Nombre de s
 * Sous-réseau 2 : 192.168.1.128 à 192.168.1.255
 ```
 
-## ---
+---
 
 ## 27. Quel est le premier sous-réseau obtenu dans l’exemple de découpage de 192.168.1.0/24 en /25 ?
 
@@ -1554,7 +1560,7 @@ Le second bloc commence à **128**, car un /25 coupe le /24 en deux blocs de 128
 
 192.168.1.128/25 couvre **192.168.1.128 à 192.168.1.255**.
 
-## ---
+---
 
 ## 29. Quelle opération logique permet d’obtenir l’ID réseau à partir d’une IP et de son masque ?
 
@@ -1653,7 +1659,7 @@ Le routage statique est **saisi par l’administrateur**.
 
 Sur un petit réseau, on ajoute à la main une route vers **10.0.0.0/8**.
 
-## ---
+---
 
 ## 35. Quel sur-réseau regroupe 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 ?
 

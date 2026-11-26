@@ -188,7 +188,7 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module ..
 
 ❑ Créer un tableau récapitulatif du montant des achats effectués par chaque client. ❑ Tableau croisé dynamique créé à partir du tableau de la feuille « Liste des
 
-#### produits vendus »
+produits vendus »
 
 #### ❑ « Nom et Prénom » en ligne
 
@@ -208,7 +208,7 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module ..
 
 ❑ Des valeurs calculées dans le tableau croisé dynamique. ❑ Des colonnes « Nom » et « Prénom » du tableau « Clients » de la feuille « Liste
 
-#### des clients »
+des clients »
 
 ❑ En cas d’erreur retournée par la formule, la cellule ne devra rien contenir.
 

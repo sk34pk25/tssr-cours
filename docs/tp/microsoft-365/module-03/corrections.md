@@ -28,7 +28,7 @@ fonction MAJUSCULE().
 
 spécifiant le nombre après un « ; ». On peut maintenant commencer à dessiner le
 
-#### squelette de notre formule :
+squelette de notre formule :
 
 #### =MAJUSCULE(GAUCHE(D6;3)&GAUCHE(E6;3)&GAUCHE(H6;3)&GAUCHE(I6;3))
 
@@ -56,7 +56,7 @@ On s’aperçoit que le résultat n’est pas satisfaisant : les mois et jours i
 
 - En cas de ca se vide, une erreur se produira. Il est possible de « fermer » la formule en
 
-#### ajoutant un test de case vide :
+ajoutant un test de case vide :
 
 =SI(OU(C8="";D8="");"";DROITE(ANNEE(C8);2)&SI(MOIS(C8)&gt;9;MOIS(C8);"0"&MOIS(C8))&SI(J
 
@@ -68,7 +68,7 @@ On s’aperçoit que le résultat n’est pas satisfaisant : les mois et jours i
 
 - Sur la feuille Liste des clients, il faut identifier le tableau Clients en cliquant sur le menu
 
-#### suivant :
+suivant :
 
 - Nous pouvons maintenant faire référence à ce tableau dans la fonction recherchev()
 - D6 symbolise la valeur de la recher che (code client), à comparer avec notre tableau
@@ -113,7 +113,7 @@ cellule montante est vide.
 - Si ce test est validé, le contenu de la cellule Montant de la commande devrait être vide.
 - On va ensuite additionner les montants en fonction du nombre d’occurrences trouvées
 
-#### du numéro de commande grâce à la fonction SOMME.SI.ENS
+du numéro de commande grâce à la fonction SOMME.SI.ENS
 
 #### =SI(OU(B7=B8;H7="");"";SOMME.SI.ENS(Montant;Commande;B7))
 

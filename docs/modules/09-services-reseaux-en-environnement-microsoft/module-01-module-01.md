@@ -48,7 +48,7 @@ Administration Windows
 
 #### Windows 2012
 
-#### & R2
+& R2
 
 #### & R2 Windows 2016 Windows 2019 Windows 2022 Windows 2025
 
@@ -93,9 +93,9 @@ CPU 1,4 GHz 64 bits – 1 sock.
 
 #### Client SE
 
-#### d’Exploitation (SE)
+d’Exploitation (SE)
 
-#### Licence du SE du
+Licence du SE du
 
 client
 
@@ -103,11 +103,11 @@ client
 
 #### Accès aux services depuis
 
-#### d’autres postes
+d’autres postes
 
 #### Certains services peuvent
 
-#### nécessiter des CAL supplémentaires (RDS)
+nécessiter des CAL supplémentaires (RDS)
 
 #### Accès aux rôles
 
@@ -281,7 +281,7 @@ flowchart LR
 
 #### M01TP01 - Installation et configuration initiale
 
-#### TP
+TP
 
 #### Gestion du stockage
 
@@ -291,19 +291,21 @@ flowchart LR
 
 #### Les tables de partition
 
-#### Gestion des
+Gestion des
 
 #### Les ensembles
 
-#### disques
+```
+disques
+```
 
-#### de stockage
+de stockage
 
 #### Les types de configuration
 
 #### RAID
 
-#### de disques
+de disques
 
 #### La table de partitionnement
 
@@ -465,7 +467,7 @@ flowchart LR
 
 100 Go Espace libre
 
-#### RAID 0
+RAID 0
 
 #### Disque 1 Disque 2
 
@@ -525,7 +527,7 @@ Partitionnement et RAID
 
 #### Disque 1 Disque 2
 
-#### RAID 1
+RAID 1
 
 A1
 
@@ -580,7 +582,7 @@ Partitionnement et RAID
 
 #### Vue logique
 
-#### RAID 5
+RAID 5
 
 100 Go Espace libre
 
@@ -602,11 +604,11 @@ Ap
 
 #### Disque 3
 
-#### B1
+B1
 
 #### Bp
 
-#### B2
+B2
 
 Cp
 
@@ -660,6 +662,6 @@ ReFS
 
 #### M01TP02 - Gestion du stockage
 
-#### TP
+TP
 
 Référence du document : 1v0jBGuIPpEKDn1pkUIXbEnE7W21_DXVC · SHA-256 bb53066775c91dbf…

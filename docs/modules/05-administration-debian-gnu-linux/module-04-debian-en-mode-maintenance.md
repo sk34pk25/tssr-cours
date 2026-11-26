@@ -86,9 +86,9 @@ Réparer Linux
 
 ## Debian en mode maintenance
 
-### Démarrer un système en
+Démarrer un système en
 
-### mode maintenance
+mode maintenance
 
 ## Passer en mode maintenance
 
@@ -231,7 +231,7 @@ Maintenance via GRUB sans mot de passe root
 
 ### Mode maintenance
 
-### via le CD-ROM
+via le CD-ROM
 
 ## Mode maintenance via le CD d’installation
 

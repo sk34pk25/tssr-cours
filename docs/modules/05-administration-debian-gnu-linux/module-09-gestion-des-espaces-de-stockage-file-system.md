@@ -272,9 +272,9 @@ Caractéristiques :
 
 ## Gestion des espaces de stockage – File System
 
-### Outils de gestion des
+Outils de gestion des
 
-### systèmes de fichiers
+systèmes de fichiers
 
 ## Création de systèmes de fichiers
 
@@ -445,9 +445,11 @@ Les systèmes de fichiers
 
 ## Gestion des espaces de stockage – File System
 
-### Monter des systèmes de
+Monter des systèmes de
 
-### fichiers
+```
+fichiers
+```
 
 ## Montage d’un système de fichiers
 
@@ -663,7 +665,9 @@ Montage automatique
 
 ### Commandes
 
-### informatives
+```
+informatives
+```
 
 ## Informations sur les systèmes de fichiers
 
@@ -734,7 +738,7 @@ Prises d’informations sur les FS
 
 ## Gestion des espaces de stockage – File System
 
-### TP
+TP
 
 Démo
 
