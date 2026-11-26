@@ -1,5 +1,7 @@
 # Module 01 — Analyse
 
+[Travaux pratiques](../../tp/11-initiation-scripting-bash/module-01/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -10,13 +12,10 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 4. Introduction
 5. Énoncé du problème et cahier des charges
 6. Algorithme
-7. Énoncé · M1 - Enonce du TP 1 - Algorithme · 2 pages transcrites
-8. Algorithme
-9. Énoncé
-10. Correction · M1 - Solution du TP 1 - Algorithme - Pseudo code · 1 pages transcrites
-11. Correction · M1 - Solution du TP1 - Algorithme - organigramme · 1 pages transcrites
-12. Début
-13. FIN
+7. Algorithme
+8. Énoncé
+9. Début
+10. FIN
 
 **Visuel externe**
 
@@ -28,23 +27,17 @@ flowchart TD
     N4["Introduction"]
     N5["Énoncé du problème et cahier des charges"]
     N6["Algorithme"]
-    N7["Énoncé · M1 - Enonce du TP 1 - Algorithme · 2 pages transcrites"]
     N8["Algorithme"]
     N9["Énoncé"]
-    N10["Correction · M1 - Solution du TP 1 - Algorithme - Pseudo code · 1 pages transcrites"]
-    N11["Correction · M1 - Solution du TP1 - Algorithme - organigramme · 1 pages transcrites"]
     N12["Début"]
     N1 --> N2
     N2 --> N3
     N3 --> N4
     N4 --> N5
     N5 --> N6
-    N6 --> N7
-    N7 --> N8
+    N6 --> N8
     N8 --> N9
-    N9 --> N10
-    N10 --> N11
-    N11 --> N12
+    N9 --> N12
 ```
 
 SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
@@ -341,141 +334,5 @@ Organigramme du script logonfails.sh.
 
 Référence du document : 1WHz-uiQc8oSEwvbCb0U4uBppgkhov2Fk · SHA-256 149d28a5e4a17105…
 
-## Énoncé · M1 - Enonce du TP 1 - Algorithme · 2 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-## Page 1
-
-## Algorithme
-
-### TP du Module 01 – Analyse
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 1.
-
-## Énoncé
-
-### Objectifs :
-
-Traduire un besoin donné en algorithme.
-
-### Prérequis :
-
-Aucun
-
-### Consigne :
-
-L’analyse du besoin et le cahier des charges suivant ont été réalisés.
-
-On souhaite faire du café avec une cafetière de ce type :
-
-![Cafetière utilisée pour l’algorithme de préparation du café.](../../assets/course-sources/isolated/daa696e1266b7ade/source-p1-0.webp)
-
-Cafetière utilisée pour l’algorithme de préparation du café.
-
-Pour faire du café, il faut :
-
-- De l’eau
-- Du café moulu
-- Un filtre
-- Une cafetière
-- De l’électricité
-
-## Page 2
-
-Les quantités d’eau et de café moulu sont variables en fonction du nombre de tasses de café souhaitées. Le nombre de tasses doit être connu avant la préparation du café.
-
-- Écrire le pseudo-code du processus de préparation du café.
-- Réaliser l’organigramme correspondant au pseudo-code écrit précédemment.
-
-Référence du document : 1RWZmCD9WTJ5w08eZ_1m2WEchR4FcZubT · SHA-256 daa696e1266b7ade…
-
-## Correction · M1 - Solution du TP 1 - Algorithme - Pseudo code · 1 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-## Page 1
-
-```
-Si J’ai de l’eau
-  Je continue
-Sinon
-  Fin du script
-finSI
-
-Si j’ai du café
-  Je continue
-Sinon
-  Fin du script
-finSI
-
-Si j’ai un filtre
-  Je continue
-Sinon
-  Fin du script
-finSi
-
-SI j’ai une cafetière
-  Je continue
-Sinon
-  Fin du script
-finSI
-
-SI j’ai de l’électricité
-  Je continue
-Sinon
-  Fin du script
-finSI
-
-Je dois faire n tasses
-d est le nombre de dose mises.
-d commence à 0
-
-Tant que je n’ai pas atteint d égal n
-  Ajouter une dose de café
-  Ajouter une dose d’eau
-  Incrémenter d de 1
-finTantQue
-
-Allumer la cafetière
-```
-
-Référence du document : 1Z6PfpTvomjSpVQI3wkyMulU8BDcVrgwi · SHA-256 6c882276e2fd523a…
-
-## Correction · M1 - Solution du TP1 - Algorithme - organigramme · 1 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-## Page 1
-
-## Début
-
-| Décision | Oui | Non |
-| --- | --- | --- |
-| Présence Eau | Vérifier le café | FIN |
-| Présence Café | Vérifier le filtre | FIN |
-| Présence Filtre | Vérifier la cafetière | FIN |
-| Présence Cafetière | Vérifier l’électricité | FIN |
-| Présence Electricité | Nbre de tasses à atteindre : n=x. Nbre de doses : d=0. | FIN |
-| d=n ? | Allumer la cafetière → FIN | Ajouter une dose de café. Ajouter une dose d’eau. d=d+1. Revenir au test d=n ? |
-
-## FIN
-
-Référence du document : 158bkDnqM5dI1aDxSSHPmxYaq_YrwdV_G · SHA-256 5c1aadfd801c22ca…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Support · Module 01 - Support de cours · 9 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
 | Objectifs | Découvrir l’ingénierie logicielle Mettre en place un cahier des charges Planifier un algorithme et son pseudo-code |
-| Énoncé · M1 - Enonce du TP 1 - Algorithme · 2 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
-| Correction · M1 - Solution du TP 1 - Algorithme - Pseudo code · 1 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
-| Correction · M1 - Solution du TP1 - Algorithme - organigramme · 1 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
-| FIN | Référence du document : 158bkDnqM5dI1aDxSSHPmxYaq_YrwdV_G · SHA-256 5c1aadfd801c22ca… |

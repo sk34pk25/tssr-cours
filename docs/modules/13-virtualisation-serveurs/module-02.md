@@ -1,22 +1,18 @@
 # Module 02 — Les applications de virtualisation d’environnements sur un poste de travail
 
+[Travaux pratiques](../../tp/13-virtualisation-serveurs/module-02/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
 
 1. Support · Module 02 - Support de cours · 5 pages transcrites
-2. Énoncé · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation · 2 pages transcrites
-3. Correction · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation - Solution · 8 pages transcrites
 
 **Visuel externe**
 
 ```mermaid
 flowchart TD
     N1["Support · Module 02 - Support de cours · 5 pages transcrites"]
-    N2["Énoncé · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation · 2 pages tr…"]
-    N3["Correction · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation - Soluti…"]
-    N1 --> N2
-    N2 --> N3
 ```
 
 SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
@@ -249,130 +245,3 @@ Les applications de virtualisation d’environnements sur un poste de travail
 - Le dimensionnement initial est important !
 
 Référence du document : 1_u4oJfvNBUqY8cliTHJxU9IrHtGQ-d8r · SHA-256 82fc8506a1dc77c0…
-
-## Énoncé · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation · 2 pages transcrites
-
-#### Énoncé :
-
-#### Atelier N°1
-
-TP du Module 02 – Installation VMWare Workstation
-
-Avant de démarrer ce TP, il convient d’avoir suivi les prérequis du Module 2.
-
-Durée estimée
-
-1 heure
-
-#### Objectif :
-
-Déployer une machine virtuelle Windows Server 2019
-
-#### Prérequis :
-
-Votre Machine physique est déployée sous Windows Server 2019
-
-- L’adressage IP s’effectuera par l’intermédiaire du service DHCP de l’centre de formation
-
-#### Énoncé :
-
-- Contrôler la présence de la solution de virtualisation VMware Workstation 16.
-- Créer un nouveau dossier sur le volume « D » que vous nommerez « Machines virtuelles ». Ce dossier servira de point de stockage pour toutes vos machines virtuelles créées dans Workstation.
-- Créer une VM nommée « SRV_2K19 » de type Windows Server 2019 avec pour prérequis :
-- 2 CPU / 1 cœur
-- 2 Go RAM
-- 1 carte réseau bridgée
-- 60 Go de disque en “single file”
-
-et activer "Virtualize Intel VT-x/EPT or AMD-V/RVI"
-
-- Récupérer le fichier ISO de Windows Server 2019 depuis le partage"iso\os\windows\” du serveur “distrib” et l’utiliser comme image du CDROM de la machine virtuelle.
-- Procéder à l’installation de Windows Server 2019 avec « expérience utilisateur » dans la machine virtuelle.
-- Y installer les « VMware Tools ».
-- Nommer la machine virtuelle puis l’arrêter.
-- Faites IMPERATIVEMENT une capture instantanée “snapshot “ de la machine virtuelle que vous nommerez « Fin Atelier 1 »
-
-Référence du document : 1QHBdDIVKA5tGWoxhBZI8-uv7yg1InAkv · SHA-256 3424e9708fc72f9e…
-
-## Correction · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation - Solution · 8 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-Solution
-
-#### Atelier N°1
-
-Solution du TP du Module 02 – Installation VMWare Workstation
-
-Durée estimée
-
-1 heures
-
-#### Objectif :
-
-Déployer une machine virtuelle Windows Server 2019
-
-#### Prérequis :
-
-Votre Machine physique est déployée sous Windows Server 2019
-
-- L’adressage IP s’effectuera par l’intermédiaire du service DHCP
-
-#### Énoncé :
-
-- Contrôler la présence de la solution de virtualisation VMware Workstation 16.
-- Créer un nouveau dossier sur le volume « D » que vous nommerez « Machines virtuelles ». Ce dossier servira de point de stockage pour toutes vos machines virtuelles créées dans Workstation.
-- Créer une VM nommée « SRV_2K19 » de type Windows Server 2019 avec pour prérequis :
-- 2 CPU / 1 cœur
-- 2 Go RAM
-- 1 carte réseau bridgée
-- 60 Go de disque en “single file”
-
-et activer "Virtualize Intel VT-x/EPT or AMD-V/RVI" au niveau des processeurs
-
-- Récupérer le fichier ISO de Windows Server 2019 sur le partage"iso\os\windows\” du serveur “distrib” et l’utiliser comme image du CDROM de la machine virtuelle.
-
-![Capture isolée du support, page 2](../../assets/course-sources/isolated/112b74c68d3fb657/v13-d20-p02-i2.webp)
-
-Capture isolée du support, page 2
-
-#### Informations dans les visuels du support
-
-- Dans l’assistant VMware Workstation, sélectionner le fichier ISO Windows Server 2019 fourni.
-- Easy Install détecte Windows Server 2019. La capture choisit l’édition Windows Server 2019 Standard et le compte de laboratoire admin. Les champs de mot de passe utilisent la valeur fournie par le formateur et l’ouverture de session automatique est décochée.
-
-![Capture isolée du support, page 3](../../assets/course-sources/isolated/112b74c68d3fb657/v13-d20-p03-i3.webp)
-
-Capture isolée du support, page 3
-
-#### Informations dans les visuels du support
-
-- Nommer la machine SRV_2K19. La capture propose D:\Machines virtuelles\SRV_2K19 comme emplacement.
-- Fixer la capacité maximale à 60 Go, conserver l’allocation à la demande et choisir Store virtual disk as a single file.
-
-Cliquer sur
-
-Pour activer les fonctions avancées de virtualisation, cocher la case comme suit :
-
-Modifier le paramètre de la carte réseau en « bridge » :
-
-- Procéder à l’installation de Windows Server 2019 avec « expérience utilisateur » dans la machine virtuelle.
-- Y installer les « VMware Tools ».
-
-- Nommer la machine virtuelle puis l’arrêter.
-
-![Capture isolée du support, page 7](../../assets/course-sources/isolated/112b74c68d3fb657/v13-d20-p07-i3.webp)
-
-Capture isolée du support, page 7
-
-- Faites IMPERATIVEMENT une capture instantanée “snapshot “ de la machine virtuelle que vous nommerez « Fin Atelier 1 »
-
-Référence du document : 1vj0BH68FvefVA0yi04I3yR_3NIf5vPgJ · SHA-256 112b74c68d3fb657…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
-| Correction · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation - Solution · 8 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |

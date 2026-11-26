@@ -1,5 +1,7 @@
 # Module 04 — La gestion du stockage
 
+[Travaux pratiques](../../tp/systemes-clients/module-04/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -15,17 +17,15 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 9. Stockage local et cmd.exe
 10. Démonstration
 11. Conclusion
-12. Énoncé · Enoncé du TP - Gestion du stockage · 5 pages transcrites
-13. Synthèse du Drive · Synthèse Module 4 - Gestion du Stockage sous Windows V2 · 2 pages transcrites
-14. Synthèse — Module 4 : La gestion du stockage sous Windows (V2)
-15. Gestion du stockage via DiskPart — suite
-16. Notes du Drive · module 3 et 4 system clients microsoft.txt · document texte
-17. Module 3 - Interagir avec Windows 10
-18. Module 4 - La gestion du stockage
-19. Correction · Solution du TP - Gestion du stockage · 11 pages transcrites
-20. Formater le volume COMMUN
-21. Supprimer le volume DATA
-22. Recréer le volume DATA avec l’ensemble de l’espace libre des deux disques
+12. Synthèse du Drive · Synthèse Module 4 - Gestion du Stockage sous Windows V2 · 2 pages transcrites
+13. Synthèse — Module 4 : La gestion du stockage sous Windows (V2)
+14. Gestion du stockage via DiskPart — suite
+15. Notes du Drive · module 3 et 4 system clients microsoft.txt · document texte
+16. Module 3 - Interagir avec Windows 10
+17. Module 4 - La gestion du stockage
+18. Formater le volume COMMUN
+19. Supprimer le volume DATA
+20. Recréer le volume DATA avec l’ensemble de l’espace libre des deux disques
 
 **Visuel externe**
 
@@ -42,7 +42,6 @@ flowchart TD
     N9["Stockage local et cmd.exe"]
     N10["Démonstration"]
     N11["Conclusion"]
-    N12["Énoncé · Enoncé du TP - Gestion du stockage · 5 pages transcrites"]
     N1 --> N2
     N2 --> N3
     N3 --> N4
@@ -53,7 +52,6 @@ flowchart TD
     N8 --> N9
     N9 --> N10
     N10 --> N11
-    N11 --> N12
 ```
 
 SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
@@ -336,70 +334,6 @@ Gérer le stockage avec la console graphique, DiskPart et PowerShell.
 Recette pour bien utiliser le stockage : 1. Installer le média dans l’ordinateur. 2. Initialiser. 3. Partitionner. 4. Installer le système de fichiers. 5. Attribuer une lettre de lecteur ou un point de montage.
 
 Référence du document : 1nl7ZxMZMH_eN9ctp7iE0QKdPkUQgn3F1 · SHA-256 1369986f889f518a…
-
-## Énoncé · Enoncé du TP - Gestion du stockage · 5 pages transcrites
-
-#### Systèmes Clients Microsoft Gérer le stockage
-
-TP du Module 04 – La gestion du stockage
-
-À travers ce TP, vous serez amené à ajouter des supports de stockage à votre VM puis à créer des volumes sur les disques à l’aide de la console de gestion des disques et à l’aide de diskpart. Enfin, vous découvrirez les volumes présents sur Discovery grâce à PowerShell.
-
-Durée estimée
-
-1 heure 30 minutes
-
-#### Énoncé
-
-Lisez l'ensemble de ce TP avant de vous lancer dans la pratique
-
-À l'aide de VMware WorkStation, ajoutez 2 disques durs de 60 Go chacun à votre VM Win10-XX (Store virtual disk as a single file)
-
-Avec la console graphique de votre VM Windows 10
-
-Sur le premier disque, créer 3 partitions principales de 15 Go chacune sans assigner de lettre de lecteur et sans formater.
-
-Créer une 4e partition de 7 Go sans assigner de lettre de lecteur et sans formater.
-
-Formater les deux premières partitions de 15 Go en NTFS. La première sera nommée DATA, la seconde TOOLS.
-
-Attribuer la lettre D au volume DATA et la lettre E au volume TOOLS.
-
-Formater la partition de 7 Go restante en FAT32, que vous nommerez ARCHIVE et lui attribue la lettre de votre choix.
-
-Étendre le volume DATA de 15 Go supplémentaire. Pour cela vous n'utiliserez que l'espace libre disponible sur le disque 2.
-
-En ligne de commande sur votre VM Windows 10
-
-Formater la 3e partition de 15 Go en NTFS. Vous la nommerez COMMUN et lui attribuerez la lettre de votre choix.
-
-Étendre le volume COMMUN en utilisant l'espace libre restant sur le disque 1.
-
-Supprimer le volume DATA.
-
-Recréer le volume DATA avec l'ensemble de l'espace libre des deux disques.
-
-Rédiger une procédure GestionDuStockage reprenant la configuration de vos disques avec l'interface graphique et avec diskpart. Utilisez psr, un traitement de texte ou un autre outil.
-
-Exemple : - Ajoutez un disque dur supplémentaire avec VMware WorkStation - Avec l’interface graphique, initialisez le disque - Créez un volume formaté en NTFS avec une lettre de votre choix sur ce nouveau lecteur - Lancez diskpart
-
-- Sur le nouveau disque, créez un volume supplémentaire en NTFS avec une lettre de lecteur
-
-Enregistrez votre procédure GestionDuStockage dans le dossier Procédures
-
-Investigation sur la VM Discovery à l'aide de PowerShell
-
-Affichez le numéro, la taille et le type de table de partitionnement des disques durs présents sur la VM
-
-Affichez la lettre de lecteur, le nom et la taille totale des volumes qui possèdent un FriendlyName
-
-Le volume C: ne possède pas de nom. Attribuez-lui le nom "System"
-
-#### Solution
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Référence du document : 1pAPTckR7dxiqqi-UXO4wzQzvbyUAJ9Gs · SHA-256 b879ce025b5747c1…
 
 ## Synthèse du Drive · Synthèse Module 4 - Gestion du Stockage sous Windows V2 · 2 pages transcrites
 
@@ -1231,330 +1165,12 @@ En somme, ce module nous a permis de comprendre les différents outils et moyens
 
 Référence du document : 1c_HkIgPPzF1QzQvLy0nsrpsSZzmlNClX · SHA-256 3c7c12622492a311…
 
-## Correction · Solution du TP - Gestion du stockage · 11 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-#### Gérer le stockage
-
-TP du Module 04 – La gestion du stockage
-
-#### Proposition de solution
-
-- A l'aide de VMware WorkStation, ajoutez 2 disques durs de 60 Go chacun à votre VM Win10-XX (Store virtual disk as a single file).
-
-Dans VMware WorkStation, faites un clic droit sur votre VM Win10-XX
-
-Pour rajouter un disque, cliquez sur Add… en bas de la fenêtre
-
-Hard Disk > Next
-
-SCSI (Recommanded) > Next
-
-Create a new virtuel disk > Next
-
-Maximum disk size (GB): 60
-
-Store virtual disk as a single file > Next
-
-![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p02-i1.webp)
-
-Capture du support — Solution du TP - Gestion du stockage
-
-![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p02-i2.webp)
-
-Capture du support — Solution du TP - Gestion du stockage
-
-Entrez un nom parlant pour le fichier > Finish
-
-Le nouveau disque apparaît dans la liste du matériel de votre VM.
-
-Répétez ces étapes pour rajouter un second disque dur dans la VM
-
-Avec la console graphique de votre VM Windows 10
-
-- Sur le premier disque, créer 3 partitions principales de 15Go chacune sans assigner de lettre de lecteur et sans formater.
-
-Ouvrir la console de gestion des disques (disponible dans MaConsole sur le bureau ou via diskmgmt.msc).
-
-Les deux nouveaux disques sont présents mais pas encore initialisés. Faire un clic droit sur Disque 1 > Initialiser le disque
-
-Initialiser les deux disques avec une GUID Partition Table.
-
-Les prochaines étapes doivent être réalisées trois fois
-
-Faire un clic droit sur l'espace non alloué du disque 1 > Nouveau volume simple
-
-L'assistant se lance > Suivant
-
-![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p03-i1.webp)
-
-Capture du support — Solution du TP - Gestion du stockage
-
-Taille totale du volume simple en Mo : 15360 (ce qui correspond à 15 Go).
-
-Ne pas attribuer de lettre de lecteur ni de chemin d'accès de lecteur.
-
-Ne pas formater ce volume.
-
-Terminer
-
-À l'issue de la création de vos trois partitions principales sur le disque 1, vous devez obtenir un écran similaire à celui présenté ci-dessous :
-
-Refaire les étapes 1 à 6 deux fois de suite
-
-- Créer une 4e partition de 7 Go sans assigner de lettre de lecteur et sans formater.
-
-Faire un clic droit sur l'espace non alloué du disque 1.
-
-Nouveau volume simple
-
-L'assistant démarre > Suivant
-
-Taille totale du volume simple en Mo : 7168 (ce qui correspond à 7 Go).
-
-Ne pas attribuer de lettre de lecteur ni de chemin d'accès de lecteur.
-
-Ne pas formater ce volume.
-
-Nous nous trouvons sur un disque initialisé avec une table de partitionnement GPT. Nous possédons donc 4 partitions principales. Si vous avez initialisé votre disque avec une table de partitionnement au format MBR, pas de problème. Vous devez cependant obtenir 3 partitions principales ainsi qu'une partition étendue contenant un lecteur logique.
-
-- Formater les deux premières partitions de 15Go en NTFS. La première sera nommée DATA, la seconde TOOLS.
-
-Faire un clic droit sur la première partition principale du disque 1 > Formater
-
-![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p04-i1.webp)
-
-Capture du support — Solution du TP - Gestion du stockage
-
-![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p04-i2.webp)
-
-Capture du support — Solution du TP - Gestion du stockage
-
-Faire un clic droit sur la seconde partition principale du disque 1 > Formater
-
-- Attribuer la lettre D au volume DATA et la lettre E au volume TOOLS.
-
-Faire un clic droit sur le Volume D: Lecteur DVD pour d'abord libérer la lettre D et ensuite l'attribuer au nouveau volume.
-
-Faire un clic droit sur le Volume D: > Modifier la lettre de lecteur et les chemins d'accès…
-
-Supprimer > Oui
-
-Vous pouvez ensuite attribuer la lettre de lecteur que vous souhaitez (exemple Z)
-
-Faire un clic droit sur le volume DATA > Modifier la lettre de lecteur et les chemins d'accès…
-
-![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p05-i1.webp)
-
-Capture du support — Solution du TP - Gestion du stockage
-
-![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p05-i2.webp)
-
-Capture du support — Solution du TP - Gestion du stockage
-
-![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p05-i3.webp)
-
-Capture du support — Solution du TP - Gestion du stockage
-
-Ajouter la lettre D.
-
-Faire un clic droit sur le volume TOOLS > Modifier la lettre de lecteur et les chemins d'accès…
-
-Ajouter la lettre E.
-
-Après ces étapes, les volumes sont visibles dans l'explorateur Windows, donc utilisables ! Une notification en bas à droite du bureau nous l'indique d'ailleurs.
-
-- Formater la partition de 7Go restante en FAT32, que vous nommerez ARCHIVE et attribuer lui la lettre de votre choix.
-
-Faire un clic droit sur la partition de 7 Go > Formater…
-
-Faire un clic droit sur ARCHIVE > Modifier la lettre de lecteur et les chemins d'accès…
-
-Ajouter la lettre de votre choix.
-
-- Étendre le volume DATA de 15Go supplémentaire. Pour cela vous n'utiliserez que l'espace libre disponible sur le disque 2.
-
-Faire un clic droit sur le volume DATA > Etendre le volume
-
-Suivant
-
-Clic sur disque 2 > Ajouter >
-
-Clic sur disque 1 > < Supprimer
-
-Sélectionner l'espace en Mo : 15360
-
-Suivant
-
-![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p06-i1.webp)
-
-Capture du support — Solution du TP - Gestion du stockage
-
-![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p06-i2.webp)
-
-Capture du support — Solution du TP - Gestion du stockage
-
-Terminer
-
-Le système indique qu'il va automatiquement basculer les disques de base en disques dynamiques pour qu'ils puissent travailler "en équipe" > Oui
-
-La légende et les codes couleur ont évolué. Les partitions principales se sont transformées en volume simple et le volume DATA en volume fractionné.
-
-En ligne de commande sur votre VM Windows 10
-
-- Formater la 3e partition de 15Go en NTFS. Vous la nommerez COMMUN et lui attribuerez la lettre de votre choix.
-
-Lancer une fenêtre de ligne de commande cmd.exe.
-
-```
-diskpart 
-```
-
-```
-list disk 
-```
-
-```
-select disk 1 
-```
-
-```
-list volume 
-```
-
-```
-select volume X (où X correspond au volume de 15 Go bruts RAW, le volume n) ; 1 dans le 
-cas de cette solution) 
-```
-
-![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p07-i1.webp)
-
-Capture du support — Solution du TP - Gestion du stockage
-
-![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p07-i2.webp)
-
-Capture du support — Solution du TP - Gestion du stockage
-
-## Formater le volume COMMUN
-
-```
-format FS=NTFS LABEL=COMMUN QUICK
-assign letter=k
-list vol
-```
-
-La liste permet de vérifier que le lecteur K: de 15 Go est bien formaté en NTFS.
-
-### Étendre le volume COMMUN en utilisant l’espace libre restant sur le disque 1
-
-La capture source montre les commandes suivantes sur le volume COMMUN sélectionné :
-
-```
-list vol
-extend
-list vol
-```
-
-DiskPart indique que le volume a été correctement étendu. COMMUN passe de **15 G** à **22 G** ; les autres lignes visibles restent ARCHIVE A: FAT32 7168 M, TOOLS E: NTFS 15 G et DATA D: NTFS fractionné 30 G.
-
-## Supprimer le volume DATA
-
-La capture de correction affiche DATA D: NTFS, volume fractionné de 30 G, puis le sélectionne et le supprime.
-
-```
-list vol
-select volume D
-delete volume
-list vol
-```
-
-Messages : **Le volume 3 est le volume sélectionné** ; **DiskPart a correctement supprimé le volume**.
-
-Dans la liste après suppression, ARCHIVE, COMMUN et TOOLS restent présents ; DATA a disparu.
-
-## Recréer le volume DATA avec l’ensemble de l’espace libre des deux disques
-
-La capture relève le disque 0 système de 32 G, puis les disques 1 et 2 dynamiques de 60 G, dont les espaces libres sont respectivement 15 G et 59 G.
-
-```
-list disk
-select disk 1
-create volume simple
-list volume
-extend disk=2
-format LABEL=DATA QUICK
-assign letter=D
-list volume
-```
-
-Messages successifs : disque 1 sélectionné ; volume créé ; volume étendu ; **100 pour cent effectués** ; volume formaté ; lettre de lecteur ou point de montage assigné.
-
-| Volume présenté à la fin | Lettre | Nom | Système de fichiers | Type | Taille | Statut |
-| --- | --- | --- | --- | --- | --- | --- |
-| 0 | A | ARCHIVE | FAT32 | Simple | 7168 M | Sain |
-| 1 | K | COMMUN | NTFS | Simple | 22 G | Sain |
-| 2 | E | TOOLS | NTFS | Simple | 15 G | Sain |
-| 3 | D | DATA | NTFS | Fractionné | 74 G | Sain |
-
-La liste conserve aussi le lecteur DVD, la partition de récupération, le volume C: de démarrage et la partition système du disque installé.
-
-![Capture du support — Solution du TP - Gestion du stockage](../../assets/course-sources/isolated/b4f536e32f87ad64/g1-d24-p10-i1.webp)
-
-Capture du support — Solution du TP - Gestion du stockage
-
-Investigation sur la VM Discovery à l'aide de PowerShell
-
-- Affichez le numéro, la taille et le type de table de partitionnement des disques durs présents sur la VM
-
-```
-Get-Disk | select number,size,PartitionStyle 
- 
-```
-
-- Affichez la lettre de lecteur, le nom et la taille totale des volumes qui possèdent un FriendlyName
-
-Pour vérifier les informations générales :
-
-```
-Get-Volume 
-```
-
-Pour n'afficher que les disques qui possèdent un FriendlyName
-
-```
-Get-Volume -FriendlyName Informatique,Achat-Ventes,Compta 
-```
-
-Pour répondre à la consigne :
-
-```
-Get-Volume -FriendlyName Informatique,Achat-Ventes,Compta | Select DriveLetter, 
-FileSystem,LabelSize 
-```
-
-- Le volume C: ne possède pas de nom. Attribuez-lui le nom "System"
-
-```
-Set-Volume -DriveLetter C -NewFileSystemLabel "System" 
- 
-```
-
-Référence du document : 1iGVskWd7CmnSXiSiQJSRen1GPUUdBkTm · SHA-256 b4f536e32f87ad64…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Table de partitionnement GPT | Nouveau format qui gomme les inconvénients du MBR. |
 | Les disques durs virtuels | Créés et utilisés pour les machines virtuelles. |
 | Stockage local et cmd.exe | Les outils de gestion : avec **diskpart**, outil en ligne de commande très utilisé en production. |
 | Conclusion | Recette pour bien utiliser le stockage : 1. |
 | Synthèse du Drive · Synthèse Module 4 - Gestion du Stockage sous Windows V2 · 2 pages transcrites | Les synthèses Windows 10 de ce dossier sont rattachées au cours Systèmes clients. |
 | Notes du Drive · module 3 et 4 system clients microsoft.txt · document texte | Notes textuelles présentes dans le Drive. |
-| Correction · Solution du TP - Gestion du stockage · 11 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
 | Formater le volume COMMUN | La liste permet de vérifier que le lecteur K: de 15 Go est bien formaté en NTFS. |
 | Supprimer le volume DATA | La capture de correction affiche DATA D: NTFS, volume fractionné de 30 G, puis le sélectionne et le supprime. |
 | Recréer le volume DATA avec l’ensemble de l’espace libre des deux disques | La capture relève le disque 0 système de 32 G, puis les disques 1 et 2 dynamiques de 60 G, dont les espaces libres sont respectivement 15 G et 59 G. |

@@ -10,6 +10,7 @@ Utiliser une copie de travail des scripts transcrits. Vérifier les modules AD e
 
 - [Énoncé complet](tp-01-activites-pour-aller-plus-loin.md)
 - [Correction et contrôles](correction-tp-01.md)
+- [Démonstrations](demonstrations.md)
 - [Cours du module](../../../modules/12-initiation-powershell/module-06.md)
 - [Révision](../../../revision/12-initiation-powershell/module-06.md)
 

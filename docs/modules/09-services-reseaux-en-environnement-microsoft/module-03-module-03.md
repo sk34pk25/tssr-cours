@@ -1,25 +1,18 @@
 # Module 03 — Stratégies de groupe
 
+[Travaux pratiques](../../tp/services-reseaux-microsoft/module-03/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
 
 1. Support · Module 03 – Support de cours · 11 pages transcrites
-2. Démonstration · Fiche démo 1 - Appréhender la console GPMC · 5 pages transcrites
-3. Énoncé · Enoncé du TP - Prise en main des stratégies de groupe · 2 pages transcrites
-4. Correction · Solution du TP - Prise en main des stratégies de groupe · 6 pages transcrites
 
 **Visuel externe**
 
 ```mermaid
 flowchart TD
     N1["Support · Module 03 – Support de cours · 11 pages transcrites"]
-    N2["Démonstration · Fiche démo 1 - Appréhender la console GPMC · 5 pages transcrites"]
-    N3["Énoncé · Enoncé du TP - Prise en main des stratégies de groupe · 2 pages transcrites"]
-    N4["Correction · Solution du TP - Prise en main des stratégies de groupe · 6 pages transcrites"]
-    N1 --> N2
-    N2 --> N3
-    N3 --> N4
 ```
 
 SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
@@ -384,170 +377,3 @@ Créer un dossier pour chaque utilisateur sous le chemin d’accès racine.
 - Vous connaissez les stratégies de groupe (GPO)
 
 Référence du document : 10ZzrWSG0Yv4qDn5q0uoc9aIXFqFdfMX4 · SHA-256 6a79d7f43db84631…
-
-## Démonstration · Fiche démo 1 - Appréhender la console GPMC · 5 pages transcrites
-
-#### Appréhender la console GPMC
-
-#### Démonstration 01 du module 03
-
-#### Cette démonstration décrit les différents points relatifs à la console de GPO
-
-#### Déroulement
-
-- Prérequis
-
-Avoir installé et configuré une VM Windows Server.
-
-Avoir renommé correctement la VM.
-
-Avoir attribué une IP fixe à la VM.
-
-L’objectif de la GPO qui va être créée est de cacher l’icône Internet Explorer pour les utilisateurs d’une OU spécifique.
-
-- Ouverture de la console MMC
-
-Après l’ouverture de session sur la session du domaine, cliquer sur le menu démarrer (1), puis sur la tuile Windows Administrative Tools (2).
-
-- Ajout du raccourci dans la barre des tâches
-
-Dans l’explorateur qui vient de s’ouvrir, faire un clic droit sur la ligne Group Policy Management (1), puis sur le menu Pin to taskbar (2). L’icône (3) apparaît.
-
-- Accès à la console GPMC
-
-Cliquer sur le raccourci précédemment créé afin de voir la console des GPO apparaître.
-
-![Visuel isolé — Fiche démo 1 - Appréhender la console GPMC](../../assets/course-sources/isolated/9f4795eaed184eb0/ms09-d33-p02-i1.webp)
-
-Visuel isolé — Fiche démo 1 - Appréhender la console GPMC
-
-- Création GPO utilisateur
-
-Faire un clic droit sur la ligne Utilisateur (1) ou tout autre OU, puis sur le menu Create GPO in the domain, and lin kit here… (2). Indiquer le nom de la GPO (3) puis cliquer sur le bouton OK. La GPO apparaît (4).
-
-- Ajout des paramètres à la GPO
-
-Faire un clic droit sur la ligne GPO_Exemple (1), puis sur le menu Edit (2). Aller dans les menus User Configuration (3) , Administrative Template (4), Desktop (5). Double cliquer sur la ligne Hide Internet Explorer icon on desktop (6). Cocher le bouton radio Enabled (7) puis cliquer sur le bouton Apply (8). Enfin cliquer sur le bouton OK.
-
-![Visuel isolé — Fiche démo 1 - Appréhender la console GPMC](../../assets/course-sources/isolated/9f4795eaed184eb0/ms09-d33-p04-i3.webp)
-
-Visuel isolé — Fiche démo 1 - Appréhender la console GPMC
-
-#### Étapes illustrées dans le support
-
-1. Dans Hide Internet Explorer icon on desktop, sélectionner Enabled puis Apply.
-2. Le paramètre illustré masque l’icône Internet Explorer du Bureau et de la barre de lancement rapide pour l’utilisateur.
-
-Référence du document : 1TdIMQLVdwwzgRk6xk51jxLkz34IsyYFX · SHA-256 9f4795eaed184eb0…
-
-## Énoncé · Enoncé du TP - Prise en main des stratégies de groupe · 2 pages transcrites
-
-#### Prise en main des stratégies de groupes
-
-#### TP du Module 03 – Active Directory
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 3 et réalisé les TP précédents.
-
-#### Durée estimée
-
-30 minutes à 1 heure
-
-#### Énoncé
-
-Prérequis :
-
-- Avoir réalisé le TP précédent du Module 02.
-
-#### Mise en œuvre des GPO
-
-- Trouvez et validez le paramètre adapté (utilisateur ou ordinateur).
-- Définissez les stratégies de groupe nécessaires et le point de liaison (UO) pour leur application.
-- Regroupez les paramètres du même type dans une seule GPO.
-- Testez-en le bon fonctionnement avec les comptes utilisateurs adéquats. Pour l’ensemble des utilisateurs du domaine
-
-- La fonctionnalité de chiffrement EFS doit être désactivée.
-- Le pare-feu système doit être désactivé.
-- Internet Explorer sera client proxy du serveur 172.28.10.248 en écoutant sur le port 8080.
-- Le mot de passe devra compter au moins 5 caractères et il sera à changer tous les 5 jours.
-- Aucune exigence de complexité de mot de passe n’est envisagée.
-
-#### Pour les membres du service Commercial
-
-- Le partage Prospects doit automatiquement être disponible dans l’explorateur de fichiers, et dès l’ouverture de session. Pour les membres du service Production
-
-- L’imprimante HP Color LaserJet Pro MFP M477 sera automatiquement installée. Pour les Secrétaires
-
-- Le fond d’écran sera commun (logo de l’entreprise).
-
-Bonus :
-
-- Automatiser l’installation d’Acrobat Reader (paquet .msi) pour les secrétaires.
-- Le répertoire Documents des utilisateurs sera déporté sur W19-SRV1 (excepté pour les membres du service Informatique).
-- Ouverture de session limitée de 9h à 18h.
-- Fermeture de session obligatoire après 18h pour les intérimaires.
-
-Référence du document : 1L0CB2J9fOsTuLTzAC1-vKfl-v5mhGGjG · SHA-256 a9bcc6275473bed3…
-
-## Correction · Solution du TP - Prise en main des stratégies de groupe · 6 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-#### Prise en main des stratégies de groupes
-
-#### TP du Module 03 – Active Directory
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 3 et réalisé les TP précédents.
-
-#### Durée estimée
-
-30 minutes à 1 heure
-
-#### Solution
-
-Prérequis :
-
-- Avoir réalisé le TP précédent du Module 02.
-
-#### Mise en œuvre des GPO
-
-- Trouvez et validez le paramètre adapté (utilisateur ou ordinateur).
-- Définissez les stratégies de groupe nécessaires et le point de liaison (UO) pour leur application.
-- Regroupez les paramètres du même type dans une seule GPO.
-- Testez-en le bon fonctionnement avec les comptes utilisateurs adéquats. Pour l’ensemble des utilisateurs du domaine
-
-- La fonctionnalité de chiffrement EFS doit être désactivée.
-
-- Le pare-feu système doit être désactivé.
-
-- Internet Explorer sera client proxy du serveur 172.28.10.248 en écoutant sur le port 8080.
-
-- Le mot de passe devra compter au moins 5 caractères et il sera à changer tous les 5 jours.
-- Aucune exigence de complexité de mot de passe n’est envisagée.
-
-#### Pour les membres du service Commercial
-
-- Le partage Prospects doit automatiquement être disponible dans l’explorateur de fichiers, et dès l’ouverture de session.
-
-#### Pour les membres du service Production
-
-- L’imprimante HP Color LaserJet Pro MFP M477 sera automatiquement installée.
-
-#### Pour les Secrétaires
-
-- Le fond d’écran sera commun (logo de l’entreprise).
-
-#### Étapes illustrées dans le support
-
-1. Dans GPO_Secretaire, ouvrir Configuration utilisateur, Stratégies, Modèles d’administration, Bureau, Bureau, Papier peint du Bureau.
-2. Activer le paramètre, renseigner le chemin du fichier de fond d’écran puis choisir le style Center.
-3. Dans Group Policy Management, vérifier le lien de GPO_Secretaire sur l’UO SECRETAIRE. La capture affiche le filtrage Utilisateurs authentifiés et aucun filtre WMI.
-
-Référence du document : 184DIHm_-zbA5j2Skl4Zxm55YXj5sW70b · SHA-256 608287ee01bf54d8…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
-| Correction · Solution du TP - Prise en main des stratégies de groupe · 6 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |

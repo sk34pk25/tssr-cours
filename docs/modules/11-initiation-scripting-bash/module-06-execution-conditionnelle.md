@@ -1,5 +1,7 @@
 # Module 06 — Exécution conditionnelle
 
+[Travaux pratiques](../../tp/11-initiation-scripting-bash/module-06/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -12,18 +14,14 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 6. L’instruction if
 7. Évaluation des conditions
 8. La structure case
-9. Énoncé · M6 - Enoncé du TP 1 - Enchaînements conditionnels · 1 pages transcrites
-10. Enchaînements conditionnels
-11. Énoncé · M6 - Enoncé du TP 2 - Compte utilisateur · 1 pages transcrites
-12. Compte utilisateur
-13. Objectifs
-14. Énoncé
-15. Correction · M6 - Solutions du TP 1 - Enchaînements conditionnels · 2 pages transcrites
-16. Enchaînements conditionnels
-17. Correction · M6 - Solutions du TP 2 - Compte utilisateur · 2 pages transcrites
-18. Compte utilisateur
-19. Objectifs
-20. Énoncé
+9. Enchaînements conditionnels
+10. Compte utilisateur
+11. Objectifs
+12. Énoncé
+13. Enchaînements conditionnels
+14. Compte utilisateur
+15. Objectifs
+16. Énoncé
 
 **Visuel externe**
 
@@ -37,9 +35,7 @@ flowchart TD
     N6["L’instruction if"]
     N7["Évaluation des conditions"]
     N8["La structure case"]
-    N9["Énoncé · M6 - Enoncé du TP 1 - Enchaînements conditionnels · 1 pages transcrites"]
     N10["Enchaînements conditionnels"]
-    N11["Énoncé · M6 - Enoncé du TP 2 - Compte utilisateur · 1 pages transcrites"]
     N12["Compte utilisateur"]
     N1 --> N2
     N2 --> N3
@@ -48,10 +44,8 @@ flowchart TD
     N5 --> N6
     N6 --> N7
     N7 --> N8
-    N8 --> N9
-    N9 --> N10
-    N10 --> N11
-    N11 --> N12
+    N8 --> N10
+    N10 --> N12
 ```
 
 SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
@@ -735,282 +729,8 @@ La structure case
 
 Référence du document : 1vBhU461pGTtCLHLiCRKTvUCzXhMkCbQj · SHA-256 e712a8ded12fb87e…
 
-## Énoncé · M6 - Enoncé du TP 1 - Enchaînements conditionnels · 1 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-## Page 1
-
-## Enchaînements conditionnels
-
-### TP1 du Module 06 - Les caractères spéciaux du Shell
-
-Avant de démarrer ce TP, il convient d’avoir suivi les modules 1 à 6.
-
-Objectifs
-
-Créer un script Shell utilisant des enchainements de commandes conditionnels.
-
-Énoncé
-
-- A partir de l’analyse des besoins détaillée ci-dessous, réaliser un script Shell permettant d’y répondre
-- Tester le bon fonctionnement de votre script
-
-Analyse des besoins
-
-Il vous est demandé de réaliser un script qui va afficher un message de bienvenue si tout se déroule correctement.
-
-Le message contiendra un nom d’utilisateur qui aura été saisi, ainsi que le nom du système Linux.
-
-Voici les contraintes :
-
-- Le script ne prendra qu’un SEUL nom d’utilisateur en argument (ex : $ ./script_M6TP1.sh paul)
-
-```
-o
-```
-
-Si aucun argument fourni, il sera demandé de le saisir
-
-```
-o
-```
-
-Si plusieurs noms sont fournis : sortie du script avec code retour 1
-
-- Si le nom saisi est "root" :
-
-```
-o
-```
-
-Affiche "Le compte root est interdit" en rouge gras sur fond noir
-
-```
-o
-```
-
-Quitte le script avec le code retour 2
-
-- Affichage principal du script, seulement si un nom a bien été fourni :
-
-```
-Bonjour <nom>, bienvenue sur la machine <nom_de_la_machine>
-```
-
-- A la fin du script (si pas de sortie du script) s’affichera en plus :
-
-```
----  Fin du script ---
-```
-
-Référence du document : 1YP1cVDq4E-vLxMpUw5I9fI-4wcuDJxiL · SHA-256 6c9d77ddacbd2c56…
-
-## Énoncé · M6 - Enoncé du TP 2 - Compte utilisateur · 1 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-## Page 1
-
-## Compte utilisateur
-
-### TP2 du Module 06 – Exécution conditionnelle
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6.
-
-## Objectifs
-
-Créer un script en réponse à un besoin
-
-## Énoncé
-
-Analyse des besoins
-
-Il vous est demandé de réaliser un script, simplifiant la gestion de comptes utilisateurs.
-
-Lorsqu’il sera lancé, il doit tout d’abord être demandé le nom d’utilisateur sur lequel agir.
-
-Ensuite, un menu doit proposer un choix d’actions :
-
-- Créer le compte utilisateur
-- Changer le mot de passe
-- Supprimer le compte
-- Vérifier si le compte existe ou non actuellement
-
-Voici un exemple de visuel du menu :
-
-```
-# ./script_M6TP2.sh
-Saisir l'identifiant utilisateur souhaité : Estelle
-GESTION DES UTILISATEURS : Estelle
---------------------------
-C - Créer le compte utilisateur
-M - Modifier le mot de passe de l'utilisateur
-S - Supprimer le compte utilisateur
-V - Vérifier si le compte utilisateur existe
-Q – Quitter
-Votre choix : v
-Vérification de l'existence du compte
-Compte utilisateur de Estelle INEXISTANT
-```
-
-Référence du document : 11H3jsfcy1IbcWY2A8m3sWmPqahjlvhO0 · SHA-256 ffca51858dccde29…
-
-## Correction · M6 - Solutions du TP 1 - Enchaînements conditionnels · 2 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-## Page 1
-
-## Enchaînements conditionnels
-
-### Solutions - TP1 du Module 06 - Les caractères spéciaux du Shell
-
-A partir de l’analyse des besoins, réaliser un script Shell permettant d’y répondre
-
-Dans les étapes d’élaboration du script, il faudra commencer par vérifier si un nom a été saisi directement après le fichier de script lors de son exécution. S’il y a bien un seul argument, le conserver durablement dans une variable, si plus d’un : sortie du script. S’il n’y en a aucun, le script doit le demander et le stocker dans une variable.
-
-Ensuite, si le nom est ‘root’, le script doit afficher une interdiction et sortir du script. Sinon pour tout autre nom doit afficher un message de bienvenue.
-
-Les variables réservées sont ici utilisées : $# pour le nombre d’arguments fournis lors du lancement du script et $1 pour le 1er argument fourni (cf module sur variables réservées)
-
-- Créer et éditer un nouveau fichier script, par exemple, nommé script_M6TP1.sh
-
-```
-vim script_M6TP1.sh
-```
-
-- Y ajouter les lignes suivantes :
-
-```
-#! /bin/bash
-# M6 - Solution du TP1
-# Utilisation : ./script_M6TP1.sh  <id utilisateur>
-#Déclaration des variables
-rouge=’\033[1;31m’
-vert=’\033[1;32m’
-noir=’\033[0m’
-# Etapes de vérification de saisie d’un nom d’utilisateur
-[ $# -eq 1 ] && name=$1 # Si 1 argument alors stockage de sa val. dans ‘name’
-[ $# -gt 1 ] && echo -e "$rouge Le nombre d'arguments est invalide !$noir" && exit 1 #
-Si plusieurs arguments => sortie
-[ $# -eq 0 ] && read -p "Veuillez saisir votre nom d'utilisateur : " name # Si 0
-argument fourni, invite de saisie
-# Si le nom saisi est ‘root’, interdiction en rouge + sortie
-[[ $name = root ]] && echo -e "$rouge Interdit de se connecter en $name $noir" && exit
-2
-# Si la variable name contient bien une valeur, affichage du message de bienvenue
-```
-
-## Page 2
-
-```
-[[ -n $name ]] && echo -e "$vert Bonjour $name, bienvenue sur la machine
-$HOSTNAME.$noir"
-# Message de fin de script
-echo "--- Fin du script ---"
-```
-
-- Rendre exécutable le fichier à l’aide de la commande chmod utilisée dans d’autres modules précédents
-- Lancer le script en testant différents scénarios (avec 0, puis 1 et enfin 2 arguments) et avec différents noms dont root
-
-Référence du document : 16cYCyItRy67yMDgG_4l0QDll7f3yKU4S · SHA-256 16f4cc33b4946bf7…
-
-## Correction · M6 - Solutions du TP 2 - Compte utilisateur · 2 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-## Page 1
-
-## Compte utilisateur
-
-### Solutions – TP2 du Module 06 – Exécution conditionnelle
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6.
-
-## Objectifs
-
-Créer un algorithme de solution en réponse à un besoin et cahier des charges donné.
-
-Créer un script à partir d’un algorithme.
-
-## Énoncé
-
-Pour créer ce script, il faut travailler par étape.
-
-Tout d’abord, il faut commencer par demander la saisie du compte utilisateur sur lequel agir. Ensuite, il faut afficher le menu à l’écran et inviter à choisir une proposition dans la liste. Enfin, il faudra gérer chaque choix possible en indiquant la/les commande(s) Shell à passer.
-
-- Créer et éditer un nouveau fichier script script_M6TP2.sh
-
-```
-vim script_M6TP2.sh
-```
-
-- Ajouter les lignes suivantes :
-
-```
-#! /bin/bash
-# M6 - Solution du TP2 - Script de gestion des utilisateurs locaux
-# Demande de saisie du compte sur lequel agir
-read -p " Saisir l'identifiant utilisateur souhaité : " nom
-# Affichage du menu
-echo "GESTION DES UTILISATEURS : $nom "
-echo "----------------------------------"
-echo "C - Créer le compte utilisateur"
-echo "M - Modifier le mot de passe de l'utilisateur "
-echo "S - Supprimer le compte utilisateur"
-echo "V - Vérifier si le compte utilisateur existe"
-echo "Q - quitter"
-echo ""
-```
-
-## Page 2
-
-```
-# Demander à choisir parmi la liste
-read -p "Votre choix  : " rep
-# Gestion choix => action(s)
-case $rep in
-c|C ) echo "Création du compte"
-           useradd -m  -s /bin/bash $nom ;;
-m|M ) echo "Modification du mot de passe"
-           passwd $nom ;;
-s|S ) echo "Suppression du compte"
-           userdel $nom ;;
-v|V ) echo "Vérification de l’existence du compte"
-     userpresent=$(grep $nom "/etc/passwd")
-if [[ -z $userpresent ]]; then
-echo "Compte utilisateur de $nom INEXISTANT"
-else echo "Compte utilisateur de $nom EXISTANT"
-fi ;;
-q|Q ) exit 0 ;;
-*) echo "Erreur de saisie"
-exit 1 ;;
-esac
-```
-
-- Rendre exécutable le script à l’aide de chmod
-
-En supplément, on pourrait avant toute action de création ou suppression, vérifier l’existence du compte et ainsi éviter des erreurs système de se produire en cas d’échec.
-
-Référence du document : 1rS313aAo3GsvPv_q_Lwb1lHg4Sq6b-C9 · SHA-256 39a7399a3bd8d8f6…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Support · Module 06 - Support de cours · 18 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
 | Objectifs | Comprendre les structures conditionnelles Écrire des tests Comparer des nombres, des chaînes |
-| Énoncé · M6 - Enoncé du TP 1 - Enchaînements conditionnels · 1 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
-| Énoncé · M6 - Enoncé du TP 2 - Compte utilisateur · 1 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
 | Énoncé | Analyse des besoins Il vous est demandé de réaliser un script, simplifiant la gestion de comptes utilisateurs. |
-| Correction · M6 - Solutions du TP 1 - Enchaînements conditionnels · 2 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
-| Correction · M6 - Solutions du TP 2 - Compte utilisateur · 2 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
 | Objectifs | Créer un algorithme de solution en réponse à un besoin et cahier des charges donné. |
 | Énoncé | Pour créer ce script, il faut travailler par étape. |

@@ -1,60 +1,62 @@
 # Module 03 — L’adressage IPv4
 
+[Travaux pratiques](../../tp/reseaux/module-03/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
 
-1. Énoncé · M03-04-TP-Sous-réseaux · 9 pages transcrites
-2. Correction · M03-04-TP-Sous-réseaux_Correction · 13 pages transcrites
-3. Notes du Drive · Notes de cours · document texte
-4. Notes de cours
-5. TP - Packet Tracer - Fichier à télécharger
-6. d’une adresse IP
-7. son adresse de diffusion
-8. 11000000.10101000.00000001.00000001
-9. Classes d’adresses IPv4
-10. Dans l’adressage IPv4, chaque adresse IP est divisée en deux parties :
-11. Convertir l’adresse IP en binaire
-12. Convertir le masque de sous-réseau en binaire
-13. Appliquer une opération logique AND
-14. Identifier la partie hôte
-15. Trouver l’adresse hôte
-16. Généralisation
-17. ID Réseau : 11000000.10101000.00001010.00000000
-18. Broadcast : 11000000.10101000.00001010.11111111
-19. ID Réseau : 10101100.00011001.11000000.00000000
-20. Broadcast : 10101100.00011001.11001111.11111111
-21. La Notation CIDR
-22. Comment Fonctionne la Notation CIDR ?
-23. Pourquoi Utiliser CIDR ?
-24. Étapes de Conversion d’un Masque de Sous-Réseau en Préfixe CIDR
-25. Étapes pour trouver le masque IP à partir du CIDR
-26. Plages d'Adresses IP Privées
-27. Nombre total d'adresses : 16 777 216
-28. Nombre total d'adresses : 1 048 576
-29. Nombre total d'adresses : 65 536
-30. Pourquoi Utiliser des Adresses Privées ?
+1. Notes du Drive · Notes de cours · document texte
+2. Notes de cours
+3. TP - Packet Tracer - Fichier à télécharger
+4. d’une adresse IP
+5. son adresse de diffusion
+6. 11000000.10101000.00000001.00000001
+7. Classes d’adresses IPv4
+8. Dans l’adressage IPv4, chaque adresse IP est divisée en deux parties :
+9. Convertir l’adresse IP en binaire
+10. Convertir le masque de sous-réseau en binaire
+11. Appliquer une opération logique AND
+12. Identifier la partie hôte
+13. Trouver l’adresse hôte
+14. Généralisation
+15. ID Réseau : 11000000.10101000.00001010.00000000
+16. Broadcast : 11000000.10101000.00001010.11111111
+17. ID Réseau : 10101100.00011001.11000000.00000000
+18. Broadcast : 10101100.00011001.11001111.11111111
+19. La Notation CIDR
+20. Comment Fonctionne la Notation CIDR ?
+21. Pourquoi Utiliser CIDR ?
+22. Étapes de Conversion d’un Masque de Sous-Réseau en Préfixe CIDR
+23. Étapes pour trouver le masque IP à partir du CIDR
+24. Plages d'Adresses IP Privées
+25. Nombre total d'adresses : 16 777 216
+26. Nombre total d'adresses : 1 048 576
+27. Nombre total d'adresses : 65 536
+28. Pourquoi Utiliser des Adresses Privées ?
+29. Exemple Pratique
+30. Principe de Fonctionnement d’APIPA
 31. Exemple Pratique
-32. Principe de Fonctionnement d’APIPA
-33. Exemple Pratique
-34. Objectifs du Sous-réseautage
-35. 2
-36. Calcul du Nombre de Sous-Réseaux et d’Hôtes
-37. n
-38. h
-39. Enoncé du TP - Communication inter-réseau
-40. Un domaine de diffusion est limité par les équipements réseau suivants :
-41. Le Routage
-42. Le rôle principal du routage est de :
-43. Un routeur est un équipement qui :
-44. Lorsqu’un paquet arrive sur un routeur :
-45. Exemple sans sur-réseau :
-46. Exemple avec sur-réseau :
-47. 11000000.10101000.000000**
-48. Donc oui : je peux te faire exactement la même chose que pour les modules 1 et 2
-49. * **Niveau moyen** : réseau / broadcast / plage d’hôtes / rôle du routage
-50. Ma recommandation
-51. * exemple pour chaque question
+32. Objectifs du Sous-réseautage
+33. 2
+34. Calcul du Nombre de Sous-Réseaux et d’Hôtes
+35. n
+36. h
+37. Enoncé du TP - Communication inter-réseau
+38. Un domaine de diffusion est limité par les équipements réseau suivants :
+39. Le Routage
+40. Le rôle principal du routage est de :
+41. Un routeur est un équipement qui :
+42. Lorsqu’un paquet arrive sur un routeur :
+43. Exemple sans sur-réseau :
+44. Exemple avec sur-réseau :
+45. 11000000.10101000.000000**
+46. Donc oui : je peux te faire exactement la même chose que pour les modules 1 et 2
+47. * **Niveau moyen** : réseau / broadcast / plage d’hôtes / rôle du routage
+48. Ma recommandation
+49. * exemple pour chaque question
+50. **Pourquoi ?**
+51. **Exemple :**
 52. **Pourquoi ?**
 53. **Exemple :**
 54. **Pourquoi ?**
@@ -77,77 +79,73 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 71. **Exemple :**
 72. **Pourquoi ?**
 73. **Exemple :**
-74. **Pourquoi ?**
-75. **Exemple :**
-76. 13. Quel masque correspond au préfixe CIDR /24 ?
+74. 13. Quel masque correspond au préfixe CIDR /24 ?
+75. **Pourquoi ?**
+76. **Pourquoi ?**
 77. **Pourquoi ?**
-78. **Pourquoi ?**
+78. **Exemple :**
 79. **Pourquoi ?**
 80. **Exemple :**
 81. **Pourquoi ?**
 82. **Exemple :**
 83. **Pourquoi ?**
-84. **Exemple :**
-85. **Pourquoi ?**
-86. **Pourquoi ?**
-87. **Exemple :**
+84. **Pourquoi ?**
+85. **Exemple :**
+86. **Exemple :**
+87. **Pourquoi ?**
 88. **Exemple :**
 89. **Pourquoi ?**
-90. **Exemple :**
-91. **Pourquoi ?**
+90. **Pourquoi ?**
+91. **Exemple :**
 92. **Pourquoi ?**
 93. **Exemple :**
-94. **Pourquoi ?**
-95. **Exemple :**
-96. 25. Si un réseau 192.168.1.0/24 est découpé en deux sous-réseaux /25, combien obtient-on de sous-réseaux ?
-97. **Pourquoi ?**
-98. ---
-99. 26. Si un réseau /24 devient /25, combien d’hôtes utilisables possède chaque sous-réseau ?
-100. Un /25 laisse **7 bits hôte** :
-101. ---
-102. 27. Quel est le premier sous-réseau obtenu dans l’exemple de découpage de 192.168.1.0/24 en /25 ?
+94. 25. Si un réseau 192.168.1.0/24 est découpé en deux sous-réseaux /25, combien obtient-on de sous-réseaux ?
+95. **Pourquoi ?**
+96. ---
+97. 26. Si un réseau /24 devient /25, combien d’hôtes utilisables possède chaque sous-réseau ?
+98. Un /25 laisse **7 bits hôte** :
+99. ---
+100. 27. Quel est le premier sous-réseau obtenu dans l’exemple de découpage de 192.168.1.0/24 en /25 ?
+101. **Exemple :**
+102. **Pourquoi ?**
 103. **Exemple :**
-104. **Pourquoi ?**
-105. **Exemple :**
-106. ---
-107. 29. Quelle opération logique permet d’obtenir l’ID réseau à partir d’une IP et de son masque ?
-108. **Pourquoi ?**
-109. **Pourquoi ?**
-110. **Exemple :**
-111. 31. Quel équipement transmet les diffusions à tous les ports d’un même VLAN ?
+104. ---
+105. 29. Quelle opération logique permet d’obtenir l’ID réseau à partir d’une IP et de son masque ?
+106. **Pourquoi ?**
+107. **Pourquoi ?**
+108. **Exemple :**
+109. 31. Quel équipement transmet les diffusions à tous les ports d’un même VLAN ?
+110. **Pourquoi ?**
+111. **Exemple :**
 112. **Pourquoi ?**
 113. **Exemple :**
-114. **Pourquoi ?**
-115. **Exemple :**
-116. Une entrée peut dire :
-117. **Pourquoi ?**
-118. **Exemple :**
-119. ---
-120. 35. Quel sur-réseau regroupe 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 ?
-121. 36. Vrai ou Faux
-122. **Pourquoi ?**
+114. Une entrée peut dire :
+115. **Pourquoi ?**
+116. **Exemple :**
+117. ---
+118. 35. Quel sur-réseau regroupe 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 ?
+119. 36. Vrai ou Faux
+120. **Pourquoi ?**
+121. **Exemple :**
+122. 37. Vrai ou Faux
 123. **Exemple :**
-124. 37. Vrai ou Faux
-125. **Exemple :**
-126. 38. Vrai ou Faux
+124. 38. Vrai ou Faux
+125. **Pourquoi ?**
+126. 39. Vrai ou Faux
 127. **Pourquoi ?**
-128. 39. Vrai ou Faux
+128. 40. Vrai ou Faux
 129. **Pourquoi ?**
-130. 40. Vrai ou Faux
-131. **Pourquoi ?**
-132. 41. Vrai ou Faux
-133. **Exemple :**
-134. 42. Vrai ou Faux
-135. **Pourquoi ?**
-136. Ce que je peux faire maintenant
-137. **“fais-moi la version Kahoot prête à copier”**
+130. 41. Vrai ou Faux
+131. **Exemple :**
+132. 42. Vrai ou Faux
+133. **Pourquoi ?**
+134. Ce que je peux faire maintenant
+135. **“fais-moi la version Kahoot prête à copier”**
 
 **Visuel externe**
 
 ```mermaid
 flowchart TD
-    N1["Énoncé · M03-04-TP-Sous-réseaux · 9 pages transcrites"]
-    N2["Correction · M03-04-TP-Sous-réseaux_Correction · 13 pages transcrites"]
     N3["Notes du Drive · Notes de cours · document texte"]
     N4["Notes de cours"]
     N5["TP - Packet Tracer - Fichier à télécharger"]
@@ -158,8 +156,6 @@ flowchart TD
     N10["Dans l’adressage IPv4, chaque adresse IP est divisée en deux parties :"]
     N11["Convertir l’adresse IP en binaire"]
     N12["Convertir le masque de sous-réseau en binaire"]
-    N1 --> N2
-    N2 --> N3
     N3 --> N4
     N4 --> N5
     N5 --> N6
@@ -174,766 +170,6 @@ flowchart TD
 SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
 Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
-
-## Énoncé · M03-04-TP-Sous-réseaux · 9 pages transcrites
-
-### Page 1
-
-#### Calcul des sous-réseaux
-
-!!! note "À retenir"
-    TP du Module 03-04 Pour effectuer ce TP, il faut avoir suivi la partie sur le découpage en sous-réseau du module 3 sur l’adressage IPv4.
-
-TP du Module 03-04
-
-Pour effectuer ce TP, il faut avoir suivi la partie sur le découpage en sous-réseau du module 3 sur l’adressage IPv4.
-
-- En vidéo pour les stagiaires du campus en ligne
-- Diaporama et explications pour les stagiaires en présence d’un formateur
-
-Durée estimée : 3 heures
-
-#### Énoncé
-
-##### A. Validité des adresses en notation CIDR
-
-!!! note "À retenir"
-    Indiquez si les adresses sont valides pour des hôtes.
-
-Indiquez si les adresses sont valides pour des hôtes.
-
-Transformez la notation CIDR en notation standard.
-
-| Adresse | Valide | @Réseau / @Diffusion | Standard |
-| --- | --- | --- | --- |
-| 12.1.1.1/8 | OUI | 12.0.0.0 12.255.255.255 | 12.1.1.1 255.0.0.0 |
-| 209.207.177.100/30 |  |  |  |
-| 192.0.35.12/26 |  |  |  |
-| 120.146.80.1/20 |  |  |  |
-| 120.80.1.0/11 |  |  |  |
-| 211.104.16.17/29 |  |  |  |
-| 172.168.0.1/24 |  |  |  |
-| 109.168.248.32/21 |  |  |  |
-
-### Page 2
-
-| Adresse | Valide | @Réseau / @Diffusion | Standard |
-| --- | --- | --- | --- |
-| 96.139.84.12/21 |  |  |  |
-| 172.16.32.0/25 |  |  |  |
-| 172.16.0.127/25 |  |  |  |
-| 192.168.19.87/29 |  |  |  |
-| 172.16.32.1/18 |  |  |  |
-| 210.71.10.128/28 |  |  |  |
-
-### Page 3
-
-##### B. Calculs de masque
-
-!!! note "À retenir"
-    Calculez le masque approprié et complétez l’adresse en notation CIDR afin d’obtenir la quantité d’hôtes ou de sous-réseaux requis.
-
-Calculez le masque approprié et complétez l’adresse en notation CIDR afin d’obtenir la quantité d’hôtes ou de sous-réseaux requis.
-
-Le masque de sous-réseau de départ est le masque par défaut associé à la classe.
-
-| Paramètres requis | Notation CIDR |
-| --- | --- |
-| Au moins 120 sous-réseaux | 172.16.0.0/ |
-| 2 adresses par sous-réseau (liaisons pt à pt) | 192.168.1.0/ |
-| Au moins 31 sous-réseaux | 185.221.0.0/ |
-| Au moins 15 sous-réseaux | 131.107.0.0/ |
-| À peu près 500 sous-réseaux | 140.10.0.0/ |
-| Exactement 8 sous-réseaux | 192.168.10.0/ |
-| 10 sous-réseaux d’au moins 17 hôtes | 214.12.33.0/ |
-| Environ 2020 sous-réseaux | 10.0.0.0/ |
-| 127 sous-réseaux | 188.23.0.0/ |
-
-##### C. Calculs de masques, nombre de réseaux et hôtes
-
-!!! note "À retenir"
-    Calculez le masque adapté aux exigences du scénario.
-
-Calculez le masque adapté aux exigences du scénario.
-
-Indiquez le nombre de sous-réseaux créés.
-
-Indiquez le nombre d’hôtes par sous-réseau.
-
-Le réseau de départ comporte toujours un masque de classe A, B ou C standard.
-
-##### Scénario 1
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 5 |
-| Nombre maximum d’hôtes par segment | 25 |
-| Adresse de réseau | 192.177.4.0 |
-| Masque de sous-réseau proposé |  |
-| Nombre de sous-réseaux créés |  |
-| Nombre maximum d’adresses par segment |  |
-
-##### Scénario 2
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 100 |
-| Nombre maximum d’hôtes par segment | 88.000 |
-| Adresse de réseau | 39.0.0.0 |
-| Masque de sous-réseau proposé |  |
-| Nombre de sous-réseaux créés |  |
-| Nombre maximum d’adresses par segment |  |
-
-### Page 4
-
-##### Scénario 3
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 100 |
-| Nombre maximum d’hôtes par segment | 350 |
-| Adresse de réseau | 171.133.0.0 |
-| Masque de sous-réseau proposé |  |
-| Nombre de sous-réseaux créés |  |
-| Nombre maximum d’adresses par segment |  |
-
-##### Scénario 4
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 16 |
-| Nombre maximum d’hôtes par segment | 1 500 |
-| Adresse de réseau | 128.199.0.0 |
-| Masque de sous-réseau proposé |  |
-| Nombre de sous-réseaux créés |  |
-| Nombre maximum d’adresses par segment |  |
-
-##### Scénario 5
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 250 |
-| Nombre maximum d’hôtes par segment | 100 |
-| Adresse de réseau | 191.254.0.0 |
-| Masque de sous-réseau proposé |  |
-| Nombre de sous-réseaux créés |  |
-| Nombre maximum d’adresses par segment |  |
-
-##### Scénario 6
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 12 |
-| Nombre maximum d’hôtes par segment | 12 |
-| Adresse de réseau | 216.121.44.0 |
-| Masque de sous-réseau proposé |  |
-| Nombre de sous-réseaux créés |  |
-| Nombre maximum d’adresses par segment |  |
-
-##### Scénario 7
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 50 |
-| Nombre maximum d’hôtes par segment | 600 |
-| Adresse de réseau | 134.119.0.0 |
-| Masque de sous-réseau proposé |  |
-| Nombre de sous-réseaux créés |  |
-| Nombre maximum d’adresses par segment |  |
-
-### Page 5
-
-##### D. Découpage en sous-réseau
-
-!!! note "À retenir"
-    On découpe le bloc 199.210.15.0/24 selon le schéma suivant.
-
-On découpe le bloc 199.210.15.0/24 selon le schéma suivant.
-
-![Cinq disques illustrant un découpage successif en segments](../../assets/course-sources/isolated/reseaux-m03-decoupage-schema.webp)
-
-Schéma du support — découpage du bloc 199.210.15.0/24.
-
-Donnez les adresses des 7 segments définis (par ordre croissant).
-
-| Segment | Adresse |
-| --- | --- |
-| Segment 1 |  |
-| Segment 2 |  |
-| Segment 3 |  |
-| Segment 4 |  |
-| Segment 5 |  |
-| Segment 6 |  |
-| Segment 7 |  |
-
-### Page 6
-
-##### E. Découpage en sous-réseau
-
-!!! note "À retenir"
-    Vous êtes chargé de planifier l’adressage de plusieurs réseaux.
-
-**Visuel externe**
-
-```mermaid
-flowchart LR
-    N1["Vous êtes chargé de planifier l’adressage de plusieurs réseaux."]
-    N2["Indiquez les numéros de réseau en notation CIDR."]
-    N3["Schématisez les divisions des blocs."]
-    N1 --> N2
-    N2 --> N3
-```
-
-- Vous êtes chargé de planifier l’adressage de plusieurs réseaux.
-- Vous subdivisez successivement les blocs d’adresses et vous conservez toujours les blocs supérieurs et divisez le dernier bloc.
-- Indiquez les numéros de réseau en notation CIDR.
-- Schématisez les divisions des blocs.
-- Indiquez le nombre d’adresses valides par segment et le nombre d’adresses global.
-
-##### 1. Premier réseau à découper : 195.220.12.0/24
-
-!!! note "À retenir"
-    1 segment contenant 115 postes 1 segment contenant 58 postes 1 segment contenant 25 machines 1 segment contenant d’une douzaine d’hôtes 2 segments contenant 5 machines Listez les segments dans le tableau de découpage.
-
-**Visuel externe**
-
-```mermaid
-flowchart LR
-    N1["1 segment contenant 115 postes"]
-    N2["1 segment contenant 58 postes"]
-    N3["1 segment contenant 25 machines"]
-    N4["1 segment contenant d’une douzaine d’hôtes"]
-    N5["2 segments contenant 5 machines"]
-    N1 --> N2
-    N2 --> N3
-    N3 --> N4
-    N4 --> N5
-```
-
-- 1 segment contenant 115 postes
-- 1 segment contenant 58 postes
-- 1 segment contenant 25 machines
-- 1 segment contenant d’une douzaine d’hôtes
-- 2 segments contenant 5 machines
-
-Listez les segments dans le tableau de découpage.
-
-##### 2. Deuxième réseau à découper : 192.168.10.0/24
-
-!!! note "À retenir"
-    3 segments contenant d’une soixantaine d’hôtes 1 segment contenant d’une trentaine de postes 2 segments contenant d’au moins 11 machines Listez les segments dans le tableau de découpage.
-
-**Visuel externe**
-
-```mermaid
-flowchart LR
-    N1["3 segments contenant d’une soixantaine d’hôtes"]
-    N2["1 segment contenant d’une trentaine de postes"]
-    N3["2 segments contenant d’au moins 11 machines"]
-    N1 --> N2
-    N2 --> N3
-```
-
-- 3 segments contenant d’une soixantaine d’hôtes
-- 1 segment contenant d’une trentaine de postes
-- 2 segments contenant d’au moins 11 machines
-
-Listez les segments dans le tableau de découpage.
-
-### Page 7
-
-##### 3. Troisième réseau à découper : 222.8.15.0/24
-
-- 1 segment contenant d’une centaine d’hôtes
-- 4 segments contenant 28 hôtes environ
-
-Listez les segments dans le tableau de découpage.
-
-##### F. Recherche de sous-réseaux inutilisés
-
-- Vous auditez plusieurs réseaux.
-- On vous demande de rechercher les segments inutilisés.
-
-##### 1. Premier réseau à étudier
-
-**Visuel externe**
-
-```mermaid
-flowchart LR
-    N1["112.19.0.0/16"]
-    N2["112.19.0.0/18"]
-    N3["112.19.64.0/18"]
-    N4["112.19.128.0/19"]
-    N5["112.19.160.0/20"]
-    N6["112.19.176.0/20"]
-    N7["112.19.224.0/20"]
-    N8["112.19.240.0/20"]
-    N1 --> N2
-    N2 --> N3
-    N3 --> N4
-    N4 --> N5
-    N5 --> N6
-    N6 --> N7
-    N7 --> N8
-```
-
-- 112.19.0.0/16
-
-Réseaux actuellement utilisés :
-
-- 112.19.0.0/18
-- 112.19.64.0/18
-- 112.19.128.0/19
-- 112.19.160.0/20
-- 112.19.176.0/20
-- 112.19.224.0/20
-- 112.19.240.0/20
-
-Indiquer les segments inutilisés.
-
-### Page 8
-
-##### 2. Deuxième réseau à étudier
-
-- 192.168.10.0/24
-
-Réseaux actuellement utilisés :
-
-- 192.168.10.0/25
-- 192.168.10.128/27
-- 192.168.10.160/27
-- 192.168.10.224/28
-
-Indiquer les segments inutilisés.
-
-##### 3. Troisième réseau à étudier
-
-- 199.1.1.0/24
-
-Réseaux actuellement utilisés :
-
-- 199.1.1.0/26
-- 199.1.1.128/27
-- 199.1.1.160/27
-- 199.1.1.192/28
-- 199.1.1.224/28
-- 199.1.1.240/28
-
-Indiquer les segments inutilisés.
-
-##### 4. Quatrième réseau à étudier
-
-- Réseau de classe C
-
-Réseaux actuellement utilisés :
-
-- 1 segment de 62 postes
-- 3 segments de 30 postes
-- 4 segments de 14 postes
-
-Indiquer les segments inutilisés.
-
-### Page 9
-
-##### 5. Cinquième réseau à étudier
-
-- Réseau de classe C
-
-Réseaux actuellement utilisés :
-
-- 3 segments de 30 postes
-- 3 segments de 14 postes
-
-Indiquer les segments inutilisés.
-
-##### 6. Sixième réseau à étudier
-
-- Réseau de classe C
-
-Réseaux actuellement utilisés :
-
-- 1 segment de 62 postes
-- 1 segment de 14 postes
-
-Indiquer les segments inutilisés.
-
-Référence du document : 1tjvGBelc6J2jftBAFjm0l2psagWX-E-p · SHA-256 ad726effb62af7f2…
-
-## Correction · M03-04-TP-Sous-réseaux_Correction · 13 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-### Page 1
-
-#### Calcul des sous-réseaux
-
-TP du Module 03-04
-
-Pour effectuer ce TP, il faut avoir suivi la partie sur le découpage en sous-réseau du module 3 sur l’adressage IPv4.
-
-- En vidéo pour les stagiaires du campus en ligne
-- Diaporama et explications pour les stagiaires en présence d’un formateur
-
-Durée estimée : 3 heures
-
-#### Énoncé
-
-##### A. Validité des adresses en notation CIDR
-
-Indiquez si les adresses sont valides pour des hôtes.
-
-Transformez la notation CIDR en notation standard.
-
-| Adresse | Valide | @Réseau / @Diffusion | Standard |
-| --- | --- | --- | --- |
-| 12.1.1.1/8 | OUI | 12.0.0.0 12.255.255.255 | 12.1.1.1 255.0.0.0 |
-| 209.207.177.100/30 | NON | 209.207.177.100 (réseau) 209.207.177.103 | 209.207.177.100 255.255.255.252 |
-| 192.0.35.12/26 | OUI | 192.0.35.0 192.0.35.63 | 192.0.35.12 255.255.255.192 |
-| 120.146.80.1/20 | OUI | 120.146.80.0 120.146.95.255 | 120.146.80.1 255.255.240.0 |
-| 120.80.1.0/11 | OUI | 120.64.0.0 120.95.255.255 | 120.80.1.0 255.224.0.0 |
-| 211.104.16.17/29 | OUI | 211.104.16.16 211.104.16.23 | 211.104.16.17 255.255.255.248 |
-| 172.168.0.1/24 | OUI | 172.168.0.0 172.168.0.255 | 172.168.0.1 255.255.255.0 |
-| 109.168.248.32/21 | OUI | 109.168.248.0 109.168.255.255 | 109.168.248.32 255.255.248.0 |
-
-### Page 2
-
-| Adresse | Valide | @Réseau / @Diffusion | Standard |
-| --- | --- | --- | --- |
-| 96.139.84.12/21 | OUI | 96.139.80.0 96.139.87.255 | 96.139.84.12 255.255.248.0 |
-| 172.16.32.0/25 | NON | 172.16.32.0 (réseau) 172.16.32.127 | 172.16.32.0 255.255.255.128 |
-| 172.16.0.127/25 | NON | 172.16.0.0 172.16.0.127 (broadcast) | 172.16.0.127 255.255.255.128 |
-| 192.168.19.87/29 | NON | 192.168.19.80 192.168.19.87 (broadcast) | 192.168.19.87 255.255.255.248 |
-| 172.16.32.1/18 | OUI | 172.16.0.0 172.16.63.255 | 172.16.32.1 255.255.192.0 |
-| 210.71.10.128/28 | NON | 210.71.10.128 (réseau) 210.71.10.143 | 210.71.10.128 255.255.255.240 |
-
-### Page 3
-
-##### B. Calculs de masque
-
-Calculez le masque approprié et complétez l’adresse en notation CIDR afin d’obtenir la quantité d’hôtes ou de sous-réseaux requis.
-
-Le masque de sous-réseau de départ est le masque par défaut associé à la classe.
-
-| Paramètres requis | Notation CIDR |
-| --- | --- |
-| Au moins 120 sous-réseaux | 172.16.0.0/23 |
-| 2 adresses par sous-réseau (liaisons pt à pt) | 192.168.1.0/30 |
-| Au moins 31 sous-réseaux | 185.221.0.0/21 |
-| Au moins 15 sous-réseaux | 131.107.0.0/20 |
-| À peu près 500 sous-réseaux | 140.10.0.0/25 |
-| Exactement 8 sous-réseaux | 192.168.10.0/27 |
-| 10 sous-réseaux d’au moins 17 hôtes | 214.12.33.0/X |
-| Environ 2020 sous-réseaux | 10.0.0.0/19 |
-| 127 sous-réseaux | 188.23.0.0/23 |
-
-##### C. Calculs de masques, nombre de réseaux et hôtes
-
-Calculez le masque adapté aux exigences du scénario.
-
-Indiquez le nombre de sous-réseaux créés.
-
-Indiquez le nombre d’hôtes par sous-réseau.
-
-Le réseau de départ comporte toujours un masque de classe A, B ou C standard.
-
-##### Scénario 1
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 5 — 3 bits + 1 |
-| Nombre maximum d’hôtes par segment | 25 — 5 bits − 1 |
-| Adresse de réseau | 192.177.4.0 |
-| Masque de sous-réseau proposé | 255.255.255.240 |
-| Nombre de sous-réseaux créés | 2<sup>4</sup> = 16 |
-| Nombre maximum d’adresses par segment | 2<sup>4</sup> − 2 = 14 |
-
-##### Scénario 2
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 100 — 7 bits + 1 |
-| Nombre maximum d’hôtes par segment | 88.000 — 17 bits − 1 |
-| Adresse de réseau | 39.0.0.0 |
-| Masque de sous-réseau proposé | 255.255.0.0 |
-| Nombre de sous-réseaux créés | 2<sup>8</sup> = 256 |
-| Nombre maximum d’adresses par segment | 2<sup>16</sup> − 2 = 65534 |
-
-### Page 4
-
-##### Scénario 3
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 100 — 7 bits + 1 |
-| Nombre maximum d’hôtes par segment | 350 — 9 bits − 1 |
-| Adresse de réseau | 171.133.0.0 |
-| Masque de sous-réseau proposé | 255.255.255.0 |
-| Nombre de sous-réseaux créés | 2<sup>8</sup> = 256 |
-| Nombre maximum d’adresses par segment | 2<sup>8</sup> − 2 = 254 |
-
-##### Scénario 4
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 16 — 4 bits + 1 + 1 |
-| Nombre maximum d’hôtes par segment | 1 500 — 11 bits − 1 |
-| Adresse de réseau | 128.199.0.0 |
-| Masque de sous-réseau proposé | 255.255.252.0 |
-| Nombre de sous-réseaux créés | 2<sup>6</sup> = 64 |
-| Nombre maximum d’adresses par segment | 2<sup>10</sup> − 2 = 1022 |
-
-##### Scénario 5
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 250 — 8 bits + 1 + 1 |
-| Nombre maximum d’hôtes par segment | 100 — 7 bits − 1 |
-| Adresse de réseau | 191.254.0.0 |
-| Masque de sous-réseau proposé | 255.255.255.192 |
-| Nombre de sous-réseaux créés | 2<sup>10</sup> = 1024 |
-| Nombre maximum d’adresses par segment | 2<sup>6</sup> − 2 = 62 |
-
-##### Scénario 6
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 12 — 4 bits + 1 |
-| Nombre maximum d’hôtes par segment | 12 — 4 bits − 1 |
-| Adresse de réseau | 216.121.44.0 |
-| Masque de sous-réseau proposé | 255.255.255.248 |
-| Nombre de sous-réseaux créés | 2<sup>5</sup> = 32 |
-| Nombre maximum d’adresses par segment | 2<sup>3</sup> − 2 = 6 |
-
-##### Scénario 7
-
-| Rubrique | Valeur |
-| --- | --- |
-| Nombre de segments physiques requis | 50 — 6 bits + 1 |
-| Nombre maximum d’hôtes par segment | 600 — 10 bits − 1 |
-| Adresse de réseau | 134.119.0.0 |
-| Masque de sous-réseau proposé | 255.255.254.0 |
-| Nombre de sous-réseaux créés | 2<sup>7</sup> = 128 |
-| Nombre maximum d’adresses par segment | 2<sup>9</sup> − 2 = 510 |
-
-### Page 5
-
-##### D. Découpage en sous-réseau
-
-On découpe le bloc 199.210.15.0/24 selon le schéma suivant.
-
-![Cinq disques illustrant un découpage successif en segments](../../assets/course-sources/isolated/reseaux-m03-decoupage-schema.webp)
-
-Schéma du support — découpage du bloc 199.210.15.0/24.
-
-Donnez les adresses des 7 segments définis (par ordre croissant).
-
-| Segment | Adresse |
-| --- | --- |
-| Segment 1 | 199.210.15.0/25 |
-| Segment 2 | 199.210.15.128/26 |
-| Segment 3 | 199.210.15.192/27 |
-| Segment 4 | 199.210.15.224/29 |
-| Segment 5 | 199.210.15.232/29 |
-| Segment 6 | 199.210.15.240/29 |
-| Segment 7 | 199.210.15.248/29 |
-
-### Page 6
-
-##### E. Découpage en sous-réseau
-
-- Vous êtes chargé de planifier l’adressage de plusieurs réseaux.
-- Vous subdivisez successivement les blocs d’adresses et vous conservez toujours les blocs supérieurs et divisez le dernier bloc.
-- Indiquez les numéros de réseau en notation CIDR.
-- Schématisez les divisions des blocs.
-- Indiquez le nombre d’adresses valides par segment et le nombre d’adresses global.
-
-##### 1. Premier réseau à découper : 195.220.12.0/24
-
-- 1 segment contenant 115 postes
-- 1 segment contenant 58 postes
-- 1 segment contenant 25 machines
-- 1 segment contenant d’une douzaine d’hôtes
-- 2 segments contenant 5 machines
-
-Segments imprimés en rouge dans la correction, avec le nombre d’adresses de la ligne du tableau.
-
-| Préfixe | Réseau retenu | Adresses du préfixe |
-| --- | --- | --- |
-| /25 | 195.220.12.0 | 126 |
-| /26 | 195.220.12.128 | 62 |
-| /27 | 195.220.12.192 | 30 |
-| /28 | 195.220.12.224 | 14 |
-| /29 | 195.220.12.240 | 6 |
-| /29 | 195.220.12.248 | 6 |
-
-La grille imprimée contient aussi, hors des blocs retenus, les cases 195.22.12.144 et 195.22.12.152.
-
-### Page 7
-
-##### 2. Deuxième réseau à découper : 192.168.10.0/24
-
-- 3 segments contenant d’une soixantaine d’hôtes
-- 1 segment contenant d’une trentaine de postes
-- 2 segments contenant d’au moins 11 machines
-
-Segments imprimés en rouge dans la correction, avec le nombre d’adresses de la ligne du tableau.
-
-| Préfixe | Réseau retenu | Adresses du préfixe |
-| --- | --- | --- |
-| /26 | 192.168.10.0 | 62 |
-| /26 | 192.168.10.64 | 62 |
-| /26 | 192.168.10.128 | 62 |
-| /27 | 192.168.10.192 | 30 |
-| /28 | 192.168.10.224 | 14 |
-| /28 | 192.168.10.240 | 14 |
-
-##### 3. Troisième réseau à découper : 222.8.15.0/24
-
-- 1 segment contenant d’une centaine d’hôtes
-- 4 segments contenant 28 hôtes environ
-
-Segments imprimés en rouge dans la correction, avec le nombre d’adresses de la ligne du tableau.
-
-| Préfixe | Réseau retenu | Adresses du préfixe |
-| --- | --- | --- |
-| /25 | 222.8.15.0 | 126 |
-| /27 | 222.8.15.128 | 30 |
-| /27 | 222.8.15.160 | 30 |
-| /27 | 222.8.15.192 | 30 |
-| /27 | 222.8.15.224 | 30 |
-
-### Page 8
-
-##### F. Recherche de sous-réseaux inutilisés
-
-- Vous auditez plusieurs réseaux.
-- On vous demande de rechercher les segments inutilisés.
-
-##### 1. Premier réseau à étudier
-
-- 112.19.0.0/16
-
-Réseaux actuellement utilisés :
-
-- 112.19.0.0/18
-- 112.19.64.0/18
-- 112.19.128.0/19
-- 112.19.160.0/20
-- 112.19.176.0/20
-- 112.19.224.0/20
-- 112.19.240.0/20
-
-La correction marque en rouge les réseaux utilisés et en vert les réseaux disponibles.
-
-Segments disponibles imprimés en vert :
-
-- 112.19.192.0/19
-
-### Page 9
-
-##### 2. Deuxième réseau à étudier
-
-- 192.168.10.0/24
-
-Réseaux actuellement utilisés :
-
-- 192.168.10.0/25
-- 192.168.10.128/27
-- 192.168.10.160/27
-- 192.168.10.224/28
-
-La correction marque en rouge les réseaux utilisés et en vert les réseaux disponibles.
-
-Segments disponibles imprimés en vert :
-
-- 192.168.10.192/27
-- 192.168.10.240/28
-
-### Page 10
-
-##### 3. Troisième réseau à étudier
-
-- 199.1.1.0/24
-
-Réseaux actuellement utilisés :
-
-- 199.1.1.0/26
-- 199.1.1.128/27
-- 199.1.1.160/27
-- 199.1.1.192/28
-- 199.1.1.224/28
-- 199.1.1.240/28
-
-La correction marque en rouge les réseaux utilisés et en vert les réseaux disponibles.
-
-Segments disponibles imprimés en vert :
-
-- 199.1.1.64/26
-- 199.1.1.208/28
-
-### Page 11
-
-##### 4. Quatrième réseau à étudier
-
-- Réseau de classe C
-
-Réseaux actuellement utilisés :
-
-- 1 segment de 62 postes
-- 3 segments de 30 postes
-- 4 segments de 14 postes
-
-La correction marque en rouge les réseaux utilisés et en vert les réseaux disponibles.
-
-Segments disponibles imprimés en vert :
-
-- 1 bloc /27 laissé disponible dans la grille
-
-Blocs retenus imprimés en rouge : un /26, trois /27 et quatre /28. La ligne du tableau indique 62, 30 et 14 adresses.
-
-### Page 12
-
-##### 5. Cinquième réseau à étudier
-
-- Réseau de classe C
-
-Réseaux actuellement utilisés :
-
-- 3 segments de 30 postes
-- 3 segments de 14 postes
-
-La correction marque en rouge les réseaux utilisés et en vert les réseaux disponibles.
-
-Segments disponibles imprimés en vert :
-
-- 1 bloc /28
-- 1 bloc /27
-- 1 bloc /26
-
-Blocs retenus imprimés en rouge : trois /27 et trois /28.
-
-### Page 13
-
-##### 6. Sixième réseau à étudier
-
-- Réseau de classe C
-
-Réseaux actuellement utilisés :
-
-- 1 segment de 62 postes
-- 1 segment de 14 postes
-
-La correction marque en rouge les réseaux utilisés et en vert les réseaux disponibles.
-
-Segments disponibles imprimés en vert :
-
-- 1 bloc /28
-- 1 bloc /27
-- 2 blocs /26
-
-Blocs retenus imprimés en rouge : un /26 et un /28.
-
-Référence du document : 1ioU0uTtjNzBXzO5gbMCT3bxfja9CyLIc · SHA-256 3a47c869c9c914ea…
 
 ## Notes du Drive · Notes de cours · document texte
 
@@ -2576,13 +1812,6 @@ et je te la prépare pour **les modules 3 et 4**.
 
 Référence du document : 1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT · SHA-256 6742f4b5b0b756fd…
 
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
-| Correction · M03-04-TP-Sous-réseaux_Correction · 13 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
 | Notes du Drive · Notes de cours · document texte | Aucun support de cours PDF n’existe pour ce module. |
 | Notes de cours | Aucun support de cours PDF n’existe pour ce module. |
 | TP - Packet Tracer - Fichier à télécharger | Une adresse IPv4 est constituée de 32 bits découpés en 4 octets distincts. |

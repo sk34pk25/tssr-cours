@@ -4,6 +4,8 @@ Support « La redondance de données - RAID », sept pages, et énoncé d’util
 
 La transcription du support et l’aide pédagogique sont séparées pour rendre leur provenance explicite.
 
+[Travaux pratiques](../../tp/16-sauvegarde-et-restauration/module-04/index.md)
+
 === "Cours Original"
 
     REDONDANCE DE DONNÉES
@@ -113,76 +115,7 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
     TRAVAUX REDONDANCE DEPRATIQUES DONNÉES
 
     TRAVAUX TRAVAUX PRATIQUES PRATIQUES N°5 Gestion du RAID
-
-
-    ## Utilisation du raid
-
-    ## TP du Module 04 – La redondance de données - RAID
-
-    Avant de démarrer ce TP, il convient d’avoir suivi les modules 1, 2, 3 et 4 et d’avoir réalisé le TP précédent.
-
-    Durée estimée
-
-    1 heure
-
-    ## Objectif
-
-    - Configurer et manipuler une solution RAID.
-    ## Énoncé
-
-    Pour des questions de ressources supprimer les serveurs existants et installer un nouveau
-
-    ## serveur SRV-FIC2
-
-    Système d’exploitation Windows 2019 serveur
-
-    ## Disque dur                       40 Go
-
-    RAM 2048
-
-    Sur SRV-FIC2 mirroring :
-
-    - Ajouter 2 disques durs
-        - o 1 disque Capacité : 5 Go
-        - o 1 disque Capacité : 10 Go
-    - Depuis le gestionnaire de disque
-        - o Initialiser les 2 disques avec une partition GPT (GUI Partition Table)
-        - o Mettre en place un volume miroir
-        - o Quelle est la taille de la nouvelle partition ?
-        - o Générer un volume simple avec l’espace restant
-        - o Peupler de fichiers et de dossiers les deux partitions
-    - Supprimer à chaud le disque de 5 Go
-        - o Relever l’état des disques depuis le gestionnaire de disques
-        - o Supprimer le disque miroir manquant
-        - o Les données sont-elles toujours accessibles depuis l’explorateur ?
-
-    - o A vous de remplacer le disque manquant et de reconstruire le mirroring
-    Sur SRV-FIC2 RAID5 :
-
-    Sur le même principe que pour le mirroring, ajouter 5 disques durs
-
-        - o Capacité : 5 Gb
-    - Mettre en place un RAID5
-    - Quelle est la taille de la nouvelle partition ?
-        - o Peupler de fichiers et de dossiers la partition
-    - Supprimer à chaud un disque de 5 Gb
-        - o Relever l’état des disques depuis le Gestionnaire de disques
-        - o Supprimer le disque manquant
-        - o Les données sont-elles toujours accessibles depuis l’explorateur ?
-        - o A vous de remplacer le disque manquant et de reconstruire le RAID 5
-    Bonus : Sur SRV-FIC2 via le gestionnaire serveur et non plus le gestionnaire de disque,
-
-    ## refaire les deux étapes précédentes
-
-    - Depuis le Gestionnaire de disque
-        - o Initialiser les disques
-    - Depuis le Gestionnaire de serveur => service de fichiers et de stockage
-        - o Aller sur « pools de stockage »
-        - o Sur le bloc « disques physiques », dans « tâche », sélectionner « nouveau disque virtuel »
-        - o Ajouter les disques au pool de stockage
-    Vos disques sont-ils toujours présents dans le Gestionnaire de disque ?
-
-    A vous de mettre en place le RAID via le gestionnaire serveur
+    [Travaux pratiques](../../tp/16-sauvegarde-et-restauration/module-04/index.md)
 
 === "Cours Optimisé IA"
 
@@ -405,31 +338,7 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
     TRAVAUX REDONDANCE DEPRATIQUES DONNÉES
 
     TRAVAUX TRAVAUX PRATIQUES PRATIQUES N°5 Gestion du RAID
-
-    ## Utilisation du raid
-
-    ## TP du Module 04 – La redondance de données - RAID
-
-    Avant de démarrer ce TP, il convient d’avoir suivi les modules 1, 2, 3 et 4 et d’avoir réalisé le TP précédent.
-
-    Durée estimée
-
-    1 heure
-
-    ## Objectif
-
-    - Configurer et manipuler une solution RAID.
-
-    ## Énoncé
-
-    Pour des questions de ressources supprimer les serveurs existants et installer un nouveau
-
-    ## serveur SRV-FIC2
-
-    Système d’exploitation Windows 2019 serveur
-
-    ## Disque dur                       40 Go
-
+    [Travaux pratiques](../../tp/16-sauvegarde-et-restauration/module-04/index.md)
     **Visuel externe**
 
     ```mermaid
@@ -457,43 +366,9 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
         - o 1 disque Capacité : 5 Go
         - o 1 disque Capacité : 10 Go
     - Depuis le gestionnaire de disque
-        - o Initialiser les 2 disques avec une partition GPT (GUI Partition Table)
         - o Mettre en place un volume miroir
-        - o Quelle est la taille de la nouvelle partition ?
-        - o Générer un volume simple avec l’espace restant
-        - o Peupler de fichiers et de dossiers les deux partitions
-    - Supprimer à chaud le disque de 5 Go
-        - o Relever l’état des disques depuis le gestionnaire de disques
         - o Supprimer le disque miroir manquant
-        - o Les données sont-elles toujours accessibles depuis l’explorateur ?
-
-    - o A vous de remplacer le disque manquant et de reconstruire le mirroring
-    Sur SRV-FIC2 RAID5 :
-
-    Sur le même principe que pour le mirroring, ajouter 5 disques durs
-
-        - o Capacité : 5 Gb
-    - Mettre en place un RAID5
-    - Quelle est la taille de la nouvelle partition ?
-        - o Peupler de fichiers et de dossiers la partition
-    - Supprimer à chaud un disque de 5 Gb
-        - o Relever l’état des disques depuis le Gestionnaire de disques
-        - o Supprimer le disque manquant
-        - o Les données sont-elles toujours accessibles depuis l’explorateur ?
-        - o A vous de remplacer le disque manquant et de reconstruire le RAID 5
-    Bonus : Sur SRV-FIC2 via le gestionnaire serveur et non plus le gestionnaire de disque,
-
-    ## refaire les deux étapes précédentes
-
-    - Depuis le Gestionnaire de disque
-        - o Initialiser les disques
-    - Depuis le Gestionnaire de serveur => service de fichiers et de stockage
         - o Aller sur « pools de stockage »
-        - o Sur le bloc « disques physiques », dans « tâche », sélectionner « nouveau disque virtuel »
-        - o Ajouter les disques au pool de stockage
-    Vos disques sont-ils toujours présents dans le Gestionnaire de disque ?
-
-    A vous de mettre en place le RAID via le gestionnaire serveur
 
     ## Fiche de synthèse
 
@@ -512,9 +387,4 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
     | RAID 10 | RAID 10 Le RAID 10 se constitue d'un minimum de 4 disques durs. |
     | RAID 10 | RAID 0 RAID 1 RAID 1 A1 A1 B1 B1 A2 A2 B2 B2 A3 A3 B3 B3 A4 A4 B4 B4 A5 A5 B5 B5 A6 A6 B6 B6 Disque 1 Disque 2 Disque 3 Disque 4 |
     | SYNTHESE | Synthèse sur la technologie RAID RAID 0 RAID 1 RAID 5 RAID 10 Nbr minimum 2 2 3 4 de disques Tolérance de Pas de Panne 1 disque Panne 1 disque par sous grappe panne protection (… |
-    | TP du Module 04 – La redondance de données - RAID | Avant de démarrer ce TP, il convient d’avoir suivi les modules 1, 2, 3 et 4 et d’avoir réalisé le TP précédent. |
-    | Objectif | Configurer et manipuler une solution RAID. |
-    | Énoncé | Pour des questions de ressources supprimer les serveurs existants et installer un nouveau |
-    | serveur SRV-FIC2 | Système d’exploitation Windows 2019 serveur |
     | Disque dur                       40 Go | RAM 2048 Sur SRV-FIC2 mirroring : Ajouter 2 disques durs - o 1 disque Capacité : 5 Go - o 1 disque Capacité : 10 Go Depuis le gestionnaire de disque - o Initialiser les 2 disque… |
-    | refaire les deux étapes précédentes | Depuis le Gestionnaire de disque - o Initialiser les disques Depuis le Gestionnaire de serveur => service de fichiers et de stockage - o Aller sur « pools de stockage » - o Sur… |

@@ -1,22 +1,18 @@
 # Module 04 — Découverte d’Hyper-V
 
+[Travaux pratiques](../../tp/13-virtualisation-serveurs/module-04/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
 
 1. Support · Module 04 - Support de cours · 5 pages transcrites
-2. Énoncé · TSSR110-Virtualisation_Mise en Situation – Module 4 – Hyper-V · 3 pages transcrites
-3. Correction · TSSR110-Virtualisation_Mise en Situation – Module 4 – Hyper-V - Solution · 15 pages transcrites
 
 **Visuel externe**
 
 ```mermaid
 flowchart TD
     N1["Support · Module 04 - Support de cours · 5 pages transcrites"]
-    N2["Énoncé · TSSR110-Virtualisation_Mise en Situation – Module 4 – Hyper-V · 3 pages transc…"]
-    N3["Correction · TSSR110-Virtualisation_Mise en Situation – Module 4 – Hyper-V - Solution ·…"]
-    N1 --> N2
-    N2 --> N3
 ```
 
 SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
@@ -233,170 +229,3 @@ Découverte d’Hyper-V
 Attention à bien sélectionner le dossier contenant tous les fichiers
 
 Référence du document : 1aneTKvR2P5nHtruMxJcArjnBcQSBnWoJ · SHA-256 3077cf07986b4a78…
-
-## Énoncé · TSSR110-Virtualisation_Mise en Situation – Module 4 – Hyper-V · 3 pages transcrites
-
-#### Énoncé :
-
-#### Atelier N°2
-
-TP du Module 04 – Découverte d’Hyper-V
-
-Avant de démarrer ce TP, il convient d’avoir suivi les prérequis du Module 4.
-
-Durée estimée
-
-1 heure
-
-#### Objectif :
-
-Mise en place et découverte d’un hyperviseur Microsoft Hyper-V, appréhender les menus de configuration.
-
-#### Prérequis :
-
-Disposer de la machine virtuelle « SRV_2K19 » créée au module 2.
-
-#### Énoncé :
-
-Sous VMware Workstation
-
-- Augmenter la taille de la mémoire vive à 8 Go de la VM « SRV_2K19 ».
-- Lui ajouter un 2ème disque dur de type SCSI de 100 Go.
-- Démarrer « SRV_2K19 ».
-
-Remarque
-
-Pour des raisons inhérentes au fonctionnement des machines mises à disposition par l’centre de formation, la mise en œuvre de l’outil de virtualisation Hyper-V sera réalisée exclusivement dans la machine virtuelle « SRV_2K19 ». Dans une « vraie » situation d’entreprise, cet hyperviseur serait déployé sur un serveur physique.
-
-Dans la VM SRV_2K19
-
-- A partir du nouveau disque, créer un volume appelé « DATA ».
-- Installer le rôle Hyper-V et utiliser la carte réseau « ethernet0 » comme switch virtuel. Vous ne permettrez pas l’usage de la migration à chaud des VMs.
-- Définir l’emplacement de stockage des VMs sur le volume « DATA » dans un dossier « VMs ».
-- Stocker les disques durs des VMs dans le dossier « VHDs ».
-- Placer l’image ISO du système Windows Server 2019 sur le bureau de la VM.
-- Créer une VM avec Hyper-V nommée « SRV_2K19-HV1 » et modifier les paramètres comme suit :
-- « Generation 2 »
-- 2 Go de mémoire non dynamique
-- carte réseau connecté à la carte Intel
-- disque dur virtuel VHDx de 32 Go
-
-- Installer un système d’exploitation en indiquant l’image ISO du système Windows Server 2019 placée précédemment sur le bureau.
-- Démarrer la VM Hyper-V, s’y placer et lancer l’installation du système.
-- Une fois l’installation terminée, exécuter le programme SYSPREP. Y cocher la case « generalize » et sélectionner « shutdown ».
-- Exporter la machine virtuelle dans le dossier que vous créerez pour l’occasion « VMs/EXPORT/Machines virtuelles » du volume DATA.
-- Attendre la fin de l’export (cela peut prendre 5 mn, même si on ne voit aucune information sur l’avancement), puis déployer une nouvelle VM à l’aide du menu « Import Virtual Machine » en indiquant le chemin contenant la VM exportée précédemment.
-- Sélectionner « Copy the virtual machine » et indiquer les nouveaux emplacements pour les fichiers de la VM, toujours à partir des dossiers par défaut (VMs et VHDs), mais dans des sous-dossiers nommés « SRV_2K19-HV2).
-- Renommer cette nouvelle VM en « SRV_2K19-HV2 ».
-- Démarrer les deux machines virtuelles, relever leurs adresses IPs et effectuer un test de liaison ping entre elles. La liaison doit être fonctionnelle. Si ce n’est pas le cas, vérifier les pare-feux Windows.
-- Effectuer un snapshot avec VMware Workstation de la VM « SRV_2K19 » à nommer « Fin
-
-#### atelier 2 ».
-
-Schéma
-
-Référence du document : 1uxZIcSvTmR1tcXuuol2PnKzKJggAnMLf · SHA-256 f4d4ade5ba101682…
-
-## Correction · TSSR110-Virtualisation_Mise en Situation – Module 4 – Hyper-V - Solution · 15 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-Solutions
-
-#### Atelier N°2
-
-TP du Module 04 – Découverte d’Hyper-V
-
-Avant de démarrer ce TP, il convient d’avoir suivi les prérequis du Module 4.
-
-Durée estimée
-
-1 heure
-
-#### Objectif :
-
-Mise en place et découverte d’un hyperviseur Microsoft Hyper-V, appréhender les menus de configuration.
-
-#### Prérequis :
-
-Disposer de la machine virtuelle « SRV_2K19 » créée au module 2.
-
-#### Énoncé :
-
-Sous VMware Workstation
-
-- Augmenter la taille de la mémoire vive à 8 Go de la VM « SRV_2K19 ».
-- Lui ajouter un 2ème disque dur de type SCSI de 100 Go.
-
-- Démarrer « SRV_2K19 ».
-
-Dans la VM SRV_2K19
-
-- A partir du nouveau disque, créer un volume appelé « DATA ».
-
-![Capture isolée du support, page 3](../../assets/course-sources/isolated/72b258309cf45e03/v13-d01-p03-i3.webp)
-
-Capture isolée du support, page 3
-
-- Installer le rôle Hyper-V et utiliser la carte réseau « ethernet0 » comme switch virtuel. Vous ne permettrez pas l’usage de la migration à chaud des VMs.
-
-- Installer le rôle Hyper-V et utiliser la carte réseau « ethernet0 » comme switch virtuel. Vous ne permettrez pas l’usage de la migration à chaud des VMs.
-
-![Capture isolée du support, page 5](../../assets/course-sources/isolated/72b258309cf45e03/v13-d01-p05-i2.webp)
-
-Capture isolée du support, page 5
-
-- Définir l’emplacement de stockage des VMs sur le volume « DATA » dans un dossier « VMs ».
-- Stocker les disques durs des VMs dans le dossier « VHDs ».
-
-#### Informations dans les visuels du support
-
-- Dans Default Stores, indiquer D:\VHDs pour les disques virtuels et D:\VMs pour la configuration des machines virtuelles.
-- Dans Confirm installation selections, vérifier Hyper-V et les outils d’administration. Cocher le redémarrage automatique si nécessaire, puis confirmer et lancer l’installation.
-
-- Placer l’image ISO du système Windows Server 2019 sur le bureau de la VM
-- Créer une VM avec Hyper-V nommée « SRV_2K19-HV1 » et modifier les paramètres comme suit :
-- « Generation 2 »
-- 2 Go de mémoire non dynamique
-- carte réseau connecté à la carte Intel
-- disque dur virtuel VHDx de 32 Go
-
-![Capture isolée du support, page 8](../../assets/course-sources/isolated/72b258309cf45e03/v13-d01-p08-i3.webp)
-
-Capture isolée du support, page 8
-
-#### Informations dans les visuels du support
-
-- Dans le Gestionnaire Hyper-V, choisir New puis Virtual Machine. Avancer depuis Before You Begin.
-- Dans Specify Generation, sélectionner Generation 2. L’assistant précise que la génération reste fixée après la création de la machine.
-
-#### Informations dans les visuels du support
-
-- Dans Assign Memory, allouer 2048 Mo et laisser Use Dynamic Memory désactivé.
-- Dans Configure Networking, choisir le commutateur virtuel associé à l’adaptateur Intel(R) 82574L Gigabit Network Connection.
-
-- Installer un système d’exploitation en indiquant l’image ISO du système Windows Server 2019 placée précédemment sur le bureau.
-
-- Démarrer la VM Hyper-V, s’y placer et lancer l’installation du système.
-- Une fois l’installation terminée, exécuter le programme SYSPREP. Y cocher la case « generalize » et sélectionner « shutdown ».
-
-L’application est située dans C:\Windows\System32\Sysprep
-
-- Exporter la machine virtuelle dans le dossier que vous créerez pour l’occasion « VMs/EXPORT/Machines virtuelles » du volume DATA.
-
-- Attendre la fin de l’export (cela peut prendre 5 mn, même si on ne voit aucune information sur l’avancement), puis déployer une nouvelle VM à l’aide du menu « Import Virtual Machine » en indiquant le chemin contenant la VM exportée précédemment.
-- Sélectionner « Copy the virtual machine » et indiquer les nouveaux emplacements pour les fichiers de la VM, toujours à partir des dossiers par défaut (VMs et VHDs), mais dans des sous-dossiers nommés « SRV_2K19-HV2).
-
-- Renommer cette nouvelle VM en « SRV_2K19-HV2 »
-
-- Démarrer les deux machines virtuelles, relever leurs adresses IPs et effectuer un test de liaison ping entre elles. La liaison doit être fonctionnelle. Si ce n’est pas le cas, vérifier les pare-feux Windows.
-
-Référence du document : 1142XOvU2ghSaqE4CYnISjPMk-fTJ-r5J · SHA-256 72b258309cf45e03…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
-| Correction · TSSR110-Virtualisation_Mise en Situation – Module 4 – Hyper-V - Solution · 15 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |

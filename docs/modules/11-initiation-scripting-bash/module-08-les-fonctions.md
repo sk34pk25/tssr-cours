@@ -1,5 +1,7 @@
 # Module 08 — Les fonctions
 
+[Travaux pratiques](../../tp/11-initiation-scripting-bash/module-08/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -8,14 +10,12 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 2. Module 08 – Les fonctions
 3. Objectifs
 4. Déclaration de fonctions
-5. Énoncé · M8 - Enoncé du TP 1 - Fonctions · 1 pages transcrites
-6. Fonctions
-7. Objectifs
-8. Énoncé
-9. Correction · M8 - Solution du TP 1 - Fonctions · 3 pages transcrites
-10. Fonctions
-11. Objectifs
-12. Énoncé
+5. Fonctions
+6. Objectifs
+7. Énoncé
+8. Fonctions
+9. Objectifs
+10. Énoncé
 
 **Visuel externe**
 
@@ -25,23 +25,19 @@ flowchart TD
     N2["Module 08 – Les fonctions"]
     N3["Objectifs"]
     N4["Déclaration de fonctions"]
-    N5["Énoncé · M8 - Enoncé du TP 1 - Fonctions · 1 pages transcrites"]
     N6["Fonctions"]
     N7["Objectifs"]
     N8["Énoncé"]
-    N9["Correction · M8 - Solution du TP 1 - Fonctions · 3 pages transcrites"]
     N10["Fonctions"]
     N11["Objectifs"]
     N12["Énoncé"]
     N1 --> N2
     N2 --> N3
     N3 --> N4
-    N4 --> N5
-    N5 --> N6
+    N4 --> N6
     N6 --> N7
     N7 --> N8
-    N8 --> N9
-    N9 --> N10
+    N8 --> N10
     N10 --> N11
     N11 --> N12
 ```
@@ -245,223 +241,9 @@ func_accueil "$prenom" "$nom"
 
 Référence du document : 1SrP8wlyZsA2xImTPaCtsP8VCGVgr9MhC · SHA-256 2aa396c34ed8db97…
 
-## Énoncé · M8 - Enoncé du TP 1 - Fonctions · 1 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-## Page 1
-
-## Fonctions
-
-### TP du Module 08 – Les fonctions
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 8.
-
-## Objectifs
-
-- Appréhender l’utilisation de fonctions.
-- Créer un script pour répondre à des besoins fonctionnels.
-
-## Énoncé
-
-**Visuel externe**
-
-```mermaid
-flowchart LR
-    N1["Créer des copies de sauvegarde des fichiers en leur ajoutant l'extension .save"]
-    N2["Supprimer tous les fichiers se terminant par .save"]
-    N3["Quitter le script"]
-    N1 --> N2
-    N2 --> N3
-```
-
-Créer un script Shell script_M8TP1.sh proposant les actions suivantes, dans le dossier courant pour tout fichier de script terminant par .sh :
-
-- Créer des copies de sauvegarde des fichiers en leur ajoutant l'extension .save
-
-(ex : fichier.sh ==> fichier.sh.save)
-
-- Supprimer tous les fichiers se terminant par .save
-- Lister les scripts disposant d’une sauvegarde (vert) et ceux n’en ayant pas (rouge)
-- Quitter le script
-
-Le menu doit s’afficher perpétuellement, tant qu’une sortie du script n’a pas été demandée.
-
-Un fichier externe nommé fonctions.fct concentrera les fonctions de sauvegarde, suppression et listing des fichiers. Votre fichier de script principal y fera donc appel.
-
-Indices : il y aura besoin de structures de boucle while, for et conditionnelles if et case
-
-Exemple de menu possible :
-
-```
--------------------------------------------------
-Gestion de copies de sauvegarde de fichiers '.sh'
--------------------------------------------------
-S : Copies immédiates de sauvegarde
-D : Suppression des fichiers de sauvegarde
-L : Lister les fichiers
-Q : Quitter
-```
-
-```
-Choisissez une action [S/D/L ou Q] :
-```
-
-Référence du document : 1a9trqIMlgqCvPdOXDo1H_s020lbZaE5i · SHA-256 aedd77be8ec315b2…
-
-## Correction · M8 - Solution du TP 1 - Fonctions · 3 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-## Page 1
-
-## Fonctions
-
-### Solution - TP du Module 08 – Les fonctions
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 8.
-
-## Objectifs
-
-- Appréhender l’utilisation de fonctions.
-- Créer un script pour répondre à des besoins fonctionnels.
-
-## Énoncé
-
-L’objectif ici, est de créer un script principal dont le simple rôle est d’afficher le menu indiquant les actions possibles, et de prévoir les choix possibles de saisie utilisateur. Un fichier externe de fonctions l’accompagnera et contiendra les actions réelles à réaliser sur le système de fichiers.
-
-Le code contenu dans le script principal sera composé majoritairement de commandes echo, d’une structure de choix case, tout cela « encadré » par une structure de type boucle while.
-
-Le fichier de fonctions, quant à lui, sert à déclarer 3 fonctions :
-
-- Copie des fichiers .sh en .sh.save
-
-Il faut ici, chercher tous les fichiers terminant par .sh, puis pour chacun d’entre eux, avec une boucle for, réaliser une copie de fichiers en ajoutant l’extension .save
-
-- Suppression des fichiers .save
-
-Une simple commande rm suffira dans notre cas
-
-- Lister les fichiers .sh possédant une copie en .save et ceux n’en possédant pas (avec des couleurs)
-
-Il faut ici, encore une fois, chercher tous les fichiers terminant par .sh, puis pour chacun d’entre eux, avec une boucle for, vérifier s‘il existe leur équivalent avec l’extension .save
-
-## Page 2
-
-**Visuel externe**
-
-```mermaid
-flowchart LR
-    N1["Créer et éditer le nouveau fichier script_M8TP1.sh"]
-    N2["Y ajouter les lignes suivantes :"]
-    N3["Créer et éditer le nouveau fichier fonctions.fct"]
-    N4["Y ajouter les lignes suivantes :"]
-    N1 --> N2
-    N2 --> N3
-    N3 --> N4
-```
-
-- Créer et éditer le nouveau fichier script_M8TP1.sh
-
-```
-vim script_M8TP1.sh
-```
-
-- Y ajouter les lignes suivantes :
-
-```
-#!/bin/bash
-# Appel du fichier de fonctions
-. ./fonctions.fct
-# Début boucle perpétuelle
-while true
-# Affichage du menu principal
-do  echo "-------------------------------------------------"
-echo " Gestion de copie de sauvegarde de fichiers '.sh'"
-echo "-------------------------------------------------"
-echo " S : Copies immédiates de sauvegarde"
-echo " D : Suppression des fichiers de sauvegarde"
-echo " L : Lister les fichiers"
-echo " Q : Quitter"
-echo ""
-# Invite de saisie utilisateur
-read -p "Choisissez une action [S/D/L ou Q] : " rep
-# Gestion saisie utilisateur => choix et appel des fonctions
-case $rep in
-S) sauvegarde ;;
-D) suppression ;;
-L) listing ;;
-Q) echo "Vous avez demandé à sortir" && exit 0 ;;
-*) echo -e "\033[31mErreur de saisie ! \033[0m" ;;
-esac
-done
-```
-
-- Créer et éditer le nouveau fichier fonctions.fct
-
-```
-vim fonctions.fct
-```
-
-- Y ajouter les lignes suivantes :
-
-```
-# Fonctions du script script_M8TP1.sh  #
-########################################
-```
-
-```
-# Fonction de sauvegarde des fichiers *.sh en *.sh.save
-sauvegarde() {
-for i in $(ls *.sh) # Traitement de chaque fichier *.sh trouvé
-```
-
-## Page 3
-
-```
-do cp -p $i $i.save
-done
-}
-```
-
-```
-# Fonction de suppression des fichiers sauvegardés *.save
-suppression() {
-rm -f *.save
-}
-```
-
-```
-# Fonction de listing des fichiers sauvegardés ou non
-listing() {
-for i in $(ls *.sh) # Traitement de chaque fichier *.sh trouvé
-do
-if [[ -f $i.save ]]; then # Vérification existence fichier .save
-echo -e "\033[1;32m$i\033[0m" # Affichage des fichiers avec sauvegarde
-en vert
-else
-echo -e "\033[1;31m$i\033[0m" # Affichage des fichiers sans sauvegarde
-en rouge
-fi
-done
-}
-```
-
-Référence du document : 1qY19mGOWpRzFKcJzXWrdG294xiAi1EBS · SHA-256 5bba7e80b099ecf1…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Support · Module 08 - Support de cours · 6 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
 | Objectifs | Comprendre l'intérêt de la ré-utilisation du code et des fonctions Écrire des fonctions en Bash Externaliser des fonctions dans des fichiers annexes |
-| Énoncé · M8 - Enoncé du TP 1 - Fonctions · 1 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
 | Objectifs | Créer un script pour répondre à des besoins fonctionnels. |
 | Énoncé | Créer un script Shell script_M8TP1.sh proposant les actions suivantes, dans le dossier courant pour tout fichier de script terminant par .sh : Créer des copies de sauvegarde des… |
-| Correction · M8 - Solution du TP 1 - Fonctions · 3 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
 | Objectifs | Créer un script pour répondre à des besoins fonctionnels. |
 | Énoncé | L’objectif ici, est de créer un script principal dont le simple rôle est d’afficher le menu indiquant les actions possibles, et de prévoir les choix possibles de saisie utilisat… |

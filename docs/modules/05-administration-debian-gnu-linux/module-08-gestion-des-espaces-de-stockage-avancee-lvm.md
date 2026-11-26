@@ -1,5 +1,7 @@
 # Module 08 — Gestion des espaces de stockage avancée — LVM
 
+[Travaux pratiques](../../tp/administration-linux/module-08/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -31,14 +33,12 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 25. Afficher les informations
 26. Gestion des espaces de stockage avancée - LVM
 27. Conclusion
-28. Énoncé · M08TP01 - Enoncé - Manipuler les disques et LVM · 2 pages transcrites
-29. Correction · M08TP01 - Solution - Manipuler les disques et LVM · 2 pages transcrites
+28. Transcription des commandes et informations utiles visibles
+29. Transcription des commandes et informations utiles visibles
 30. Transcription des commandes et informations utiles visibles
 31. Transcription des commandes et informations utiles visibles
 32. Transcription des commandes et informations utiles visibles
 33. Transcription des commandes et informations utiles visibles
-34. Transcription des commandes et informations utiles visibles
-35. Transcription des commandes et informations utiles visibles
 
 **Visuel externe**
 
@@ -452,188 +452,6 @@ Manipuler LVM
 
 Référence du document : 1fwrqhgRYGwwS8E_s9YPqVx5UNiacC4QZ · SHA-256 8211ee68dbf0cf3b…
 
-## Énoncé · M08TP01 - Enoncé - Manipuler les disques et LVM · 2 pages transcrites
-
-### Manipuler les disques et LVM
-
-TP du Module 08 – Gestion des espaces de stockage avancée - LVM
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 8 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-15 à 20 minutes
-
-### Énoncé
-
-### I. Gestion des disques sur la station avec environnement graphique
-
-- Ajouter un nouveau disque de 40 Go.
-- Vérifier que le disque est bien présent dans /dev
-- Créer 1 partition sur le nouveau disque avec fdisk :
-- Partition principale de la totalité du disque pour du LVM
-- Intégrer la partition au groupe de volume présent dans votre système.
-- Créer un volume logique de 20 Go nommé lvvar.
-- Agrandir le volume logique lvhome avec le reste de l’espace disponible du groupe de volume.
-
-### II. Astuce
-
-Pour détecter les disques SCSI sans redémarrer :
-
-- Trouver la chaine SCSI qui gère les disques avec la commande :
-- # udevadm info --query=path --name=sda
-- Ex. résultat : /devices/pci0000:00/0000:00:10.0/host0/target0:0:0/0:0:0:0/block/sda
-- Cela veut dire que host0 gère les disques SCSI
-
-- Lancer un scan de la chaine SCSI
-- # echo "- - -" > /sys/class/scsi_host/host0/scan
-- Solution
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Référence du document : 1ANweNsWf8fS0XcMhIuJqw4L6LDzutcmF · SHA-256 d8b1e878a20fb2b3…
-
-## Correction · M08TP01 - Solution - Manipuler les disques et LVM · 2 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-### Manipuler les disques et LVM
-
-TP du Module 08 – Gestion des espaces de stockage avancée - LVM
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 8 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-15 à 20 minutes
-
-### Énoncé
-
-### I. Gestion des disques sur la station avec environnement graphique
-
-- Ajouter un nouveau disque de 40 Go.
-
-→ 1Depuis les paramètres de la VM, créer un nouveau disque, avec les options pas défaut.
-
-- Vérifier que le disque est bien présent dans /dev
-
-Après l'ajout du disque, seul le disque d'origine est listé
-
-En utilisant la commande indiquée en Astuce apparait le host qui gère les disques. Ici host2.
-
-On force ensuite le scan en précisant le host2 indiqué à l’étape précédente
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/b9b591720725e783/deb-p1-1.webp)
-
-Capture ou visuel isolé du document de formation.
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/b9b591720725e783/deb-p1-2.webp)
-
-Capture ou visuel isolé du document de formation.
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/b9b591720725e783/deb-small-p1-4.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-ls -l /dev/sd*
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/b9b591720725e783/deb-small-p1-5.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-udevadm info --query=path --name=sda
-/devices/pci0000:00/0000:00:10.0/host2/target2:0:0/2:0:0:0/block/sda
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/b9b591720725e783/deb-small-p1-6.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-echo "- - -" > /sys/class/scsi_host/host2/scan
-ls /dev/sd*
-```
-
-- Créer 1 partition sur le nouveau disque avec fdisk :
-- Partition principale de la totalité du disque pour du LVM
-
-Lancer fdisk sur /dev/sdb, n pour créer une nouvelle partition. Tous les choix par défaut
-
-L’option t permet de modifier le type de partition en 8e pour “Linux LVM”.
-
-- Intégrer la partition au groupe de volume présent dans votre système.
-
-pvcreate pour declarer la nouvelle partition comme Volume Physique utilisable pour LVM vgextend ajoute ce nouveau Volume Physique au Groupe de Volumes existant.
-
-- Créer un volume logique de 20 Go nommé lvvar.
-
-lvcreate avec l’option -n pour préciser le nom du volume logique
-
--L permet de préciser la taille du volume Ne pas oublier de préciser le nom du Groupe de Volume cible.
-
-- Agrandir le volume logique lvhome avec le reste de l’espace disponible du groupe de volume.
-
-lvextend avec l’option -l suivi de l’argument “100%FREE” permet d’affecter l’espace libre au volume logique
-
-Avec un LV existant, saisir le chemin complet /dev/<nomduVG>/<nomduLV> d
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/b9b591720725e783/deb-p2-1.webp)
-
-Capture ou visuel isolé du document de formation.
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/b9b591720725e783/deb-p2-2.webp)
-
-Capture ou visuel isolé du document de formation.
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/b9b591720725e783/deb-p2-3.webp)
-
-Capture ou visuel isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-lvcreate -n lvvar -L 20G vgsystem
-lvs
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/b9b591720725e783/deb-small-p2-4.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-pvcreate /dev/sdb1
-vgextend vgsystem /dev/sdb1
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/b9b591720725e783/deb-small-p2-6.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-lvextend -l +100%FREE /dev/vgsystem/lvhome
-```
-
-Référence du document : 17vtmbV7KvIdKkDDVpPIkV6KiF4Xtzxlr · SHA-256 b9b591720725e783…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | LVM : Logical Volume Manager | Le LVM permet de s’affranchir des limites physiques des périphériques. |
 | LVM : Logical Volume Manager | La création d’un ou plusieurs groupes de volumes sera faite à partir des volumes physiques (partitions) disponibles. |
 | LVM : Logical Volume Manager | Les commandes de gestion s'organisent autour de ces dénominations et respectent toujours la même logique. |
@@ -651,10 +469,8 @@ Les lignes reprennent les titres du cours et la première phrase de chaque parti
 | Afficher les informations LVM | Afficher les informations résumées sur tous les Volumes Logiques : Afficher les informations détaillées sur tous les Volumes Logiques : |
 | Afficher les informations LVM | Afficher les informations détaillées sur un Volume Logique : Toutes les commandes LVM sont également disponibles dans un shell dédié, accessible avec la commande lvm |
 | Conclusion | Vous savez préparer des disques et partitions pour LVM Vous savez créer et modifier des Volumes Groups Vous savez créer et modifier des Logical Volumes Référence du document : 1… |
-| Correction · M08TP01 - Solution - Manipuler les disques et LVM · 2 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Créer 1 partition sur le nouveau disque avec fdisk : Partition principale de la totalité du disque pour du LVM Lancer fdisk sur /dev/sdb, n pour créer une nouvelle partition. |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
-| Transcription des commandes et informations utiles visibles | Référence du document : 17vtmbV7KvIdKkDDVpPIkV6KiF4Xtzxlr · SHA-256 b9b591720725e783… |

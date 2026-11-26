@@ -1,5 +1,7 @@
 # Module 02 — Écriture des scripts
 
+[Travaux pratiques](../../tp/11-initiation-scripting-bash/module-02/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -7,10 +9,8 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 1. Support · Module 02 - Support de cours · 6 pages transcrites
 2. Module 02 – Écriture des scripts
 3. Objectifs
-4. Énoncé · M2 - Enonce du TP 2 - Script a partir d’un algorithme · 2 pages transcrites
-5. Script à partir d’un algorithme
-6. Énoncé
-7. Correction · M2 - Solution du TP 2 - Script a partir d’un algorithme.sh · document texte
+4. Script à partir d’un algorithme
+5. Énoncé
 
 **Visuel externe**
 
@@ -19,16 +19,12 @@ flowchart TD
     N1["Support · Module 02 - Support de cours · 6 pages transcrites"]
     N2["Module 02 – Écriture des scripts"]
     N3["Objectifs"]
-    N4["Énoncé · M2 - Enonce du TP 2 - Script a partir d’un algorithme · 2 pages transcrites"]
     N5["Script à partir d’un algorithme"]
     N6["Énoncé"]
-    N7["Correction · M2 - Solution du TP 2 - Script a partir d’un algorithme.sh · document texte"]
     N1 --> N2
     N2 --> N3
-    N3 --> N4
-    N4 --> N5
+    N3 --> N5
     N5 --> N6
-    N6 --> N7
 ```
 
 SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
@@ -338,132 +334,8 @@ Création d'un script shell
 
 Référence du document : 1vbEiATu28KtOyWzJGyi_YXbUD9dgKukc · SHA-256 9e3babe4930172fc…
 
-## Énoncé · M2 - Enonce du TP 2 - Script a partir d’un algorithme · 2 pages transcrites
-
-Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
-
-## Page 1
-
-## Script à partir d’un algorithme
-
-### TP du Module 01 – Analyse
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 1.
-
-## Énoncé
-
-### Objectifs :
-
-Créer un algorithme de solution en réponse à un besoin et cahier des charges donné.
-
-Créer un script à partir d’un algorithme.
-
-### Prérequis :
-
-Disposer d’une machine sous GNU/Linux.
-
-### Consigne :
-
-**Visuel externe**
-
-```mermaid
-flowchart LR
-    N1["En vous basant sur l’organigramme créé précédemment, écrire le script."]
-    N2["Tester le bon fonctionnement de votre script."]
-    N3["Affiche le message suivant : « Scripts Shell présents ici : »."]
-    N4["Affiche un saut de ligne."]
-    N5["Affiche le message suivant : « Informations relatives à l’interpréteur Bash : »."]
-    N6["Affiche la version de Bash installée."]
-    N7["Affiche le message « Mise à jour disponible ? »."]
-    N1 --> N2
-    N2 --> N3
-    N3 --> N4
-    N4 --> N5
-    N5 --> N6
-    N6 --> N7
-```
-
-- À partir du cahier des charges présenté ci-dessous, réaliser l’organigramme de la solution que vous proposez.
-- En vous basant sur l’organigramme créé précédemment, écrire le script.
-- Tester le bon fonctionnement de votre script.
-
-L’analyse du besoin et le cahier des charges sont les suivants :
-
-On souhaite disposer d’un script Shell qui réalise dans cet ordre les actions suivantes :
-
-- Affiche le message suivant : « Bonjour, cette machine est fin prête pour scripter … ».
-- Affiche le message suivant : « Scripts Shell présents ici : ».
-- Affiche la liste détaillée des scripts Shell présents dans le répertoire courant.
-- Affiche un saut de ligne.
-- Affiche le message suivant : « Informations relatives à l’interpréteur Bash : ».
-- Affiche la version de Bash installée.
-- Affiche les chemins du binaire de Bash, du fichier bashrc commun à tous les utilisateurs et du fichier contenant les pages de manuel de Bash.
-- Affiche le message « Mise à jour disponible ? ».
-
-## Page 2
-
-- Affiche si une version mise à jour de Bash est disponible.
-
-Référence du document : 1F8amy0_qIJ50pgeFn1wHLXmCie2_oKCH · SHA-256 3ffcf15da7d86d31…
-
-## Correction · M2 - Solution du TP 2 - Script a partir d’un algorithme.sh · document texte
-
-Le contenu du fichier shell est transcrit en texte. Les fins de ligne sont présentées au format Web.
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-## Page 1
-
-```
-#!/bin/bash
-###########################
-# Laboratoire
-# 20190122
-###########################
-# Script Atel 2
-###########################
-
-# Affiche le message suivant : « Bonjour, cette machine est fin prête pour scripter … »
-echo "Bonjour, cette machine est fin prête pour scripter ..."
-
-# Affiche le message suivant : « Scripts Shell présents ici : »
-echo "Scripts shells présents ici :"
-
-# Affiche la liste détaillée des scripts Shell présents dans le répertoire courant
-ls -l *.sh
-ls -l *.bash
-
-# Affiche un saut de ligne
-echo ""
-
-# Affiche le message suivant : « Informations relatives à l’interpréteur Bash : »
-echo "Informations relatives à l’interpréteur Bash : "
-
-# Affiche la version de Bash installée
-bash --version
-
-# Affiche les chemins : du binaire de Bash, du fichier bashrc commun à tous les utilisateurs et du fichier contenant les pages de manuel de Bash
-whereis bash
-
-# Affiche le message « Mise à jour disponible ? »
-echo "Mise à jour disponible ?"
-
-# Affiche si une version mise à jour de Bash est disponible
-apt list --upgradable | grep bash
-```
-
-Référence du document : 1MGpXVAzXdNUy6-4bioMLmB0JCOiSi-69 · SHA-256 08375d0dd92a037d…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Support · Module 02 - Support de cours · 6 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
 | Objectifs | Créer un fichier de script Bash Le rendre exécutable Commenter son code Suivre le déroulé de l'exécution du script |
 | echo de debug avec pause : | echo "valeur de la variable nom : $nom" read # pause avant de poursuivre le déroulement du script |
 | fin du debug | echo "Bienvenue $nom sur la machine $HOSTNAME" |
 | fin du debug | echo "Bienvenue $nom sur la machine $HOSTNAME" |
-| Énoncé · M2 - Enonce du TP 2 - Script a partir d’un algorithme · 2 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
-| Correction · M2 - Solution du TP 2 - Script a partir d’un algorithme.sh · document texte | Le contenu du fichier shell est transcrit en texte. |

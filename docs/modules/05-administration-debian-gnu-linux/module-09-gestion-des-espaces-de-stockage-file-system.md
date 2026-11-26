@@ -1,5 +1,7 @@
 # Module 09 — Gestion des espaces de stockage — File System
 
+[Travaux pratiques](../../tp/administration-linux/module-09/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -47,28 +49,26 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 41. Commandes informatives
 42. Gestion des espaces de stockage – File System
 43. Conclusion
-44. Énoncé · M09TP01 - Enoncé - Préparation des systèmes de fichiers · 2 pages transcrites
-45. Correction · M09TP01 - Solution - Préparation des systèmes de fichiers · 4 pages transcrites
+44. Transcription des commandes et informations utiles visibles
+45. Transcription des commandes et informations utiles visibles
 46. Transcription des commandes et informations utiles visibles
 47. Transcription des commandes et informations utiles visibles
 48. Transcription des commandes et informations utiles visibles
 49. Transcription des commandes et informations utiles visibles
 50. Transcription des commandes et informations utiles visibles
-51. Transcription des commandes et informations utiles visibles
+51. Transcription des commandes visibles
 52. Transcription des commandes et informations utiles visibles
-53. Transcription des commandes visibles
+53. Transcription des commandes et informations utiles visibles
 54. Transcription des commandes et informations utiles visibles
 55. Transcription des commandes et informations utiles visibles
 56. Transcription des commandes et informations utiles visibles
 57. Transcription des commandes et informations utiles visibles
 58. Transcription des commandes et informations utiles visibles
-59. Transcription des commandes et informations utiles visibles
-60. Transcription des commandes et informations utiles visibles
+59. Transcription des commandes visibles
+60. Transcription des commandes visibles
 61. Transcription des commandes visibles
 62. Transcription des commandes visibles
 63. Transcription des commandes visibles
-64. Transcription des commandes visibles
-65. Transcription des commandes visibles
 
 **Visuel externe**
 
@@ -748,376 +748,6 @@ Préparation des systèmes de fichiers
 
 Référence du document : 1TlaOKZJHK1_lEreDfvYwVcqS1E1OIWGi · SHA-256 d5eaf406b6ddc10d…
 
-## Énoncé · M09TP01 - Enoncé - Préparation des systèmes de fichiers · 2 pages transcrites
-
-### Préparation des systèmes de fichiers
-
-TP du Module 09 – Gestion des espaces de stockage – File Systems
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 9 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-30 à 45 minutes
-
-### Énoncé
-
-### I. Gestion des systèmes de fichier
-
-A partir du volume logique lvvar, configurer un système de fichier ext4 avec une étiquette VAR
-
-Agrandir le système de fichier présent dans le volume logique home afin qu’il utilise toute la place du volume logique.
-
-### II. Migration du répertoire /var
-
-Migrer le répertoire /var vers le volume logique var tout en préservant les données existantes.
-
-Conseils de mise en œuvre :
-
-- Faites un snapshot de votre VM
-- Vérifier l'utilisation de /var avant de copier les fichiers (lsof).
-- Prendre toutes les précautions nécessaires pour éviter l’écriture dans l’arborescence de /var afin de pouvoir copier correctement les fichiers
-- Utiliser un montage temporaire pour pouvoir copier les données de l'ancien vers le nouveau volume
-- Copier les données en préservant les permissions
-
-### III. Automatisation du montage au démarrage : sur la station avec environnement graphique
-
-Activer le montage automatique au démarrage du volume logique lvvar vers /var
-
-### Solution
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Référence du document : 1iToRAUfiKyWYDgDiMORqrwPWAV5qZU-T · SHA-256 8561ad5edd2ed8ef…
-
-## Correction · M09TP01 - Solution - Préparation des systèmes de fichiers · 4 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-### Préparation des systèmes de fichiers
-
-TP du Module 09 – Gestion des espaces de stockage – File Systems
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 9 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-30 à 45 minutes
-
-### Énoncé
-
-### I. Gestion des systèmes de fichier
-
-A partir du volume logique var, configurer un système de fichier ext4 avec une étiquette VAR
-
-La commande mkfs permet de préciser directement le type avec .ext4.
-
-l’option -L affecte le label au FS. NB : il est aussi possible de modifier l’étiquette d’un FS existant avec tune2fs
-
-Vérifier avec blkid
-
-Agrandir le système de fichier présent dans le volume logique home afin qu’il utilise toute la place du volume logique.
-
-resize2fs permet d’étendre le FS existant après avoir étendu le LV lors du précèdent TP
-
-NB : il est possible que le FS soit déjà à la taille maximale si l’option -r avait été utilisé avec lvextend
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-p1-1.webp)
-
-Capture ou visuel isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-mkfs.ext4 -L VAR /dev/vgsystem/lvvar
-```
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-p1-2.webp)
-
-Capture ou visuel isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-resize2fs /dev/vgsystem/lvhome
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-small-p1-3.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-blkid | grep VAR
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-small-p1-5.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-resize2fs /dev/vgsystem/lvhome
-The filesystem is already 9136128 (4k) blocks long. Nothing to do!
-```
-
-### II. Migration du répertoire /var
-
-Migrer le répertoire /var vers le volume logique var tout en préservant les données existantes.
-
-Conseils de mise en œuvre :
-
-- Faites un snapshot de votre VM
-
-→ Ce snapshot permettra un retour arrière en cas d'erreur
-
-- Vérifier l'utilisation de /var avant de copier les fichiers (lsof).
-
-La commande lsof (List Open Files) permet de dénombrer les fichiers en cours d'utilisation par des processus.
-
-En filtrant (grep) sur le répertoire /var, on dénombre plusieurs centaines de lignes
-
-- Prendre toutes les précautions nécessaires pour éviter l’écriture dans l’arborescence de /var afin de pouvoir copier correctement les fichiers
-
-→ La méthode la plus simple pour stopper les nombreux processus utilisant des fichiers présents sous /var est de passer en mode rescue.
-
-Si un service tel systemd-journald utilise encore des fichiers, vous pouvez le stopper avec la commande adéquat
-
-- Utiliser un montage temporaire pour pouvoir copier les données de l'ancien vers le nouveau volume
-
-La création d'un sous dossier dans /mnt est optionnelle La commande mount permet ensuite d’effectuer le montage temporaire
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-p2-1.webp)
-
-Capture ou visuel isolé du document de formation.
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-p2-2.webp)
-
-Capture ou visuel isolé du document de formation.
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-p2-3.webp)
-
-Capture ou visuel isolé du document de formation.
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-small-p2-4.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-lsof | grep /var
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-small-p2-7.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-small-p2-8.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-systemctl stop systemd-j*
-lsof | grep /var
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-small-p2-9.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-mkdir /mnt/var
-mount -t ext4 /dev/vgsystem/lvvar /mnt/var
-```
-
-![Détail de la procédure du laboratoire, isolé et vérifié.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-detail-p2-18.webp)
-
-Détail de la procédure du laboratoire, isolé et vérifié.
-
-## Transcription des commandes visibles
-
-```
-systemctl isolate rescue.target
-```
-
-La commande findmnt affiche bien l'utilisation de /mnt/var comme point de montage pour lvvar
-
-- Copier les données en préservant les permissions
-
-Les options utiles de la commande cp ici sont : -p : préserver les permissions et groups et utilisateurs propriétaires des fichiers
-
--r : la récursivité permet de copier tous les sous-dossiers et leurs contenus
-
--v pour avoir un affichage verbeux.
-
-Une fois l'opération achevée on peut démonter le LV
-
-Une fois cela fait, on remonte le volume logique immédiatement sur /var
-
-Puis relancer la cible graphique pour verifier le bon fonctionnement du système.
-
-On s’assure que le LV est bien monté sur /var
-
-Il est possible de vérifier le bon fonctionnement par exemple avec les fichiers journaux dans /var/log
-
-### III. Automatisation du montage au démarrage : sur la station avec environnement graphique
-
-Activer le montage automatique au démarrage du volume logique lvvar vers /var
-
-Editer le fichier /etc/fstab En dernière ligne, le LV est appelé par le LABEL apposé sur le file-system
-
-→ On repasse en mode rescue pour tester AVANT de redémarrer
-
-Ne pas oublier de stopper les éventuels process encore consommateurs de fichiers sur /var
-
-![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-p3-1.webp)
-
-Capture ou visuel isolé du document de formation.
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-small-p3-2.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-findmnt
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-small-p3-3.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-/mnt/var /dev/mapper/vgsystem-lvvar ext4 rw,relatime
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-small-p3-7.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-systemctl isolate graphical
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-small-p3-8.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-/var /dev/mapper/vgsystem-lvvar ext4 rw,relatime
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-small-p3-9.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-tail -n 4 /var/log/auth.log
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-small-p3-11.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-systemctl isolate rescue.target
-```
-
-![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-small-p3-12.webp)
-
-Commande ou détail d’interface isolé du document de formation.
-
-## Transcription des commandes et informations utiles visibles
-
-```
-systemctl stop systemd-j*
-lsof | grep /var
-```
-
-![Détail de la procédure du laboratoire, isolé et vérifié.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-detail-p3-19.webp)
-
-Détail de la procédure du laboratoire, isolé et vérifié.
-
-## Transcription des commandes visibles
-
-```
-cp -rpv /var/* /mnt/var/.
-```
-
-![Détail de la procédure du laboratoire, isolé et vérifié.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-detail-p3-20.webp)
-
-Détail de la procédure du laboratoire, isolé et vérifié.
-
-## Transcription des commandes visibles
-
-```
-umount /mnt/var
-```
-
-![Détail de la procédure du laboratoire, isolé et vérifié.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-detail-p3-21.webp)
-
-Détail de la procédure du laboratoire, isolé et vérifié.
-
-## Transcription des commandes visibles
-
-```
-mount -t ext4 /dev/vgsystem/lvvar /var
-```
-
-On défait le montage manuel qui avait été fait sur /var
-
-On relance le montage de /var, mais ce coup-ci sans options ni autre argument, ce qui implique la lecture des informations du fichier /etc/fstab
-
-Si tout cela fonctionne bien, on peut enfin redémarrer le système en guise de dernière vérification.
-
-En cas d’erreur, reprendre ces étapes, avec retour sur le snapshot préalablement pris si besoin.
-
-![Détail de la procédure du laboratoire, isolé et vérifié.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-detail-p4-22.webp)
-
-Détail de la procédure du laboratoire, isolé et vérifié.
-
-## Transcription des commandes visibles
-
-```
-umount /var
-```
-
-![Détail de la procédure du laboratoire, isolé et vérifié.](../../assets/course-sources/isolated/875c895cdf2ad435/deb-detail-p4-23.webp)
-
-Détail de la procédure du laboratoire, isolé et vérifié.
-
-## Transcription des commandes visibles
-
-```
-mount /var
-```
-
-Référence du document : 1n4zSxPb4C7LiPn3-KO0a3IktlZBdqnBc · SHA-256 875c895cdf2ad435…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Considérations générales | Tous les systèmes de fichiers de type Unix sont basés sur le même principe et les mêmes éléments élémentaires. |
 | Le Superbloc | Le superbloc contient les informations vitales du système de fichiers. |
 | Inodes et bloc d’indirection | Les inodes sont regroupés par bloc dans un système de fichiers. |
@@ -1146,7 +776,6 @@ Les lignes reprennent les titres du cours et la première phrase de chaque parti
 | Informations sur les systèmes de fichiers | La commande df permet de prendre des informations utiles sur les systèmes de fichiers montés Options usuelles : -h : affiche la taille en puissance de 1024 (K,M,G…) -i : affiche… |
 | Informations sur les systèmes de fichiers | La commande ls -l ne permet pas de connaître la taille d’un répertoire. |
 | Conclusion | Vous savez créer et manipuler des systèmes de fichiers Linux Vous savez monter ceux-ci en manuel Vous savez automatiser un montage au démarrage du système d’exploitation Référen… |
-| Correction · M09TP01 - Solution - Préparation des systèmes de fichiers · 4 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
 | Transcription des commandes et informations utiles visibles | Capture ou visuel isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
 | Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
@@ -1165,4 +794,3 @@ Les lignes reprennent les titres du cours et la première phrase de chaque parti
 | Transcription des commandes visibles | Détail de la procédure du laboratoire, isolé et vérifié. |
 | Transcription des commandes visibles | On défait le montage manuel qui avait été fait sur /var On relance le montage de /var, mais ce coup-ci sans options ni autre argument, ce qui implique la lecture des information… |
 | Transcription des commandes visibles | Détail de la procédure du laboratoire, isolé et vérifié. |
-| Transcription des commandes visibles | Référence du document : 1n4zSxPb4C7LiPn3-KO0a3IktlZBdqnBc · SHA-256 875c895cdf2ad435… |

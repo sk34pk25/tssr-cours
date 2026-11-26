@@ -1,5 +1,7 @@
 # Module 04 — Administration à distance
 
+[Travaux pratiques](../../tp/services-reseau-linux/module-04/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -9,12 +11,10 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 3. Protocole et clients
 4. Transfert de fichiers
 5. Accès par clé
-6. Énoncé · M04 - Enonc‚ du TP1- Configuration du service ssh · 2 pages transcrites
-7. Configuration du service SSH
-8. Énoncé
-9. Correction · M04 - Solution du TP1 - Configuration du service ssh · 2 pages transcrites
-10. Configuration du service SSH
-11. Solution
+6. Configuration du service SSH
+7. Énoncé
+8. Configuration du service SSH
+9. Solution
 
 **Visuel externe**
 
@@ -25,21 +25,17 @@ flowchart TD
     N3["Protocole et clients"]
     N4["Transfert de fichiers"]
     N5["Accès par clé"]
-    N6["Énoncé · M04 - Enonc‚ du TP1- Configuration du service ssh · 2 pages transcrites"]
     N7["Configuration du service SSH"]
     N8["Énoncé"]
-    N9["Correction · M04 - Solution du TP1 - Configuration du service ssh · 2 pages transcrites"]
     N10["Configuration du service SSH"]
     N11["Solution"]
     N1 --> N2
     N2 --> N3
     N3 --> N4
     N4 --> N5
-    N5 --> N6
-    N6 --> N7
+    N5 --> N7
     N7 --> N8
-    N8 --> N9
-    N9 --> N10
+    N8 --> N10
     N10 --> N11
 ```
 
@@ -323,184 +319,4 @@ root@srv-debian:~# cp /home/admin/.ssh/authorized_keys /root/.ssh/
 
 Référence du document : 1Dn8otCfssD-wTKjFRq7274ZvWMMI_KAB · SHA-256 bcbd1729184530a0…
 
-## Énoncé · M04 - Enonc‚ du TP1- Configuration du service ssh · 2 pages transcrites
-
-Le nom du fichier Drive présente une anomalie historique d’encodage. Son nom est conservé ; le titre interne est transcrit dans le document. Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.
-
-## Configuration du service SSH
-
-### TP 01 du Module 04 – Administration à distance
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 4 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-1 heure
-
-## Énoncé
-
-### Objectifs
-
-- Installer et configurer le service SSH
-
-### Prérequis
-
-- Les ateliers précédents doivent être fonctionnels
-
-### Notes
-
-- Pour toutes les configurations réseau, vous remplacerez num_stag par un chiffre entre 1 et 30, par exemple 10.
-
-### Etape 1 - Installation du serveur SSH sur TOUS les serveurs Debian
-
-- Configurer le fichier sources.list de tous vos serveurs afin qu’ils ne contiennent que les lignes suivantes :
-
-```
-deb http://ftp.fr.debian.org/debian/ buster main
-deb http://security.debian.org/debian-security buster/updates main
-deb http://ftp.fr.debian.org/debian/ buster-updates main
-```
-
-- Mettre à jour le gestionnaire de dépendances
-- Vérifier l’état d’installation du paquet openssh-server, l’installer au besoin.
-
-### Etape 2 - Configuration du service SSH
-
-- Installer Terminator sur la machine Cli-db-10 ; vous utiliserez cette machine pour centraliser l’administration de vos serveurs GNU/Linux.
-
-![Poste Linux utilisé pour centraliser l’accès aux serveurs du laboratoire.](../../assets/course-sources/isolated/2fb77fc967dabe2b/linux-net-figure-40.webp)
-
-Poste Linux utilisé pour centraliser l’accès aux serveurs du laboratoire.
-
-- Configurer le service SSH pour permettre la connexion à vos différents serveurs sans avoir à saisir de mot de passe (échange de clés).
-- Vous allez devoir vous connecter depuis la machine Cli-db-10 sur les serveurs : RouTux, Deb-S1, Deb-S2.
-
-### Etape 3 - Utilisation des commandes de copie sécurisée
-
-- Sur la machine Cli-db-10, utiliser la commande scp pour copier les fichiers de configuration paramétrés sur chacune des machines Debian (interfaces, resolv.conf, sources.list…).
-
-Référence du document : 1Zs40kPBB9hVOO2m-tubv3SpuMGSrrMEa · SHA-256 2fb77fc967dabe2b…
-
-## Correction · M04 - Solution du TP1 - Configuration du service ssh · 2 pages transcrites
-
-Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-## Configuration du service SSH
-
-### TP 01 du Module 04 – Administration à distance
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 4 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-1 heure
-
-## Solution
-
-### Etape 1 - Installation du serveur SSH sur TOUS les serveurs Debian
-
-- Modifier le fichier sources.list sur chaque machine et y ajouter les données demandées : # vi /etc/apt/sources.list
-
-```
-deb http://ftp.fr.debian.org/debian/ buster main
-```
-
-```
-deb http://security.debian.org/debian-security buster/updates main
-```
-
-```
-deb http://ftp.fr.debian.org/debian/ buster-updates main
-```
-
-Mettre à jour le gestionnaire :
-
-```
-# apt update
-```
-
-Vérifier la présence d’openssh-server :
-
-```
-# apt install openssh-server
-```
-
-ou
-
-```
-# dpkg -l |grep openssh-server
-```
-
-### Etape 2 - Configuration du service SSH
-
-- Installer Terminator sur la machine Cli-db-10 : # apt install terminator
-
-Créer la clé SSH :
-
-Sur cli-db-10
-
-```
-# ssh-keygen
-```
-
-=> sans phrase de passe
-
-Envoyer la clé SSH sur les serveurs :
-
-```
-# ssh-copy-id  user@192.168.X.11
-```
-
-```
-# ssh user@192.168.X.11
-```
-
-=> connexion sans mot de passe avec le compte utilisateur standard
-
-Sur deb-s1
-
-```
- $ su -
-```
-
-```
- # mkdir .ssh
-```
-
-```
- # chmod 700 .ssh
-```
-
-```
- # cp  /home/user/.ssh/authorized _keys /root/.ssh
-```
-
-= > connexion sans mot de passe avec root
-
-### A réaliser également sur deb-s2 et routux
-
-### Etape 3 - Utilisation des commandes de copie sécurisée
-
-- Recopier les fichiers en local, par exemple ici avec le fichier /etc/resolv.conf :
-
-```
-$ mkdir conf_deb-s1
-```
-
-```
-$ scp  root@192.168.X.11:/etc/resolv.conf conf_deb-s1
-```
-
-Référence du document : 1Q4bxGyPu9nc9S_OIkQyoacBFsQUjR4iV · SHA-256 3e49ebce5a1945fc…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
 | Support · Module 04 - Support de cours · 8 pages transcrites | Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. |
-| Énoncé · M04 - Enonc‚ du TP1- Configuration du service ssh · 2 pages transcrites | Le nom du fichier Drive présente une anomalie historique d’encodage. |
-| Correction · M04 - Solution du TP1 - Configuration du service ssh · 2 pages transcrites | Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. |

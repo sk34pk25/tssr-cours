@@ -9,17 +9,17 @@
       "relations": [
         {
           "coursePath": "modules/01-bases-reseaux/index.md",
-          "evidencePath": "modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md",
+          "evidencePath": "tp/msp/module-01/corrections.md",
           "evidenceQuote": "Calcul du sous-réseau 172.16.0.128/26"
         },
         {
           "coursePath": "modules/02-systemes-clients-microsoft/index.md",
-          "evidencePath": "modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md",
+          "evidencePath": "tp/msp/module-01/corrections.md",
           "evidenceQuote": "Installation de Windows 10 Professionnel"
         },
         {
           "coursePath": "modules/05-administration-debian-gnu-linux/index.md",
-          "evidencePath": "modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md",
+          "evidencePath": "tp/msp/module-01/corrections.md",
           "evidenceQuote": "Installation de Debian 10"
         }
       ],

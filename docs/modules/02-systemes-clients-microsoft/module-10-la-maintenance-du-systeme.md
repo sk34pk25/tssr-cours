@@ -1,22 +1,18 @@
 # Module 10 — La maintenance du système
 
+[Travaux pratiques](../../tp/systemes-clients/module-10/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
 
 1. Support · Module 10 - Support de cours · 9 pages transcrites
-2. Énoncé · Enonc‚ du TP - Maintenance du systŠme · 3 pages transcrites
-3. Correction · Solution du TP - Maintenance du syst確e · 4 pages transcrites
 
 **Visuel externe**
 
 ```mermaid
 flowchart TD
     N1["Support · Module 10 - Support de cours · 9 pages transcrites"]
-    N2["Énoncé · Enonc‚ du TP - Maintenance du systŠme · 3 pages transcrites"]
-    N3["Correction · Solution du TP - Maintenance du syst確e · 4 pages transcrites"]
-    N1 --> N2
-    N2 --> N3
 ```
 
 SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
@@ -229,168 +225,3 @@ Capture du support — Options avancées de WinRE.
 - En cas de dysfonctionnement, le technicien doit pouvoir investiguer, enquêter, réparer et/ou restaurer le système.
 
 Référence du document : 1v2qNo6jHKYzmMG-xiz8p6mCYvyeOJA9m · SHA-256 03eef11a677ef175…
-
-## Énoncé · Enonc‚ du TP - Maintenance du systŠme · 3 pages transcrites
-
-### Maintenance du système
-
-TP du Module 10 — La maintenance du système. **Durée estimée : 1 heure 30 minutes.**
-
-Lors de ce TP, vous serez amené à découvrir les tableaux de bord de diagnostics, en temps réel et sur un historique. Vous observerez le comportement de votre système en état de marche. Vous réaliserez un point de restauration et vous observerez les conséquences d’une restauration à l’aide de WinRE.
-
-#### Énoncé
-
-Lisez l’ensemble de ce TP avant de vous lancer dans la pratique.
-
-Sur **Win10-XX**, affichez et analysez les problèmes majeurs survenus sur votre système :
-
-- depuis le démarrage de votre VM et de manière synthétique ;
-- de manière détaillée sur le dernier évènement critique. Au cas où aucun évènement critique n’est survenu depuis le début du module, procédez à un arrêt brutal de votre VM WorkStation : **PowerOFF**.
-
-#### Analyse en temps réel
-
-- Lancez plusieurs tâches : copiez un gros fichier disponible sur les ressources à télécharger, démarrez les applications console PowerShell, Gestionnaire des tâches, Edge…
-- Avec les outils adaptés et en temps réel, recherchez les processus qui consomment le plus de performances sur les quatre composants principaux.
-
-### Analyse en temps réel — relevé
-
-Remplissez le tableau suivant ; indiquez les ressources utilisées lors du traitement des différentes tâches en cours.
-
-| Ressources | Observations |
-| --- | --- |
-| Processeurs | À compléter. |
-| Mémoire | À compléter. |
-| Réseau | À compléter. |
-| Disque dur | À compléter. |
-
-### Sauvegarde de l’état du système et des données
-
-Préparation :
-
-1. Vérifiez la configuration de la **Protection du système**.
-2. Vérifiez les points de restauration disponibles.
-3. Créez si nécessaire un point de restauration manuel.
-4. Créez des fichiers dans le répertoire **Documents** de l’utilisateur en cours d’utilisation.
-5. Désactivez ou désinstallez des fonctionnalités Windows de votre système : Lecteur Windows Media, IE11.
-
-### Restauration du système
-
-- À l’aide de WinRE, vous restaurez l’état du système grâce au dernier point de restauration disponible puis démarrez Windows normalement.
-- Retrouvez-vous les fichiers dans le dossier **Documents** du dernier utilisateur ? Pouvez-vous lancer IE11 ? Le lecteur Windows Media ? Pourquoi ?
-
-### Solution
-
-Une solution est proposée pour ce TP sous la forme d’un PDF commenté, disponible dans les ressources à télécharger.
-
-Référence du document : 1FbEMAW3ph860rbm4N_VaVZNaoAZ4-S6J · SHA-256 3e8c5e4191fdf59a…
-
-## Correction · Solution du TP - Maintenance du syst確e · 4 pages transcrites
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-### Maintenance du système — proposition de solution
-
-TP du Module 10 — La maintenance du système.
-
-#### Sur Win10-XX
-
-Affichez et analysez les problèmes majeurs survenus sur votre système :
-
-- depuis le démarrage de votre VM et de manière synthétique ;
-- de manière détaillée sur le dernier évènement critique. Au cas où aucun évènement critique n’est survenu depuis le début du module, procédez à un arrêt brutal de votre VM WorkStation : **PowerOFF**.
-
-**Rechercher > Afficher l’historique de fiabilité**.
-
-L’indice de fiabilité a chuté le jour où des échecs divers sont survenus, symbolisés par la croix blanche dans le cercle rouge, puis est remonté petit à petit les jours suivants.
-
-Double clic sur l’évènement critique.
-
-![Historique de fiabilité et évènement critique du scénario](../../assets/course-sources/isolated/bd2a59f5163dd712/g3-p1-1.webp)
-
-Capture du support — Historique de fiabilité et évènement critique du scénario.
-
-### Analyse en temps réel
-
-- Lancez plusieurs tâches : copiez un gros fichier disponible sur le partage **[CHEMIN A INDIQUER]**, démarrez les applications console PowerShell, Gestionnaire des tâches, Edge…
-- Avec les outils adaptés et en temps réel, recherchez les processus qui consomment le plus de performances sur les quatre composants principaux.
-- Remplissez le tableau suivant ; indiquez les ressources utilisées lors du traitement des différentes tâches en cours.
-
-À l’aide du Gestionnaire de tâches et du Moniteur de ressources, vous pouvez lire, trier les informations puis les indiquer dans le tableau. Il n’existe pas de correction typique ici puisque les informations varient en fonction des ressources matérielles et de l’utilisation de la bande passante.
-
-| Ressources | Observations |
-| --- | --- |
-| Processeurs | À relever sur la machine. |
-| Mémoire | À relever sur la machine. |
-| Réseau | À relever sur la machine. |
-| Disque dur | À relever sur la machine. |
-
-### Sauvegarde de l’état du système et des données — préparation
-
-1. Vérifiez la configuration de la Protection du système.
-2. Vérifiez les points de restauration disponibles.
-3. Créez si nécessaire un point de restauration manuel.
-4. Créez des fichiers dans le répertoire **Documents** de l’utilisateur en cours d’utilisation.
-
-![Détails de l’évènement critique illustré dans la correction](../../assets/course-sources/isolated/bd2a59f5163dd712/g3-p2-2.webp)
-
-Capture du support — Détails de l’évènement critique illustré dans la correction.
-
-### Protection du système et fonctionnalités
-
-Désactivez ou désinstallez des fonctionnalités Windows de votre système : Lecteur Windows Media, IE11.
-
-1. **Rechercher > sysdm.cpl**.
-2. Onglet **Protection du système**.
-
-Par défaut, la protection du système n’est activée sur aucun volume. Il n’y a donc aucun point de restauration disponible.
-
-Pour créer un point de restauration manuel :
-
-1. Sélectionnez **Disque local (C:) (Système)**.
-2. **Configurer…**.
-3. Cocher **Activer la protection du système**.
-4. Déplacer le curseur vers la gauche pour obtenir environ **5 %** d’espace disque dédié au stockage des points de restauration système.
-5. **Appliquer > OK**. La protection du système est maintenant activée sur le volume qui héberge le système.
-6. **Créer…**.
-7. Donner un nom au point de restauration : **Atelier13**.
-
-Dans le dossier Documents de l’utilisateur en cours, créer quelques fichiers, dossiers, documents facilement identifiables, par exemple **Rep-Atelier13**, **FicAtelier13.txt**…
-
-Le Lecteur Windows Media et Internet Explorer 11 sont des fonctionnalités Windows. Pour les désinstaller :
-
-1. **Paramètres Windows > Gérer les fonctionnalités facultatives**.
-2. Cliquer sur **Internet Explorer 11**, puis **Désinstaller**.
-3. Cliquer sur **Lecteur Windows Media**, puis **Désinstaller**.
-
-Il est ensuite possible de les réinstaller en cliquant sur **Ajouter une fonctionnalité**.
-
-Pour simplement désactiver ces fonctionnalités, passer par **Panneau de configuration > Programmes > Activer ou désactiver des fonctionnalités Windows**.
-
-- À l’aide de WinRE, restaurez l’état du système grâce au dernier point de restauration disponible puis démarrez Windows normalement.
-- Retrouvez-vous les fichiers dans le dossier Documents du dernier utilisateur ? Pouvez-vous lancer IE11 ? Le Lecteur Windows Media ? Pourquoi ?
-
-### Restauration avec WinRE
-
-1. Clic droit sur le menu **Démarrer > Arrêter ou se déconnecter**. Maintenir **Shift**, puis cliquer sur **Redémarrer**.
-2. Des informations apparaissent à l’écran et concernent la désinstallation ou la désactivation des fonctionnalités Windows IE11 et Lecteur Windows Media.
-3. Le système d’exploitation de secours WinRE démarre ; il est indépendant du système Windows.
-4. **Dépannage > Options avancées > Restauration du système**.
-5. Choisissez un compte administrateur pour continuer puis indiquez son mot de passe.
-6. L’assistant Restauration du système se lance : **Suivant**.
-7. Sélectionnez votre point de restauration : **Terminer > Oui**.
-8. Attendez quelques secondes puis cliquez sur **Redémarrer**.
-
-Un message d’information indique que la restauration du système s’est correctement exécutée.
-
-- Nous retrouvons nos fonctionnalités Windows IE11 et le Lecteur Windows Media ; cela est logique puisque nous les avions désinstallées ou désactivées après avoir créé le point de restauration.
-- Nous retrouvons nos fichiers dans le dossier Documents de l’utilisateur alors que nous avons effectué le point de restauration avant leur création. Cela prouve que le point de restauration n’affecte pas les données utilisateurs.
-
-Référence du document : 17DbApRmh1wq_4eA4BQBQ9lD4rP3X0Fit · SHA-256 bd2a59f5163dd712…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
-| Correction · Solution du TP - Maintenance du syst確e · 4 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |

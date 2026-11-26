@@ -1,5 +1,7 @@
 # Module 05 — DNS résolveur
 
+[Travaux pratiques](../../tp/services-reseau-linux/module-05/index.md)
+
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
@@ -11,12 +13,10 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 5. Le DNS résolveur
 6. Mise en place serveur
 7. DNS résolveur
-8. Énoncé · M05 - Enonc‚ du TP1 - Configurer un serveur DNS resolveur · 2 pages transcrites
-9. Configurer un serveur DNS résolveur
-10. Énoncé
-11. Correction · M05 - Solution du TP1 - Configurer un serveur DNS resolveur · 2 pages transcrites
-12. Configurer un serveur DNS résolveur
-13. Solution
+8. Configurer un serveur DNS résolveur
+9. Énoncé
+10. Configurer un serveur DNS résolveur
+11. Solution
 
 **Visuel externe**
 
@@ -29,10 +29,8 @@ flowchart TD
     N5["Le DNS résolveur"]
     N6["Mise en place serveur"]
     N7["DNS résolveur"]
-    N8["Énoncé · M05 - Enonc‚ du TP1 - Configurer un serveur DNS resolveur · 2 pages transcrites"]
     N9["Configurer un serveur DNS résolveur"]
     N10["Énoncé"]
-    N11["Correction · M05 - Solution du TP1 - Configurer un serveur DNS resolveur · 2 pages tran…"]
     N12["Configurer un serveur DNS résolveur"]
     N1 --> N2
     N2 --> N3
@@ -40,11 +38,9 @@ flowchart TD
     N4 --> N5
     N5 --> N6
     N6 --> N7
-    N7 --> N8
-    N8 --> N9
+    N7 --> N9
     N9 --> N10
-    N10 --> N11
-    N11 --> N12
+    N10 --> N12
 ```
 
 SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
@@ -357,172 +353,3 @@ options {
 - Fichier /etc/bind/named.conf.local sera vu dans la seconde partie sur le DNS
 
 Référence du document : 1FH2JveLw64dsNm5dgFXqMSiz7DAdCg9P · SHA-256 e323a04269a38662…
-
-## Énoncé · M05 - Enonc‚ du TP1 - Configurer un serveur DNS resolveur · 2 pages transcrites
-
-Le nom du fichier Drive présente une anomalie historique d’encodage. Son nom est conservé ; le titre interne est transcrit dans le document. Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.
-
-## Configurer un serveur DNS résolveur
-
-### TP 01 du Module 05 – DNS résolveur
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-1 heure
-
-## Énoncé
-
-### Objectifs
-
-- Intégrer un service DNS résolveur dans une infrastructure réseau existante.
-- Faire des tests de résolution DNS.
-
-### Prérequis
-
-- Les ateliers précédents doivent être fonctionnels
-
-### Notes
-
-- Pour toutes les configurations réseau, vous remplacerez num_stag par un chiffre entre 1 et 30, par exemple 10.
-
-### Etape 1 - Installation et configurer le service DNS Bind9 sur DEB-S2
-
-- Installer le service Bind9.
-- Depuis les options de configuration du service, désactiver DNSSEC et autoriser les requêtes provenant des réseaux LAN Clients et LAN Serveurs.
-- Redémarrer le service pour prendre en compte les modifications apportées.
-
-### Etape 2 - Modification de la configuration cliente DNS des postes
-
-- Installer le paquet dnsutils sur le poste Cli-db-10.
-- Modifier la configuration cliente DNS de la machine Cli-db-10 afin qu’il interroge DEB- S2.
-- Modifier la configuration cliente DNS des serveurs DEB-S1, DEB-S2 et RouTux afin qu’ils interrogent DEB-S2.
-
-### Etape 3 - Test de résolution depuis le client
-
-- Depuis votre machine physique, tester la résolution de l’hôte www.isc.org et yahoo.fr.
-
-Ces tests ont-ils abouti ? Quelles sont les adresses IP des hôtes requêtés ?
-
-- Depuis le poste Cli-db-10, réitérer les tests de résolution effectués précédemment :
-
-www.isc.org
-
-www.yahoo.fr
-
-### D’après vous, quel mécanisme votre serveur utilise-t-il actuellement pour résoudre les noms d’hôtes publics ?
-
-### Etape 4 - Configuration de Bind9 pour faire appel aux services de redirecteur
-
-- Sur DEB-S2, modifier la configuration du service Bind9 afin qu’il fasse appel au redirecteur FAI (ou l’adresse IP d’un forwarder extérieur) pour résoudre les noms d’hôte publics.
-- Refaire les tests de résolution précédents.
-
-Référence du document : 1kfMjKNds6yO0dYORj33pnaXthVCdKnzz · SHA-256 56291e922b65c321…
-
-## Correction · M05 - Solution du TP1 - Configurer un serveur DNS resolveur · 2 pages transcrites
-
-Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.
-
-Correction originale : à consulter après avoir tenté l’exercice.
-
-## Configurer un serveur DNS résolveur
-
-### TP 01 du Module 05 – DNS résolveur
-
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir réalisé les TP proposés.
-
-Durée estimée
-
-1 heure
-
-## Solution
-
-### Etape 1 - Installation et configurer le service DNS Bind9 sur DEB-S2
-
-- Installer le service Bind9 :
-
-```
-# apt install bind9
-```
-
-```
-Configuration dans /etc/bind/named.conf.local
-
- dnssec-validation no ;
- allow-recursion {
-                 172.18.X.0/24;
-                 192.168.X.0/24;
- };
-```
-
-Test et reload de la configuration
-
-```
- # named-checkconf
-```
-
-```
- # rndc reload
-```
-
-### Etape 2 - Modification de la configuration cliente DNS des postes
-
-- Installer le paquet dnsutils sur le poste Cli-db-10 :
-
-```
-# apt install dnsutils
-```
-
-Sur deb-s1 et les autres :
-
-```
- # vi /etc/resolv.conf
-```
-
-```
- nameserver 192.168.X.12
-```
-
-### Etape 3 - Test de résolution depuis le client
-
-D’après vous, quel mécanisme votre serveur utilise-t-il actuellement pour résoudre les noms d’hôtes publics ?
-
-Les Serveurs racines via configuration par défaut
-
-Fichier /usr/share/dns/root.hints chargé dans named.conf.default-zones
-
-Pour tester, il est possible d’utiliser soit :
-
-- la commande ping
-- la commande dig
-
-A tester :
-
-www.isc.org
-
-www.yahoo.fr
-
-### Etape 4 - Configuration de Bind9 pour faire appel aux services de redirecteur
-
-```
-Rajouter le ou les forwarders :
-
-# vi  /etc/bind/named.conf.options
- forwarders {
-                 66.55.44.33;
- };
-```
-
-Tester et relancer : # named-checkconf # rndc reload # rndc flush => pour vider le cache serveur
-
-Référence du document : 1ctD0FWwFAWraAtkhNLLyRctR3gZuILaS · SHA-256 530e0fdccc58a38c…
-
-## Fiche de synthèse
-
-Les lignes reprennent les titres du cours et la première phrase de chaque partie.
-
-| Partie | Repère du cours |
-| --- | --- |
-| Énoncé · M05 - Enonc‚ du TP1 - Configurer un serveur DNS resolveur · 2 pages transcrites | Le nom du fichier Drive présente une anomalie historique d’encodage. |
-| Correction · M05 - Solution du TP1 - Configurer un serveur DNS resolveur · 2 pages transcrites | Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. |

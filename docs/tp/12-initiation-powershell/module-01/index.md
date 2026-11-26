@@ -10,5 +10,6 @@ Vérifier les consoles disponibles, le rôle des VM et l’accès au dépôt d�
 
 - [Énoncé complet](tp-01-premieres-commandes.md)
 - [Correction et contrôles](correction-tp-01.md)
+- [Démonstrations](demonstrations.md)
 - [Cours du module](../../../modules/12-initiation-powershell/module-01.md)
 - [Révision](../../../revision/12-initiation-powershell/module-01.md)
