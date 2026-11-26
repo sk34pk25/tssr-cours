@@ -126,7 +126,7 @@ flowchart LR
 
 ### Considérations
 
-### générales
+générales
 
 ## Les identifiants
 
@@ -248,9 +248,11 @@ nomgroupe:passechiffré:administrateurs:membres,du,groupe
 
 ### Commandes de gestion
 
-### des groupes
+des groupes
 
-## groupadd
+```
+groupadd
+```
 
 ```
 • groupadd <options> [nom du groupe]
@@ -258,7 +260,9 @@ nomgroupe:passechiffré:administrateurs:membres,du,groupe
 
 - Option usuelle : -g [GID] : valeur numérique de l’identifiant du groupe. Cette valeur doit être unique. Par défaut, le plus petit identifiant supérieur au GID_MIN et aux identifiants des groupes existants est utilisé.
 
-## groupmod
+```
+groupmod
+```
 
 ```
 • groupmod <options> [nom du groupe]
@@ -268,7 +272,9 @@ nomgroupe:passechiffré:administrateurs:membres,du,groupe
 - -g [GID] : change le GID d’un groupe. Attention aux orphelins des fichiers créés préalablement
 - -n [nouveau nom] : change le nom du groupe
 
-## groupdel
+```
+groupdel
+```
 
 ```
 • groupdel <options> [nom du groupe]
@@ -276,7 +282,9 @@ nomgroupe:passechiffré:administrateurs:membres,du,groupe
 
 - Cette commande permet de supprimer un groupe s’il est vidé de tous ses membres avant
 
-## gpasswd
+```
+gpasswd
+```
 
 **Visuel externe**
 
@@ -421,9 +429,11 @@ sement:périodeinectivité:datefinvalidité:champréservé
 
 ### Commandes de gestion
 
-### des utilisateurs
+des utilisateurs
 
-## useradd
+```
+useradd
+```
 
 ```
 useradd <options> [utilisateur]
@@ -434,14 +444,18 @@ useradd <options> [utilisateur]
 - -d [/chemin/rep/accueil] : répertoire d’accueil de l’utilisateur. Si non indiqué, useradd utilisera le nom de l’utilisateur et la valeur de la variable HOME du fichier /etc/default/useradd.
 - -u [UID] : indique l’UID de l’utilisateur. Si non renseigné, useradd utilisera le plus petit UID disponible.
 
-## useradd
+```
+useradd
+```
 
 - -g [GID] : indique le GID du groupe principal de l’utilisateur.
 - -G [groupe1,groupe2,groupen] : indique la liste des groupes secondaires de l’utilisateur séparés par des « , ».
 - -s : indique le shell de l’utilisateur sous la forme du chemin absolu du binaire.
 - -r : indique la création d’un utilisateur système. Lors de la création d’un utilisateur, si l’option –m est passée à useradd, alors useradd copiera le contenu du répertoire /etc/skel dans le répertoire d’accueil de l’utilisateur.
 
-## usermod
+```
+usermod
+```
 
 ```
 • usermod <options> [utilisateur]
@@ -451,12 +465,16 @@ useradd <options> [utilisateur]
 - -d [/home/DIR] : indique le nouveau répertoire d’accueil de l’utilisateur. Si l’option –m est fournie, le contenu du répertoire actuel sera déplacé dans le nouveau répertoire d’accueil
 - -e [DATE FIN VALIDITE] : date à laquelle le compte utilisateur sera désactivé. La date est indiquée dans le format AAAA-MM- JJ ou en nombre de jours depuis le 1er janvier 1970. Un paramètre DATE_FIN_VALIDITÉ vide désactivera l'expiration du compte.
 
-## usermod
+```
+usermod
+```
 
 - -f [DUREE INACTIVITE] : nombre de jours suivant la fin de validité d’un mot de passe après lequel le compte est définitivement désactivé. Une valeur de 0 désactive le compte dès que le mot de passe a dépassé sa fin de validité, et une valeur de -1 désactive cette fonctionnalité.
 - -g [GID] : nom du nouveau groupe principal de l’utilisateur. Tout fichier du répertoire personnel de l'utilisateur appartenant au groupe principal précédent de l'utilisateur appartiendra à ce nouveau groupe. Le groupe propriétaire des fichiers en dehors du répertoire personnel de l'utilisateur doit être modifié manuellement.
 
-## usermod
+```
+usermod
+```
 
 ```
 • usermod <options> [utilisateur]
@@ -466,7 +484,9 @@ useradd <options> [utilisateur]
 - -G [groupe1,groupe2,groupen] : liste des groupes secondaires de l’utilisateur. Si l’utilisateur appartient déjà à des groupes secondaires, il est peut-être utile d’ajouter l’option -a afin de ne pas perdre ces appartenances. Le groupe propriétaire des fichiers en dehors du répertoire personnel de l'utilisateur doit être modifié manuellement.
 - -a : ajouter les groupes supplémentaires à l’utilisateur. À n’utiliser qu’avec l’option -G.
 
-## usermod
+```
+usermod
+```
 
 ```
 • usermod <options> [utilisateur]
@@ -477,7 +497,9 @@ useradd <options> [utilisateur]
 - -L : verrouille le mot de passe de l’utilisateur. Cette option ajoute un « ! » devant le hash du mot de passe dans /etc/shadow. Remarque : pour verrouiller le compte (et pas seulement l'accès par un mot de passe), il est également nécessaire de placer DATE_FIN_VALIDITÉ à 1.
 - -U : déverrouille le mot de passe de l’utilisateur.
 
-## userdel
+```
+userdel
+```
 
 ```
 • userdel <options> [nom du groupe]
@@ -487,7 +509,9 @@ useradd <options> [utilisateur]
 - Option usuelle :
 - -r : les fichiers présents dans le répertoire d’accueil de l’utilisateur seront également supprimés. Les fichiers de l’utilisateur présents dans d’autres répertoires ne seront pas supprimés.
 
-## passwd
+```
+passwd
+```
 
 ```
 • passwd <options> [utilisateur]
@@ -555,7 +579,7 @@ Démo
 
 ## Gestion des utilisateurs et groupes
 
-### TP
+TP
 
 Démo
 

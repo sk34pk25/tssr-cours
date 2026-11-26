@@ -109,17 +109,17 @@ La feuille WAN contient deux lignes d’exemple. Les feuilles LANCLT, LANSRV et 
 | Exemple: 1 | Pass | TCP | Any | | Wan IP | 80, 443 | |
 | Exemple: 2 | Block | Any | Any | | Wan IP | | |
 
-### LANCLT
+LANCLT
 
 | Numéro de la règle | Action | Protocole | IP sources/masque | Port origine | IP destination/masque | Port destination | Justification |
 |---|---|---|---|---|---|---|---|
 
-### LANSRV
+LANSRV
 
 | Numéro de la règle | Action | Protocole | IP sources/masque | Port origine | IP destination/masque | Port destination | Justification |
 |---|---|---|---|---|---|---|---|
 
-### LAVDMZ
+LAVDMZ
 
 | Numéro de la règle | Action | Protocole | IP sources/masque | Port origine | IP destination/masque | Port destination | Justification |
 |---|---|---|---|---|---|---|---|

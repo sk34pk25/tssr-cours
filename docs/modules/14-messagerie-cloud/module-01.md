@@ -428,17 +428,17 @@ Licences et écosystème Microsoft 365 Les éléments de base de Microsoft 365
 
 ### Education
 
-### PME
+PME
 
 ### Famille
 
-### A1
+A1
 
 ### Entreprise E3
 
 ### Business Basic
 
-### F3
+F3
 
 ### Business Basic Pour les associations
 
@@ -446,7 +446,7 @@ Licences et écosystème Microsoft 365 Les éléments de base de Microsoft 365
 
 ### Personnel
 
-### A3
+A3
 
 ### Entreprise E5
 
@@ -458,7 +458,7 @@ Licences et écosystème Microsoft 365 Les éléments de base de Microsoft 365
 
 ### Famille et étudiant
 
-### A5
+A5
 
 ### Apps for Enterprise
 
@@ -496,7 +496,7 @@ Licences et écosystème Microsoft 365 Les éléments de base de Microsoft 365
 
 ### Licences et écosystème Microsoft 365
 
-### TP
+TP
 
 ### Démo
 
@@ -514,9 +514,9 @@ Les offres Cloud – modèle SPI Adapter une réponse à des contraintes
 
 ### Message du premier
 
-### e-mail QWERTYUIOP
+e-mail QWERTYUIOP
 
-### tomlinson@bbn-tenexa
+tomlinson@bbn-tenexa
 
 ### Historique de la messagerie
 
@@ -727,7 +727,7 @@ Accès au message par le client
 
 domaine-labo.example. IN MX relais.domaine-labo.example domaine-labo.example. IN A 192.0.2.25
 
-### MTA, MSA et
+MTA, MSA et
 
 ### MTA et MSA serveur SMTP
 
@@ -771,7 +771,7 @@ Soumission du message au système de messagerie
 
 domaine-labo.example. IN MX relais.domaine-labo.example domaine-labo.example. IN A 192.0.2.25
 
-### MTA, MSA et
+MTA, MSA et
 
 ### MTA et MSA serveur SMTP
 
@@ -809,7 +809,7 @@ domaine-labo.example. IN MX relais.domaine-labo.example domaine-labo.example. IN
 
 ### 192.0.2.25 213.186.33.20
 
-### MTA, MSA et
+MTA, MSA et
 
 ### MTA et MSA serveur SMTP
 
@@ -854,7 +854,7 @@ domaine-labo.example. IN MX relais.domaine-labo.example domaine-labo.example. IN
 
 ### 192.0.2.25 213.186.33.20
 
-### MTA, MSA et
+MTA, MSA et
 
 ### MTA et MSA serveur SMTP
 
@@ -894,7 +894,7 @@ domaine-labo.example. IN MX relais.domaine-labo.example domaine-labo.example. IN
 
 ### 192.0.2.25 213.186.33.20
 
-### MTA, MSA et
+MTA, MSA et
 
 ### MTA et MSA serveur SMTP
 
@@ -941,11 +941,11 @@ Contrôles du relais en DMZ
 
 domaine-labo.example. IN MX relais.domaine-labo.example domaine-labo.example. IN A 192.0.2.25
 
-### LDAP 389
+LDAP 389
 
 ### 192.0.2.25 213.186.33.20
 
-### MTA, MSA et
+MTA, MSA et
 
 ### MTA et MSA serveur SMTP
 
@@ -983,11 +983,11 @@ Zone crêpes.pdl Crêpes.pdl IN SPF "v=spf1 ipv4:213.186.33.20/27 –all" Crêpe
 
 domaine-labo.example. IN MX relais.domaine-labo.example domaine-labo.example. IN A 192.0.2.25
 
-### LDAP 389
+LDAP 389
 
 ### 192.0.2.25 213.186.33.20
 
-### MTA, MSA et
+MTA, MSA et
 
 ### MTA et MSA serveur SMTP
 
@@ -1032,19 +1032,21 @@ Consultation du message remis
 
 ### 1 2
 
-### Fournissez une
+Fournissez une
 
 ### Sélectionnez
 
-### adresse mail
+adresse mail
 
-### un plan
+un plan
 
-### valide
+```
+valide
+```
 
 ### Sélectionnez
 
-### 3
+3
 
 ### Essai gratuit
 
@@ -1113,9 +1115,9 @@ Consultation du message remis
 
 ### 9. Testez la bonne configuration de votre domaine
 
-### 6
+6
 
-### TP
+TP
 
 ### Démo
 

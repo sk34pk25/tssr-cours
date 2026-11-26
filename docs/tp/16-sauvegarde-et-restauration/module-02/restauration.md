@@ -33,6 +33,6 @@ Durée estimée
 
 o Vous lancerez de nouveau l’exécution d’une sauvegarde complète à la fin de la
 
-## modification du job
+modification du job
 
 [Correction inexistante](corrections-restauration.md)

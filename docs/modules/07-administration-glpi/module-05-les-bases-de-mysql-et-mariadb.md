@@ -478,7 +478,7 @@ mysql>SELECT AVG(age) FROM clients;
 - Jointure interne
 - Condition vraie dans les 2 tables
 
-#### A B
+A B
 
 #### La jointure représente l’intersection de A et B
 

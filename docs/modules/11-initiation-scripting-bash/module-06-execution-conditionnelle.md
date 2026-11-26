@@ -87,7 +87,7 @@ flowchart LR
 
 ## Contextes outils et structures
 
-## de conditionnement
+de conditionnement
 
 ### Contextes outils et structures de conditionnement
 

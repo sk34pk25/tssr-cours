@@ -55,7 +55,7 @@ organisation avec comme texte : « je suis actuellement en congés. Je serais de
   - À partir du message de retour de la réponse automatique.
   - Contenant des mots spécifiques dans le corps du message « réponse
 
-#### automatique »
+automatique »
 
   - Le déplacer dans le dossier « réponse congés »
   - L’assigner à la catégorie verte nommée « réponse auto »
@@ -63,7 +63,7 @@ organisation avec comme texte : « je suis actuellement en congés. Je serais de
   - Exécuter cette règle sur les messages déjà présents dans Boîte de réception
   - Afin de tester votre règle, vérifiez que le mail reçu de réponse automatique a
 
-#### bien vu cette règle s’appliquer et envoyez -vous un mail avec réponse
+bien vu cette règle s’appliquer et envoyez -vous un mail avec réponse
 
 automatique dans le corps de votre message.
 

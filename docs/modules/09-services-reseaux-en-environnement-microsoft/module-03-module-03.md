@@ -99,11 +99,11 @@ Par défaut toutes les 90min à plus ou moins 30min près.
 
 #### Application d’une stratégie
 
-#### Commande gpdupate sur le
+Commande gpdupate sur le
 
 #### Passage en mode manuel
 
-#### poste visé par les
+poste visé par les
 
 !!! note "À retenir"
     Les extensions côté client (CSE) sont les composants du poste client qui : Récupèrent les stratégies mises à disposition par le contrôleur de domaine.
@@ -197,7 +197,7 @@ Priorités et héritage
 
 #### Un objet peut être soumis à plusieurs
 
-#### distincts, la résultante est le cumul de ces
+distincts, la résultante est le cumul de ces
 
 stratégies
 
@@ -211,9 +211,9 @@ paramètres
 
 #### La dernière stratégie appliquée l’emporte
 
-#### distinctes d’un même paramètre à un même
+distinctes d’un même paramètre à un même
 
-#### objet existent, c’est l’ordre d’application qui
+objet existent, c’est l’ordre d’application qui
 
 #### La plus proche de l’objet
 
@@ -370,7 +370,7 @@ Créer un dossier pour chaque utilisateur sous le chemin d’accès racine.
 - La stratégie existante ou nouvelle à utiliser.
 - Le type d’objet ciblé par le déploiement
 
-#### TP
+TP
 
 #### Conclusion
 

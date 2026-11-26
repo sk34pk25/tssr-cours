@@ -281,9 +281,11 @@ Gestion du fichier sources.list
 
 ## Gestion des paquets logiciels
 
-### Gestion courante des
+Gestion courante des
 
-### paquets
+```
+paquets
+```
 
 ## Gestion courante des paquets
 
@@ -426,9 +428,11 @@ Gestion des dépôts et paquets
 
 ## Gestion des paquets logiciels
 
-### Installation à partir des
+Installation à partir des
 
-### sources
+```
+sources
+```
 
 ## La méthode d’installation
 
@@ -470,7 +474,7 @@ root@deb:/opt/sources/application# make install
 
 ## Gestion des paquets logiciels
 
-### TP
+TP
 
 Démo
 

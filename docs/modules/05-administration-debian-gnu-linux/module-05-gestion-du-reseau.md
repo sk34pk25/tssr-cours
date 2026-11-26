@@ -190,7 +190,9 @@ Informations réseau
 
 ### Système sans interface
 
-### graphique
+```
+graphique
+```
 
 ## Configuration IP en DHCP
 
@@ -336,7 +338,7 @@ Gestion du réseau au sein d’un bureau Gnome
 
 ## Gestion du réseau
 
-### TP
+TP
 
 Démo
 

@@ -11,7 +11,7 @@
 
 #### TP du Module 05 — Exploiter Teams, SharePoint et OneDrive dans un
 
-#### contexte collaboratif
+contexte collaboratif
 
 Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir réalisé les TP proposés.
 
@@ -42,7 +42,7 @@ Avoir installé Office 365.
   - Envoyez-le avec le message : « voici la recette que tu m’avais demandée ».
   - Ouvrez le fichier avec votre application de bureau Word et modifiez -le en
 
-#### ajoutant la ligne : « Attention, je ne parle pas de l’arbre. »
+ajoutant la ligne : « Attention, je ne parle pas de l’arbre. »
 
 - Fermez le fichier puis affichez l’activité sur votre fichier.
 - Rouvrez-le et restaurez à la version précédente.

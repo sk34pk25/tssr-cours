@@ -83,9 +83,11 @@ flowchart LR
 
 ## Page 2
 
-## Enchaînement de
+Enchaînement de
 
-## commandes
+```
+commandes
+```
 
 ### Enchaînement de commandes
 
@@ -217,7 +219,7 @@ Enchaînement conditionnel et inconditionnel de commandes
 
 ## Regroupements
 
-## de commandes
+de commandes
 
 ## Page 7
 
@@ -291,7 +293,7 @@ $ { cmd1 ; cmd2 ; cmd3 ; }
 
 ## Utiliser les couleurs
 
-## dans le Shell
+dans le Shell
 
 ## Page 9
 

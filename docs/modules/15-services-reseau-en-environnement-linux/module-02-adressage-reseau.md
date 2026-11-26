@@ -86,9 +86,11 @@ Module 02 - Adressage réseau
 
 ## Nommage des cartes
 
-## réseau et outils de
+réseau et outils de
 
-## configuration
+```
+configuration
+```
 
 ### Nommage des cartes réseaux et outils de configuration
 

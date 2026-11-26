@@ -274,7 +274,7 @@ root@deb:~# vgextend vggroup1 /dev/sdd
 
 /dev/sdc1 /dev/sdd PV PV
 
-### vggroup1 vggroup1
+vggroup1 vggroup1
 
 Transcription du croquis : vgextend ajoute le PV /dev/sdd au groupe vggroup1 déjà constitué.
 
@@ -438,7 +438,7 @@ Afficher les informations LVM
 
 ## Gestion des espaces de stockage avancée - LVM
 
-### TP
+TP
 
 Démo
 

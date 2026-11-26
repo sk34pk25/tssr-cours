@@ -73,7 +73,7 @@
 <ul><li>La stratégie globale de sécurité de mots de passe comportera ces contraintes :</li><li>12 caractères au minimum</li><li>Changement obligatoire tous les 25 jours</li><li>Exigences de complexité activées</li><li>Pour plus de sûreté, vous ajouterez un autre compte d’administrateur du système en ligne de commande « cmd » et lui indiquerez un mot de passe.</li></ul>
 
 <ul><li>Les membres du service informatique doivent à l’aide de leur compte pouvoir</li></ul>
-<h4>se connecter sur le système et bénéficier des privilèges d’administrateurs.</h4>
+<p class="tssr-source-paragraph">se connecter sur le système et bénéficier des privilèges d’administrateurs.</p>
 <h4>✓ Sur les postes Windows 10 &amp; Debian 10</h4>
 <ul><li>Le changement de mot de passe du compte utilisateur de votre prestataire devra être forcé à sa première connexion.</li></ul>
 <h3>2.2 Configuration de l’environnement de travail</h3>
@@ -91,7 +91,7 @@
 <ul><li>Via l’outil en ligne de commande DISKPART, sur le deuxième disque dur, vous utiliserez le format de table de partition MBR. Vous créerez sur celui-ci une partition nommée DATA, accessible par la lettre D: d’une taille de 15 Go.</li></ul>
 <h3>✓ Sur le poste Debian 10</h3>
 <ul><li>Trois partitions principales seront créées sur le deuxième disque dur :</li><li>La 1re, en ext4, occupera un espace de 15 Go et se nommera PROFILS</li><li>La 2e, formatée en ext4, fera 15 Go et s’appellera DATA</li><li>La 3e, formatée en xfs (le système de fichiers n’est pas installé par défaut),</li></ul>
-<h4>occupera tout l’espace restant et se nommera LOGS</h4>
+<p class="tssr-source-paragraph">occupera tout l’espace restant et se nommera LOGS</p>
 <h4>3.2 Occupation des espaces disques</h4>
 <h4>✓ Sur le poste Debian 10</h4>
 <h4>N.B : il est fortement conseillé de réaliser un snapshot machine éteinte machine éteinte.</h4>
@@ -114,18 +114,18 @@
 
 <h3>3.4 Gestion d’imprimantes</h3>
 <ul><li>Une imprimante HP LaserJet M9050 MFP est à installer sur le système Windows. Elle doit être partagée sur le réseau afin de la rendre disponible pour d’autres postes. Vous utiliserez les pilotes fournis ici : \\10.0.0.6\Distrib\Drivers\Imprimante\upd-pcl6-x64- 7.0.0.24832.exe</li><li>Son adresse IP fictive sera constituée de la manière suivante :</li></ul>
-<h4>o Les deux premiers octets seront les mêmes que ceux de W10-VosInitiales</h4>
-<h4>o Le troisième octet sera 10101000</h4>
-<h4>o Le dernier octet sera le même que celui de W10-VosInitiales</h4>
+<p class="tssr-source-paragraph">o Les deux premiers octets seront les mêmes que ceux de W10-VosInitiales</p>
+<p class="tssr-source-paragraph">o Le troisième octet sera 10101000</p>
+<p class="tssr-source-paragraph">o Le dernier octet sera le même que celui de W10-VosInitiales</p>
 <ul><li>Les permissions d’utilisation de cette dernière sont les suivantes :</li><li>Tous les utilisateurs peuvent imprimer</li><li>Le service Comptabilité peut supprimer des impressions bloquées en cas de problèmes</li></ul>
 
 <ul><li>Le service informatique possède le contrôle total</li><li>Après l'avoir connectée, votre binôme la déclare comme imprimante par défaut sur son poste Windows 10.</li><li>Pour l’édition de documents comptables volumineux (bilan de fin d’exercice, état des provisions...), un pool d’imprimantes devra être mis en œuvre, autorisant l’impression sur 2 périphériques d’impression physiques Xerox Office Color \\10.0.0.6\Distrib\Drivers\Imprimante\XCC70_5.523.0.0_PrintSetup.exe ):</li><li>Les adresses IP fictives seront constituées de la manière suivante :</li></ul>
-<h4>o Les deux premiers octets seront les mêmes que ceux de DEB10-VosInitiales</h4>
-<h4>o Les troisièmes octets seront 10101000 et 10101001</h4>
-<h4>o Les derniers octets seront les mêmes que celui de DEB10-VosInitiales</h4>
+<p class="tssr-source-paragraph">o Les deux premiers octets seront les mêmes que ceux de DEB10-VosInitiales</p>
+<p class="tssr-source-paragraph">o Les troisièmes octets seront 10101000 et 10101001</p>
+<p class="tssr-source-paragraph">o Les derniers octets seront les mêmes que celui de DEB10-VosInitiales</p>
 <ul><li>Vous tiendrez compte des caractéristiques suivantes :</li><li>Seul le service Comptabilité est habilité à utiliser ces périphériques et uniquement entre 19h00 et 3h00</li></ul>
 
-<h3>o Les administrateurs (service informatique) possèdent le contrôle total.</h3>
+<p class="tssr-source-paragraph">o Les administrateurs (service informatique) possèdent le contrôle total.</p>
 <ul><li>Créer 2 files d’attente pour la Xerox Office Color. Les directeurs auront la priorité sur les autres groupes.</li></ul>
 <h4>• Déplacer le spool d’impression sur D : (au lieu de C:\windows).</h4>
 </section>
@@ -168,7 +168,7 @@
 
 <h4>Montage de /opt depuis le volume logique créé précédemment :</h4>
 <ul><li>Le volume logique créé précédemment est à formater en ext4. Il doit être</li></ul>
-<h4>accessible depuis /opt et ce de façon permanente.</h4>
+<p class="tssr-source-paragraph">accessible depuis /opt et ce de façon permanente.</p>
 <ul><li>Vous trouverez un fichier Excel (Résultats_séminaire.xlsx) comprenant les notes des employés aux derniers séminaires. Veuillez l’ouvrir et compléter :</li></ul>
 
 <ul><li>La colonne à l’aide d’une formule “Total par élève”</li><li>La colonne à l’aide d’une formule “Moyenne par élève”</li><li>La colonne “APPRECIATION” à l’aide d’une condition</li><li>La ligne “Total par matière” est une somme des notes des employés dans une matière</li></ul>
@@ -179,7 +179,7 @@
 
 <ul><li>La ligne “note minimum” indique la note la plus faible des employés dans une matière</li></ul>
 
-<h3>o La ligne “nombre d’élèves” indique le nombre d’élèves</h3>
+<p class="tssr-source-paragraph">o La ligne “nombre d’élèves” indique le nombre d’élèves</p>
 <ul><li>Pour calculer l'appréciation selon la condition suivante :</li><li>Si la moyenne et l'assiduité &gt;10 afficher Bien</li><li>Si la moyenne &lt;=10 et l'assiduité &gt;=10 afficher En Progrès</li><li>Si la moyenne &gt;=10 et l'assiduité &lt;10 afficher Trop d'absences</li><li>Si la moyenne et l'assiduité &lt;10 afficher En danger !</li></ul>
 </section>
 <!-- SOURCE-CONTENT:END -->

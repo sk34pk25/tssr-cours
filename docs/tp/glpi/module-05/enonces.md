@@ -58,13 +58,13 @@ Vous gérez GLPI dans le domaine de la société Olympus. Votre DSI vous demande
 
 - Indice : utiliser une fonction d’agrégation.
 
-### BONUS
+BONUS
 
 - Affichez le(s) nom(s) de la catégorie de ticket et le nom du gabarit de ticket qui est utilisé pour une demande dans les catégories de ticket.
 
 - Indice : utiliser une jointure interne.
 
-### BONUS
+BONUS
 
 - Comptez-les en affichant le nom du gabarit utilisé et le nombre avec comme en-tête « nombre de catégories qui utilise un gabarit de demande ».
 

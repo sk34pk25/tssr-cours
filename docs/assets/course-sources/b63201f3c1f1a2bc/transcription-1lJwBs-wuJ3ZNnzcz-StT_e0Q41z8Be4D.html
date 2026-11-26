@@ -34,12 +34,12 @@
 <p>vCenter et le contexte</p>
 <p>de datacenter</p>
 <p>vCenter et le contexte de datacenter</p>
-<h4>vCenter et le datacenter</h4>
+<p class="tssr-source-paragraph">vCenter et le datacenter</p>
 <ul><li>L’ajout d’un vCenter à une infrastructure va permettre :</li><li>De créer un datacenter et de lui affecter des hôtes afin de les regrouper au sein d’une même entité de gestion</li><li>De disposer d’objets (réseau et stockage) uniques et utilisables sur tous les hôtes du datacenter</li><li>D’utiliser les fonctionnalités de déplacement de VM à chaud (vMotion)</li><li>De créer un contexte de cluster (non abordé ici) et de bénéficier des fonctionnalités de haute disponibilité associées</li><li>vCenter est un élément indispensable à la mise en œuvre et au fonctionnement d’un ensemble de services</li><li>Il est recommandé qu’il soit installé sur une machine virtuelle hautement disponible de l’infrastructure</li></ul>
 </section>
 <section class="tssr-transcribed-page" id="page-5">
 <p>vCenter et le contexte de datacenter</p>
-<h4>vCenter Serveur VS VCSA</h4>
+<p class="tssr-source-paragraph">vCenter Serveur VS VCSA</p>
 <ul><li>vCenter est un outil de la suite vSphere soumis à licence.</li><li>Deux types d’implémentations sont possibles :</li><li>Utiliser l’appliance VCSA fournie par VMware</li><li>Installer l’outil sur un OS serveur Microsoft en 64 bits</li></ul>
 <table><thead><tr><th scope="col"></th><th scope="col">VCSA</th><th scope="col">vCenter Serveur</th></tr></thead><tbody><tr><td>Nb d’hôtes maximum</td><td>5 ESXi</td><td>1000 ESXi</td></tr><tr><td>Nb VM maximum</td><td>50 VM</td><td>10 000 VM</td></tr><tr><td>Avantages</td><td>Simplicité de mise en œuvre</td><td>Capacité de prise en charge supérieures</td></tr><tr><td>Inconvénients</td><td>Limites de prise en charge</td><td>Mise en œuvre plus complexe et coûteuse</td></tr></tbody></table>
 <p>vCenter et le contexte de datacenter</p>
@@ -72,13 +72,13 @@
 <p>VM</p>
 <p>Modèle</p>
 <p>Modèle</p>
-<h4>+</h4>
+<p class="tssr-source-paragraph">+</p>
 <p>Clone to template</p>
 <p>VM</p>
 <p>VM</p>
 <ul><li>Le clonage conserve l’élément original</li></ul>
-<h4>et le duplique en modèle ou VM</h4>
-<h4>+</h4>
+<p class="tssr-source-paragraph">et le duplique en modèle ou VM</p>
+<p class="tssr-source-paragraph">+</p>
 <p>Deploy VM from this template</p>
 <p>VM</p>
 <p>Modèle</p>
@@ -154,8 +154,8 @@
 <h4>Les actions de migration</h4>
 <p>Les actions de migration accessibles sur les VM d’un datacenter utilisent :</p>
 <ul><li>vMotion pour permettre le</li></ul>
-<h4>déplacement à chaud d’une</h4>
-<h4>machine virtuelle d’un hôte vers</h4>
+<p class="tssr-source-paragraph">déplacement à chaud d’une</p>
+<p class="tssr-source-paragraph">machine virtuelle d’un hôte vers</p>
 <p>un autre hôte</p>
 <p>vMotion</p>
 <p>Hôte</p>
@@ -169,7 +169,7 @@
 <p>Hôte</p>
 <p>Configuration</p>
 <ul><li>Storage vMotion pour permettre le déplacement à chaud du</li></ul>
-<h4>stockage d’une VM d’un datastore</h4>
+<p class="tssr-source-paragraph">stockage d’une VM d’un datastore</p>
 <p>vers un autre datastore</p>
 <p>RAM</p>
 <p>Stockage</p>
@@ -180,7 +180,7 @@
 </section>
 <section class="tssr-transcribed-page" id="page-13">
 <p>Déplacement de machines virtuelles</p>
-<h4>vMotion / Storage vMotion – Mise en œuvre</h4>
+<p class="tssr-source-paragraph">vMotion / Storage vMotion – Mise en œuvre</p>
 <p>Prérequis de mise en œuvre :</p>
 <ul><li>La fonctionnalité vMotion doit être active sur au moins un vSwitch de l’hôte source et de destination</li><li>L’adressage des hôtes sources et destination utilisée par la fonctionnalité doit être du même domaine de diffusion</li><li>L’emplacement de stockage des VM à déplacer doit être accessible aux 2 hôtes</li></ul>
 <p>Déplacement :</p>

@@ -275,9 +275,9 @@ iSCSI Target
 
 #### (présentés
 
-#### ultérieurement) ont une
+ultérieurement) ont une
 
-#### approche similaire.
+approche similaire.
 
 !!! note "À retenir"
     Gestion du stockage vSphere et le stockage vSphere et le stockage
@@ -403,7 +403,7 @@ Si les équipements de réseau utilisés pour les flux iSCSI le permettent (pris
 
 Les adaptateurs de stockage
 
-#### iSCSI en environnement vSphere
+iSCSI en environnement vSphere
 
 iSCSI Initiator
 
@@ -417,7 +417,7 @@ ESXi
 
 HBA logiciel
 
-#### +
++
 
 Carte réseau
 
@@ -439,15 +439,15 @@ Storage Area Network : le réseau de stockage qui est caractérisé par son (ses
 
 Logical Unit Number : unité de stockage d’une baie de disques
 
-#### HBA
+HBA
 
 Host Bus Adapter : adaptateur de stockage qui (une fois configuré) permettra l’accès à un ou plusieurs espaces disques
 
-#### iSCSI Target
+iSCSI Target
 
 L’élément qui met à disposition de l’espace disque physique
 
-#### iSCSI Initiator
+iSCSI Initiator
 
 L’élément qui accède à de l’espace disque mis à sa disposition
 

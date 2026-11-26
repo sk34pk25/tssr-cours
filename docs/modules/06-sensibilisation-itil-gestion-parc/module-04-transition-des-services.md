@@ -28,9 +28,9 @@ Texte, tableaux et illustrations utiles retranscrits du support ; numéros de di
 
 ### Page 1
 
-#### Sensibilisation ITIL et
+Sensibilisation ITIL et
 
-#### gestion de parc
+gestion de parc
 
 Module 04 – Transition des services
 

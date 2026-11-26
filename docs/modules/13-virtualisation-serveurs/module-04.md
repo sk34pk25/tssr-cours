@@ -43,7 +43,7 @@ Découverte d’Hyper-V
 - Versions : Hyper-V v2 (W2008 R2), Hyper-V v3 (W8, W2012)
 - Pour les serveurs, rôle intégré à installer avec le
 
-#### gestionnaire de serveur
+gestionnaire de serveur
 
 !!! note "À retenir"
     Pour le client Windows 8, fonctionnalité intégrée à activer Processeur 64 bits Intel VT-x ou AMD-V (attention aux réglages BIOS / UEFI) CPU, RAM et espace disque adaptés
@@ -148,7 +148,7 @@ Découverte d’Hyper-V
 - Définition des réseaux virtuels
 - Avec l’outil gestionnaire de
 
-#### réseau virtuel (volet de droite de
+réseau virtuel (volet de droite de
 
 !!! note "À retenir"
     la console) Non définis par défaut, à créer selon les besoins Un seul réseau externe est possible par carte réseau hôte (Hyper-V « s’approprie » la carte réseau physique) Création des machines virtuelles Avec l’assistant Nouveau >

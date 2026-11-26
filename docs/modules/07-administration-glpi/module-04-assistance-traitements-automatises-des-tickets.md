@@ -84,13 +84,13 @@ flowchart LR
 - Il peut être de type « incident » ou « demande »
 - Il doit compter un minimum d’informations
 
-#### Répartition des
+Répartition des
 
-#### Traçabilité Détection des
+Traçabilité Détection des
 
-#### tâches Communication
+tâches Communication
 
-#### problèmes
+problèmes
 
 #### Utilisation d’un outil de gestion de ticket
 
@@ -338,7 +338,7 @@ Visuel isolé — Module 04 - Support de cours
 - Logiciel => Bureautique
 - Logiciel => Infographiste Créer les catégories de ticket
 
-#### lier aux catégories suivant le type
+lier aux catégories suivant le type
 
 - Personnalisation de l’interface
 - Champs obligatoires
@@ -353,7 +353,7 @@ Visuel isolé — Module 04 - Support de cours
 - Critère (type (incident, demande), catégorie de ticket)
 - Action (affectation technicien, SLA, priorité…) Créer les règles métier
 
-#### pour les tickets
+pour les tickets
 
 ```
 Assistance – Traitements automatisés des tickets

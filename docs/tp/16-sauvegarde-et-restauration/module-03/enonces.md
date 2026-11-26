@@ -2,7 +2,7 @@
 
 ## Sauvegarde et restauration
 
-## VEEAM
+VEEAM
 
 ## TP du Module 03 – Gestion du stockage
 

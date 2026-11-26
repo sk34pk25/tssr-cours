@@ -189,7 +189,7 @@ flowchart LR
 
 #### Démonstration
 
-#### TP
+TP
 
 #### Le DHCP et les réseaux
 
@@ -210,7 +210,7 @@ Client
 
 #### Le service DHCP et les réseaux
 
-#### TP
+TP
 
 #### La gestion du DHCP
 
@@ -295,7 +295,7 @@ Les modifications pouvant être apportées après création ne sont pas répliqu
 
 #### Disponibilité du service DHCP
 
-#### TP
+TP
 
 #### Conclusion
 

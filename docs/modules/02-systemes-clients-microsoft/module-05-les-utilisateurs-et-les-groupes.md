@@ -417,7 +417,7 @@ Illustration isolée du support — Module 05 - Support de cours
 
 ## Démonstration
 
-## TP
+TP
 
 ## Conclusion
 
@@ -485,11 +485,7 @@ Référence du document : 1xPtrQx5oKA-CNDqmsl8HKcDMVemUE5n-XXwvyJYUpqU · SHA-25
 
 ## Notes du Drive · module 5 et 6.txt · document texte
 
-Notes textuelles présentes dans le Drive. Aucun support de cours illustré distinct n’est fourni pour ce document ; aucune illustration n’a été inventée ou attribuée au support.
-
-## Inexistant
-
-Le fichier de notes est vide dans le Drive. Aucun contenu n’a été inventé.
+Inexistant — fichier de notes vide dans le Drive.
 
 Référence du document : 1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7 · SHA-256 e3b0c44298fc1c14…
 
@@ -519,6 +515,5 @@ Référence du document : 1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7 · SHA-256 e3b0c4429
 | 2. Gestion des Groupes et Autorisations | Les groupes permettent de simplifier l’attribution des droits et privilèges. |
 | 3. Contrôle de Compte d’Utilisateur (UAC) et Administration | L’UAC (User Account Control) empêche les modifications système non autorisées en imposant une confirmation ou une saisie de mot de passe administrateur (élévation de privilèges… |
 | Cmdlets PowerShell de gestion des utilisateurs locaux | Référence du document : 1xPtrQx5oKA-CNDqmsl8HKcDMVemUE5n-XXwvyJYUpqU · SHA-256 e6bea2f53019f56d… |
-| Notes du Drive · module 5 et 6.txt · document texte | Notes textuelles présentes dans le Drive. |
-| Inexistant | Le fichier de notes est vide dans le Drive. |
+| Notes du Drive · module 5 et 6.txt · document texte | Inexistant — fichier de notes vide dans le Drive. |
 | Proposition de solution | À l'aide de la console de gestion des utilisateurs de la VM Win10-XX, créez les objets avec les paramètres suivant : François possèdera un mot de passe qui n'aura pas de date d'… |

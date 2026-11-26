@@ -123,7 +123,7 @@ de datacenter
 
 vCenter et le contexte de datacenter
 
-#### vCenter et le datacenter
+vCenter et le datacenter
 
 - L’ajout d’un vCenter à une infrastructure va permettre :
 - De créer un datacenter et de lui affecter des hôtes afin de les regrouper au sein d’une même entité de gestion
@@ -135,7 +135,7 @@ vCenter et le contexte de datacenter
 
 vCenter et le contexte de datacenter
 
-#### vCenter Serveur VS VCSA
+vCenter Serveur VS VCSA
 
 !!! note "À retenir"
     vCenter est un outil de la suite vSphere soumis à licence.
@@ -255,7 +255,7 @@ Modèle
 
 Modèle
 
-#### +
++
 
 !!! note "À retenir"
     Clone to template VM VM Le clonage conserve l’élément original
@@ -268,9 +268,9 @@ VM
 
 - Le clonage conserve l’élément original
 
-#### et le duplique en modèle ou VM
+et le duplique en modèle ou VM
 
-#### +
++
 
 !!! note "À retenir"
     Deploy VM from this template VM Modèle Modèle Les modèles de machines virtuelles
@@ -430,9 +430,9 @@ Les actions de migration accessibles sur les VM d’un datacenter utilisent :
 
 - vMotion pour permettre le
 
-#### déplacement à chaud d’une
+déplacement à chaud d’une
 
-#### machine virtuelle d’un hôte vers
+machine virtuelle d’un hôte vers
 
 un autre hôte
 
@@ -460,7 +460,7 @@ Configuration
 
 - Storage vMotion pour permettre le déplacement à chaud du
 
-#### stockage d’une VM d’un datastore
+stockage d’une VM d’un datastore
 
 vers un autre datastore
 
@@ -478,7 +478,7 @@ Disque
 
 Déplacement de machines virtuelles
 
-#### vMotion / Storage vMotion – Mise en œuvre
+vMotion / Storage vMotion – Mise en œuvre
 
 Prérequis de mise en œuvre :
 

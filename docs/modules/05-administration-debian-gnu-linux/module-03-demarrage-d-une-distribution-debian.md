@@ -119,7 +119,7 @@ Démarrer Debian Linux
 
 ### Démarrage de Linux,
 
-### services et niveaux
+services et niveaux
 
 ## Chargeur d’amorçage (Boot Loader – BL)
 
@@ -266,7 +266,7 @@ BIOS, Grub et grub.cfg
 
 ### Gestion du système
 
-### avec SystemD
+avec SystemD
 
 ## Le gestionnaire système : SystemD
 
@@ -489,9 +489,9 @@ La commande systemctl
 
 ## Démarrage d’une distribution Debian
 
-### Arrêter / redémarrer le
+Arrêter / redémarrer le
 
-### système
+système
 
 ## La commande shutdown
 

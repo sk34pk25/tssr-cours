@@ -284,11 +284,11 @@ Internet
 
 #### Le routeur et la traduction d'adresses
 
-#### TP
+TP
 
 #### Le réseau global
 
-#### TP
+TP
 
 #### Conclusion
 

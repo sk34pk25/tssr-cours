@@ -34,33 +34,33 @@ Avant de se lancer bille en tête dans le TP, il est intéressant d’analyser l
 - Application des styles sur l’ensemble du document
 1) Relever l’ensemble des styles
 
-#### a. Titre 1
+a. Titre 1
 
-#### b. Titre 2
+b. Titre 2
 
-#### c. Titre 3
+c. Titre 3
 
-#### d. Titre 4
+d. Titre 4
 
-#### e. P0_Paragraphe
+e. P0_Paragraphe
 
-#### f. T1-Paragraphe
+f. T1-Paragraphe
 
-#### g. T2-Paragraphe
+g. T2-Paragraphe
 
-#### h. T3-Paragraphe
+h. T3-Paragraphe
 
-#### i. T2-Puces
+i. T2-Puces
 
-#### j. T2-SousPuces
+j. T2-SousPuces
 
-#### k. T3-Puces
+k. T3-Puces
 
-#### l. T3-SousPuces
+l. T3-SousPuces
 
-#### m. T4-Puces
+m. T4-Puces
 
-#### n. T4-SousPuces
+n. T4-SousPuces
 
 #### Création des styles
 
@@ -68,13 +68,13 @@ Avant de se lancer bille en tête dans le TP, il est intéressant d’analyser l
 
 Si certains styles n’apparaissent pas (comme Titre1, Titre2…), cliquez sur la flèche en bas à
 
-#### droite de la capture :
+droite de la capture :
 
 Les titres apparaissent maintenant dans la galerie de styles.
 
 Vous pouvez également nettoyer les styles existants afin de clarifier la mise en forme du
 
-#### document :
+document :
 
 Créez l’ensemble des styles listés précédemment (il n’est pas nécessaire d’assigner polices et autres paramétrages à ce moment).
 
@@ -106,7 +106,7 @@ Taille : ❑ 14 pts - Gras.
 
 Suite à l’application de ce style sur une première ligne de texte, clic droit sur le numéro dans le texte puis Ajuster les retraits de la liste , puis configurez l’ensemble des retraits et
 
-#### numérotations pour les titres suivants :
+numérotations pour les titres suivants :
 
 #### Configuration des autres styles
 
@@ -200,9 +200,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 6 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 0,75 cm
 
@@ -224,9 +224,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 4 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 2 cm
 
@@ -248,9 +248,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 0 point après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 1,75 cm
 
@@ -272,9 +272,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 4 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 1,25cm
 
@@ -300,9 +300,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 4 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 1,75cm
 
@@ -328,9 +328,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 4 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 1,75cm
 
@@ -356,9 +356,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 4 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 2,25cm
 
@@ -384,9 +384,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 2 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 2 cm
 
@@ -412,9 +412,9 @@ Taille : ❑ 13 pts - Gras.
 
 #### ❑ 2 points après
 
-#### ❑ Ajouter de l’espacement entre les
+❑ Ajouter de l’espacement entre les
 
-#### paragraphes de même style
+paragraphes de même style
 
 #### Aligner : ❑ Retrait gauche 3,25cm
 
@@ -432,7 +432,7 @@ Sélectionnez le texte, cliquer sur Insertion / Tableau / Insérer un tableau
 
 Positionnez-vous sur la première page du document puis insérez un saut de section après la
 
-#### table des matières :
+table des matières :
 
 #### Ajouter un filigrane :
 
@@ -442,7 +442,9 @@ Positionnez-vous sur la première page du document puis insérez un saut de sect
 
 Placez-vous à la fin d’un chapitre et cliquez sur Mise en Page / Sauts de page / Page
 
-#### suivante
+```
+suivante
+```
 
 Double cliquez dans la zone de l’en-tête et désélectionnez la case Lier au précédent puis modifiez le texte. Répétez l’opération pour tous les chapitres.
 
@@ -905,7 +907,7 @@ plaque de la mer de banda
 
 plaque de la mer Égée
 
-## plaque de la mer des Moluques :
+plaque de la mer des Moluques :
 
 plaque Halmahera
 

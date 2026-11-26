@@ -96,7 +96,9 @@ Il est important de bien appréhender les mécanismes régissant les variables.
 
 ### Les variables dans les scripts
 
-### rappel
+```
+rappel
+```
 
 ### Fonctionnement d’une variable
 
@@ -235,7 +237,7 @@ $ ./monscript.sh  valun valdeux valtrois
 
 ## Modification du contenu d’une
 
-## variable d’environnement
+variable d’environnement
 
 ## Page 7
 

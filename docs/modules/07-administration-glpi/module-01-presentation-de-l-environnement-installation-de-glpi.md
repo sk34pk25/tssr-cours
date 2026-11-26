@@ -63,11 +63,11 @@ flowchart LR
 
 #### 192.168.1.254 DHCP
 
-#### PFSENSE
+PFSENSE
 
-#### VMNET 18
+VMNET 18
 
-#### srv-glpi srv-CD01
+srv-glpi srv-CD01
 
 #### 192.168.1.1 192.168.1.2
 
@@ -307,7 +307,9 @@ Visuel isolé — Module 01 - Support de cours
 
 #### 127.0.0.1
 
-#### root
+```
+root
+```
 
 #### Mot de passe de root mariadb
 

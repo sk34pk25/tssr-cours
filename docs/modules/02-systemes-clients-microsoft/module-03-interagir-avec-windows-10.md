@@ -179,7 +179,7 @@ Le support annonce une démonstration de l’interface graphique.
 
 Capture du support — Module 03 - Support de cours
 
-## TP
+TP
 
 ### Tour d’horizon — la CLI
 
@@ -357,7 +357,7 @@ Get-ChildItem -Path C:\users
 
 Découvrir PowerShell.
 
-## TP
+TP
 
 Premiers pas avec PowerShell.
 
@@ -654,7 +654,9 @@ Au cours de cet atelier, nous allons également nous familiariser avec les conso
 
 Pour commencer à utiliser la console MMC, nous allons suivre les étapes suivantes :
 
-### mmc.exe
+```
+mmc.exe
+```
 
 Cette commande va lancer la console MMC, qui nous donnera accès à une interface où nous pourrons ajouter des outils et configurer différentes options.
 
@@ -692,7 +694,7 @@ Une commande a pour but de donner un ordre au système d'exploitation, qui utili
 
 ### Exemples de commandes
 
-### echo Hello World
+echo Hello World
 
 Dans cet exemple, nous utilisons la commande echo pour afficher "Hello World" à l'écran.
 
@@ -740,7 +742,9 @@ notepad
 
 De plus, nous avons la possibilité de lancer un élément du panneau de configuration en utilisant la commande suivante :
 
-### timedate.cpl
+```
+timedate.cpl
+```
 
 Cela nous permet d'accéder à la gestion de l'heure et de la date de notre système.
 
@@ -822,11 +826,11 @@ Il est aussi important de prendre en compte la rétrocompatibilité lorsque nous
 
 Nous allons également explorer les commandlets, qui sont les commandes que nous utilisons dans PowerShell. Ces commandlets ont une structure intuitive, composée d'un verbe et d'un nom, séparés par un tiret. Les verbes courants incluent GET, SET, REMOVE, ADD et NEW. Par exemple, si nous souhaitons afficher la liste des alias PowerShell, nous pouvons utiliser la commande suivante :
 
-### GET ALIAS
+GET ALIAS
 
 De même, pour découvrir les verbes utilisables, nous tapons :
 
-### GET VERB
+GET VERB
 
 Chaque commandlet est conçu pour exécuter une tâche spécifique et il est important de noter qu'elles ne sont pas sensibles à la casse.
 
@@ -962,7 +966,9 @@ Help
 
 Il est également possible d'utiliser l'alias de la commande Unix, man, pour afficher l'aide :
 
-### man
+```
+man
+```
 
 Si nous souhaitons obtenir des informations sur une commande spécifique, comme Disable-LocalUser, nous tapons :
 
@@ -972,7 +978,7 @@ Get-Help Disable-LocalUser
 
 Si nous ne savons pas ce qu'est une variable, nous pouvons demander plus d'informations avec :
 
-### man about_Variable
+man about_Variable
 
 Toutes les sections d'aide qui commencent par about_ offrent des explications sur diverses notions de PowerShell.
 
@@ -1158,7 +1164,7 @@ let get-commande new-étoile user étoile
 
 Pour modifier un objet, il est essentiel de comprendre la structure des commandes let. Par exemple, pour corriger la description d'un ballon de basket, nous pourrions utiliser :
 
-### let set-mon-ballon -name "basket" -description "ballon de basket"
+let set-mon-ballon -name "basket" -description "ballon de basket"
 
 Pour ajouter un nouveau ballon à notre collection :
 
@@ -1166,7 +1172,7 @@ let new-mon-ballon -name "rugby" -forme "ovale" -couleur "blanc" -description "b
 
 Enfin, pour retirer un ballon de notre collection, la commande appropriée serait :
 
-### let remove-mon-ballon -name "football"
+let remove-mon-ballon -name "football"
 
 En conclusion, interagir avec des objets PowerShell nécessite de suivre une méthode: identifier la commande appropriée grâce à get-commande, explorer les propriétés, modifier si nécessaire, et toujours consulter l'aide pour nous guider.
 

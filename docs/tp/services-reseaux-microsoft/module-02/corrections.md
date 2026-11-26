@@ -240,7 +240,7 @@ Les deux autres partages suivent la même logique Le partage Production :
 
 2°) Gestion des accès NTFS et partages réseau des dossiers
 
-### a-Création des partages avec autorisation en CT pour le groupe Utilisateurs
+a-Création des partages avec autorisation en CT pour le groupe Utilisateurs
 
 authentifiés Pour cela :
 
@@ -254,7 +254,7 @@ Faire exactement les mêmes manipulations dans l’onglet Partage sur chacun des
 
 Ajouter un partage Public qui donnera accès aux données se trouvant sur D:\ sur le serveur membre W19-SRV1. Ce partage sera accessible à tous en lecture. Il faudra respecter le même schéma que celui vu précédemment : Création de 4 groupes de domaine local et placement des bons groupes globaux.
 
-### b-Application des règles d’accès NTFS
+b-Application des règles d’accès NTFS
 
 ### La procédure qui suit vaut pour la ressource Production
 

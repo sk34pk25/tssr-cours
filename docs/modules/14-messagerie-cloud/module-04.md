@@ -177,13 +177,13 @@ flowchart LR
 
 - Gestion des installations par l’utilisateur
 
-### Dans les options de
+Dans les options de
 
-### chaque utilisateur
+chaque utilisateur
 
 ### Dans Paramètres/services
 
-### et compléments
+et compléments
 
 Déploiement du Pack Office Installation d’Office 365 ProPlus avec sources locales
 

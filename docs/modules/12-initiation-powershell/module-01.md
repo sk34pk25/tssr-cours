@@ -424,7 +424,7 @@ PS > New-Item –Path $Profile –Type File -Force
 
 ### Découverte de PowerShell
 
-### TP
+TP
 
 ![Capture du support « Module 01 - Support de cours »](../../assets/course-sources/isolated/648c293e26027e17/ps-p11-i1-1.webp)
 

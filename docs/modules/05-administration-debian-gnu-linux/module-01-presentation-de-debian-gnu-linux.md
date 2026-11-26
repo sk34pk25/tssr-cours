@@ -204,7 +204,7 @@ flowchart LR
 
 ### Branches et versions
 
-### de Debian
+de Debian
 
 ## Les versions de Debian GNU/Linux
 

@@ -17,7 +17,7 @@ Durée estimée
 
 Pour des questions de ressources supprimer les serveurs existants et installer un nouveau
 
-## serveur SRV-FIC2
+serveur SRV-FIC2
 
 Système d’exploitation Windows 2019 serveur
 
@@ -57,7 +57,7 @@ Sur le même principe que pour le mirroring, ajouter 5 disques durs
     - o A vous de remplacer le disque manquant et de reconstruire le RAID 5
 Bonus : Sur SRV-FIC2 via le gestionnaire serveur et non plus le gestionnaire de disque,
 
-## refaire les deux étapes précédentes
+refaire les deux étapes précédentes
 
 - Depuis le Gestionnaire de disque
     - o Initialiser les disques

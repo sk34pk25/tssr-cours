@@ -285,7 +285,7 @@ Restore-MsolUser -UserPrincipalName "jpetit@example.com"
 
 ### 50 Go + 50 Go d’archivage
 
-### illimité
+illimité
 
 ### Idem Business
 
@@ -293,7 +293,7 @@ Restore-MsolUser -UserPrincipalName "jpetit@example.com"
 
 ### Premium
 
-### Moins de sécurité que
+Moins de sécurité que
 
 ### Ensemble des fonctionnalités
 
@@ -303,7 +303,9 @@ Restore-MsolUser -UserPrincipalName "jpetit@example.com"
 
 ### Business Premium
 
-### inclus
+```
+inclus
+```
 
 Coût 3,40 € /m 6,70 € /m 4,20 € /m 10,50 € /m 16,90 € /m 31,50 € /m 53,70 € /m
 
@@ -379,7 +381,7 @@ Fonctions du centre d’administration Exchange
 
 ### Les différents types de destinataires
 
-### lucie@domaine-labo-4.example
+lucie@domaine-labo-4.example
 
 Boîtes aux lettres Utilisateur • Envoi / Réception de mails • Attribution de stratégies • Gestion des restrictions • Gestion des redirections • Délégations
 
@@ -755,7 +757,7 @@ Protocole Port non sécurisé Port TLS/SSL HTTP 80 443 POP3 110 995 IMAP4 143 99
 
 ### Cible : autodiscover.outlook.com
 
-### CNAME
+CNAME
 
 ### Connectivité des clients de messagerie
 
@@ -772,7 +774,9 @@ Protocole Port non sécurisé Port TLS/SSL HTTP 80 443 POP3 110 995 IMAP4 143 99
 
 ### Internet
 
-### web.xml
+```
+web.xml
+```
 
 ### Micheline@domaine-labo-1.example MAPI/HTTPS
 
@@ -1104,7 +1108,7 @@ Règles de synchronisation
 
 ### Start-ADSyncSyncCycle -PolicyType Delta
 
-### RBAC
+RBAC
 
 #### Commandes de synchronisation affichées
 
@@ -1113,7 +1117,7 @@ Start-ADSyncSyncCycle -PolicyType Initial
 Start-ADSyncSyncCycle -PolicyType Delta
 ```
 
-### RBAC
+RBAC
 
 ### Délégation de privilèges
 
@@ -1149,17 +1153,17 @@ Start-ADSyncSyncCycle -PolicyType Delta
 
 ### Ajouter des membres à un rôle
 
-### remove- MsolRoleMember
+remove- MsolRoleMember
 
 ### Supprimer des membres à un rôle
 
-### RBAC
+RBAC
 
 ### Délégation de privilèges
 
 - Chaque rôle possède une liste d’actions
 
-### RBAC
+RBAC
 
 ### Rôles personnalisés
 

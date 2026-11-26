@@ -29,7 +29,7 @@ Adressage IP des VM :
 
 - 192.168.1.0/24 + DHCP salle
 
-### .254
+.254
 
 ### Réseau de salle
 
@@ -37,11 +37,11 @@ Adressage IP des VM :
 
 ### 192.168.1.0/24
 
-### PFSENSE
+PFSENSE
 
-### VMNET 18
+VMNET 18
 
-### srv-glpi srv-CD1
+srv-glpi srv-CD1
 
 ### .1 .2
 
@@ -105,7 +105,7 @@ installés avec les utilitaires usuels du système.
 
 - Depuis srv-Cd01, vous devez pouvoir résoudre ftp.fr.debian.org (pensez au
 
-### DNS)
+DNS)
 
 - Depuis srv-glpi, ping vers ftp.fr.debian.org.
 

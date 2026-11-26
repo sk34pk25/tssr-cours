@@ -138,11 +138,11 @@ Trois mécanismes de boucles sont utilisables en Shell :
 - `until`
 - `for`
 
-## expr : calcul arithmétique
+expr : calcul arithmétique
 
 ## Page 3
 
-### expr : calcul arithmétique
+expr : calcul arithmétique
 
 !!! note "À retenir"
     Syntaxe Les arguments passés à la commande peuvent être des entiers ou des variables (contenant des entiers).
@@ -334,7 +334,7 @@ Done
 done
 ```
 
-### la boucle until
+la boucle until
 
 Démo
 
@@ -545,13 +545,13 @@ while read nom prenom suite  ; do
 done < fichier.txt
 ```
 
-## while / read avec
+while / read avec
 
-## redirection d’entrée
+redirection d’entrée
 
 ## Page 12
 
-### while / read avec redirection d’entrée
+while / read avec redirection d’entrée
 
 - Pour utiliser le résultat de commandes comme flux d’entrée ou pour effectuer un traitement au fichier avant la boucle while read, on utilise la syntaxe suivante :
 
@@ -591,7 +591,7 @@ Cette méthode a l’avantage d’une meilleure lisibilité.
 
 ## - Pour aller plus loin - Utilisation read dans une
 
-## boucle while read
+boucle while read
 
 ## Page 13
 

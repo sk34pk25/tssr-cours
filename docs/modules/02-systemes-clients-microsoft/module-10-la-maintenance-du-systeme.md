@@ -217,7 +217,7 @@ Capture du support — Options avancées de WinRE.
 
 ### Démonstration
 
-### TP
+TP
 
 ### Conclusion
 

@@ -355,9 +355,9 @@ Exemple : Cart-impr-HP.
 
 #### Puis associer le modèle de cartouche
 
-#### être du même modèle d’imprimante
+être du même modèle d’imprimante
 
-#### à votre modèle
+à votre modèle
 
 que les cartouches.
 
@@ -469,9 +469,9 @@ Visuel isolé — Module 03 - Support de cours
 
 #### Étapes de création d'un Datacenter
 
-#### Créer un centre de
+Créer un centre de
 
-#### Créer le matériel avec
+Créer le matériel avec
 
 données.
 
@@ -479,7 +479,9 @@ données.
 
 #### Créer la baie dans votre salle serveur
 
-#### datacenter
+```
+datacenter
+```
 
 les images dans le modèle de matériel.
 
@@ -487,15 +489,15 @@ Exemple : Datacenter L.A.
 
 #### Puis indiquer la taille
 
-#### puis indiquer le nombre d’unités
+puis indiquer le nombre d’unités
 
-#### de l’emplacement
+de l’emplacement
 
 pour la baie.
 
 Exemple :
 
-#### 42 U
+42 U
 
 #### Exemple : 2 colonnes 2 lignes
 
@@ -503,7 +505,7 @@ Référence du document : 1Ci7GWLBZUihaVY53DsWJsEjUMhxR4-pS · SHA-256 a55480ff5
 
 ## Support · manuel Aruba 24 ports · 12 pages transcrites
 
-#### PRODUCT OVERVIEW
+PRODUCT OVERVIEW
 
 Designed for the digital workplace, the Aruba 2540 Switch Series is optimized for mobile users. With advanced security and network management tools—Aruba ClearPass Policy Manager and Aruba AirWave—this layer-2 access switch is easy to deploy and manage. With support from Aruba Central, you can quickly set up remote branch sites with little or no IT support. A powerful Aruba ProVision ASIC delivers performance, robust feature support, and value with flexible programmability for future applications. The Aruba 2540 Switch Series provides a convenient and cost-effective wired access solution that can be quickly set up with Zero Touch Provisioning. PoE+ models deliver power across all access ports for wireless APS, security cameras, and IoT devices. The 2540 has wire-speed backhaul bandwidth capacity with built-in 10 GbE uplinks, robust QoS, static and RIP routing, IPv6 and includes a limited lifetime warranty with no software licensing required.
 
@@ -517,7 +519,7 @@ Designed for the digital workplace, the Aruba 2540 Switch Series is optimized fo
 - HTTP redirect function supports HPE Intelligent Management Center (IMC) bring your own device (BYOD) solution.
 - Static IP Visibility allows ClearPass to do accounting for clients with static IP address
 
-#### KEY FEATURES
+KEY FEATURES
 
 - Aruba Layer 2 switch series with static and RIP routing, ACLs, and robust QoS
 - Advanced security and network management tools like Aruba ClearPass Policy Manager and Aruba Airwave
@@ -640,7 +642,7 @@ Designed for the digital workplace, the Aruba 2540 Switch Series is optimized fo
 - Limited Lifetime Warranty See www.hpe.com/networking/warrantysummary for warranty and support information included with your product purchase.
 - Software releases to find software for your product, refer to www.hpe.com/networking/support; for details on the software releases available with your product purchase, refer to www.hpe.com/networking/warrantysummary
 
-#### SPECIFICATIONS
+SPECIFICATIONS
 
 |  | Aruba 2540 24G 4SFP+ Switch (JL354A) | Aruba 2540 48G 4SFP+ Switch (JL355A) |
 | --- | --- | --- |
@@ -673,7 +675,7 @@ Designed for the digital workplace, the Aruba 2540 Switch Series is optimized fo
 | Idle power | 19.5 W | 32.7 W |
 | Notes | Idle power is the actual power consumption of the device with no ports connected. Maximum power rating and maximum heat dissipation are the worst-case theoretical maximum numbers provided for planning the infrastructure with fully loaded PoE (if equipped), 100% traffic, all ports plugged in, and all modules populated. | Idle power is the actual power consumption of the device with no ports connected. Maximum power rating and maximum heat dissipation are the worst-case theoretical maximum numbers provided for planning the infrastructure with fully loaded PoE (if equipped), 100% traffic, all ports plugged in, and all modules populated. |
 
-#### SPECIFICATIONS
+SPECIFICATIONS
 
 |  | Aruba 2540 24G 4SFP+ Switch (JL354A) | Aruba 2540 48G 4SFP+ Switch (JL355A) |
 | --- | --- | --- |
@@ -693,7 +695,7 @@ Designed for the digital workplace, the Aruba 2540 Switch Series is optimized fo
 | Management | Aruba AirWave Network Management; IMC - Intelligent Management Center; Command-line interface; Web browser; Configuration menu; SNMP Manager; Telnet; RMON1; FTP; Out-of-band management (serial RS-232C or micro USB) | Aruba AirWave Network Management; IMC - Intelligent Management Center; Command-line interface; Web browser; Configuration menu; SNMP Manager; Telnet; RMON1; FTP; Out-of-band management (serial RS-232C or micro USB) |
 | Services | Refer to the Hewlett Packard Enterprise website at www.hpe.com/networking/services for details on the service-level descriptions and product numbers. For details about services and response times in your area, please contact your local Hewlett Packard Enterprise sales office. | Refer to the Hewlett Packard Enterprise website at www.hpe.com/networking/services for details on the service-level descriptions and product numbers. For details about services and response times in your area, please contact your local Hewlett Packard Enterprise sales office. |
 
-#### SPECIFICATIONS
+SPECIFICATIONS
 
 |  | Aruba 2540 24G PoE+ 4SFP+ Switch (JL356A) | Aruba 2540 48G PoE+ 4SFP+ Switch (JL357A) |
 | --- | --- | --- |
@@ -726,7 +728,7 @@ Designed for the digital workplace, the Aruba 2540 Switch Series is optimized fo
 | Maximum power rating | 445 W | 459 W |
 | Idle power | 36.8 W | 48.6 W |
 
-#### SPECIFICATIONS
+SPECIFICATIONS
 
 |  | Aruba 2540 24G PoE+ 4SFP+ Switch (JL356A) | Aruba 2540 48G PoE+ 4SFP+ Switch (JL357A) |
 | --- | --- | --- |

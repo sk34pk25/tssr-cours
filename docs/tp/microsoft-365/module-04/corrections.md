@@ -50,7 +50,7 @@ organisation avec comme te xte : « Je suis actuellement en congés. Je serais d
   - À partir du message de retour de la réponse automatique.
   - Contenant des mots spécifiques dans le corps du message « réponse
 
-#### automatique »
+automatique »
 
   - Le déplacer dans le dossier « réponse congés »
   - L’assigner à la catégorie verte nommée « réponse auto »
@@ -104,7 +104,7 @@ Office 365”. Mettez-la en priorité haute avec le statut “en cours de réali
 
 en rendez-vous. Glissez le message vers le menu calendrier.
 
-#### BONUS
+BONUS
 
 - Envoyez-vous un sondage avec Forms :
 
@@ -148,7 +148,7 @@ C:\utilisateurs\votrenom\AppData\Local\Temp\Journalisation d’Outlook. Ouvrez l
 
 - Ouvrez Outlook en mode sans échec. Avez-vous toujours accès aux émojis lors d’envoi
 
-#### de mail ?
+de mail ?
 
 Faites un clic droit sur le bouton Windows puis Exécuter : « outlook.exe /safe » Choisissez le profil demandé. Faites un nouveau message et constatez que vous n’avez plus les émojis.
 
@@ -160,7 +160,7 @@ Dans « Nom du serveur », vous devriez lire votre MailboxId.
 
 - Refaites votre profil Outlook, retrouvez-vous tous vos mails, votre calendrier, vos tâches
 
-#### et les emojis à la création d’un mail ?
+et les emojis à la création d’un mail ?
 
 Outlook éteint, allez dans le panneau de configuration puis choisissez Mail ( Microsoft Outlook 2016). Cliquez sur Afficher les profils. Supprimez le profil puis appliquez.
 

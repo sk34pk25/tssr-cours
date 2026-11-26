@@ -209,15 +209,15 @@ Double Stack : Les appareils utilisent les deux protocoles simultanément. Tunne
 - Types d'Adresses IPv6
 - Les adresses IPv6 sont classées en trois catégories principales :
 
-### a) Adresses Unicast
+a) Adresses Unicast
 
 Utilisées pour identifier un unique appareil sur un réseau. Exemple : Adresse d'une machine spécifique.
 
-### b) Adresses Multicast
+b) Adresses Multicast
 
 Permettent d'envoyer des paquets à plusieurs appareils en une seule transmission. Remplacent en grande partie les diffusions (broadcast) de l'IPv4.
 
-### c) Adresses Anycast
+c) Adresses Anycast
 
 Permettent d'envoyer des paquets au nœud le plus proche parmi un groupe partageant la même adresse.
 
@@ -295,15 +295,15 @@ Structure générale :
 
 Exemples d’Adresses de Multidiffusion
 
-## FF02::1
+FF02::1
 
 Scope : Lien local. Description : Groupe contenant tous les nœuds d’un réseau local.
 
-## FF02::2
+FF02::2
 
 Scope : Lien local. Description : Groupe contenant tous les routeurs d’un réseau local.
 
-## FF02::1:2
+FF02::1:2
 
 Scope : Lien local.
 
@@ -315,11 +315,11 @@ Scope : Lien local.
 
 Multidiffusion DNS
 
-## FF05::1
+FF05::1
 
 Scope : Site local. Description : Tous les nœuds au sein d’un site spécifique.
 
-## FF0E::101
+FF0E::101
 
 Scope : Global. Description : Une multidiffusion spécifique au niveau mondial.
 
@@ -833,7 +833,7 @@ netstat -a
 
 ```
 
-## ---
+---
 
 ## 26. Quelle option netstat affiche les adresses et ports en format numérique sans résolution de noms ?
 
@@ -1070,7 +1070,7 @@ Les adresses globales IPv6 (GUA) appartiennent à **2000::/3**.
 
 ```
 
-## ---
+---
 
 ## 41. Dans la structure d’une adresse IPv6 GUA, quelle partie identifie généralement l’interface ?
 
@@ -1118,7 +1118,7 @@ Les adresses globales IPv6 (GUA) appartiennent à **2000::/3**.
 
 Le cours donne explicitement **FF02::fb** pour la multidiffusion DNS.
 
-## ---
+---
 
 ## 45. Quelle adresse multicast IPv6 est associée aux serveurs et relais DHCP du lien local ?
 
@@ -1131,7 +1131,7 @@ Le cours donne explicitement **FF02::fb** pour la multidiffusion DNS.
 
 Le cours cite **FF02::1:2** pour DHCPv6 sur le lien local.
 
-## ---
+---
 
 ## 46. Quelle commande Windows peut aider à confirmer qu’une machine a reçu une adresse APIPA ?
 
