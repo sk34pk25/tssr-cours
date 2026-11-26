@@ -22,6 +22,7 @@ Le module additionnel Workstation est un doublon du support déjà rattaché à 
 | M06 | Recherches et expressions régulières | [Cours](module-06-recherches-et-expressions-regulieres.md) |
 | M07 | Utilisation de Vi | [Cours](module-07-utilisation-de-vi.md) |
 | M08 | Mécanismes Linux et Bash avancé | [Cours](module-08-mecanismes-linux-et-bash-avance.md) |
+| Module additionnel | Doublon du module Workstation | [Module original](../02-systemes-clients-microsoft/module-additionnel-workstation.md) |
 
 ## Utiliser les deux versions du cours
 
