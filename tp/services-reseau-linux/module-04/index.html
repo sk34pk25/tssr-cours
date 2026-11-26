@@ -17041,45 +17041,6 @@
 
 
 <h1 id="tp-module-04-administration-a-distance">TP — Module 04 — Administration à distance<a class="headerlink" href="#tp-module-04-administration-a-distance" title="Permanent link">¶</a></h1>
-<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cours Original</label><label for="__tabbed_1_2">Cours Optimisé IA</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
-<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
-<details class="tssr-original-document" open="">
-<summary>Énoncé · M04 - Enonc‚ du TP1- Configuration du service ssh · 2 pages transcrites</summary>
-<div class="tssr-original-document__body">
-<p class="tssr-original-note">Le nom du fichier Drive présente une anomalie historique d’encodage. Son nom est conservé ; le titre interne est transcrit dans le document. Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.</p>
-
-<section class="tssr-transcribed-page" id="source-1Zs40kPBB9hVOO2m-tubv3SpuMGSrrMEa-page-1"><h2>Configuration du service SSH</h2><h3>TP 01 du Module 04 – Administration à distance</h3><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 4 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>1 heure</p><h2>Énoncé</h2><h3>Objectifs</h3><ul><li>Installer et configurer le service SSH</li></ul><h3>Prérequis</h3><ul><li>Les ateliers précédents doivent être fonctionnels</li></ul><h3>Notes</h3><ul><li>Pour toutes les configurations réseau, vous remplacerez num_stag par un chiffre entre 1 et 30, par exemple 10.</li></ul><h3>Etape 1 - Installation du serveur SSH sur TOUS les serveurs Debian</h3><ul><li>Configurer le fichier sources.list de tous vos serveurs afin qu’ils ne contiennent que les lignes suivantes :</li></ul><pre><code>deb http://ftp.fr.debian.org/debian/ buster main
-deb http://security.debian.org/debian-security buster/updates main
-deb http://ftp.fr.debian.org/debian/ buster-updates main</code></pre><ul><li>Mettre à jour le gestionnaire de dépendances</li><li>Vérifier l’état d’installation du paquet openssh-server, l’installer au besoin.</li></ul><h3>Etape 2 - Configuration du service SSH</h3><ul><li>Installer Terminator sur la machine Cli-db-10 ; vous utiliserez cette machine pour centraliser l’administration de vos serveurs GNU/Linux.</li></ul><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/2fb77fc967dabe2b/linux-net-figure-40.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/2fb77fc967dabe2b/linux-net-figure-40.webp" loading="lazy" alt="Poste Linux utilisé pour centraliser l’accès aux serveurs du laboratoire."></a><figcaption>Poste Linux utilisé pour centraliser l’accès aux serveurs du laboratoire.</figcaption></figure><ul><li>Configurer le service SSH pour permettre la connexion à vos différents serveurs sans avoir à saisir de mot de passe (échange de clés).</li><li>Vous allez devoir vous connecter depuis la machine Cli-db-10 sur les serveurs : RouTux, Deb-S1, Deb-S2.</li></ul></section>
-<section class="tssr-transcribed-page" id="source-1Zs40kPBB9hVOO2m-tubv3SpuMGSrrMEa-page-2"><h3>Etape 3 - Utilisation des commandes de copie sécurisée</h3><ul><li>Sur la machine Cli-db-10, utiliser la commande scp pour copier les fichiers de configuration paramétrés sur chacune des machines Debian (interfaces, resolv.conf, sources.list…).</li></ul></section>
-
-<p class="tssr-original-proof">Référence du document : 1Zs40kPBB9hVOO2m-tubv3SpuMGSrrMEa · <span title="Empreinte SHA-256 du fichier source">SHA-256 2fb77fc967dabe2b…</span></p>
-</div>
-</details>
-<details class="tssr-original-document">
-<summary>Correction · M04 - Solution du TP1 - Configuration du service ssh · 2 pages transcrites</summary>
-<div class="tssr-original-document__body">
-<p class="tssr-original-note">Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.</p>
-<p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-
-<section class="tssr-transcribed-page" id="source-1Q4bxGyPu9nc9S_OIkQyoacBFsQUjR4iV-page-1"><h2>Configuration du service SSH</h2><h3>TP 01 du Module 04 – Administration à distance</h3><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 4 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>1 heure</p><h2>Solution</h2><h3>Etape 1 - Installation du serveur SSH sur TOUS les serveurs Debian</h3><ul><li>Modifier le fichier sources.list sur chaque machine et y ajouter les données demandées : # vi /etc/apt/sources.list</li></ul><pre><code>deb http://ftp.fr.debian.org/debian/ buster main</code></pre><pre><code>deb http://security.debian.org/debian-security buster/updates main</code></pre><pre><code>deb http://ftp.fr.debian.org/debian/ buster-updates main</code></pre><p>Mettre à jour le gestionnaire :</p><pre><code># apt update</code></pre><p>Vérifier la présence d’openssh-server :</p><pre><code># apt install openssh-server</code></pre><p>ou</p><pre><code># dpkg -l |grep openssh-server</code></pre><h3>Etape 2 - Configuration du service SSH</h3><ul><li>Installer Terminator sur la machine Cli-db-10 : # apt install terminator</li></ul><p>Créer la clé SSH :</p><p>Sur cli-db-10</p><pre><code># ssh-keygen</code></pre></section>
-<section class="tssr-transcribed-page" id="source-1Q4bxGyPu9nc9S_OIkQyoacBFsQUjR4iV-page-2"><p>=&gt; sans phrase de passe</p><p>Envoyer la clé SSH sur les serveurs :</p><pre><code># ssh-copy-id  user@192.168.X.11</code></pre><pre><code># ssh user@192.168.X.11</code></pre><p>=&gt; connexion sans mot de passe avec le compte utilisateur standard</p><p>Sur deb-s1</p><pre><code> $ su -</code></pre><pre><code> # mkdir .ssh</code></pre><pre><code> # chmod 700 .ssh</code></pre><pre><code> # cp  /home/user/.ssh/authorized _keys /root/.ssh</code></pre><p>= &gt; connexion sans mot de passe avec root</p><h3>A réaliser également sur deb-s2 et routux</h3><h3>Etape 3 - Utilisation des commandes de copie sécurisée</h3><ul><li>Recopier les fichiers en local, par exemple ici avec le fichier /etc/resolv.conf :</li></ul><pre><code>$ mkdir conf_deb-s1</code></pre><pre><code>$ scp  root@192.168.X.11:/etc/resolv.conf conf_deb-s1</code></pre></section>
-
-<p class="tssr-original-proof">Référence du document : 1Q4bxGyPu9nc9S_OIkQyoacBFsQUjR4iV · <span title="Empreinte SHA-256 du fichier source">SHA-256 3e49ebce5a1945fc…</span></p>
-</div>
-</details>
-</div><p></p>
-</div>
-<div class="tabbed-block">
-<div class="admonition info">
-<p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
-</div>
 <ol>
 <li>
 <p>Installation, accès par clé et copies SSH</p>
@@ -17090,9 +17051,6 @@ deb http://ftp.fr.debian.org/debian/ buster-updates main</code></pre><ul><li>Met
 <li><a href="corrections/">Corrigés commentés</a></li>
 <li><a href="../../../modules/15-services-reseau-en-environnement-linux/module-04-administration-a-distance/">Cours du module</a></li>
 </ol>
-</div>
-</div>
-</div>
 
 
 

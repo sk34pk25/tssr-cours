@@ -17041,128 +17041,6 @@
 
 
 <h1 id="tp-module-03-strategies-de-groupe">TP — Module 03 — Stratégies de groupe<a class="headerlink" href="#tp-module-03-strategies-de-groupe" title="Permanent link">¶</a></h1>
-<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cours Original</label><label for="__tabbed_1_2">Cours Optimisé IA</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
-<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
-<details class="tssr-original-document" open="">
-<summary>Énoncé · Enoncé du TP - Prise en main des stratégies de groupe · 2 pages transcrites</summary>
-<div class="tssr-original-document__body">
-
-<section class="tssr-transcribed-page" id="source-1L0CB2J9fOsTuLTzAC1-vKfl-v5mhGGjG-page-1">
-
-<h4>Prise en main des stratégies de groupes</h4>
-<h4 class="tssr-source-paragraph">TP du Module 03 – Active Directory</h4>
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 3 et réalisé les TP précédents.</p>
-<h4 class="tssr-source-paragraph">Durée estimée</h4>
-<p class="tssr-source-paragraph">30 minutes à 1 heure</p>
-<h4>Énoncé</h4>
-<p class="tssr-source-paragraph">Prérequis :</p>
-<ul><li>Avoir réalisé le TP précédent du Module 02.</li></ul>
-<h4 class="tssr-source-paragraph">Mise en œuvre des GPO</h4>
-<ul><li>Trouvez et validez le paramètre adapté (utilisateur ou ordinateur).</li><li>Définissez les stratégies de groupe nécessaires et le point de liaison (UO) pour leur application.</li><li>Regroupez les paramètres du même type dans une seule GPO.</li><li>Testez-en le bon fonctionnement avec les comptes utilisateurs adéquats. Pour l’ensemble des utilisateurs du domaine</li></ul>
-<ul><li>La fonctionnalité de chiffrement EFS doit être désactivée.</li><li>Le pare-feu système doit être désactivé.</li><li>Internet Explorer sera client proxy du serveur 172.28.10.248 en écoutant sur le port 8080.</li><li>Le mot de passe devra compter au moins 5 caractères et il sera à changer tous les 5 jours.</li><li>Aucune exigence de complexité de mot de passe n’est envisagée.</li></ul>
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1L0CB2J9fOsTuLTzAC1-vKfl-v5mhGGjG-page-2">
-
-<h4 class="tssr-source-paragraph">Pour les membres du service Commercial</h4>
-<ul><li>Le partage Prospects doit automatiquement être disponible dans l’explorateur de fichiers, et dès l’ouverture de session. Pour les membres du service Production</li></ul>
-<ul><li>L’imprimante HP Color LaserJet Pro MFP M477 sera automatiquement installée. Pour les Secrétaires</li></ul>
-<ul><li>Le fond d’écran sera commun (logo de l’entreprise).</li></ul>
-<p class="tssr-source-paragraph">Bonus :</p>
-<ul><li>Automatiser l’installation d’Acrobat Reader (paquet .msi) pour les secrétaires.</li><li>Le répertoire Documents des utilisateurs sera déporté sur W19-SRV1 (excepté pour les membres du service Informatique).</li><li>Ouverture de session limitée de 9h à 18h.</li><li>Fermeture de session obligatoire après 18h pour les intérimaires.</li></ul>
-
-
-
-</section>
-
-<p class="tssr-original-proof">Référence du document : 1L0CB2J9fOsTuLTzAC1-vKfl-v5mhGGjG · <span title="Empreinte SHA-256 du fichier source">SHA-256 a9bcc6275473bed3…</span></p>
-</div>
-</details>
-<details class="tssr-original-document">
-<summary>Correction · Solution du TP - Prise en main des stratégies de groupe · 6 pages transcrites</summary>
-<div class="tssr-original-document__body">
-<p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-
-<section class="tssr-transcribed-page" id="source-184DIHm_-zbA5j2Skl4Zxm55YXj5sW70b-page-1">
-
-<h4>Prise en main des stratégies de groupes</h4>
-<h4 class="tssr-source-paragraph">TP du Module 03 – Active Directory</h4>
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 3 et réalisé les TP précédents.</p>
-<h4 class="tssr-source-paragraph">Durée estimée</h4>
-<p class="tssr-source-paragraph">30 minutes à 1 heure</p>
-<h4>Solution</h4>
-<p class="tssr-source-paragraph">Prérequis :</p>
-<ul><li>Avoir réalisé le TP précédent du Module 02.</li></ul>
-<h4 class="tssr-source-paragraph">Mise en œuvre des GPO</h4>
-<ul><li>Trouvez et validez le paramètre adapté (utilisateur ou ordinateur).</li><li>Définissez les stratégies de groupe nécessaires et le point de liaison (UO) pour leur application.</li><li>Regroupez les paramètres du même type dans une seule GPO.</li><li>Testez-en le bon fonctionnement avec les comptes utilisateurs adéquats. Pour l’ensemble des utilisateurs du domaine</li></ul>
-<ul><li>La fonctionnalité de chiffrement EFS doit être désactivée.</li></ul>
-
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-184DIHm_-zbA5j2Skl4Zxm55YXj5sW70b-page-2">
-
-<ul><li>Le pare-feu système doit être désactivé.</li></ul>
-<ul><li>Internet Explorer sera client proxy du serveur 172.28.10.248 en écoutant sur le port 8080.</li></ul>
-
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-184DIHm_-zbA5j2Skl4Zxm55YXj5sW70b-page-3">
-
-<ul><li>Le mot de passe devra compter au moins 5 caractères et il sera à changer tous les 5 jours.</li><li>Aucune exigence de complexité de mot de passe n’est envisagée.</li></ul>
-
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-184DIHm_-zbA5j2Skl4Zxm55YXj5sW70b-page-4">
-
-<h4 class="tssr-source-paragraph">Pour les membres du service Commercial</h4>
-<ul><li>Le partage Prospects doit automatiquement être disponible dans l’explorateur de fichiers, et dès l’ouverture de session.</li></ul>
-
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-184DIHm_-zbA5j2Skl4Zxm55YXj5sW70b-page-5">
-
-<h4 class="tssr-source-paragraph">Pour les membres du service Production</h4>
-<ul><li>L’imprimante HP Color LaserJet Pro MFP M477 sera automatiquement installée.</li></ul>
-<h4 class="tssr-source-paragraph">Pour les Secrétaires</h4>
-<ul><li>Le fond d’écran sera commun (logo de l’entreprise).</li></ul>
-
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-184DIHm_-zbA5j2Skl4Zxm55YXj5sW70b-page-6">
-
-
-
-
-<h4>Étapes illustrées dans le support</h4><ol><li>Dans GPO_Secretaire, ouvrir Configuration utilisateur, Stratégies, Modèles d’administration, Bureau, Bureau, Papier peint du Bureau.</li><li>Activer le paramètre, renseigner le chemin du fichier de fond d’écran puis choisir le style Center.</li><li>Dans Group Policy Management, vérifier le lien de GPO_Secretaire sur l’UO SECRETAIRE. La capture affiche le filtrage Utilisateurs authentifiés et aucun filtre WMI.</li></ol>
-</section>
-
-<p class="tssr-original-proof">Référence du document : 184DIHm_-zbA5j2Skl4Zxm55YXj5sW70b · <span title="Empreinte SHA-256 du fichier source">SHA-256 608287ee01bf54d8…</span></p>
-</div>
-</details>
-</div><p></p>
-</div>
-<div class="tabbed-block">
-<div class="admonition info">
-<p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
-</div>
 <p>Lire l’énoncé, réaliser l’exercice et noter les preuves obtenues avant d’ouvrir la correction. Les fiches de démonstration détaillent les manipulations qui servent au TP.</p>
 <ul>
 <li><a href="enonces/">Énoncés</a></li>
@@ -17170,9 +17048,6 @@
 <li><a href="demonstrations/">Démonstrations</a></li>
 <li><a href="../../../modules/09-services-reseaux-en-environnement-microsoft/module-03-module-03/">Cours</a></li>
 </ul>
-</div>
-</div>
-</div>
 
 
 

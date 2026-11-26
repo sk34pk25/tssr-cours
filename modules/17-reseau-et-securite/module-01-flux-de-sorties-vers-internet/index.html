@@ -17051,152 +17051,16 @@
 <h1 id="module-01-etudier-les-flux-de-sorties-vers-internet">Module 01 — Étudier les flux de sorties vers Internet<a class="headerlink" href="#module-01-etudier-les-flux-de-sorties-vers-internet" title="Permanent link">¶</a></h1>
 <p>Semaine <strong>1/2</strong>. Support de cours : <strong>Inexistant</strong>.</p>
 <p><a href="../../../tp/17-reseau-et-securite/module-01/enonces/">Énoncé</a> · <a href="../../../tp/17-reseau-et-securite/module-01/corrections/">Correction</a> · <a href="../../../revision/17-reseau-et-securite/module-01/">Révision</a> · <a href="../../../kahoot/17-reseau-et-securite-module-01/">Kahoot — 20 questions</a></p>
+<p><a href="../../../tp/17-reseau-et-securite/module-01/">Travaux pratiques</a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cours Original</label><label for="__tabbed_1_2">Cours Optimisé IA</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Étudier les besoins de
-l'entreprise en termes de
-flux de sorties vers internet
-TP1</p>
-<p>Avant de démarrer ce TP, il convient d’avoir récupéré le fichiers « Règles de pare-feu.xlsx »
- et d’avoir choisi une plage d’adressage dans le fichier « List-IP-Stagiaires.xlsx » déposé
- dans Teams.</p>
-<div class="language-text highlight"><pre><span></span><code>        Durée estimée
-
-             2h
-</code></pre></div>
-<p>Énoncé</p>
-<p>Objectifs :</p>
-<p>Cet exercice vise à définir des règles des flux réseaux dans une infrastructure, en séparant
-les réseaux internes et en contrôlant les flux vers Internet.
-Si possible, vous travaillerez en binômes pour analyser le schéma réseau ci-dessous et
-déterminerez les règles de pare-feu appropriées. Elles seront à reporter dans le fichier
-Excel fourni par votre formatrice ou formateur.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp1/enonce-p02-02.png" data-desc-position="bottom"><img alt="TP1, énoncé, page 2" src="../../../assets/images/reseau-et-securite/tp1/enonce-p02-02.png"></a></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp1/enonce-p02-03.png" data-desc-position="bottom"><img alt="TP1, énoncé, page 2" src="../../../assets/images/reseau-et-securite/tp1/enonce-p02-03.png"></a></p>
-<p>Valeurs de la capture :</p>
-<ul>
-<li>Routeur formateur : 192.168.150.100/24</li>
-<li>VMnet10, VMnet11 et VMnet12</li>
-<li>SRV-CD : Active Directory, DNS</li>
-<li>SRV-MBR : DHCP</li>
-<li>SRV-WEB</li>
-</ul>
-<p>Dans le fichier List-IP-Stagiaires.xlsx</p>
-<p>Attribuez-vous une colonne des adressages réseaux</p>
-<p>En partant de la plage « Lan Global /24 » calculer :</p>
-<div class="language-text highlight"><pre><span></span><code>                       Lan SRV /26                   Lan Client /25   Lan DMZ /26
-</code></pre></div>
-<p>Plage d’adresses
- disponibles</p>
-<p>IP routeur sera
- l’avant dernière de
- sa plage</p>
-<p>IP du SRV-CD sera la
- 21ième adresse
- disponible de son
- réseau</p>
-<p>IP du SRV-MBR sera
- la 23ième adresse
- disponible de son
- réseau</p>
-<p>IP du SRV-WEB sera
- la 8ième adresse
- disponible de son
- réseau</p>
-<p>IP du CLT-WIN sera
- la 10ième adresse
- disponible de son
- réseau</p>
-<p>IP du CLT-DEB sera
- la 12ième adresse
- disponible de son
- réseau</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp1/enonce-p03-05.png" data-desc-position="bottom"><img alt="TP1, énoncé, page 3" src="../../../assets/images/reseau-et-securite/tp1/enonce-p03-05.png"></a></p>
-<p>Mettre à jour le schéma en y ajoutant vos adresses, le fichier « SchémaRéseauTP1.drawio »
-vous est mis disposition pour le modifier.</p>
-<p>Identifier les différents segments du réseau et leurs besoins en termes de communication.</p>
-<p>Déterminer les flux de données nécessaires entre les différents segments et vers l'extérieur
-en n'ouvrant que les ports strictement nécessaires pour des services ou applications
-spécifiques tout en bloquant le trafic non autorisé.</p>
-<p>Justifier chaque règle proposée en expliquant son rôle dans la sécurité globale du réseau.</p>
-<p>Remplissez le fichier « Règles de pare-feu.xlsx » qui vous sera remis par votre formateur.</p>
-<p>Les colonnes en vert pour les actions “permit” et en rouges pour les actions “deny”.</p>
-<p>Solution
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté (voir la page <a href="../../../tp/17-reseau-et-securite/module-01/corrections/">Correction</a>).</p>
+<p>Support de cours : <strong>Inexistant</strong>.</p>
+<p><a href="../../../tp/17-reseau-et-securite/module-01/">Travaux pratiques</a></p>
 </div>
 <div class="tabbed-block">
-<p>Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.</p>
-<p>Étudier les besoins de
-l'entreprise en termes de
-flux de sorties vers internet
-TP1</p>
-<p>Avant de démarrer ce TP, il convient d’avoir récupéré le fichiers « Règles de pare-feu.xlsx »
- et d’avoir choisi une plage d’adressage dans le fichier « List-IP-Stagiaires.xlsx » déposé
- dans Teams.</p>
-<div class="language-text highlight"><pre><span></span><code>        Durée estimée
-
-             2h
-</code></pre></div>
-<p>Énoncé</p>
-<p>Objectifs :</p>
-<p>Cet exercice vise à définir des règles des flux réseaux dans une infrastructure, en séparant
-les réseaux internes et en contrôlant les flux vers Internet.
-Si possible, vous travaillerez en binômes pour analyser le schéma réseau ci-dessous et
-déterminerez les règles de pare-feu appropriées. Elles seront à reporter dans le fichier
-Excel fourni par votre formatrice ou formateur.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp1/enonce-p02-02.png" data-desc-position="bottom"><img alt="TP1, énoncé, page 2" src="../../../assets/images/reseau-et-securite/tp1/enonce-p02-02.png"></a></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp1/enonce-p02-03.png" data-desc-position="bottom"><img alt="TP1, énoncé, page 2" src="../../../assets/images/reseau-et-securite/tp1/enonce-p02-03.png"></a></p>
-<p>Valeurs de la capture :</p>
-<ul>
-<li>Routeur formateur : 192.168.150.100/24</li>
-<li>VMnet10, VMnet11 et VMnet12</li>
-<li>SRV-CD : Active Directory, DNS</li>
-<li>SRV-MBR : DHCP</li>
-<li>SRV-WEB</li>
-</ul>
-<p>Dans le fichier List-IP-Stagiaires.xlsx</p>
-<p>Attribuez-vous une colonne des adressages réseaux</p>
-<p>En partant de la plage « Lan Global /24 » calculer :</p>
-<div class="language-text highlight"><pre><span></span><code>                       Lan SRV /26                   Lan Client /25   Lan DMZ /26
-</code></pre></div>
-<p>Plage d’adresses
- disponibles</p>
-<p>IP routeur sera
- l’avant dernière de
- sa plage</p>
-<p>IP du SRV-CD sera la
- 21ième adresse
- disponible de son
- réseau</p>
-<p>IP du SRV-MBR sera
- la 23ième adresse
- disponible de son
- réseau</p>
-<p>IP du SRV-WEB sera
- la 8ième adresse
- disponible de son
- réseau</p>
-<p>IP du CLT-WIN sera
- la 10ième adresse
- disponible de son
- réseau</p>
-<p>IP du CLT-DEB sera
- la 12ième adresse
- disponible de son
- réseau</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp1/enonce-p03-05.png" data-desc-position="bottom"><img alt="TP1, énoncé, page 3" src="../../../assets/images/reseau-et-securite/tp1/enonce-p03-05.png"></a></p>
-<p>Mettre à jour le schéma en y ajoutant vos adresses, le fichier « SchémaRéseauTP1.drawio »
-vous est mis disposition pour le modifier.</p>
-<p>Identifier les différents segments du réseau et leurs besoins en termes de communication.</p>
-<p>Déterminer les flux de données nécessaires entre les différents segments et vers l'extérieur
-en n'ouvrant que les ports strictement nécessaires pour des services ou applications
-spécifiques tout en bloquant le trafic non autorisé.</p>
-<p>Justifier chaque règle proposée en expliquant son rôle dans la sécurité globale du réseau.</p>
-<p>Remplissez le fichier « Règles de pare-feu.xlsx » qui vous sera remis par votre formateur.</p>
-<p>Les colonnes en vert pour les actions “permit” et en rouges pour les actions “deny”.</p>
-<p>Solution
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté (voir la page <a href="../../../tp/17-reseau-et-securite/module-01/corrections/">Correction</a>).</p>
+<p>Support de cours : <strong>Inexistant</strong>.</p>
+<p><a href="../../../tp/17-reseau-et-securite/module-01/">Travaux pratiques</a></p>
 </div>
 </div>
 </div>

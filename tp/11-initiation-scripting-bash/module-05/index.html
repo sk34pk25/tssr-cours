@@ -16984,110 +16984,6 @@
 
 
 <h1 id="tp-module-05-les-caracteres-speciaux-du-script">TP — Module 05 — Les caractères spéciaux du script<a class="headerlink" href="#tp-module-05-les-caracteres-speciaux-du-script" title="Permanent link">¶</a></h1>
-<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cours Original</label><label for="__tabbed_1_2">Cours Optimisé IA</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
-<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
-<details class="tssr-original-document" open="">
-<summary>Énoncé · M5 - Enoncé du TP1 - Enchaînements conditionnels · 2 pages transcrites</summary>
-<div class="tssr-original-document__body">
-<p class="tssr-original-note">Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.</p>
-
-<section class="tssr-transcribed-page" id="source-1T4tULWfrLnoXv7mn9g9Y0fwZKh4gQ7I0-page-1"><h2>Page 1</h2>
-<h2>Enchaînements conditionnels</h2>
-<h3>TP1 du Module 05 - Les caractères spéciaux du Shell</h3>
-<p>Avant de démarrer ce TP, il convient d’avoir suivi les modules 1 à 5.</p>
-<p>Objectifs</p>
-<p>Créer un script Shell utilisant des enchainements de commandes conditionnels.</p>
-<p>Énoncé</p>
-<p>Réaliser un script Shell effectuant des actions automatisées :</p>
-<ul><li>Le script demandera tout d’abord la saisie d’un nom de dossier</li></ul>
-<p>o En réalisera la création et confirmera la bonne création avec un message en vert</p>
-<ul><li>Puis, il créera automatiquement dans le dossier un fichier nommé fic_M5TP1.txt</li></ul>
-<p>o Le nom de ce fichier sera stocké dans une variable déclarée manuellement en début de</p>
-<p>script</p>
-<p>o La bonne création du fichier sera confirmée par un message de couleur bleu</p>
-<ul><li>Renseignera automatiquement le contenu suivant dans le fichier avec la commande</li></ul>
-<pre><code>echo "Introduction du fichier fic_M5TP1.txt" &gt; $dossier/$fic</code></pre>
-<ul><li>Affichera le contenu du fichier (et vérifier la bonne insertion du texte)</li></ul>
-<p>Exemple de visuel possible :</p>
-<pre><code>$ ./script_M5TP1.sh
-Veuillez saisir un nom de dossier à créer: doss_M5TP1</code></pre>
-<pre><code>Création du dossier : doss_M5TP1
------------------------------
-Répertoire ‘doss_M5TP1’ créé.</code></pre>
-<pre><code>Création du fichier : fic_M5TP1.txt
------------------------------
-Fichier 'fic_M5TP1.txt' créé dans ‘doss_M5TP1’.</code></pre>
-<pre><code>Contenu du fichier :</code></pre>
-</section>
-<section class="tssr-transcribed-page" id="source-1T4tULWfrLnoXv7mn9g9Y0fwZKh4gQ7I0-page-2"><h2>Page 2</h2>
-<pre><code>------------------
-Introduction du fichier fic_M5TP1.txt</code></pre>
-</section>
-
-<p class="tssr-original-proof">Référence du document : 1T4tULWfrLnoXv7mn9g9Y0fwZKh4gQ7I0 · <span title="Empreinte SHA-256 du fichier source">SHA-256 3e5f6ffe06b3b28a…</span></p>
-</div>
-</details>
-<details class="tssr-original-document">
-<summary>Correction · M5 - Solutions du TP1 - Enchaînements conditionnels · 2 pages transcrites</summary>
-<div class="tssr-original-document__body">
-<p class="tssr-original-note">Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.</p>
-<p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-
-<section class="tssr-transcribed-page" id="source-1n-768pBvhRPHlJ6be79OaNssief9kgBD-page-1"><h2>Page 1</h2>
-<h2>Enchaînements conditionnels</h2>
-<h3>Solutions - TP1 du Module 05 - Les caractères spéciaux du Shell</h3>
-<ul><li>Créer et éditer un nouveau fichier script nommé script_M5TP1.sh</li></ul>
-<pre><code>vim script_M5TP1.sh</code></pre>
-<ul><li>Y ajouter les lignes suivantes :</li></ul>
-<pre><code>#! /bin/bash
-# M5 - Solution du TP1
-# Définition des variables
-fic=’fic_M5TP1.txt’
-bleu='\033[0;34m'
-vert='\033[0;32m'
-noir='\033[0m' # Pas de couleur
-# Demande de saisie du nom de dossier à créer
-read -p "Veuillez saisir un nom de dossier à créer : " dossier
-# Enchaînement de commandes avec des messages colorés
-echo ""
-echo "Création du dossier : $dossier"
-echo "------------------------------"
-mkdir -p $dossier &amp;&amp; echo -e "$vert Répertoire '$dossier' créé.$noir"
-echo ""
-echo "Création du fichier : $fic"
-echo "--------------------------"
-touch $dossier/$fic &amp;&amp; echo -e "$bleu Fichier '$fic' créé dans
-'$dossier'.$noir"
-# Insertion d’un texte dans le fichier
-echo "Introduction du fichier fic_M5TP1.txt" &gt; $dossier/$fic
-# Affichage du contenu du fichier
-echo ""
-echo "Contenu du fichier :"
-echo "------------------"
-cat $dossier/$fic
-# Fin du script</code></pre>
-<ul><li>Rendre exécutable le fichier</li></ul>
-<pre><code>chmod u+x script_M5TP1.sh</code></pre>
-</section>
-<section class="tssr-transcribed-page" id="source-1n-768pBvhRPHlJ6be79OaNssief9kgBD-page-2"><h2>Page 2</h2>
-<ul><li>Tester le script</li></ul>
-</section>
-
-<p class="tssr-original-proof">Référence du document : 1n-768pBvhRPHlJ6be79OaNssief9kgBD · <span title="Empreinte SHA-256 du fichier source">SHA-256 8d59f53e520f5a86…</span></p>
-</div>
-</details>
-</div><p></p>
-</div>
-<div class="tabbed-block">
-<div class="admonition info">
-<p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
-</div>
 <h2 id="tp-01-enchainements-conditionnels">TP 01 — Enchaînements conditionnels<a class="headerlink" href="#tp-01-enchainements-conditionnels" title="Permanent link">¶</a></h2>
 <p>Le TP met en pratique la création d’un dossier, la création de <code>fic_M5TP1.txt</code>, l’écriture et l’affichage de son contenu, puis l’affichage coloré de messages concernant le dossier et le fichier.</p>
 <p>Les modules 1 à 5 sont cités comme prérequis. Aucun script <code>.sh</code> source autonome ni fichier d’exercice n’est fourni dans le dossier Drive M05.</p>
@@ -17095,9 +16991,6 @@ cat $dossier/$fic
 <li><a href="tp-01-enchainements-conditionnels/">Énoncé TP1</a></li>
 <li><a href="correction-tp-01/">Correction TP1</a></li>
 </ul>
-</div>
-</div>
-</div>
 
 
 

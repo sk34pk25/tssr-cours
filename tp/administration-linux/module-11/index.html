@@ -16984,51 +16984,6 @@
 
 
 <h1 id="tp-module-11-droits-sur-les-fichiers-et-repertoires">TP — Module 11 — Droits sur les fichiers et répertoires<a class="headerlink" href="#tp-module-11-droits-sur-les-fichiers-et-repertoires" title="Permanent link">¶</a></h1>
-<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cours Original</label><label for="__tabbed_1_2">Cours Optimisé IA</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
-<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
-<details class="tssr-original-document" open="">
-<summary>Énoncé · M11TP01 - Enoncé - Gestion des permissions · 1 pages transcrites</summary>
-<div class="tssr-original-document__body">
-
-<section class="tssr-transcribed-page" id="source-1aMX2b0y7CWZqPmSSH6Al0pi7wOV1X_wo-page-1"><h3>Gestion des permissions</h3><p>TP du Module 11 – Droits sur les fichiers et répertoires</p><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 11 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>45 minutes à 1 heure</p><h3>Énoncé</h3><h3>Créer une structure de stockage sur le serveur sans interface graphique pour les fichiers utilisateurs.</h3><p>Trouver les solutions pour les besoins suivants :</p><ul><li>Public : un répertoire public accessible en lecture / écriture pour tous les utilisateurs</li><li>Dépôt : un répertoire depot accessible en lecture / écriture pour tous les utilisateurs mais dans lequel seul le propriétaire du fichier pourra le supprimer</li><li>Admin : un répertoire admin accessible en lecture / écriture pour le groupe admin uniquement</li><li>Documentation : un répertoire documentation accessible en lecture pour tous les utilisateurs et en lecture/écriture pour le groupe documentation.  Faire en sorte que tout nouveau fichier créé dans ce répertoire appartienne au groupe documentation</li></ul><p>Vous aurez besoin de configurer les droits spéciaux pour certains des répertoires. Faites-en sorte que l’arborescence créée soit pertinente d’un point de vue FHS. Tester les paramétrages avec les différents types de comptes utilisateurs (administrateur, utilisateur, gestionnaire de la documentation ...).</p><h3>Solution</h3><p>Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p></section>
-
-<p class="tssr-original-proof">Référence du document : 1aMX2b0y7CWZqPmSSH6Al0pi7wOV1X_wo · <span title="Empreinte SHA-256 du fichier source">SHA-256 bdf164070587677a…</span></p>
-</div>
-</details>
-<details class="tssr-original-document">
-<summary>Correction · M11TP01 - Solution - Gestion des permissions · 2 pages transcrites</summary>
-<div class="tssr-original-document__body">
-<p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-
-<section class="tssr-transcribed-page" id="source-1xC5OyxrH9JZsvp6OxeQrSf4NWCcwnxtk-page-1"><h3>Gestion des permissions</h3><p>TP du Module 11 – Droits sur les fichiers et répertoires</p><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 11 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>45 minutes à 1 heure</p><h3>Énoncé</h3><h3>Créer une structure de stockage sur le serveur sans interface graphique pour les fichiers utilisateurs.</h3><p>Trouver les solutions pour les besoins suivants :</p><ul><li>Public : un répertoire public accessible en lecture / écriture pour tous les utilisateurs</li></ul><p>Création de la structure de stockage dans le dossier /srv (Données des services hebergées, par exemple unh serveur de fichier). Ajout du droit d’écriture à others .</p><ul><li>Dépôt : un répertoire depot accessible en lecture / écriture pour tous les utilisateurs mais dans lequel seul le propriétaire du fichier pourra le supprimer</li></ul><p>Création du dossier sans l'option -p, devenu inutile maintenant que /srv existe ajout du droit w à others ainsi que du droit t , le sticky bit, qui interdit la suppression par d’autres comptes que l’utilisateur propriétaire ou root</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-p1-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-p1-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>mkdir -p /srv/public
-ls -ld /srv/public
-chmod og+w /srv/public
-ls -ld /srv/public</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-small-p1-3.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-small-p1-3.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>mkdir /srv/depot
-chmod o+wt /srv/depot
-ls -ld /srv/depot/</code></pre></details></figure></section>
-<section class="tssr-transcribed-page" id="source-1xC5OyxrH9JZsvp6OxeQrSf4NWCcwnxtk-page-2"><ul><li>Admin : un répertoire admin accessible en lecture / écriture pour le groupe admin uniquement</li></ul><p>Suppression de tous les droits pour others ajout du droit d’écriture pour le groupe propriétaire Affection du groupe admin comme groupe propriétaire</p><ul><li>Documentation : un répertoire documentation accessible en lecture pour tous les utilisateurs et en lecture/écriture pour le groupe documentation.  Faire en sorte que tout nouveau fichier créé dans ce répertoire appartienne au groupe documentation</li></ul><p>Ajout du droit d'écriture pour le groupe ainsi que du droit s qui active le SetGID .</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-p2-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-p2-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>mkdir /srv/admin
-chmod o-rx /srv/admin
-chmod g+w /srv/admin
-chown :admin /srv/admin
-ls -ld /srv/admin/</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-small-p2-3.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-small-p2-3.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>mkdir /srv/documentation
-chmod g+ws /srv/documentation/
-ls -ld /srv/documentation/</code></pre></details></figure></section>
-
-<p class="tssr-original-proof">Référence du document : 1xC5OyxrH9JZsvp6OxeQrSf4NWCcwnxtk · <span title="Empreinte SHA-256 du fichier source">SHA-256 f1b4d02bf2d2efce…</span></p>
-</div>
-</details>
-</div><p></p>
-</div>
-<div class="tabbed-block">
-<div class="admonition info">
-<p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
-</div>
 <p>Exécuter l’énoncé avant de consulter la correction. Les consignes, captures et solutions de la source sont accessibles dans l’onglet Original ; les précisions pédagogiques sont séparées.</p>
 <ul>
 <li><a href="enonces/">Énoncés complets</a></li>
@@ -17038,9 +16993,6 @@ ls -ld /srv/documentation/</code></pre></details></figure></section>
 <h2 id="points-a-surveiller">Points à surveiller<a class="headerlink" href="#points-a-surveiller" title="Permanent link">¶</a></h2>
 <p>Dans un répertoire sticky, le propriétaire du répertoire et un utilisateur privilégié restent des exceptions autorisées à la suppression. SetGID règle le groupe hérité, mais pas automatiquement le droit d’écriture de tous les fichiers. Tester plusieurs utilisateurs avec leur umask réel.</p>
 <p><a href="../">Liste des TP du cours</a>.</p>
-</div>
-</div>
-</div>
 
 
 
