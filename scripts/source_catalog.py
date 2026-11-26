@@ -238,6 +238,37 @@ def mark_ai_diagrams(markdown):
                           '<p><strong>Illustration IA / externe au cours — tableau visuel de synthèse.</strong></p>\n<div class="tssr-service-grid"')
 
 
+VERBATIM_ORIGINALS = {
+    'tp/microsoft-365/module-02/enonces.md': (
+        '??? note "Document brut"\n',
+        'Système Solaire — Document brut',
+        True,
+    ),
+    'tp/microsoft-365/module-02/corrections.md': (
+        '## Mise en forme lue dans le document\n',
+        'Système Solaire — Document fini',
+        False,
+    ),
+}
+
+
+def split_verbatim_original(page, body):
+    """Move a document that exists only in the study tab into the original tab."""
+    spec = VERBATIM_ORIGINALS.get(page)
+    if not spec or spec[0] not in body:
+        return body, ''
+    marker, title, dedent = spec
+    head, tail = body.split(marker, 1)
+    if dedent:
+        lines = [line[4:] if line.startswith('    ') else line for line in tail.splitlines()]
+        tail = '\n'.join(lines)
+    verbatim = f'## {title}\n\n' + ('' if dedent else marker) + tail.strip() + '\n'
+    pointer = (
+        f'Le texte verbatim de « {title} » est dans l’onglet Cours Original.\n'
+    )
+    return head.rstrip() + '\n\n' + pointer, verbatim
+
+
 def split_tp_links(body):
     """Lift a leading line of travaux-pratiques links above the course tabs."""
     match = re.match(
@@ -262,8 +293,11 @@ def project_page(markdown, page, data):
         raise ValueError('Titre du module attendu avant la projection des sources')
     title, body = match[1], markdown[match.end():].lstrip()
     hoisted, body = split_tp_links(body)
+    body, verbatim = split_verbatim_original(page, body)
     notice = data.get('pageNotices', {}).get(page)
     original = (f'<p class="tssr-original-note">{escape(notice)}</p>\n' if notice else '') + render_originals(data['pages'][page], page, data)
+    if verbatim:
+        original += '\n' + verbatim
     guide = ('!!! info "Complément IA / externe au cours — fiche pédagogique du portail"\n'
              '    Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. '
              'Elle est distincte de la transcription des documents du Drive et ne la remplace pas. '
