@@ -8702,7 +8702,7 @@
         },
         {
           "path": "assets/course-sources/isolated/156cc90dce4ad405/g1-d08-p10-i2.webp",
-          "sha256": "9f6b9ce2afd1cf70f1a7cb1e6651f3841d11adf23902da59c9ee976ecdd81d9b",
+          "sha256": "b841db82bb2f81a0d15cf1d26bc2a93d9c02fe5747be10ef27c2d3dedc9f2ef4",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 10,
@@ -41776,7 +41776,7 @@
         },
         {
           "path": "assets/course-sources/isolated/1316bbc9d075426a/msp-p51-80.webp",
-          "sha256": "10dba805ceb94460caddee1e52f0616803e03efb567a107aa01116294a48dddb",
+          "sha256": "fbbb06b71c58f51af444c586d9081aba59118b8e13b550a3760f235377e174c8",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 51,
@@ -56840,7 +56840,7 @@
       "figures": [
         {
           "path": "assets/course-sources/isolated/648c293e26027e17/ps-p6-i1-1.webp",
-          "sha256": "2fa7f7716e7fc20db5552b2039a3dbbdd98307fea564eb56336f102b2a28f5b4",
+          "sha256": "b6d09219748831972c9be228530f70a16d973be7f4a5f72694efddb08d2e03d4",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 6,
@@ -56865,7 +56865,7 @@
         },
         {
           "path": "assets/course-sources/isolated/648c293e26027e17/ps-p6-i2-1.webp",
-          "sha256": "5829e87d8ff788433ef402b40e25723cde90302527a16d623adb316ed345fd54",
+          "sha256": "230f165b676482bdddd0ac1ecd7150304ad6fad4c7ffc597db6d0501e831b167",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 6,
@@ -56940,7 +56940,7 @@
         },
         {
           "path": "assets/course-sources/isolated/648c293e26027e17/ps-p10-i1-1.webp",
-          "sha256": "6affe45899760bece423cc423fbe9dedf10dc90ab6ad6af728064209920f8e72",
+          "sha256": "655cb7b7cdc6b0aedc10ea4c458cdd4910698c2c2e3b453c5bc3fe4e48102023",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 10,
@@ -56965,7 +56965,7 @@
         },
         {
           "path": "assets/course-sources/isolated/648c293e26027e17/ps-p10-i2-1.webp",
-          "sha256": "a60de24616af582c38965f41a8ebfd4dc46853132fd33cdc7137a8806d68c61e",
+          "sha256": "61820024030b0d641bacb9c3dbb4855af482465bb30513a9dde240ba15550814",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 10,
