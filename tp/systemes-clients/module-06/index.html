@@ -17103,40 +17103,6 @@
 
 
 <h1 id="tp-module-06-la-securite-ntfs-et-les-acl">TP — Module 06 — La sécurité NTFS et les ACL<a class="headerlink" href="#tp-module-06-la-securite-ntfs-et-les-acl" title="Permanent link">¶</a></h1>
-<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cours Original</label><label for="__tabbed_1_2">Cours Optimisé IA</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
-<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
-<details class="tssr-original-document" open="">
-<summary>Notes du Drive · Module 6.txt · document texte</summary>
-<div class="tssr-original-document__body">
-<p class="tssr-original-note">Notes textuelles présentes dans le Drive. Aucun support de cours illustré distinct n’est fourni pour ce document ; aucune illustration n’a été inventée ou attribuée au support.</p>
-
-<section class="tssr-transcribed-page" id="source-1SRkAloeUhQqznCjEZYEO2JNPNsJkBR59-page-1"><h2>Quiz Kahoot – Module 6 : La sécurité NTFS et les ACL</h2><h2>Niveau Facile (1 à 7)</h2><h3>1. Sur quel système de fichiers les ACL sont-elles disponibles ?</h3><p>A. FAT32<br>B. NTFS ✅<br>C. exFAT<br>D. FAT16</p><h3>2. Que signifie ACL ?</h3><p>A. Access Computer List<br>B. Access Control List ✅<br>C. Active Control Link<br>D. Access Configuration Level</p><h3>3. Que signifie DACL ?</h3><p>A. Dynamic Access Control List<br>B. Discretionary Access Control List ✅<br>C. Direct Access Control List<br>D. Data Access Control List</p><h3>4. Que représente une ACE ?</h3><p>A. Une partition<br>B. Une entrée de contrôle d’accès ✅<br>C. Un groupe d’utilisateurs<br>D. Un système de fichiers</p><h3>5. Quel niveau d’autorisation permet toutes les actions sur un fichier ou un dossier ?</h3><p>A. Lecture<br>B. Modification<br>C. Contrôle total ✅<br>D. Exécution</p><h3>6. Où configure-t-on les autorisations NTFS de base ?</h3><p>A. Onglet Général<br>B. Bouton Modifier ✅<br>C. Invite de commandes<br>D. Gestionnaire de périphériques</p><h3>7. Où trouve-t-on les autorisations spéciales ?</h3><p>A. Modifier<br>B. Avancé ✅<br>C. Partage<br>D. Général</p><h2>Niveau Moyen (8 à 14)</h2><h3>8. Si un utilisateur n’est pas présent dans la DACL, que se passe-t-il ?</h3><p>A. Il obtient Lecture<br>B. Il obtient Modification<br>C. Son accès est refusé implicitement ✅<br>D. Il obtient Contrôle total</p><h3>9. Une ACE peut :</h3><p>A. Seulement autoriser<br>B. Seulement refuser<br>C. Autoriser ou refuser ✅<br>D. Seulement modifier</p><h3>10. Si plusieurs autorisations “Autoriser” s’appliquent à un utilisateur, laquelle est retenue ?</h3><p>A. La plus restrictive<br>B. La première<br>C. La plus permissive ✅<br>D. Aucune</p><h3>11. Quelle règle est prioritaire ?</h3><p>A. L’autorisation explicite<br>B. Le refus explicite ✅<br>C. Le refus implicite<br>D. L’autorisation héritée</p><h3>12. Par défaut, un dossier transmet ses autorisations à :</h3><p>A. Son propriétaire uniquement<br>B. Ses fichiers et sous-dossiers ✅<br>C. Son disque uniquement<br>D. Aucun élément</p><h3>13. Lors d’un déplacement dans le même volume, les autorisations NTFS sont :</h3><p>A. Supprimées<br>B. Conservées ✅<br>C. Réinitialisées<br>D. Converties</p><h3>14. Lors d’une copie vers un autre volume, les autorisations :</h3><p>A. Sont conservées<br>B. Héritent du dossier de destination ✅<br>C. Deviennent publiques<br>D. Sont supprimées</p><h2>Niveau Difficile (15 à 16)</h2><h3>15. Quelle cmdlet PowerShell permet d’afficher les ACL d’un dossier ?</h3><p>A. Get-Permission<br>B. Get-Acl ✅<br>C. Show-Acl<br>D. Read-Acl</p><h3>16. Quelle cmdlet PowerShell permet de modifier les ACL ?</h3><p>A. Update-Acl<br>B. Set-Acl ✅<br>C. Edit-Acl<br>D. New-Acl</p><h2>Vrai / Faux</h2><h3>17. Vrai ou Faux</h3><p>Microsoft recommande de privilégier les groupes plutôt que les utilisateurs dans les DACL.</p><p>✅ Vrai</p><h3>18. Vrai ou Faux</h3><p>Les autorisations héritées peuvent être modifiées directement sans action particulière.</p><p>❌ Faux</p><h3>19. Vrai ou Faux</h3><p>Après avoir configuré les ACL, il est recommandé de tester les accès ou de consulter l’onglet Accès effectif.</p><p>✅ Vrai</p><h3>20. Vrai ou Faux</h3><p>Le double jeton d’accès des administrateurs (UAC) peut influencer les autorisations effectives.</p><p>✅ Vrai</p></section>
-
-<p class="tssr-original-proof">Référence du document : 1SRkAloeUhQqznCjEZYEO2JNPNsJkBR59 · <span title="Empreinte SHA-256 du fichier source">SHA-256 4856c60a24c0f3ef…</span></p>
-</div>
-</details>
-<details class="tssr-original-document">
-<summary>Notes du Drive · module 5 et 6.txt · document texte</summary>
-<div class="tssr-original-document__body">
-<p class="tssr-original-note">Notes textuelles présentes dans le Drive. Aucun support de cours illustré distinct n’est fourni pour ce document ; aucune illustration n’a été inventée ou attribuée au support.</p>
-
-<section class="tssr-transcribed-page" id="source-1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7-page-1"><h2>Inexistant</h2><p>Le fichier de notes est vide dans le Drive. Aucun contenu n’a été inventé.</p></section>
-
-<p class="tssr-original-proof">Référence du document : 1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7 · <span title="Empreinte SHA-256 du fichier source">SHA-256 e3b0c44298fc1c14…</span></p>
-</div>
-</details>
-</div><p></p>
-</div>
-<div class="tabbed-block">
-<div class="admonition info">
-<p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
-</div>
 <h2 id="scenario">Scénario<a class="headerlink" href="#scenario" title="Permanent link">¶</a></h2>
 <p>Ce TP met en pratique la configuration et la vérification d’autorisations NTFS sur les répertoires de deux volumes de laboratoire. Les réponses restent séparées de l’énoncé : réalisez d’abord les activités, puis comparez les résultats à la correction.</p>
 <table>
@@ -17190,9 +17156,6 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Les droits hérités et explicites sont distingués.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Accès effectif et test réel avec le compte concerné concordent.</li>
 </ul>
-</div>
-</div>
-</div>
 
 
 

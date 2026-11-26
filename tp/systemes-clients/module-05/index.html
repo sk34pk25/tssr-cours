@@ -17103,53 +17103,6 @@
 
 
 <h1 id="tp-module-05-les-utilisateurs-et-les-groupes">TP — Module 05 — Les utilisateurs et les groupes<a class="headerlink" href="#tp-module-05-les-utilisateurs-et-les-groupes" title="Permanent link">¶</a></h1>
-<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cours Original</label><label for="__tabbed_1_2">Cours Optimisé IA</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
-<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
-<details class="tssr-original-document" open="">
-<summary>Synthèse du Drive · Synthèse Module 5 - Gestion des Utilisateurs, Groupes et UAC V2 · 3 pages transcrites</summary>
-<div class="tssr-original-document__body">
-<p class="tssr-original-note">Les synthèses Windows 10 de ce dossier sont rattachées au cours Systèmes clients.</p>
-
-<section class="tssr-transcribed-page" id="source-1xPtrQx5oKA-CNDqmsl8HKcDMVemUE5n-XXwvyJYUpqU-page-1"><h2>Synthèse — Module 5 : Les Utilisateurs, les Groupes et le Contrôle de Comptes (UAC) (V2)</h2><h2>1. Concept d’Utilisateur et de Profil</h2><p>Dans Windows 10, chaque collaborateur est identifié par un compte d’utilisateur associé à un identifiant de sécurité unique (SID - Security Identifier).</p><ul><li>Utilisateur Local : enregistré dans la base de données locale SAM (Security Account Manager) du poste.</li><li>Utilisateur de Domaine : enregistré dans l’annuaire Active Directory pour un accès centralisé.</li><li>Profil Utilisateur : dossier personnel stocké dans C:\Users\&lt;nom&gt; contenant les paramètres et documents de l’utilisateur. La gestion des profils se fait via sysdm.cpl.</li></ul><h2>2. Gestion des Groupes et Autorisations</h2><p>Les groupes permettent de simplifier l’attribution des droits et privilèges. Un utilisateur hérite des permissions accordées aux groupes auxquels il appartient.</p></section>
-<section class="tssr-transcribed-page" id="source-1xPtrQx5oKA-CNDqmsl8HKcDMVemUE5n-XXwvyJYUpqU-page-2"><table><thead><tr><th>Type de groupe</th><th>Exemples / Rôle</th></tr></thead><tbody><tr><td>Administrateurs</td><td>Contrôle total sur l’ordinateur et le système. Compte administrateur désactivé par défaut.</td></tr><tr><td>Utilisateurs</td><td>Membres standards autorisés à exécuter des applications sans modifier le système.</td></tr><tr><td>Invités (Guests)</td><td>Accès très restreint, désactivé par défaut.</td></tr><tr><td>Entités intégrées</td><td>Tout le monde, Utilisateurs authentifiés (gérées automatiquement par l’OS).</td></tr></tbody></table><h2>3. Contrôle de Compte d’Utilisateur (UAC) et Administration</h2><p>L’UAC (User Account Control) empêche les modifications système non autorisées en imposant une confirmation ou une saisie de mot de passe administrateur (élévation de privilèges symbolisée par le bouclier).</p><h3>Commandes de gestion CLI et PowerShell</h3><pre><code>:: Gestion des utilisateurs et groupes locaux (cmd.exe)
-net user
-net user pdupond Pa$$w0rd /add
-net localgroup Administrateurs pdupond /add
-whoami /all
-:: Lancement des consoles de gestion MMC
-lusrmgr.msc
-compmgmt.msc
-secpol.msc</code></pre></section>
-<section class="tssr-transcribed-page" id="source-1xPtrQx5oKA-CNDqmsl8HKcDMVemUE5n-XXwvyJYUpqU-page-3"><h2>Cmdlets PowerShell de gestion des utilisateurs locaux</h2><pre><code>Get-LocalUser
-New-LocalUser -Name "pdupond" -AccountNeverExpires
-Add-LocalGroupMember -Group "Administrateurs" -Member "pdupond"
-Disable-LocalUser -Name "Guest"</code></pre></section>
-
-<p class="tssr-original-proof">Référence du document : 1xPtrQx5oKA-CNDqmsl8HKcDMVemUE5n-XXwvyJYUpqU · <span title="Empreinte SHA-256 du fichier source">SHA-256 e6bea2f53019f56d…</span></p>
-</div>
-</details>
-<details class="tssr-original-document">
-<summary>Notes du Drive · module 5 et 6.txt · document texte</summary>
-<div class="tssr-original-document__body">
-<p class="tssr-original-note">Notes textuelles présentes dans le Drive. Aucun support de cours illustré distinct n’est fourni pour ce document ; aucune illustration n’a été inventée ou attribuée au support.</p>
-
-<section class="tssr-transcribed-page" id="source-1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7-page-1"><h2>Inexistant</h2><p>Le fichier de notes est vide dans le Drive. Aucun contenu n’a été inventé.</p></section>
-
-<p class="tssr-original-proof">Référence du document : 1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7 · <span title="Empreinte SHA-256 du fichier source">SHA-256 e3b0c44298fc1c14…</span></p>
-</div>
-</details>
-</div><p></p>
-</div>
-<div class="tabbed-block">
-<div class="admonition info">
-<p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
-</div>
 <h2 id="scenario">Scénario<a class="headerlink" href="#scenario" title="Permanent link">¶</a></h2>
 <p>Ce TP met en pratique la gestion des utilisateurs et des groupes locaux, l’attribution de privilèges, l’observation des profils et l’utilisation d’outils graphiques, CMD et PowerShell. Les réponses restent séparées de l’énoncé : réalisez d’abord les activités, puis comparez votre résultat à la correction.</p>
 <table>
@@ -17203,9 +17156,6 @@ Disable-LocalUser -Name "Guest"</code></pre></section>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Les appartenances correspondent au scénario.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Le profil et le jeton sont observés dans une session du compte concerné.</li>
 </ul>
-</div>
-</div>
-</div>
 
 
 
