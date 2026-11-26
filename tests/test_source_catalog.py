@@ -161,6 +161,22 @@ class OriginalSourcesTests(unittest.TestCase):
         self.assertLess(text.index('[Travaux pratiques]'), text.index('=== "Cours Original"'))
         self.assertLess(text.index('=== "Cours Original"'), text.index('## Texte'))
 
+    def test_solar_system_documents_join_the_original_tab(self):
+        page='tp/microsoft-365/module-02/enonces.md'
+        data=dict(documents={},pages={page:[]})
+        source='# Titre\n\nConsigne.\n\n??? note "Document brut"\n\n    P0 Texte brut du système solaire.\n'
+        text=project_page(source, page, data)
+        original, _, optimized = text.partition('=== "Cours Optimisé IA"')
+        self.assertIn('Texte brut du système solaire.', original)
+        self.assertNotIn('Texte brut du système solaire.', optimized)
+        finished='tp/microsoft-365/module-02/corrections.md'
+        body=(ROOT/'docs'/finished).read_text(encoding='utf-8')
+        rendered=project_page(body, finished, dict(documents={},pages={finished:[]}))
+        original, _, optimized = rendered.partition('=== "Cours Optimisé IA"')
+        self.assertIn('Mise en forme lue dans le document', original)
+        self.assertNotIn('Mise en forme lue dans le document', optimized)
+        self.assertIn("neuf planètes", original)
+
     def test_shared_notes_are_clipped_to_their_module(self):
         from html import unescape
         from source_catalog import render_originals
