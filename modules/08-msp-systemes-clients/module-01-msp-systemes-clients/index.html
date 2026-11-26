@@ -27598,7 +27598,7 @@ PasswordNeverExpires</code></pre>
 # Indiquer les noms d'en-têtes 
  
  
-$datasource=Import-CSV -Path "C:\Users\fx\Desktop\utilisateurs.csv" -Delimiter ";" -
+$datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\utilisateurs.csv" -Delimiter ";" -
 Header Prénom,Nom,login,mail,password,description 
  
 #Boucle d'alimentation  
@@ -27633,7 +27633,7 @@ write-host "ont été créés" -ForegroundColor Black</code></pre>
 <p>2.1.3 Vous adopterez une convention de nommage pour les groupes, que vous conserverez, quel que soit le système d’exploitation. Nous pouvons proposer comme convention de nommage : L_ Le nom du groupe_Le droit accorder au groupe L indiquant que le groupe est local R indiquant le droit de lecture W indiquant le droit de modification X indiquant le droit d’exécution CT indiquant le droit de contrôle total Exemple : L_Comptabilité le groupe contenant tous les comptables L_Commercial_W le groupe pour les commerciaux avec les droits en modification L_Informatique_CT les groupes pour les informaticiens avec le droit en contrôle total</p>
 </section>
 <section class="tssr-transcribed-page" id="source-11FMGV91iFpk7B4zi-mYfv1LrVd3T2vYf-page-37">
-<ul><li>Sur le poste Windows 10 2.1.4 Le système Windows 10 sera utilisé par tous les membres. Vous créerez donc les groupes et comptes nécessaires en précisant dans le champ description leur service d’appartenance. Vous créerez une partie via la commande (la direction, comptabilité), une partie en PowerShell (les groupes informatiques, logistiques), une partie en graphique (les commerciaux). Nous utiliserons comme pour les utilisateurs une commande PowerShell : New-LocalGroup -Name ”L_informatique” -Description “groupe informatiques” Pour les groupes nous pouvons procéder comme pour les utilisateurs : ############################################################### # Script de création des groupes dans windows 10 client # # Tracer Lexton # # créé le 20 octobre 2020 # # Mis à jour le 20 octobre 2020 # # Mis à jour par Jesse MacCree # # le 20 octobre 2020 # # Fonctionnel sous Windows 10 entreprise build 2004 # ############################################################### # Indiquer l'adresse complète du fichier utilisateurs .csv # Indiquer le délimiteur pour le fichier .csv # Indiquer les noms d'en-têtes $datasource=Import-CSV -Path "C:\Users\fx\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description #Boucle d'alimentation Foreach($data in $datasource) { # Nom des groupes $groupes=$data.Groupes # description des groupes $description=$data.description #creation du groupe avec les données renseignées dnas le tableau csv New-LocalGroup -Name ”$groupes” -Description “$description” # Fait une liste $nomliste=$affich $liste = $liste + $nomliste + "," } # Affiche le résultat des imports write-host "Les groupes : " -ForegroundColor Black write-host "$liste" -foregroundcolor red write-host "ont été créés" -ForegroundColor Black Avec la commande : Net localgroup direction /add Net localgroup direction /comment:”le groupe de la direction” Net localgroup comptabilite /add Net localgroup comptabilite /comment:”le groupe de ceux qui compte”</li></ul>
+<ul><li>Sur le poste Windows 10 2.1.4 Le système Windows 10 sera utilisé par tous les membres. Vous créerez donc les groupes et comptes nécessaires en précisant dans le champ description leur service d’appartenance. Vous créerez une partie via la commande (la direction, comptabilité), une partie en PowerShell (les groupes informatiques, logistiques), une partie en graphique (les commerciaux). Nous utiliserons comme pour les utilisateurs une commande PowerShell : New-LocalGroup -Name ”L_informatique” -Description “groupe informatiques” Pour les groupes nous pouvons procéder comme pour les utilisateurs : ############################################################### # Script de création des groupes dans windows 10 client # # Tracer Lexton # # créé le 20 octobre 2020 # # Mis à jour le 20 octobre 2020 # # Mis à jour par Jesse MacCree # # le 20 octobre 2020 # # Fonctionnel sous Windows 10 entreprise build 2004 # ############################################################### # Indiquer l'adresse complète du fichier utilisateurs .csv # Indiquer le délimiteur pour le fichier .csv # Indiquer les noms d'en-têtes $datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description #Boucle d'alimentation Foreach($data in $datasource) { # Nom des groupes $groupes=$data.Groupes # description des groupes $description=$data.description #creation du groupe avec les données renseignées dnas le tableau csv New-LocalGroup -Name ”$groupes” -Description “$description” # Fait une liste $nomliste=$affich $liste = $liste + $nomliste + "," } # Affiche le résultat des imports write-host "Les groupes : " -ForegroundColor Black write-host "$liste" -foregroundcolor red write-host "ont été créés" -ForegroundColor Black Avec la commande : Net localgroup direction /add Net localgroup direction /comment:”le groupe de la direction” Net localgroup comptabilite /add Net localgroup comptabilite /comment:”le groupe de ceux qui compte”</li></ul>
 </section>
 <section class="tssr-transcribed-page" id="source-11FMGV91iFpk7B4zi-mYfv1LrVd3T2vYf-page-38">
 <p>Avec l’interface graphique : Ouvrir la console "lusrmgr.msc"</p>
@@ -28172,7 +28172,7 @@ apt --fix-broken install</code></pre><p>La première installation reste non conf
 
 
 
-$datasource=Import-CSV -Path "C:\Users\fx\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description
+$datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description
 
 
 
@@ -28260,7 +28260,7 @@ write-host "ont été créés" -ForegroundColor Black</code></pre>
 
 
 
-$datasource=Import-CSV -Path "C:\Users\fx\Desktop\utilisateurs.csv" -Delimiter ";" -Header Prénom,Nom,login,mail,password,description
+$datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\utilisateurs.csv" -Delimiter ";" -Header Prénom,Nom,login,mail,password,description
 
 
 
@@ -28473,7 +28473,7 @@ write-host "ont été créés" -ForegroundColor Black</code></pre>
 
 
 
-$datasource=Import-CSV -Path "C:\Users\fx\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description
+$datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description
 
 
 
@@ -28561,7 +28561,7 @@ write-host "ont été créés" -ForegroundColor Black</code></pre>
 
 
 
-$datasource=Import-CSV -Path "C:\Users\fx\Desktop\utilisateurs.csv" -Delimiter ";" -Header Prénom,Nom,login,mail,password,description
+$datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\utilisateurs.csv" -Delimiter ";" -Header Prénom,Nom,login,mail,password,description
 
 
 
@@ -32487,7 +32487,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 </span><span id="__span-49-13"><a id="__codelineno-49-13" name="__codelineno-49-13" href="#__codelineno-49-13"></a># Indiquer les noms d'en-têtes 
 </span><span id="__span-49-14"><a id="__codelineno-49-14" name="__codelineno-49-14" href="#__codelineno-49-14"></a>
 </span><span id="__span-49-15"><a id="__codelineno-49-15" name="__codelineno-49-15" href="#__codelineno-49-15"></a>
-</span><span id="__span-49-16"><a id="__codelineno-49-16" name="__codelineno-49-16" href="#__codelineno-49-16"></a>$datasource=Import-CSV -Path "C:\Users\fx\Desktop\utilisateurs.csv" -Delimiter ";" -
+</span><span id="__span-49-16"><a id="__codelineno-49-16" name="__codelineno-49-16" href="#__codelineno-49-16"></a>$datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\utilisateurs.csv" -Delimiter ";" -
 </span><span id="__span-49-17"><a id="__codelineno-49-17" name="__codelineno-49-17" href="#__codelineno-49-17"></a>Header Prénom,Nom,login,mail,password,description 
 </span><span id="__span-49-18"><a id="__codelineno-49-18" name="__codelineno-49-18" href="#__codelineno-49-18"></a>
 </span><span id="__span-49-19"><a id="__codelineno-49-19" name="__codelineno-49-19" href="#__codelineno-49-19"></a>#Boucle d'alimentation  
@@ -32522,7 +32522,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 </span></code></pre></div>
 <p>2.1.3 Vous adopterez une convention de nommage pour les groupes, que vous conserverez, quel que soit le système d’exploitation. Nous pouvons proposer comme convention de nommage : L_ Le nom du groupe_Le droit accorder au groupe L indiquant que le groupe est local R indiquant le droit de lecture W indiquant le droit de modification X indiquant le droit d’exécution CT indiquant le droit de contrôle total Exemple : L_Comptabilité le groupe contenant tous les comptables L_Commercial_W le groupe pour les commerciaux avec les droits en modification L_Informatique_CT les groupes pour les informaticiens avec le droit en contrôle total</p>
 <ul>
-<li>Sur le poste Windows 10 2.1.4 Le système Windows 10 sera utilisé par tous les membres. Vous créerez donc les groupes et comptes nécessaires en précisant dans le champ description leur service d’appartenance. Vous créerez une partie via la commande (la direction, comptabilité), une partie en PowerShell (les groupes informatiques, logistiques), une partie en graphique (les commerciaux). Nous utiliserons comme pour les utilisateurs une commande PowerShell : New-LocalGroup -Name ”L_informatique” -Description “groupe informatiques” Pour les groupes nous pouvons procéder comme pour les utilisateurs : ############################################################### # Script de création des groupes dans windows 10 client # # Tracer Lexton # # créé le 20 octobre 2020 # # Mis à jour le 20 octobre 2020 # # Mis à jour par Jesse MacCree # # le 20 octobre 2020 # # Fonctionnel sous Windows 10 entreprise build 2004 # ############################################################### # Indiquer l'adresse complète du fichier utilisateurs .csv # Indiquer le délimiteur pour le fichier .csv # Indiquer les noms d'en-têtes $datasource=Import-CSV -Path "C:\Users\fx\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description #Boucle d'alimentation Foreach($data in $datasource) { # Nom des groupes $groupes=$data.Groupes # description des groupes $description=$data.description #creation du groupe avec les données renseignées dnas le tableau csv New-LocalGroup -Name ”$groupes” -Description “$description” # Fait une liste $nomliste=$affich $liste = $liste + $nomliste + "," } # Affiche le résultat des imports write-host "Les groupes : " -ForegroundColor Black write-host "$liste" -foregroundcolor red write-host "ont été créés" -ForegroundColor Black Avec la commande : Net localgroup direction /add Net localgroup direction /comment:”le groupe de la direction” Net localgroup comptabilite /add Net localgroup comptabilite /comment:”le groupe de ceux qui compte”</li>
+<li>Sur le poste Windows 10 2.1.4 Le système Windows 10 sera utilisé par tous les membres. Vous créerez donc les groupes et comptes nécessaires en précisant dans le champ description leur service d’appartenance. Vous créerez une partie via la commande (la direction, comptabilité), une partie en PowerShell (les groupes informatiques, logistiques), une partie en graphique (les commerciaux). Nous utiliserons comme pour les utilisateurs une commande PowerShell : New-LocalGroup -Name ”L_informatique” -Description “groupe informatiques” Pour les groupes nous pouvons procéder comme pour les utilisateurs : ############################################################### # Script de création des groupes dans windows 10 client # # Tracer Lexton # # créé le 20 octobre 2020 # # Mis à jour le 20 octobre 2020 # # Mis à jour par Jesse MacCree # # le 20 octobre 2020 # # Fonctionnel sous Windows 10 entreprise build 2004 # ############################################################### # Indiquer l'adresse complète du fichier utilisateurs .csv # Indiquer le délimiteur pour le fichier .csv # Indiquer les noms d'en-têtes $datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description #Boucle d'alimentation Foreach($data in $datasource) { # Nom des groupes $groupes=$data.Groupes # description des groupes $description=$data.description #creation du groupe avec les données renseignées dnas le tableau csv New-LocalGroup -Name ”$groupes” -Description “$description” # Fait une liste $nomliste=$affich $liste = $liste + $nomliste + "," } # Affiche le résultat des imports write-host "Les groupes : " -ForegroundColor Black write-host "$liste" -foregroundcolor red write-host "ont été créés" -ForegroundColor Black Avec la commande : Net localgroup direction /add Net localgroup direction /comment:”le groupe de la direction” Net localgroup comptabilite /add Net localgroup comptabilite /comment:”le groupe de ceux qui compte”</li>
 </ul>
 <p>Avec l’interface graphique : Ouvrir la console "lusrmgr.msc"</p>
 <p>Sous "Groupes" : clic-droit -&gt; Nouveau Groupe..."</p>
@@ -33371,7 +33371,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 </span><span id="__span-59-22"><a id="__codelineno-59-22" name="__codelineno-59-22" href="#__codelineno-59-22"></a>
 </span><span id="__span-59-23"><a id="__codelineno-59-23" name="__codelineno-59-23" href="#__codelineno-59-23"></a># Indiquer les noms d'en-têtes
 </span><span id="__span-59-24"><a id="__codelineno-59-24" name="__codelineno-59-24" href="#__codelineno-59-24"></a>
-</span><span id="__span-59-25"><a id="__codelineno-59-25" name="__codelineno-59-25" href="#__codelineno-59-25"></a>$datasource=Import-CSV -Path "C:\Users\fx\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description
+</span><span id="__span-59-25"><a id="__codelineno-59-25" name="__codelineno-59-25" href="#__codelineno-59-25"></a>$datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description
 </span><span id="__span-59-26"><a id="__codelineno-59-26" name="__codelineno-59-26" href="#__codelineno-59-26"></a>
 </span><span id="__span-59-27"><a id="__codelineno-59-27" name="__codelineno-59-27" href="#__codelineno-59-27"></a>#Boucle d'alimentation 
 </span><span id="__span-59-28"><a id="__codelineno-59-28" name="__codelineno-59-28" href="#__codelineno-59-28"></a>
@@ -33436,7 +33436,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 </span><span id="__span-60-22"><a id="__codelineno-60-22" name="__codelineno-60-22" href="#__codelineno-60-22"></a>
 </span><span id="__span-60-23"><a id="__codelineno-60-23" name="__codelineno-60-23" href="#__codelineno-60-23"></a># Indiquer les noms d'en-têtes
 </span><span id="__span-60-24"><a id="__codelineno-60-24" name="__codelineno-60-24" href="#__codelineno-60-24"></a>
-</span><span id="__span-60-25"><a id="__codelineno-60-25" name="__codelineno-60-25" href="#__codelineno-60-25"></a>$datasource=Import-CSV -Path "C:\Users\fx\Desktop\utilisateurs.csv" -Delimiter ";" -Header Prénom,Nom,login,mail,password,description
+</span><span id="__span-60-25"><a id="__codelineno-60-25" name="__codelineno-60-25" href="#__codelineno-60-25"></a>$datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\utilisateurs.csv" -Delimiter ";" -Header Prénom,Nom,login,mail,password,description
 </span><span id="__span-60-26"><a id="__codelineno-60-26" name="__codelineno-60-26" href="#__codelineno-60-26"></a>
 </span><span id="__span-60-27"><a id="__codelineno-60-27" name="__codelineno-60-27" href="#__codelineno-60-27"></a>#Boucle d'alimentation 
 </span><span id="__span-60-28"><a id="__codelineno-60-28" name="__codelineno-60-28" href="#__codelineno-60-28"></a>
@@ -33939,7 +33939,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 </span><span id="__span-61-22"><a id="__codelineno-61-22" name="__codelineno-61-22" href="#__codelineno-61-22"></a>
 </span><span id="__span-61-23"><a id="__codelineno-61-23" name="__codelineno-61-23" href="#__codelineno-61-23"></a># Indiquer les noms d'en-têtes
 </span><span id="__span-61-24"><a id="__codelineno-61-24" name="__codelineno-61-24" href="#__codelineno-61-24"></a>
-</span><span id="__span-61-25"><a id="__codelineno-61-25" name="__codelineno-61-25" href="#__codelineno-61-25"></a>$datasource=Import-CSV -Path "C:\Users\fx\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description
+</span><span id="__span-61-25"><a id="__codelineno-61-25" name="__codelineno-61-25" href="#__codelineno-61-25"></a>$datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description
 </span><span id="__span-61-26"><a id="__codelineno-61-26" name="__codelineno-61-26" href="#__codelineno-61-26"></a>
 </span><span id="__span-61-27"><a id="__codelineno-61-27" name="__codelineno-61-27" href="#__codelineno-61-27"></a>#Boucle d'alimentation 
 </span><span id="__span-61-28"><a id="__codelineno-61-28" name="__codelineno-61-28" href="#__codelineno-61-28"></a>
@@ -34004,7 +34004,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 </span><span id="__span-62-22"><a id="__codelineno-62-22" name="__codelineno-62-22" href="#__codelineno-62-22"></a>
 </span><span id="__span-62-23"><a id="__codelineno-62-23" name="__codelineno-62-23" href="#__codelineno-62-23"></a># Indiquer les noms d'en-têtes
 </span><span id="__span-62-24"><a id="__codelineno-62-24" name="__codelineno-62-24" href="#__codelineno-62-24"></a>
-</span><span id="__span-62-25"><a id="__codelineno-62-25" name="__codelineno-62-25" href="#__codelineno-62-25"></a>$datasource=Import-CSV -Path "C:\Users\fx\Desktop\utilisateurs.csv" -Delimiter ";" -Header Prénom,Nom,login,mail,password,description
+</span><span id="__span-62-25"><a id="__codelineno-62-25" name="__codelineno-62-25" href="#__codelineno-62-25"></a>$datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\utilisateurs.csv" -Delimiter ";" -Header Prénom,Nom,login,mail,password,description
 </span><span id="__span-62-26"><a id="__codelineno-62-26" name="__codelineno-62-26" href="#__codelineno-62-26"></a>
 </span><span id="__span-62-27"><a id="__codelineno-62-27" name="__codelineno-62-27" href="#__codelineno-62-27"></a>#Boucle d'alimentation 
 </span><span id="__span-62-28"><a id="__codelineno-62-28" name="__codelineno-62-28" href="#__codelineno-62-28"></a>

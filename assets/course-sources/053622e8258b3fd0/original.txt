@@ -12,7 +12,7 @@
 # Indiquer le délimiteur pour le fichier .csv
 # Indiquer les noms d'en-têtes
 
-$datasource=Import-CSV -Path "C:\Users\fx\Desktop\utilisateurs.csv" -Delimiter ";" -Header Prénom,Nom,login,mail,password,description
+$datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\utilisateurs.csv" -Delimiter ";" -Header Prénom,Nom,login,mail,password,description
 
 #Boucle d'alimentation 
 
