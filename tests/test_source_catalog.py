@@ -161,6 +161,15 @@ class OriginalSourcesTests(unittest.TestCase):
         self.assertLess(text.index('[Travaux pratiques]'), text.index('=== "Cours Original"'))
         self.assertLess(text.index('=== "Cours Original"'), text.index('## Texte'))
 
+    def test_shared_notes_are_clipped_to_their_module(self):
+        from html import unescape
+        from source_catalog import render_originals
+        data=load_catalog()
+        page='modules/01-bases-reseaux/module-02-les-unites-informatiques.md'
+        html=unescape(render_originals(data['pages'][page], page, data))
+        self.assertIn('Les unités informatiques', html)
+        self.assertNotIn('Modèle OSI : Une Structure en 7 Couches', html)
+
     def test_misfiled_linux_tp_follows_its_internal_module_title(self):
         data=load_catalog()
         course='modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md'

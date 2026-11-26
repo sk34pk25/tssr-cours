@@ -5,7 +5,6 @@
 Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
 ## Parcours de lecture
-
 1. Support · Module 03 - Support de cours · 20 pages transcrites
 2. Interagir avec Windows 10
 3. Tour d’horizon
@@ -32,7 +31,6 @@ Les parties ci-dessous reprennent le cours original, dans le même ordre. Les en
 24. Notions essentielles de Microsoft Excel — tableau
 25. Notes du Drive · module 3 et 4 system clients microsoft.txt · document texte
 26. Module 3 - Interagir avec Windows 10
-27. Module 4 - La gestion du stockage
 
 **Visuel externe**
 
@@ -79,7 +77,7 @@ Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page
 **Visuel externe**
 
 ```mermaid
-flowchart LR
+flowchart TD
     N1["Interagir avec le système."]
     N2["Découvrir l’interface graphique."]
     N3["Administrer le système avec la ligne de commande."]
@@ -104,7 +102,7 @@ flowchart LR
 **Visuel externe**
 
 ```mermaid
-flowchart LR
+flowchart TD
     N1["Le bureau personnalisable."]
     N2["Les bureaux supplémentaires."]
     N3["Timeline, ou historique des actions."]
@@ -122,7 +120,7 @@ flowchart LR
 **Visuel externe**
 
 ```mermaid
-flowchart LR
+flowchart TD
     N1["La barre des tâches et ses raccourcis."]
     N2["Windows + Tab."]
     N3["Le Gestionnaire des tâches."]
@@ -142,7 +140,7 @@ flowchart LR
 **Visuel externe**
 
 ```mermaid
-flowchart LR
+flowchart TD
     N1["Accès à la configuration réseau."]
     N2["Configuration rapide de la connectivité."]
     N3["Mode Tablette."]
@@ -1291,28 +1289,6 @@ Nous avons vu qu’il existe plusieurs façons de piloter un système d'exploita
 Nous avons également pris conscience que pour un technicien, l'aide est omniprésente. Nous devons développer le réflexe d'utiliser l'aide pour construire nos commandes. En agissant de la sorte, nous ferons en sorte que le système utilise les ressources de manière optimisée. Cela nous permettra également de modifier le système, à condition de posséder les privilèges d'administration.
 
 En somme, ce module nous a permis de comprendre les différents outils et moyens d'interagir efficacement avec Windows 10. L'utilisation de l'interface graphique, de la ligne de commande, et de PowerShell, ainsi que le recours à l'aide, sont des atouts essentiels pour un technicien compétent.
-
-## Module 4 - La gestion du stockage
-
-### Objectifs du module
-
-### Présentation du stockage
-
-### Le partitionnement
-
-### Les systèmes de fichiers
-
-### Les disques durs virtuels
-
-### Des outils pour gérer le stockage
-
-### Démonstration - Le stockage local GUI
-
-### Démonstration - Le stockage local Diskpart
-
-### Enoncé du TP - Gestion du stockage
-
-### Conclusion
 
 Référence du document : 1c_HkIgPPzF1QzQvLy0nsrpsSZzmlNClX · SHA-256 3c7c12622492a311…
 

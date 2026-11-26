@@ -69004,15 +69004,12 @@
       "1yZg-sL1N1_IEhwcIlVPg2aBJ-PkjBrIX"
     ],
     "modules/01-bases-reseaux/module-02-les-unites-informatiques.md": [
-      "1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn",
-      "1yZg-sL1N1_IEhwcIlVPg2aBJ-PkjBrIX"
+      "1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn"
     ],
     "modules/01-bases-reseaux/module-03-l-adressage-ipv4.md": [
       "1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT"
     ],
-    "modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md": [
-      "1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT"
-    ],
+    "modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md": [],
     "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": [
       "1K6RxfeTNGDRc3zj_-mCuyoj1wy6mhLG5"
     ],
@@ -69086,10 +69083,6 @@
     "tp/systemes-clients/module-02/enonces.md": [
       "11VGT5YMtygwmyVnoqbH8jjhvXbSGRAV1"
     ],
-    "tp/systemes-clients/module-02/index.md": [
-      "1BIk1H_2uj3XFijQHxwvV9Ve50UrWWACE5M6AmT1L9Lk",
-      "1nxEVg-7mxd3jMbcAE5Kz3qCC4VNDZHhg"
-    ],
     "tp/systemes-clients/module-03/corrections.md": [
       "1S1gP8MhnJVEaWD13JVSCsusyZ68hgRpU",
       "1yGmA6pJmkgyfQY1BuRR4tN-rapddhBZX",
@@ -69104,19 +69097,11 @@
       "177ICPb0fTCN7rULRIChQQJNujFeNCUMS",
       "1LKkjhY2aMDPAp5pjP7GZitxXFpJc5QIl"
     ],
-    "tp/systemes-clients/module-03/index.md": [
-      "1YVfR8rQcbF2RA_I23MsPVH7NZ4auK9h7bqBPOA7d4DE",
-      "1c_HkIgPPzF1QzQvLy0nsrpsSZzmlNClX"
-    ],
     "tp/systemes-clients/module-04/corrections.md": [
       "1iGVskWd7CmnSXiSiQJSRen1GPUUdBkTm"
     ],
     "tp/systemes-clients/module-04/enonces.md": [
       "1pAPTckR7dxiqqi-UXO4wzQzvbyUAJ9Gs"
-    ],
-    "tp/systemes-clients/module-04/index.md": [
-      "1HPSzTP-d7McDtFNHDKfLLzdIZlYgYOvlaTrRjec1VQM",
-      "1c_HkIgPPzF1QzQvLy0nsrpsSZzmlNClX"
     ],
     "tp/systemes-clients/module-05/corrections.md": [
       "1OFaYYZbg4qoJYm_UsA_9Idm9g1Jlt9Pt"
@@ -69124,19 +69109,11 @@
     "tp/systemes-clients/module-05/enonces.md": [
       "1zUt7LGnurr8Z4KlkK8CwpiBBzF0M7qnK"
     ],
-    "tp/systemes-clients/module-05/index.md": [
-      "1xPtrQx5oKA-CNDqmsl8HKcDMVemUE5n-XXwvyJYUpqU",
-      "1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7"
-    ],
     "tp/systemes-clients/module-06/corrections.md": [
       "1410fdahllumEPrWp3O-vvc38KyzkoCJz"
     ],
     "tp/systemes-clients/module-06/enonces.md": [
       "1aiD08x7K_WK6bcTRZoJKrA30Yf9_2fOt"
-    ],
-    "tp/systemes-clients/module-06/index.md": [
-      "1SRkAloeUhQqznCjEZYEO2JNPNsJkBR59",
-      "1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7"
     ],
     "tp/systemes-clients/module-07/corrections.md": [
       "1GDEIMZpmyo9qDiGPky7WFfen6C9ncRXs"
@@ -70032,7 +70009,8 @@
     "tp/reseaux/module-01/index.md": "Inexistant",
     "tp/reseaux/module-05/index.md": "Inexistant",
     "modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau.md": "Support de cours : Inexistant. L’énoncé est dans les travaux pratiques. Correction fournie : Inexistant.",
-    "tp/10-msp-services-reseau/module-01/corrections.md": "Correction fournie : Inexistant. La proposition est un complément pédagogique externe."
+    "tp/10-msp-services-reseau/module-01/corrections.md": "Correction fournie : Inexistant. La proposition est un complément pédagogique externe.",
+    "modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md": "Doublon — ces notes sont publiées dans le module 03. Aucun support de cours PDF distinct pour le module 04."
   },
   "verifiedAt": "2026-10-26",
   "verification": {
@@ -70053,5 +70031,55 @@
       "module": "modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md"
     }
   ],
-  "visualPolicy": "Texte et tableaux ; aucun PDF d’éditeur, diapositive, reproduction de page ni planche. Seuls les croquis isolés contrôlés visuellement peuvent être publiés."
+  "visualPolicy": "Texte et tableaux ; aucun PDF d’éditeur, diapositive, reproduction de page ni planche. Seuls les croquis isolés contrôlés visuellement peuvent être publiés.",
+  "noteClips": {
+    "modules/01-bases-reseaux/module-01-le-modele-osi.md": {
+      "1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn": {
+        "untilHeading": "Module 2 - Les unités informatiques"
+      }
+    },
+    "modules/01-bases-reseaux/module-02-les-unites-informatiques.md": {
+      "1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn": {
+        "fromHeading": "Module 2 - Les unités informatiques"
+      }
+    },
+    "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": {
+      "1K6RxfeTNGDRc3zj_-mCuyoj1wy6mhLG5": {
+        "untilHeading": "Module 6 - L'adressage IPv6"
+      }
+    },
+    "modules/01-bases-reseaux/module-06-l-adressage-ipv6.md": {
+      "1K6RxfeTNGDRc3zj_-mCuyoj1wy6mhLG5": {
+        "fromHeading": "Module 6 - L'adressage IPv6"
+      }
+    },
+    "modules/02-systemes-clients-microsoft/module-01-les-systemes-d-exploitation-et-microsoft-windows-10.md": {
+      "1nxEVg-7mxd3jMbcAE5Kz3qCC4VNDZHhg": {
+        "untilHeading": "Module 2 - Installation de Windows 10",
+        "alsoFromHeading": "Modules 1 + 2 + Extra"
+      }
+    },
+    "modules/02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10.md": {
+      "1nxEVg-7mxd3jMbcAE5Kz3qCC4VNDZHhg": {
+        "fromHeading": "Module 2 - Installation de Windows 10",
+        "untilHeading": "Module additionnel - VMware Workstation"
+      }
+    },
+    "modules/02-systemes-clients-microsoft/module-additionnel-workstation.md": {
+      "1nxEVg-7mxd3jMbcAE5Kz3qCC4VNDZHhg": {
+        "fromHeading": "Module additionnel - VMware Workstation",
+        "untilHeading": "Modules 1 + 2 + Extra"
+      }
+    },
+    "modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10.md": {
+      "1c_HkIgPPzF1QzQvLy0nsrpsSZzmlNClX": {
+        "untilHeading": "Module 4 - La gestion du stockage"
+      }
+    },
+    "modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage.md": {
+      "1c_HkIgPPzF1QzQvLy0nsrpsSZzmlNClX": {
+        "fromHeading": "Module 4 - La gestion du stockage"
+      }
+    }
+  }
 }

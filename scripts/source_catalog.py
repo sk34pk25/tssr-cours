@@ -123,6 +123,39 @@ class LiteralSourceHTML(HTMLParser):
         self.parts.append(''.join(c if c.isalnum() or c == ' ' else f'&#{ord(c)};' for c in value))
 
 
+def _heading_index(html, title):
+    for variant in (title, title.replace("'", "’"), title.replace("’", "'")):
+        token = f"<h2>{variant}</h2>"
+        index = html.find(token)
+        if index >= 0:
+            return index
+    raise ValueError(f"Titre de notes introuvable : {title}")
+
+
+def apply_note_clip(html, clip):
+    """Keep one module's part of a shared notes transcription."""
+    if not clip:
+        return html
+    section = html.find("<section")
+    if section < 0:
+        raise ValueError("Section de notes introuvable")
+    open_end = html.find(">", section) + 1
+    close = html.rfind("</section>")
+    if close < 0:
+        raise ValueError("Fin de section de notes introuvable")
+    body = html[open_end:close]
+
+    def span(start_title, end_title):
+        start = _heading_index(body, start_title) if start_title else 0
+        end = _heading_index(body, end_title) if end_title else len(body)
+        return body[start:end]
+
+    pieces = [span(clip.get("fromHeading"), clip.get("untilHeading"))]
+    if clip.get("alsoFromHeading"):
+        pieces.append(span(clip["alsoFromHeading"], clip.get("alsoUntilHeading")))
+    return html[:open_end] + "".join(pieces) + html[close:]
+
+
 def render_originals(refs, page, data):
     if not refs:
         return '<p>Inexistant</p>'
@@ -148,8 +181,12 @@ def render_originals(refs, page, data):
         start, end = '<!-- SOURCE-CONTENT:START -->', '<!-- SOURCE-CONTENT:END -->'
         if html.count(start) != 1 or html.count(end) != 1:
             raise ValueError('Corps de transcription invalide')
+        inner = html.split(start, 1)[1].split(end, 1)[0]
+        clip = data.get('noteClips', {}).get(page, {}).get(ref)
+        if clip:
+            inner = apply_note_clip(inner, clip)
         literal = LiteralSourceHTML()
-        literal.feed(html.split(start, 1)[1].split(end, 1)[0])
+        literal.feed(inner)
         html = ''.join(literal.parts)
         html = re.sub(r'id="page-(\d+)"', lambda m: f'id="source-{ref}-page-{m[1]}"', html)
         def local_link(match):
@@ -226,7 +263,7 @@ def project_page(markdown, page, data):
     title, body = match[1], markdown[match.end():].lstrip()
     hoisted, body = split_tp_links(body)
     notice = data.get('pageNotices', {}).get(page)
-    original = (f'<p class="tssr-original-note">{escape(notice)}</p>\n' if notice and data['pages'][page] else '') + render_originals(data['pages'][page], page, data)
+    original = (f'<p class="tssr-original-note">{escape(notice)}</p>\n' if notice else '') + render_originals(data['pages'][page], page, data)
     guide = ('!!! info "Complément IA / externe au cours — fiche pédagogique du portail"\n'
              '    Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. '
              'Elle est distincte de la transcription des documents du Drive et ne la remplace pas. '
