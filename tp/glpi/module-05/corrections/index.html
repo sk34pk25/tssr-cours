@@ -17410,7 +17410,7 @@ where is_template=’0’ and networkequipmentmodels_id=’2’;</code></pre>
 <ul><li>Indice : utiliser une fonction d’agrégation.</li></ul>
 <pre class="tssr-source-code"><code>select MAX(name) from_glpinetworkequipments
 where networkequipmentmodels_id=’2’;</code></pre>
-<h4 class="tssr-source-paragraph">BONUS</h4>
+<p class="tssr-source-paragraph">BONUS</p>
 <ul><li>Affichez le(s) nom(s) de la catégorie de ticket et le nom du gabarit de ticket qui est utilisé pour une demande dans les catégories de ticket.</li></ul>
 <ul><li>Indice : utiliser une jointure interne.</li></ul>
 <p class="tssr-source-paragraph">Le but étant d’afficher le gabarit de ticket « demande bureautique » qui est le seul qui est de type demande rattaché à une catégorie.</p>
@@ -17420,7 +17420,7 @@ from glpi_tickettemplates
 INNER JOIN glpi_itilcategories
 ON glpi_itilcategories.tickettemplates_id_demand=glpi_tickettemplates.id
 where glpi_itilcategories.tickettemplates_id_demand=’3’;</code></pre>
-<h4 class="tssr-source-paragraph">BONUS</h4>
+<p class="tssr-source-paragraph">BONUS</p>
 <ul><li>Comptez-les en affichant le nom du gabarit utilisé et le nombre avec comme en-tête « nombre de catégories qui utilise un gabarit de demande ».</li></ul>
 <pre class="tssr-source-code"><code>SELECT count(glpi_tickettemplates.name) as ‘nombre de catégories qui utilise un gabarit de demande’, glpi_tickettemplates.name
 from glpi_tickettemplates

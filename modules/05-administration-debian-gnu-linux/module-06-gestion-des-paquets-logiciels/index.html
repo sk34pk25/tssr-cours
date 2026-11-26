@@ -2280,34 +2280,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Gestion des paquets logiciels">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gestion-courante-des" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gestion courante des
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#paquets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        paquets
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -2418,34 +2390,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Gestion des paquets logiciels">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installation-a-partir-des" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation à partir des
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        sources
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -2500,23 +2444,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Gestion des paquets logiciels">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -17711,34 +17638,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Gestion des paquets logiciels">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gestion-courante-des" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gestion courante des
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#paquets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        paquets
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -17849,34 +17748,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Gestion des paquets logiciels">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installation-a-partir-des" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation à partir des
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        sources
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -17931,23 +17802,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Gestion des paquets logiciels">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -18093,7 +17947,7 @@ deb-src http://ftp.fr.debian.org/debian/ buster-updates main </code></pre><p>htt
 <section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-10"><h2>Le fichier sources.list</h2><pre><code>deb http://ftp.fr.debian.org/debian/ bookworm main contrib</code></pre><p>Le troisième champ spécifie la branche disponible :</p><ul><li>oldstable : l'ancienne version stable</li><li>stable : la version officielle actuelle</li><li>bookworm, buster, … : une version spécifique, cela peut être la version officielle</li><li>testing : la prochaine version stable</li><li>unstable : c'est la version qui porte toujours le nom de Sid</li><li>experimental : il est préférable de la laisser aux développeurs</li></ul></section>
 <section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-11"><h2>Le fichier sources.list</h2><pre><code>deb http://ftp.fr.debian.org/debian/ bookworm main contrib</code></pre><p>Le quatrième champ et les suivants indiquent la section, dont l'objectif est de filtrer les paquets à installer :</p><ul><li>main : les paquets Debian standards, ils sont tous libres ;</li><li>contrib : ces paquets sont libres mais dépendants de paquets qui ne le sont pas, ils présentent donc une dépendance vers non-free ;</li><li>non-free : des paquets sous licence non libre</li></ul><p>Il est également possible d’utiliser des fichiers sources indépendants déposés dans le dossier /etc/apt/sources.list.d</p></section>
 <section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-12"><h2>Gestion des dépôts</h2><p>Démo</p><p>Gestion du fichier sources.list</p></section>
-<section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-13"><h2>Gestion des paquets logiciels</h2><h3>Gestion courante des</h3><h3>paquets</h3></section>
+<section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-13"><h2>Gestion des paquets logiciels</h2><p class="tssr-source-paragraph">Gestion courante des</p><p class="tssr-source-paragraph">paquets</p></section>
 <section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-14"><h2>Gestion courante des paquets</h2><ul><li>Les opérations de gestion de base des paquets sur les systèmes Debian sont réalisées en ligne de commande à l'aide de deux outils différents : apt-get / apt-cache et apt</li><li>Les opérations de recherche et de consultation pourront être réalisées avec un compte d'utilisateur standard. Les opérations altérant le système seront réalisées avec les privilèges du compte root.</li></ul></section>
 <section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-15"><h2>Les commandes courantes de gestion</h2><ul><li>Mettre à jour la base de données des paquets disponibles</li></ul><pre><code>root@deb:~# apt update
 root@deb:~# apt-get update </code></pre><ul><li>Mettre à jour la distribution sans supprimer de paquets</li></ul><pre><code>root@deb:~# apt upgrade
@@ -18129,12 +17983,12 @@ un  sftp                &lt;aucune&gt;           &lt;aucune&gt;     (aucune desc
 openssh-client: /usr/bin/scp</code></pre></section>
 <section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-21"><h2>Les fichiers journaux</h2><ul><li>Les fichiers journaux permettent de consulter l'historique des installations et mises à jour. Chaque utilitaire dispose de son propre fichier de logs :</li><li>apt-get &amp; apt : fichier /var/log/apt/history.log</li><li>dpkg : fichier /var/log/dpkg.log</li><li>Les commandes apt-get et apt s'appuient sur dpkg pour l'installation proprement dite. On doit donc retrouver dans les logs de dpkg toutes les interventions réalisées sur les paquets.</li></ul></section>
 <section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-22"><h2>Gestion des dépôts</h2><p>Démo</p><p>Gestion des dépôts et paquets</p></section>
-<section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-23"><h2>Gestion des paquets logiciels</h2><h3>Installation à partir des</h3><h3>sources</h3></section>
+<section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-23"><h2>Gestion des paquets logiciels</h2><p class="tssr-source-paragraph">Installation à partir des</p><p class="tssr-source-paragraph">sources</p></section>
 <section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-24"><h2>La méthode d’installation</h2><ul><li>L’installation à partir des sources est la méthode native d’installation sur des systèmes Unix/Linux.</li><li>Cette technique n’est pas la plus simple, et varie énormément suivant le type de source récupéré. Il y a tout de même un cheminement qui reste le plus répandu.</li><li>L’environnement de compilation</li><li>Il est important de faire un espace de compilation spécifique à un utilisateur qui n’est pas root afin d’éviter des problématiques systèmes et sa sécurisation.</li></ul></section>
 <section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-25"><h2>La méthode d’installation</h2><ul><li>Lecture la documentation</li><li>La documentation est généralement disponible sous un fichier README ou INSTALL. Celui-ci contient généralement les autres étapes de la construction de l’application, avec la liste des dépendances de construction de fonctionnement.</li><li>Préparation de la compilation</li><li>Cette étape va vérifier s’il y a toutes les dépendances de compilation sur le système puis générer un fichier Makefile contenant toutes les informations de compilation et d’installation.</li></ul><pre><code>user@deb:/opt/sources/application$ ./configure </code></pre></section>
 <section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-26"><h2>La méthode d’installation</h2><ul><li>Compilation</li><li>Cette étape va permettre de créer l’application compilée à partir de ses sources en se basant sur le fichier Makefile contenant toutes les informations de compilation.</li></ul><pre><code>user@deb:/opt/sources/application$ make</code></pre><ul><li>À l’issue de cette étape, l’application n’est toujours pas installée dans le système, mais elle est totalement fonctionnelle.</li></ul></section>
 <section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-27"><h2>La méthode d’installation</h2><ul><li>Installation</li><li>C’est la seule étape à réaliser avec les privilèges root car cette étape est une simple copie de l’application dans les répertoires système comme /opt/bin par exemple.</li></ul><pre><code>root@deb:/opt/sources/application# make install</code></pre></section>
-<section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-28"><h2>Gestion des paquets logiciels</h2><h3>TP</h3><p>Démo</p><p>Gestion des installations logicielles</p></section>
+<section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-28"><h2>Gestion des paquets logiciels</h2><p class="tssr-source-paragraph">TP</p><p>Démo</p><p>Gestion des installations logicielles</p></section>
 <section class="tssr-transcribed-page" id="source-1EYEScurZSKteXvfT1QURC7Cbso_sNY7s-page-29"><h2>Conclusion</h2><ul><li>Vous savez gérer les dépôts d’une distribution Debian.</li><li>Vous savez effectuer la mise à jour du système.</li><li>Vous savez installer et supprimer de nouveaux logiciels.</li></ul></section>
 
 <p class="tssr-original-proof">Référence du document : 1EYEScurZSKteXvfT1QURC7Cbso_sNY7s · <span title="Empreinte SHA-256 du fichier source">SHA-256 d9e846c9d913a534…</span></p>
@@ -18385,8 +18239,9 @@ openssh-client: /usr/bin/scp</code></pre></section>
 <p>Démo</p>
 <p>Gestion du fichier sources.list</p>
 <h2 id="gestion-des-paquets-logiciels_3">Gestion des paquets logiciels<a class="headerlink" href="#gestion-des-paquets-logiciels_3" title="Permanent link">¶</a></h2>
-<h3 id="gestion-courante-des">Gestion courante des<a class="headerlink" href="#gestion-courante-des" title="Permanent link">¶</a></h3>
-<h3 id="paquets">paquets<a class="headerlink" href="#paquets" title="Permanent link">¶</a></h3>
+<p>Gestion courante des</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>paquets
+</span></code></pre></div>
 <h2 id="gestion-courante-des-paquets">Gestion courante des paquets<a class="headerlink" href="#gestion-courante-des-paquets" title="Permanent link">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">À retenir</p>
@@ -18400,58 +18255,58 @@ openssh-client: /usr/bin/scp</code></pre></section>
 <ul>
 <li>Mettre à jour la base de données des paquets disponibles</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>root@deb:~# apt update
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>root@deb:~# apt-get update 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>root@deb:~# apt update
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>root@deb:~# apt-get update 
 </span></code></pre></div>
 <ul>
 <li>Mettre à jour la distribution sans supprimer de paquets</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>root@deb:~# apt upgrade
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>root@deb:~# apt-get upgrade 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>root@deb:~# apt upgrade
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>root@deb:~# apt-get upgrade 
 </span></code></pre></div>
 <ul>
 <li>Mettre à jour la distribution avec éventuelle suppression de paquets obsolètes</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>root@deb:~# apt full-upgrade
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>root@deb:~# apt-get dist-upgrade
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>root@deb:~# apt full-upgrade
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>root@deb:~# apt-get dist-upgrade
 </span></code></pre></div>
 <h2 id="les-commandes-courantes-de-gestion_1">Les commandes courantes de gestion<a class="headerlink" href="#les-commandes-courantes-de-gestion_1" title="Permanent link">¶</a></h2>
 <ul>
 <li>Installer des paquets</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>root@deb:~# apt install paquet1 &lt;paquet2&gt;
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>root@deb:~# apt-get install paquet1 &lt;paquet2&gt;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>root@deb:~# apt install paquet1 &lt;paquet2&gt;
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>root@deb:~# apt-get install paquet1 &lt;paquet2&gt;
 </span></code></pre></div>
 <ul>
 <li>Désinstaller des paquets</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>root@deb:~# apt remove paquet1 &lt;paquet2&gt;
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>root@deb:~# apt-get remove paquet1 &lt;paquet2&gt;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>root@deb:~# apt remove paquet1 &lt;paquet2&gt;
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>root@deb:~# apt-get remove paquet1 &lt;paquet2&gt;
 </span></code></pre></div>
 <ul>
 <li>Désinstaller un paquet en supprimant les fichiers de configuration</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>root@deb:~# apt purge paquet1 
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>root@deb:~# apt-get purge paquet1 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>root@deb:~# apt purge paquet1 
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>root@deb:~# apt-get purge paquet1 
 </span></code></pre></div>
 <h2 id="les-commandes-courantes-de-gestion_2">Les commandes courantes de gestion<a class="headerlink" href="#les-commandes-courantes-de-gestion_2" title="Permanent link">¶</a></h2>
 <ul>
 <li>Nettoyer le dépot local des fichiers téléchargés suite à mise à jour et autres</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>root@deb:~# apt clean 
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>root@deb:~# apt-get clean
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>root@deb:~# apt clean 
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>root@deb:~# apt-get clean
 </span></code></pre></div>
 <ul>
 <li>Chercher un paquet correspondant à une expression rationnelle</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>root@deb:~# apt search regex 
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>root@deb:~# apt-get search regex
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>root@deb:~# apt search regex 
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>root@deb:~# apt-get search regex
 </span></code></pre></div>
 <ul>
 <li>Obtenir des informations détaillées sur un paquet</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>root@deb:~# apt show paquet 
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>root@deb:~# apt-cache show paquet 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>root@deb:~# apt show paquet 
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>root@deb:~# apt-cache show paquet 
 </span></code></pre></div>
 <h2 id="la-commande-dpkg">La commande dpkg<a class="headerlink" href="#la-commande-dpkg" title="Permanent link">¶</a></h2>
 <p>dpkg est la base du système de gestion des paquets Debian. Il est l'équivalent de la commande rpm pour les distributions de la branche RedHat. Il a été conçu pour :</p>
@@ -18463,35 +18318,35 @@ openssh-client: /usr/bin/scp</code></pre></section>
 <h2 id="la-commande-dpkg_1">La commande dpkg<a class="headerlink" href="#la-commande-dpkg_1" title="Permanent link">¶</a></h2>
 <p>En revanche, dpkg permet d'obtenir des informations précieuses sur les paquets ou les fichiers installés à partir de paquets.</p>
 <p>Lister les paquets disponibles dans les dépôts et contenant la chaîne "ftp"</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>root@deb:~# dpkg –l "*ftp*"
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Souhait=inconnU/Installé/suppRimé/Purgé/H=à garder
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>| État=Non/Installé/fichier-Config/dépaqUeté/échec-conFig/H=semi-installé/W=attend 
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>Err?=(aucune)/besoin Réinstallation (État,Err: majuscule=mauvais)
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>||/ Nom                 Version            Architecture Description
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>+++-===================-==================-============-=====================================
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>ii  openssh-sftp-server 1:7.9p1-10+deb10u2 amd64        secure shell (SSH) sftp server module
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>un  pure-ftpd           &lt;aucune&gt;           &lt;aucune&gt;     (aucune description n'est disponible)
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>un  sftp                &lt;aucune&gt;           &lt;aucune&gt;     (aucune description n'est disponible)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>root@deb:~# dpkg –l "*ftp*"
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Souhait=inconnU/Installé/suppRimé/Purgé/H=à garder
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>| État=Non/Installé/fichier-Config/dépaqUeté/échec-conFig/H=semi-installé/W=attend 
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>Err?=(aucune)/besoin Réinstallation (État,Err: majuscule=mauvais)
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>||/ Nom                 Version            Architecture Description
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>+++-===================-==================-============-=====================================
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>ii  openssh-sftp-server 1:7.9p1-10+deb10u2 amd64        secure shell (SSH) sftp server module
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>un  pure-ftpd           &lt;aucune&gt;           &lt;aucune&gt;     (aucune description n'est disponible)
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>un  sftp                &lt;aucune&gt;           &lt;aucune&gt;     (aucune description n'est disponible)
 </span></code></pre></div>
 <h2 id="la-commande-dpkg_2">La commande dpkg<a class="headerlink" href="#la-commande-dpkg_2" title="Permanent link">¶</a></h2>
 <ul>
 <li>Lister les fichiers installés pour un paquet présent sur le système</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>root@deb:~# dpkg -L telnet
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>[...]
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>/usr/bin/telnet.netkit
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>/usr/share
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>/usr/share/doc
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>/usr/share/doc/telnet
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>/usr/share/doc/telnet/README
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>/usr/share/doc/telnet/changelog.Debian.gz
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>[...]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>root@deb:~# dpkg -L telnet
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>[...]
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>/usr/bin/telnet.netkit
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>/usr/share
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>/usr/share/doc
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>/usr/share/doc/telnet
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>/usr/share/doc/telnet/README
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>/usr/share/doc/telnet/changelog.Debian.gz
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>[...]
 </span></code></pre></div>
 <ul>
 <li>Chercher le paquet à l’origine d’un fichier</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>root@deb:~# dpkg -S /usr/bin/scp
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>openssh-client: /usr/bin/scp
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>root@deb:~# dpkg -S /usr/bin/scp
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>openssh-client: /usr/bin/scp
 </span></code></pre></div>
 <h2 id="les-fichiers-journaux">Les fichiers journaux<a class="headerlink" href="#les-fichiers-journaux" title="Permanent link">¶</a></h2>
 <ul>
@@ -18504,8 +18359,9 @@ openssh-client: /usr/bin/scp</code></pre></section>
 <p>Démo</p>
 <p>Gestion des dépôts et paquets</p>
 <h2 id="gestion-des-paquets-logiciels_4">Gestion des paquets logiciels<a class="headerlink" href="#gestion-des-paquets-logiciels_4" title="Permanent link">¶</a></h2>
-<h3 id="installation-a-partir-des">Installation à partir des<a class="headerlink" href="#installation-a-partir-des" title="Permanent link">¶</a></h3>
-<h3 id="sources">sources<a class="headerlink" href="#sources" title="Permanent link">¶</a></h3>
+<p>Installation à partir des</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sources
+</span></code></pre></div>
 <h2 id="la-methode-dinstallation">La méthode d’installation<a class="headerlink" href="#la-methode-dinstallation" title="Permanent link">¶</a></h2>
 <ul>
 <li>L’installation à partir des sources est la méthode native d’installation sur des systèmes Unix/Linux.</li>
@@ -18520,14 +18376,14 @@ openssh-client: /usr/bin/scp</code></pre></section>
 <li>Préparation de la compilation</li>
 <li>Cette étape va vérifier s’il y a toutes les dépendances de compilation sur le système puis générer un fichier Makefile contenant toutes les informations de compilation et d’installation.</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>user@deb:/opt/sources/application$ ./configure 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>user@deb:/opt/sources/application$ ./configure 
 </span></code></pre></div>
 <h2 id="la-methode-dinstallation_2">La méthode d’installation<a class="headerlink" href="#la-methode-dinstallation_2" title="Permanent link">¶</a></h2>
 <ul>
 <li>Compilation</li>
 <li>Cette étape va permettre de créer l’application compilée à partir de ses sources en se basant sur le fichier Makefile contenant toutes les informations de compilation.</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>user@deb:/opt/sources/application$ make
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>user@deb:/opt/sources/application$ make
 </span></code></pre></div>
 <ul>
 <li>À l’issue de cette étape, l’application n’est toujours pas installée dans le système, mais elle est totalement fonctionnelle.</li>
@@ -18537,10 +18393,10 @@ openssh-client: /usr/bin/scp</code></pre></section>
 <li>Installation</li>
 <li>C’est la seule étape à réaliser avec les privilèges root car cette étape est une simple copie de l’application dans les répertoires système comme /opt/bin par exemple.</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>root@deb:/opt/sources/application# make install
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>root@deb:/opt/sources/application# make install
 </span></code></pre></div>
 <h2 id="gestion-des-paquets-logiciels_5">Gestion des paquets logiciels<a class="headerlink" href="#gestion-des-paquets-logiciels_5" title="Permanent link">¶</a></h2>
-<h3 id="tp">TP<a class="headerlink" href="#tp" title="Permanent link">¶</a></h3>
+<p>TP</p>
 <p>Démo</p>
 <p>Gestion des installations logicielles</p>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h2>

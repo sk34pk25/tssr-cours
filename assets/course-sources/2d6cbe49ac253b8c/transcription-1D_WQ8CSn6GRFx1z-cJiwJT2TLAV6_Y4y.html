@@ -97,16 +97,16 @@ Restore-MsolUser -UserPrincipalName &quot;jpetit@example.com&quot;</code></pre>
 <h3>50 Go + 50 Go d’archivage</h3>
 <h3>100 Go + Archivage illimité</h3>
 <h3>50 Go + 50 Go d’archivage</h3>
-<h3>illimité</h3>
+<p class="tssr-source-paragraph">illimité</p>
 <h3>Idem Business</h3>
 <h3>Pack Office Idem Business</h3>
 <h3>Premium</h3>
-<h3>Moins de sécurité que</h3>
+<p class="tssr-source-paragraph">Moins de sécurité que</p>
 <h3>Ensemble des fonctionnalités</h3>
 <h3>Services supplémentaires</h3>
 <h3>M365 + VOIP</h3>
 <h3>Business Premium</h3>
-<h3>inclus</h3>
+<p class="tssr-source-paragraph">inclus</p>
 <p>Coût 3,40 € /m 6,70 € /m 4,20 € /m 10,50 € /m 16,90 € /m 31,50 € /m 53,70 € /m</p>
 <h3>Gestion des licences</h3>
 <ul><li>Vous pouvez :</li><li>Ajouter une licence</li><li>Remplacer une licence</li><li>Nombre de licences restantes :</li><li>Nombre de licences utilisées</li><li>Nombre d&#x27;utilisateurs sans licence</li></ul>
@@ -143,7 +143,7 @@ Get-MsolUser -All -Department Account -UsageLocation CH -UnlicensedUsersOnly | F
 <section class="tssr-transcribed-page" id="page-12">
 <h3>Destinataires et permissions Exchange Online</h3>
 <h3>Les différents types de destinataires</h3>
-<h3>lucie@domaine-labo-4.example</h3>
+<p class="tssr-source-paragraph">lucie@domaine-labo-4.example</p>
 <p>Boîtes aux lettres Utilisateur • Envoi / Réception de mails • Attribution de stratégies • Gestion des restrictions • Gestion des redirections • Délégations</p>
 <h3>Destinataires et permissions Exchange Online</h3>
 <h3>Les fonctionnalités d’une boîte aux lettres</h3>
@@ -324,13 +324,13 @@ Add-MailboxPermission -User "Jean Petit" -AccessRights FullAccess -InheritanceTy
 <h3>Alias : Autodiscover.service.domaine-labo-4.example</h3>
 <h3>FS (optionnel)</h3>
 <h3>Cible : autodiscover.outlook.com</h3>
-<h3>CNAME</h3>
+<p class="tssr-source-paragraph">CNAME</p>
 <h3>Connectivité des clients de messagerie</h3>
 <h3>Rappel Autodiscover</h3>
 <ul><li>Processus de la découverte automatique</li><li>L&#x27;utilisateur entre son adresse mail à l&#x27;ouverture d&#x27;Outlook</li><li>Outlook cherche puis se connecte au serveur de messagerie de l’utilisateur</li><li>Le client envoie son adresse SMTP pour avoir les options de configuration de cette adresse</li><li>Un fichier .xml est téléchargé par le client avec les paramètres du serveur</li><li>Outlook se connecte au serveur Exchange Online dans Office 365 et peut recevoir ses mails</li></ul>
 <h3>SMTP</h3>
 <h3>Internet</h3>
-<h3>web.xml</h3>
+<p class="tssr-source-paragraph">web.xml</p>
 <h3>Micheline@domaine-labo-1.example MAPI/HTTPS</h3>
 <h3>Serveur de messagerie de Micheline</h3>
 <table><thead><tr><th scope="col">Enregistrement DNS</th><th scope="col">Valeur</th></tr></thead><tbody><tr><td>CNAME</td><td>Alias : Autodiscover Cible : autodiscover.outlook.com</td></tr><tr><td>En cas d&#x27;utilisation de AD FS (optionnel) CNAME</td><td>Alias : Autodiscover.service.domaine-labo-4.example Cible : autodiscover.outlook.com</td></tr></tbody></table>
@@ -491,12 +491,12 @@ NextSyncCyclePolicyType           : Delta</code></pre>
 <h3>Start-ADSyncSyncCycle -PolicyType Initial</h3>
 <ul><li>Lancer une réplication différentielle</li></ul>
 <h3>Start-ADSyncSyncCycle -PolicyType Delta</h3>
-<h3>RBAC</h3>
+<p class="tssr-source-paragraph">RBAC</p>
 <h4>Commandes de synchronisation affichées</h4><pre><code>Start-ADSyncSyncCycle -PolicyType Initial
 Start-ADSyncSyncCycle -PolicyType Delta</code></pre>
 </section>
 <section class="tssr-transcribed-page" id="page-43">
-<h3>RBAC</h3>
+<p class="tssr-source-paragraph">RBAC</p>
 <h3>Délégation de privilèges</h3>
 <ul><li>Pour une gestion fine de l’attribution de droits d’administration Exchange, il existe une console nommée RBAC (Role Based Access Control)</li><li>Basé sur des rôles prédéfinis, vous pourrez attribuer à des utilisateurs ou techniciens des privilèges pour administrer la partie Exchange Online de Microsoft 365</li><li>L’affectation de permissions devra se faire au travers de comptes administrateurs spécifiques et avec le principe du privilège minimum</li></ul>
 <h3>Gestion des licences</h3><table><caption>Les différents rôles administrateur Microsoft 365</caption><thead><tr><th scope="col">Nom dans l’admin center de Office365</th><th scope="col">Nom dans PowerShell</th><th scope="col">Rôle</th></tr></thead><tbody><tr><td>Administrateur général</td><td>Company administrator</td><td>Il a accès à toutes les fonctionnalités. Celui qui a acheté Microsoft 365 a ce rôle par défaut. Ne donnez pas ce rôle à tout le monde.</td></tr><tr><td>Administrateur de facturation</td><td>Billing administrator</td><td>Il effectue les achats, gère les abonnements et les tickets support. Il surveille l'état des services.</td></tr><tr><td>Administrateur de mot de passe</td><td>Helpdesk administrator</td><td>Il réinitialise les mots de passe. Il gère les tickets support et surveille l'état des services.</td></tr><tr><td>Administrateur de service</td><td>Service support administrator</td><td>Il gère les tickets support et surveille l'état des services.</td></tr><tr><td>Administrateur de gestion des utilisateurs</td><td>User account administrator</td><td>Il créé et supprime des utilisateurs et des groupes, réinitialise les mots de passe, gère les tickets support et surveille l'état des services.</td></tr></tbody></table>
@@ -532,14 +532,14 @@ Start-ADSyncSyncCycle -PolicyType Delta</code></pre>
 <h3>Get-MsolUserRole</h3>
 <h3>Add-MsolRoleMember</h3>
 <h3>Ajouter des membres à un rôle</h3>
-<h3>remove- MsolRoleMember</h3>
+<p class="tssr-source-paragraph">remove- MsolRoleMember</p>
 <h3>Supprimer des membres à un rôle</h3>
-<h3>RBAC</h3>
+<p class="tssr-source-paragraph">RBAC</p>
 <h3>Délégation de privilèges</h3>
 <ul><li>Chaque rôle possède une liste d’actions</li></ul>
 </section>
 <section class="tssr-transcribed-page" id="page-45">
-<h3>RBAC</h3>
+<p class="tssr-source-paragraph">RBAC</p>
 <h3>Rôles personnalisés</h3>
 <p>Créez vos propres rôles</p><ol><li>Dans le centre d’administration Exchange, ouvrir Rôles, puis Rôles d’administrateur.</li><li>Choisir Ajouter un groupe de rôles.</li><li>Dans Configurer les informations de base, renseigner le nom. Le support montre « Rôle personnalisé ».</li><li>Dans Autorisation, sélectionner les rôles à attribuer au groupe.</li><li>Dans Affecter des administrateurs, rechercher les membres par nom ou par adresse de courriel.</li></ol>
 

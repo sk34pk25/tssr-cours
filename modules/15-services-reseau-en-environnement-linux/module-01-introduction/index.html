@@ -3108,34 +3108,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#les-besoins-de-lutilisateur-au" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Les besoins, de l'utilisateur au
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        service
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="service">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#les-besoins-de-lutilisateur-au-service" class="md-nav__link">
     <span class="md-ellipsis">
@@ -17369,34 +17341,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#les-besoins-de-lutilisateur-au" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Les besoins, de l'utilisateur au
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        service
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="service">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#les-besoins-de-lutilisateur-au-service" class="md-nav__link">
     <span class="md-ellipsis">
@@ -17670,7 +17614,7 @@
 <div class="tssr-original-document__body">
 
 <section class="tssr-transcribed-page" id="source-1QedZ-aTakzBiscNG1kxep6mnwEyr7B6J-page-1"><h2>Services réseau en environnement Linux</h2><p>Module 01 - Introduction</p><h3>Services réseau en environnement Linux</h3><h3>Objectifs</h3><ul><li>Définir les besoins en services</li><li>Présenter la maquette</li></ul></section>
-<section class="tssr-transcribed-page" id="source-1QedZ-aTakzBiscNG1kxep6mnwEyr7B6J-page-2"><h3>Services réseau en environnement Linux</h3><h3>Public ciblé</h3><ul><li>Techniciens système et réseaux</li></ul><h3>Services réseau en environnement Linux</h3><h2>Les besoins, de l'utilisateur au</h2><h2>service</h2></section>
+<section class="tssr-transcribed-page" id="source-1QedZ-aTakzBiscNG1kxep6mnwEyr7B6J-page-2"><h3>Services réseau en environnement Linux</h3><h3>Public ciblé</h3><ul><li>Techniciens système et réseaux</li></ul><h3>Services réseau en environnement Linux</h3><p class="tssr-source-paragraph">Les besoins, de l'utilisateur au</p><p class="tssr-source-paragraph">service</p></section>
 <section class="tssr-transcribed-page" id="source-1QedZ-aTakzBiscNG1kxep6mnwEyr7B6J-page-3"><h3>Les besoins, de l’utilisateur au service</h3><h3>Des besoins au service</h3><ul><li>Les utilisateurs utilisent le système d'information de l'entreprise :</li><li>Depuis différents appareils (ordinateur, téléphone, tablette, etc.)</li><li>Depuis différents lieux (bureau, transport, maison, etc.)</li><li>Au final, ils accèdent à des services</li><li>Ces services sont gérés :</li><li>Soit par l'équipe système de l'entreprise</li><li>Soit par un sous-traitant</li></ul><h3>Les besoins, de l’utilisateur au service</h3><h3>Des besoins au service</h3><ul><li>Les services sont le cœur du système d'information de l'entreprise</li><li>Nous allons voir les principaux services d'un système d'information d'entreprise :</li><li>La mise en place du réseau</li><li>Le routage</li><li>Le DNS</li><li>Le DHCP</li></ul></section>
 <section class="tssr-transcribed-page" id="source-1QedZ-aTakzBiscNG1kxep6mnwEyr7B6J-page-4"><h3>Les besoins, de l’utilisateur au service</h3><h3>Des besoins au service</h3><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/38092b351a91ee7c/linux-net-vector-0.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/38092b351a91ee7c/linux-net-vector-0.webp" loading="lazy" alt="Du poste et du lieu aux services du système d’information"></a><figcaption>Du poste et du lieu aux services du système d’information</figcaption></figure><p>Interface, lieu et contexte réseau de l’entreprise donnent accès aux services.</p><p>Interface</p><p>Lieu</p><p>Contexte réseau de l’entreprise</p><p>Services</p><h3>Services réseau en environnement Linux</h3><h2>Bac à sable</h2></section>
 <section class="tssr-transcribed-page" id="source-1QedZ-aTakzBiscNG1kxep6mnwEyr7B6J-page-5"><h3>Bac à sable</h3><h3>Principe</h3><ul><li>Les services seront installés sur des machines virtuelles (OS : pfSense et Linux Debian 10)</li><li>Plusieurs services pourront être installés sur la même machine virtuelle</li><li>Solution de virtualisation VMware Workstation</li><li>Les réseaux logiques seront isolés grâce à des VMNet distincts</li></ul><h3>Bac à sable</h3><h3>Bac à sable</h3><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/38092b351a91ee7c/linux-net-vector-1.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/38092b351a91ee7c/linux-net-vector-1.webp" loading="lazy" alt="Maquette des LAN Clients et Serveurs, liaison VMNet2 et sortie FAI"></a><figcaption>Maquette des LAN Clients et Serveurs, liaison VMNet2 et sortie FAI</figcaption></figure><p>LAN Clients 172.18.num_stag.0/24. LAN Serveurs 192.168.num_stag.0/24 avec DHCP et DNS. Liaison 172.30.num_stag.0/24 vers pfSense. Réseau de la maquette 88.44.22.0/24 et passerelle FAI 88.44.22.254.</p><p>88.44.22.0/24</p><p>172.30.num_stag.0/24</p><p>LAN Clients 172.18.num_stag.0/24</p><p>192.168.num_stag.0/24</p><p>LAN Serveurs</p><p>Passerelle FAI 88.44.22.254</p><p>DHCP</p><p>DNS</p></section>
@@ -17728,8 +17672,9 @@
 <li>Techniciens système et réseaux</li>
 </ul>
 <h3 id="services-reseau-en-environnement-linux_3">Services réseau en environnement Linux<a class="headerlink" href="#services-reseau-en-environnement-linux_3" title="Permanent link">¶</a></h3>
-<h2 id="les-besoins-de-lutilisateur-au">Les besoins, de l'utilisateur au<a class="headerlink" href="#les-besoins-de-lutilisateur-au" title="Permanent link">¶</a></h2>
-<h2 id="service">service<a class="headerlink" href="#service" title="Permanent link">¶</a></h2>
+<p>Les besoins, de l'utilisateur au</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>service
+</span></code></pre></div>
 <h3 id="les-besoins-de-lutilisateur-au-service">Les besoins, de l’utilisateur au service<a class="headerlink" href="#les-besoins-de-lutilisateur-au-service" title="Permanent link">¶</a></h3>
 <h3 id="des-besoins-au-service">Des besoins au service<a class="headerlink" href="#des-besoins-au-service" title="Permanent link">¶</a></h3>
 <p><strong>Visuel externe</strong></p>

@@ -3429,56 +3429,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        *
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        *
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        *
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        *
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="*">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#traduction-dadresses_4" class="md-nav__link">
     <span class="md-ellipsis">
@@ -3491,32 +3441,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#iptables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        iptables
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#traduction-dadresses_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         Traduction d’adresses
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#snat" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SNAT
       
     </span>
   </a>
@@ -17805,56 +17733,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        *
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        *
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        *
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        *
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="*">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#traduction-dadresses_4" class="md-nav__link">
     <span class="md-ellipsis">
@@ -17867,32 +17745,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#iptables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        iptables
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#traduction-dadresses_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         Traduction d’adresses
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#snat" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SNAT
       
     </span>
   </a>
@@ -18025,8 +17881,8 @@ default via 172.16.6.254 dev ens33 proto dhcp metric 100
 net.ipv4.ip_forward=1</code></pre><ul><li>Il faut ensuite lancer la commande :</li></ul><p>Transcription du détail du support.</p><pre><code># sysctl -p</code></pre><ul><li>Et vérifier (si 1 : activé, si 0 désactivé) :</li></ul><p>Transcription du détail du support.</p><pre><code># sysctl net.ipv4.ip_forward
 net.ipv4.ip_forward = 0</code></pre><h3>Routage et traduction d’adresses</h3><h2>Traduction d'adresses</h2></section>
 <section class="tssr-transcribed-page" id="source-1MQyXuZisBhM7i8ZmSFLw1L-ljYwOeMVh-page-7"><h3>Traduction d’adresses</h3><h3>Tables de routage</h3><ul><li>Le routage ne fonctionne que si les réseaux sont dans les tables de routage.</li><li>Dans les cas suivants, ce n'est pas suffisant :</li><li>Réseaux non routables</li><li>Réseaux privés non routables sur Internet</li><li>Réseaux privés non connus des routeurs (pour des maquettes par exemple)</li></ul><h3>Traduction d’adresses</h3><h3>NAT</h3><ul><li>Pour que les machines de ces réseaux puissent accéder à d'autres réseaux (sortir vers Internet), il faut mettre en place une solution de NAT, pour :</li><li>Remplacer l'adresse IP source des paquets : NAT de Source ou SNAT</li><li>Remplacer l'adresse IP de destination : NAT de destination ou DNAT</li></ul></section>
-<section class="tssr-transcribed-page" id="source-1MQyXuZisBhM7i8ZmSFLw1L-ljYwOeMVh-page-8"><h3>Traduction d’adresses</h3><h3>NAT</h3><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-vector-3.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-vector-3.webp" loading="lazy" alt="Traduction d’adresse source entre les réseaux non routés et routés"></a><figcaption>Traduction d’adresse source entre les réseaux non routés et routés</figcaption></figure><p>Le croquis montre le SNAT de l’adressage source lors de la sortie des réseaux non routés vers les réseaux routés.</p><h2>*</h2><p>Réseaux routés</p><h2>*</h2><p>Adressage source</p><p>S NAT</p><h2>*</h2><h2>*</h2><p>Réseaux non routés</p><h3>Traduction d’adresses</h3><h3>iptables</h3><ul><li>Sous Linux, il est possible d'utiliser des règles d'iptables.</li><li>Il est aussi possible d'utiliser des frameworks comme Shorewall qui vont créer les règles à partir de fichiers de définition des règles.</li><li>Des outils comme PfSense (utilisé dans ce cours) sont des outils avancés de gestion des règles.</li></ul></section>
-<section class="tssr-transcribed-page" id="source-1MQyXuZisBhM7i8ZmSFLw1L-ljYwOeMVh-page-9"><h3>Traduction d’adresses</h3><h3>SNAT</h3><ul><li>Une fiche annexe est proposée pour la configuration détaillée de pfSense pour mettre en place le SNAT.</li></ul><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-figure-37.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-figure-37.webp" loading="lazy" alt="Accès au menu Firewall puis NAT dans pfSense."></a><figcaption>Accès au menu Firewall puis NAT dans pfSense.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-figure-38.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-figure-38.webp" loading="lazy" alt="Mode Outbound NAT automatique dans pfSense."></a><figcaption>Mode Outbound NAT automatique dans pfSense.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-figure-39.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-figure-39.webp" loading="lazy" alt="Exemples de règles Outbound NAT générées automatiquement."></a><figcaption>Exemples de règles Outbound NAT générées automatiquement.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1MQyXuZisBhM7i8ZmSFLw1L-ljYwOeMVh-page-8"><h3>Traduction d’adresses</h3><h3>NAT</h3><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-vector-3.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-vector-3.webp" loading="lazy" alt="Traduction d’adresse source entre les réseaux non routés et routés"></a><figcaption>Traduction d’adresse source entre les réseaux non routés et routés</figcaption></figure><p>Le croquis montre le SNAT de l’adressage source lors de la sortie des réseaux non routés vers les réseaux routés.</p><p class="tssr-source-paragraph">*</p><p>Réseaux routés</p><p class="tssr-source-paragraph">*</p><p>Adressage source</p><p>S NAT</p><p class="tssr-source-paragraph">*</p><p class="tssr-source-paragraph">*</p><p>Réseaux non routés</p><h3>Traduction d’adresses</h3><p class="tssr-source-paragraph">iptables</p><ul><li>Sous Linux, il est possible d'utiliser des règles d'iptables.</li><li>Il est aussi possible d'utiliser des frameworks comme Shorewall qui vont créer les règles à partir de fichiers de définition des règles.</li><li>Des outils comme PfSense (utilisé dans ce cours) sont des outils avancés de gestion des règles.</li></ul></section>
+<section class="tssr-transcribed-page" id="source-1MQyXuZisBhM7i8ZmSFLw1L-ljYwOeMVh-page-9"><h3>Traduction d’adresses</h3><p class="tssr-source-paragraph">SNAT</p><ul><li>Une fiche annexe est proposée pour la configuration détaillée de pfSense pour mettre en place le SNAT.</li></ul><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-figure-37.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-figure-37.webp" loading="lazy" alt="Accès au menu Firewall puis NAT dans pfSense."></a><figcaption>Accès au menu Firewall puis NAT dans pfSense.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-figure-38.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-figure-38.webp" loading="lazy" alt="Mode Outbound NAT automatique dans pfSense."></a><figcaption>Mode Outbound NAT automatique dans pfSense.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-figure-39.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-figure-39.webp" loading="lazy" alt="Exemples de règles Outbound NAT générées automatiquement."></a><figcaption>Exemples de règles Outbound NAT générées automatiquement.</figcaption></figure></section>
 
 <p class="tssr-original-proof">Référence du document : 1MQyXuZisBhM7i8ZmSFLw1L-ljYwOeMVh · <span title="Empreinte SHA-256 du fichier source">SHA-256 7747643d654e4e24…</span></p>
 </div>
@@ -18285,23 +18141,24 @@ net.ipv4.ip_forward = 0</code></pre><h3>Routage et traduction d’adresses</h3><
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-vector-3.webp" data-desc-position="bottom"><img alt="Traduction d’adresse source entre les réseaux non routés et routés" src="../../../assets/course-sources/isolated/7747643d654e4e24/linux-net-vector-3.webp"></a></p>
 <p>Traduction d’adresse source entre les réseaux non routés et routés</p>
 <p>Le croquis montre le SNAT de l’adressage source lors de la sortie des réseaux non routés vers les réseaux routés.</p>
-<h2 id="_1">*<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>*</p>
 <p>Réseaux routés</p>
-<h2 id="_2">*<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>*</p>
 <p>Adressage source</p>
 <p>S NAT</p>
-<h2 id="_3">*<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<h2 id="_4">*<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>*</p>
+<p>*</p>
 <p>Réseaux non routés</p>
 <h3 id="traduction-dadresses_4">Traduction d’adresses<a class="headerlink" href="#traduction-dadresses_4" title="Permanent link">¶</a></h3>
-<h3 id="iptables">iptables<a class="headerlink" href="#iptables" title="Permanent link">¶</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>iptables
+</span></code></pre></div>
 <ul>
 <li>Sous Linux, il est possible d'utiliser des règles d'iptables.</li>
 <li>Il est aussi possible d'utiliser des frameworks comme Shorewall qui vont créer les règles à partir de fichiers de définition des règles.</li>
 <li>Des outils comme PfSense (utilisé dans ce cours) sont des outils avancés de gestion des règles.</li>
 </ul>
 <h3 id="traduction-dadresses_5">Traduction d’adresses<a class="headerlink" href="#traduction-dadresses_5" title="Permanent link">¶</a></h3>
-<h3 id="snat">SNAT<a class="headerlink" href="#snat" title="Permanent link">¶</a></h3>
+<p>SNAT</p>
 <ul>
 <li>Une fiche annexe est proposée pour la configuration détaillée de pfSense pour mettre en place le SNAT.</li>
 </ul>

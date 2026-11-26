@@ -1535,17 +1535,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TP
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -17351,17 +17340,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TP
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -17486,7 +17464,7 @@
 <section class="tssr-transcribed-page" id="source-1behcnzxdajFM0y3ydZ7w_ggzyePbJz24-page-4"><h2>Partage de fichiers</h2><p>Comment partager des fichiers ?</p><ul><li>Depuis l'explorateur Windows</li><li>Ouverture du partage sur le conteneur</li><li>Partage de base : partage simplifié orienté utilisateur (à éviter)</li><li>Partage avancé : onglet Partage depuis les propriétés du conteneur</li><li>Par défaut, l'entité Tout le monde est en Lecture</li><li>Bonne pratique : préférez l'entité de sécurité Utilisateurs Authentifiés</li></ul><h2>Partage de fichiers</h2><ul><li>Depuis le composant MMC Dossiers partagés (fsmgmt.msc)</li><li>Visualisation des partages actifs</li><li>Assistant de création de partages</li><li>Vues Sessions et Fichiers ouverts</li><li>Affichage des partages administratifs générés par le système</li><li>Depuis l'invite de commande</li><li>net share pour lister et configurer les partages</li><li>Exemple : net share commun=d:\Note_de_service /grant:"utilisateurs authentifiés",FULL</li><li>En PowerShell avec la cmdlet New-SmbShare</li><li>New-SmbShare -Name "VMSFiles" -Path "C:\ClusterStorage\Volume1\VMFiles" -FullAccess "Authenticated Users"</li></ul><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p4-1.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p4-1.webp" alt="Illustration isolée du support — Module 08 - Support de cours" loading="lazy"></a><figcaption>Illustration isolée du support — Module 08 - Support de cours</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p4-2.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p4-2.webp" alt="Illustration isolée du support — Module 08 - Support de cours" loading="lazy"></a><figcaption>Illustration isolée du support — Module 08 - Support de cours</figcaption></figure></section>
 <section class="tssr-transcribed-page" id="source-1behcnzxdajFM0y3ydZ7w_ggzyePbJz24-page-5"><h2>Démonstration</h2><h2>Session à distance</h2><ul><li>Accès distant au poste</li><li>Possible grâce à la fonctionnalité Bureau à distance</li><li>Authentification avec un compte valide (local ou de domaine)</li><li>Nécessite des privilèges spécifiques</li><li>Même niveau de fonctionnement qu'une session locale</li><li>Utilisation courante</li><li>Maintenir des postes (1 seule session locale ou distante)</li><li>Accéder à distance aux serveurs (2 sessions simultanées depuis Windows 2008)</li><li>Accéder à son environnement de travail depuis l'extérieur (VPN)</li><li>Les limites</li><li>Mode maintenance sur un poste client (pas d'interaction possible avec l'utilisateur)</li><li>Sur les serveurs, 2 sessions avec des comptes différents</li><li>Blocage (à distance) si les sessions restent ouvertes</li></ul></section>
 <section class="tssr-transcribed-page" id="source-1behcnzxdajFM0y3ydZ7w_ggzyePbJz24-page-6"><h2>Session à distance</h2><ul><li>Comment se connecter à distance sur un poste Windows 10 ?</li><li>Nativement, avec l'outil Connexion Bureau à distance</li><li>Ensemble d'onglets pour personnaliser la connexion</li><li>Sauvegarder les paramètres</li><li>Mappez vos ressources locales sur le poste distant !</li><li>En ligne de commande avec mstsc</li><li>Exemple : mstsc /v:serveur</li></ul><h2>Session à distance</h2><p>Configuration du poste cible ?</p><ul><li>Rubrique Système du panneau de configuration</li><li>Menu Paramètres système avancés</li><li>Onglet Utilisation à distance</li><li>Nativement désactivé</li><li>2 niveaux d'authentification</li><li>Authentification standard</li><li>Authentification NLA</li><li>Par défaut, accès autorisé aux administrateurs</li></ul><p>Fonctionnement</p><ul><li>Protocole RDP (port 3389)</li><li>Configuration automatique du pare-feu</li><li>Attention aux emplacements réseau</li></ul><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p6-1.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p6-1.webp" alt="Illustration isolée du support — Module 08 - Support de cours" loading="lazy"></a><figcaption>Illustration isolée du support — Module 08 - Support de cours</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p6-2.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p6-2.webp" alt="Illustration isolée du support — Module 08 - Support de cours" loading="lazy"></a><figcaption>Illustration isolée du support — Module 08 - Support de cours</figcaption></figure></section>
-<section class="tssr-transcribed-page" id="source-1behcnzxdajFM0y3ydZ7w_ggzyePbJz24-page-7"><h2>Démonstration</h2><h2>TP</h2></section>
+<section class="tssr-transcribed-page" id="source-1behcnzxdajFM0y3ydZ7w_ggzyePbJz24-page-7"><h2>Démonstration</h2><p class="tssr-source-paragraph">TP</p></section>
 <section class="tssr-transcribed-page" id="source-1behcnzxdajFM0y3ydZ7w_ggzyePbJz24-page-8"><h2>Conclusion</h2><ul><li>Les réseaux sont les fondations des systèmes d’informations des entreprises.</li><li>Les systèmes d’exploitation tirent profit du réseau pour organiser et sécuriser l’accès aux informations</li></ul></section>
 
 <p class="tssr-original-proof">Référence du document : 1behcnzxdajFM0y3ydZ7w_ggzyePbJz24 · <span title="Empreinte SHA-256 du fichier source">SHA-256 313d40d1e9005ae9…</span></p>
@@ -17769,7 +17747,7 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p6-2.webp" data-desc-position="bottom"><img alt="Illustration isolée du support — Module 08 - Support de cours" src="../../../assets/course-sources/isolated/313d40d1e9005ae9/g2-p6-2.webp"></a></p>
 <p>Illustration isolée du support — Module 08 - Support de cours</p>
 <h2 id="demonstration_1">Démonstration<a class="headerlink" href="#demonstration_1" title="Permanent link">¶</a></h2>
-<h2 id="tp">TP<a class="headerlink" href="#tp" title="Permanent link">¶</a></h2>
+<p>TP</p>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">À retenir</p>

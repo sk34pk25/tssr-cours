@@ -2194,17 +2194,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#graphique" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        graphique
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2334,23 +2323,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Gestion du réseau">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -17515,17 +17487,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#graphique" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        graphique
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -17655,23 +17616,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Gestion du réseau">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -17821,7 +17765,7 @@ search mondomaine.fr
 nameserver 10.1.2.20
 nameserver 10.1.2.21</code></pre></section>
 <section class="tssr-transcribed-page" id="source-1FKHUR6aoVOxjBVWtiPOjCKtnnxF8GatF-page-7"><h2>Les prérequis</h2><p>Démo</p><p>Informations réseau</p></section>
-<section class="tssr-transcribed-page" id="source-1FKHUR6aoVOxjBVWtiPOjCKtnnxF8GatF-page-8"><h2>Gestion du réseau</h2><h3>Système sans interface</h3><h3>graphique</h3></section>
+<section class="tssr-transcribed-page" id="source-1FKHUR6aoVOxjBVWtiPOjCKtnnxF8GatF-page-8"><h2>Gestion du réseau</h2><h3>Système sans interface</h3><p class="tssr-source-paragraph">graphique</p></section>
 <section class="tssr-transcribed-page" id="source-1FKHUR6aoVOxjBVWtiPOjCKtnnxF8GatF-page-9"><h2>Configuration IP en DHCP</h2><ul><li>La configuration IP et DNS sur un système sans interface graphique se fait dans deux fichiers de configuration</li><li>Le fichier /etc/network/interfaces permet de gérer la partie IP</li><li>Il est possible d’avoir une configuration simplifiée via un serveur DHCP ou une configuration statique</li></ul><pre><code>root@deb:~# vim /etc/network/interfaces
 # The loopback network interface
 auto lo
@@ -17849,7 +17793,7 @@ nameserver 10.1.2.21</code></pre></section>
 <section class="tssr-transcribed-page" id="source-1FKHUR6aoVOxjBVWtiPOjCKtnnxF8GatF-page-15"><h2>Gestion du réseau avec Network Manager</h2><p>Network Manager est utilisé dans le cas d’un système Linux avec interface graphique (Desktop)</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/69edc58f1bc1f995/deb-p15-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/69edc58f1bc1f995/deb-p15-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/69edc58f1bc1f995/deb-p15-2.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/69edc58f1bc1f995/deb-p15-2.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure></section>
 <section class="tssr-transcribed-page" id="source-1FKHUR6aoVOxjBVWtiPOjCKtnnxF8GatF-page-16"><h2>Prise en compte des modifications</h2><p>On utilise la commande systemctl pour gérer le service NetworkManager</p><p>Redémarrer le service réseau</p><pre><code>root@deb:~# systemctl restart NetworkManager</code></pre><p>Ou simplement l’interface graphique (Off, On)</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/69edc58f1bc1f995/deb-p16-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/69edc58f1bc1f995/deb-p16-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure></section>
 <section class="tssr-transcribed-page" id="source-1FKHUR6aoVOxjBVWtiPOjCKtnnxF8GatF-page-17"><h2>Gestion du réseau</h2><p>Démo</p><p>Gestion du réseau au sein d’un bureau Gnome</p></section>
-<section class="tssr-transcribed-page" id="source-1FKHUR6aoVOxjBVWtiPOjCKtnnxF8GatF-page-18"><h2>Gestion du réseau</h2><h3>TP</h3><p>Démo</p><p>Gestion de la configuration réseau d’un poste</p></section>
+<section class="tssr-transcribed-page" id="source-1FKHUR6aoVOxjBVWtiPOjCKtnnxF8GatF-page-18"><h2>Gestion du réseau</h2><p class="tssr-source-paragraph">TP</p><p>Démo</p><p>Gestion de la configuration réseau d’un poste</p></section>
 <section class="tssr-transcribed-page" id="source-1FKHUR6aoVOxjBVWtiPOjCKtnnxF8GatF-page-19"><h2>Conclusion</h2><ul><li>Vous savez consulter les informations réseau sur un système Linux</li><li>Vous pouvez configurer l’adressage IP sur un serveur</li><li>Vous pouvez configurer l’adressage IP sur un poste avec interface graphique</li></ul></section>
 
 <p class="tssr-original-proof">Référence du document : 1FKHUR6aoVOxjBVWtiPOjCKtnnxF8GatF · <span title="Empreinte SHA-256 du fichier source">SHA-256 69edc58f1bc1f995…</span></p>
@@ -18023,7 +17967,8 @@ nameserver 10.1.2.21</code></pre></section>
 <p>Informations réseau</p>
 <h2 id="gestion-du-reseau_2">Gestion du réseau<a class="headerlink" href="#gestion-du-reseau_2" title="Permanent link">¶</a></h2>
 <h3 id="systeme-sans-interface">Système sans interface<a class="headerlink" href="#systeme-sans-interface" title="Permanent link">¶</a></h3>
-<h3 id="graphique">graphique<a class="headerlink" href="#graphique" title="Permanent link">¶</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>graphique
+</span></code></pre></div>
 <h2 id="configuration-ip-en-dhcp">Configuration IP en DHCP<a class="headerlink" href="#configuration-ip-en-dhcp" title="Permanent link">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">À retenir</p>
@@ -18034,14 +17979,14 @@ nameserver 10.1.2.21</code></pre></section>
 <li>Le fichier /etc/network/interfaces permet de gérer la partie IP</li>
 <li>Il est possible d’avoir une configuration simplifiée via un serveur DHCP ou une configuration statique</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>root@deb:~# vim /etc/network/interfaces
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a># The loopback network interface
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>auto lo
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>iface lo inet loopback
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a># Carte réseau - Ethernet ens33
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>auto ens33
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>allow-hotplug ens33
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>iface ens33 inet dhcp 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>root@deb:~# vim /etc/network/interfaces
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a># The loopback network interface
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>auto lo
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>iface lo inet loopback
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a># Carte réseau - Ethernet ens33
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>auto ens33
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>allow-hotplug ens33
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>iface ens33 inet dhcp 
 </span></code></pre></div>
 <h2 id="configuration-ip-statique">Configuration IP statique<a class="headerlink" href="#configuration-ip-statique" title="Permanent link">¶</a></h2>
 <div class="admonition note">
@@ -18051,17 +17996,17 @@ nameserver 10.1.2.21</code></pre></section>
 <ul>
 <li>Mettre en place une configuration statique dans le fichier /etc/network/interfaces</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>root@deb:~# vim /etc/network/interfaces
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a># The loopback network interface
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>auto lo
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>iface lo inet loopback
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a># Carte réseau - Ethernet ens33
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>auto ens33
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>iface ens33 inet static
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>root@deb:~# vim /etc/network/interfaces
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a># The loopback network interface
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>auto lo
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>iface lo inet loopback
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a># Carte réseau - Ethernet ens33
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>auto ens33
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>iface ens33 inet static
 </span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>address 10.1.1.10
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>netmask 255.255.0.0
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>gateway 10.1.255.254
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>address 10.1.1.10
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>netmask 255.255.0.0
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>gateway 10.1.255.254
 </span></code></pre></div>
 <h2 id="configuration-serveur-dns-statique">Configuration serveur DNS statique<a class="headerlink" href="#configuration-serveur-dns-statique" title="Permanent link">¶</a></h2>
 <div class="admonition note">
@@ -18071,10 +18016,10 @@ nameserver 10.1.2.21</code></pre></section>
 <ul>
 <li>Mettre en place une configuration statique dans le fichier /etc/resolv.conf via la directive nameserver</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>root@deb:~# vim /etc/resolv.conf
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>search mondomaine.fr
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>nameserver 10.1.2.20
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>nameserver 10.1.2.21
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>root@deb:~# vim /etc/resolv.conf
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>search mondomaine.fr
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>nameserver 10.1.2.20
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>nameserver 10.1.2.21
 </span></code></pre></div>
 <h2 id="prise-en-compte-des-modifications">Prise en compte des modifications<a class="headerlink" href="#prise-en-compte-des-modifications" title="Permanent link">¶</a></h2>
 <div class="admonition note">
@@ -18093,17 +18038,17 @@ nameserver 10.1.2.21</code></pre></section>
 <ul>
 <li>Arrêter le service réseau</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>root@deb:~# systemctl stop networking.service
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>root@deb:~# systemctl stop networking.service
 </span></code></pre></div>
 <ul>
 <li>Démarrer le service réseau</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>root@deb:~# systemctl start networking.service
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>root@deb:~# systemctl start networking.service
 </span></code></pre></div>
 <ul>
 <li>Redémarrer le service réseau</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>root@deb:~# systemctl restart networking.service
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>root@deb:~# systemctl restart networking.service
 </span></code></pre></div>
 <h2 id="systeme-sans-interface-graphique">Système sans interface graphique<a class="headerlink" href="#systeme-sans-interface-graphique" title="Permanent link">¶</a></h2>
 <div class="admonition note">
@@ -18124,7 +18069,7 @@ nameserver 10.1.2.21</code></pre></section>
 <h2 id="prise-en-compte-des-modifications_1">Prise en compte des modifications<a class="headerlink" href="#prise-en-compte-des-modifications_1" title="Permanent link">¶</a></h2>
 <p>On utilise la commande systemctl pour gérer le service NetworkManager</p>
 <p>Redémarrer le service réseau</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>root@deb:~# systemctl restart NetworkManager
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>root@deb:~# systemctl restart NetworkManager
 </span></code></pre></div>
 <p>Ou simplement l’interface graphique (Off, On)</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/69edc58f1bc1f995/deb-p16-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." src="../../../assets/course-sources/isolated/69edc58f1bc1f995/deb-p16-1.webp"></a></p>
@@ -18133,7 +18078,7 @@ nameserver 10.1.2.21</code></pre></section>
 <p>Démo</p>
 <p>Gestion du réseau au sein d’un bureau Gnome</p>
 <h2 id="gestion-du-reseau_5">Gestion du réseau<a class="headerlink" href="#gestion-du-reseau_5" title="Permanent link">¶</a></h2>
-<h3 id="tp">TP<a class="headerlink" href="#tp" title="Permanent link">¶</a></h3>
+<p>TP</p>
 <p>Démo</p>
 <p>Gestion de la configuration réseau d’un poste</p>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h2>

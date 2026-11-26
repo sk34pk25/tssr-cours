@@ -2409,23 +2409,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Agrandir un Volume Group">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vggroup1-vggroup1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        vggroup1 vggroup1
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -2580,23 +2563,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Gestion des espaces de stockage avancée - LVM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -17808,23 +17774,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Agrandir un Volume Group">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vggroup1-vggroup1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        vggroup1 vggroup1
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -17980,23 +17929,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Gestion des espaces de stockage avancée - LVM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -18141,7 +18073,7 @@ root@deb:~# lvcreate -n lv2 -L 512M vggroup1</code></pre><p>-n : nom du Volume L
 <section class="tssr-transcribed-page" id="source-1fwrqhgRYGwwS8E_s9YPqVx5UNiacC4QZ-page-12"><h2>Créer des partitions LVM</h2><p>Il y aura deux chemins possibles pour manipuler le Volume Logiques</p><pre><code>/dev/vgsystem/lvhome</code></pre><p>Ou</p><pre><code>/dev/mapper/vgsystem-lvhome</code></pre></section>
 <section class="tssr-transcribed-page" id="source-1fwrqhgRYGwwS8E_s9YPqVx5UNiacC4QZ-page-13"><h2>Créer des LVM</h2><p>Démo</p><p>Créer des LVM</p></section>
 <section class="tssr-transcribed-page" id="source-1fwrqhgRYGwwS8E_s9YPqVx5UNiacC4QZ-page-14"><h2>Gestion des espaces de stockage avancée - LVM</h2><h3>Modifier des LVM</h3></section>
-<section class="tssr-transcribed-page" id="source-1fwrqhgRYGwwS8E_s9YPqVx5UNiacC4QZ-page-15"><h2>Agrandir un Volume Group</h2><p>Ajouter des volumes physiques au VG : vgextend</p><pre><code>root@deb:~# vgextend vggroup1 /dev/sdd</code></pre><p>/dev/sdb1 /dev/sdb2 PV PV</p><p>/dev/sdc1 /dev/sdd PV PV</p><h3>vggroup1 vggroup1</h3><p>Transcription du croquis : vgextend ajoute le PV /dev/sdd au groupe vggroup1 déjà constitué.</p></section>
+<section class="tssr-transcribed-page" id="source-1fwrqhgRYGwwS8E_s9YPqVx5UNiacC4QZ-page-15"><h2>Agrandir un Volume Group</h2><p>Ajouter des volumes physiques au VG : vgextend</p><pre><code>root@deb:~# vgextend vggroup1 /dev/sdd</code></pre><p>/dev/sdb1 /dev/sdb2 PV PV</p><p>/dev/sdc1 /dev/sdd PV PV</p><p class="tssr-source-paragraph">vggroup1 vggroup1</p><p>Transcription du croquis : vgextend ajoute le PV /dev/sdd au groupe vggroup1 déjà constitué.</p></section>
 <section class="tssr-transcribed-page" id="source-1fwrqhgRYGwwS8E_s9YPqVx5UNiacC4QZ-page-16"><h2>Créer des partitions LVM</h2><p>Agrandir des volumes logiques : lvextend</p><pre><code>root@deb:~# lvextend -r -L +512M /dev/vggroup1/lv1
 root@deb:~# lvextend –r -L 1G /dev/vggroup1/lv2</code></pre><h3>-r : invoque automatiquement resize2fs -L : [+]&lt;taille&gt;K|M|G|T|E</h3><p>vggroup1 lv1 lv2 lv1 lv2</p><p>Transcription du croquis : les volumes logiques lv1 et lv2 du groupe vggroup1 sont agrandis ; les deux états du dessin représentent avant et après.</p></section>
 <section class="tssr-transcribed-page" id="source-1fwrqhgRYGwwS8E_s9YPqVx5UNiacC4QZ-page-17"><h2>Agrandir des LV</h2><ul><li>De la même façon, lvreduce permet de réduire la taille d'un volume logique</li><li>Attention, le système de fichier ne prendra pas en compte automatiquement ces changements. Il faudra forcer un redimensionnement pour pouvoir utiliser tout l'espace</li><li>La commande resize2fs qui permet de redimensionner un système de fichier sera étudiée dans le module suivant</li></ul></section>
@@ -18210,7 +18142,7 @@ vggroup1
   LV Size                1 GiB
   [...]</code></pre><ul><li>Toutes les commandes LVM sont également disponibles dans un shell dédié, accessible avec la commande lvm</li></ul></section>
 <section class="tssr-transcribed-page" id="source-1fwrqhgRYGwwS8E_s9YPqVx5UNiacC4QZ-page-25"><h2>Afficher les informations</h2><p>Démo</p><p>Afficher les informations LVM</p></section>
-<section class="tssr-transcribed-page" id="source-1fwrqhgRYGwwS8E_s9YPqVx5UNiacC4QZ-page-26"><h2>Gestion des espaces de stockage avancée - LVM</h2><h3>TP</h3><p>Démo</p><p>Manipuler LVM</p></section>
+<section class="tssr-transcribed-page" id="source-1fwrqhgRYGwwS8E_s9YPqVx5UNiacC4QZ-page-26"><h2>Gestion des espaces de stockage avancée - LVM</h2><p class="tssr-source-paragraph">TP</p><p>Démo</p><p>Manipuler LVM</p></section>
 <section class="tssr-transcribed-page" id="source-1fwrqhgRYGwwS8E_s9YPqVx5UNiacC4QZ-page-27"><h2>Conclusion</h2><ul><li>Vous savez préparer des disques et partitions pour LVM</li><li>Vous savez créer et modifier des Volumes Groups</li><li>Vous savez créer et modifier des Logical Volumes</li></ul></section>
 
 <p class="tssr-original-proof">Référence du document : 1fwrqhgRYGwwS8E_s9YPqVx5UNiacC4QZ · <span title="Empreinte SHA-256 du fichier source">SHA-256 8211ee68dbf0cf3b…</span></p>
@@ -18434,7 +18366,7 @@ vggroup1
 </span></code></pre></div>
 <p>/dev/sdb1 /dev/sdb2 PV PV</p>
 <p>/dev/sdc1 /dev/sdd PV PV</p>
-<h3 id="vggroup1-vggroup1">vggroup1 vggroup1<a class="headerlink" href="#vggroup1-vggroup1" title="Permanent link">¶</a></h3>
+<p>vggroup1 vggroup1</p>
 <p>Transcription du croquis : vgextend ajoute le PV /dev/sdd au groupe vggroup1 déjà constitué.</p>
 <h2 id="creer-des-partitions-lvm_4">Créer des partitions LVM<a class="headerlink" href="#creer-des-partitions-lvm_4" title="Permanent link">¶</a></h2>
 <p>Agrandir des volumes logiques : lvextend</p>
@@ -18566,7 +18498,7 @@ vggroup1
 <p>Démo</p>
 <p>Afficher les informations LVM</p>
 <h2 id="gestion-des-espaces-de-stockage-avancee-lvm_5">Gestion des espaces de stockage avancée - LVM<a class="headerlink" href="#gestion-des-espaces-de-stockage-avancee-lvm_5" title="Permanent link">¶</a></h2>
-<h3 id="tp">TP<a class="headerlink" href="#tp" title="Permanent link">¶</a></h3>
+<p>TP</p>
 <p>Démo</p>
 <p>Manipuler LVM</p>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h2>

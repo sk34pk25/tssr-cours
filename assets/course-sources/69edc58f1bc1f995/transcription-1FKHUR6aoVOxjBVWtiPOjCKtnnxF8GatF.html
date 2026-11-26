@@ -28,7 +28,7 @@ search mondomaine.fr
 nameserver 10.1.2.20
 nameserver 10.1.2.21</code></pre></section>
 <section class="tssr-transcribed-page" id="page-7"><h2>Les prérequis</h2><p>Démo</p><p>Informations réseau</p></section>
-<section class="tssr-transcribed-page" id="page-8"><h2>Gestion du réseau</h2><h3>Système sans interface</h3><h3>graphique</h3></section>
+<section class="tssr-transcribed-page" id="page-8"><h2>Gestion du réseau</h2><h3>Système sans interface</h3><p class="tssr-source-paragraph">graphique</p></section>
 <section class="tssr-transcribed-page" id="page-9"><h2>Configuration IP en DHCP</h2><ul><li>La configuration IP et DNS sur un système sans interface graphique se fait dans deux fichiers de configuration</li><li>Le fichier /etc/network/interfaces permet de gérer la partie IP</li><li>Il est possible d’avoir une configuration simplifiée via un serveur DHCP ou une configuration statique</li></ul><pre><code>root@deb:~# vim /etc/network/interfaces
 # The loopback network interface
 auto lo
@@ -56,6 +56,6 @@ nameserver 10.1.2.21</code></pre></section>
 <section class="tssr-transcribed-page" id="page-15"><h2>Gestion du réseau avec Network Manager</h2><p>Network Manager est utilisé dans le cas d’un système Linux avec interface graphique (Desktop)</p><figure><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../isolated/69edc58f1bc1f995/deb-p15-1.webp"/><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../isolated/69edc58f1bc1f995/deb-p15-2.webp"/><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure></section>
 <section class="tssr-transcribed-page" id="page-16"><h2>Prise en compte des modifications</h2><p>On utilise la commande systemctl pour gérer le service NetworkManager</p><p>Redémarrer le service réseau</p><pre><code>root@deb:~# systemctl restart NetworkManager</code></pre><p>Ou simplement l’interface graphique (Off, On)</p><figure><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../isolated/69edc58f1bc1f995/deb-p16-1.webp"/><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure></section>
 <section class="tssr-transcribed-page" id="page-17"><h2>Gestion du réseau</h2><p>Démo</p><p>Gestion du réseau au sein d’un bureau Gnome</p></section>
-<section class="tssr-transcribed-page" id="page-18"><h2>Gestion du réseau</h2><h3>TP</h3><p>Démo</p><p>Gestion de la configuration réseau d’un poste</p></section>
+<section class="tssr-transcribed-page" id="page-18"><h2>Gestion du réseau</h2><p class="tssr-source-paragraph">TP</p><p>Démo</p><p>Gestion de la configuration réseau d’un poste</p></section>
 <section class="tssr-transcribed-page" id="page-19"><h2>Conclusion</h2><ul><li>Vous savez consulter les informations réseau sur un système Linux</li><li>Vous pouvez configurer l’adressage IP sur un serveur</li><li>Vous pouvez configurer l’adressage IP sur un poste avec interface graphique</li></ul></section>
 <!-- SOURCE-CONTENT:END --></body></html>
