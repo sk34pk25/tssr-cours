@@ -42,4 +42,4 @@ Les photos remises aux stagiaires :
 
 ![PDU G2 Arriere](../../../assets/images/glpi/module-03/pdu-g2-arriere-png.png)
 
-[manuel Aruba 24 ports](../../../assets/course-sources/b8ce0876eff78941/transcription-117kxWm1eP4YIacFfO8SBR9XaTL8PQvi4.html)
+Le manuel Aruba n’est pas publié comme fichier. Ses 12 pages restent dans le [cours du module](../../../modules/07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique.md).

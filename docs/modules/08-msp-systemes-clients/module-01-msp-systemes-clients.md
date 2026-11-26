@@ -5690,3 +5690,18 @@ Les lignes reprennent les titres du cours et la première phrase de chaque parti
 | Correction · 03_preparer_profils.ps1 · document texte | Document texte ou script fourni dans le Drive, retranscrit sans exécution. |
 | Correction · 04_partage_support_info.ps1 · document texte | Document texte ou script fourni dans le Drive, retranscrit sans exécution. |
 | Correction · 05_deplacer_spool.ps1 · document texte | Document texte ou script fourni dans le Drive, retranscrit sans exécution. |
+
+## Classeur Résultats séminaire
+
+Les trois classeurs ne sont pas publiés. Les noms sont ceux du scénario. Le classeur brut laisse vides le total, la moyenne et l’appréciation. Les deux classeurs solution utilisent les mêmes formules : total `=SUM` des quatre notes, moyenne `=AVERAGE` des quatre notes, appréciation selon moyenne et assiduité (toutes deux supérieures à 10 : Bien ; moyenne au plus 10 et assiduité au moins 10 : En Progrès ; moyenne au moins 10 et assiduité inférieure à 10 : Trop d'absences ; toutes deux inférieures à 10 : En danger!).
+
+| Élève | Conduite | EPS | Tir | Physique Chimie | Assiduité |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Rick Grimes | 11 | 20 | 6 | 9,5 | 9 |
+| Daryl Dixon | 11 | 9 | 15 | 17 | 8 |
+| Gabriel Stokes | 10 | 8 | 11 | 5 | 12 |
+| Maggie Greene | 18 | 14 | 16 | 13 | 12 |
+| Eugene Porter | 15 | 15 | 11 | 15 | 15 |
+| Carol Peletier | 9 | 9 | 9 | 9 | 9 |
+| Rosita Espinosa | 12 | 13 | 17 | 6 | 15 |
+| Morgan Jones | 11 | 16 | 12 | 11 | 15 |
