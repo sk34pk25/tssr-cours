@@ -488,7 +488,7 @@ Clic droit > Propriétés
 
 Onglet Sécurité
 
-Oui, les nouveaux fichiers héritent des autorisations du dossier parent Echange (qui lui- même hérite des autorisations du lecteur D:).
+Oui, les nouveaux fichiers héritent des autorisations du dossier parent Echange (qui lui-même hérite des autorisations du lecteur D:).
 
 Pour s'en assurer, il suffit d'observer la présence des coches grisées. Pour plus de détail, cliquez sur le bouton Avancé.
 

@@ -336,7 +336,7 @@ Capture du support « Module 01 - Support de cours »
 PS > Get-Help -Name Get-Service -Examples
 ```
 
-- Pour faciliter la lecture de l’aide, PowerShell met à disposition une fenêtre avec un champ de recherche. Cela permet de filtrer les catégories, copier- coller des exemples, etc.
+- Pour faciliter la lecture de l’aide, PowerShell met à disposition une fenêtre avec un champ de recherche. Cela permet de filtrer les catégories, copier-coller des exemples, etc.
 
 ```
 PS > Get-Help –Name Get-Service -ShowWindow

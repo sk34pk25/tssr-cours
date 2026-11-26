@@ -647,13 +647,13 @@ Pour les zones inverses :
 # vi /etc/bind/named.conf.local
 
 # Zone inverse LAN Clients - 172.18.10.0/24
- zone "10.18.172.in- addr.arpa" {
+ zone "10.18.172.in-addr.arpa" {
          type master;
          file "db.inv.172.18.30";
  };
 
  # Zone inverse LAN Serveurs - 192.168.10.0/24
- zone "10.168.192.in- addr.arpa" {
+ zone "10.168.192.in-addr.arpa" {
          type master;
          file "db.inv.192.168.10";
  };
@@ -667,14 +667,14 @@ Pour les fichiers de zone :
  ; Zone inverse 172.18.30.0/24
  ;
  $TTL    86400
- @       IN      SOA     deb- s2.tssr.example. admin.tssr.example. (
+ @       IN      SOA     deb-s2.tssr.example. admin.tssr.example. (
                                1         ; Serial
                            86400         ;  Refresh
                             7200         ;  Retry
                          3600000         ;  Expire
                             3600 )       ;  Negative Cache TTL
  ;
- @       IN      NS      deb- s2.tssr.example.
+ @       IN      NS      deb-s2.tssr.example.
  254     IN      PTR     routux.tssr.example.
 
  # vi /var/cache/bind/db.inv.192.168.30
@@ -682,17 +682,17 @@ Pour les fichiers de zone :
  ; Zone inverse 192.168.30.0/24
  ;
  $TTL    86400
- @       IN      SOA     deb- s2.tssr.example. Admin.tssr.example. (
+ @       IN      SOA     deb-s2.tssr.example. Admin.tssr.example. (
                                1         ; Serial
                            86400         ;  Refresh
                             7200         ;  Retry
                          3600000         ;  Expire
                             3600 )       ;  Negative Cache TTL
  ;
- @       IN      NS      deb- s2.tssr.example.
+ @       IN      NS      deb-s2.tssr.example.
  254     IN      PTR     routux.tssr.example.
  11      IN      PTR     deb- s1.tssr.example.
- 12      IN      PTR     deb- s2.tssr.example.
+ 12      IN      PTR     deb-s2.tssr.example.
 ```
 
 Relancer bind9 : # rndc reload
@@ -759,7 +759,7 @@ Refaire la commande dig sur db-cli-10 (ne fonctionne pas) et sur deb-s1 (fonctio
  ; Zone directe tssr.example.example
  ;
  $TTL    86400
- @       IN      SOA     deb- s2.tssr.example. admin.tssr.example. (
+ @       IN      SOA     deb-s2.tssr.example. admin.tssr.example. (
 
 2019100251 ; serial
                            86400         ;  Refresh
@@ -767,7 +767,7 @@ Refaire la commande dig sur db-cli-10 (ne fonctionne pas) et sur deb-s1 (fonctio
                          3600000         ;  Expire
                             3600 )       ;  Negative Cache TTL
  ;
- @       IN      NS      deb- s2.tssr.example.
+ @       IN      NS      deb-s2.tssr.example.
  @       IN      NS      deb-s1.tssr.example.
 
  # named-checkconf –z

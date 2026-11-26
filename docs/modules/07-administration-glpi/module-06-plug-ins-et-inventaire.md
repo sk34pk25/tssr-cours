@@ -139,9 +139,9 @@ flowchart LR
 #### Paramétrage du Marketplace
 
 !!! note "À retenir"
-    Inscription gratuite sur le site https://services.glpi- network.com/register afin de récupérer une clé d’enregistrement Puis la coller dans la section Configuration→Générale de GLPI :
+    Inscription gratuite sur le site https://services.glpi-network.com/register afin de récupérer une clé d’enregistrement Puis la coller dans la section Configuration→Générale de GLPI :
 
-- Inscription gratuite sur le site https://services.glpi- network.com/register afin de récupérer une clé d’enregistrement
+- Inscription gratuite sur le site https://services.glpi-network.com/register afin de récupérer une clé d’enregistrement
 - Puis la coller dans la section Configuration→Générale de GLPI :
 
 #### Les plug-ins : installation par le Marketplace

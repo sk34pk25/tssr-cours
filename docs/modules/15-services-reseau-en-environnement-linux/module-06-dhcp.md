@@ -471,7 +471,7 @@ Sur RouTux chercher le paquet : # apt search ^isc-dhcp
 
 ```
 Installation :
-# apt install isc-dhcp- relay
+# apt install isc-dhcp-relay
 ```
 
 ```
@@ -506,7 +506,7 @@ Reconfigurer le paquet :
 ```
  # vi /etc/dhcp/dhcpd.conf
  # Options serveur
- option domain-name- servers 192.168.X.12;
+ option domain-name-servers 192.168.X.12;
  # Parametres generaux
  default-lease-time 345600;
  max-lease-time 691200;
@@ -541,8 +541,8 @@ Fichier /etc/rsyslog.conf
 ##### Arrêt des services
 
 ```
- # systemctl stop isc-dhcp- relay.service
- # systemctl status isc-dhcp- relay.service
+ # systemctl stop isc-dhcp-relay.service
+ # systemctl status isc-dhcp-relay.service
 ```
 
 ##### Démarrage du relais DHCP en mode debug
@@ -555,9 +555,9 @@ Services réseau en environnement Linux
 
 Sur le serveur dhcp : # dhcpd -d
 
-Configurer le client pour passer en DHCP et vérifier les requêtes sur le relai et sur le serveur DHCP Redémarrer les services : Sur deb-s2 # systemctl start isc-dhcp- server
+Configurer le client pour passer en DHCP et vérifier les requêtes sur le relai et sur le serveur DHCP Redémarrer les services : Sur deb-s2 # systemctl start isc-dhcp-server
 
-Si erreur au démarrage, vérifier l’existence du fichier /var/run/dhcpd.pid (suite au lancement en mode debug). Le supprimer si nécessaire. Sur routux : # systemctl start isc-dhcp- relay
+Si erreur au démarrage, vérifier l’existence du fichier /var/run/dhcpd.pid (suite au lancement en mode debug). Le supprimer si nécessaire. Sur routux : # systemctl start isc-dhcp-relay
 
 Référence du document : 1QKukILzDYo1_g60_BIdhNuNuzoQEm9ZX · SHA-256 bc760acf7f894ae4…
 

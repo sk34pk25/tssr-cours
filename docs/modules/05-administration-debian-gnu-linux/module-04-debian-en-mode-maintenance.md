@@ -381,7 +381,7 @@ Chercher la ligne commencant par "linux" , à la fin de celle-ci remplacer 'quie
 
 Attention : clavier en qwerty US Appuyer sur F10 pour lancer le système
 
-Commenté [MC1]: Image dans le domaine public. Source : https://freesvg.org/golden-qwerty-keyboard- vector-image
+Commenté [MC1]: Image dans le domaine public. Source : https://freesvg.org/golden-qwerty-keyboard-vector-image
 
 Mappage de touche au format qwerty US
 

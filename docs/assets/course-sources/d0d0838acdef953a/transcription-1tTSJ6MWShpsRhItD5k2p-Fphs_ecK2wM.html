@@ -39,13 +39,13 @@ $TTL    86400
 # vi /etc/bind/named.conf.local
 
 # Zone inverse LAN Clients - 172.18.10.0/24
- zone &quot;10.18.172.in- addr.arpa&quot; {
+ zone &quot;10.18.172.in-addr.arpa&quot; {
          type master;
          file &quot;db.inv.172.18.30&quot;;
  };
 
  # Zone inverse LAN Serveurs - 192.168.10.0/24
- zone &quot;10.168.192.in- addr.arpa&quot; {
+ zone &quot;10.168.192.in-addr.arpa&quot; {
          type master;
          file &quot;db.inv.192.168.10&quot;;
  };</code></pre></section>
@@ -56,14 +56,14 @@ $TTL    86400
  ; Zone inverse 172.18.30.0/24
  ;
  $TTL    86400
- @       IN      SOA     deb- s2.tssr.example. admin.tssr.example. (
+ @       IN      SOA     deb-s2.tssr.example. admin.tssr.example. (
                                1         ; Serial
                            86400         ;  Refresh
                             7200         ;  Retry
                          3600000         ;  Expire
                             3600 )       ;  Negative Cache TTL
  ;
- @       IN      NS      deb- s2.tssr.example.
+ @       IN      NS      deb-s2.tssr.example.
  254     IN      PTR     routux.tssr.example.
 
 
@@ -72,17 +72,17 @@ $TTL    86400
  ; Zone inverse 192.168.30.0/24
  ;
  $TTL    86400
- @       IN      SOA     deb- s2.tssr.example. Admin.tssr.example. (
+ @       IN      SOA     deb-s2.tssr.example. Admin.tssr.example. (
                                1         ; Serial
                            86400         ;  Refresh
                             7200         ;  Retry
                          3600000         ;  Expire
                             3600 )       ;  Negative Cache TTL
  ;
- @       IN      NS      deb- s2.tssr.example.
+ @       IN      NS      deb-s2.tssr.example.
  254     IN      PTR     routux.tssr.example.
  11      IN      PTR     deb- s1.tssr.example.
- 12      IN      PTR     deb- s2.tssr.example.</code></pre><p>Relancer bind9 : # rndc reload</p><pre><code>Tester :
+ 12      IN      PTR     deb-s2.tssr.example.</code></pre><p>Relancer bind9 : # rndc reload</p><pre><code>Tester :
  $ dig -x 172.18.10.254
  $ dig -x 192.168.10.254</code></pre></section>
 <!-- SOURCE-CONTENT:END --></body></html>

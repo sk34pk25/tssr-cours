@@ -283,7 +283,7 @@ Les quatre P de la conception — illustration isolée du support, page 8.
   - Choisir des produits adaptés aux services
 
 - Partenaires
-  - Sélectionner et impliquer les sous-traitants et les fournisseurs spécialisés dans un domaine (apport de personnels, de savoir- faire et de compétences)
+  - Sélectionner et impliquer les sous-traitants et les fournisseurs spécialisés dans un domaine (apport de personnels, de savoir-faire et de compétences)
 
 ### Page 9
 

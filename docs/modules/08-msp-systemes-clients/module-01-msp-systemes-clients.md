@@ -537,7 +537,7 @@ useradd -p n’accepte pas un mot de passe en clair : il attend un hash. Le scri
 
 #### 4.7 Stratégies locales pour les non-administrateurs Windows
 
-1. Exécuter mmc, ajouter le composant Éditeur d’objet de stratégie de groupe, cliquer Parcourir > Utilisateurs > Non- administrateurs.
+1. Exécuter mmc, ajouter le composant Éditeur d’objet de stratégie de groupe, cliquer Parcourir > Utilisateurs > Non-administrateurs.
 
 1. Configuration utilisateur > Modèles d’administration > Système > Accès au stockage amovible : activer CD et DVD -
 
@@ -1210,7 +1210,7 @@ En réalité, il n’existe pas de règle universelle. La robustesse d’un mot 
 
 - éventuellement, en fonction des mécanismes techniques mis en oeuvre et du modèle d’attaquant, du nombre d’authentification ratées autorisées avant blocage d’un compte protégé par le mot de passe ;
 
-- des mécanismes d’alerte éventuels. Certains systèmes permettent à l’utilisateur de prendre connais- sance de manière sûre du nombre d’échecs d’authentification infructueux. D’autres léveront une alerte à destination d’un administrateur ou bloqueront le compte de l’utilisateur concerné.
+- des mécanismes d’alerte éventuels. Certains systèmes permettent à l’utilisateur de prendre connaissance de manière sûre du nombre d’échecs d’authentification infructueux. D’autres léveront une alerte à destination d’un administrateur ou bloqueront le compte de l’utilisateur concerné.
 
 Compte-tenu de ce qui précède, il n’existe pas de recette miracle pour déterminer à coup sûr ce qu’est un bon mot de passe. Prenons quelques exemples plus concrets :
 
@@ -1281,7 +1281,7 @@ Cette note a pour but :
 
 - de sensibiliser les administrateurs sur l’intérêt de mettre en place un contrôle systématique de la qualité des mots de passe ;
 
-- de sensibiliser les concepteurs d’application sur l’importance d’une politique complète et cohé- rente concernant l’utilisation et la gestion des mots de passe ;
+- de sensibiliser les concepteurs d’application sur l’importance d’une politique complète et cohérente concernant l’utilisation et la gestion des mots de passe ;
 
 - de préciser les limites de la sécurité apportée par les mots de passe.
 
@@ -1697,7 +1697,7 @@ Contraintes supplémentaires :
 
 - Répertoires d’accueil
 
-Finalement, l’espace alloué au dossier contenant les profils utilisateurs « /home » a été sous- estimé. En conséquence, il vous est demandé de remplacer définitivement ce volume par celui nommé PROFILS, créé précédemment. Une fois les actions terminées, vous testerez que les utilisateurs ont bien accès à leurs données personnelles.
+Finalement, l’espace alloué au dossier contenant les profils utilisateurs « /home » a été sous-estimé. En conséquence, il vous est demandé de remplacer définitivement ce volume par celui nommé PROFILS, créé précédemment. Une fois les actions terminées, vous testerez que les utilisateurs ont bien accès à leurs données personnelles.
 
 - Dossiers de service
 

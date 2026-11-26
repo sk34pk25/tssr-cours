@@ -206,7 +206,7 @@ N.B : il est fortement conseillé de réaliser un snapshot machine éteinte.
 
 - Répertoires d’accueil
 
-Finalement, l’espace alloué au dossier contenant les profils utilisateurs « /home » a été sous- estimé. En conséquence, il vous est demandé de remplacer définitivement ce volume par celui nommé PROFILS, créé précédemment. Une fois les actions terminées, vous testerez que les utilisateurs ont bien accès à leurs données personnelles.
+Finalement, l’espace alloué au dossier contenant les profils utilisateurs « /home » a été sous-estimé. En conséquence, il vous est demandé de remplacer définitivement ce volume par celui nommé PROFILS, créé précédemment. Une fois les actions terminées, vous testerez que les utilisateurs ont bien accès à leurs données personnelles.
 
 - Dossiers de service
 

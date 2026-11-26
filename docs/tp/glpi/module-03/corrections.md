@@ -63,7 +63,7 @@ trésors puis affecter le gabarit dans cette salle.
 
 ![HP DL 380 Gen arrière](../../../assets/images/glpi/module-03/hp-dl-380-gen-arriere-png.png)
 
-https://www.hpe.com/be/fr/product-catalog/servers/proliant- servers/pip.specifications.hpe-proliant-dl380-gen10- server.1010026818.html
+https://www.hpe.com/be/fr/product-catalog/servers/proliant-servers/pip.specifications.hpe-proliant-dl380-gen10- server.1010026818.html
 
 - Créez 1 port réseau :
 
@@ -331,7 +331,7 @@ la rubrique Manuel.
 
 - Créez un gabarit nommé « GAB-Alienware-M17 »
 
-https://www.dell.com/fr-fr/work/shop/ordinateurs-portables-professionnels/nouveau- alienware-m17/spd/alienware-m17-r3-laptop/n00awm17r303
+https://www.dell.com/fr-fr/work/shop/ordinateurs-portables-professionnels/nouveau-alienware-m17/spd/alienware-m17-r3-laptop/n00awm17r303
 
 - Nom « Alienware-M17 », mais avec incrémentation à trois chiffres.
 

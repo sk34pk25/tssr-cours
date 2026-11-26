@@ -691,7 +691,7 @@ ou configuration via l’interface graphique
 Pour cli-deb-10, nommage de la machine à l’installation
 
 ```
-Ou # nmcli general hostname cli- deb-10
+Ou # nmcli general hostname cli-deb-10
 ```
 
 Ou configuration interactive avec nmtui
