@@ -13,7 +13,7 @@
 # Indiquer les noms d'en-têtes
 
 
-$datasource=Import-CSV -Path "C:\Users\fx\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description
+$datasource=Import-CSV -Path "C:\Users\votrenom\Desktop\groupes.csv" -Delimiter ";" -Header Groupes,description
 
 #Boucle d'alimentation 
 
