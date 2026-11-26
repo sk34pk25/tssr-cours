@@ -1,5 +1,7 @@
 # Correction — TP 01, partie 2 — Années bissextiles
 
+Doublon — le PDF de correction commun aux deux parties est publié dans la [partie 1](correction-tp-01-partie-01.md). Cette page conserve le script de la partie 2.
+
 Le script fourni reçoit deux années et examine chaque mois de février avec `cal`, jusqu’à la borne finale incluse. Il compte les années où il trouve le 29. Le document affiche un nom de fichier de module différent dans le message d’usage. La version pédagogique indique le nom utilisé lors du lancement et valide la plage avant le parcours.
 
 ## Variante pédagogique de script_M7TP1.sh

@@ -8,6 +8,6 @@ Exécuter l’énoncé avant de consulter la correction. Les consignes, captures
 
 ## Points à surveiller
 
-Le journal systemd peut être persistant ; vérifier sa configuration et les services installés. Une crontab système ajoute un champ utilisateur. Les captures emploient parfois `warning.log` au singulier alors que l’énoncé demande `warnings.log` : choisir ce dernier de façon cohérente. La légende « 1ère minute » de la correction de planification contredit 10 h : la ligne attendue commence par `0 10`. Le serveur voit sshd et les shells distants, pas nécessairement un processus nommé PuTTY.
+Le journal systemd peut être persistant ; vérifier sa configuration et les services installés. Les captures emploient parfois `warning.log` au singulier alors que l’énoncé demande `warnings.log` : choisir ce dernier de façon cohérente.
 
 [Liste des TP du cours](../../index.md).

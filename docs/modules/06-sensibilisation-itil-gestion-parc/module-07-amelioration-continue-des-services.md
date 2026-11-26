@@ -33,6 +33,7 @@ Module 07 – Les publications centrales « Amélioration continue des services 
 
 - Définir le rôle de l’amélioration continue des services
 - Connaitre la roue de Deming
+- La roue de Deming est lue avec ses libellés et le sens du cycle : PLAN, DO, CHECK, ACT.
 
 ### Page 2
 
