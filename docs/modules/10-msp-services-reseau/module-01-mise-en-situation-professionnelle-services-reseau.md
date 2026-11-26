@@ -553,13 +553,13 @@ Vous configurerez au moyen de stratégies de groupes les aspects suivants :
 
 #### 7. Redondance des principaux services
 
-Un audit a été réalisé sur votre infrastructure de domaine Active Directory existante, celui- ci a fait ressortir la problématique suivante : les services d’infrastructure critiques ne sont actuellement pas tolérants aux pannes qui pourraient survenir.
+Un audit a été réalisé sur votre infrastructure de domaine Active Directory existante, celui-ci a fait ressortir la problématique suivante : les services d’infrastructure critiques ne sont actuellement pas tolérants aux pannes qui pourraient survenir.
 
 Les mises en œuvre à réaliser dans cet atelier visent à accroitre la disponibilité des services et la tolérance de pannes de l’infrastructure précédemment mise en place.
 
 a. Ajout d’une nouvelle instance du service DHCP
 
-- Au point 2, vous avez mis en œuvre le service DHCP sur un de vos serveurs. Notez ci- dessous les informations relatives au service mis en œuvre. Serveur sur lequel le service a été implémenté :
+- Au point 2, vous avez mis en œuvre le service DHCP sur un de vos serveurs. Notez ci-dessous les informations relatives au service mis en œuvre. Serveur sur lequel le service a été implémenté :
 
 ………………………………………………………………………………………………………….
 
@@ -667,7 +667,7 @@ Les éléments de votre infrastructure étant en salle serveur sécurisée, tout
 
 Fenêtre de présentation de Windows Admin Center — illustration isolée du support, page 18.
 
-- Tester cette nouvelle fonctionnalité proposée par Windows Server 2019. Renseignez- vous, documentez-vous puis choisissez l'un de vos serveurs Windows pour y installer WAC.
+- Tester cette nouvelle fonctionnalité proposée par Windows Server 2019. Renseignez-vous, documentez-vous puis choisissez l'un de vos serveurs Windows pour y installer WAC.
 - Importer toutes les machines Microsoft dans cet outil et observer/tester le plus de possibilités proposées par WAC
 
 Référence du document : 17vtIX3kItMGv8dqN_fTSGJ2Nmzux766Q · SHA-256 0f4c80111269a2f2…

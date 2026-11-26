@@ -282,7 +282,7 @@ Caractéristiques :
     Le formatage va installer sur un périphérique de stockage un système de fichier.
 
 - Le formatage va installer sur un périphérique de stockage un système de fichier. Sans un système de fichier, le périphérique de stockage est inutilisable
-- Un périphérique de stockage peut être une partition (ex: /dev/sdc1) ou un volume logique (ex : /dev/vgsys/lvroot ou /dev/mapper/vgsys- lvhome) ext4 ext4 ext4
+- Un périphérique de stockage peut être une partition (ex: /dev/sdc1) ou un volume logique (ex : /dev/vgsys/lvroot ou /dev/mapper/vgsys-lvhome) ext4 ext4 ext4
 
 ### /dev/sdc vgsys lvroot lvhome /dev/sdc1
 

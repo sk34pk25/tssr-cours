@@ -754,7 +754,7 @@ where glpi_itilcategories.tickettemplates_id_demand=’3’;
 
 #### BONUS
 
-- Comptez-les en affichant le nom du gabarit utilisé et le nombre avec comme en- tête « nombre de catégories qui utilise un gabarit de demande ».
+- Comptez-les en affichant le nom du gabarit utilisé et le nombre avec comme en-tête « nombre de catégories qui utilise un gabarit de demande ».
 
 ```
 SELECT count(glpi_tickettemplates.name) as ‘nombre de catégories qui utilise un gabarit de demande’, glpi_tickettemplates.name

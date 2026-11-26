@@ -303,7 +303,7 @@ ls -ld marketplace
 drwxr-xr-x 2 www-data root 4096 janv. 24 10:33 marketplace/
 ```
 
-- Afin de publier le site web GLPI, il faut créer le fichier /etc/apache2/sites- available/glpi.domaine.tld.conf.
+- Afin de publier le site web GLPI, il faut créer le fichier /etc/apache2/sites-available/glpi.domaine.tld.conf.
 
 ```text
 <VirtualHost *:80>

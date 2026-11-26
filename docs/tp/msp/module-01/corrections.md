@@ -371,7 +371,7 @@ useradd -p n’accepte pas un mot de passe en clair : il attend un hash. Le scri
 
 ### 4.7 Stratégies locales pour les non-administrateurs Windows
 
-1. Exécuter mmc, ajouter le composant Éditeur d’objet de stratégie de groupe, cliquer Parcourir &gt; Utilisateurs &gt; Non- administrateurs.
+1. Exécuter mmc, ajouter le composant Éditeur d’objet de stratégie de groupe, cliquer Parcourir &gt; Utilisateurs &gt; Non-administrateurs.
 
 1. Configuration utilisateur &gt; Modèles d’administration &gt; Système &gt; Accès au stockage amovible : activer CD et DVD -
 

@@ -484,7 +484,7 @@ Il est possible de se rendre sur le site www.pcilookup.com et d'y renseigner ces
 
 Gestion des imprimantes
 
-Quelles sont les imprimantes disponibles par défaut sur votre VM Win10-XX ? Les retrouvez- vous dans la console MMC adaptée ?
+Quelles sont les imprimantes disponibles par défaut sur votre VM Win10-XX ? Les retrouvez-vous dans la console MMC adaptée ?
 
 Panneau de configuration
 
