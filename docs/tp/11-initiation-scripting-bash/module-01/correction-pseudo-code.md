@@ -1,5 +1,7 @@
 # Correction — TP 01 — Pseudo-code
 
+Doublon partiel — le pseudo-code et l’[organigramme](correction-organigramme.md) décrivent le même algorithme. Cette page garde les étapes écrites.
+
 L’énoncé demande de traduire la préparation du café en étapes. Comparez le test de chaque ressource et la boucle au trajet de l’[organigramme](correction-organigramme.md).
 
 ```text

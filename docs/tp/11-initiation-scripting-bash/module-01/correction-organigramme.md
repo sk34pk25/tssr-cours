@@ -1,5 +1,7 @@
 # Correction — TP 01 — Organigramme
 
+Doublon partiel — l’organigramme et le [pseudo-code](correction-pseudo-code.md) décrivent le même algorithme. Cette page garde le trajet de l’organigramme.
+
 L’organigramme d’origine enchaîne cinq décisions. Toute branche « non » dans ces vérifications mène à la fin.
 
 | Décision | Oui | Non |
