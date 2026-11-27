@@ -6,6 +6,8 @@
 - Données de TP : `assets/resources/donnees/`
 - Scripts MSP sécurisés : `assets/resources/msp/scripts/`
 
+L’[inventaire des sources](inventaire-sources.md) couvre les 18 cours.
+
 Les installateurs exécutables, paquets anciens et archives FusionInventory ne sont pas servis par le site. Leur présence dans l’archive d’origine est documentée dans l’inventaire.
 
 - [Sauvegarde et Restauration](sauvegarde-et-restauration.md) : transcriptions dans les modules, corrections et installateurs non publiés.
