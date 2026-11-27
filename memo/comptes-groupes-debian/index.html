@@ -5349,7 +5349,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -10930,10 +10930,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11102,34 +11098,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11166,34 +11134,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -20972,24 +20912,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Comptes et groupes sous Debian
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -21006,36 +20928,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#partage-de-repertoires" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Partage de répertoires
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -22072,25 +21964,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#partage-de-repertoires" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Partage de répertoires
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -22191,7 +22064,7 @@
 <tr>
 <td>Groupe protégé</td>
 <td><code>/etc/gshadow</code></td>
-<td>Quatre champs ; le support montre à tort une structure shadow</td>
+<td>Informations cachées sur les groupes</td>
 </tr>
 <tr>
 <td>Groupes du compte</td>
@@ -22206,17 +22079,12 @@
 <tr>
 <td>Ajouter une appartenance</td>
 <td><code>usermod -aG documentation francois</code></td>
-<td><code>-G</code> seul remplace la liste supplémentaire</td>
+<td>Support : <code>-G</code> liste des groupes secondaires, <code>-a</code> ajouter les groupes supplémentaires</td>
 </tr>
 <tr>
 <td>Changer un secret</td>
 <td><code>passwd francois</code></td>
 <td>Saisie interactive</td>
-</tr>
-<tr>
-<td>Renouvellement imposé</td>
-<td><code>passwd -e frederic</code></td>
-<td>Secret expiré, pas suppression du compte</td>
 </tr>
 <tr>
 <td>Verrouiller le mot de passe</td>
@@ -22226,14 +22094,11 @@
 <tr>
 <td>Expirer le compte du TP</td>
 <td><code>usermod -e 1 fabrice</code></td>
-<td>À distinguer du seul verrouillage du mot de passe</td>
+<td>L’option -e1 permet de forcer sa date d’expiration (correction du TP)</td>
 </tr>
 </tbody>
 </table>
-<p>Le TP interdit l’édition directe des quatre fichiers de comptes. Pour Frédéric, conserver <code>/home/frederic</code> demandé par l’énoncé, malgré le <code>/home/fred</code> d’un exemple de correction. Les fichiers extérieurs au home ne sont pas tous supprimés par <code>userdel -r</code>.</p>
-<h2 id="partage-de-repertoires">Partage de répertoires<a class="headerlink" href="#partage-de-repertoires" title="Permanent link">¶</a></h2>
-<p>Le groupe propriétaire et les triplets u/g/o contrôlent les permissions classiques. SetGID sur le répertoire fait hériter son groupe ; l’umask et le mode de création déterminent encore les droits du nouvel objet. Sticky restreint la suppression, avec les exceptions du propriétaire du répertoire et d’un utilisateur privilégié.</p>
-<p>Tester lecture, création, écriture et suppression avec les comptes réellement attendus. Une connexion déjà ouverte peut conserver ses anciens groupes. Un succès sous root ne prouve pas que les permissions sont correctes pour les autres comptes.</p>
+<p>Le TP interdit l’édition directe des quatre fichiers de comptes. Pour Frédéric, conserver <code>/home/frederic</code> demandé par l’énoncé, malgré le <code>/home/fred</code> d’un exemple de correction. Avec <code>userdel -r</code>, les fichiers présents dans le répertoire d’accueil de l’utilisateur seront également supprimés. Les fichiers de l’utilisateur présents dans d’autres répertoires ne seront pas supprimés.</p>
 <p><a href="../../modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes/">Module comptes</a> · <a href="../../modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires/">Module permissions</a> · <a href="../../tp/administration-linux/module-10/">TP comptes</a>.</p>
 
 

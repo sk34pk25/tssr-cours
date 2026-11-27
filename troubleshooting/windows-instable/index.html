@@ -5349,7 +5349,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -10930,10 +10930,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11102,34 +11098,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11166,34 +11134,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -21626,17 +21566,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#fichiers-systeme-complement-externe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fichiers système — complément externe
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -22166,17 +22095,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#fichiers-systeme-complement-externe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fichiers système — complément externe
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -22307,13 +22225,6 @@
 </ol>
 <h2 id="restauration-du-systeme">Restauration du système<a class="headerlink" href="#restauration-du-systeme" title="Permanent link">¶</a></h2>
 <p>Vérifier la protection du volume et le point disponible avant de choisir la restauration. Un point de restauration concerne le système et certains programmes ; il ne constitue pas une sauvegarde des fichiers personnels. Après récupération, comparer le système, les applications et les données, comme dans le TP.</p>
-<h2 id="fichiers-systeme-complement-externe">Fichiers système — complément externe<a class="headerlink" href="#fichiers-systeme-complement-externe" title="Permanent link">¶</a></h2>
-<p>Lorsque les observations indiquent une corruption de composants Windows, la documentation Microsoft décrit DISM et SFC. Ces commandes complètent le support et ne constituent pas une réponse automatique à toute lenteur :</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>DISM /Online /Cleanup-Image /ScanHealth
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>DISM /Online /Cleanup-Image /RestoreHealth
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sfc /scannow
-</span></code></pre></div>
-<p>Lire le résultat et les journaux ; une réparation peut nécessiter une source adaptée. <a href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image">Référence externe Microsoft : réparer une image Windows</a>.</p>
 <ul>
 <li><a href="../../modules/02-systemes-clients-microsoft/module-10-la-maintenance-du-systeme/">Cours original et optimisé M10</a></li>
 <li><a href="../../tp/systemes-clients/module-10/">TP de maintenance et correction</a></li>

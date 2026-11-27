@@ -5349,7 +5349,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -10930,10 +10930,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11102,34 +11098,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11166,34 +11134,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -20995,21 +20935,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#entree-du-tp" class="md-nav__link">
+  <a href="#consignes-du-tp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Entrée du TP
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#migration-de-var" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migration de /var
+        Consignes du TP
       
     </span>
   </a>
@@ -22090,21 +22019,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#entree-du-tp" class="md-nav__link">
+  <a href="#consignes-du-tp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Entrée du TP
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#migration-de-var" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migration de /var
+        Consignes du TP
       
     </span>
   </a>
@@ -22190,56 +22108,50 @@
 <thead>
 <tr>
 <th>Étape</th>
-<th>Commandes</th>
-<th>Contrôle</th>
+<th>Commande du support</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Identifier</td>
-<td><code>lsblk -f</code>, <code>blkid</code>, <code>lvs</code></td>
-<td>Bon périphérique, type, UUID et étiquette</td>
+<td><code>blkid</code>, <code>lsblk</code>, <code>lsblk -f</code></td>
 </tr>
 <tr>
-<td>Créer ext4</td>
-<td><code>mkfs.ext4 -L VAR /dev/vgsystem/lvvar</code></td>
-<td>Cible vérifiée : le formatage remplace ses structures</td>
+<td>Créer</td>
+<td><code>mkfs.[fstype] &lt;options&gt; [périphérique de stockage]</code> — ex. <code>mkfs.ext4 /dev/vggroup1/lv1</code></td>
 </tr>
 <tr>
-<td>Examiner ext</td>
-<td><code>tune2fs -l /dev/vgsystem/lvvar</code></td>
-<td>Paramètres réellement présents</td>
+<td>Étiquette / superbloc</td>
+<td><code>tune2fs &lt;options&gt; [périphérique de stockage]</code> : -L permet de modifier l’étiquette, -l permet d’afficher les informations du superbloc</td>
 </tr>
 <tr>
-<td>Adapter home</td>
-<td><code>resize2fs /dev/vgsystem/lvhome</code></td>
-<td>LV déjà agrandi, format compatible</td>
+<td>Redimensionner</td>
+<td><code>resize2fs &lt;options&gt; [périphérique de stockage]</code></td>
 </tr>
 <tr>
-<td>Monter temporairement</td>
-<td><code>mount /dev/vgsystem/lvvar /mnt/var</code></td>
-<td>Point créé, puis <code>findmnt /mnt/var</code></td>
+<td>Monter</td>
+<td><code>mount -t ext4 /dev/sdc1 /mnt</code>, puis <code>findmnt /dev/sdc1</code></td>
 </tr>
 <tr>
 <td>Démonter</td>
-<td><code>umount /mnt/var</code></td>
-<td>Aucun usage bloquant</td>
+<td><code>umount /mnt</code></td>
 </tr>
 <tr>
 <td>Tester fstab</td>
-<td><code>mount /var</code>, puis <code>findmnt /var</code></td>
-<td>Source, cible, type et options corrects</td>
+<td><code>mount /srv/data</code></td>
+</tr>
+<tr>
+<td>Occupation</td>
+<td><code>df -h</code>, <code>du -hs /etc</code></td>
 </tr>
 </tbody>
 </table>
-<p>Les noms vgsystem/lvvar/lvhome correspondent à une correction : relever les noms présents avant d’utiliser les exemples. Le type du volume doit convenir à l’outil ; <code>resize2fs</code> n’est pas un outil universel pour tous les formats.</p>
-<h2 id="entree-du-tp">Entrée du TP<a class="headerlink" href="#entree-du-tp" title="Permanent link">¶</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>LABEL=VAR /var ext4 defaults 0 2
-</span></code></pre></div>
-<p>Les six champs sont source, cible, type, options, dump et vérification. L’étiquette doit identifier le volume attendu de façon unique sur la machine. Un nom <code>/dev/sdX</code> dépend de la détection ; un UUID cloné peut aussi être dupliqué.</p>
-<h2 id="migration-de-var">Migration de /var<a class="headerlink" href="#migration-de-var" title="Permanent link">¶</a></h2>
-<p>Préparer un retour arrière, limiter les écritures, vérifier les fichiers ouverts, monter la destination temporairement, copier les contenus avec leurs métadonnées nécessaires, puis comparer. Monter sur <code>/var</code> masque les anciens contenus ; cela ne les copie pas. Valider les services et le montage lu depuis fstab avant le redémarrage.</p>
-<p><code>df -h</code> observe l’occupation du système de fichiers, <code>df -i</code> les inodes, <code>du -sh</code> les objets parcourus. Un fichier supprimé encore ouvert peut continuer à occuper de l’espace. La taille d’un répertoire affichée par <code>ls -l</code> n’est pas sa taille récursive.</p>
+<h2 id="consignes-du-tp">Consignes du TP<a class="headerlink" href="#consignes-du-tp" title="Permanent link">¶</a></h2>
+<ul>
+<li>A partir du volume logique lvvar, configurer un système de fichier ext4 avec une étiquette VAR.</li>
+<li>Activer le montage automatique au démarrage du volume logique lvvar vers /var.</li>
+</ul>
+<p>Afin de garantir la bonne intégration d’une nouvelle ligne dans le fichier /etc/fstab, il est important de la tester avant le redémarrage du poste. Le moyen le plus simple est d’utiliser la commande mount en ne précisant que le point de montage. Si la commande ne renvoie rien, c’est que le montage s’est correctement effectué.</p>
 <p><a href="../../modules/05-administration-debian-gnu-linux/module-09-gestion-des-espaces-de-stockage-file-system/">Cours complet</a> · <a href="../../tp/administration-linux/module-09/">TP</a>.</p>
 
 

@@ -5349,7 +5349,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -10930,10 +10930,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11102,34 +11098,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11166,34 +11134,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -22185,19 +22125,19 @@
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">pwd</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ls<span class="w"> </span>-la
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>find<span class="w"> </span>/var/log<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s1">'*.log'</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>grep<span class="w"> </span>-Rni<span class="w"> </span><span class="s1">'erreur'</span><span class="w"> </span>/var/log
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>systemctl<span class="w"> </span>--failed
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>ssh<span class="w"> </span>--since<span class="w"> </span>today
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>ip<span class="w"> </span>addr
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>ip<span class="w"> </span>route
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>lsblk<span class="w"> </span>-f
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>findmnt
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>getent<span class="w"> </span>passwd<span class="w"> </span>utilisateur
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>id<span class="w"> </span>utilisateur
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>stat<span class="w"> </span>fichier
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>who<span class="w"> </span>am<span class="w"> </span>i
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ls<span class="w"> </span>-A
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ls<span class="w"> </span>-ld<span class="w"> </span>/tmp
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>ls<span class="w"> </span>/etc/*.conf
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ls<span class="w"> </span>-d<span class="w"> </span>/etc/<span class="o">[</span>a-d<span class="o">]</span>*
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>head<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>/etc/hosts
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>wc<span class="w"> </span>-l<span class="w"> </span>/etc/passwd
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>grep<span class="w"> </span>-i<span class="w"> </span>dupont<span class="w"> </span>Edition
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">'^$'</span><span class="w"> </span>Edition
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>find<span class="w"> </span>/etc<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">"ho*"</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>find<span class="w"> </span>~<span class="w"> </span>-type<span class="w"> </span>d
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>tar<span class="w"> </span>-czvf<span class="w"> </span>/tmp/<span class="nv">$LOGNAME</span>.tar.gz<span class="w"> </span><span class="nv">$HOME</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>tar<span class="w"> </span>-tf<span class="w"> </span>/tmp/<span class="nv">$LOGNAME</span>-v2.tar
 </span></code></pre></div>
 <h2 id="sessions-fichiers-et-flux">Sessions, fichiers et flux<a class="headerlink" href="#sessions-fichiers-et-flux" title="Permanent link">¶</a></h2>
 <table>
@@ -22211,27 +22151,27 @@
 <tbody>
 <tr>
 <td>Observer sa connexion et son compte</td>
-<td><code>who am i</code>, puis <code>id</code></td>
+<td><code>who am i</code></td>
 <td>Comparer terminal, heure de connexion, UID et groupes.</td>
 </tr>
 <tr>
 <td>Lister les entrées <code>.conf</code> sous <code>/etc</code></td>
-<td><code>ls -d -- /etc/*.conf</code></td>
+<td><code>ls /etc/*.conf</code></td>
 <td>Les noms affichés sont les entrées correspondantes, y compris les répertoires.</td>
 </tr>
 <tr>
 <td>Lire les attributs de <code>/tmp</code></td>
-<td><code>ls -ld -- /tmp</code></td>
+<td><code>ls -ld /tmp</code></td>
 <td>Lire les permissions du répertoire et repérer le sticky bit.</td>
 </tr>
 <tr>
 <td>Comparer des liens</td>
-<td><code>ls -li -- edition1.txt edition3.txt</code></td>
-<td>Deux liens physiques d’un même système de fichiers partagent un inode.</td>
+<td><code>ls -l edition* Edition /tmp/stag30/edition2.txt</code></td>
+<td>Commande de la correction du TP 2 – Les liens.</td>
 </tr>
 <tr>
 <td>Rechercher par nom dans les enfants directs</td>
-<td><code>find /etc -maxdepth 1 -type f -name '*.conf'</code></td>
+<td><code>find /etc -type f -name "ho*"</code></td>
 <td>Le motif entre guillemets est interprété par <code>find</code>.</td>
 </tr>
 <tr>
@@ -22241,7 +22181,7 @@
 </tr>
 <tr>
 <td>Contrôler une archive</td>
-<td><code>tar -tf sauvegarde.tar</code></td>
+<td><code>tar -tf /tmp/$LOGNAME-v2.tar</code></td>
 <td>Vérifier les chemins et la présence des fichiers avant une restauration.</td>
 </tr>
 </tbody>

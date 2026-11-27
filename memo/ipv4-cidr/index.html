@@ -5349,7 +5349,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -10930,10 +10930,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11102,34 +11098,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11166,34 +11134,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -20883,10 +20823,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#methode-du-pas-etudiee" class="md-nav__link">
+  <a href="#notation-cidr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode du pas étudiée
+        Notation CIDR
       
     </span>
   </a>
@@ -20894,10 +20834,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#controle" class="md-nav__link">
+  <a href="#du-masque-au-prefixe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contrôle
+        Du masque au préfixe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-de-reference-rapide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table de Référence Rapide
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adresse-de-diffusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adresse de diffusion
       
     </span>
   </a>
@@ -22090,10 +22052,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#methode-du-pas-etudiee" class="md-nav__link">
+  <a href="#notation-cidr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode du pas étudiée
+        Notation CIDR
       
     </span>
   </a>
@@ -22101,10 +22063,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#controle" class="md-nav__link">
+  <a href="#du-masque-au-prefixe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contrôle
+        Du masque au préfixe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-de-reference-rapide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table de Référence Rapide
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adresse-de-diffusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adresse de diffusion
       
     </span>
   </a>
@@ -22185,66 +22169,124 @@
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
+<p><strong>Source : Bases des réseaux, notes des modules 3-4 « L’adressage IPv4 ».</strong> Tableaux et phrases repris tels quels.</p>
+<h2 id="notation-cidr">Notation CIDR<a class="headerlink" href="#notation-cidr" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: right;">Préfixe</th>
-<th>Masque</th>
-<th style="text-align: right;">Adresses</th>
-<th style="text-align: right;">Hôtes usuels</th>
+<th>CIDR</th>
+<th>Masque Décimal</th>
+<th style="text-align: right;">Bits de Réseau</th>
+<th style="text-align: right;">Bits d’Hôtes</th>
+<th style="text-align: right;">Nombre d'Hôtes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: right;">/24</td>
+<td>/24</td>
 <td>255.255.255.0</td>
-<td style="text-align: right;">256</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: right;">254</td>
 </tr>
 <tr>
-<td style="text-align: right;">/25</td>
-<td>255.255.255.128</td>
-<td style="text-align: right;">128</td>
-<td style="text-align: right;">126</td>
-</tr>
-<tr>
-<td style="text-align: right;">/26</td>
+<td>/26</td>
 <td>255.255.255.192</td>
-<td style="text-align: right;">64</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: right;">62</td>
 </tr>
 <tr>
-<td style="text-align: right;">/27</td>
-<td>255.255.255.224</td>
-<td style="text-align: right;">32</td>
-<td style="text-align: right;">30</td>
-</tr>
-<tr>
-<td style="text-align: right;">/28</td>
+<td>/28</td>
 <td>255.255.255.240</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">14</td>
-</tr>
-<tr>
-<td style="text-align: right;">/29</td>
-<td>255.255.255.248</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr>
-<td style="text-align: right;">/30</td>
-<td>255.255.255.252</td>
+<td style="text-align: right;">28</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">14</td>
 </tr>
 </tbody>
 </table>
-<h2 id="methode-du-pas-etudiee">Méthode du pas étudiée<a class="headerlink" href="#methode-du-pas-etudiee" title="Permanent link">¶</a></h2>
-<p><code>Pas = 256 - valeur de l’octet significatif du masque</code>.</p>
-<p>Pour un <code>/26</code>, le masque vaut <code>255.255.255.192</code>, donc le pas vaut <code>64</code>. Les réseaux du dernier octet commencent à 0, 64, 128 et 192.</p>
-<h2 id="controle">Contrôle<a class="headerlink" href="#controle" title="Permanent link">¶</a></h2>
-<p>L’adresse réseau possède tous les bits hôte à 0 ; la diffusion possède tous les bits hôte à 1.</p>
-<p>Dans le TP du module 03, plusieurs masques imprimés offrent moins d’hôtes que le scénario. La correction est conservée telle qu’elle est écrite. Le détail est dans le <a href="../../modules/01-bases-reseaux/module-03-l-adressage-ipv4/">cours IPv4</a>.</p>
+<p>Exemple d'Utilisation : 192.168.10.0/26. Les 26 premiers bits (soit 255.255.255.192) sont réservés pour l'identifiant réseau. Les 6 bits restants permettent de créer 64 adresses, mais seulement 62 hôtes utilisables (les adresses de réseau et de broadcast ne sont pas attribuables aux hôtes).</p>
+<h2 id="du-masque-au-prefixe">Du masque au préfixe<a class="headerlink" href="#du-masque-au-prefixe" title="Permanent link">¶</a></h2>
+<p>Pour convertir un masque de sous-réseau en préfixe CIDR, il suffit de compter le nombre de bits à 1 dans la représentation binaire du masque. Ce nombre correspond à la valeur du préfixe CIDR.</p>
+<table>
+<thead>
+<tr>
+<th>Masque Décimal</th>
+<th>Masque en Binaire</th>
+<th>Préfixe CIDR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>255.0.0.0</td>
+<td>11111111.00000000.00000000.00000000</td>
+<td>/8</td>
+</tr>
+<tr>
+<td>255.255.0.0</td>
+<td>11111111.11111111.00000000.00000000</td>
+<td>/16</td>
+</tr>
+<tr>
+<td>255.255.255.0</td>
+<td>11111111.11111111.11111111.00000000</td>
+<td>/24</td>
+</tr>
+<tr>
+<td>255.255.255.128</td>
+<td>11111111.11111111.11111111.10000000</td>
+<td>/25</td>
+</tr>
+<tr>
+<td>255.255.255.192</td>
+<td>11111111.11111111.11111111.11000000</td>
+<td>/26</td>
+</tr>
+<tr>
+<td>255.255.255.240</td>
+<td>11111111.11111111.11111111.11110000</td>
+<td>/28</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-de-reference-rapide">Table de Référence Rapide<a class="headerlink" href="#table-de-reference-rapide" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>CIDR</th>
+<th>Masque Décimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/8</td>
+<td>255.0.0.0</td>
+</tr>
+<tr>
+<td>/16</td>
+<td>255.255.0.0</td>
+</tr>
+<tr>
+<td>/24</td>
+<td>255.255.255.0</td>
+</tr>
+<tr>
+<td>/26</td>
+<td>255.255.255.192</td>
+</tr>
+<tr>
+<td>/28</td>
+<td>255.255.255.240</td>
+</tr>
+<tr>
+<td>/30</td>
+<td>255.255.255.252</td>
+</tr>
+</tbody>
+</table>
+<h2 id="adresse-de-diffusion">Adresse de diffusion<a class="headerlink" href="#adresse-de-diffusion" title="Permanent link">¶</a></h2>
+<p>L’adresse de broadcast est obtenue en mettant tous les bits de la partie hôte à 1.</p>
+<p>Le détail est dans le <a href="../../modules/01-bases-reseaux/module-03-l-adressage-ipv4/">cours IPv4</a>.</p>
 
 
 

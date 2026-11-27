@@ -5349,7 +5349,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -10930,10 +10930,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11102,34 +11098,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11166,34 +11134,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -21527,10 +21467,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#symptome" class="md-nav__link">
+  <a href="#symptome-adresse-apipa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Symptôme
+        Symptôme : adresse APIPA
       
     </span>
   </a>
@@ -21538,10 +21478,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#diagnostic" class="md-nav__link">
+  <a href="#cas-du-tp-systemes-clients-module-7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diagnostic
+        Cas du TP Systèmes clients (Module 7)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etapes-suivantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes suivantes
       
     </span>
   </a>
@@ -22090,10 +22041,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#symptome" class="md-nav__link">
+  <a href="#symptome-adresse-apipa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Symptôme
+        Symptôme : adresse APIPA
       
     </span>
   </a>
@@ -22101,10 +22052,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#diagnostic" class="md-nav__link">
+  <a href="#cas-du-tp-systemes-clients-module-7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diagnostic
+        Cas du TP Systèmes clients (Module 7)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etapes-suivantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes suivantes
       
     </span>
   </a>
@@ -22185,60 +22147,27 @@
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
-<h2 id="symptome">Symptôme<a class="headerlink" href="#symptome" title="Permanent link">¶</a></h2>
-<p>Le poste n’accède ni aux services internes ni à Internet.</p>
-<h2 id="diagnostic">Diagnostic<a class="headerlink" href="#diagnostic" title="Permanent link">¶</a></h2>
-<p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
-<div class="mermaid">flowchart TD
-    A["Lien physique ou Wi-Fi actif ?"] --&gt;|"Non"| A1["Câble · radio · pilote · port du switch"]
-    A --&gt;|"Oui"| B{"Adresse IPv4 attendue ?"}
-    B --&gt;|"APIPA 169.254.x.x"| B1["Contrôler DHCP, VLAN et bail"]
-    B --&gt;|"Oui"| C{"Passerelle joignable ?"}
-    C --&gt;|"Non"| C1["Masque · ARP · VLAN · pare-feu local"]
-    C --&gt;|"Oui"| D{"IP distante joignable ?"}
-    D --&gt;|"Non"| D1["Route et filtrage intermédiaire"]
-    D --&gt;|"Oui"| E{"Nom DNS résolu ?"}
-    E --&gt;|"Non"| E1["Serveur DNS · suffixe · cache"]
-    E --&gt;|"Oui"| F["Tester le service applicatif"]</div>
-<p class="tssr-caption">Procéder de la couche locale vers le service : chaque réponse réduit le domaine de recherche.</p>
-
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Résultat</th>
-<th>Interprétation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Interface</td>
-<td>Désactivée / lien absent</td>
-<td>Câble, Wi-Fi, pilote ou commutateur</td>
-</tr>
-<tr>
-<td>Adresse</td>
-<td>APIPA <code>169.254.0.0/16</code></td>
-<td>DHCP absent ou inaccessible</td>
-</tr>
-<tr>
-<td>Passerelle</td>
-<td>Injoignable</td>
-<td>Masque, VLAN, ARP, pare-feu local</td>
-</tr>
-<tr>
-<td>IP distante</td>
-<td>Joignable</td>
-<td>Routage opérationnel</td>
-</tr>
-<tr>
-<td>Nom DNS</td>
-<td>Non résolu</td>
-<td>DNS mal configuré ou indisponible</td>
-</tr>
-</tbody>
-</table>
-<p>Corriger une hypothèse à la fois, noter le résultat observé, puis recommencer les tests depuis le début afin de prouver le rétablissement.</p>
+<p><strong>Sources : Bases des réseaux, notes des modules 3-4 (APIPA) et 5 (commandes) ; Systèmes clients Microsoft, Module 7, solution du TP « Gestion du réseau ».</strong> Les phrases sont reprises telles quelles.</p>
+<h2 id="symptome-adresse-apipa">Symptôme : adresse APIPA<a class="headerlink" href="#symptome-adresse-apipa" title="Permanent link">¶</a></h2>
+<p>Les adresses APIPA (Automatic Private IP Addressing) sont des adresses IP automatiquement attribuées par un appareil dans un réseau local lorsqu'il ne parvient pas à obtenir d’adresse IP d’un serveur DHCP.</p>
+<ul>
+<li>Plage APIPA : 169.254.0.0 à 169.254.255.255</li>
+<li>Masque de sous-réseau : 255.255.0.0</li>
+</ul>
+<p>Pas d’Accès Internet : Les adresses APIPA ne sont pas routables, ce qui signifie que les appareils avec ces adresses ne peuvent pas communiquer au-delà du réseau local, donc sans accès à Internet ou à d’autres réseaux externes.</p>
+<p><code>ipconfig /all</code> permet de voir si l’interface a reçu une adresse <strong>169.254.x.x</strong>.</p>
+<h2 id="cas-du-tp-systemes-clients-module-7">Cas du TP Systèmes clients (Module 7)<a class="headerlink" href="#cas-du-tp-systemes-clients-module-7" title="Permanent link">¶</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ipconfig
+</span></code></pre></div>
+<p>Si l'adresse IP de la VM Discovery est au format APIPA, c'est que la Discovery ne possède pas d'informations IP fournies par le service DHCP. Pour remédier à cela, il faut que la VM Discovery puisse d'abord communiquer avec le serveur DHCP. Pour cela, il faut donc la "brancher" sur le switch "Bridged".</p>
+<p>À l'issue de la bascule sur le switch "Bridged", attendez quelques secondes, votre VM obtiendra les informations IP adéquates pour communiquer sur le réseau.</p>
+<h2 id="etapes-suivantes">Étapes suivantes<a class="headerlink" href="#etapes-suivantes" title="Permanent link">¶</a></h2>
+<p>Pour la suite du diagnostic (DNS, ping, ARP, tracert, netstat), suivre le <a href="../../tutoriels/diagnostic-reseau/">tutoriel Diagnostiquer une connexion réseau</a>.</p>
+<ul>
+<li><a href="../../modules/01-bases-reseaux/module-03-l-adressage-ipv4/">Cours — L’adressage IPv4</a></li>
+<li><a href="../../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/">Cours — La gestion du réseau et du pare-feu</a></li>
+<li><a href="../../tp/systemes-clients/module-07/">TP Systèmes clients — Module 7</a></li>
+</ul>
 
 
 

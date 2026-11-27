@@ -5349,7 +5349,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -10930,10 +10930,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11102,34 +11098,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11166,34 +11134,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -22142,13 +22082,14 @@
 </tr>
 </tbody>
 </table>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">colonnes</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">table_source</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">colonne_tri</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="k">OFFSET</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">nom_de_la_table</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">nom_de_l</span><span class="err">’</span><span class="n">attribut</span><span class="p">,</span><span class="w"> </span><span class="n">nom_d</span><span class="err">’</span><span class="n">un_deuxième_attribut</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">nom_de_la_table</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="err">…</span><span class="w">          </span><span class="c1">-- permet de mettre une condition à notre recherche</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">colonne</span><span class="w"> </span><span class="c1">-- tri en fonction de la colonne choisie</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">LIMIT</span><span class="w"> </span><span class="n">nombre_de_ligne</span><span class="w"> </span><span class="k">OFFSET</span><span class="w"> </span><span class="err">à</span><span class="n">_partir_de_quelle_ligne</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">table_A</span><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">table_B</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">table_A</span><span class="p">.</span><span class="n">clé</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">table_B</span><span class="p">.</span><span class="n">clé</span>
 </span></code></pre></div>
-<p><code>IS NULL</code> sélectionne une absence de valeur ; <code>COUNT(*)</code> compte les lignes, <code>COUNT(colonne)</code> les valeurs non NULL. <code>MIN</code> et <code>MAX</code> donnent les bornes, <code>AVG</code> la moyenne des valeurs renseignées. Une jointure interne relie les clés par <code>ON</code> ; un comptage par groupe s’explicite avec <code>GROUP BY</code>.</p>
+<p><code>IS NULL</code> sélectionne une absence de valeur ; <code>COUNT(*)</code> compte les lignes, <code>COUNT(colonne)</code> les valeurs non NULL. <code>MIN</code> et <code>MAX</code> donnent les bornes, <code>AVG</code> la moyenne des valeurs renseignées. Une jointure interne relie les clés par <code>ON</code>.</p>
 <p>Les erreurs principales du support sont <code>= NULL</code>, <code>MIN</code> décrit comme maximum, accents dans les noms de tables, apostrophes courbes et noms de base incohérents. Les Originaux les conservent ; les <a href="../../tp/glpi/module-05/corrections/">corrections du TP 05</a> les distinguent des requêtes utilisables.</p>
 <p><a href="../../modules/07-administration-glpi/">Retour au cours</a></p>
 

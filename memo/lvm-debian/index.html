@@ -5349,7 +5349,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -10930,10 +10930,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11102,34 +11098,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11166,34 +11134,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -22201,13 +22141,15 @@
 </tbody>
 </table>
 <h2 id="sequence-du-laboratoire">Séquence du laboratoire<a class="headerlink" href="#sequence-du-laboratoire" title="Permanent link">¶</a></h2>
-<p>Identifier d’abord le disque ajouté et le VG existant. Les noms ci-dessous sont ceux d’un exemple de correction, à vérifier sur la VM.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pvcreate<span class="w"> </span>/dev/sdb1
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>vgextend<span class="w"> </span>vgsystem<span class="w"> </span>/dev/sdb1
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>lvcreate<span class="w"> </span>-n<span class="w"> </span>lvvar<span class="w"> </span>-L<span class="w"> </span>20G<span class="w"> </span>vgsystem
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>lvextend<span class="w"> </span>-l<span class="w"> </span>+100%FREE<span class="w"> </span>/dev/vgsystem/lvhome
+<p>Commandes du support du module 08 ; consignes du TP ci-dessous.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pvcreate<span class="w"> </span>/dev/sdb1<span class="w"> </span>/dev/sdb2<span class="w"> </span>/dev/sdc1<span class="w"> </span>/dev/sdd
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>vgcreate<span class="w"> </span>vggroup1<span class="w"> </span>/dev/sdb1<span class="w"> </span>/dev/sdb2<span class="w"> </span>/dev/sdc1
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>lvcreate<span class="w"> </span>-n<span class="w"> </span>lv1<span class="w"> </span>-L<span class="w"> </span>2G<span class="w"> </span>vggroup1
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>vgextend<span class="w"> </span>vggroup1<span class="w"> </span>/dev/sdd
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>lvextend<span class="w"> </span>-r<span class="w"> </span>-L<span class="w"> </span>+512M<span class="w"> </span>/dev/vggroup1/lv1
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>lvextend<span class="w"> </span>-r<span class="w"> </span>-L<span class="w"> </span>1G<span class="w"> </span>/dev/vggroup1/lv2
 </span></code></pre></div>
-<p>Le TP ajoute un disque de 40 Go, prépare une partition LVM, crée lvvar de 20 Go et attribue le reste à lvhome. <code>+100%FREE</code> consomme tous les extents libres du groupe visé. Sans adaptation du système de fichiers, la nouvelle capacité du LV n’est pas encore utilisable par ses fichiers.</p>
+<p>Consignes du TP : ajouter un nouveau disque de 40 Go ; créer un volume logique de 20 Go nommé lvvar ; agrandir le volume logique lvhome avec le reste de l’espace disponible du groupe de volume. Support : lvextend avec l’option -l suivi de l’argument “100%FREE” permet d’affecter l’espace libre au volume logique ; avec un LV existant, saisir le chemin complet /dev/<nomduvg>/<nomdulv>.</nomdulv></nomduvg></p>
 <p><code>-L +512M</code> ajoute 512 Mio ; <code>-L 1G</code> vise une taille finale de 1 Gio. L’option <code>-r</code> demande une adaptation du système de fichiers lorsque celle-ci est prise en charge ; ne pas supposer qu’elle appelle toujours le même outil.</p>
 <p>Une réduction nécessite de traiter le système de fichiers avant de retirer l’espace du LV. La possibilité et la procédure dépendent du format ; ne pas inverser simplement une commande d’extension.</p>
 <p><a href="../../modules/05-administration-debian-gnu-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm/">Cours complet</a> · <a href="../../tp/administration-linux/module-08/">TP LVM</a> · <a href="../../tp/administration-linux/module-09/">TP systèmes de fichiers</a>.</p>

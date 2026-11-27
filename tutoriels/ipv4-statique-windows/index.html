@@ -5351,7 +5351,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -5454,32 +5454,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-exemple-powershell-complement-externe" class="md-nav__link">
+  <a href="#3-verifier-separement-chaque-service" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Exemple PowerShell — complément externe
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-verifier-separement-chaque-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Vérifier séparément chaque service
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-revenir-a-dhcp-complement-externe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Revenir à DHCP — complément externe
+        3. Vérifier séparément chaque service
       
     </span>
   </a>
@@ -11034,10 +11012,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11206,34 +11180,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11270,34 +11216,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -22145,32 +22063,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-exemple-powershell-complement-externe" class="md-nav__link">
+  <a href="#3-verifier-separement-chaque-service" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Exemple PowerShell — complément externe
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-verifier-separement-chaque-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Vérifier séparément chaque service
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-revenir-a-dhcp-complement-externe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Revenir à DHCP — complément externe
+        3. Vérifier séparément chaque service
       
     </span>
   </a>
@@ -22256,7 +22152,6 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ipconfig /all
 </span></code></pre></div>
 <div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">Get-NetAdapter</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">Get-NetIPConfiguration</span>
 </span></code></pre></div>
 <table>
 <thead>
@@ -22297,14 +22192,7 @@
 <li>Valider puis relire les valeurs avec <code>ipconfig /all</code>.</li>
 </ol>
 <p>Selon la version de Windows, certains paramètres sont également accessibles depuis <strong>Paramètres → Réseau et Internet</strong>. Le résultat à contrôler reste la configuration effective de la carte.</p>
-<h2 id="3-exemple-powershell-complement-externe">3. Exemple PowerShell — complément externe<a class="headerlink" href="#3-exemple-powershell-complement-externe" title="Permanent link">¶</a></h2>
-<p>Les valeurs suivantes sont un <strong>exemple pédagogique externe</strong>, à remplacer par celles du laboratoire. Travailler depuis la console de la VM : changer sa carte réseau peut interrompre une session distante.</p>
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">New-NetIPAddress</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span> <span class="n">-IPAddress</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">20</span> <span class="n">-PrefixLength</span> <span class="n">24</span> <span class="n">-DefaultGateway</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">1</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">Set-DnsClientServerAddress</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span> <span class="n">-ServerAddresses</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">10</span><span class="p">,</span><span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">11</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">Get-NetIPConfiguration</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span>
-</span></code></pre></div>
-<p>Ne pas relancer la création si la même adresse ou la même route existe déjà : lire l’état et adapter la configuration ciblée.</p>
-<h2 id="4-verifier-separement-chaque-service">4. Vérifier séparément chaque service<a class="headerlink" href="#4-verifier-separement-chaque-service" title="Permanent link">¶</a></h2>
+<h2 id="3-verifier-separement-chaque-service">3. Vérifier séparément chaque service<a class="headerlink" href="#3-verifier-separement-chaque-service" title="Permanent link">¶</a></h2>
 <ol>
 <li>Contrôler l’interface et les paramètres affichés.</li>
 <li>Tester la passerelle si elle autorise ICMP.</li>
@@ -22313,16 +22201,6 @@
 <li>Contrôler le profil et la règle de pare-feu si le test attendu échoue.</li>
 </ol>
 <p>Une résolution DNS en échec ne se corrige pas en remplaçant arbitrairement l’adresse IP. Un ping sans réponse ne prouve pas à lui seul que la cible est arrêtée.</p>
-<h2 id="5-revenir-a-dhcp-complement-externe">5. Revenir à DHCP — complément externe<a class="headerlink" href="#5-revenir-a-dhcp-complement-externe" title="Permanent link">¶</a></h2>
-<p>Pour annuler <strong>l’exemple ci-dessus uniquement</strong>, retirer les valeurs manuelles créées sur cette interface, puis réactiver DHCP et les DNS automatiques. Vérifier chaque cible avant validation :</p>
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">Remove-NetIPAddress</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span> <span class="n">-IPAddress</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">20</span> <span class="n">-Confirm</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">Remove-NetRoute</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span> <span class="n">-DestinationPrefix</span> <span class="s1">'0.0.0.0/0'</span> <span class="n">-NextHop</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">1</span> <span class="n">-Confirm</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">Set-NetIPInterface</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span> <span class="n">-AddressFamily</span> <span class="n">IPv4</span> <span class="n">-Dhcp</span> <span class="n">Enabled</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">Set-DnsClientServerAddress</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span> <span class="n">-ResetServerAddresses</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">Get-NetIPConfiguration</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span>
-</span></code></pre></div>
-<p>La route peut déjà avoir disparu avec la configuration précédente ; dans ce cas, ne pas supprimer une autre route pour remplacer celle de l’exemple. Après renouvellement du bail, vérifier de nouveau adresse, passerelle et DNS.</p>
-<p>Références externes Microsoft : <a href="https://learn.microsoft.com/en-us/powershell/module/nettcpip/remove-netipaddress">Remove-NetIPAddress</a>, <a href="https://learn.microsoft.com/en-us/powershell/module/nettcpip/set-netipinterface">Set-NetIPInterface</a>.</p>
 <ul>
 <li><a href="../../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/">Cours du module 07</a></li>
 <li><a href="../../tp/systemes-clients/module-07/">TP et correction</a></li>
@@ -22365,7 +22243,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Pied de page">
         
           
-          <a href="../diagnostic-reseau/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Diagnostic réseau">
+          <a href="../diagnostic-reseau/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Diagnostiquer une connexion réseau">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -22375,7 +22253,7 @@
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Diagnostic réseau
+                Diagnostiquer une connexion réseau
               </div>
             </div>
           </a>

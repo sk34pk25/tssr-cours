@@ -5351,7 +5351,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -11023,10 +11023,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11195,34 +11191,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11259,34 +11227,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -22281,17 +22221,15 @@
 <li>Redémarrer sur le disque et ouvrir une session ordinaire.</li>
 </ol>
 <h2 id="controler-le-resultat">Contrôler le résultat<a class="headerlink" href="#controler-le-resultat" title="Permanent link">¶</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cat<span class="w"> </span>/etc/os-release
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>uname<span class="w"> </span>-r
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cat<span class="w"> </span>/etc/debian_version
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>uname<span class="w"> </span>-a
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>lsblk<span class="w"> </span>-f
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>findmnt
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ip<span class="w"> </span>address
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>ip<span class="w"> </span>route
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ip<span class="w"> </span>a
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>ip<span class="w"> </span>r
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>systemctl<span class="w"> </span>get-default
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>systemctl<span class="w"> </span>--failed
 </span></code></pre></div>
-<p>Ces contrôles complémentaires distinguent distribution et noyau, périphériques et montages, interface et routage, cible et services en échec. Examiner le résultat plutôt que chercher une sortie identique aux captures.</p>
-<p>Vérifier le mécanisme d’élévation prévu avant de lancer une mise à jour. Un compte créé par le parcours avec mot de passe root n’a pas nécessairement sudo. Examiner ensuite les dépôts correspondant à la version installée, rafraîchir leurs index et lire les mises à jour proposées. Ne pas remplacer le nom de code pour obtenir arbitrairement des paquets plus récents.</p>
+<p>Commandes reprises des supports Debian (modules 03, 05, 09 et 12).</p>
 <h2 id="compte-rendu">Compte rendu<a class="headerlink" href="#compte-rendu" title="Permanent link">¶</a></h2>
 <p>Noter version, firmware, disposition de volumes, comptes d’administration, logiciels sélectionnés et résultats réseau. En cas d’écart, revenir au choix qui l’explique : sélection des tâches pour le bureau, miroir pour les paquets, partitionnement pour les montages.</p>
 <p><a href="../../modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian/">Cours d’installation</a> · <a href="../../tp/administration-linux/module-02/">Énoncés et solutions</a> · <a href="https://www.debian.org/releases/stable/installmanual">Guide officiel Debian</a>.</p>

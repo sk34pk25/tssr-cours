@@ -5351,7 +5351,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -5544,10 +5544,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#source-et-perimetre" class="md-nav__link">
+  <a href="#1-recuperation-et-installation-du-client-vpn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Source et périmètre
+        1. Récupération et installation du client VPN
       
     </span>
   </a>
@@ -5555,10 +5555,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#2-configuration-du-client-vpn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration
+        2. Configuration du client VPN
       
     </span>
   </a>
@@ -5566,10 +5566,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verification" class="md-nav__link">
+  <a href="#3-connexion-au-vpn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vérification
+        3. Connexion au VPN
       
     </span>
   </a>
@@ -5577,10 +5577,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deconnexion" class="md-nav__link">
+  <a href="#4-deconnexion-du-vpn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Déconnexion
+        4. Déconnexion du VPN
       
     </span>
   </a>
@@ -11023,10 +11023,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11195,34 +11191,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11259,34 +11227,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -22112,10 +22052,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#source-et-perimetre" class="md-nav__link">
+  <a href="#1-recuperation-et-installation-du-client-vpn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Source et périmètre
+        1. Récupération et installation du client VPN
       
     </span>
   </a>
@@ -22123,10 +22063,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#2-configuration-du-client-vpn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration
+        2. Configuration du client VPN
       
     </span>
   </a>
@@ -22134,10 +22074,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verification" class="md-nav__link">
+  <a href="#3-connexion-au-vpn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vérification
+        3. Connexion au VPN
       
     </span>
   </a>
@@ -22145,10 +22085,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deconnexion" class="md-nav__link">
+  <a href="#4-deconnexion-du-vpn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Déconnexion
+        4. Déconnexion du VPN
       
     </span>
   </a>
@@ -22229,28 +22169,34 @@
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
-<h2 id="source-et-perimetre">Source et périmètre<a class="headerlink" href="#source-et-perimetre" title="Permanent link">¶</a></h2>
-<p>Cette procédure reprend le support de laboratoire daté 2026-01. Télécharger le client uniquement depuis le site officiel Fortinet ou la source fournie par l’établissement.</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
-<ol>
-<li>Installer <strong>FortiClient VPN</strong>.</li>
-<li>Accepter les conditions puis choisir <strong>Configurer le VPN</strong>.</li>
-<li>Créer une connexion SSL-VPN avec un nom explicite.</li>
-<li>Saisir la passerelle <code>vpnssl.exemple.lab</code>.</li>
-<li>Activer le port personnalisé <code>10443</code>.</li>
-<li>Enregistrer.</li>
-<li>Se connecter avec le compte AD apprenant attribué par l’établissement.</li>
-<li>Valider le certificat uniquement si son nom, son émetteur et sa période de validité sont cohérents.</li>
-<li>Ouvrir ensuite la session distante vers la machine de salle attribuée.</li>
-</ol>
-<h2 id="verification">Vérification<a class="headerlink" href="#verification" title="Permanent link">¶</a></h2>
+<p><strong>Source : Systèmes clients Microsoft, procédure « Installation et configuration du client VPN » (V 2026-01).</strong> Étapes reprises du document ; l’adresse de la passerelle et le domaine sont masqués (<code>.lab</code>).</p>
+<h2 id="1-recuperation-et-installation-du-client-vpn">1. Récupération et installation du client VPN<a class="headerlink" href="#1-recuperation-et-installation-du-client-vpn" title="Permanent link">¶</a></h2>
+<p>Le Web installeur est à télécharger directement depuis la section du site Fortinet &gt; <a href="https://www.fortinet.com/fr/support/product-downloads">https://www.fortinet.com/fr/support/product-downloads</a>. Le récupérer et l’installer.</p>
+<h2 id="2-configuration-du-client-vpn">2. Configuration du client VPN<a class="headerlink" href="#2-configuration-du-client-vpn" title="Permanent link">¶</a></h2>
+<p>Une fois installé, lancer l’application client VPN : <strong>FortiClient VPN</strong>.</p>
+<p>Au lancement, cocher la case d’acceptation des conditions d’utilisation, puis cliquer sur : <strong>Configurer le VPN</strong>.</p>
+<p>Renseigner les champs suivants :</p>
 <ul>
-<li>L’état du client indique que le tunnel est connecté.</li>
-<li>La route vers le réseau de salle est présente.</li>
-<li>La machine attribuée répond au service attendu.</li>
+<li>Le nom que vous souhaitez voir associé à cette connexion</li>
+<li>L’adresse de la passerelle : <code>vpnssl.exemple.lab</code></li>
+<li>Cocher la case <strong>Port personnalisé</strong></li>
+<li>Renseigner le numéro de port : <code>10443</code></li>
 </ul>
-<h2 id="deconnexion">Déconnexion<a class="headerlink" href="#deconnexion" title="Permanent link">¶</a></h2>
-<p>Fermer la session distante, puis utiliser l’icône FortiClient de la zone de notification et choisir <strong>Disconnect</strong>. Ne jamais stocker le mot de passe dans un script ou un fichier partagé.</p>
+<p>Et cliquer sur <strong>Sauvegarder</strong>.</p>
+<h2 id="3-connexion-au-vpn">3. Connexion au VPN<a class="headerlink" href="#3-connexion-au-vpn" title="Permanent link">¶</a></h2>
+<p>Pour vous connecter au VPN, renseignez les informations suivantes :</p>
+<ul>
+<li>Nom d’utilisateur : renseigner votre identifiant de compte AD du domaine (format <code>pnomAAAA</code> : p = première lettre de votre prénom, nom = votre nom de famille, AAAA = l’année de votre entrée en formation). Le format indiqué correspond à un compte apprenant (différent pour les formateurs).</li>
+<li>Mot de passe : indiquer le mot de passe de votre compte.</li>
+</ul>
+<p>Et cliquer sur le bouton : <strong>Connecter</strong>. Cliquer sur « Yes » pour accepter le certificat.</p>
+<p>Vous pouvez maintenant accéder via le bureau à distance à la machine de salle qui vous a été allouée. Quand vous n’aurez plus besoin d’accéder à cette machine de salle, pensez à vous déconnecter du VPN.</p>
+<h2 id="4-deconnexion-du-vpn">4. Déconnexion du VPN<a class="headerlink" href="#4-deconnexion-du-vpn" title="Permanent link">¶</a></h2>
+<ul>
+<li>Dans la barre d’état système, cliquer sur le chevron.</li>
+<li>Localiser l’icône du client VPN Fortinet et faire un clic droit dessus.</li>
+<li>Cliquer sur <strong>Disconnect</strong>.</li>
+</ul>
 
 
 

@@ -5349,7 +5349,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -10930,10 +10930,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11102,34 +11098,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11166,34 +11134,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -22096,7 +22036,7 @@
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
-<p>Partir du symptôme observé depuis le client du laboratoire et conserver le message exact ainsi que l’heure de l’essai. LeTP01 doit avoir établi le réseau, les DNS, Apache/PHP et MariaDB avant l’intégrationLDAP.</p>
+<p>Partir du symptôme observé depuis le client du laboratoire et conserver le message exact ainsi que l’heure de l’essai. Le TP01 doit avoir établi le réseau, les DNS, Apache/PHP et MariaDB avant l’intégration LDAP.</p>
 <table>
 <thead>
 <tr>
@@ -22108,46 +22048,45 @@
 <tbody>
 <tr>
 <td>Le nom GLPI ne se résout pas</td>
-<td>DNS configuré sur le client, enregistrementA, CNAME et cible</td>
+<td>DNS configuré sur le client, enregistrement A, CNAME et cible</td>
 <td>Un alias doit pointer vers le nom serveur créé</td>
 </tr>
 <tr>
-<td>Nom correct, connexionweb impossible</td>
+<td>Nom correct, connexion web impossible</td>
 <td>IP, masque, passerelle, réseau VMNet18 et filtrage pfSense</td>
 <td>Distinguer résolution et transport</td>
 </tr>
 <tr>
-<td>PageApache visible, GLPI absent</td>
+<td>Page Apache visible, GLPI absent</td>
 <td>VirtualHost activé, nom du site et DocumentRoot</td>
 <td>Le serveur web répond mais ne prouve pas la présence de l’application</td>
 </tr>
 <tr>
-<td>ErreurPHP/prérequis</td>
+<td>Erreur PHP/prérequis</td>
 <td>Modules installés pour la version PHP, redémarrage Apache</td>
-<td>LeTP utilisePHP7.3 ; lediaporama mentionne7.4</td>
+<td>Le TP utilise PHP 7.3 ; le diaporama mentionne 7.4</td>
 </tr>
 <tr>
-<td>ConnexionSQL refusée</td>
+<td>Connexion SQL refusée</td>
 <td>Service MariaDB, base, compte et droits</td>
 <td>Vérifier <code>glpidb/glpidata</code> sans publier le secret</td>
 </tr>
 <tr>
 <td>Écriture des fichiers impossible</td>
-<td>Propriétairewww-data et chemins config/données/logs</td>
+<td>Propriétaire www-data et chemins config/données/logs</td>
 <td>Corriger la confusion <code>/var/ww</code> et <code>/var/www</code></td>
 </tr>
 <tr>
-<td>ConnexionLDAP seule en échec</td>
-<td>ServeurAD, BaseDN, DN de liaison, état actif et filtres</td>
+<td>Connexion LDAP seule en échec</td>
+<td>Serveur AD, DN de liaison, état actif et filtres</td>
 <td>Conserver l’accès local de secours</td>
 </tr>
 </tbody>
 </table>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>apache2<span class="w"> </span>mariadb
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>apache2ctl<span class="w"> </span>configtest
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ls<span class="w"> </span>-ld<span class="w"> </span>/etc/glpi<span class="w"> </span>/var/lib/glpi<span class="w"> </span>/var/log/glpi
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ls<span class="w"> </span>-ld<span class="w"> </span>/etc/glpi<span class="w"> </span>/var/lib/glpi<span class="w"> </span>/var/log/glpi
 </span></code></pre></div>
-<p>Lire les journaux correspondant à l’erreur et corriger la cause identifiée. Après un changement, refaire le même test depuis le même client. Pour LDAP, distinguer réussite d’authentification et bons droits : les règles d’habilitation et l’entité active se contrôlent séparément.</p>
+<p>Après un changement, refaire le même test depuis le même client. Pour LDAP, distinguer réussite d’authentification et bons droits : les règles d’habilitation et l’entité active se contrôlent séparément.</p>
 <ul>
 <li><a href="../../tp/glpi/module-01/corrections/">Installation détaillée</a></li>
 <li><a href="../../modules/07-administration-glpi/module-02-authentification-ad-habilitations/">Authentification et habilitations</a></li>

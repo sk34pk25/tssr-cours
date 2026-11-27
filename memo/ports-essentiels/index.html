@@ -5349,7 +5349,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -10930,10 +10930,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11102,34 +11098,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11166,34 +11134,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -22096,88 +22036,60 @@
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
+<p><strong>Source : Bases des réseaux, notes des modules 1-2 (couche Transport, « Exemples de ports »).</strong> Texte repris tel quel.</p>
+<p>TCP (Transmission Control Protocol) : Protocole orienté connexion, garantissant la livraison fiable des données dans le bon ordre. Il utilise des mécanismes comme le contrôle de flux et la gestion des erreurs.</p>
+<p>UDP (User Datagram Protocol) : Protocole non orienté connexion, plus rapide mais sans garantie de livraison des données (utilisé pour les flux audio/vidéo en temps réel).</p>
 <table>
 <thead>
 <tr>
-<th>Service</th>
 <th style="text-align: right;">Port</th>
-<th>Transport</th>
-<th>Rôle</th>
+<th>Service (texte du cours)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>SSH</td>
 <td style="text-align: right;">22</td>
-<td>TCP</td>
-<td>Administration distante sécurisée</td>
+<td>SSH (Secure Shell) pour l'administration distante sécurisée.</td>
 </tr>
 <tr>
-<td>DNS</td>
+<td style="text-align: right;">25</td>
+<td>SMTP (Simple Mail Transfer Protocol) pour l'envoi d'emails.</td>
+</tr>
+<tr>
 <td style="text-align: right;">53</td>
-<td>UDP et TCP</td>
-<td>Résolution de noms et transferts</td>
+<td>DNS (Domain Name System) pour la résolution de noms de domaine.</td>
 </tr>
 <tr>
-<td>DHCP serveur/client</td>
-<td style="text-align: right;">67/68</td>
-<td>UDP</td>
-<td>Configuration IPv4 dynamique</td>
+<td style="text-align: right;">67 et 68</td>
+<td>DHCP (Dynamic Host Configuration Protocol) pour l'attribution d'adresses IP dynamiques.</td>
 </tr>
 <tr>
-<td>HTTP</td>
 <td style="text-align: right;">80</td>
-<td>TCP</td>
-<td>Web non chiffré</td>
+<td>HTTP pour le web.</td>
 </tr>
 <tr>
-<td>HTTPS</td>
 <td style="text-align: right;">443</td>
-<td>TCP</td>
-<td>Web chiffré</td>
+<td>HTTPS pour les communications web sécurisées.</td>
 </tr>
 <tr>
-<td>SMB</td>
-<td style="text-align: right;">445</td>
-<td>TCP</td>
-<td>Partages Windows</td>
+<td style="text-align: right;">143</td>
+<td>IMAP (Internet Message Access Protocol) pour la gestion des emails sur un serveur distant.</td>
 </tr>
 <tr>
-<td>LDAP</td>
 <td style="text-align: right;">389</td>
-<td>TCP/UDP selon usage</td>
-<td>Annuaire non chiffré ou StartTLS</td>
+<td>LDAP (Lightweight Directory Access Protocol) pour les services d'annuaire.</td>
 </tr>
 <tr>
-<td>LDAPS</td>
-<td style="text-align: right;">636</td>
-<td>TCP</td>
-<td>LDAP sur TLS</td>
-</tr>
-<tr>
-<td>RDP</td>
 <td style="text-align: right;">3389</td>
-<td>TCP/UDP</td>
-<td>Bureau à distance</td>
+<td>RDP (Remote Desktop Protocol) pour la prise en main à distance de bureaux Windows.</td>
 </tr>
 <tr>
-<td>SNMP</td>
-<td style="text-align: right;">161/162</td>
-<td>UDP</td>
-<td>Requêtes et notifications</td>
-</tr>
-<tr>
-<td>MySQL/MariaDB</td>
-<td style="text-align: right;">3306</td>
-<td>TCP</td>
-<td>Base de données</td>
+<td style="text-align: right;">161 et 162</td>
+<td>SNMP (Simple Network Management Protocol) pour la gestion des équipements réseau (161 pour les requêtes, 162 pour les notifications).</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Un port ouvert ne prouve pas que l’application est saine. Vérifier aussi l’adresse d’écoute, le pare-feu, TLS, l’authentification et les journaux.</p>
-</div>
+<p><a href="../../modules/01-bases-reseaux/module-01-le-modele-osi/">Cours — Le modèle OSI</a></p>
 
 
 

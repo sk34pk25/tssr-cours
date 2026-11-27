@@ -5349,7 +5349,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -10930,10 +10930,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11102,34 +11098,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11166,34 +11134,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -21504,6 +21444,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service Linux en échec
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -21520,6 +21478,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-voir-le-statut-dun-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Voir le statut d’un service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-lire-les-journaux-journalctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Lire les journaux (journalctl)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-agir-sur-le-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Agir sur le service
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -22024,6 +22034,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#1-voir-le-statut-dun-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Voir le statut d’un service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-lire-les-journaux-journalctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Lire les journaux (journalctl)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-agir-sur-le-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Agir sur le service
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -22096,23 +22147,90 @@
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
-<p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
-<div class="mermaid">flowchart LR
-    S["status&lt;br/&gt;état et code de sortie"] --&gt; J["journalctl&lt;br/&gt;première erreur utile"] --&gt; C["configuration&lt;br/&gt;syntaxe · droits · dépendances"] --&gt; R["restart&lt;br/&gt;une fois la cause corrigée"] --&gt; P["preuve fonctionnelle&lt;br/&gt;port puis requête"]</div>
-<p class="tssr-caption">Un état <code>active</code> ne prouve pas à lui seul que le service répond correctement : terminer par un test fonctionnel.</p>
-
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>nom.service
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>nom.service<span class="w"> </span>-b<span class="w"> </span>--no-pager
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>systemctl<span class="w"> </span>cat<span class="w"> </span>nom.service
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>ss<span class="w"> </span>-tulpn
+<p><strong>Sources : Administration Debian GNU/Linux, Module 3 « Démarrage d’une distribution Debian » et Module 12 « Maintenance d’un système en production » (supports de cours).</strong> Les commandes et les libellés sont repris tels quels.</p>
+<h2 id="1-voir-le-statut-dun-service">1. Voir le statut d’un service<a class="headerlink" href="#1-voir-le-statut-dun-service" title="Permanent link">¶</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>systemctl status cron.service
 </span></code></pre></div>
-<ol>
-<li>Lire la première erreur utile, pas seulement la dernière ligne.</li>
-<li>Vérifier syntaxe, fichiers, permissions, dépendances et port occupé.</li>
-<li>Tester la configuration avec l’outil du service lorsqu’il existe.</li>
-<li>Redémarrer une seule fois après correction.</li>
-<li>Confirmer l’état, le port et un test fonctionnel.</li>
-</ol>
+<h2 id="2-lire-les-journaux-journalctl">2. Lire les journaux (journalctl)<a class="headerlink" href="#2-lire-les-journaux-journalctl" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Besoin (libellé du support)</th>
+<th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regarder les logs complets de chaque service</td>
+<td><code>journalctl</code></td>
+</tr>
+<tr>
+<td>Visualiser les logs en temps réel</td>
+<td><code>journalctl -f</code></td>
+</tr>
+<tr>
+<td>Voir les logs d’un service donné : <code>journalctl -u [service]</code></td>
+<td><code>journalctl -u cron</code></td>
+</tr>
+<tr>
+<td>Voir les logs d’un PID donné : <code>journalctl _PID=[n° pid]</code></td>
+<td><code>journalctl _PID=1</code></td>
+</tr>
+<tr>
+<td>Voir les logs d’un programme</td>
+<td><code>journalctl /usr/sbin/sshd</code></td>
+</tr>
+<tr>
+<td>Voir les logs par niveau de priorité : <code>journalctl -p &lt;level&gt;</code></td>
+<td><code>journalctl -p err</code></td>
+</tr>
+<tr>
+<td>Cumuler les options</td>
+<td><code>journalctl -f /usr/sbin/sshd -p info</code></td>
+</tr>
+</tbody>
+</table>
+<p>Le fichier de configuration de journald est /etc/systemd/journald.conf.</p>
+<h2 id="3-agir-sur-le-service">3. Agir sur le service<a class="headerlink" href="#3-agir-sur-le-service" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Action (libellé du support)</th>
+<th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Démarrer un service</td>
+<td><code>systemctl start cron.service</code></td>
+</tr>
+<tr>
+<td>Arrêter un service</td>
+<td><code>systemctl stop cron.service</code></td>
+</tr>
+<tr>
+<td>Redémarrer</td>
+<td><code>systemctl restart cron.service</code></td>
+</tr>
+<tr>
+<td>Activer un service</td>
+<td><code>systemctl enable networking</code></td>
+</tr>
+<tr>
+<td>Désactiver</td>
+<td><code>systemctl disable networking</code></td>
+</tr>
+<tr>
+<td>Lister les unités</td>
+<td><code>systemctl list-units</code> puis <code>systemctl list-units --all</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="../../modules/05-administration-debian-gnu-linux/module-03-demarrage-d-une-distribution-debian/">Cours — Démarrage d’une distribution Debian</a></li>
+<li><a href="../../modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production/">Cours — Maintenance d’un système en production</a></li>
+<li><a href="../../tp/administration-linux/module-12/">TP Administration Debian — Module 12</a></li>
+</ul>
 
 
 

@@ -5349,7 +5349,7 @@
   <span class="md-ellipsis">
     
   
-    Diagnostic réseau
+    Diagnostiquer une connexion réseau
   
 
     
@@ -10930,10 +10930,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -11102,34 +11098,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cas pratiques transversaux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exercices/quiz-sauvegarde-et-restauration/" class="md-nav__link">
         
   
@@ -11166,34 +11134,6 @@
     
   
     Quiz Réseau et Sécurité
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exercices/quiz-services-transverses-microsoft/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quiz Services transverses Microsoft
   
 
     
@@ -22330,7 +22270,7 @@
 <tbody>
 <tr>
 <td>Trouver une commande</td>
-<td><code>Get-Command *LocalGroup*</code></td>
+<td><code>Get-Command *printer*</code></td>
 <td>La commande correspond au besoin, pas seulement au mot recherché.</td>
 </tr>
 <tr>
@@ -22360,7 +22300,7 @@
 </tr>
 </tbody>
 </table>
-<p>Dans <code>cmd</code>, utiliser <code>help</code>, <code>cd /?</code>, <code>dir</code>, <code>type</code> et <code>copy</code> selon l’activité. <code>cd \</code> place à la racine du lecteur courant ; <code>cd /d C:\</code> change aussi de lecteur. Après une copie ou une redirection, relire le fichier produit.</p>
+<p>Dans <code>cmd</code>, utiliser <code>help</code>, <code>cd /?</code>, <code>dir</code>, <code>type</code> et <code>copy</code> selon l’activité. <code>cd \</code> place à la racine du lecteur courant. Après une copie ou une redirection, relire le fichier produit.</p>
 <h2 id="2-identites-et-groupes-m05">2. Identités et groupes — M05<a class="headerlink" href="#2-identites-et-groupes-m05" title="Permanent link">¶</a></h2>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>whoami /user
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>whoami /groups
@@ -22404,18 +22344,13 @@
 <td>Réponse DNS, distincte du test par IP.</td>
 </tr>
 <tr>
-<td><code>route print</code></td>
-<td>Table de routage.</td>
-</tr>
-<tr>
 <td><code>arp -a</code></td>
 <td>Cache des associations IPv4/MAC.</td>
 </tr>
 </tbody>
 </table>
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">Get-NetIPConfiguration</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">Get-NetFirewallRule</span> <span class="n">-Enabled</span> <span class="n">True</span> <span class="p">|</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="nb">Select-Object</span> <span class="n">DisplayName</span><span class="p">,</span><span class="n">Profile</span><span class="p">,</span><span class="n">Direction</span><span class="p">,</span><span class="n">Action</span>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">Get-NetFirewallRule</span> <span class="n">-Enabled</span> <span class="n">True</span> <span class="p">|</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="nb">Select-Object</span> <span class="n">DisplayName</span><span class="p">,</span><span class="n">Profile</span><span class="p">,</span><span class="n">Direction</span><span class="p">,</span><span class="n">Action</span>
 </span></code></pre></div>
 <p>Un ping sans réponse ne suffit pas à conclure à une panne : vérifier la cible, le profil de pare-feu et les règles ICMP avant de modifier le filtrage.</p>
 <h2 id="5-partages-pilotes-et-imprimantes-m08-et-m09">5. Partages, pilotes et imprimantes — M08 et M09<a class="headerlink" href="#5-partages-pilotes-et-imprimantes-m08-et-m09" title="Permanent link">¶</a></h2>
@@ -22476,16 +22411,20 @@
 </thead>
 <tbody>
 <tr>
-<td><code>eventvwr.msc</code></td>
-<td>Consulter les événements.</td>
+<td>Observateur d’évènements</td>
+<td>Contient tous les évènements enregistrés par le système.</td>
 </tr>
 <tr>
-<td><code>resmon</code></td>
-<td>Observer les ressources en temps réel.</td>
+<td>Moniteur de ressources</td>
+<td>Affichage détaillé pour les 4 composants principaux.</td>
 </tr>
 <tr>
-<td><code>perfmon /rel</code></td>
-<td>Consulter l’Historique de fiabilité.</td>
+<td>Analyseur de performances</td>
+<td>Affichage des performances à partir de compteurs.</td>
+</tr>
+<tr>
+<td>Historique de fiabilité</td>
+<td>Vue synthétique de l’état de santé du système dans le temps.</td>
 </tr>
 <tr>
 <td><code>sysdm.cpl</code></td>
@@ -22509,10 +22448,7 @@
 </tr>
 </tbody>
 </table>
-<p>Commande Sysprep du support, à utiliser uniquement sur le master du laboratoire préparé pour le clonage :</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>C:\Windows\System32\Sysprep\sysprep.exe /oobe /generalize /shutdown
-</span></code></pre></div>
-<p>Après l’arrêt, le support demande de capturer ou cloner le master sans le redémarrer. <a href="../../modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image/">Relire le déroulé complet</a> avant cette opération.</p>
+<p>Commande Sysprep : voir le <a href="../../tutoriels/capture-deploiement-windows/">tutoriel Capture et déploiement</a>.</p>
 <h2 id="verifier-ses-resultats">Vérifier ses résultats<a class="headerlink" href="#verifier-ses-resultats" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../../modules/02-systemes-clients-microsoft/">Cours complet</a></li>
