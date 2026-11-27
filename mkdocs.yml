@@ -788,6 +788,13 @@ nav:
       - Réseau: commandes/reseau.md
       - Windows et PowerShell: commandes/windows-powershell.md
       - GNU/Linux: commandes/linux.md
+      - Administration Debian: commandes/administration-debian.md
+      - Scripting Bash: commandes/scripting-bash.md
+      - PowerShell: commandes/powershell.md
+      - MSP Systèmes clients: commandes/msp-systemes-clients.md
+      - Services réseau Microsoft: commandes/services-reseau-microsoft.md
+      - Services réseau Linux: commandes/services-reseau-linux.md
+      - Messagerie Cloud: commandes/messagerie-cloud.md
       - MariaDB et GLPI: commandes/mariadb-glpi.md
       - Sauvegarde et restauration: commandes/sauvegarde-restauration.md
       - Réseau et Sécurité: commandes/reseau-et-securite.md
