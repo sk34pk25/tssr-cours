@@ -1,5 +1,8 @@
 # Sources officielles de mise à jour
 
+!!! info "Complément externe au cours"
+    Ces liens officiels ne font pas partie du dossier de cours ; ils servent uniquement à situer les versions actuelles.
+
 Consultées le 13 août 2026 pour distinguer le contexte historique des pratiques actuelles.
 
 - [Versions Debian](https://www.debian.org/releases/) — Debian 13 « trixie » est la version stable actuelle.

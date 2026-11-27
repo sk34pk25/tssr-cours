@@ -4,9 +4,9 @@ Les documents ci-dessous proviennent du dossier TSSR du Google Drive. Les suppor
 
 Les fiches de synthèse et leurs schémas sont affichés séparément dans **Cours Optimisé IA**. Les précisions externes citent leur source et ne modifient pas les documents de formation.
 
-## État du catalogue au 5 novembre 2026
+## État du catalogue au 27 novembre 2026
 
-**95 modules avec sources · 421 références de documents · 2696 pages ou sections numérotées, plus 36 documents textuels.**
+**99 modules avec sources · 421 références de documents · 2696 pages ou sections numérotées, plus 36 documents textuels.**
 
 Le catalogue représente 414 fichiers sources distincts. Les doublons du Drive gardent leur identité et leur notice, notamment les cinq documents communs aux modules 2 et 3 de Messagerie Cloud.
 
@@ -22,11 +22,11 @@ Les onglets Original indiquent « Inexistant » lorsque le dossier de formation 
 | [Microsoft 365 — Outils collaboratifs — Module 04 — Exploiter Outlook et savoir le dépanner](../modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner.md) | 5 | 57 |
 | [Microsoft 365 — Outils collaboratifs — Module 05 — Exploiter Teams, SharePoint et OneDrive](../modules/03-microsoft-365-outils-collaboratifs/module-05-exploiter-teams-sharepoint-et-onedrive.md) | 3 | 23 |
 | [Bases des réseaux — Module 01 — Le modèle OSI](../modules/01-bases-reseaux/module-01-le-modele-osi.md) | 2 | 1 |
-| [Bases des réseaux — Module 02 — Les unités informatiques](../modules/01-bases-reseaux/module-02-les-unites-informatiques.md) | 2 | 1 |
+| [Bases des réseaux — Module 02 — Les unités informatiques](../modules/01-bases-reseaux/module-02-les-unites-informatiques.md) | 1 | 0 |
 | [Bases des réseaux — Module 03 — L’adressage IPv4](../modules/01-bases-reseaux/module-03-l-adressage-ipv4.md) | 3 | 22 |
-| [Bases des réseaux — Module 04 — La communication dans un réseau](../modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md) | 4 | 12 |
-| [Bases des réseaux — Module 05 — Les premières commandes réseau](../modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md) | 1 | 1 |
-| [Bases des réseaux — Module 06 — L’adressage IPv6](../modules/01-bases-reseaux/module-06-l-adressage-ipv6.md) | 1 | 1 |
+| [Bases des réseaux — Module 04 — La communication dans un réseau](../modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md) | 3 | 12 |
+| [Bases des réseaux — Module 05 — Les premières commandes réseau](../modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md) | 1 | 0 |
+| [Bases des réseaux — Module 06 — L’adressage IPv6](../modules/01-bases-reseaux/module-06-l-adressage-ipv6.md) | 1 | 0 |
 | [Systèmes clients Microsoft — Module 01 — Les systèmes d’exploitation et Microsoft Windows 10](../modules/02-systemes-clients-microsoft/module-01-les-systemes-d-exploitation-et-microsoft-windows-10.md) | 3 | 11 |
 | [Systèmes clients Microsoft — Module 02 — Installation du système d’exploitation Windows 10](../modules/02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10.md) | 5 | 21 |
 | [Systèmes clients Microsoft — Module 03 — Interagir avec Windows 10](../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10.md) | 13 | 58 |
@@ -116,16 +116,22 @@ Les onglets Original indiquent « Inexistant » lorsque le dossier de formation 
 | [Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2](../modules/14-messagerie-cloud/module-03.md) | 5 | 73 |
 | [Messagerie Cloud — Module 04 — Services complémentaires](../modules/14-messagerie-cloud/module-04.md) | 5 | 40 |
 
+Sauvegarde et restauration (modules 01 à 04) : Inexistant dans le catalogue.
+
+Services transverses Microsoft (modules 01 à 06) : Inexistant dans le catalogue.
+
+Réseau et Sécurité : Inexistant dans le catalogue.
+
 ## Lecture des sources et corrections
 
 La transcription conserve les versions, valeurs, consignes et éventuelles erreurs du support ; la mise en forme est adaptée au Web. Les errata explicites de la fiche IA permettent de distinguer le contenu historique d’une explication corrective : limites Excel, SMTP sécurisé, stockage Teams, dimensionnement IPv4, lecture IPv6 et cycle de vie Windows 10.
 
-Les corrections de TP sont repliées à l’ouverture pour permettre une première tentative. Les ressources de manipulation (classeurs, scripts, documents de travail, Packet Tracer) restent reliées depuis les fiches de TP existantes.
+Les corrections de TP sont repliées à l’ouverture pour permettre une première tentative. Les scripts et documents de travail utiles aux TP sont décrits dans les fiches de TP ; les fichiers Office et PDF ne sont pas publiés.
 
 ## Contrôles de transcription
 
 La construction du site contrôle les empreintes des transcriptions et des illustrations ainsi que la séquence des pages. Les tableaux restent structurés, et les commandes et opérateurs restent lisibles dans le lecteur. Les extraits visuels sont isolés et leur recadrage est vérifié. Le manuel Aruba se consulte dans la transcription liée au TP GLPI.
 
-Le cours **Infrastructures réseaux** est consultable uniquement via les vidéos sur le site de l’établissement.
+Le cours « Les infrastructures réseaux » figure au planning de formation, mais aucun support n’est présent dans le dossier TSSR : Inexistant.
 
-Aucun support de Sauvegarde et restauration, de Réseau et sécurité ou de Services transverses Microsoft n’a été trouvé dans le dossier TSSR consulté le 5 novembre 2026.
+Les supports de Sauvegarde et restauration (modules 01 à 04) et de Services transverses Microsoft (modules 01 à 06) sont présents dans le dossier TSSR ; Réseau et Sécurité ne contient que des énoncés et corrections de TP.
