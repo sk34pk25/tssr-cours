@@ -13,7 +13,14 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data/course-sources.json'
 ROLES = {'support': 'Support', 'notes': 'Notes du Drive', 'synthese-drive': 'Synthèse du Drive',
          'enonce': 'Énoncé', 'correction': 'Correction', 'demonstration': 'Démonstration'}
+INDEXED_ROLES = ROLES.keys() | {'ressource'}
+MISSING = 'Inexistant'
 PENDING_CONTENT = 'Contenu pédagogique à venir via proposition gouvernée.'
+
+
+def indexed_without_transcription(doc):
+    """File listed in the course folder, without a page count or a verified transcription."""
+    return doc.get('sha256') == MISSING
 
 
 def load_catalog(root=ROOT, *, staged=False):
@@ -26,6 +33,13 @@ def load_catalog(root=ROOT, *, staged=False):
     for identity, doc in data['documents'].items():
         if identity != doc['id'] or not re.fullmatch(r'[a-zA-Z0-9_-]+', identity):
             raise ValueError('Identité source invalide')
+        if indexed_without_transcription(doc):
+            if doc['role'] not in INDEXED_ROLES or any(doc.get(field) != MISSING for field in (
+                    'pageCount', 'legacyOriginal', 'transcript', 'transcriptionSha256', 'pages', 'figures', 'illustrationCount')):
+                raise ValueError('Fichier recensé incomplet')
+            if not isinstance(doc.get('drivePath'), list) or not doc['drivePath']:
+                raise ValueError('Chemin de fichier recensé invalide')
+            continue
         if doc['role'] not in ROLES or not re.fullmatch(r'[a-f0-9]{64}', doc['sha256']):
             raise ValueError('Provenance source invalide')
         if not re.fullmatch(r'[a-f0-9]{64}', doc['transcriptionSha256']):
@@ -73,9 +87,11 @@ def load_catalog(root=ROOT, *, staged=False):
             raise ValueError('Un module non publié ne peut pas recevoir ces sources')
     proof = data.get('verification')
     if proof:
+        transcribed = [d for d in data['documents'].values() if not indexed_without_transcription(d)]
         actual = {'modules': sum(p.startswith('modules/') for p in data['pages']),
                   'documents': len(data['documents']),
-                  'originalPages': sum(d['pageCount'] for d in data['documents'].values())}
+                  'originalPages': sum(d['pageCount'] for d in transcribed),
+                  'indexedWithoutPageCount': len(data['documents']) - len(transcribed)}
         if any(proof.get(key) != count for key, count in actual.items()):
             raise ValueError('Le périmètre publié diffère du relevé de vérification')
         if {ref for refs in data['pages'].values() for ref in refs} != set(data['documents']):
@@ -157,6 +173,7 @@ def apply_note_clip(html, clip):
 
 
 def render_originals(refs, page, data):
+    refs = [ref for ref in refs if not indexed_without_transcription(data['documents'][ref])]
     if not refs:
         return '<p>Inexistant</p>'
     out = ['<div class="tssr-original-reader">',
@@ -207,14 +224,15 @@ def render_originals(refs, page, data):
 
 def rewrite_source_links(markdown, page, data):
     documents = data['documents']
-    old = {d.get('legacyOriginal'): d for d in documents.values() if d.get('legacyOriginal')}
+    old = {d.get('legacyOriginal'): d for d in documents.values()
+           if d.get('legacyOriginal') and d.get('legacyOriginal') != MISSING and not indexed_without_transcription(d)}
     def replace(match):
         prefix, url = match[1], match[2]
         parsed = urlsplit(url)
         target = None
         if parsed.hostname in {'drive.google.com', 'docs.google.com'}:
             identity = re.search(r'/d/([\w-]+)', parsed.path)
-            if identity and identity[1] in documents:
+            if identity and identity[1] in documents and not indexed_without_transcription(documents[identity[1]]):
                 target = documents[identity[1]]
         elif not parsed.scheme and not parsed.netloc:
             path = posixpath.normpath(posixpath.join(posixpath.dirname(page), unquote(parsed.path)))
@@ -291,6 +309,9 @@ def project_page(markdown, page, data):
     match = re.match(r'^(# [^\n]+)\n', markdown)
     if not match:
         raise ValueError('Titre du module attendu avant la projection des sources')
+    refs = data['pages'][page]
+    if refs and all(indexed_without_transcription(data['documents'][ref]) for ref in refs) and '=== "Cours Original"' in markdown:
+        return markdown
     title, body = match[1], markdown[match.end():].lstrip()
     hoisted, body = split_tp_links(body)
     body, verbatim = split_verbatim_original(page, body)

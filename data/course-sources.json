@@ -68951,6 +68951,969 @@
       "figures": [],
       "illustrationCount": 0,
       "glyphs": []
+    },
+    "1Zj2pJCatyfQmAYkdqVj_-qnz349TQ_eR": {
+      "id": "1Zj2pJCatyfQmAYkdqVj_-qnz349TQ_eR",
+      "title": "Module 01 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Sauvegarde et Restauration",
+        "M01-module-1",
+        "Module 01 - Support de cours.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1W4yyZpNiyVlXy4P5nPAMW2Pk7ZGEtIkn": {
+      "id": "1W4yyZpNiyVlXy4P5nPAMW2Pk7ZGEtIkn",
+      "title": "Enonce du TP - Creation de linfrastructure.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Sauvegarde et Restauration",
+        "M01-module-1",
+        "Enonce du TP - Creation de linfrastructure.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "10HmP55MXXPaAI01VX-pdN0QhwzZdV3Rt": {
+      "id": "10HmP55MXXPaAI01VX-pdN0QhwzZdV3Rt",
+      "title": "Module 02 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Sauvegarde et Restauration",
+        "M02-module-2",
+        "Module 02 - Support de cours.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1vTVWTQQtskGBS1fT046K2iRcWFOF5PDd": {
+      "id": "1vTVWTQQtskGBS1fT046K2iRcWFOF5PDd",
+      "title": "Enonce du TP - Installation et configuration Backup Exec.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Sauvegarde et Restauration",
+        "M02-module-2",
+        "Enonce du TP - Installation et configuration Backup Exec.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1Pa5WZdlYar-_1wZHjI8yTlvKHPS4w0cF": {
+      "id": "1Pa5WZdlYar-_1wZHjI8yTlvKHPS4w0cF",
+      "title": "Enonce du TP - Sauvegarde et restauration Backup Exec.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Sauvegarde et Restauration",
+        "M02-module-2",
+        "Enonce du TP - Sauvegarde et restauration Backup Exec.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1h6qnTobJbpT18Wuigmp-c-ucT4xn5Kog": {
+      "id": "1h6qnTobJbpT18Wuigmp-c-ucT4xn5Kog",
+      "title": "Module 03 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Sauvegarde et Restauration",
+        "M03-module-3",
+        "Module 03 - Support de cours.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1rR1yv-kmf12oQ5hTGEvl8cVf6YosiBNv": {
+      "id": "1rR1yv-kmf12oQ5hTGEvl8cVf6YosiBNv",
+      "title": "Enonce du TP - Sauvegarde et restauration VEEAM.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Sauvegarde et Restauration",
+        "M03-module-3",
+        "Enonce du TP - Sauvegarde et restauration VEEAM.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1-klSvpNFuy0jdRXTvEjnWKU6DHY9kwCH": {
+      "id": "1-klSvpNFuy0jdRXTvEjnWKU6DHY9kwCH",
+      "title": "Module 04 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Sauvegarde et Restauration",
+        "M04-module-4",
+        "Module 04 - Support de cours.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1PcozKF4QRHR6eQdwawzdN-oJss_zPT0Z": {
+      "id": "1PcozKF4QRHR6eQdwawzdN-oJss_zPT0Z",
+      "title": "Enonce du TP - Utilisation du raid.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Sauvegarde et Restauration",
+        "M04-module-4",
+        "Enonce du TP - Utilisation du raid.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1yYUUgnwzIKobRkm9HLLJT4jHomH9w_n_": {
+      "id": "1yYUUgnwzIKobRkm9HLLJT4jHomH9w_n_",
+      "title": "TP01 - Enoncé - Étudier les flux de sorties vers internet.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 1",
+        "TP01 - Enoncé - Étudier les flux de sorties vers internet.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1RJ8EfQA4dRfroLAAvrDF4EjaROpGk5dv": {
+      "id": "1RJ8EfQA4dRfroLAAvrDF4EjaROpGk5dv",
+      "title": "TP01 - Solution - Étudier les besoins de lentreprise des flux de sorties vers internet.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 1",
+        "TP01 - Solution - Étudier les besoins de lentreprise des flux de sorties vers internet.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "16V7hfTMY85xvMEmQx8Mry3I1fb51uaL1": {
+      "id": "16V7hfTMY85xvMEmQx8Mry3I1fb51uaL1",
+      "title": "Liste-IP-Satgiaires.xlsx",
+      "role": "ressource",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 1",
+        "Ressources",
+        "Liste-IP-Satgiaires.xlsx"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "xlsx",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1V0w72bjEMLvJWnj13CuREqwxzYpwcnNQ": {
+      "id": "1V0w72bjEMLvJWnj13CuREqwxzYpwcnNQ",
+      "title": "Règles de pare-feu.xlsx",
+      "role": "ressource",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 1",
+        "Ressources",
+        "Règles de pare-feu.xlsx"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "xlsx",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1e_xnesF_cjtIlXdG5aPfKgVYg56zS-wu": {
+      "id": "1e_xnesF_cjtIlXdG5aPfKgVYg56zS-wu",
+      "title": "SchémaRéseauTP1.drawio",
+      "role": "ressource",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 1",
+        "Ressources",
+        "SchémaRéseauTP1.drawio"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "drawio",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "19uzUxdJ68ZY7kE6oISqeCdXmm5FfTThw": {
+      "id": "19uzUxdJ68ZY7kE6oISqeCdXmm5FfTThw",
+      "title": "TP2-Configuration du pare-feu Pfsense.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 2",
+        "TP2-Configuration du pare-feu Pfsense.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1smz0VrZWKuV4YUkFhBFWNGwH7MZCJo6s": {
+      "id": "1smz0VrZWKuV4YUkFhBFWNGwH7MZCJo6s",
+      "title": "Solution-TP2-Configuration du pare-feu Pfsense.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 2",
+        "Solution-TP2-Configuration du pare-feu Pfsense.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1CqZsP9gyO8uVLvjN_Vu0BBOCCY4vgNZr": {
+      "id": "1CqZsP9gyO8uVLvjN_Vu0BBOCCY4vgNZr",
+      "title": "TP3-Configuration du NAT.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 3",
+        "TP3-Configuration du NAT.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "11nJcUbeRKbOrdX-0LN3rFFVKbJ4x-zR3": {
+      "id": "11nJcUbeRKbOrdX-0LN3rFFVKbJ4x-zR3",
+      "title": "Solution-TP3-Configuration du NAT.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 3",
+        "Solution-TP3-Configuration du NAT.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1NzQwZU5lGH7QRQq2hzZMeHcKxLmz9C8w": {
+      "id": "1NzQwZU5lGH7QRQq2hzZMeHcKxLmz9C8w",
+      "title": "TP4-Services hébergés dans une DMZ.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 4",
+        "TP4-Services hébergés dans une DMZ.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1Dv6qFIT1TZbkJYC1_dqzKoITkwacSMvq": {
+      "id": "1Dv6qFIT1TZbkJYC1_dqzKoITkwacSMvq",
+      "title": "Solution-TP4-Services hébergés dans une DMZ.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 4",
+        "Solution-TP4-Services hébergés dans une DMZ.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1z4BBSYdErX8oXWORUoAXY-j6L5g3SgBD": {
+      "id": "1z4BBSYdErX8oXWORUoAXY-j6L5g3SgBD",
+      "title": "TP5- SÉCURISER LE SURF INTERNET.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 5",
+        "TP5- SÉCURISER LE SURF INTERNET.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1YjLyuzsgr_6bQ_S0U3-8l3rHmnJJC3gR": {
+      "id": "1YjLyuzsgr_6bQ_S0U3-8l3rHmnJJC3gR",
+      "title": "Solution-TP5- Sécuriser le surf sur internet via un proxy.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 5",
+        "Solution-TP5- Sécuriser le surf sur internet via un proxy.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1K27SW-NqBqND40NeaC9OX8JjeB3h4dix": {
+      "id": "1K27SW-NqBqND40NeaC9OX8JjeB3h4dix",
+      "title": "TP6- La gestion des certificats autosignés.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 6",
+        "TP6- La gestion des certificats autosignés.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1c9kyQPcHPsJ1lr5auztqWG1ZbJicVRwL": {
+      "id": "1c9kyQPcHPsJ1lr5auztqWG1ZbJicVRwL",
+      "title": "TP7-Certificat émanant dune Private-KI ADCS.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 6",
+        "TP7-Certificat émanant dune Private-KI ADCS.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1LhLEzzjEdHz_TL9CNyYgP1Jy9tB0KP26": {
+      "id": "1LhLEzzjEdHz_TL9CNyYgP1Jy9tB0KP26",
+      "title": "Solution-TP6- La gestion des certificats autosignés.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 6",
+        "Solution-TP6- La gestion des certificats autosignés.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1BXtrWmYPFRtGCCXSeUC83xBYGPeyBgwj": {
+      "id": "1BXtrWmYPFRtGCCXSeUC83xBYGPeyBgwj",
+      "title": "Solution-TP7-Certificat émanant dune Private-KI ADCS .pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 6",
+        "Solution-TP7-Certificat émanant dune Private-KI ADCS .pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1PPet1Tc2PbdwNA9dmJn9WXWgQortdHjL": {
+      "id": "1PPet1Tc2PbdwNA9dmJn9WXWgQortdHjL",
+      "title": "TP8-CONNECTER LES COLLABORATEURS POUR LE TÉLÉTRAVAIL.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 7",
+        "TP8-CONNECTER LES COLLABORATEURS POUR LE TÉLÉTRAVAIL.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1v0TaYviTIw9XgIEwyyEHsgoev64sHCde": {
+      "id": "1v0TaYviTIw9XgIEwyyEHsgoev64sHCde",
+      "title": "Solution-TP8-Connecter les collaborateurs pour le télétravail.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 7",
+        "Solution-TP8-Connecter les collaborateurs pour le télétravail.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1edJyeAU5jsxJrUTakzmrjHmDXRv3S8RV": {
+      "id": "1edJyeAU5jsxJrUTakzmrjHmDXRv3S8RV",
+      "title": "TP9-Connecter les collaborateurs Site à Site.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 8",
+        "TP9-Connecter les collaborateurs Site à Site.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1Q4bPmfoUmq8iOv4SW9PaEOuihETJuet4": {
+      "id": "1Q4bPmfoUmq8iOv4SW9PaEOuihETJuet4",
+      "title": "Solution-TP9-Connecter les collaborateurs Site à Site.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Réseau et Sécurité",
+        "Module 8",
+        "Solution-TP9-Connecter les collaborateurs Site à Site.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "16ZJgecxzdQOr80s6XRQxbhOcZsi8TPoA": {
+      "id": "16ZJgecxzdQOr80s6XRQxbhOcZsi8TPoA",
+      "title": "Module 01 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 1",
+        "Module 01 - Support de cours.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1r8d_6f_RwPtWvt-GVFcs6k_QD8QzHo9A": {
+      "id": "1r8d_6f_RwPtWvt-GVFcs6k_QD8QzHo9A",
+      "title": "M1 - Enoncé du TP - Active Directory.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 1",
+        "M1 - Enoncé du TP - Active Directory.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1SN3ZaBcludyQrKDYA9C1MvHUo2taPnF1": {
+      "id": "1SN3ZaBcludyQrKDYA9C1MvHUo2taPnF1",
+      "title": "M1 - Solution du TP - Active Directory.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 1",
+        "M1 - Solution du TP - Active Directory.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1BbGRW47sR-DWEIhrjgfoJBI4u3Nay_4T": {
+      "id": "1BbGRW47sR-DWEIhrjgfoJBI4u3Nay_4T",
+      "title": "Module 02 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 2",
+        "Module 02 - Support de cours.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "11kbJ83I7x-47IEOFU4uSt731vuCtruWl": {
+      "id": "11kbJ83I7x-47IEOFU4uSt731vuCtruWl",
+      "title": "M2 - Enoncé du TP - Mise en oeuvre d'une bureau à distance.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 2",
+        "M2 - Enoncé du TP - Mise en oeuvre d'une bureau à distance.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1B6wtG_bM6AWWhBSVy1VKs_4HCQ3hnRZM": {
+      "id": "1B6wtG_bM6AWWhBSVy1VKs_4HCQ3hnRZM",
+      "title": "M2 - Solution du TP - Mise en oeuvre d'un bureau à distance.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 2",
+        "M2 - Solution du TP - Mise en oeuvre d'un bureau à distance.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1LxLWr-sTxssQaJBNr9CoDsQ8vlLgysLk": {
+      "id": "1LxLWr-sTxssQaJBNr9CoDsQ8vlLgysLk",
+      "title": "Module 03 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 3",
+        "Module 03 - Support de cours.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1cTHSfQ1VfRVfs6dmVzwIoSm7SAsqIShJ": {
+      "id": "1cTHSfQ1VfRVfs6dmVzwIoSm7SAsqIShJ",
+      "title": "M3 - Enoncé du TP - Publier des applications.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 3",
+        "M3 - Enoncé du TP - Publier des applications.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1U7DTz1NO12n7latLl5UVpUPKpv3tEwSo": {
+      "id": "1U7DTz1NO12n7latLl5UVpUPKpv3tEwSo",
+      "title": "M3 - Solution du TP - Publier des applications.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 3",
+        "M3 - Solution du TP - Publier des applications.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "10DyvDLCO8wUn8y3G5jTBh09QjkbQgLeQ": {
+      "id": "10DyvDLCO8wUn8y3G5jTBh09QjkbQgLeQ",
+      "title": "Module 04 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 4",
+        "Module 04 - Support de cours.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1uyxlKrHkURHVQlfTsMNLbI5Mi3Wq4_eI": {
+      "id": "1uyxlKrHkURHVQlfTsMNLbI5Mi3Wq4_eI",
+      "title": "Module 05 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 5",
+        "Module 05 - Support de cours.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1YuA5dBfdtjoxT9dnwfiSO59ADfm46wCD": {
+      "id": "1YuA5dBfdtjoxT9dnwfiSO59ADfm46wCD",
+      "title": "M5 - Enoncé du TP - Mise en oeuvre de WDS.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 5",
+        "M5 - Enoncé du TP - Mise en oeuvre de WDS.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "15jz-TRGgQ9hbmqBRNBI08_fjTYc_msPv": {
+      "id": "15jz-TRGgQ9hbmqBRNBI08_fjTYc_msPv",
+      "title": "M5 - Solution du TP - Mise en oeuvre de WDS.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 5",
+        "M5 - Solution du TP - Mise en oeuvre de WDS.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1iouHCFBB6CNXBbgBMnWX-oMplG1ysjbH": {
+      "id": "1iouHCFBB6CNXBbgBMnWX-oMplG1ysjbH",
+      "title": "Module 06 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 6",
+        "Module 06 - Support de cours.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1x0czegea60Vud7VlDbUrqvpmzDTXnxLm": {
+      "id": "1x0czegea60Vud7VlDbUrqvpmzDTXnxLm",
+      "title": "M6 - Enoncé du TP 1 - Mise en oeuvre de MDT.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 6",
+        "M6 - Enoncé du TP 1 - Mise en oeuvre de MDT.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1efSg86_y4D0X5CjhcRvp7TkRIRf9bqw-": {
+      "id": "1efSg86_y4D0X5CjhcRvp7TkRIRf9bqw-",
+      "title": "M6 - Enoncé du TP2 - Déployer des applications et Drivers.pdf",
+      "role": "enonce",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 6",
+        "M6 - Enoncé du TP2 - Déployer des applications et Drivers.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1pGuq4LHr1A_oiqtls0o6SOjPqO5XDnI4": {
+      "id": "1pGuq4LHr1A_oiqtls0o6SOjPqO5XDnI4",
+      "title": "M6 - Solution du TP1 - Mise en oeuvre de MDT.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 6",
+        "M6 - Solution du TP1 - Mise en oeuvre de MDT.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
+    },
+    "1evirhntaHygQ9DTVjAefnRVIPKuGVDxm": {
+      "id": "1evirhntaHygQ9DTVjAefnRVIPKuGVDxm",
+      "title": "M6 - Solution du TP2 - Déployer des applications et Drivers.pdf",
+      "role": "correction",
+      "sha256": "Inexistant",
+      "pageCount": "Inexistant",
+      "drivePath": [
+        "Services transverses Microsoft (RDS:WDS)",
+        "Module 6",
+        "M6 - Solution du TP2 - Déployer des applications et Drivers.pdf"
+      ],
+      "legacyOriginal": "Inexistant",
+      "sourceFormat": "pdf",
+      "transcript": "Inexistant",
+      "transcriptionSha256": "Inexistant",
+      "pages": "Inexistant",
+      "figures": "Inexistant",
+      "illustrationCount": "Inexistant",
+      "sourceNotice": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant. Transcription page à page : Inexistant."
     }
   },
   "pages": {
@@ -69989,6 +70952,90 @@
     ],
     "tp/12-initiation-powershell/module-06/demonstrations.md": [
       "1kOpSxGLzrh9-b7m5MxFUtLav3uWCwZfs"
+    ],
+    "modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition.md": [
+      "1Zj2pJCatyfQmAYkdqVj_-qnz349TQ_eR",
+      "1W4yyZpNiyVlXy4P5nPAMW2Pk7ZGEtIkn"
+    ],
+    "modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde.md": [
+      "10HmP55MXXPaAI01VX-pdN0QhwzZdV3Rt",
+      "1vTVWTQQtskGBS1fT046K2iRcWFOF5PDd",
+      "1Pa5WZdlYar-_1wZHjI8yTlvKHPS4w0cF"
+    ],
+    "modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage.md": [
+      "1h6qnTobJbpT18Wuigmp-c-ucT4xn5Kog",
+      "1rR1yv-kmf12oQ5hTGEvl8cVf6YosiBNv"
+    ],
+    "modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid.md": [
+      "1-klSvpNFuy0jdRXTvEjnWKU6DHY9kwCH",
+      "1PcozKF4QRHR6eQdwawzdN-oJss_zPT0Z"
+    ],
+    "modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md": [
+      "1yYUUgnwzIKobRkm9HLLJT4jHomH9w_n_",
+      "1RJ8EfQA4dRfroLAAvrDF4EjaROpGk5dv",
+      "16V7hfTMY85xvMEmQx8Mry3I1fb51uaL1",
+      "1V0w72bjEMLvJWnj13CuREqwxzYpwcnNQ",
+      "1e_xnesF_cjtIlXdG5aPfKgVYg56zS-wu"
+    ],
+    "modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md": [
+      "19uzUxdJ68ZY7kE6oISqeCdXmm5FfTThw",
+      "1smz0VrZWKuV4YUkFhBFWNGwH7MZCJo6s"
+    ],
+    "modules/17-reseau-et-securite/module-03-configuration-du-nat.md": [
+      "1CqZsP9gyO8uVLvjN_Vu0BBOCCY4vgNZr",
+      "11nJcUbeRKbOrdX-0LN3rFFVKbJ4x-zR3"
+    ],
+    "modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md": [
+      "1NzQwZU5lGH7QRQq2hzZMeHcKxLmz9C8w",
+      "1Dv6qFIT1TZbkJYC1_dqzKoITkwacSMvq"
+    ],
+    "modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md": [
+      "1z4BBSYdErX8oXWORUoAXY-j6L5g3SgBD",
+      "1YjLyuzsgr_6bQ_S0U3-8l3rHmnJJC3gR"
+    ],
+    "modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md": [
+      "1K27SW-NqBqND40NeaC9OX8JjeB3h4dix",
+      "1c9kyQPcHPsJ1lr5auztqWG1ZbJicVRwL",
+      "1LhLEzzjEdHz_TL9CNyYgP1Jy9tB0KP26",
+      "1BXtrWmYPFRtGCCXSeUC83xBYGPeyBgwj"
+    ],
+    "modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md": [
+      "1PPet1Tc2PbdwNA9dmJn9WXWgQortdHjL",
+      "1v0TaYviTIw9XgIEwyyEHsgoev64sHCde"
+    ],
+    "modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md": [
+      "1edJyeAU5jsxJrUTakzmrjHmDXRv3S8RV",
+      "1Q4bPmfoUmq8iOv4SW9PaEOuihETJuet4"
+    ],
+    "modules/18-services-transverses-microsoft/module-01-mise-en-place-de-linfrastructure.md": [
+      "16ZJgecxzdQOr80s6XRQxbhOcZsi8TPoA",
+      "1r8d_6f_RwPtWvt-GVFcs6k_QD8QzHo9A",
+      "1SN3ZaBcludyQrKDYA9C1MvHUo2taPnF1"
+    ],
+    "modules/18-services-transverses-microsoft/module-02-remote-desktop-services.md": [
+      "1BbGRW47sR-DWEIhrjgfoJBI4u3Nay_4T",
+      "11kbJ83I7x-47IEOFU4uSt731vuCtruWl",
+      "1B6wtG_bM6AWWhBSVy1VKs_4HCQ3hnRZM"
+    ],
+    "modules/18-services-transverses-microsoft/module-03-publication-dapplications.md": [
+      "1LxLWr-sTxssQaJBNr9CoDsQ8vlLgysLk",
+      "1cTHSfQ1VfRVfs6dmVzwIoSm7SAsqIShJ",
+      "1U7DTz1NO12n7latLl5UVpUPKpv3tEwSo"
+    ],
+    "modules/18-services-transverses-microsoft/module-04-deploiement-dun-systeme-dexploitation.md": [
+      "10DyvDLCO8wUn8y3G5jTBh09QjkbQgLeQ"
+    ],
+    "modules/18-services-transverses-microsoft/module-05-windows-deployment-services.md": [
+      "1uyxlKrHkURHVQlfTsMNLbI5Mi3Wq4_eI",
+      "1YuA5dBfdtjoxT9dnwfiSO59ADfm46wCD",
+      "15jz-TRGgQ9hbmqBRNBI08_fjTYc_msPv"
+    ],
+    "modules/18-services-transverses-microsoft/module-06-microsoft-deployment-toolkit.md": [
+      "1iouHCFBB6CNXBbgBMnWX-oMplG1ysjbH",
+      "1x0czegea60Vud7VlDbUrqvpmzDTXnxLm",
+      "1efSg86_y4D0X5CjhcRvp7TkRIRf9bqw-",
+      "1pGuq4LHr1A_oiqtls0o6SOjPqO5XDnI4",
+      "1evirhntaHygQ9DTVjAefnRVIPKuGVDxm"
     ]
   },
   "pageNotices": {
@@ -70007,15 +71054,34 @@
     "tp/reseaux/module-05/index.md": "Inexistant",
     "modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau.md": "Support de cours : Inexistant. L’énoncé est dans les travaux pratiques. Correction fournie : Inexistant.",
     "tp/10-msp-services-reseau/module-01/corrections.md": "Correction fournie : Inexistant. La proposition est un complément pédagogique externe.",
-    "modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md": "Doublon — ces notes sont publiées dans le module 03. Aucun support de cours PDF distinct pour le module 04."
+    "modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md": "Doublon — ces notes sont publiées dans le module 03. Aucun support de cours PDF distinct pour le module 04.",
+    "modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition.md": "Correction : Inexistant. Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde.md": "Correction : Inexistant. Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage.md": "Correction : Inexistant. Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid.md": "Correction : Inexistant. Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md": "Support de cours : Inexistant. Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md": "Support de cours : Inexistant. Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/17-reseau-et-securite/module-03-configuration-du-nat.md": "Support de cours : Inexistant. Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md": "Support de cours : Inexistant. Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md": "Support de cours : Inexistant. Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md": "Support de cours : Inexistant. Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md": "Support de cours : Inexistant. Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md": "Support de cours : Inexistant. Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/18-services-transverses-microsoft/module-01-mise-en-place-de-linfrastructure.md": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/18-services-transverses-microsoft/module-02-remote-desktop-services.md": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/18-services-transverses-microsoft/module-03-publication-dapplications.md": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/18-services-transverses-microsoft/module-04-deploiement-dun-systeme-dexploitation.md": "Énoncé : Inexistant. Correction : Inexistant. Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/18-services-transverses-microsoft/module-05-windows-deployment-services.md": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant.",
+    "modules/18-services-transverses-microsoft/module-06-microsoft-deployment-toolkit.md": "Nombre de pages : Inexistant. Empreinte du fichier : Inexistant."
   },
   "verifiedAt": "2026-10-26",
   "verification": {
     "scope": "Modules déjà publiés uniquement",
-    "modules": 99,
-    "documents": 421,
+    "modules": 117,
+    "documents": 469,
     "originalPages": 2696,
-    "method": "Transcription du texte natif et des éléments graphiques par OCR ; aucun PDF, aucune reproduction de diapositive. Croquis facultatifs isolés et vérifiés visuellement."
+    "method": "Transcription du texte natif et des éléments graphiques par OCR ; aucun PDF, aucune reproduction de diapositive. Croquis facultatifs isolés et vérifiés visuellement.",
+    "indexedWithoutPageCount": 48
   },
   "documentaryExceptions": [
     {

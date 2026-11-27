@@ -143,9 +143,16 @@ class OriginalSourcesTests(unittest.TestCase):
         data=load_catalog()
         self.assertTrue(data['documents'])
         self.assertTrue(data['pages'])
+        indexed=0
         for doc in data['documents'].values():
+            if doc.get('sha256')=='Inexistant':
+                indexed+=1
+                self.assertEqual(doc['pageCount'],'Inexistant')
+                self.assertNotIn('drive.google.com', json.dumps(doc))
+                continue
             covered=[p['number'] for p in doc['pages']]
             self.assertEqual(covered,list(range(1,(doc['pageCount'] or 1)+1)))
+        self.assertEqual(indexed, data['verification']['indexedWithoutPageCount'])
         self.assertFalse(list((ROOT/'docs/assets/course-sources').rglob('*.pdf')))
         self.assertFalse(list((ROOT/'docs/assets/course-sources').rglob('atlas-*.webp')))
 
