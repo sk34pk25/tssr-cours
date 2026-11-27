@@ -6,9 +6,9 @@ Les fiches de synthèse et leurs schémas sont affichés séparément dans **Cou
 
 ## État du catalogue au 27 novembre 2026
 
-**99 modules avec sources · 421 références de documents · 2696 pages ou sections numérotées, plus 36 documents textuels.**
+**117 modules avec sources · 469 références de documents · 2696 pages ou sections numérotées, plus 36 documents textuels.**
 
-Le catalogue représente 414 fichiers sources distincts. Les doublons du Drive gardent leur identité et leur notice, notamment les cinq documents communs aux modules 2 et 3 de Messagerie Cloud.
+Le catalogue représente 462 fichiers sources distincts. Les 414 fichiers déjà transcrits gardent leur empreinte. Les 48 fichiers de Sauvegarde et Restauration, Réseau et Sécurité et Services transverses Microsoft sont recensés sans empreinte et sans nombre de pages : ces champs sont Inexistant. Les doublons du Drive gardent leur identité et leur notice, notamment les cinq documents communs aux modules 2 et 3 de Messagerie Cloud.
 
 Les onglets Original indiquent « Inexistant » lorsque le dossier de formation ne contient pas de source associée. Les formations datées suivent le planning. Administration GLPI complète le bloc ITIL.
 
@@ -116,11 +116,32 @@ Les onglets Original indiquent « Inexistant » lorsque le dossier de formation 
 | [Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2](../modules/14-messagerie-cloud/module-03.md) | 5 | 73 |
 | [Messagerie Cloud — Module 04 — Services complémentaires](../modules/14-messagerie-cloud/module-04.md) | 5 | 40 |
 
-Sauvegarde et restauration (modules 01 à 04) : Inexistant dans le catalogue.
+| [Sauvegarde et Restauration — Module 01 — Concept, enjeux et définition](../modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition.md) | 2 | Inexistant |
+| [Sauvegarde et Restauration — Module 02 — Types de sauvegarde](../modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde.md) | 3 | Inexistant |
+| [Sauvegarde et Restauration — Module 03 — Gestion du stockage](../modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage.md) | 2 | Inexistant |
+| [Sauvegarde et Restauration — Module 04 — La redondance de données et le RAID](../modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid.md) | 2 | Inexistant |
+| [Réseau et Sécurité — Module 01 — Étudier les flux de sorties vers Internet](../modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md) | 5 | Inexistant |
+| [Réseau et Sécurité — Module 02 — Configuration du pare-feu pfSense](../modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md) | 2 | Inexistant |
+| [Réseau et Sécurité — Module 03 — Configuration du NAT](../modules/17-reseau-et-securite/module-03-configuration-du-nat.md) | 2 | Inexistant |
+| [Réseau et Sécurité — Module 04 — Services hébergés dans une DMZ](../modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md) | 2 | Inexistant |
+| [Réseau et Sécurité — Module 05 — Sécuriser le surf Internet](../modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md) | 2 | Inexistant |
+| [Réseau et Sécurité — Module 06 — Certificats autosignés et PKI privée ADCS](../modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md) | 4 | Inexistant |
+| [Réseau et Sécurité — Module 07 — Connecter les collaborateurs pour le télétravail](../modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md) | 2 | Inexistant |
+| [Réseau et Sécurité — Module 08 — Connecter les collaborateurs site à site](../modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md) | 2 | Inexistant |
+| [Services transverses Microsoft — Module 01 — Mise en place de l’infrastructure](../modules/18-services-transverses-microsoft/module-01-mise-en-place-de-linfrastructure.md) | 3 | Inexistant |
+| [Services transverses Microsoft — Module 02 — Remote Desktop Services](../modules/18-services-transverses-microsoft/module-02-remote-desktop-services.md) | 3 | Inexistant |
+| [Services transverses Microsoft — Module 03 — Publication d’applications](../modules/18-services-transverses-microsoft/module-03-publication-dapplications.md) | 3 | Inexistant |
+| [Services transverses Microsoft — Module 04 — Déploiement d’un système d’exploitation](../modules/18-services-transverses-microsoft/module-04-deploiement-dun-systeme-dexploitation.md) | 1 | Inexistant |
+| [Services transverses Microsoft — Module 05 — Windows Deployment Services](../modules/18-services-transverses-microsoft/module-05-windows-deployment-services.md) | 3 | Inexistant |
+| [Services transverses Microsoft — Module 06 — Microsoft Deployment Toolkit](../modules/18-services-transverses-microsoft/module-06-microsoft-deployment-toolkit.md) | 5 | Inexistant |
 
-Services transverses Microsoft (modules 01 à 06) : Inexistant dans le catalogue.
+Sauvegarde et Restauration : 4 supports et 5 énoncés. Corrections : Inexistant.
 
-Réseau et Sécurité : Inexistant dans le catalogue.
+Réseau et Sécurité : 9 énoncés, 9 corrections et 3 ressources du module 01. Support de cours : Inexistant.
+
+Services transverses Microsoft : 6 supports, 6 énoncés et 6 corrections. Énoncé et correction du module 04 : Inexistant.
+
+Le nombre de pages de ces 48 fichiers est Inexistant.
 
 ## Lecture des sources et corrections
 
@@ -134,4 +155,4 @@ La construction du site contrôle les empreintes des transcriptions et des illus
 
 Le cours « Les infrastructures réseaux » figure au planning de formation, mais aucun support n’est présent dans le dossier TSSR : Inexistant.
 
-Les supports de Sauvegarde et restauration (modules 01 à 04) et de Services transverses Microsoft (modules 01 à 06) sont présents dans le dossier TSSR ; Réseau et Sécurité ne contient que des énoncés et corrections de TP.
+Sauvegarde et Restauration, Réseau et Sécurité et Services transverses Microsoft sont recensés dans le catalogue. Les corrections de Sauvegarde et Restauration, le support de Réseau et Sécurité, ainsi que l’énoncé et la correction du module 04 de Services transverses Microsoft, sont Inexistant. Le nombre de pages de ces fichiers est Inexistant.
