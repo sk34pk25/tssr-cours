@@ -1,21 +1,38 @@
 # Dépannage — Service Linux en échec
 
-```mermaid
-flowchart LR
-    S["status<br/>état et code de sortie"] --> J["journalctl<br/>première erreur utile"] --> C["configuration<br/>syntaxe · droits · dépendances"] --> R["restart<br/>une fois la cause corrigée"] --> P["preuve fonctionnelle<br/>port puis requête"]
+**Sources : Administration Debian GNU/Linux, Module 3 « Démarrage d’une distribution Debian » et Module 12 « Maintenance d’un système en production » (supports de cours).** Les commandes et les libellés sont repris tels quels.
+
+## 1. Voir le statut d’un service
+
+```text
+systemctl status cron.service
 ```
 
-<p class="tssr-caption">Un état <code>active</code> ne prouve pas à lui seul que le service répond correctement : terminer par un test fonctionnel.</p>
+## 2. Lire les journaux (journalctl)
 
-```bash
-systemctl status nom.service
-journalctl -u nom.service -b --no-pager
-systemctl cat nom.service
-ss -tulpn
-```
+| Besoin (libellé du support) | Commande |
+|---|---|
+| Regarder les logs complets de chaque service | `journalctl` |
+| Visualiser les logs en temps réel | `journalctl -f` |
+| Voir les logs d’un service donné : `journalctl -u [service]` | `journalctl -u cron` |
+| Voir les logs d’un PID donné : `journalctl _PID=[n° pid]` | `journalctl _PID=1` |
+| Voir les logs d’un programme | `journalctl /usr/sbin/sshd` |
+| Voir les logs par niveau de priorité : `journalctl -p <level>` | `journalctl -p err` |
+| Cumuler les options | `journalctl -f /usr/sbin/sshd -p info` |
 
-1. Lire la première erreur utile, pas seulement la dernière ligne.
-2. Vérifier syntaxe, fichiers, permissions, dépendances et port occupé.
-3. Tester la configuration avec l’outil du service lorsqu’il existe.
-4. Redémarrer une seule fois après correction.
-5. Confirmer l’état, le port et un test fonctionnel.
+Le fichier de configuration de journald est /etc/systemd/journald.conf.
+
+## 3. Agir sur le service
+
+| Action (libellé du support) | Commande |
+|---|---|
+| Démarrer un service | `systemctl start cron.service` |
+| Arrêter un service | `systemctl stop cron.service` |
+| Redémarrer | `systemctl restart cron.service` |
+| Activer un service | `systemctl enable networking` |
+| Désactiver | `systemctl disable networking` |
+| Lister les unités | `systemctl list-units` puis `systemctl list-units --all` |
+
+- [Cours — Démarrage d’une distribution Debian](../modules/05-administration-debian-gnu-linux/module-03-demarrage-d-une-distribution-debian.md)
+- [Cours — Maintenance d’un système en production](../modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production.md)
+- [TP Administration Debian — Module 12](../tp/administration-linux/module-12/index.md)

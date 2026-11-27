@@ -13,14 +13,15 @@
 | Inventaire | Identifier, rapprocher puis mettre à jour sans doublon |
 
 ```sql
-SELECT colonnes
-FROM table_source
-WHERE condition
-ORDER BY colonne_tri
-LIMIT 10 OFFSET 0;
+SELECT * FROM nom_de_la_table
+SELECT nom_de_l’attribut, nom_d’un_deuxième_attribut FROM nom_de_la_table
+WHERE …          -- permet de mettre une condition à notre recherche
+ORDER BY colonne -- tri en fonction de la colonne choisie
+LIMIT nombre_de_ligne OFFSET à_partir_de_quelle_ligne
+SELECT * FROM table_A INNER JOIN table_B ON table_A.clé = table_B.clé
 ```
 
-`IS NULL` sélectionne une absence de valeur ; `COUNT(*)` compte les lignes, `COUNT(colonne)` les valeurs non NULL. `MIN` et `MAX` donnent les bornes, `AVG` la moyenne des valeurs renseignées. Une jointure interne relie les clés par `ON` ; un comptage par groupe s’explicite avec `GROUP BY`.
+`IS NULL` sélectionne une absence de valeur ; `COUNT(*)` compte les lignes, `COUNT(colonne)` les valeurs non NULL. `MIN` et `MAX` donnent les bornes, `AVG` la moyenne des valeurs renseignées. Une jointure interne relie les clés par `ON`.
 
 Les erreurs principales du support sont `= NULL`, `MIN` décrit comme maximum, accents dans les noms de tables, apostrophes courbes et noms de base incohérents. Les Originaux les conservent ; les [corrections du TP 05](../tp/glpi/module-05/corrections.md) les distinguent des requêtes utilisables.
 

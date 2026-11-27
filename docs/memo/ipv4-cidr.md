@@ -1,23 +1,43 @@
 # Mémo — IPv4 et CIDR
 
-| Préfixe | Masque | Adresses | Hôtes usuels |
-|---:|---|---:|---:|
-| /24 | 255.255.255.0 | 256 | 254 |
-| /25 | 255.255.255.128 | 128 | 126 |
-| /26 | 255.255.255.192 | 64 | 62 |
-| /27 | 255.255.255.224 | 32 | 30 |
-| /28 | 255.255.255.240 | 16 | 14 |
-| /29 | 255.255.255.248 | 8 | 6 |
-| /30 | 255.255.255.252 | 4 | 2 |
+**Source : Bases des réseaux, notes des modules 3-4 « L’adressage IPv4 ».** Tableaux et phrases repris tels quels.
 
-## Méthode du pas étudiée
+## Notation CIDR
 
-`Pas = 256 - valeur de l’octet significatif du masque`.
+| CIDR | Masque Décimal | Bits de Réseau | Bits d’Hôtes | Nombre d'Hôtes |
+|---|---|---:|---:|---:|
+| /24 | 255.255.255.0 | 24 | 8 | 254 |
+| /26 | 255.255.255.192 | 26 | 6 | 62 |
+| /28 | 255.255.255.240 | 28 | 4 | 14 |
 
-Pour un `/26`, le masque vaut `255.255.255.192`, donc le pas vaut `64`. Les réseaux du dernier octet commencent à 0, 64, 128 et 192.
+Exemple d'Utilisation : 192.168.10.0/26. Les 26 premiers bits (soit 255.255.255.192) sont réservés pour l'identifiant réseau. Les 6 bits restants permettent de créer 64 adresses, mais seulement 62 hôtes utilisables (les adresses de réseau et de broadcast ne sont pas attribuables aux hôtes).
 
-## Contrôle
+## Du masque au préfixe
 
-L’adresse réseau possède tous les bits hôte à 0 ; la diffusion possède tous les bits hôte à 1.
+Pour convertir un masque de sous-réseau en préfixe CIDR, il suffit de compter le nombre de bits à 1 dans la représentation binaire du masque. Ce nombre correspond à la valeur du préfixe CIDR.
 
-Dans le TP du module 03, plusieurs masques imprimés offrent moins d’hôtes que le scénario. La correction est conservée telle qu’elle est écrite. Le détail est dans le [cours IPv4](../modules/01-bases-reseaux/module-03-l-adressage-ipv4.md).
+| Masque Décimal | Masque en Binaire | Préfixe CIDR |
+|---|---|---|
+| 255.0.0.0 | 11111111.00000000.00000000.00000000 | /8 |
+| 255.255.0.0 | 11111111.11111111.00000000.00000000 | /16 |
+| 255.255.255.0 | 11111111.11111111.11111111.00000000 | /24 |
+| 255.255.255.128 | 11111111.11111111.11111111.10000000 | /25 |
+| 255.255.255.192 | 11111111.11111111.11111111.11000000 | /26 |
+| 255.255.255.240 | 11111111.11111111.11111111.11110000 | /28 |
+
+## Table de Référence Rapide
+
+| CIDR | Masque Décimal |
+|---|---|
+| /8 | 255.0.0.0 |
+| /16 | 255.255.0.0 |
+| /24 | 255.255.255.0 |
+| /26 | 255.255.255.192 |
+| /28 | 255.255.255.240 |
+| /30 | 255.255.255.252 |
+
+## Adresse de diffusion
+
+L’adresse de broadcast est obtenue en mettant tous les bits de la partie hôte à 1.
+
+Le détail est dans le [cours IPv4](../modules/01-bases-reseaux/module-03-l-adressage-ipv4.md).

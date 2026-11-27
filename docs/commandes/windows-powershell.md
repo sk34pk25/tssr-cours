@@ -6,14 +6,14 @@ Repères des modules Systèmes clients Microsoft. Exécuter les commandes dans l
 
 | Besoin | Commande PowerShell | Résultat à contrôler |
 |---|---|---|
-| Trouver une commande | `Get-Command *LocalGroup*` | La commande correspond au besoin, pas seulement au mot recherché. |
+| Trouver une commande | `Get-Command *printer*` | La commande correspond au besoin, pas seulement au mot recherché. |
 | Lire l’aide | `Get-Help Get-Service -Full` | Syntaxe, paramètres et contexte. |
 | Voir des exemples | `Get-Help Get-Help -Examples` | Exemple applicable à l’objet étudié. |
 | Découvrir des propriétés | `Get-Disk \| Get-Member` | Noms et types des propriétés. |
 | Lire un fichier | `Get-Content C:\PowerShell\Intro.txt` | Contenu du fichier de laboratoire demandé. |
 | Identifier la version | `$PSVersionTable` | Version de la console effectivement ouverte. |
 
-Dans `cmd`, utiliser `help`, `cd /?`, `dir`, `type` et `copy` selon l’activité. `cd \` place à la racine du lecteur courant ; `cd /d C:\` change aussi de lecteur. Après une copie ou une redirection, relire le fichier produit.
+Dans `cmd`, utiliser `help`, `cd /?`, `dir`, `type` et `copy` selon l’activité. `cd \` place à la racine du lecteur courant. Après une copie ou une redirection, relire le fichier produit.
 
 ## 2. Identités et groupes — M05
 
@@ -50,11 +50,9 @@ Get-Acl M:\2022
 | `ping <adresse>` | Échange ICMP avec une destination, si le filtrage l’autorise. |
 | `tracert <destination>` | Sauts observés vers la destination. |
 | `nslookup <nom>` | Réponse DNS, distincte du test par IP. |
-| `route print` | Table de routage. |
 | `arp -a` | Cache des associations IPv4/MAC. |
 
 ```powershell
-Get-NetIPConfiguration
 Get-NetFirewallRule -Enabled True |
     Select-Object DisplayName,Profile,Direction,Action
 ```
@@ -104,22 +102,17 @@ Le premier exemple traduit « plus de 8 Go libres et capacité ne dépassant pas
 
 | Outil | Usage étudié |
 |---|---|
-| `eventvwr.msc` | Consulter les événements. |
-| `resmon` | Observer les ressources en temps réel. |
-| `perfmon /rel` | Consulter l’Historique de fiabilité. |
+| Observateur d’évènements | Contient tous les évènements enregistrés par le système. |
+| Moniteur de ressources | Affichage détaillé pour les 4 composants principaux. |
+| Analyseur de performances | Affichage des performances à partir de compteurs. |
+| Historique de fiabilité | Vue synthétique de l’état de santé du système dans le temps. |
 | `sysdm.cpl` | Propriétés système et protection/restauration. |
 | `shutdown /r /o` | Redémarrer vers les options avancées de récupération. |
 | `mmc` | Composer une console, notamment pour les stratégies locales ciblées. |
 | `secpol.msc` | Stratégies de sécurité locale du TP. |
 | `regedit` | Examiner les clés et valeurs du Registre. |
 
-Commande Sysprep du support, à utiliser uniquement sur le master du laboratoire préparé pour le clonage :
-
-```cmd
-C:\Windows\System32\Sysprep\sysprep.exe /oobe /generalize /shutdown
-```
-
-Après l’arrêt, le support demande de capturer ou cloner le master sans le redémarrer. [Relire le déroulé complet](../modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image.md) avant cette opération.
+Commande Sysprep : voir le [tutoriel Capture et déploiement](../tutoriels/capture-deploiement-windows.md).
 
 ## Vérifier ses résultats
 

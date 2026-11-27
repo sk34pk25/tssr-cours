@@ -30,3 +30,5 @@ Outlook Anywhere est activé par défaut : l’accès Exchange Online depuis Int
 
 !!! warning "Attention"
     Ne pas supprimer un fichier `.ost` ou `.pst` sans savoir lequel est en cause et sans copie. Le support montre aussi un fichier `.bak` de sauvegarde.
+
+- [Cours Messagerie Cloud](../modules/14-messagerie-cloud/index.md)

@@ -11,7 +11,7 @@ Procédure guidée de l’énoncé du module 01. La transcription et le schéma 
 ## Importer
 
 1. Importer les machines du bundle, sauf SRV-AD1 et SRV-FIC1.
-2. Vérifier le tableau des comptes. Le mot de passe écrit dans la grille ne concerne que Srv-backup. La section de vérification donne ensuite Administrateur / Pa$$w0rd pour les sessions Windows et admin / Pa$$w0rd pour le portail du NAS.
+2. Vérifier le tableau des comptes. Le mot de passe écrit dans la grille ne concerne que Srv-backup. La section de vérification donne ensuite Administrateur / [masqué] pour les sessions Windows et admin / [masqué] pour le portail du NAS.
 3. Démarrer toutes les VM.
 
 ## Prouver

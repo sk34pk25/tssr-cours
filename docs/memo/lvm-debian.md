@@ -12,16 +12,18 @@
 
 ## Séquence du laboratoire
 
-Identifier d’abord le disque ajouté et le VG existant. Les noms ci-dessous sont ceux d’un exemple de correction, à vérifier sur la VM.
+Commandes du support du module 08 ; consignes du TP ci-dessous.
 
 ```bash
-pvcreate /dev/sdb1
-vgextend vgsystem /dev/sdb1
-lvcreate -n lvvar -L 20G vgsystem
-lvextend -l +100%FREE /dev/vgsystem/lvhome
+pvcreate /dev/sdb1 /dev/sdb2 /dev/sdc1 /dev/sdd
+vgcreate vggroup1 /dev/sdb1 /dev/sdb2 /dev/sdc1
+lvcreate -n lv1 -L 2G vggroup1
+vgextend vggroup1 /dev/sdd
+lvextend -r -L +512M /dev/vggroup1/lv1
+lvextend -r -L 1G /dev/vggroup1/lv2
 ```
 
-Le TP ajoute un disque de 40 Go, prépare une partition LVM, crée lvvar de 20 Go et attribue le reste à lvhome. `+100%FREE` consomme tous les extents libres du groupe visé. Sans adaptation du système de fichiers, la nouvelle capacité du LV n’est pas encore utilisable par ses fichiers.
+Consignes du TP : ajouter un nouveau disque de 40 Go ; créer un volume logique de 20 Go nommé lvvar ; agrandir le volume logique lvhome avec le reste de l’espace disponible du groupe de volume. Support : lvextend avec l’option -l suivi de l’argument “100%FREE” permet d’affecter l’espace libre au volume logique ; avec un LV existant, saisir le chemin complet /dev/<nomduVG>/<nomduLV>.
 
 `-L +512M` ajoute 512 Mio ; `-L 1G` vise une taille finale de 1 Gio. L’option `-r` demande une adaptation du système de fichiers lorsque celle-ci est prise en charge ; ne pas supposer qu’elle appelle toujours le même outil.
 

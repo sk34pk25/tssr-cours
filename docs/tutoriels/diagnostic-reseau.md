@@ -1,62 +1,91 @@
-# Tutoriel — Diagnostiquer une panne réseau
+# Tutoriel — Diagnostiquer une connexion réseau
 
-## Objectif
+**Source : Bases des réseaux, Module 5 « Les premières commandes » (notes de cours du Drive).** Les phrases et les commandes ci-dessous sont reprises telles quelles. La liste complète des options est dans [Commandes réseau](../commandes/reseau.md). Le cours complet est dans le [module 5](../modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md).
 
-Localiser la panne sans modifier plusieurs paramètres à la fois.
+## 1. Diagnostiquer une connexion réseau
 
-## Checklist
+Utilisez ipconfig pour vérifier l’adresse IP actuelle de votre machine, la passerelle par défaut, et les serveurs DNS. Si vous n’avez pas d’adresse IP ou si elle commence par 169.254.x.x (APIPA), cela indique un problème avec le serveur DHCP.
 
-1. Vérifier le lien physique et l’état de l’interface.
-2. Afficher adresse, masque, passerelle et DNS.
-3. Tester la pile locale avec `ping 127.0.0.1`.
-4. Tester sa propre adresse, puis la passerelle.
-5. Tester une adresse distante connue.
-6. Tester la résolution d’un nom.
-7. Tracer le chemin si le réseau distant reste inaccessible.
+Avec ipconfig /all, vous pouvez vérifier si une interface est configurée en DHCP ou en IP statique, ainsi que les serveurs DNS configurés.
 
-```mermaid
-flowchart TD
-    A["Pas de connectivité"] --> B{"Interface active ?"}
-    B -- Non --> C["Corriger lien ou pilote"]
-    B -- Oui --> D{"Configuration IP cohérente ?"}
-    D -- Non --> E["Corriger DHCP ou IPv4"]
-    D -- Oui --> F{"Passerelle joignable ?"}
-    F -- Non --> G["Vérifier VLAN, masque, ARP et pare-feu"]
-    F -- Oui --> H{"Adresse distante joignable ?"}
-    H -- Non --> I["Examiner routage et filtrage"]
-    H -- Oui --> J{"Nom résolu ?"}
-    J -- Non --> K["Vérifier DNS"]
-    J -- Oui --> L["Tester le service applicatif"]
+```text
+ipconfig /all
 ```
 
-## Commandes
+## 2. Changer d’adresse IP
 
-=== "Windows"
+Si vous êtes sur un réseau où l’adresse IP est assignée dynamiquement et que vous suspectez un conflit d’adresse, libérez et renouvelez votre adresse IP :
 
-    ```powershell
-    Get-NetAdapter
-    Get-NetIPConfiguration
-    Test-NetConnection 1.1.1.1
-    Resolve-DnsName example.org
-    tracert -d 1.1.1.1
+```text
+ipconfig /release
+ipconfig /renew
+```
+
+## 3. Résoudre des problèmes DNS
+
+Si un site web ne se charge pas ou si vous suspectez un problème de résolution DNS, utilisez :
+
+```text
+ipconfig /flushdns
+```
+
+Cela efface le cache DNS local et force le système à récupérer des informations DNS actualisées.
+
+## 4. Tester la connectivité (ping)
+
+1. Tester la connectivité vers une machine spécifique :
+
+    ```text
+    ping 192.168.1.1
     ```
 
-=== "GNU/Linux"
+    Utilisé pour vérifier si un routeur ou une machine locale est accessible.
 
-    ```bash
-    ip link
-    ip addr
-    ip route
-    ping -c 4 1.1.1.1
-    getent hosts example.org
-    traceroute -n 1.1.1.1
+2. Vérifier l’accès à Internet :
+
+    ```text
+    ping 8.8.8.8
     ```
 
-## Validation
+    Cette commande teste la connexion vers les serveurs DNS publics de Google.
 
-- [ ] L’interface est active.
-- [ ] L’adresse appartient au bon réseau.
-- [ ] La passerelle répond.
-- [ ] Une adresse distante répond.
-- [ ] Le DNS résout le nom.
-- [ ] Le service attendu écoute et répond.
+3. Diagnostiquer un problème de nom de domaine : si le nom de domaine ne résout pas, utilisez l’adresse IP directement pour vérifier si le problème vient du DNS.
+
+Problèmes détectés par ping :
+
+- **Aucune réponse** (`Request timeout for icmp_seq X`) : la machine cible est hors ligne ; un pare-feu bloque les paquets ICMP ; une erreur de configuration réseau.
+- **Latence élevée** : une surcharge du réseau ; une distance importante entre les deux machines ; des problèmes de performances sur la machine ou le routeur.
+- **Pertes de paquets** : un problème de connectivité réseau ; une mauvaise qualité de la liaison ; une saturation du réseau.
+
+## 5. Vérifier la table ARP
+
+Si un appareil ne répond pas, vérifier la table ARP avec arp -a peut montrer si l’adresse MAC est connue et si la résolution ARP est correcte.
+
+```text
+arp -a
+```
+
+## 6. Localiser une coupure (tracert / traceroute)
+
+Si vous ne pouvez pas atteindre un site ou une ressource réseau, tracert peut révéler où le trafic est bloqué ou ralentit.
+
+- Si les premiers sauts répondent mais que certains sauts plus loin ne répondent pas, le problème est probablement externe (chez un FAI ou au-delà).
+- Si le premier saut ne répond pas, le problème est sur votre réseau local.
+
+```text
+tracert /d /h 15 /w 1000 www.google.com
+```
+
+Sous Linux, on utilise généralement traceroute au lieu de tracert.
+
+```text
+traceroute www.google.com
+```
+
+## 7. Vérifier les connexions et les ports en écoute (netstat)
+
+```text
+netstat -an
+netstat -an | grep :80
+netstat -p | grep :22
+```

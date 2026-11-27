@@ -35,17 +35,5 @@ flowchart TD
 
 Vérifier la protection du volume et le point disponible avant de choisir la restauration. Un point de restauration concerne le système et certains programmes ; il ne constitue pas une sauvegarde des fichiers personnels. Après récupération, comparer le système, les applications et les données, comme dans le TP.
 
-## Fichiers système — complément externe
-
-Lorsque les observations indiquent une corruption de composants Windows, la documentation Microsoft décrit DISM et SFC. Ces commandes complètent le support et ne constituent pas une réponse automatique à toute lenteur :
-
-```cmd
-DISM /Online /Cleanup-Image /ScanHealth
-DISM /Online /Cleanup-Image /RestoreHealth
-sfc /scannow
-```
-
-Lire le résultat et les journaux ; une réparation peut nécessiter une source adaptée. [Référence externe Microsoft : réparer une image Windows](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image).
-
 - [Cours original et optimisé M10](../modules/02-systemes-clients-microsoft/module-10-la-maintenance-du-systeme.md)
 - [TP de maintenance et correction](../tp/systemes-clients/module-10/index.md)
