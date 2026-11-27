@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import os
+
 from build_glossary import OUTPUT, load_data, render_page, validate
 from markdown_security import MarkdownSecurityExtension
 from parcours_catalog import model, reorder_courses
@@ -18,6 +20,12 @@ def on_config(config):
     if not any(isinstance(extension, MarkdownSecurityExtension) for extension in config.markdown_extensions):
         config.markdown_extensions.append(MarkdownSecurityExtension())
     config.nav = reorder_courses(config.nav, model())
+    site = os.environ.get("SITE_URL", "").strip()
+    if site:
+        config.site_url = site
+    repo = os.environ.get("REPO_URL", "").strip()
+    if repo:
+        config.repo_url = repo
     return config
 
 

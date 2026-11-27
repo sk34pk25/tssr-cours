@@ -68,7 +68,7 @@ class OriginalSourcesTests(unittest.TestCase):
             for page in [course,tp]:
                 target=root/'docs'/page
                 target.parent.mkdir(parents=True,exist_ok=True)
-                target.write_text('# Titre\n\nContenu pédagogique à venir via proposition gouvernée.\n',encoding='utf8')
+                target.write_text('# Titre\n\nContenu pédagogique non encore rédigé.\n',encoding='utf8')
             (root/'data/course-sources.json').write_text(json.dumps(dict(schemaVersion=2,documents={},pages={})),encoding='utf8')
             (root/'data/staged-course-sources.json').write_text(json.dumps(dict(schemaVersion=2,documents={'source':doc},pages={course:['source'],tp:['source']})),encoding='utf8')
             self.assertEqual(load_catalog(root)['pages'],{})

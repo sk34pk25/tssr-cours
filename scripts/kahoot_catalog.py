@@ -34,7 +34,7 @@ def official_editor_url(value):
 
 
 def action_config(root):
-    """Build-only links: never stored in the V1 marker or sent to Supabase."""
+    """Editor links used only while building the site."""
     path = root / "data/kahoot-actions.json"
     if not path.exists():
         return {"joinUrl": JOIN_URL, "editorUrls": {}}

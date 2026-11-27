@@ -15,7 +15,7 @@ ROLES = {'support': 'Support', 'notes': 'Notes du Drive', 'synthese-drive': 'Syn
          'enonce': 'Énoncé', 'correction': 'Correction', 'demonstration': 'Démonstration'}
 INDEXED_ROLES = ROLES.keys() | {'ressource'}
 MISSING = 'Inexistant'
-PENDING_CONTENT = 'Contenu pédagogique à venir via proposition gouvernée.'
+PENDING_CONTENT = 'Contenu pédagogique non encore rédigé.'
 
 
 def indexed_without_transcription(doc):

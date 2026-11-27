@@ -22,7 +22,6 @@ for (const width of [320, 768, 1024, 1440]) {
     await context.route("**/*", async (route) => {
       const url = new URL(route.request().url());
       if (url.origin !== origin) return route.fulfill({ status: 200, contentType: "text/plain", body: "" });
-      if (/\/collaboration(?:-config)?\.js$/.test(url.pathname)) return route.fulfill({ contentType: "text/javascript", body: "/* no production client */" });
       const path = resolve(site, "." + decodeURIComponent(url.pathname) + (url.pathname.endsWith("/") ? "index.html" : ""));
       if (!path.startsWith(site + sep)) return route.abort();
       try {

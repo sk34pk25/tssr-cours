@@ -2,7 +2,7 @@
 (function () {
   const sectionNames = [
     "modules", "parcours", "parcours-tssr", "msp", "tutoriels", "tp", "exercices", "revision",
-    "kahoot", "memo", "commandes", "troubleshooting", "glossaire", "ressources", "ajouter"
+    "kahoot", "memo", "commandes", "troubleshooting", "glossaire", "ressources"
   ];
 
   const languageLabels = {

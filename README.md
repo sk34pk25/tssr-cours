@@ -1,89 +1,68 @@
-# Portail de formation TSSR
+# Site de cours TSSR
 
-Portail personnel de formation construit avec MkDocs et Material for MkDocs. Il réunit 273 pages de cours, parcours daté, travaux pratiques, exercices, révisions, mémos, commandes, procédures de dépannage, glossaire et ressources.
+Site de cours à consulter dans un navigateur : modules, parcours TSSR, travaux pratiques, exercices, révisions, mémos, commandes, dépannage, glossaire et ressources. Les onglets de chaque cours, les liens Kahoot et les illustrations sont inclus.
 
-## Installation
+## Mettre le site sur votre compte GitHub
 
-Python 3.11 ou une version plus récente est recommandé.
+1. Ouvrir la page de ce dépôt sur GitHub.
+2. Cliquer sur « Fork ».
+3. Décocher « Copy the main branch only » s’il est coché, pour copier aussi la branche `version-statique`.
+4. Cliquer sur « Create fork ».
+5. Dans votre copie, cliquer sur « Settings ».
+6. À la ligne « Default branch », cliquer sur l’icône des deux flèches.
+7. Choisir `version-statique`.
+8. Cliquer sur « Update ».
+9. Cliquer sur « I understand, update the default branch. »
+10. Dans le menu de gauche, cliquer sur « Pages ».
+11. Sous « Build and deployment », ouvrir la liste « Source ».
+12. Choisir « GitHub Actions ».
+13. Si GitHub affiche des modèles de workflow, n’en choisir aucun : le fichier est déjà dans la branche.
+14. Cliquer sur l’onglet « Actions ».
+15. Si la page affiche « Workflows aren’t being run on this forked repository », cliquer sur « I understand my workflows, go ahead and enable them ».
+16. Dans la colonne de gauche, cliquer sur « Publier le site ».
+17. Cliquer sur « Run workflow ».
+18. Laisser la branche proposée : c’est déjà `version-statique`, la branche par défaut.
+19. Cliquer sur le bouton vert « Run workflow ».
+20. Attendre la coche verte du run.
+21. Cliquer sur ce run terminé.
+22. Repérer le lien à côté de « github-pages » : c’est l’adresse du site.
+
+La même adresse figure dans « Settings », page « Pages », sur la ligne « Your site is live at ». Elle a la forme `https://<votre-nom>.github.io/<nom-du-depot>/`.
+
+Ensuite, chaque envoi de commits publie le site, sur `version-statique` comme sur toute autre branche. Vous n’avez pas à choisir une branche dans le workflow.
+
+## Si l’onglet Actions ne lance rien
+
+1. Cliquer sur « Settings ».
+2. Cliquer sur « Actions ».
+3. Cliquer sur « General ».
+4. Cocher « Allow all actions and reusable workflows ».
+5. Cliquer sur « Save ».
+6. Revenir sur l’onglet « Actions ».
+7. Cliquer sur « I understand my workflows, go ahead and enable them » s’il est encore affiché.
+8. Dans la colonne de gauche, cliquer sur « Publier le site ».
+9. Si le bouton « Enable workflow » est visible, cliquer dessus.
+10. Cliquer sur « Run workflow ».
+11. Cliquer sur le bouton vert « Run workflow ».
+
+## Voir le site sur votre ordinateur
+
+Python 3.11 ou une version plus récente.
 
 ```bash
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
-```
-
-Sous Windows, remplacer `.venv/bin/` par `.venv\\Scripts\\`.
-
-## Lancement local
-
-```bash
 .venv/bin/mkdocs serve
 ```
 
-Ouvrir ensuite `http://127.0.0.1:8000/`.
+Ouvrir `http://127.0.0.1:8000/`.
 
-## Génération et validation stricte
+L’adresse publique est calculée au moment de la publication à partir du dépôt GitHub (`GITHUB_REPOSITORY`). Pour une construction locale avec une autre adresse :
 
 ```bash
+export SITE_URL="https://<votre-nom>.github.io/<nom-du-depot>/"
+export REPO_URL="https://github.com/<votre-nom>/<nom-du-depot>"
 .venv/bin/mkdocs build --strict
 ```
 
-Le site statique est généré dans `site/`.
-
-## Contributions et création de cours
-
-Les utilisateurs authentifiés et autorisés disposent d’un bouton **Ajouter** dans la navigation gauche. La page `/ajouter/` prépare un cours complet (modules, pages, exercices, TP, quiz/Kahoots, glossaire et fichiers), puis le soumet au même consensus que les modifications de pages. La publication GitHub reste atomique et n’intervient qu’après validation.
-
-L’architecture, les limites, la sécurité, le stockage temporaire et les commandes de déploiement sont décrits dans [`COURSE_CREATION.md`](COURSE_CREATION.md).
-
-## Expérience proposée
-
-- accueil éditorial avec accès rapides, métriques et aperçu du parcours officiel en neuf étapes datées ;
-- navigation hiérarchique, fil d’Ariane, sommaire local, recherche plein texte et retour en haut ;
-- thèmes clair et sombre avec préférence mémorisée ;
-- index de parcours transformés en cartes tout en conservant leur sémantique de tableau ;
-- blocs de code sombres avec syntaxe, libellé de langage et copie ;
-- admonitions, détails repliables, onglets, listes de contrôle et étapes guidées ;
-- diagrammes Mermaid autonomes, sans chargement CDN à l’exécution ;
-- galerie GLightbox pour les captures des TP, avec zoom et navigation tactile ;
-- mise en page adaptée aux écrans de 375 px jusqu’aux grands écrans, plus une feuille d’impression dédiée ;
-- page 404 personnalisée.
-
-## Système de design
-
-Les styles sont séparés par responsabilité :
-
-- `docs/assets/stylesheets/tokens.css` : palettes, surfaces, espacements, rayons, ombres et variables Material ;
-- `docs/assets/stylesheets/base.css` : typographie, largeur de lecture, liens et focus clavier ;
-- `docs/assets/stylesheets/navigation.css` : en-tête, recherche, navigation latérale, sommaire et pied de page ;
-- `docs/assets/stylesheets/components.css` : cartes, code, tableaux, admonitions, TP, révisions, dépannage et glossaire ;
-- `docs/assets/stylesheets/chronology.css` : frise officielle, métadonnées datées et navigation précédent/suivant ;
-- `docs/assets/stylesheets/visuals.css` : objectifs visuels, schémas OSI/IPv4/LVM et composants pédagogiques responsive ;
-- `docs/assets/stylesheets/homepage.css` : héros, accès rapides et cartes de parcours ;
-- `docs/assets/stylesheets/responsive.css` : adaptations tablette, mobile et réduction des animations ;
-- `docs/assets/stylesheets/print.css` : rendu imprimable.
-
-La couche JavaScript personnalisée reste progressive et minimale : `docs/assets/javascripts/extra.js` ajoute uniquement le contexte de page, les libellés des blocs de code et les étapes guidées. Mermaid 11.16.1 est fourni localement avec sa licence MIT afin que les diagrammes restent disponibles hors ligne.
-
-## Organisation éditoriale
-
-- `docs/parcours` : chronologie officielle en neuf étapes, du 8 juin au 7 août 2026 ;
-- `docs/modules` : cours techniques, avec ordre interne des modules préservé ;
-- `docs/tutoriels` : procédures longues et reproductibles ;
-- `docs/tp` : énoncés, corrections et ressources séparés ;
-- `docs/exercices` : quiz et cas pratiques ;
-- `docs/revision` : fiches rapides par module ;
-- `docs/memo` : références courtes ;
-- `docs/commandes` : commandes commentées par environnement ;
-- `docs/troubleshooting` : diagnostic orienté symptômes ;
-- `docs/glossaire` : termes de la formation ;
-- `docs/ressources` : inventaire, provenance et références officielles.
-
-Les ressources exécutables anciennes ne sont pas servies par le site. Les activités Packet Tracer et les données de TP utiles sont conservées sous `docs/assets/resources`.
-
-## Fichiers de personnalisation
-
-- `mkdocs.yml` centralise la navigation, les fonctionnalités Material, les deux palettes et les plugins ;
-- `overrides/main.html` charge le moteur Mermaid local après le thème puis rend les diagrammes à chaque navigation instantanée ;
-- `overrides/404.html` fournit la page d’erreur personnalisée ;
-- `VALIDATION.md` consigne l’inventaire initial et les contrôles éditoriaux, techniques et visuels ;
-- `VISUALS.md` documente l’audit des 59 cours, les décisions d’illustration et la provenance des captures.
+Sans `SITE_URL`, la construction locale utilise `http://127.0.0.1:8000/`.

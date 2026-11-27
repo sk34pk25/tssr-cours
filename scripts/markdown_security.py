@@ -103,9 +103,9 @@ class _RenderedAttributes(HTMLParser):
                 # declarations for | :--- | ---: | :---: | syntax.
                 if tag in {"th", "td"} and value in {"text-align: left;", "text-align: right;", "text-align: center;"}:
                     continue
-                # Legacy raw-HTML styles remain source-owned. The proposal
-                # transition validator requires those tags byte-identical to
-                # trusted Git source; attribute-list styles NEVER reach here.
+                # Legacy raw-HTML styles remain part of the course source.
+                # Those tags stay byte-identical to the trusted source;
+                # attribute-list styles NEVER reach here.
                 signature = (tag, value)
                 if self.raw_styles[signature] < 1:
                     raise MarkdownSecurityError("Style ajouté par le rendu Markdown.")
