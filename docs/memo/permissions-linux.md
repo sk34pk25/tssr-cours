@@ -1,21 +1,26 @@
 # Mémo — Permissions Linux
 
-| Droit | Valeur | Fichier | Répertoire |
-|---|---:|---|---|
-| `r` | 4 | Lire le contenu | Lister les noms |
-| `w` | 2 | Modifier le contenu | Avec `x`, créer, renommer ou supprimer des entrées |
-| `x` | 1 | Exécuter | Traverser le répertoire |
+| Droits | Calcul |
+|---|---|
+| rwx | 4+2+1 = 7 |
+| rw- | 4+2 = 6 |
+| r-x | 4+1 = 5 |
+| r-- | 4 |
+
+Exemples du support : `rwxr-x---` = 750 ; `rw-rw-r--` = 664.
 
 ```bash
-chmod 640 rapport.txt
-chmod u=rw,g=r,o= rapport.txt
-chown alice:compta rapport.txt
-stat rapport.txt
-namei -l /chemin/vers/rapport.txt
+chmod <-R> [ugoa][+ - =][rwxX] fichier ou dossier
+chmod g+w,o-rx /data/commun
+chmod 770 /data/commun
+chmod -R g+w,o-rx /data/commun
+chown <-R> [user]:[group] fichier(dossier)
+chown penthium:users /data
+chown -R :users /data/commun
+umask
+umask 0007
 ```
 
-Pour un accès à un fichier, contrôler chaque répertoire du chemin, pas seulement le fichier final.
-
-La suppression d’un fichier dépend d’abord des droits sur son répertoire parent. Dans un répertoire partagé avec le *sticky bit* (par exemple `/tmp`), le droit d’écriture seul ne suffit pas pour supprimer l’entrée d’un autre utilisateur. Le propriétaire du fichier, celui du répertoire et l’administrateur disposent de droits distincts.
+La commande chmod permet de modifier les droits. Sur Debian, l’umask par défaut des utilisateurs est de 0022. Sticky bit : tout fichier créé ne pourra être supprimé que par son propriétaire et par root. Ex : /tmp.
 
 - [Cours — droits sur les fichiers et répertoires](../modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires.md)

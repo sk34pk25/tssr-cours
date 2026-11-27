@@ -41,3 +41,5 @@ Symptôme écrit : `Erreur finale : 0xe00086ce`.
 4. Un RAID dégradé ne remplace pas une sauvegarde hors site.
 
 [Cours](../modules/16-sauvegarde-et-restauration/index.md)
+
+Voir aussi : [Tutoriel](../tutoriels/infrastructure-sauvegarde.md) · [Commandes](../commandes/sauvegarde-restauration.md).

@@ -13,13 +13,7 @@ Support de cours : **Inexistant**.
 
 ## Exemple d’adressage de la correction du TP1
 
-Partir de `172.20.2.0/24`.
-
-| Réseau | Plage écrite |
-|---|---|
-| Client /25 | 172.20.2.0 – 172.20.2.127 |
-| Serveurs /26 | 172.20.2.128 – 172.20.2.191 |
-| DMZ /26 | 172.20.2.192 – 172.20.2.255 |
+Plan d’adressage : voir [Lire le schéma Réseau et Sécurité](../tutoriels/reseau-et-securite.md).
 
 Routeur formateur du schéma : `192.168.150.100/24`. L’énoncé du NAT écrit aussi `192.168.150.1`.
 

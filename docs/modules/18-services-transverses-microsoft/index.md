@@ -29,7 +29,7 @@ Le cours tient sur une seule semaine du parcours, du 16 au 20 novembre 2026. For
 
 - [Travaux pratiques](../../tp/18-services-transverses-microsoft/index.md)
 - [Fiches de révision](../../revision/18-services-transverses-microsoft/index.md)
-- [Quiz](../../exercices/quiz-services-transverses-microsoft.md)
+- [Quiz Kahoot](../../kahoot/18-services-transverses-microsoft-module-01.md)
 - [Mémo](../../memo/services-transverses-microsoft.md)
 - [Commandes et gestes](../../commandes/services-transverses-microsoft.md)
 - [Dépannage](../../troubleshooting/services-transverses-microsoft.md)

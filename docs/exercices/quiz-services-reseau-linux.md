@@ -7,7 +7,7 @@ Sept questions à traiter après les ateliers.
 3. Quelles routes de retour pfSense doit-il connaître ?
 4. Quelle partie d’une paire SSH peut être distribuée aux serveurs ?
 5. Quelle directive BIND contrôle les clients autorisés à demander la récursion ?
-6. Quelle adresse reçoit les requêtes DHCP relayées dans l’exemple `X=30` ?
+6. Quelle adresse reçoit les requêtes DHCP relayées dans la correction (réseau `192.168.30.0/24`) ?
 7. Quel nom de zone inverse convient à `192.168.30.0/24` ?
 
 ??? success "Corrigé"

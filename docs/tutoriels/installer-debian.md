@@ -29,19 +29,16 @@ Identifier l’ISO, sa provenance officielle et son empreinte ; choisir BIOS ou 
 ## Contrôler le résultat
 
 ```bash
-cat /etc/os-release
-uname -r
+cat /etc/debian_version
+uname -a
 lsblk -f
 findmnt
-ip address
-ip route
+ip a
+ip r
 systemctl get-default
-systemctl --failed
 ```
 
-Ces contrôles complémentaires distinguent distribution et noyau, périphériques et montages, interface et routage, cible et services en échec. Examiner le résultat plutôt que chercher une sortie identique aux captures.
-
-Vérifier le mécanisme d’élévation prévu avant de lancer une mise à jour. Un compte créé par le parcours avec mot de passe root n’a pas nécessairement sudo. Examiner ensuite les dépôts correspondant à la version installée, rafraîchir leurs index et lire les mises à jour proposées. Ne pas remplacer le nom de code pour obtenir arbitrairement des paquets plus récents.
+Commandes reprises des supports Debian (modules 03, 05, 09 et 12).
 
 ## Compte rendu
 
